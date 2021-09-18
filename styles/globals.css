@@ -1,0 +1,356 @@
+@font-face {
+  font-family: 'averta';
+  src: url('../public/averta.ttf');
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: averta;
+  color: grey;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+}
+::selection {
+    background: rgb(108, 246, 239);
+  }
+body{
+    background-color: #f8f9fa;
+  }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0px;
+    padding: 0px;
+    height: 5rem;
+}
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  max-width: 1700px;
+  margin: auto;
+  padding: 0px;
+  margin: 0px auto;
+  height: 100%;
+}
+.navbar-nav {
+  margin: 5px auto;
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  /* gap: 40px; */
+  height: 100%;
+}
+.navbar-brand{
+  margin: 0px;
+  margin-left: 9vw;
+}
+.navbar-brand img{
+    width: 70%;
+}
+.nav-link h3 {
+  display: inline;
+  font-size: 1rem;
+  padding-left: 20px;
+  height: 100%;
+}
+.navbar-collapse{
+    height: 100%;
+}
+.nav-item{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; position:absolute;
+    top: 5rem;}
+    
+    }
+.dropdown {
+  position: static !important;
+}
+.dropdown-menu {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  position: relative;
+  left: 0px;
+  width: 100% !important;
+  padding: 5px 20px 5px 5px;
+}
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+}
+
+.dropdown-subcontainer {
+  display: flex;
+  flex-direction: column;
+}
+ul {
+  list-style: none;
+}
+
+.nav-icon {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 10px;
+  padding-left: 10px;
+  border-radius: 20px;
+  margin: 10px;
+  /* align-items: center; */
+}
+.dropdown-item:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+  background-color: #f8f9fa;
+}
+.dropdown-item div{
+  margin:0px 15px;
+}
+.dropdown-item div h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #138bdb;
+}
+.dropdown-item div p {
+  font-size: 0.rem;
+}
+
+.right-nav-column {
+  position: relative;
+  top: -25px;
+}
+
+.right-nav-column li a {
+  margin: 0px;
+  color: grey;
+  font-size: 0.9rem;
+}
+.right-nav-column li a:hover {
+  color: #138bdb;
+  background-color: #f8f9fa;
+}
+
+.search{
+    height: 45%;
+    margin-top: 22px;
+    margin-left: 30px;
+    width: 17vw;
+    border-radius: 10px;
+    box-shadow: 0px 2px 3px grey;
+}
+button{
+  color: white;
+  background-color: teal;
+    margin-top: 24px;
+    font-size: 0.5rem;
+    width: 85px;
+    height: 45%;
+}
+
+#login{
+    margin-left: 5vw;
+    width: 60px;
+    border: none;
+}
+#login:hover{
+    color: chartreuse;
+    background-color: #f8f9fa;
+}
+.discover:hover{
+  border-bottom: 3px solid rgb(4, 125, 238);
+}
+.discover div h4{
+  color:rgb(4, 125, 238);
+}
+.discover .right-nav-column div li a:hover{
+  color: rgb(4, 125, 238);
+}
+.design:hover{
+  border-bottom: 3px solid #28c7a0;
+}
+.design div h4{
+  color:#28c7a0;
+}
+.design .right-nav-column div li a:hover{
+  color: #28c7a0;
+}
+.code:hover{
+  border-bottom: 3px solid #cd57ff;
+}
+.code div h4{
+  color:#cd57ff;
+}
+.learn:hover{
+  border-bottom: 3px solid #fd9301;
+}
+.learn div h4{
+  color:#fd9301;
+}
+
+@media only screen and (max-width: 1305px) and (min-width: 1071px){
+  #login{
+    margin-left: 2vw;
+  }
+  .navbar-brand{
+    margin-left:7vw;
+  }
+}
+@media only screen and (max-width: 1146px) and (min-width: 991px){
+  #login{
+    margin-left: 1vw;
+  }
+  .navbar-brand{
+    margin-left:2vw;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    align-items: center;
+    width: 100%;
+    margin-top: 25px;
+    height: 60%;
+    padding: 0px;
+    gap: 0px;
+  }
+  .navbar-collapse{
+      margin-top: 5px;
+      width: 20px;
+  }
+  .container-fluid{
+      position: absolute;
+      top: 10px;
+  }
+  .nav-link {
+    padding: 15px;
+    margin: 5px;
+    border-radius: 10px;
+  }
+  .nav-link h3 {
+    display: inline;
+    font-size: 1.2rem;
+    padding-left: 20px;
+  }
+  .nav-item {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .dropdown-menu {
+    position: relative;
+    left: 0px;
+    width: 100% !important;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    box-shadow: none;
+  }
+  .dropdown-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0px;
+  }
+  .dropdown-subcontainer {
+    margin: 0px;
+    padding: 0px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 98%;
+  }
+  .dropdown-item {
+    margin: 5px;
+    padding: 5px 10px;
+    gap: 20px;
+  }
+  .dropdown-item div h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #138bdb;
+    position: relative;
+    top: 8px;
+  }
+  .dropdown-item div p {
+    display: none;
+    font-size: 0px;
+  }
+  .right-nav-column {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    gap: 1em;
+  }
+  .navbar-toggler{
+      margin:0px 5px;
+      padding-bottom: 10px;
+      height: 60%;
+  }
+  .search{
+      margin-top: 5px;
+      height: 60%;
+      width: 200px;
+  }
+  .buttons{
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+  }
+  button{
+      display: inline;
+      height: 100%;
+      margin: 0px;
+  }
+  #login{
+      margin: 0px;
+  }
+  .discover:hover{
+    border-bottom: 3px solid rgb(4, 125, 238);
+  }
+  .discover div h4{
+    color:rgb(4, 125, 238);
+  }
+  .discover .right-nav-column div li a:hover{
+    color: rgb(4, 125, 238);
+  }
+  .design:hover{
+    border-bottom: 3px solid #28c7a0;
+  }
+  .design div h4{
+    color:#28c7a0;
+  }
+  .design .right-nav-column div li a:hover{
+    color: #28c7a0;
+  }
+  .code:hover{
+    border-bottom: 3px solid #cd57ff;
+  }
+  .code div h4{
+    color:#cd57ff;
+  }
+  .learn:hover{
+    border-bottom: 3px solid #fd9301;
+  }
+  .learn div h4{
+    color:#fd9301;
+  }
+  .nav-item:hover{
+    border: none;
+  }
+}
