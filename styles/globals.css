@@ -34,6 +34,7 @@ body {
 	top: 0px;
 	padding: 0px;
 	height: 5.5rem;
+	z-index: 100;
 }
 
 .navbar .container-fluid {
@@ -258,6 +259,10 @@ button {
 	color: #fd9301;
 }
 
+#sign-up{
+	color: white;
+}
+
 @media only screen and (max-width: 1305px) and (min-width: 1071px) {
 	#login {
 		margin-left: 2vw;
@@ -453,5 +458,91 @@ button {
 	}
 	.offcanvas {
 		display: block;
+	}
+}
+
+
+/* HEADER */
+
+.header{
+	/* max-width: 1480px; */
+	margin:auto;
+	height: 620px;
+	max-width: 1380px;
+}
+.header-info{
+	display: flex;
+	padding-left: 70px;
+	padding-right: 0px;
+	flex-direction: column;
+	/* align-items: center; */
+	justify-content: center;
+}
+.header-info h1{
+	color: black;
+	font-size: 4.5rem;
+	font-weight: bold;
+}
+.header-info h2{
+	font-size: 3.5rem;
+}
+.header-info p{
+	font-size: 1.3rem;
+	width: 80%;
+}
+.get-started{
+	height: 12%;
+	width: 40%;
+	font-size: 1.5rem;
+	color: white;
+	border-radius: 0.5rem;
+	font-weight: bold;
+}
+
+.lottie-player{
+	width: 300px; height: 300px;
+}
+.tag{
+	margin: auto;
+	text-align: center;
+	font-size: 1.5rem;
+}
+@media (max-width: 991px){
+	.header{
+		height: 100%;
+		display: grid;
+		grid-template-columns: 1fr;
+		margin-top: 100px;
+	}
+	.header-info{
+		padding-left: 0px;
+	}
+	.header-info h1{
+		text-align: center;
+		font-size: 3.5rem;
+	}
+	.header-info h2{
+		font-size: 3rem;
+		text-align: center;
+	}
+	.header-info p{
+		font-size: 1rem;
+		width: 70%;
+		margin: auto;
+		text-align: center;
+	}
+	.get-started{
+		height: 50px;
+		width: 140px;
+		font-size: 1.2rem;
+		color: white;
+		margin: 30px auto;
+	}
+	
+	.lottie-player{
+		width: 300px; height: 300px;
+	}
+	.tag{
+		font-size: 1rem;
 	}
 }

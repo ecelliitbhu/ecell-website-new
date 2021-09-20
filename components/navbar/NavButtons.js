@@ -9,7 +9,7 @@ export const Login = () => {
 };
 export const SignUp = () => {
   return (
-    <button className="btn btn-outline-success" type="submit">
+    <button className="btn btn-info"  id="sign-up">
       Sign Up
     </button>
   );
