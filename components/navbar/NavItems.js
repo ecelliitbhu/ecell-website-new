@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcApproval } from "react-icons/fc";
 import { FcCollaboration } from "react-icons/fc";
 import { FcAddressBook } from "react-icons/fc";
 import { FcServices } from "react-icons/fc";
 export const Discover = () => {
+  const [isHover,setIsHover]=useState(false)
   return (
-    <li className="nav-item dropdown discover">
+    <li className="nav-item dropdown discover" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
       <a
         className="nav-link dropdown-toggle"
         href="#"
@@ -16,7 +17,7 @@ export const Discover = () => {
       >
         <h3>Discover</h3>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{display:isHover? "block":"none", position:"absolute", top:"5.5rem"}}>
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -98,8 +99,9 @@ export const Discover = () => {
 };
 
 export const Initiatives = () => {
+  const [isHover,setIsHover]=useState(false)
   return (
-    <li className="nav-item dropdown design">
+    <li className="nav-item dropdown design" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
       <a
         className="nav-link dropdown-toggle"
         href="#"
@@ -110,7 +112,7 @@ export const Initiatives = () => {
       >
         <h3>Initiatives</h3>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{display:isHover? "block":"none", position:"absolute", top:"5.5rem"}}>
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -188,8 +190,9 @@ export const Initiatives = () => {
   );
 };
 export const Connect = () => {
+  const [isHover,setIsHover]=useState(false)
   return (
-    <li className="nav-item dropdown code">
+    <li className="nav-item dropdown code" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
       <a
         className="nav-link dropdown-toggle"
         href="#"
@@ -200,7 +203,7 @@ export const Connect = () => {
       >
         <h3>Connect</h3>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{display:isHover? "block":"none", position:"absolute", top:"5.5rem"}}>
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -250,8 +253,9 @@ export const Connect = () => {
   );
 };
 export const Learn = () => {
+  const [isHover,setIsHover]=useState(false)
   return (
-    <li className="nav-item dropdown learn">
+    <li className="nav-item dropdown learn" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
       <a
         className="nav-link dropdown-toggle"
         href="#"
@@ -262,7 +266,7 @@ export const Learn = () => {
       >
         <h3>Learn</h3>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{display:isHover? "block":"none", position:"absolute", top:"5.5rem"}}>
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">

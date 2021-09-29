@@ -84,12 +84,17 @@ body {
 	justify-content: center;
 }
 
-@media all and (min-width: 991px) {
-	.navbar .nav-item .dropdown-menu{ display: none; }
-	.navbar .nav-item:hover .dropdown-menu{ display: block; position:absolute;
-	top: 5rem;}
-
+/* @media (min-width: 991px) {
+	.nav-item .dropdown-menu {
+		display: none;
 	}
+	.nav-item:hover .dropdown-menu {
+		display: grid;
+		width: 100%;
+		position: absolute;
+		top: 5rem;
+	}
+} */
 
 .dropdown {
 	position: static !important;
