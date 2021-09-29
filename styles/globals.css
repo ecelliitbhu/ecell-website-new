@@ -41,10 +41,10 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	max-width: 1600px;
+	max-width: 1700px;
 	margin: auto;
 	padding: 0px;
-	margin: 0px auto;
+	/* margin: 0px 100px 0px 80px; */
 	height: 100%;
 }
 
@@ -55,14 +55,17 @@ body {
 	margin: 0px;
 	/* gap: 40px; */
 	height: 100%;
+	background-color:#f8f9fa ;
 }
 
 .navbar-brand {
 	margin: 0px;
-	margin-left: 6.8vw;
+	margin-left: 5vw;
+	margin-right: 5vw;
+	margin-top: 10px;
 }
 
-.navbar-brand img {
+.navbar-brand div img {
 	width: 80%;
 }
 
@@ -82,9 +85,11 @@ body {
 	flex-direction: column;
 	/* align-items: center; */
 	justify-content: center;
+	margin: 15px;
+	height: 80%;
 }
 
-/* @media (min-width: 991px) {
+@media (min-width: 991px) {
 	.nav-item .dropdown-menu {
 		display: none;
 	}
@@ -92,20 +97,22 @@ body {
 		display: grid;
 		width: 100%;
 		position: absolute;
-		top: 5rem;
+		top: 5.5rem;
 	}
-} */
+}
 
 .dropdown {
 	position: static !important;
 }
 
 .dropdown-menu {
-	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+	/* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; */
+	border: 0px;
+	border-radius: 0px;
 	position: relative;
 	left: 0px;
 	width: 100% !important;
-	padding: 5px 20px 5px 5px;
+	padding: 30px 0px 30px 5px;
 }
 
 .dropdown-container {
@@ -113,15 +120,18 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 250px;
+	background-color: white;
 }
 
 .dropdown-subcontainer {
 	display: flex;
 	flex-direction: column;
+	background-color: white;
 }
 
 ul {
 	list-style: none;
+	background-color: white;
 }
 
 .nav-icon {
@@ -136,43 +146,51 @@ ul {
 	padding-left: 10px;
 	border-radius: 20px;
 	margin: 10px;
+	background-color: white !important;
 	/* align-items: center; */
 }
 
 .dropdown-item:hover {
 	transform: scale(1.05);
 	transition: all 0.2s ease-in-out;
-	background-color: #f8f9fa;
+	background-color: white !important;
 }
 
 .dropdown-item div {
 	margin: 0px 15px;
+	background-color: white;
 }
 
 .dropdown-item div h4 {
 	font-size: 1.25rem;
 	font-weight: bold;
 	color: #138bdb;
+	background-color: white;
 }
 
 .dropdown-item div p {
 	font-size: 0.rem;
+	background-color: white;
 }
 
 .right-nav-column {
 	position: relative;
 	top: -25px;
+	background-color: white !important;
 }
-
+.right-nav-column-sub li{
+	background-color: white;
+}
 .right-nav-column li a {
 	margin: 0px;
 	color: grey;
 	font-size: 0.9rem;
+	background-color: white !important;
 }
 
 .right-nav-column li a:hover {
 	color: #138bdb;
-	background-color: #f8f9fa;
+	background-color: white !important;
 }
 
 .search {
@@ -191,9 +209,9 @@ ul {
 button {
 	color: white;
 	background-color: teal;
-	margin-top: 24px;
+	margin: 24px 10px 0px 20px;
 	font-size: 0.5rem;
-	width: 85px;
+	width: 120px;
 	height: 45%;
 }
 
@@ -210,7 +228,7 @@ button {
 }
 
 #login {
-	margin-left: 8vw;
+	margin-left: 3vw;
 	width: 60px;
 	border: none;
 }
@@ -221,7 +239,7 @@ button {
 }
 
 .discover:hover {
-	border-bottom: 3px solid rgb(4, 125, 238);
+	border-bottom: 4px solid rgb(4, 125, 238);
 }
 
 .discover div h4 {
@@ -233,7 +251,7 @@ button {
 }
 
 .design:hover {
-	border-bottom: 3px solid #28c7a0;
+	border-bottom: 4px solid #28c7a0;
 }
 
 .design div h4 {
@@ -245,7 +263,7 @@ button {
 }
 
 .code:hover {
-	border-bottom: 3px solid #cd57ff;
+	border-bottom: 4px solid #cd57ff;
 }
 
 .code div h4 {
@@ -253,7 +271,7 @@ button {
 }
 
 .learn:hover {
-	border-bottom: 3px solid #fd9301;
+	border-bottom: 4px solid #fd9301;
 }
 
 .learn div h4 {
@@ -263,28 +281,63 @@ button {
 #sign-up{
 	color: white;
 }
-
-@media only screen and (max-width: 1305px) and (min-width: 1071px) {
+@media only screen and (max-width: 1845px) and (min-width: 1453px) {
 	#login {
 		margin-left: 2vw;
 	}
 	.navbar-brand {
-		margin-left: 7vw;
+		margin-left: 9vw;
+	}
+}
+@media only screen and (max-width: 1420px) and (min-width: 1340px) {
+	#login {
+		margin-left: 2vw;
+	}
+	.navbar-brand {
+		margin-left: 4vw;
 	}
 }
 
-@media only screen and (max-width: 1146px) and (min-width: 991px) {
-	#login {
+@media only screen and (max-width: 1339px) and (min-width: 1276px) {
+	#login{
 		margin-left: 1vw;
 	}
-	.navbar-brand {
-		margin-left: 2vw;
+	.navbar-brand{
+		margin-left: 3vw;
+	}
+	.nav-item{
+		margin: 10px;
+	}
+}
+@media only screen and (max-width: 1275px) and (min-width: 991px) {
+	#login {
+		margin-left: 5vw;
+		background-color: #23caf1;
+		border: #23caf1;
+		color: white;
+		text-align: center;
+		width: 100px;
+	}
+	.search{
+		width: 20vw;
+	}
+	.navbar-brand{
+		margin-left: 4vw;
+	}
+	.nav-item{
+		margin: 5px;
+	}
+	#sign-up{
+		display: none;
 	}
 }
 
 @media (max-width: 991px) {
 	.navbar {
 		height: 4rem;
+	}
+	.navbar-brand div img{
+		width: 100px;
 	}
 	.navbar-nav {
 		align-items: center;
@@ -295,7 +348,7 @@ button {
 		gap: 0px;
 	}
 	.navbar-collapse {
-		margin-top: 25px;
+		margin-top: 50px;
 		width: 20px;
 	}
 	.container-fluid {
@@ -394,6 +447,8 @@ button {
 		justify-content: center;
 		align-items: center;
 		/* width: 100%; */
+		width: 100vw;
+		padding: 20px 0px 50px 0px;
 	}
 	button {
 		display: inline;
@@ -466,7 +521,8 @@ button {
 
 /* HEADER */
 .body{
-	max-width: 1380px;
+	max-width: 1390px;
+	margin:auto;
 }
 .header{
 	/* max-width: 1480px; */
@@ -483,7 +539,7 @@ button {
 }
 .info h1{
 	color: black;
-	font-size: 4.5rem;
+	font-size: 4.1rem;
 	font-weight: bold;
 }
 .info h2{
@@ -522,15 +578,15 @@ button {
 	}
 	.info h1{
 		text-align: center;
-		font-size: 3.5rem;
+		font-size: 3rem;
 	}
 	.info h2{
-		font-size: 3rem;
+		font-size: 2.3rem;
 		text-align: center;
 	}
 	.info p{
 		font-size: 1rem;
-		width: 70%;
+		width: 95%;
 		margin: auto;
 		text-align: center;
 	}
@@ -550,11 +606,25 @@ button {
 	}
 }
 
+@media (max-width: 338px)
+{
+	.info h1{
+		font-size: 2.4rem;
+	}
+	.info h2{
+		font-size: 2rem;
+	}
+}
+
 
 /* WHO ARE WE? */
 
 .who-are-we{
 	margin-top: 100px;
+}
+
+.who-are-we .info{
+	padding-left: 70px;
 }
 .learn-more{
 	height: 8%;
@@ -585,6 +655,7 @@ button {
 	}
 	.who-are-we>.info{
 		grid-row: 1;
+		padding-left: 0px;
 	}
 	.who-are-we>.image-section{
 		grid-row: 2;
@@ -683,6 +754,9 @@ button {
 	.card-text{
 		font-size: 0.7rem !important;
 	}
+	.what-we-do p{
+		width: 92%;
+	}
 }
 @media (max-width: 1306px) and (min-width: 538px){
 	.card-text{
@@ -721,8 +795,8 @@ button {
 }
 .social{
 	display:grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	width: 280px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	width: 360px;
 	margin: 80px auto;
 }
 .social-icons{
@@ -740,5 +814,11 @@ button {
 	}
 	.footer-items ul li a{
 		font-size: 0.8rem;
+	}
+	.social{
+		grid-template-columns: 1fr 1fr 1fr;
+		width: 280px;
+		margin: 80px auto;
+		row-gap: 30px;
 	}
 }

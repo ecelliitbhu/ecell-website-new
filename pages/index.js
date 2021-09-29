@@ -2,7 +2,7 @@ import Head from "next/head";
 // import Image from "next/image";
 // import styles from '../styles/Home.module.css'
 import { Container, Row, Col, Button, Card, CardGroup } from "react-bootstrap";
-import Footer from '../components/Footer'
+import Footer from "../components/Footer";
 // import Vector from "../public/startup-image.png"
 export default function Home() {
   return (
@@ -37,18 +37,11 @@ export default function Home() {
             </Col>
           </Row>
           <Row>
-            <span className="tag">Ideate&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Innovate&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Incubate</span>
+            <span className="tag">
+              Ideate&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Innovate&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Incubate
+            </span>
           </Row>
           <Row className="who-are-we">
-            <Col className="image-section">
-              <lottie-player
-                src="https://assets1.lottiefiles.com/packages/lf20_lxgjrju4.json"
-                background="transparent"
-                speed="1"
-                loop
-                autoplay
-              ></lottie-player>
-            </Col>
             <Col className="info waw">
               <h1>Who are we?</h1>
               <p>
@@ -72,6 +65,15 @@ export default function Home() {
                 </Col>
               </Row>
             </Col>
+            <Col className="image-section">
+              <lottie-player
+                src="https://assets1.lottiefiles.com/packages/lf20_lxgjrju4.json"
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+              ></lottie-player>
+            </Col>
           </Row>
           <Row className="what-we-do info">
             <h1>What we do?</h1>
@@ -83,7 +85,7 @@ export default function Home() {
             <Row className="card-container">
               <Card className="card">
                 <Card.Body>
-                <lottie-player
+                  <lottie-player
                     src="https://assets8.lottiefiles.com/packages/lf20_gomzks5q.json"
                     background="transparent"
                     speed="1"
@@ -121,7 +123,7 @@ export default function Home() {
               </Card>
               <Card className="card">
                 <Card.Body>
-                <lottie-player
+                  <lottie-player
                     src="https://assets8.lottiefiles.com/packages/lf20_gomzks5q.json"
                     background="transparent"
                     speed="1"
@@ -141,12 +143,21 @@ export default function Home() {
               </Card>
             </Row>
           </Row>
-          <Footer/>
+          <Footer />
         </Container>
       </div>
-      <script async src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-      <script async src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-      <script async src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <script
+        async
+        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+      ></script>
+      <script
+        async
+        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+      ></script>
+      <script
+        async
+        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+      ></script>
     </>
   );
 }

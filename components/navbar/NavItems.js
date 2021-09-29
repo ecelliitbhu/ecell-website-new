@@ -17,7 +17,7 @@ export const Discover = () => {
       >
         <h3>Discover</h3>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{display:isHover? "block":"none", position:"absolute", top:"5.5rem"}}>
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -70,24 +70,24 @@ export const Discover = () => {
             <div className="right-nav-column-sub">
               <li>
                 <a className="dropdown-item" href="#">
-                  ankjbahjbhkabk
+                  Mary had a little lamb
                 </a>
               </li>
               <li>
                 <a className="dropdown-item" href="#">
-                  ankjbahjbhkabk
+                  Baba black sheep
                 </a>
               </li>
             </div>
             <div className="right-nav-column-sub">
               <li>
                 <a className="dropdown-item" href="#">
-                  ankjbahjbhkabk
+                  Jonny Jonny
                 </a>
               </li>
               <li>
                 <a className="dropdown-item" href="#">
-                  ankjbahjbhkabk
+                  Humpty dumpty sat on a wall
                 </a>
               </li>
             </div>
@@ -112,7 +112,7 @@ export const Initiatives = () => {
       >
         <h3>Initiatives</h3>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{display:isHover? "block":"none", position:"absolute", top:"5.5rem"}}>
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -159,27 +159,27 @@ export const Initiatives = () => {
             </a>
           </li>
           <ul className="dropdown-subcontainer right-nav-column">
-            <div className="right-nav-column-sub">
+          <div className="right-nav-column-sub">
               <li>
                 <a className="dropdown-item" href="#">
-                  ankjbahjbhkabk
+                  Mary had a little lamb
                 </a>
               </li>
               <li>
                 <a className="dropdown-item" href="#">
-                  ankjbahjbhkabk
+                  Baba black sheep
                 </a>
               </li>
             </div>
             <div className="right-nav-column-sub">
               <li>
                 <a className="dropdown-item" href="#">
-                  ankjbahjbhkabk
+                  Jonny Jonny
                 </a>
               </li>
               <li>
                 <a className="dropdown-item" href="#">
-                  ankjbahjbhkabk
+                  Humpty dumpty sat on a wall
                 </a>
               </li>
             </div>
@@ -203,7 +203,7 @@ export const Connect = () => {
       >
         <h3>Connect</h3>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{display:isHover? "block":"none", position:"absolute", top:"5.5rem"}}>
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -266,7 +266,7 @@ export const Learn = () => {
       >
         <h3>Learn</h3>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{display:isHover? "block":"none", position:"absolute", top:"5.5rem"}}>
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">

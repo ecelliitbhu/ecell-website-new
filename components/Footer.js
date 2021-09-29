@@ -1,7 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 import Link from "next/link";
 
-import {FaInstagram,FaFacebook,FaLinkedin,FaTwitter} from 'react-icons/fa'
+import {FaInstagram,FaFacebook,FaLinkedin,FaTwitter,FaYoutube,FaDiscord} from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -88,6 +88,8 @@ const Footer = () => {
             <Link href=""><FaFacebook className="social-icons"></FaFacebook></Link>
             <Link href=""><FaLinkedin className="social-icons"></FaLinkedin></Link>
             <Link href=""><FaTwitter className="social-icons"></FaTwitter></Link>
+            <Link href=""><FaYoutube className="social-icons"></FaYoutube></Link>
+            <Link href=""><FaDiscord className="social-icons"></FaDiscord></Link>
         </Row>
       </footer>
     </>
