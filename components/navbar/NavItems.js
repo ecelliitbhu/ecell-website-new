@@ -37,7 +37,7 @@ export const Discover = () => {
               <div>
                 <h4>Blog</h4>
                 <p>
-                  Discover what&apos;s trending
+                  Discover what&apos;s trending <br />
                   in the startup ecosystem.
                 </p>
               </div>
