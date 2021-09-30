@@ -340,12 +340,13 @@ button {
 		width: 100px;
 	}
 	.navbar-nav {
+		position: absolute;
+		top: 50px;
 		align-items: center;
 		width: 100%;
 		margin-top: 25px;
 		height: 60%;
 		padding: 0px;
-		gap: 0px;
 	}
 	.navbar-collapse {
 		margin-top: 50px;
@@ -368,16 +369,19 @@ button {
 	.nav-item {
 		width: 100%;
 		margin: 0px;
-		padding: 0px;
+		/* padding: 15px 0px; */
+		margin: 10px;
+		display: block;
 	}
 	.dropdown-menu {
-		position: relative;
+		position: relative !important;
 		left: 0px;
+		top: -5px !important;
 		width: 100% !important;
 		/* display: flex; */
 		align-items: center;
 		justify-content: center;
-		margin: 0px;
+		/* margin-top: 100px !important; */
 		padding: 0px;
 		box-shadow: none;
 	}
@@ -387,7 +391,6 @@ button {
 		justify-content: flex-start;
 		height: 100%;
 		padding: 0px;
-		/* margin-top: 10px; */
 	}
 	.dropdown-subcontainer {
 		margin: 0px;
