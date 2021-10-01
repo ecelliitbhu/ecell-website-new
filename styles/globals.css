@@ -423,13 +423,15 @@ button {
 	}
 	.dropdown-item div p {
 		display: none;
-		font-size: 0px;
 	}
 	.right-nav-column {
 		display: flex;
 		flex-direction: row;
 		margin-top: 30px;
 		gap: 1em;
+	}
+	.right-nav-column-sub li a{
+		font-size: 0.8rem;
 	}
 	.navbar-toggler {
 		margin: 0px 5px;
