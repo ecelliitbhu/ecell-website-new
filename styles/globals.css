@@ -59,8 +59,8 @@ body {
 }
 
 .navbar-brand {
-	margin-left: 5.2vw;
-	margin-right: 5vw;
+	margin-left: 5vw;
+	margin-right: 4vw;
 	margin-top: 5px;
 }
 
@@ -69,6 +69,7 @@ body {
 	font-size: 1.1rem;
 	padding-left: 0.4vw;
 	height: 100%;
+	margin-top: 5px;
 }
 
 .navbar-collapse {
@@ -80,8 +81,12 @@ body {
 	flex-direction: column;
 	/* align-items: center; */
 	justify-content: center;
-	margin: 16px;
+	margin: 10px;
 	height: 80%;
+}
+
+.nav-item a{
+	display: flex;
 }
 
 @media (min-width: 991px) {
@@ -312,21 +317,33 @@ button {
 		margin: 0.3vw;
 	}
 }
-@media only screen and (max-width: 1193px) and (min-width: 991px) {
+@media only screen and (max-width: 1266px) and (min-width: 1130px){
+	#sign-up{
+		width: 90px;
+	}
+	#login{
+		width:70px;
+	}
+	.search{
+		width: 13vw;
+	}
+
+}
+@media only screen and (max-width: 1140px) and (min-width: 991px) {
 	#login {
 		margin-left: 5vw;
 		background-color: #23caf1;
 		border: #23caf1;
 		color: white;
 		text-align: center;
-		width: 100px;
+		width: 80px;
 	}
 	.search{
-		width: 20vw;
+		width: 15vw;
 	}
 
 	.navbar-brand{
-		margin-left: 4vw;
+		margin-left: 3vw;
 	}
 	.nav-item{
 		margin: 5px;
@@ -351,7 +368,7 @@ button {
 	}
 	.navbar-nav {
 		position: absolute;
-		top: 50px;
+		top: 30px;
 		align-items: center;
 		width: 100%;
 		margin-top: 25px;
@@ -368,7 +385,7 @@ button {
 	}
 	.nav-link {
 		padding: 15px;
-		margin: 5px;
+		margin:0px 5px;
 		border-radius: 10px;
 	}
 	.nav-link h3 {
@@ -376,11 +393,15 @@ button {
 		font-size: 1.2rem;
 		padding-left: 20px;
 	}
+	.nav-link svg{
+		position: absolute;
+		right: 5px;
+	}
 	.nav-item {
 		width: 100%;
 		margin: 0px;
 		/* padding: 15px 0px; */
-		margin: 10px;
+		margin: 15px;
 		display: block;
 	}
 	.dropdown-menu {

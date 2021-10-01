@@ -3,12 +3,13 @@ import { FcApproval } from "react-icons/fc";
 import { FcCollaboration } from "react-icons/fc";
 import { FcAddressBook } from "react-icons/fc";
 import { FcServices } from "react-icons/fc";
+import {RiArrowDropDownLine} from "react-icons/ri"
 export const Discover = () => {
   const [isHover,setIsHover]=useState(false)
   return (
     <li className="nav-item dropdown discover" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
       <a
-        className="nav-link dropdown-toggle"
+        className="nav-link "
         href="#"
         id="navbarDropdown"
         role="button"
@@ -16,6 +17,7 @@ export const Discover = () => {
         aria-expanded="false"
       >
         <h3>Discover</h3>
+        <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
@@ -103,7 +105,7 @@ export const Initiatives = () => {
   return (
     <li className="nav-item dropdown design" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
       <a
-        className="nav-link dropdown-toggle"
+        className="nav-link "
         href="#"
         id="navbarDropdown"
         role="button"
@@ -111,6 +113,7 @@ export const Initiatives = () => {
         aria-expanded="false"
       >
         <h3>Initiatives</h3>
+        <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
         <ul className="dropdown-container">
@@ -194,7 +197,7 @@ export const Connect = () => {
   return (
     <li className="nav-item dropdown code" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
       <a
-        className="nav-link dropdown-toggle"
+        className="nav-link "
         href="#"
         id="navbarDropdown"
         role="button"
@@ -202,6 +205,7 @@ export const Connect = () => {
         aria-expanded="false"
       >
         <h3>Connect</h3>
+        <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
         <ul className="dropdown-container">
@@ -257,7 +261,7 @@ export const Learn = () => {
   return (
     <li className="nav-item dropdown learn" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
       <a
-        className="nav-link dropdown-toggle"
+        className="nav-link"
         href="#"
         id="navbarDropdown"
         role="button"
@@ -265,6 +269,7 @@ export const Learn = () => {
         aria-expanded="false"
       >
         <h3>Learn</h3>
+        <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
         <ul className="dropdown-container">
