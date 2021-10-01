@@ -372,7 +372,7 @@ button {
 		align-items: center;
 		width: 100%;
 		margin-top: 25px;
-		height: 85vh;
+		height: 100%;
 		padding: 0px;
 	}
 	.navbar-collapse {
@@ -401,7 +401,7 @@ button {
 		width: 100%;
 		margin: 0px;
 		/* padding: 15px 0px; */
-		margin: 15px;
+		margin: 12px;
 		display: block;
 		height: 40px !important;
 	}
@@ -485,10 +485,10 @@ button {
 		align-items: center;
 		/* width: 100%; */
 		width: 100vw;
-		padding: 20px 0px 30px 0px;
+		padding: 40vh 0px 30px 0px;
 		/* margin-top:45vh; */
-		position: absolute;
-		bottom: 10px;
+		/* position: absolute;
+		bottom: 10px; */
 	}
 	button {
 		display: inline;
