@@ -41,7 +41,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	max-width: 1700px;
+	max-width: 2000px;
 	margin: auto;
 	padding: 0px;
 	/* margin: 0px 100px 0px 80px; */
@@ -62,11 +62,7 @@ body {
 	margin: 0px;
 	margin-left: 5vw;
 	margin-right: 5vw;
-	margin-top: 10px;
-}
-
-.navbar-brand div img {
-	width: 80%;
+	margin-top: 5px;
 }
 
 .nav-link h3 {
@@ -281,12 +277,20 @@ button {
 #sign-up{
 	color: white;
 }
-@media only screen and (max-width: 1845px) and (min-width: 1453px) {
+@media only screen and (max-width: 2566px) and (min-width: 1830px) {
 	#login {
-		margin-left: 2vw;
+		margin-left: 4vw;
 	}
 	.navbar-brand {
-		margin-left: 9vw;
+		margin-left: 10vw;
+	}
+}
+@media only screen and (max-width: 1830px) and (min-width: 1453px) {
+	#login {
+		margin-left: 3.5vw;
+	}
+	.navbar-brand {
+		margin-left: 8.5vw;
 	}
 }
 @media only screen and (max-width: 1420px) and (min-width: 1340px) {
