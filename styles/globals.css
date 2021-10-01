@@ -486,7 +486,9 @@ button {
 		/* width: 100%; */
 		width: 100vw;
 		padding: 20px 0px 30px 0px;
-		margin-top:45vh;
+		/* margin-top:45vh; */
+		position: absolute;
+		bottom: 5px;
 	}
 	button {
 		display: inline;
