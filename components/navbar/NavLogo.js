@@ -9,7 +9,7 @@ export const NavLogo = () => {
         alt="Lottiefiles Logo"
         className="lf-logo lf-logo-dark -mt-1"
       /> */}
-      <Image src={logo} height="55" width="120"></Image>
+      <Image src={logo} height="50" width="120" className="lf-logo lf-logo-dark -mt-1" ></Image>
     </a>
   );
 };

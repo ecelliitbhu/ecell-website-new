@@ -324,6 +324,7 @@ button {
 	.search{
 		width: 20vw;
 	}
+
 	.navbar-brand{
 		margin-left: 4vw;
 	}
@@ -339,8 +340,14 @@ button {
 	.navbar {
 		height: 4rem;
 	}
+	.navbar-brand{
+		margin: 0px;
+		padding: 0px;
+	}
 	.navbar-brand div img{
 		width: 100px;
+		padding: 0px;
+		margin: 0px;
 	}
 	.navbar-nav {
 		position: absolute;
