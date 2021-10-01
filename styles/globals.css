@@ -372,7 +372,7 @@ button {
 		align-items: center;
 		width: 100%;
 		margin-top: 25px;
-		height: 60%;
+		height: 90vh;
 		padding: 0px;
 	}
 	.navbar-collapse {
@@ -403,6 +403,7 @@ button {
 		/* padding: 15px 0px; */
 		margin: 15px;
 		display: block;
+		height: 40px !important;
 	}
 	.dropdown-menu {
 		position: relative !important;
@@ -479,12 +480,13 @@ button {
 	}
 	.buttons {
 		display: flex;
-		gap: 10px;
+		gap: 58vw;
 		justify-content: center;
 		align-items: center;
 		/* width: 100%; */
 		width: 100vw;
-		padding: 20px 0px 50px 0px;
+		padding: 20px 0px 30px 0px;
+		margin-top:45vh;
 	}
 	button {
 		display: inline;
