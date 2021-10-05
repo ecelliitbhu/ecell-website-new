@@ -783,7 +783,19 @@ button {
 	height: 40px;
 	width: 140px;
 }
-@media (max-width: 1306px){
+@media (min-width: 761px) and (max-width: 1306px){
+	.card{
+		width: 28vw;
+		height: 400px;
+	}
+	.card-text{
+		font-size: 0.65rem !important;
+	}
+	.card-button{
+		margin-bottom: 20px;
+	}
+}
+@media (max-width: 760px){
 	.card-container{
 		grid-template-columns: 1fr;
 		width: 100%;
@@ -798,12 +810,15 @@ button {
 		width: 92%;
 	}
 }
-@media (max-width: 1306px) and (min-width: 538px){
+@media (max-width: 760px) and (min-width: 538px){
 	.card-text{
 		font-size: 1rem !important;
 	}
 	.card{
 		width: 350px;
+	}
+	.card-container{
+		width: 100%;
 	}
 }
 
