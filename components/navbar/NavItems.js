@@ -323,13 +323,15 @@ export const Learn = () => {
               </div>
             </a>
 
-            <a className="dropdown-item" href="#">
-              <FcServices fontSize="2.2rem"></FcServices>
-              <div>
-                <h4>FAQ &amp; Support</h4>
-                <p>Get your questions answered</p>
-              </div>
-            </a>
+            <Link href="/FAQs">
+              <a className="dropdown-item">
+                <FcServices fontSize="2.2rem"></FcServices>
+                <div>
+                  <h4>FAQ &amp; Support</h4>
+                  <p>Get your questions answered</p>
+                </div>
+              </a>
+            </Link>
           </li>
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">

@@ -75,7 +75,7 @@ const Footer = () => {
                 <Link href="">Event Updates</Link>
               </li>
               <li>
-                <Link href="">FAQ and Support</Link>
+                <Link href="/FAQs">FAQ and Support</Link>
               </li>
               <li>
                 <Link href="">Forum</Link>

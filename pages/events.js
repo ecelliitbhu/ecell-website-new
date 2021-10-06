@@ -8,7 +8,7 @@ import Image from "next/image"
 import casex1 from "../public/casex1.png"
 import casex2 from "../public/casex2.png"
 import casex3 from "../public/casex3.png"
-export default function Home() {
+export default function Events() {
   return (
     <>
       <Head>
@@ -68,18 +68,6 @@ export default function Home() {
           <Footer />
         </Container>
       </div>
-      <script
-        async
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-      ></script>
-      <script
-        async
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-      ></script>
-      <script
-        async
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-      ></script>
     </>
   );
 }
