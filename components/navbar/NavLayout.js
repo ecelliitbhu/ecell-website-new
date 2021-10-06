@@ -3,6 +3,7 @@ import { Login, SignUp } from "./NavButtons";
 import { SearchOffcanvas, Search } from "./NavSearch";
 import { NavToggle } from "./NavToggle";
 import { NavLogo } from "./NavLogo";
+import Link from "next/link"
 
 
 const Nav = () => {
@@ -10,7 +11,7 @@ const Nav = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <NavLogo/>
+          <Link href="/"><a><NavLogo/></a></Link>
           <NavToggle/>
           <SearchOffcanvas/>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">

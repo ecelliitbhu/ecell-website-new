@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { FcApproval } from "react-icons/fc";
 import { FcCollaboration } from "react-icons/fc";
 import { FcAddressBook } from "react-icons/fc";
 import { FcServices } from "react-icons/fc";
-import {RiArrowDropDownLine} from "react-icons/ri"
+import { RiArrowDropDownLine } from "react-icons/ri";
 export const Discover = () => {
-  const [isHover,setIsHover]=useState(false)
+  const [isHover, setIsHover] = useState(false);
   return (
-    <li className="nav-item dropdown discover" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
+    <li
+      className="nav-item dropdown discover"
+      onMouseOver={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       <a
         className="nav-link "
         href="#"
@@ -22,18 +27,19 @@ export const Discover = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
-              <div>
-                <h4>Events</h4>
-                <p>
-                  Discover the buzzing events
-                  <br />
-                  happening throughout the year!
-                </p>
-              </div>
-            </a>
-
+            <Link href="/events">
+              <a className="dropdown-item">
+                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <div>
+                  <h4>Events</h4>
+                  <p>
+                    Discover the buzzing events
+                    <br />
+                    happening throughout the year!
+                  </p>
+                </div>
+              </a>
+            </Link>
             <a className="dropdown-item" href="#">
               <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
@@ -101,9 +107,13 @@ export const Discover = () => {
 };
 
 export const Initiatives = () => {
-  const [isHover,setIsHover]=useState(false)
+  const [isHover, setIsHover] = useState(false);
   return (
-    <li className="nav-item dropdown design" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
+    <li
+      className="nav-item dropdown design"
+      onMouseOver={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       <a
         className="nav-link "
         href="#"
@@ -115,7 +125,7 @@ export const Initiatives = () => {
         <h3>Initiatives</h3>
         <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -162,7 +172,7 @@ export const Initiatives = () => {
             </a>
           </li>
           <ul className="dropdown-subcontainer right-nav-column">
-          <div className="right-nav-column-sub">
+            <div className="right-nav-column-sub">
               <li>
                 <a className="dropdown-item" href="#">
                   Mary had a little lamb
@@ -193,9 +203,13 @@ export const Initiatives = () => {
   );
 };
 export const Connect = () => {
-  const [isHover,setIsHover]=useState(false)
+  const [isHover, setIsHover] = useState(false);
   return (
-    <li className="nav-item dropdown code" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
+    <li
+      className="nav-item dropdown code"
+      onMouseOver={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       <a
         className="nav-link "
         href="#"
@@ -207,7 +221,7 @@ export const Connect = () => {
         <h3>Connect</h3>
         <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -257,9 +271,13 @@ export const Connect = () => {
   );
 };
 export const Learn = () => {
-  const [isHover,setIsHover]=useState(false)
+  const [isHover, setIsHover] = useState(false);
   return (
-    <li className="nav-item dropdown learn" onMouseOver={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
+    <li
+      className="nav-item dropdown learn"
+      onMouseOver={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       <a
         className="nav-link"
         href="#"
@@ -271,7 +289,7 @@ export const Learn = () => {
         <h3>Learn</h3>
         <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown" >
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
@@ -286,7 +304,10 @@ export const Learn = () => {
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Event updates</h4>
-                <p>Stay up-to-date with our latest <br/>events held @ecelliitbhu</p>
+                <p>
+                  Stay up-to-date with our latest <br />
+                  events held @ecelliitbhu
+                </p>
               </div>
             </a>
           </li>
@@ -295,7 +316,10 @@ export const Learn = () => {
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>How E-Cell Works</h4>
-                <p>A comprehensive guide to this <br/>powerful little format</p>
+                <p>
+                  A comprehensive guide to this <br />
+                  powerful little format
+                </p>
               </div>
             </a>
 
@@ -320,7 +344,10 @@ export const Learn = () => {
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Forum</h4>
-                <p>Where those who work with Lottie <br/>can come together</p>
+                <p>
+                  Where those who work with Lottie <br />
+                  can come together
+                </p>
               </div>
             </a>
           </li>
