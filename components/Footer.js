@@ -12,7 +12,7 @@ const Footer = () => {
             <h5>Dicover</h5>
             <ul>
               <li>
-                <Link href="">Events</Link>
+                <Link href="/events">Events</Link>
               </li>
               <li>
                 <Link href="">Initiatives</Link>
