@@ -17,7 +17,6 @@ const Layout = ({ children }) => {
           crossOrigin="anonymous"
         ></script>
       </Head>
-      <Nav/>
       {children}
       {/* <Footer/> */}
     </>

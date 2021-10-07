@@ -8,13 +8,14 @@ import Image from "next/image"
 import casex1 from "../public/casex1.png"
 import casex2 from "../public/casex2.png"
 import casex3 from "../public/casex3.png"
+import Nav from "../components/navbar/NavLayout";
 export default function Events() {
   return (
     <>
       <Head>
         <title>Events</title>
       </Head>
-
+      <Nav/>
       <div>
         <Container fluid className="body" >
           <Row className="header" style={{backgroundColor:"white", width:"fit-content",border:"1px solid white",borderRadius:"20px", padding:"20px 0px", margin:"40px auto",justifyContent:"center"}}>
@@ -25,7 +26,7 @@ export default function Events() {
               </Button>
             </Col>
             <Col className="image-section" style={{backgroundColor:"white", display:"flex", alignItems:"center",justifyContent:"center",margin:"50px auto", padding:"0px",width:"95%"}}>
-              <Image src={Poster} height={370} width={1394} style={{margin:"auto", backgroundColor:"white"}}></Image>
+              <Image src={Poster} height={370} width={1394}></Image>
             </Col>
           </Row>
           <Row>

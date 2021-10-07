@@ -1,13 +1,14 @@
 import Head from "next/head";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
+import Nav from "../components/navbar/NavLayout";
 export default function FAQs() {
   return (
     <>
       <Head>
         <title>FAQs</title>
       </Head>
-
+      <Nav/>
       <div>
         <Container fluid className="body">
           <Row className="header" style={{ height: "fit-content" , marginBottom:"50px"}}>

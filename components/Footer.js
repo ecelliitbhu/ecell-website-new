@@ -84,12 +84,12 @@ const Footer = () => {
           </Col>
         </Row>
         <Row className="social">
-            <Link href=""><FaInstagram className="social-icons"></FaInstagram></Link>
-            <Link href=""><FaFacebook className="social-icons"></FaFacebook></Link>
-            <Link href=""><FaLinkedin className="social-icons"></FaLinkedin></Link>
-            <Link href=""><FaTwitter className="social-icons"></FaTwitter></Link>
-            <Link href=""><FaYoutube className="social-icons"></FaYoutube></Link>
-            <Link href=""><FaDiscord className="social-icons"></FaDiscord></Link>
+            <Link href="https://www.instagram.com/ecelliitbhu/"><FaInstagram className="social-icons"></FaInstagram></Link>
+            <Link href="#"><FaFacebook className="social-icons"></FaFacebook></Link>
+            <Link href="#"><FaLinkedin className="social-icons"></FaLinkedin></Link>
+            <Link href="#"><FaTwitter className="social-icons"></FaTwitter></Link>
+            <Link href="#"><FaYoutube className="social-icons"></FaYoutube></Link>
+            <Link href="#"><FaDiscord className="social-icons"></FaDiscord></Link>
         </Row>
       </footer>
     </>
