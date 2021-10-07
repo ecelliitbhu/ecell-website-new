@@ -13,7 +13,7 @@
 }
 
 ::selection {
-	background: rgb(108, 246, 239);
+	background: rgb(246, 214, 108);
 }
 
 body {
@@ -801,7 +801,7 @@ button {
 		width: 100%;
 	}
 	.card{
-		width: 70vw;
+		width: 80vw;
 	}
 	.card-text{
 		font-size: 0.7rem !important;

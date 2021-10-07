@@ -19,13 +19,13 @@ export default function Events() {
         <Container fluid className="body" >
           <Row className="header" style={{backgroundColor:"white", width:"fit-content",border:"1px solid white",borderRadius:"20px", padding:"20px 0px", margin:"40px auto",justifyContent:"center"}}>
           <Col className="info" style={{backgroundColor:"white", width:"95%"}}>
-              <h1 style={{backgroundColor:"white", color:"black",marginTop:"40px"}}>The Annual Entrepreneurial Fest <br/>of IIT BHU is here !</h1>
+              <h1 style={{backgroundColor:"white", color:"black",marginTop:"40px", fontWeight:"normal"}}>The Annual Entrepreneurial Fest <br/>of IIT BHU is here !</h1>
               <Button variant="info" className="get-started" style={{backgroundColor:"#FA8231", border:"#FA8231", width:"200px"}}>
                 Register Now!
               </Button>
             </Col>
             <Col className="image-section" style={{backgroundColor:"white", display:"flex", alignItems:"center",justifyContent:"center",margin:"50px auto", padding:"0px",width:"95%"}}>
-              <Image src={Poster} height={300} width={700} style={{margin:"auto", backgroundColor:"white"}}></Image>
+              <Image src={Poster} height={370} width={1394} style={{margin:"auto", backgroundColor:"white"}}></Image>
             </Col>
           </Row>
           <Row>
@@ -58,7 +58,7 @@ export default function Events() {
                   <Image src={casex3} height={320} width={290} ></Image>
                   <Card.Title style={{margin:"10px auto"}}>Design Rush</Card.Title>
                   <Card.Text style={{height:"15px"}}>3rd-12th Sept</Card.Text>
-                  <Button variant="danger" style={{backgroundColor:"#FA8231", border:"#FA8231", margin:"15px auto"}} className="card-button">
+                  <Button variant="danger" style={{backgroundColor:"#FA8231", border:"#FA8231", margin:"8px auto"}} className="card-button">
                     Know More! &rarr;
                   </Button>
                 </Card.Body>
