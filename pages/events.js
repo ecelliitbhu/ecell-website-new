@@ -73,7 +73,7 @@ export default function Events() {
             </Col>
           </Row>
           <Row></Row>
-          <Row className="what-we-do info" style={{ margin: "auto" }}>
+          <Row className="what-we-do info" style={{ margin: "50px auto" }}>
             <h1 style={{ padding: "0px" }}>Events @ E-Cell IIT BHU</h1>
             <Row className="card-container">
               <Card className="card" style={{ height: "fit-content" }}>
@@ -143,7 +143,7 @@ export default function Events() {
             </Row>
             <Button
               variant="warning"
-              style={{ width: "150px", margin: "10px auto 30px auto"}}
+              style={{ width: "150px", margin: "auto"}}
               onClick={() => setLoadMore(!loadMore)}
             >
               Load More
@@ -219,7 +219,7 @@ export default function Events() {
               </Row>
             )}
           </Row>
-          <Footer />
+          <Footer/>
         </Container>
       </div>
     </>
