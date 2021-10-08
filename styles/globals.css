@@ -35,6 +35,7 @@ body {
 	padding: 0px;
 	height: 5.5rem;
 	z-index: 100;
+	background-color: #f8f9fa;
 }
 
 .navbar .container-fluid {
@@ -46,6 +47,7 @@ body {
 	padding: 0px;
 	/* margin: 0px 100px 0px 80px; */
 	height: 100%;
+	background-color: #f8f9fa;
 }
 
 .navbar-nav {
@@ -83,10 +85,12 @@ body {
 	justify-content: center;
 	margin: 0px 10px;
 	height: 100%;
+	background-color: #f8f9fa;
 }
 
 .nav-item a{
 	display: flex;
+	background-color: #f8f9fa;
 }
 
 @media (min-width: 991px) {
@@ -491,6 +495,7 @@ button {
 		/* margin-top:45vh; */
 		/* position: absolute;
 		bottom: 10px; */
+		background-color: #f8f9fa;
 	}
 	button {
 		display: inline;
