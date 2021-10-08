@@ -7,10 +7,14 @@ import casex1 from "../public/casex1.png";
 import casex2 from "../public/casex2.png";
 import casex3 from "../public/casex3.png";
 import Nav from "../components/navbar/NavLayout";
+import "@progress/kendo-theme-default/dist/all.css";
+import { Calendar } from "@progress/kendo-react-dateinputs";
+
 import { useState } from "react";
 export default function Events() {
   const [loadMore, setLoadMore] = useState(false);
   const [loadMore1, setLoadMore1] = useState(false);
+  const [date, setDate] = useState(new Date());
   return (
     <>
       <Head>
@@ -300,6 +304,22 @@ export default function Events() {
                 </Card>
               </Row>
             )}
+          </Row>
+          <Row style={{margin:"100px auto"}}>
+            <h1 style={{margin:"auto", textAlign:"center", fontSize:"4rem", fontWeight:"bold"}}>Calender</h1>
+            <div className="calender-container k-my-8">
+              <Calendar
+                className="calender"
+                value={date}
+                onChange={(e) => setDate(e.value)}
+              />
+              <div className="calender-events">
+                <h2>Events</h2>
+                <p style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
+                  {date.toDateString()}
+                </p>
+              </div>
+            </div>
           </Row>
           <Footer />
         </Container>

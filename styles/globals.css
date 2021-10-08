@@ -7,9 +7,9 @@
 	margin: 0px;
 	padding: 0px;
 	font-family: averta;
-	color: grey;
+	/* color: grey; */
 	box-sizing: border-box;
-	background-color: #f8f9fa;
+	/* background-color: #f8f9fa; */
 }
 
 ::selection {
@@ -171,6 +171,7 @@ ul {
 .dropdown-item div p {
 	font-size: 0.9rem;
 	background-color: white;
+	color: grey;
 }
 
 .right-nav-column {
@@ -204,6 +205,7 @@ ul {
 	font-size: smaller;
 	padding-left: 1.5vw;
 	background-color: rgb(241, 241, 241);
+	color: grey;
 }
 
 button {
@@ -584,10 +586,12 @@ button {
 }
 .info h2{
 	font-size: 2.6rem;
+	color: grey;
 }
 .info p{
 	font-size: 1.3rem;
 	width: 80%;
+	color: grey;
 }
 .get-started{
 	height: 12%;
@@ -605,6 +609,7 @@ button {
 	margin: auto;
 	text-align: center;
 	font-size: 2.4rem;
+	color: grey;
 }
 @media (max-width: 991px){
 	.header{
@@ -836,6 +841,7 @@ button {
 }
 .footer-items ul {
 	padding: 0px;
+	background-color: #f8f9fa;
 }
 .footer-items h5{
 	color: black;
@@ -875,5 +881,56 @@ button {
 		width: 280px;
 		margin: 80px auto;
 		row-gap: 30px;
+	}
+}
+
+/* calender component */
+
+.calender-container{
+	display: flex;
+	flex-direction: row;
+	/* align-items: center; */
+	justify-content: center;
+	width: fit-content;
+	margin: 50px auto;
+	/* border: 2px solid black; */
+}
+
+.calender{
+	padding: 10px;
+	width: 320px;
+}
+.calender-events{
+	background-color: white;
+	width: 350px;
+	display: flex;
+	padding: 20px;
+	flex-direction: column;
+	align-items: center;
+}
+.calender-events h2{
+	font-weight: bold;
+	color: tomato;
+}
+
+@media (max-width: 730px){
+	.calender-container{
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.calender{
+		width: 100%;
+		padding: 0px;
+	}
+	.calender-events{
+		/* width: 105%; */
+		/* padding: 0px; */
+		height: 280px;
+	}
+}
+@media (max-width: 374px){
+	.calender-container{
+		display: none;
 	}
 }
