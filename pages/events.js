@@ -305,7 +305,7 @@ export default function Events() {
               </Row>
             )}
           </Row>
-          <Row style={{margin:"100px auto"}}>
+          <Row style={{margin:"100px auto"}}  className="calender-component">
             <h1 style={{margin:"auto", textAlign:"center", fontSize:"4rem", fontWeight:"bold"}}>Calender</h1>
             <div className="calender-container k-my-8">
               <Calendar

@@ -935,7 +935,7 @@ button {
 	}
 }
 @media (max-width: 374px){
-	.calender-container{
+	.calender-component{
 		display: none;
 	}
 }
