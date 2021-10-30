@@ -9,6 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/core": "10.1.1",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@mui/icons-material": "^5.0.5",
+    "@mui/material": "^5.0.6",
     "@progress/kendo-date-math": "^1.5.3",
     "@progress/kendo-drawing": "^1.14.0",
     "@progress/kendo-licensing": "^1.2.0",

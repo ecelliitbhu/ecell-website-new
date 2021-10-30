@@ -40,7 +40,7 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
               <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
                 <h4>Blog</h4>
@@ -78,7 +78,7 @@ export const Discover = () => {
             <div className="right-nav-column-sub">
               <li>
                 <a className="dropdown-item" href="#">
-                  Mary had a little lamb
+                  Gallery
                 </a>
               </li>
               <li>
@@ -265,6 +265,27 @@ export const Connect = () => {
               </div>
             </a>
           </li>
+          <li className="dropdown-subcontainer">
+            <a className="dropdown-item" href="#">
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>Sponsors and Associates</h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
+
+            <a className="dropdown-item" href="#">
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>Team</h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
     </li>
@@ -292,7 +313,7 @@ export const Learn = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Blog</h4>

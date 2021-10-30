@@ -18,7 +18,7 @@ const Footer = () => {
                 <Link href="">Initiatives</Link>
               </li>
               <li>
-                <Link href="">Blogs</Link>
+                <Link href="https://medium.com/ecelliitbhu">Blogs</Link>
               </li>
               <li>
                 <Link href="">Showcase</Link>
@@ -63,7 +63,7 @@ const Footer = () => {
             <h5>Learn</h5>
             <ul>
               <li>
-                <Link href="">Blog</Link>
+                <Link href="https://medium.com/ecelliitbhu">Blog</Link>
               </li>
               <li>
                 <Link href="">How E-cell Works</Link>
