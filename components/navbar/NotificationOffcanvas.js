@@ -11,7 +11,7 @@ const NotificationOffCanvas = () => {
         // className="btn btn-primary"
         type="button"
         data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight"
+        data-bs-target="#offcanvasNotification"
         aria-controls="offcanvasRight"
       >
         <BsFillBellFill
@@ -21,7 +21,7 @@ const NotificationOffCanvas = () => {
       <div
         className="offcanvas offcanvas-end"
         tabIndex="-1"
-        id="offcanvasRight"
+        id="offcanvasNotification"
         aria-labelledby="offcanvasRightLabel"
       >
         <div className="offcanvas-header">

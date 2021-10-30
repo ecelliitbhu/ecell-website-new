@@ -9,13 +9,13 @@ export const SearchOffcanvas = () => {
         // className="btn btn-primary"
         type="button"
         data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight"
+        data-bs-target="#offcanvasSearch"
         aria-controls="offcanvasRight"
       ></BsSearch>
       <div
         className="offcanvas offcanvas-end"
         tabIndex="-1"
-        id="offcanvasRight"
+        id="offcanvasSearch"
         aria-labelledby="offcanvasRightLabel"
       >
         <div className="offcanvas-header">
