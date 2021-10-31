@@ -3461,7 +3461,7 @@ react-bootstrap@^2.0.0-beta.6:
     uncontrollable "^7.2.1"
     warning "^4.0.3"
 
-react-calendar@^3.4.0:
+react-calendar@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-3.5.0.tgz#ba7bc0b76e389ec91b385f34328f02457998678c"
   integrity sha512-WrDOON59188ciC7jw5YrlM/EgLTWM9TD9dflRWjgd9rlMxPScX8dNG4tJGE+z8d4xaEVccJmHbiYGCGsYdXdxQ==
@@ -3507,6 +3507,11 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-material-ui-calendar@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/react-material-ui-calendar/-/react-material-ui-calendar-0.2.3.tgz#a958b25c88e1f22f4fc4dfe161e801c8d6165835"
+  integrity sha512-GSbVS3Vx+rgcsC2UZmQPw3FjFwU7w3rrls2drJMuqjQ0vxG8nXZ/I5CPUnrcighz1NcOoVA8r94kHffz05jjRg==
 
 react-modern-calendar-datepicker@^3.1.6:
   version "3.1.6"
