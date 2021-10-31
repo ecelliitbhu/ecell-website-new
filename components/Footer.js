@@ -57,6 +57,12 @@ const Footer = () => {
               <li>
                 <Link href="">For Collaborations</Link>
               </li>
+              <li>
+                <Link href="">Sponsors and Associates</Link>
+              </li>
+              <li>
+                <Link href="/team">Team</Link>
+              </li>
             </ul>
           </Col>
           <Col className="footer-items">

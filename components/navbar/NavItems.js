@@ -276,7 +276,7 @@ export const Connect = () => {
               </div>
             </a>
 
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="/team">
               <FcAddressBook fontSize="2.2rem"></FcAddressBook>
               <div>
                 <h4>Team</h4>

@@ -1,8 +1,7 @@
-import Badge from "@mui/material/Badge";
 import { BsFillBellFill } from "react-icons/bs";
-import { Alert } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import Link from "next/link";
-import { Chip } from "@mui/material";
+import { Chip, Badge, Alert } from "@mui/material";
 const NotificationOffCanvas = () => {
   return (
     <>
@@ -35,15 +34,20 @@ const NotificationOffCanvas = () => {
           ></button>
         </div>
         <div className="offcanvas-body">
-        <Link href="https://dare2compete.com/competition/pitch-er-perfect-indian-institute-of-technology-iit-bhu-varanasi-225118">
-          <Alert variant="success">
-            Register for Pitch er perfect
-            <Chip label="Click here!" color="warning" size="small" />
+          <h5>Notifications</h5>
+          <Dropdown.Divider />
+          <Link href="https://dare2compete.com/competition/pitch-er-perfect-indian-institute-of-technology-iit-bhu-varanasi-225118">
+            <Alert icon={false} severity="info">
+              Register for Pitch er perfect{" "}
+              <Chip label="Click here!" color="warning" size="small" />
+            </Alert>
+          </Link>
+          <Alert icon={false} severity="warning">
+            lorea vjhvahj ahjav hjgav
           </Alert>
-        </Link>
-
-          <Alert variant="success">lorea vjhvahj ahjav hjgav</Alert>
-          <Alert variant="success">lorea vjhvahj ahjav hjgav</Alert>
+          <Alert icon={false} severity="success">
+            lorea vjhvahj ahjav hjgav
+          </Alert>
         </div>
       </div>
     </>

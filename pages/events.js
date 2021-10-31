@@ -11,6 +11,7 @@ import "@progress/kendo-theme-default/dist/all.css";
 import { Calendar } from "@progress/kendo-react-dateinputs";
 
 import { useState } from "react";
+
 export default function Events() {
   const [loadMore, setLoadMore] = useState(false);
   const [loadMore1, setLoadMore1] = useState(false);
@@ -305,8 +306,17 @@ export default function Events() {
               </Row>
             )}
           </Row>
-          <Row style={{margin:"100px auto"}}  className="calender-component">
-            <h1 style={{margin:"auto", textAlign:"center", fontSize:"4rem", fontWeight:"bold"}}>Calender</h1>
+          <Row style={{ margin: "100px auto" }} className="calender-component">
+            <h1
+              style={{
+                margin: "auto",
+                textAlign: "center",
+                fontSize: "4rem",
+                fontWeight: "bold",
+              }}
+            >
+              Calender
+            </h1>
             <div className="calender-container k-my-8">
               <Calendar
                 className="calender"
