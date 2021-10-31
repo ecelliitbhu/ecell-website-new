@@ -276,15 +276,17 @@ export const Connect = () => {
               </div>
             </a>
 
-            <a className="dropdown-item" href="/team">
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-              <div>
-                <h4>Team</h4>
-                <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                </p>
-              </div>
-            </a>
+            <Link href="/team">
+              <a className="dropdown-item">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>Team</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
         </ul>
       </div>
