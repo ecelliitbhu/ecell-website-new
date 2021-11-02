@@ -9,14 +9,14 @@ const Collage = () => {
         gap:"50px",
         margin:"70px auto"
       }}
-      className="collage-container"
+      classNameName="collage-container"
     >
       <h1
       >
         Successful ventures from IIT BHU Alumni
       </h1>
-      <div class="container collage">
-        <div class="horizontal">
+      <div className="container collage">
+        <div className="horizontal">
           <img
             src="https://mma.prnewswire.com/media/661882/Indegene_Logo.jpg?p=publish"
             alt=""
@@ -31,7 +31,7 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img src="https://www.xpressbees.com/images/logo.png" alt="" />
         </div>
         <div>
@@ -46,19 +46,19 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
             src="https://cdn.shopify.com/s/files/1/1087/0872/files/logo_qtrove-02_2fc2b590-5683-410c-b10e-95bc3e37839a_150x@2x.png?v=1553489347"
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
             src="https://upload.wikimedia.org/wikipedia/en/5/54/Tynker_logo.png"
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
             src="https://wizikey.com/static/images/home-page/wizikey-logos/wizikey-logo-1.png"
             alt=""
@@ -70,7 +70,7 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="big">
+        <div className="big">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/ZOSTEL_LOGO_PNG_%281%29.png/300px-ZOSTEL_LOGO_PNG_%281%29.png"
             alt=""
@@ -82,7 +82,7 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
             src="https://motion.ac.in/wp-content/uploads/2017/09/my-university-logo.png"
             alt=""
@@ -94,7 +94,7 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="big" >
+        <div className="big" >
           <img src="https://www.cricbuzz.com/images/cb_logo.svg" alt="" style={{ backgroundColor: "#0B9270" }}/>
         </div>
         <div>
@@ -115,13 +115,13 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
             src="https://guaranteecashback.com/wp-content/uploads/2021/02/FirstCry.png"
             alt=""
           />
         </div>
-        <div class="big">
+        <div className="big">
           <img
             src="https://www.zscaler.com/themes/custom/zscaler/logo.svg"
             alt=""
@@ -139,7 +139,7 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
             src="https://img.emg-services.net/institutes/institute34952/logos/logo.png"
             alt=""
@@ -151,19 +151,19 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
-            src="https://mlxxbcvgmiv5.i.optimole.com/yv1DR8M-XP1yYs3g/w:1024/h:231/q:auto/https://bansalclassesodisha.in/wp-content/uploads/2019/09/cropped-transparent-logo-2-1.png"
+            src="https://mlxxbcvgmiv5.i.optimole.com/yv1DR8M-XP1yYs3g/w:1024/h:231/q:auto/https://bansalclassNameesodisha.in/wp-content/uploads/2019/09/cropped-transparent-logo-2-1.png"
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
             src="https://image4.owler.com/logo/alphonso_owler_20190627_061033_large.png"
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img
             src="https://mma.prnewswire.com/media/661882/Indegene_Logo.jpg?p=publish"
             alt=""
@@ -178,7 +178,7 @@ const Collage = () => {
             alt=""
           />
         </div>
-        <div class="horizontal">
+        <div className="horizontal">
           <img src="https://www.xpressbees.com/images/logo.png" alt="" />
         </div>
         <div>
