@@ -91,11 +91,11 @@ const Footer = () => {
         </Row>
         <Row className="social">
             <Link href="https://www.instagram.com/ecelliitbhu/"><FaInstagram className="social-icons"></FaInstagram></Link>
-            <Link href="#"><FaFacebook className="social-icons"></FaFacebook></Link>
-            <Link href="#"><FaLinkedin className="social-icons"></FaLinkedin></Link>
-            <Link href="#"><FaTwitter className="social-icons"></FaTwitter></Link>
-            <Link href="#"><FaYoutube className="social-icons"></FaYoutube></Link>
-            <Link href="#"><FaDiscord className="social-icons"></FaDiscord></Link>
+            <Link href="https://www.facebook.com/ecelliitvaranasi"><FaFacebook className="social-icons"></FaFacebook></Link>
+            <Link href="https://www.linkedin.com/company/ecelliitbhu/"><FaLinkedin className="social-icons"></FaLinkedin></Link>
+            <Link href="https://twitter.com/ecelliitbhu"><FaTwitter className="social-icons"></FaTwitter></Link>
+            <Link href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"><FaYoutube className="social-icons"></FaYoutube></Link>
+            <Link href="https://discord.com/invite/EPm5mfbCKP"><FaDiscord className="social-icons"></FaDiscord></Link>
         </Row>
       </footer>
     </>

@@ -916,6 +916,11 @@ button {
 }
 .social-icons {
   font-size: 30px;
+  cursor: pointer;
+  transition: transform .2s;
+}
+.social-icons:hover {
+  transform: scale(1.5); 
 }
 @media (max-width: 991px) {
   .footer-container {
