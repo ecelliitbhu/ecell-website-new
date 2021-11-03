@@ -3,17 +3,16 @@ import React, { useState } from "react";
 export const Indegene = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -26,17 +25,16 @@ export const Indegene = () => {
 export const Adda247 = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img src="https://www.adda247.com/images/logo-adda247.svg" alt="" />
@@ -46,17 +44,16 @@ export const Adda247 = () => {
 export const Pearl = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -69,17 +66,16 @@ export const Pearl = () => {
 export const XpressBees = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img src="https://www.xpressbees.com/images/logo.png" alt="" />
@@ -89,17 +85,16 @@ export const XpressBees = () => {
 export const Nihilent = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -112,17 +107,16 @@ export const Nihilent = () => {
 export const BiryaniByKilo = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -135,17 +129,16 @@ export const BiryaniByKilo = () => {
 export const Qtrove = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -158,17 +151,16 @@ export const Qtrove = () => {
 export const Tynker = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -181,17 +173,16 @@ export const Tynker = () => {
 export const Wizikey = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -204,17 +195,16 @@ export const Wizikey = () => {
 export const MoveInSync = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -227,17 +217,16 @@ export const MoveInSync = () => {
 export const Zostel = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="big popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="big popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -250,17 +239,16 @@ export const Zostel = () => {
 export const Quona = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -273,17 +261,16 @@ export const Quona = () => {
 export const Motion = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -296,17 +283,16 @@ export const Motion = () => {
 export const Zest = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -319,17 +305,16 @@ export const Zest = () => {
 export const Cricbuzz = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="big popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="big popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -343,17 +328,16 @@ export const Cricbuzz = () => {
 export const One = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -366,17 +350,16 @@ export const One = () => {
 export const Tredence = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -389,17 +372,16 @@ export const Tredence = () => {
 export const Tlabs = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -412,17 +394,16 @@ export const Tlabs = () => {
 export const Firstcry = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -435,17 +416,16 @@ export const Firstcry = () => {
 export const Zscaler = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="big popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="big popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -458,17 +438,16 @@ export const Zscaler = () => {
 export const Portworx = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -481,17 +460,16 @@ export const Portworx = () => {
 export const Excubator = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img src="https://excubator.org/assets/images/exseed-logo.png" alt="" />
@@ -501,17 +479,16 @@ export const Excubator = () => {
 export const Edureka = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -524,17 +501,16 @@ export const Edureka = () => {
 export const Thrillophilia = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -547,17 +523,16 @@ export const Thrillophilia = () => {
 export const BansalClasses = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
@@ -570,17 +545,16 @@ export const BansalClasses = () => {
 export const Alphonso = () => {
   const [popup, setPopup] = useState(false);
   return (
-    <div
-      className="horizontal popup"
-      onClick={() => setPopup(!popup)}
-       
-    >
+    <div className="horizontal popup" onClick={() => setPopup(!popup)}>
       {popup && (
         <span className="popuptext">
-          She reached her goal, exhausted. Even more chilling to her was that
-          the euphoria that she thought she'd feel upon reaching it wasn't
-          there. Something wasn't right. Was this the only feeling she'd have
-          for over five years of hard work?
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </span>
       )}
       <img
