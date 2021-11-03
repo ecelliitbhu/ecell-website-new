@@ -2,7 +2,7 @@ import Head from "next/head";
 // import Image from "next/image";
 // import styles from '../styles/Home.module.css'
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
-import Collage from "../components/Collage";
+import Collage from "../components/collage/Collage";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 // import Vector from "../public/startup-image.png"
