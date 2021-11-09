@@ -5,6 +5,7 @@ import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Collage from "../components/collage/Collage";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
+import Testimonials from "../components/Testimonials";
 // import Vector from "../public/startup-image.png"
 export default function Home() {
   return (
@@ -147,6 +148,10 @@ export default function Home() {
           </Row>
           <Row>
             <Collage />
+          </Row>
+          <Row className="collage-container" style={{ margin: "70px 0px" }}>
+            <h1>What people think about us</h1>
+            <Testimonials></Testimonials>
           </Row>
           <Footer />
         </Container>

@@ -1217,3 +1217,77 @@ button {
     width: 250px;
   }
 }
+
+
+.testimonials{
+  width: 85%;
+  margin: auto;
+}
+
+.test-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  padding:80px 100px 80px 100px;
+}
+
+.test-item h1,h2,p{
+  text-align: center;
+}
+.test-item h1{
+  font-size: 2rem;
+}
+.test-item h2{
+  font-size: 1.5rem;
+}
+.test-item p{
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+.test-item h1,h2{
+  color: #fb6930;
+  font-weight: bold;
+}
+@media screen and (max-width: 650px){
+  .testimonials{
+    width: 100%;
+  }
+  .test-item h1{
+    font-size: 1.2rem;
+  }
+  .test-item h2{
+    font-size: 1rem;
+  }
+  .test-item p{
+    font-size: 0.7rem;
+  }
+  .test-item{
+    padding:50px 20px 50px 20px;
+  }
+}
+
+@media screen and (max-width: 460px)
+{
+  .test-item h1{
+    font-size: 1rem;
+  }
+  .test-item h2{
+    font-size: 0.8rem;
+  }
+  .test-item p{
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 400px){
+  .test-item h1{
+    font-size: 0.8rem;
+  }
+  .test-item h2{
+    font-size: 0.7rem;
+  }
+  .test-item p{
+    font-size: 0.4rem;
+  }
+}
