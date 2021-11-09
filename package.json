@@ -34,9 +34,14 @@
     "@progress/kendo-react-scheduler": "^4.9.0",
     "@progress/kendo-react-treeview": "^4.9.0",
     "@progress/kendo-theme-default": "^4.41.2",
+    "bcrypt": "^5.0.1",
     "bootstrap": "^5.1.0",
     "date-fns": "^2.0.0-beta.5",
+    "dotenv": "^10.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
     "next": "11.1.2",
+    "next-connect": "^0.11.0",
     "react": "17.0.2",
     "react-bootstrap": "^2.0.0-beta.6",
     "react-calendar": "^3.5.0",
@@ -47,6 +52,7 @@
     "react-modern-calendar-datepicker": "^3.1.6"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.5",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2"
   }
