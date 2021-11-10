@@ -1233,7 +1233,7 @@ button {
   padding:80px 100px 80px 100px;
 }
 
-.test-item h1,h2,p{
+.test-item  h1, .test-item  p, .test-item  h2{
   text-align: center;
 }
 .test-item h1{
@@ -1242,11 +1242,11 @@ button {
 .test-item h2{
   font-size: 1.5rem;
 }
-.test-item p{
+.test-item > p{
   font-size: 1.1rem;
   margin-top: 20px;
 }
-.test-item h1,h2{
+.test-item  h1, .test-item  h2{
   color: #fb6930;
   font-weight: bold;
 }
