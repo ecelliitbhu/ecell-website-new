@@ -1,9 +1,11 @@
 import Head from "next/head";
 // import Image from "next/image";
 // import styles from '../styles/Home.module.css'
-import { Container, Row, Col, Button, Card, CardGroup } from "react-bootstrap";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import Collage from "../components/collage/Collage";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
+import Testimonials from "../components/Testimonials";
 // import Vector from "../public/startup-image.png"
 export default function Home() {
   return (
@@ -11,7 +13,7 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <Nav/>
+      <Nav />
       <div>
         <Container fluid className="body">
           <Row className="header">
@@ -143,6 +145,13 @@ export default function Home() {
                 </Card.Body>
               </Card>
             </Row>
+          </Row>
+          <Row>
+            <Collage />
+          </Row>
+          <Row className="collage-container" style={{ margin: "70px 0px" }}>
+            <h1>What people think about us</h1>
+            <Testimonials></Testimonials>
           </Row>
           <Footer />
         </Container>
