@@ -1,43 +1,41 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 import nc from "next-connect";
-import dbConnect from '../../../lib/dbConnect.js'
-import Student from '../../models/Student.js'
-import Response from "../../models/Response.js";
+import dbConnect from '../../lib/dbConnect.js'
+import Startup from '../../models/Startup.js'
 import verifyAdmin from "../../middleware/VerifyAdmin.js";
 import verifyEmail from "../../middleware/VerifyEmail.js"
 import verifyLoggedin from "../../middleware/VerifyLoggedin.js";
-import { appendFile } from "fs";
 
 const router=nc();
 
 // /customSignup
-router.post('/api/student',[verifyLoggedin,verifyEmail],async (req, res)=> {
+router.post('/api/startup',[verifyLoggedin,verifyEmail],async (req, res)=> {
     await dbConnect()
     try {
         let email = req.body.email;
         let password = req.body.password;
         let confirmPassword = req.body.confirmPassword;
-        let firstName = req.body.firstName;
-        let lastName = req.body.lastName;
+        let Name = req.body.Name;
         let phone=req.body.phone;
         let linkedin=req.body.linkedin;
         let github=req.body.github;
         let description=req.body.description;
-        let newUser = new Student({
+        let landingPageLink=req.body.landingPageLink;
+        let newUser = new Startup({
             email: email,
             password: password,
-            firstName: firstName,
-            lastName: lastName,
+            Name: Name,
             phone: phone,
             linkedin: linkedin,
             github: github,
             description: description,
+            landingPageLink:landingPageLink
         });
 
         if (password === confirmPassword) {
             await newUser.save();
-            res.send("User Registered Successfully");
+            res.send("Startup Registered Successfully");
         }
         else {
             res.send('password mismatch');
@@ -48,49 +46,25 @@ router.post('/api/student',[verifyLoggedin,verifyEmail],async (req, res)=> {
     }
 });
 
-router.get("/api/student",[verifyLoggedin,verifyEmail],async (request,response) =>  {
+
+router.get("/api/startup",[verifyLoggedin,verifyEmail],async (request,response) =>  {
     await dbConnect()
     try {
-        let finder=await Student.find()
+        let finder=await Startup.find()
         response.status(201).send(finder)
     } catch (error) {
         response.send("Some error happened")
     }
 })
 
-router.get("/api/student/email/",[verifyLoggedin,verifyEmail],async (request,response) =>  {
-    await dbConnect()
-    try {
-        let finder=await Student.find({
-            email : request.headers.email
-        })
-        response.status(201).send(finder)
-    } catch (error) {
-        response.send("Some error happened")
-    }
-})
-
-router.get("/api/student/id/",[verifyLoggedin,verifyEmail],async (request,response) =>  {
-    await dbConnect()
-    try {
-        let finder=await Student.find({
-            email : request.headers.email,
-            _id: request.body.id
-        })
-        response.status(201).send(finder)
-    } catch (error) {
-        response.send("Some error happened")
-    }
-})
-
-router.put("/api/student",[verifyLoggedin,verifyEmail],async (req,res) =>  {
+router.put("/api/startup",[verifyLoggedin,verifyEmail],async (req,res) =>  {
     await dbConnect()
     try {       
-        let finder=await Student.find({
+        let finder=await Startup.find({
             email : req.headers.email,
         })
         if(finder.length > 0){
-            await Student.updateOne(
+            await Startup.updateOne(
                 {
                     email : req.headers.email,
                 },
@@ -99,11 +73,11 @@ router.put("/api/student",[verifyLoggedin,verifyEmail],async (req,res) =>  {
                         email : req.body.email,
                         password : req.body.password,
                         confirmPassword : req.body.confirmPassword,
-                        firstName : req.body.firstName,
-                        lastName : req.body.lastName,
+                        Name : req.body.Name,
                         phone : req.body.phone,
                         linkedin : req.body.linkedin,
                         github : req.body.github,
+                        landingPageLink: req.body.landingPageLink,
                         description : req.body.description
                     } 
                 }
@@ -115,14 +89,14 @@ router.put("/api/student",[verifyLoggedin,verifyEmail],async (req,res) =>  {
     }
 })
 
-router.delete("/api/student",[verifyLoggedin,verifyEmail],async (req,res) =>  {
+router.delete("/api/startup",[verifyLoggedin,verifyEmail],async (req,res) =>  {
     await dbConnect()
     try {       
-        let finder=await Student.find({
+        let finder=await Startup.find({
             email : req.headers.email,
         })
         if(finder.length > 0){
-            await Student.findOneAndDelete(
+            await Startup.findOneAndDelete(
                 {
                     email : req.headers.email,
                     _id: req.body.id,
@@ -136,31 +110,6 @@ router.delete("/api/student",[verifyLoggedin,verifyEmail],async (req,res) =>  {
     }
 })
 
-
-
-// router.post('/PostInResponse/',async (req,res)=>{
-//     try{
-//         let finder=await Response.find({
-//             companyName: req.headers.companyname
-//         })
-//         if(finder.length > 0){
-//             let temp=finder.Student();
-//             temp.push
-//             await Response.updateOne(
-//                 {
-//                     companyName: req.headers.companyname,
-//                     _id: req.body.id
-//                 },
-//                 {
-//                     $set{
-
-//                     }
-//                 }
-//             )
-//         }
-//     }
-        
-// })
 
 
 export default router
