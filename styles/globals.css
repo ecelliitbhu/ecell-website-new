@@ -613,6 +613,14 @@ button {
   overflow: auto;
   overflow-x: hidden;
   overflow-y: scroll;
+  background: rgba(255, 255, 255, 0.705);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .notification-dropdown-menu {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
 }
 
 /* HEADER */
@@ -862,9 +870,9 @@ button {
   background-color: white;
   cursor: pointer;
   border-radius: 10px;
-  transition: transform .2s; 
+  transition: transform 0.2s;
 }
-.collage img:hover{
+.collage img:hover {
   transform: scale(1.06);
 }
 .horizontal {
@@ -920,7 +928,7 @@ button {
 }
 
 /* Toggle this class - hide and show the popup */
-.popup{
+.popup {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
@@ -928,36 +936,44 @@ button {
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-@media (max-width: 1265px){
-  .popup .popuptext{
+@media (max-width: 1265px) {
+  .popup .popuptext {
     width: 200px;
     font-size: 0.8rem;
   }
 }
-@media (max-width: 950px){
-  .popup .popuptext{
+@media (max-width: 950px) {
+  .popup .popuptext {
     width: 200px;
     font-size: 0.8rem;
     margin-left: -120px;
   }
 }
-@media (max-width: 770px){
-  .popup .popuptext{
+@media (max-width: 770px) {
+  .popup .popuptext {
     width: 180px;
     font-size: 0.8rem;
     margin-left: -100px;
   }
 }
-@media (max-width: 620px){
-  .popup .popuptext{
+@media (max-width: 620px) {
+  .popup .popuptext {
     width: 100px;
     font-size: 0.4rem;
     margin-left: -60px;
@@ -1028,6 +1044,7 @@ button {
 }
 .footer-items ul li a:hover {
   color: rgb(78, 78, 78);
+  text-decoration: underline;
 }
 .social {
   display: grid;
@@ -1218,76 +1235,77 @@ button {
   }
 }
 
-
-.testimonials{
+.testimonials {
   width: 85%;
   margin: auto;
 }
 
-.test-item{
+.test-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
   width: 100%;
-  padding:80px 100px 80px 100px;
+  padding: 80px 100px 80px 100px;
 }
 
-.test-item  h1, .test-item  p, .test-item  h2{
+.test-item h1,
+.test-item p,
+.test-item h2 {
   text-align: center;
 }
-.test-item h1{
+.test-item h1 {
   font-size: 2rem;
 }
-.test-item h2{
+.test-item h2 {
   font-size: 1.5rem;
 }
-.test-item > p{
+.test-item > p {
   font-size: 1.1rem;
   margin-top: 20px;
 }
-.test-item  h1, .test-item  h2{
+.test-item h1,
+.test-item h2 {
   color: #fb6930;
   font-weight: bold;
 }
-@media screen and (max-width: 650px){
-  .testimonials{
+@media screen and (max-width: 650px) {
+  .testimonials {
     width: 100%;
   }
-  .test-item h1{
+  .test-item h1 {
     font-size: 1.2rem;
   }
-  .test-item h2{
+  .test-item h2 {
     font-size: 1rem;
   }
-  .test-item p{
+  .test-item p {
     font-size: 0.7rem;
   }
-  .test-item{
-    padding:50px 20px 50px 20px;
+  .test-item {
+    padding: 50px 20px 50px 20px;
   }
 }
 
-@media screen and (max-width: 460px)
-{
-  .test-item h1{
+@media screen and (max-width: 460px) {
+  .test-item h1 {
     font-size: 1rem;
   }
-  .test-item h2{
+  .test-item h2 {
     font-size: 0.8rem;
   }
-  .test-item p{
+  .test-item p {
     font-size: 0.5rem;
   }
 }
-@media screen and (max-width: 400px){
-  .test-item h1{
+@media screen and (max-width: 400px) {
+  .test-item h1 {
     font-size: 0.8rem;
   }
-  .test-item h2{
+  .test-item h2 {
     font-size: 0.7rem;
   }
-  .test-item p{
+  .test-item p {
     font-size: 0.4rem;
   }
 }

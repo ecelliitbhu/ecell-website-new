@@ -1,7 +1,14 @@
 import { Row, Col } from "react-bootstrap";
 import Link from "next/link";
 
-import {FaInstagram,FaFacebook,FaLinkedin,FaTwitter,FaYoutube,FaDiscord} from 'react-icons/fa'
+import {
+  FaInstagram,
+  FaFacebook,
+  FaLinkedin,
+  FaTwitter,
+  FaYoutube,
+  FaDiscord,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -39,6 +46,9 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="">IIT BHU Projects portal</Link>
+              </li>
+              <li>
+                <Link href="">Campus Ambassador program</Link>
               </li>
             </ul>
           </Col>
@@ -90,12 +100,24 @@ const Footer = () => {
           </Col>
         </Row>
         <Row className="social">
-            <Link href="https://www.instagram.com/ecelliitbhu/"><FaInstagram className="social-icons"></FaInstagram></Link>
-            <Link href="https://www.facebook.com/ecelliitvaranasi"><FaFacebook className="social-icons"></FaFacebook></Link>
-            <Link href="https://www.linkedin.com/company/ecelliitbhu/"><FaLinkedin className="social-icons"></FaLinkedin></Link>
-            <Link href="https://twitter.com/ecelliitbhu"><FaTwitter className="social-icons"></FaTwitter></Link>
-            <Link href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"><FaYoutube className="social-icons"></FaYoutube></Link>
-            <Link href="https://discord.com/invite/EPm5mfbCKP"><FaDiscord className="social-icons"></FaDiscord></Link>
+          <Link href="https://www.instagram.com/ecelliitbhu/">
+            <FaInstagram className="social-icons"></FaInstagram>
+          </Link>
+          <Link href="https://www.facebook.com/ecelliitvaranasi">
+            <FaFacebook className="social-icons"></FaFacebook>
+          </Link>
+          <Link href="https://www.linkedin.com/company/ecelliitbhu/">
+            <FaLinkedin className="social-icons"></FaLinkedin>
+          </Link>
+          <Link href="https://twitter.com/ecelliitbhu">
+            <FaTwitter className="social-icons"></FaTwitter>
+          </Link>
+          <Link href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ">
+            <FaYoutube className="social-icons"></FaYoutube>
+          </Link>
+          <Link href="https://discord.com/invite/EPm5mfbCKP">
+            <FaDiscord className="social-icons"></FaDiscord>
+          </Link>
         </Row>
       </footer>
     </>

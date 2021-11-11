@@ -171,32 +171,17 @@ export const Initiatives = () => {
               </div>
             </a>
           </li>
-          <ul className="dropdown-subcontainer right-nav-column">
-            <div className="right-nav-column-sub">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Mary had a little lamb
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Baba black sheep
-                </a>
-              </li>
-            </div>
-            <div className="right-nav-column-sub">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Jonny Jonny
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Humpty dumpty sat on a wall
-                </a>
-              </li>
-            </div>
-          </ul>
+          <li className="dropdown-subcontainer">
+            <a className="dropdown-item" href="#">
+              <FcApproval fontSize="2.2rem"></FcApproval>
+              <div>
+                <h4>Campus Ambassador program</h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
     </li>
