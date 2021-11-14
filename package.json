@@ -46,6 +46,7 @@
     "react-icons": "^4.2.0",
     "react-modern-calendar-datepicker": "^3.1.6",
     "react-photo-collage": "^1.0.9",
+    "react-photo-gallery": "^8.0.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
