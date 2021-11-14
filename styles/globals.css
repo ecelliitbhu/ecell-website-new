@@ -1026,6 +1026,11 @@ button {
   border-top: 1px solid rgb(182, 182, 182);
   height: 100%;
 }
+.contact-us p,
+h2 {
+  margin: 0px;
+  font-weight: bold;
+}
 .footer-container {
   width: 80%;
   margin: 70px auto;

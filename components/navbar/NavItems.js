@@ -77,7 +77,7 @@ export const Discover = () => {
           <ul className="dropdown-subcontainer right-nav-column">
             <div className="right-nav-column-sub">
               <li>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="/gallery">
                   Gallery
                 </a>
               </li>
@@ -176,6 +176,15 @@ export const Initiatives = () => {
               <FcApproval fontSize="2.2rem"></FcApproval>
               <div>
                 <h4>Campus Ambassador program</h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
+            <a className="dropdown-item" href="#">
+              <FcApproval fontSize="2.2rem"></FcApproval>
+              <div>
+                <h4>Mentor Forum</h4>
                 <p>
                   Lorem ipsum dolor sit <br /> amet consectetur adipisicing
                 </p>

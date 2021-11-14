@@ -14,9 +14,64 @@ const Footer = () => {
   return (
     <>
       <footer className="footer">
+        <Row>
+          <Col
+            style={{
+              // border: "1px solid #EEE",
+              margin: "auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              className="contact-us"
+              style={{
+                // border: "1px solid #EEE",
+                margin: "50px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <h2>Contact Us</h2>
+              <p>Indian Institute of Technology (Banaras Hindu University)</p>
+              <p>Varanasi, India</p>
+              <p>221005</p>
+              <Link href="mailto:ecell@iitbhu.ac.in">
+                Mail us @ ecell@iitbhu.ac.in
+              </Link>
+              <p>2021 E-Cell IIT (BHU) Varanasi | All Rights Reserved</p>
+            </div>
+          </Col>
+          <Col
+            style={{
+              // border: "1px solid #EEE",
+              background: "#f8f9fa",
+              margin: "auto",
+              display: "flex",
+              alignItems: "center",
+              // justifyContent: "center",
+            }}
+          >
+            <iframe
+              src="https://ecelliitbhu.substack.com/embed"
+              width="650"
+              height="250"
+              style={{
+                // border: "1px solid #EEE",
+                background: "#f8f9fa",
+                margin: "auto",
+              }}
+              // frameborder="0"
+              scrolling="no"
+            ></iframe>
+          </Col>
+        </Row>
+
         <Row className="footer-container">
           <Col className="footer-items">
-            <h5>Dicover</h5>
+            <h5>Discover</h5>
             <ul>
               <li>
                 <Link href="/events">Events</Link>
