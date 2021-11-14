@@ -77,9 +77,9 @@ export const Discover = () => {
           <ul className="dropdown-subcontainer right-nav-column">
             <div className="right-nav-column-sub">
               <li>
-                <a className="dropdown-item" href="/gallery">
+                <Link className="dropdown-item" href="/gallery">
                   Gallery
-                </a>
+                </Link>
               </li>
               <li>
                 <a className="dropdown-item" href="#">
