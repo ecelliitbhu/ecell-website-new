@@ -1087,27 +1087,6 @@ h2 {
 }
 
 /* calender component */
-.k-calendar-view{
-  margin: 0px !important;
-  height: 400px !important;
-  width: 45vw !important;
-}
-
-.k-calendar-header{
-  width : 40vw !important;
-}
-
-.k-calendar-table{
-  width : 37vw !important;
-}
-
-.k-content{
-  width : 37vw !important;
-}
-
-.k-link{
-  width: auto !important;
-}
 
 .calender-container {
   display: flex;
@@ -1119,16 +1098,6 @@ h2 {
   /* border: 2px solid black; */
 }
 
-.k-button{
-  margin: 0px;
-}
-
-.calender {
-  padding: 10px;
-  width: 45vw;
-  height: 400px;
-}
-
 .calender-events {
   background-color: white;
   width: 350px;
@@ -1136,10 +1105,6 @@ h2 {
   padding: 20px;
   flex-direction: column;
   align-items: center;
-}
-.calender-events h2 {
-  font-weight: bold;
-  color: tomato;
 }
 
 @media (max-width: 730px) {
