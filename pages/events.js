@@ -19,18 +19,17 @@ export default function Events() {
   const [loadMore1, setLoadMore1] = useState(false);
   const [date, setDate] = useState(new Date());
 
-  const customCell = (props) => {
-    const style = props.isWeekend
-      ? {
-          opacity: ".7",
-        }
-      : {
-          height: "60px",
-          width: "7vw !important",
-          fontSize: "20px",
-        };
+  const customCell = props => {
+    const style = props.isWeekend ? {
+      opacity: '.7'
+    } : {
+      height : "60px",
+      width : "7vw !important",
+      fontSize : "20px"
+    };
     return <CalendarCell {...props} style={style} />;
   };
+  
 
   return (
     <>
@@ -334,12 +333,13 @@ export default function Events() {
               Calender
             </h1>
             <div className="calender-container k-my-8">
-              <Calendar
-                className="calender"
-                value={date}
-                onChange={(e) => setDate(e.value)}
-                cell={customCell}
-              />
+
+                <Calendar
+                  className="calender"
+                  value={date}
+                  onChange={(e) => setDate(e.value)}
+                  cell={customCell}
+                />
               <div className="calender-events">
                 <h2>Events</h2>
                 <p style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
