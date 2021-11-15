@@ -1,42 +1,48 @@
-import verifyLoggedin from '../../../middleware/VerifyLoggedin.js';
-import Opportunity from '../../../models/Opportunity.js';
-import Student from '../../../models/Student.js';
-import Response from '../../../models/Response.js';
+import verifyLoggedin from "../../../middleware/VerifyLoggedin.js";
+import Opportunity from "../../../models/Opportunity.js";
+import Student from "../../../models/Student.js";
+import Response from "../../../models/Response.js";
 import nc from "next-connect";
-import dbConnect from '../../../lib/dbConnect.js'
+import dbConnect from "../../../lib/dbConnect.js";
 
-const router=nc();
+const router = nc();
 
-router.post('/api/response',[verifyLoggedin],async (req, res)=> {
-    await dbConnect()
-    try{
-        Student.findOne({
-            email : req.headers.email
-        },async function(err,student){
-            Opportunity.findOne({
-                _id : req.body.id
-            },async function(err,opportunity){
-                // console.log("opportunity=",opportunity);
-                let newResponse = new Response({
-                    submission : {
-                        originalFileName : req.body.originalFileName,
-                        uploadedFileName : req.body.uploadedFileName
-                    },
-                    Student : student
-                })
-                // console.log("new Response=",newResponse);
-                newResponse.save()
-                opportunity.responses.push(newResponse)
-                opportunity.save();
-                student.Postbystudent.push(opportunity);
-                student.save();
-            })
-        })
-        res.send("Posted Successfully")
-    }catch(err){
-        res.send(err)
-    }
-})
+router.post("/api/response", [verifyLoggedin], async (req, res) => {
+  await dbConnect();
+  try {
+    Student.findOne(
+      {
+        email: req.headers.email,
+      },
+      async function (err, student) {
+        Opportunity.findOne(
+          {
+            _id: req.body.id,
+          },
+          async function (err, opportunity) {
+            // console.log("opportunity=",opportunity);
+            let newResponse = new Response({
+              submission: {
+                originalFileName: req.body.originalFileName,
+                uploadedFileName: req.body.uploadedFileName,
+              },
+              Student: student,
+            });
+            // console.log("new Response=",newResponse);
+            newResponse.save();
+            opportunity.responses.push(newResponse);
+            opportunity.save();
+            student.Postbystudent.push(opportunity);
+            student.save();
+          }
+        );
+      }
+    );
+    res.send("Posted Successfully");
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 // {
 //     "googleId": "Sample Dummy",
@@ -54,7 +60,7 @@ router.post('/api/response',[verifyLoggedin],async (req, res)=> {
 //        "uploadedFileName": "jjlhl",
 //        "PostBystudent": [],
 //        "landingPageLink": "www.sachinKaStartup.com",
-   
+
 //        "linkedinurl": "nurl",
 //        "websiteurl": "wurl",
 //        "opportunityDescription": "opdescription",
@@ -83,4 +89,4 @@ router.post('/api/response',[verifyLoggedin],async (req, res)=> {
 //     "PostBystudent": [],
 //     "landingPageLink": "www.sachinKaStartup.com"
 
-export default router
+export default router;

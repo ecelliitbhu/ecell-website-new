@@ -9,41 +9,40 @@ import Student from "../../../models/Student.js";
 import Startup from "../../../models/Startup.js";
 import verifyAdmin from "../../../middleware/VerifyAdmin.js";
 import nc from "next-connect";
-import dbConnect from '../../../lib/dbConnect.js'
+import dbConnect from "../../../lib/dbConnect.js";
 
-const router=nc();
+const router = nc();
 
-router.post('/api/normalAdmin/unregistered/',[verifyLoggedin,verifyGammaAdmin],async (req, res)=> {
-    await dbConnect()
+router.post(
+  "/api/normalAdmin/unregistered/",
+  [verifyLoggedin, verifyGammaAdmin],
+  async (req, res) => {
+    await dbConnect();
     try {
-        let finder1=await Student.find({
-            email : req.headers.email
-        })
-    
-        let finder2=await NormalAdmin.find({
-            email : req.headers.email
-        })
+      let finder1 = await Student.find({
+        email: req.headers.email,
+      });
 
-        if(finder1.length == 0 && finder2.length == 0){
-            NormalAdmin.create({
-                name : req.body.name,
-                email : req.body.email,
-                password : req.body.password,
-                confirmPassword : req.body.confirmPassword,
-                postByNormalAdmin : [
-                    new Blog({}),
-                    new Schemes({}),
-                    new Startup({})
-                ]
-            })
-            res.status(201).send("Email given admin rights")
-        }else{
-            res.status(401).send("User exists")
-        }
+      let finder2 = await NormalAdmin.find({
+        email: req.headers.email,
+      });
 
+      if (finder1.length == 0 && finder2.length == 0) {
+        NormalAdmin.create({
+          name: req.body.name,
+          email: req.body.email,
+          password: req.body.password,
+          confirmPassword: req.body.confirmPassword,
+          postByNormalAdmin: [new Blog({}), new Schemes({}), new Startup({})],
+        });
+        res.status(201).send("Email given admin rights");
+      } else {
+        res.status(401).send("User exists");
+      }
     } catch (error) {
-        res.send(error);
+      res.send(error);
     }
-});
+  }
+);
 
-export default router
+export default router;

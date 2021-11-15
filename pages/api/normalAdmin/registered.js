@@ -9,35 +9,34 @@ import Student from "../../../models/Student.js";
 import Startup from "../../../models/Startup.js";
 import verifyAdmin from "../../../middleware/VerifyAdmin.js";
 import nc from "next-connect";
-import dbConnect from '../../../lib/dbConnect.js'
+import dbConnect from "../../../lib/dbConnect.js";
 
-const router=nc();
+const router = nc();
 
 // /customSignup
-router.post('/api/normalAdmin/registered/',[verifyLoggedin,verifyGammaAdmin],async (req, res)=> {
-    await dbConnect()
+router.post(
+  "/api/normalAdmin/registered/",
+  [verifyLoggedin, verifyGammaAdmin],
+  async (req, res) => {
+    await dbConnect();
     try {
-        NormalAdmin.create({
-            name : req.body.name,
-            email : req.body.email,
-            password : req.body.password,
-            confirmPassword : req.body.confirmPassword,
-            postByNormalAdmin : [
-                new Blog({}),
-                new Schemes({}),
-                new Startup({})
-            ]
-        })
+      NormalAdmin.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        confirmPassword: req.body.confirmPassword,
+        postByNormalAdmin: [new Blog({}), new Schemes({}), new Startup({})],
+      });
 
-        Student.findByIdAndDelete({
-            email : req.body.email
-        })
+      Student.findByIdAndDelete({
+        email: req.body.email,
+      });
 
-        res.status(201).send("Admin added successfully")
-
+      res.status(201).send("Admin added successfully");
     } catch (error) {
-        res.send(error);
+      res.send(error);
     }
-});
+  }
+);
 
-export default router
+export default router;
