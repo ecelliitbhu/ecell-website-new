@@ -34,6 +34,7 @@
     "@progress/kendo-react-scheduler": "^4.9.0",
     "@progress/kendo-react-treeview": "^4.9.0",
     "@progress/kendo-theme-default": "^4.41.2",
+    "aws-sdk": "^2.1028.0",
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.1.0",
     "date-fns": "^2.0.0-beta.5",
