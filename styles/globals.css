@@ -1263,7 +1263,7 @@ h2 {
 }
 .test-item h1,
 .test-item h2 {
-  color: #fb6930;
+  color: #fa8231;
   font-weight: bold;
 }
 @media screen and (max-width: 650px) {
