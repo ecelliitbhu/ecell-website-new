@@ -358,17 +358,21 @@ export const Learn = () => {
                 <p>Learn from the Entrepreneurship Experts</p>
               </div>
             </a>
-
-            <a className="dropdown-item" href="#">
-              <FcServices fontSize="2.2rem"></FcServices>
-              <div>
-                <h4>Forum</h4>
-                <p>
-                  Where those who work with Lottie <br />
-                  can come together
-                </p>
-              </div>
-            </a>
+            <Link href="https://ecelliitbhu.substack.com/">
+              <a
+                className="dropdown-item"
+                href="https://ecelliitbhu.substack.com/"
+              >
+                <FcServices fontSize="2.2rem"></FcServices>
+                <div>
+                  <h4>Newsletter Archives</h4>
+                  <p>
+                    Where those who work with Lottie <br />
+                    can come together
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
         </ul>
       </div>
