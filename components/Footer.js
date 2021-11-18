@@ -9,6 +9,9 @@ import {
   FaYoutube,
   FaDiscord,
 } from "react-icons/fa";
+import { AiTwotoneMail } from "react-icons/ai";
+import { MdLocationOn } from "react-icons/md";
+import { BsFillTelephoneOutboundFill } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -35,13 +38,41 @@ const Footer = () => {
               }}
             >
               <h2>Contact Us</h2>
-              <p>Indian Institute of Technology (Banaras Hindu University)</p>
-              <p>Varanasi, India</p>
-              <p>221005</p>
-              <Link href="mailto:ecell@iitbhu.ac.in">
-                Mail us @ ecell@iitbhu.ac.in
-              </Link>
-              <p>2021 E-Cell IIT (BHU) Varanasi | All Rights Reserved</p>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <MdLocationOn className="contact-icons" />
+                <div>
+                  <p>
+                    Indian Institute of Technology (Banaras Hindu University)
+                    <br />
+                    Varanasi, India
+                    <br />
+                    221005
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <AiTwotoneMail className="contact-icons" />
+                <Link href="mailto:ecell@iitbhu.ac.in">
+                  Mail us @ ecell@iitbhu.ac.in
+                </Link>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <BsFillTelephoneOutboundFill className="contact-icons" />
+                <p>+91 9451279308</p>
+              </div>
             </div>
           </Col>
           <Col

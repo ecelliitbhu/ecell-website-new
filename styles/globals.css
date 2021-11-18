@@ -1057,10 +1057,12 @@ h2 {
   width: 360px;
   margin: 80px auto;
 }
-.social-icons {
+.social-icons,
+.contact-icons {
   font-size: 30px;
   cursor: pointer;
   transition: transform 0.2s;
+  margin: 10px;
 }
 .social-icons:hover {
   transform: scale(1.5);
