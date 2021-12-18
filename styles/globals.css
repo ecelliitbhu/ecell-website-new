@@ -8,6 +8,7 @@
   padding: 0px;
   font-family: averta;
   /* color: grey; */
+
   box-sizing: border-box;
   /* background-color: #f8f9fa; */
 }
@@ -1082,25 +1083,25 @@ button {
 }
 
 /* calender component */
-.k-calendar-view{
+.k-calendar-view {
   margin: 0px !important;
   height: 400px !important;
   width: 45vw !important;
 }
 
-.k-calendar-header{
-  width : 40vw !important;
+.k-calendar-header {
+  width: 40vw !important;
 }
 
-.k-calendar-table{
-  width : 37vw !important;
+.k-calendar-table {
+  width: 37vw !important;
 }
 
-.k-content{
-  width : 37vw !important;
+.k-content {
+  width: 37vw !important;
 }
 
-.k-link{
+.k-link {
   width: auto !important;
 }
 
@@ -1114,7 +1115,7 @@ button {
   /* border: 2px solid black; */
 }
 
-.k-button{
+.k-button {
   margin: 0px;
 }
 
