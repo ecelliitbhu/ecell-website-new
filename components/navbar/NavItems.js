@@ -209,57 +209,67 @@ export const Connect = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-              <div>
-                <h4>For Students</h4>
-                <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                </p>
-              </div>
-            </a>
+            <Link href="/contacts">
+              <a className="dropdown-item" href="#">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>For VCs, Angel Investors and firms</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
 
-            <a className="dropdown-item" href="#">
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-              <div>
-                <h4>For VCs, Angel Investors and firms</h4>
-                <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                </p>
-              </div>
-            </a>
+            <Link href="/contacts">
+              <a className="dropdown-item" href="#">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>For VCs, Angel Investors and firms</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-              <div>
-                <h4>For Startups</h4>
-                <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                </p>
-              </div>
-            </a>
+            <Link href="/contacts">
+              <a className="dropdown-item" href="#">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>For Startups</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
 
-            <a className="dropdown-item" href="#">
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-              <div>
-                <h4>For Collaborations</h4>
-                <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                </p>
-              </div>
-            </a>
+            <Link href="/contacts">
+              <a className="dropdown-item" href="#">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>For Collaborations</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-              <div>
-                <h4>Sponsors and Associates</h4>
-                <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                </p>
-              </div>
-            </a>
+            <Link href="/contacts">
+              <a className="dropdown-item">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>Sponsors and Associates</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
 
             <Link href="/team">
               <a className="dropdown-item">

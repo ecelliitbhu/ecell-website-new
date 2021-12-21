@@ -1,7 +1,17 @@
+import Link from "next/link";
 import Head from "next/head";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
+import {
+  FaDiscord,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
+import ContactForm from "../components/ContactForm";
 export default function Contacts() {
   return (
     <>
@@ -17,7 +27,7 @@ export default function Contacts() {
           >
             <h1
               style={{
-                margin: "10px auto",
+                margin: "50px auto 0px auto",
                 textAlign: "center",
                 fontSize: "4rem",
                 color: "black",
@@ -37,6 +47,7 @@ export default function Contacts() {
                 textAlign: "center",
                 fontSize: "1.5rem",
                 color: "black",
+                width: "90%",
               }}
             >
               There are five kinds of people who can help you succeed in
@@ -45,21 +56,40 @@ export default function Contacts() {
               supports you. Reach us out, we are always here to help you out..
             </p>
           </Row>
-          <Row className="contact-container">
+          <Row
+            className="contact-container"
+            style={{ height: "fit-content", marginBottom: "50px", gap: "20px" }}
+          >
             <Col
               className="contact-item"
-              style={{ display: "flex", flexDirection: "column" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
               <h2
                 style={{
                   margin: "auto",
                   textAlign: "center",
                   fontSize: "1.5rem",
-                  color: "black",
+                  color: "#FA8132",
                 }}
               >
                 Email
               </h2>
+              <p
+                href="mailto:ecell@iitbhu.ac.in"
+                style={{
+                  margin: "auto",
+                  textAlign: "center",
+                  fontSize: "1.2rem",
+                  color: "black",
+                }}
+              >
+                <Link href="mailto:ecell@iitbhu.ac.in">ecell@iitbhu.ac.in</Link>
+              </p>
             </Col>
             <Col
               className="contact-item"
@@ -70,11 +100,21 @@ export default function Contacts() {
                   margin: "auto",
                   textAlign: "center",
                   fontSize: "1.5rem",
-                  color: "black",
+                  color: "#FA8132",
                 }}
               >
                 Phone Number
               </h2>
+              <p
+                style={{
+                  margin: "auto",
+                  textAlign: "center",
+                  fontSize: "1.2rem",
+                  color: "black",
+                }}
+              >
+                +91 9451279308
+              </p>
             </Col>
             <Col
               className="contact-item"
@@ -85,12 +125,116 @@ export default function Contacts() {
                   margin: "auto",
                   textAlign: "center",
                   fontSize: "1.5rem",
-                  color: "black",
+                  color: "#FA8132",
                 }}
               >
                 Social Media
               </h2>
+              <Row
+                className="social"
+                style={{
+                  margin: "0px auto",
+                  gap: "0px",
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
+                  width: "280px",
+                }}
+              >
+                <Link href="https://www.instagram.com/ecelliitbhu/">
+                  <FaInstagram
+                    className="social-icons"
+                    style={
+                      {
+                        // margin: "2px",
+                        // fontSize: "1.5rem",
+                      }
+                    }
+                  ></FaInstagram>
+                </Link>
+                <Link href="https://www.facebook.com/ecelliitvaranasi">
+                  <FaFacebook
+                    className="social-icons"
+                    style={
+                      {
+                        // margin: "2px",
+                        // fontSize: "1.5rem",
+                      }
+                    }
+                  ></FaFacebook>
+                </Link>
+                <Link href="https://www.linkedin.com/company/ecelliitbhu/">
+                  <FaLinkedin
+                    className="social-icons"
+                    style={
+                      {
+                        // margin: "2px",
+                        // fontSize: "1.5rem",
+                      }
+                    }
+                  ></FaLinkedin>
+                </Link>
+                <Link href="https://twitter.com/ecelliitbhu">
+                  <FaTwitter
+                    className="social-icons"
+                    style={
+                      {
+                        // margin: "2px",
+                        // fontSize: "1.5rem",
+                      }
+                    }
+                  ></FaTwitter>
+                </Link>
+                <Link href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ">
+                  <FaYoutube
+                    className="social-icons"
+                    style={
+                      {
+                        // margin: "2px",
+                        // fontSize: "1.5rem",
+                      }
+                    }
+                  ></FaYoutube>
+                </Link>
+                <Link href="https://discord.com/invite/EPm5mfbCKP">
+                  <FaDiscord
+                    className="social-icons"
+                    style={
+                      {
+                        // margin: "2px",
+                        // fontSize: "1.5rem",
+                      }
+                    }
+                  ></FaDiscord>
+                </Link>
+              </Row>
             </Col>
+          </Row>
+          <Row>
+            <ContactForm></ContactForm>
+          </Row>
+          <Row style={{ marginBottom: "50px" }}>
+            <h1
+              style={{
+                margin: "10px auto",
+                textAlign: "center",
+                fontSize: "2rem",
+                color: "#FA8132",
+                fontWeight: "bold",
+              }}
+            >
+              Address
+            </h1>
+            <p
+              style={{
+                margin: "auto",
+                textAlign: "center",
+                fontSize: "1.2rem",
+                color: "black",
+              }}
+            >
+              Indian Institute of Technology (Banaras Hindu University),
+              Varanasi, India, PIN:221005
+            </p>
           </Row>
           <Footer />
         </Container>
