@@ -2,6 +2,7 @@ import { Button, Drawer, IconButton } from "@mui/material";
 import React, { useState } from "react";
 import { Col, Offcanvas, Row } from "react-bootstrap";
 import { FaFilter } from "react-icons/fa";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import CloseIcon from "@mui/icons-material/Close";
 const FilterOffcanvas = () => {
   const [state, setState] = React.useState({
@@ -35,7 +36,7 @@ const FilterOffcanvas = () => {
       >
         <Col class="filter-container" style={{ padding: "30px" }}>
           <Row>
-            <CloseIcon style={{position:"relative", left:"140px", marginBottom:"20px", fontSize:"2rem"}} onClick={toggleDrawer("left", false)}></CloseIcon>
+            <IoIosCloseCircleOutline style={{position:"relative", left:"130px", marginBottom:"20px", fontSize:"35px"}} onClick={toggleDrawer("left", false)}></IoIosCloseCircleOutline>
 
             <h2>
               Filter out the results{" "}
