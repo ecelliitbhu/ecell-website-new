@@ -55,6 +55,10 @@ const startupSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    avatar: {
+      data: Buffer,
+      contentType: String,
+    },
   },
   { collections: "allStartups" }
 );
@@ -69,3 +73,4 @@ export default mongoose.models.Startup ||
 // Founders: {personname:linkedinurl, person2:linkedinurl}
 // Current Status: { Current : Graduate : Seed Support : Established Startups}
 // Sector: { Healthtech/Fintech }
+// Avatar
