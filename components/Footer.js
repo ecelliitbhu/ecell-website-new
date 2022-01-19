@@ -9,14 +9,100 @@ import {
   FaYoutube,
   FaDiscord,
 } from "react-icons/fa";
+import { AiTwotoneMail } from "react-icons/ai";
+import { MdLocationOn } from "react-icons/md";
+import { BsFillTelephoneOutboundFill } from "react-icons/bs";
 
 const Footer = () => {
   return (
     <>
       <footer className="footer">
+        <Row>
+          <Col
+            style={{
+              // border: "1px solid #EEE",
+              margin: "auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              className="contact-us"
+              style={{
+                // border: "1px solid #EEE",
+                margin: "50px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <h2>Contact Us</h2>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <MdLocationOn className="contact-icons" />
+                <div>
+                  <p>
+                    Indian Institute of Technology (Banaras Hindu University)
+                    <br />
+                    Varanasi, India
+                    <br />
+                    221005
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <AiTwotoneMail className="contact-icons" />
+                <Link href="mailto:ecell@iitbhu.ac.in">
+                  Mail us @ ecell@iitbhu.ac.in
+                </Link>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <BsFillTelephoneOutboundFill className="contact-icons" />
+                <p>+91 9451279308</p>
+              </div>
+            </div>
+          </Col>
+          <Col
+            style={{
+              // border: "1px solid #EEE",
+              background: "#f8f9fa",
+              margin: "auto",
+              display: "flex",
+              alignItems: "center",
+              // justifyContent: "center",
+            }}
+          >
+            <iframe
+              src="https://ecelliitbhu.substack.com/embed"
+              width="650"
+              height="250"
+              style={{
+                // border: "1px solid #EEE",
+                background: "#f8f9fa",
+                margin: "auto",
+              }}
+              // frameborder="0"
+              scrolling="no"
+            ></iframe>
+          </Col>
+        </Row>
+
         <Row className="footer-container">
           <Col className="footer-items">
-            <h5>Dicover</h5>
+            <h5>Discover</h5>
             <ul>
               <li>
                 <Link href="/events">Events</Link>

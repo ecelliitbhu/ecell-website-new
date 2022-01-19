@@ -7,10 +7,11 @@ import casex1 from "../public/casex1.png";
 import casex2 from "../public/casex2.png";
 import casex3 from "../public/casex3.png";
 import Nav from "../components/navbar/NavLayout";
-import "@progress/kendo-theme-default/dist/all.css";
-import { Calendar, CalendarCell } from "@progress/kendo-react-dateinputs";
+// import "@progress/kendo-theme-default/dist/all.css";
+// import { Calendar, CalendarCell } from "@progress/kendo-react-dateinputs";
 // import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
+import Calender from "../components/Calender";
 
 import { useState } from "react";
 
@@ -18,19 +19,6 @@ export default function Events() {
   const [loadMore, setLoadMore] = useState(false);
   const [loadMore1, setLoadMore1] = useState(false);
   const [date, setDate] = useState(new Date());
-
-  const customCell = (props) => {
-    const style = props.isWeekend
-      ? {
-          opacity: ".7",
-        }
-      : {
-          height: "60px",
-          width: "7vw !important",
-          fontSize: "20px",
-        };
-    return <CalendarCell {...props} style={style} />;
-  };
 
   return (
     <>
@@ -333,20 +321,7 @@ export default function Events() {
             >
               Calender
             </h1>
-            <div className="calender-container k-my-8">
-              <Calendar
-                className="calender"
-                value={date}
-                onChange={(e) => setDate(e.value)}
-                cell={customCell}
-              />
-              <div className="calender-events">
-                <h2>Events</h2>
-                <p style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
-                  {date.toDateString()}
-                </p>
-              </div>
-            </div>
+            <Calender />
           </Row>
           <Footer />
         </Container>

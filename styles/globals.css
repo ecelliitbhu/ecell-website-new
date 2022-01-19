@@ -1026,6 +1026,11 @@ button {
   border-top: 1px solid rgb(182, 182, 182);
   height: 100%;
 }
+.contact-us p,
+h2 {
+  margin: 0px;
+  font-weight: bold;
+}
 .footer-container {
   width: 80%;
   margin: 70px auto;
@@ -1052,10 +1057,12 @@ button {
   width: 360px;
   margin: 80px auto;
 }
-.social-icons {
+.social-icons,
+.contact-icons {
   font-size: 30px;
   cursor: pointer;
   transition: transform 0.2s;
+  margin: 10px;
 }
 .social-icons:hover {
   transform: scale(1.5);
@@ -1082,27 +1089,6 @@ button {
 }
 
 /* calender component */
-.k-calendar-view{
-  margin: 0px !important;
-  height: 400px !important;
-  width: 45vw !important;
-}
-
-.k-calendar-header{
-  width : 40vw !important;
-}
-
-.k-calendar-table{
-  width : 37vw !important;
-}
-
-.k-content{
-  width : 37vw !important;
-}
-
-.k-link{
-  width: auto !important;
-}
 
 .calender-container {
   display: flex;
@@ -1114,16 +1100,6 @@ button {
   /* border: 2px solid black; */
 }
 
-.k-button{
-  margin: 0px;
-}
-
-.calender {
-  padding: 10px;
-  width: 45vw;
-  height: 400px;
-}
-
 .calender-events {
   background-color: white;
   width: 350px;
@@ -1131,10 +1107,6 @@ button {
   padding: 20px;
   flex-direction: column;
   align-items: center;
-}
-.calender-events h2 {
-  font-weight: bold;
-  color: tomato;
 }
 
 @media (max-width: 730px) {
@@ -1293,7 +1265,7 @@ button {
 }
 .test-item h1,
 .test-item h2 {
-  color: #fb6930;
+  color: #fa8231;
   font-weight: bold;
 }
 @media screen and (max-width: 650px) {
