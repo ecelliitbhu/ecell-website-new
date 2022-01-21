@@ -10,16 +10,12 @@ import verifyLoggedin from "../../../middleware/VerifyLoggedin.js";
 const router = nc();
 
 // Startup search
-router.post(
-  "/api/startup/search/",
-  [verifyLoggedin, verifyEmail],
-  async (request, response) => {
-    await dbConnect();
-    try {
-      let finder = await Startup.find(request.body);
-      response.status(201).send(finder);
-    } catch (error) {}
-  }
-);
+router.post("/api/startup/search/", async (request, response) => {
+  await dbConnect();
+  try {
+    let finder = await Startup.find(request.body);
+    response.status(201).send(finder);
+  } catch (error) {}
+});
 
 export default router;
