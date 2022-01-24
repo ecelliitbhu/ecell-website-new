@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import decrypt from "../../encryption/decrypt.js";
 import nc from "next-connect";
 import dbConnect from "../../lib/dbConnect.js";
+import SuperAdmin from "../../models/SuperAdmin.js";
 
 const router = nc();
 dotenv.config();

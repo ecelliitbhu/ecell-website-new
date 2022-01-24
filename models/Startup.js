@@ -2,53 +2,29 @@ import mongoose from "mongoose";
 
 const startupSchema = new mongoose.Schema(
   {
-    googleId: {
-      //if from iit bhu
-      type: String, //payload['sub']
-      required: false,
-    },
     Name: {
       type: String, //givenName
       required: true,
     },
-    phone: {
-      type: Number,
-      required: false,
-    },
-    email: {
-      //if enters manually
+    website: {
       type: String,
       required: true,
     },
-    landingPageLink: {
+    founders: {
+      type: Array,
+      required: true,
+    },
+    currentStatus: {
       type: String,
       required: true,
     },
-    linkedin: {
+    yearOfGraduation: {
       type: String,
+      required: true,
     },
-    github: {
+    domain: {
       type: String,
-    },
-    password: {
-      type: String,
-      required: false,
-    },
-    confirmPassword: {
-      type: String,
-      required: false,
-    },
-    currentState: {
-      type: String,
-      required: false,
-    },
-    founder: {
-      type: String,
-      required: false,
-    },
-    sector: {
-      type: String,
-      enum: ["HealthTech", "Fintech"],
+      required: true,
     },
     description: {
       // Why How What

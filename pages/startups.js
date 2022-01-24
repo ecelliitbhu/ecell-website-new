@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Nav from "../components/navbar/NavLayout";
-import { Col, Container, Row,Button } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Filter from "../components/startups/Filter";
 import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
+import axios from "axios";
 // import { FaFilter } from "react-icons/fa";
 const StartupDirectory = () => {
+  const [startups, setStartups] = useState([]);
+  useEffect(() => {
+    axios.get("api/startup").then(async (res) => {
+      console.log(res.data);
+      setStartups(res.data);
+    });
+  }, []);
   return (
     <>
       <Head>
@@ -36,20 +44,26 @@ const StartupDirectory = () => {
               <Row className="search-container">
                 <input type="search" name="" id="" placeholder="Search..." />
               </Row>
-              <Row style={{margin:"10px"}} className="filter-offcanvas">
-                <FilterOffcanvas style={{float:"left"}}></FilterOffcanvas>
+              <Row style={{ margin: "10px" }} className="filter-offcanvas">
+                <FilterOffcanvas style={{ float: "left" }}></FilterOffcanvas>
               </Row>
               <Row className="startups-list">
+                {startups.map((post) => {
+                  return (
+                    <Startup
+                      key={post._id}
+                      details={post}
+                    />
+                  );
+                })}
+                {/* <Startup></Startup>
                 <Startup></Startup>
                 <Startup></Startup>
                 <Startup></Startup>
                 <Startup></Startup>
                 <Startup></Startup>
                 <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
+                <Startup></Startup> */}
               </Row>
             </Col>
           </Row>

@@ -6,10 +6,17 @@ import Startup from "../../../models/Startup.js";
 import verifyAdmin from "../../../middleware/VerifyAdmin.js";
 import verifyEmail from "../../../middleware/VerifyEmail.js";
 import verifyLoggedin from "../../../middleware/VerifyLoggedin.js";
+import verifySuperAdmin from "../../../middleware/VerifySuperAdmin.js";
 import multer from "multer";
 import fs from "fs";
-
-const router = nc();
+import express from "express";
+import bodyParser from "body-parser";
+var router = express();
+// const router = nc();
+// parse application/x-www-form-urlencoded
+// router.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+// router.use(bodyParser.json());
 
 export const config = {
   api: {
@@ -17,76 +24,90 @@ export const config = {
   },
 };
 
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: "./public/uploads",
-    filename: (req, file, cb) => cb(null, file.originalname),
-  }),
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
 });
+var upload = multer({ storage: storage });
 
-const uploadMiddleware = upload.array("files");
+// router.use(express.static(__dirname + '/public'));
+// router.use('/uploads', express.static('uploads'));
+router.use((req, res, next) => {
+  if (!fs.existsSync("./public/uploads")) {
+    fs.mkdirSync("./public/uploads", { recursive: true }, function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("New directory successfully created.");
+      }
+    });
+  }
+  next();
+});
 
 // /customSignup
 router.post(
   "/api/startup",
-  [verifyLoggedin, verifyEmail, uploadMiddleware],
+  [verifySuperAdmin, upload.single("avatar")],
   async (req, res) => {
-    var img = fs.readFileSync(req.files[0].path);
+    var img = fs.readFileSync(req.file.path);
     var encode_img = img.toString("base64");
     var final_img = {
-      contentType: req.files[0].mimetype,
+      contentType: req.file.mimetype,
       data: new Buffer(encode_img, "base64"),
     };
     console.log(final_img);
+    fs.rmSync("./public/uploads", { recursive: true, force: true });
     await dbConnect();
+    let name = req.body.name;
+    let website = req.body.website;
+    let description = req.body.description;
+    let domain = req.body.domain;
+    let founders = [
+      { founder: req.body.founder1, linkedin: req.body.linkedin1 },
+      { founder: req.body.founder2, linkedin: req.body.linkedin2 },
+      { founder: req.body.founder3, linkedin: req.body.linkedin3 },
+      { founder: req.body.founder4, linkedin: req.body.linkedin4 },
+      { founder: req.body.founder5, linkedin: req.body.linkedin5 },
+    ];
+    let status = req.body.status;
+    let year = req.body.year;
     try {
-      let email = req.body.email;
-      let password = req.body.password;
-      let confirmPassword = req.body.confirmPassword;
-      let Name = req.body.Name;
-      let phone = req.body.phone;
-      let linkedin = req.body.linkedin;
-      let github = req.body.github;
-      let description = req.body.description;
-      let landingPageLink = req.body.landingPageLink;
-      let newUser = new Startup({
-        email: email,
-        password: password,
-        Name: Name,
-        phone: phone,
-        linkedin: linkedin,
-        github: github,
+      let newStartup = new Startup({
+        Name: name,
+        website: website,
+        founders: founders,
+        currentStatus: status,
+        yearOfGraduation: year,
+        domain: domain,
         description: description,
-        landingPageLink: landingPageLink,
         avatar: final_img,
       });
-
-      if (password === confirmPassword) {
-        await newUser.save();
-        res.send("Startup Registered Successfully");
-      } else {
-        res.send("password mismatch");
-      }
+      await newStartup.save();
+      res.json({
+        message: "Startup Registered Successfully",
+        startup: req.body.founders,
+      });
     } catch (error) {
       res.send(error);
     }
   }
 );
 
-router.get(
-  "/api/startup",
-  [verifyLoggedin, verifyEmail],
-  async (request, response) => {
-    console.log("Hello");
-    await dbConnect();
-    try {
-      let finder = await Startup.find();
-      response.status(201).send(finder);
-    } catch (error) {
-      response.send("Some error happened");
-    }
+router.get("/api/startup", async (request, response) => {
+  console.log("Hello");
+  await dbConnect();
+  try {
+    let finder = await Startup.find();
+    response.status(201).send(finder);
+  } catch (error) {
+    response.send("Some error happened");
   }
-);
+});
 
 router.put("/api/startup", [verifyLoggedin, verifyEmail], async (req, res) => {
   await dbConnect();
