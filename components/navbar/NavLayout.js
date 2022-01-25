@@ -1,5 +1,5 @@
-import { Discover, Initiatives, Learn, Connect } from "./NavItems";
-import { Login, SignUp } from "./NavButtons";
+import { Discover, Initiatives, Learn, Connect, Incubators } from "./NavItems";
+import { Startups,Contacts } from "./NavButtons";
 import { SearchOffcanvas, Search } from "./NavSearch";
 import { NavToggle } from "./NavToggle";
 import { NavLogo } from "./NavLogo";
@@ -17,25 +17,26 @@ const Nav = () => {
               <NavLogo />
             </a>
           </Link>
-          <NotificationOffCanvas/>
+          <NotificationOffCanvas />
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <Discover />
               <Initiatives />
-              <Connect />
               <Learn />
-              <form className="d-flex">
+              <Incubators/>
+              <Connect />
+              {/* <form className="d-flex">
                 <Search />
-              </form>
-             <Notification/>
+              </form> */}
               <div className="buttons">
-                <Login />
-                <SignUp />
+                <Startups />
+                {/* <Contacts /> */}
               </div>
+              <Notification />
             </ul>
           </div>
           <NavToggle />
-          <SearchOffcanvas />
+          {/* <SearchOffcanvas /> */}
         </div>
       </nav>
     </>

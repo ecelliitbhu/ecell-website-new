@@ -13,7 +13,7 @@
 }
 
 ::selection {
-  background: rgb(246, 214, 108);
+  background: #ffc26c;
 }
 
 body {
@@ -281,6 +281,17 @@ button {
 
 #sign-up {
   color: white;
+  background-color: #fd9301;
+}
+.btn{
+  border: none;
+}
+.btn{
+  border: none;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .notification {
