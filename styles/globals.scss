@@ -13,7 +13,7 @@
 }
 
 ::selection {
-  background: rgb(246, 214, 108);
+  background: #ffc26c;
 }
 
 body {
@@ -281,6 +281,17 @@ button {
 
 #sign-up {
   color: white;
+  background-color: #fd9301;
+}
+.btn{
+  border: none;
+}
+.btn{
+  border: none;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .notification {
@@ -803,24 +814,24 @@ button {
 .card-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 20px;
   width: 90%;
   margin: 50px auto;
 }
 
 .card {
-  width: 380px;
-  height: 480px;
+  width: 320px;
+  height: 360px;
   margin: auto;
   padding: 0px;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: white;
   box-shadow: 1px 1px 2rem rgb(221, 220, 220);
 }
 .card-title {
   text-align: center;
   height: 10%;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   color: black;
   background-color: white;
   font-weight: bold;

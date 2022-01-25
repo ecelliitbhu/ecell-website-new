@@ -31,7 +31,7 @@ export const Discover = () => {
               <a className="dropdown-item">
                 <FcCollaboration fontSize="2.2rem"></FcCollaboration>
                 <div>
-                  <h4>Events</h4>
+                  <h4>Who we are?</h4>
                   <p>
                     Discover the buzzing events
                     <br />
@@ -43,7 +43,7 @@ export const Discover = () => {
             <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
               <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
-                <h4>Blog</h4>
+                <h4>Events</h4>
                 <p>
                   Discover what&apos;s trending <br />
                   in the startup ecosystem.
@@ -55,7 +55,7 @@ export const Discover = () => {
             <a className="dropdown-item" href="#">
               <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
-                <h4>Initiatives</h4>
+                <h4>Gallery</h4>
                 <p>
                   Initiatives taken up by E-Cell to improve <br /> the
                   entrepreneurship culture @ IIT BHU
@@ -66,7 +66,7 @@ export const Discover = () => {
             <a className="dropdown-item" href="#">
               <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
-                <h4>Showcase</h4>
+                <h4>Initiatives</h4>
                 <p>
                   Uncover the great startups <br />
                   that have been #BuiltinIITBHU
@@ -74,32 +74,29 @@ export const Discover = () => {
               </div>
             </a>
           </li>
-          <ul className="dropdown-subcontainer right-nav-column">
-            <div className="right-nav-column-sub">
-              <li>
-                <Link className="dropdown-item" href="/gallery">
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Baba black sheep
-                </a>
-              </li>
-            </div>
-            <div className="right-nav-column-sub">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Jonny Jonny
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Humpty dumpty sat on a wall
-                </a>
-              </li>
-            </div>
-          </ul>
+          <li className="dropdown-subcontainer">
+            <a className="dropdown-item" href="#">
+              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <div>
+                <h4>Past speakers</h4>
+                <p>
+                  Initiatives taken up by E-Cell to improve <br /> the
+                  entrepreneurship culture @ IIT BHU
+                </p>
+              </div>
+            </a>
+
+            <a className="dropdown-item" href="#">
+              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <div>
+                <h4>Sponsors and Associates</h4>
+                <p>
+                  Uncover the great startups <br />
+                  that have been #BuiltinIITBHU
+                </p>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
     </li>
@@ -154,7 +151,7 @@ export const Initiatives = () => {
             <a className="dropdown-item" href="#">
               <FcApproval fontSize="2.2rem"></FcApproval>
               <div>
-                <h4>Opportunity Connect</h4>
+                <h4>Build with us</h4>
                 <p>
                   Lorem ipsum dolor sit <br /> amet consectetur adipisicing
                 </p>
@@ -196,6 +193,114 @@ export const Initiatives = () => {
     </li>
   );
 };
+export const Incubators = () => {
+  const [isHover, setIsHover] = useState(false);
+  return (
+    <li
+      className="nav-item dropdown code"
+      onMouseOver={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      <a
+        className="nav-link "
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <h3>Incubators</h3>
+        <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
+      </a>
+      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul className="dropdown-container">
+          <li className="dropdown-subcontainer">
+            <Link href="/contacts">
+              <a className="dropdown-item" href="#">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>
+                    {"Technology Innovation"} <br />
+                    {"& Incubation Centre"}
+                  </h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
+
+            <Link href="/contacts">
+              <a className="dropdown-item" href="#">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>Cisco thingQbator</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
+          </li>
+          <li className="dropdown-subcontainer">
+            <Link href="/contacts">
+              <a className="dropdown-item" href="#">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>NCL-IIT BHU Incubation Centre</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
+
+            <Link href="/contacts">
+              <a className="dropdown-item" href="#">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>IDAPT-Hub Foundation</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
+          </li>
+          <li className="dropdown-subcontainer">
+            <Link href="/contacts">
+              <a className="dropdown-item">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>R-ABI, IIT BHU</h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
+
+            <Link href="/team">
+              <a className="dropdown-item">
+                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <div>
+                  <h4>
+                    {"Innovation"}
+                    <br />
+                    {"& Start-up Policy IIT BHU"}
+                  </h4>
+                  <p>
+                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  </p>
+                </div>
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </li>
+  );
+};
 export const Connect = () => {
   const [isHover, setIsHover] = useState(false);
   return (
@@ -222,7 +327,7 @@ export const Connect = () => {
               <a className="dropdown-item" href="#">
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
-                  <h4>For VCs, Angel Investors and firms</h4>
+                  <h4>For students</h4>
                   <p>
                     Lorem ipsum dolor sit <br /> amet consectetur adipisicing
                   </p>
@@ -234,7 +339,7 @@ export const Connect = () => {
               <a className="dropdown-item" href="#">
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
-                  <h4>For VCs, Angel Investors and firms</h4>
+                  <h4>For startups</h4>
                   <p>
                     Lorem ipsum dolor sit <br /> amet consectetur adipisicing
                   </p>
@@ -247,7 +352,7 @@ export const Connect = () => {
               <a className="dropdown-item" href="#">
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
-                  <h4>For Startups</h4>
+                  <h4>For alumni</h4>
                   <p>
                     Lorem ipsum dolor sit <br /> amet consectetur adipisicing
                   </p>
@@ -259,7 +364,7 @@ export const Connect = () => {
               <a className="dropdown-item" href="#">
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
-                  <h4>For Collaborations</h4>
+                  <h4>For Investor and VCs</h4>
                   <p>
                     Lorem ipsum dolor sit <br /> amet consectetur adipisicing
                   </p>
@@ -272,7 +377,7 @@ export const Connect = () => {
               <a className="dropdown-item">
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
-                  <h4>Sponsors and Associates</h4>
+                  <h4>For corporates</h4>
                   <p>
                     Lorem ipsum dolor sit <br /> amet consectetur adipisicing
                   </p>
@@ -284,7 +389,7 @@ export const Connect = () => {
               <a className="dropdown-item">
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
-                  <h4>Team</h4>
+                  <h4>Meet the team</h4>
                   <p>
                     Lorem ipsum dolor sit <br /> amet consectetur adipisicing
                   </p>
@@ -322,7 +427,7 @@ export const Learn = () => {
             <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
-                <h4>Blog</h4>
+                <h4>How E-cell works?</h4>
                 <p>How-to guides, interviews, articles, and more</p>
               </div>
             </a>
@@ -330,7 +435,7 @@ export const Learn = () => {
             <a className="dropdown-item" href="#">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
-                <h4>Event updates</h4>
+                <h4>Resource Library</h4>
                 <p>
                   Stay up-to-date with our latest <br />
                   events held @ecelliitbhu
@@ -342,7 +447,7 @@ export const Learn = () => {
             <a className="dropdown-item" href="#">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
-                <h4>How E-Cell Works</h4>
+                <h4>Blogs</h4>
                 <p>
                   A comprehensive guide to this <br />
                   powerful little format
@@ -354,7 +459,7 @@ export const Learn = () => {
               <a className="dropdown-item">
                 <FcServices fontSize="2.2rem"></FcServices>
                 <div>
-                  <h4>FAQ &amp; Support</h4>
+                  <h4>Frequently Asked Questions</h4>
                   <p>Get your questions answered</p>
                 </div>
               </a>
@@ -364,7 +469,7 @@ export const Learn = () => {
             <a className="dropdown-item" href="#">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
-                <h4>Courses</h4>
+                <h4>Newsletter Archives</h4>
                 <p>Learn from the Entrepreneurship Experts</p>
               </div>
             </a>
@@ -375,7 +480,7 @@ export const Learn = () => {
               >
                 <FcServices fontSize="2.2rem"></FcServices>
                 <div>
-                  <h4>Newsletter Archives</h4>
+                  <h4>E-Digest Magazine</h4>
                   <p>
                     Where those who work with Lottie <br />
                     can come together
