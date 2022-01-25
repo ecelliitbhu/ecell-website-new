@@ -1,16 +1,16 @@
 import React from "react";
 
-export const Login = () => {
+export const Contacts = () => {
   return (
     <button className="btn btn-outline-success" id="login" type="submit">
-      Login
+      Contacts
     </button>
   );
 };
-export const SignUp = () => {
+export const Startups = () => {
   return (
     <button className="btn btn-info"  id="sign-up">
-      Sign Up
+     Startups
     </button>
   );
 };

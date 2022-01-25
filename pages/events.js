@@ -88,7 +88,7 @@ export default function Events() {
             <Row className="card-container">
               <Card className="card" style={{ height: "fit-content" }}>
                 <Card.Body style={{ padding: "25px 15px" }}>
-                  <Image src={casex1} height={320} width={290}></Image>
+                  <Image src={casex1} height={250} width={250}></Image>
                   <Card.Title style={{ margin: "10px auto" }}>CaseX</Card.Title>
                   <Card.Text style={{ height: "15px" }}>
                     3rd-12th Sept
@@ -108,7 +108,7 @@ export default function Events() {
               </Card>
               <Card className="card" style={{ height: "fit-content" }}>
                 <Card.Body style={{ padding: "25px 15px" }}>
-                  <Image src={casex2} height={320} width={290}></Image>
+                  <Image src={casex2} height={250} width={250}></Image>
                   <Card.Title style={{ margin: "10px auto" }}>
                     Idea Validation Bootcamp
                   </Card.Title>
@@ -130,7 +130,7 @@ export default function Events() {
               </Card>
               <Card className="card" style={{ height: "fit-content" }}>
                 <Card.Body style={{ padding: "25px 15px" }}>
-                  <Image src={casex3} height={320} width={290}></Image>
+                  <Image src={casex3} height={250} width={250}></Image>
                   <Card.Title style={{ margin: "10px auto" }}>
                     Design Rush
                   </Card.Title>
@@ -164,7 +164,7 @@ export default function Events() {
               <Row className="card-container">
                 <Card className="card" style={{ height: "fit-content" }}>
                   <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex1} height={320} width={290}></Image>
+                    <Image src={casex1} height={250} width={250}></Image>
                     <Card.Title style={{ margin: "10px auto" }}>
                       CaseX
                     </Card.Title>
@@ -186,7 +186,7 @@ export default function Events() {
                 </Card>
                 <Card className="card" style={{ height: "fit-content" }}>
                   <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex2} height={320} width={290}></Image>
+                    <Image src={casex2} height={250} width={250}></Image>
                     <Card.Title style={{ margin: "10px auto" }}>
                       Idea Validation Bootcamp
                     </Card.Title>
@@ -208,7 +208,7 @@ export default function Events() {
                 </Card>
                 <Card className="card" style={{ height: "fit-content" }}>
                   <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex3} height={320} width={290}></Image>
+                    <Image src={casex3} height={250} width={250}></Image>
                     <Card.Title style={{ margin: "10px auto" }}>
                       Design Rush
                     </Card.Title>
@@ -243,7 +243,7 @@ export default function Events() {
               <Row className="card-container">
                 <Card className="card" style={{ height: "fit-content" }}>
                   <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex1} height={320} width={290}></Image>
+                    <Image src={casex1} height={250} width={250}></Image>
                     <Card.Title style={{ margin: "10px auto" }}>
                       CaseX
                     </Card.Title>
@@ -265,7 +265,7 @@ export default function Events() {
                 </Card>
                 <Card className="card" style={{ height: "fit-content" }}>
                   <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex2} height={320} width={290}></Image>
+                    <Image src={casex2} height={250} width={250}></Image>
                     <Card.Title style={{ margin: "10px auto" }}>
                       Idea Validation Bootcamp
                     </Card.Title>
@@ -287,7 +287,7 @@ export default function Events() {
                 </Card>
                 <Card className="card" style={{ height: "fit-content" }}>
                   <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex3} height={320} width={290}></Image>
+                    <Image src={casex3} height={250} width={250}></Image>
                     <Card.Title style={{ margin: "10px auto" }}>
                       Design Rush
                     </Card.Title>

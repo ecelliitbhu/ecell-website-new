@@ -2,7 +2,7 @@ import Head from "next/head";
 // import Image from "next/image";
 // import styles from '../styles/Home.module.css'
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
-import Collage from "../components/collage/Collage";
+// import Collage from "../components/collage/Collage";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
@@ -38,11 +38,6 @@ export default function Home() {
                 loop
               ></lottie-player>
             </Col>
-          </Row>
-          <Row>
-            <span className="tag">
-              Ideate&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Innovate&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Incubate
-            </span>
           </Row>
           <Row className="who-are-we">
             <Col className="info waw">
@@ -147,7 +142,6 @@ export default function Home() {
             </Row>
           </Row>
           <Row>
-            <Collage />
           </Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
             <h1>What people think about us</h1>
