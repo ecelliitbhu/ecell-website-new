@@ -1,31 +1,5 @@
-import {
-  Indegene,
-  Adda247,
-  Pearl,
-  XpressBees,
-  Nihilent,
-  BiryaniByKilo,
-  Qtrove,
-  Tynker,
-  Wizikey,
-  MoveInSync,
-  Zostel,
-  Quona,
-  Motion,
-  Zest,
-  Cricbuzz,
-  One,
-  Tredence,
-  Tlabs,
-  Firstcry,
-  Zscaler,
-  Portworx,
-  Excubator,
-  Edureka,
-  Thrillophilia,
-  BansalClasses,
-  Alphonso,
-} from "./CollageItems";
+import Image from "next/image";
+import startups from "../../public/startups.png"
 const Collage = () => {
   return (
     <div
@@ -40,41 +14,12 @@ const Collage = () => {
       className="collage-container"
     >
       <h1>Successful ventures from IIT BHU Alumni</h1>
-      <div className="container collage">
-        <Indegene />
-        <Adda247 />
-        <Pearl />
-        <XpressBees />
-        <Nihilent />
-        <BiryaniByKilo />
-        <Qtrove />
-        <Tynker />
-        <Wizikey />
-        <MoveInSync />
-        <Zostel />
-        <Quona />
-        <Motion />
-        <Zest />
-        <Cricbuzz />
-        <One />
-        <Tredence />
-        <Tlabs />
-        <Firstcry />
-        <Zscaler />
-        <Portworx />
-        <Excubator />
-        <Edureka />
-        <Thrillophilia />
-        <BansalClasses />
-        <Alphonso />
-        <Indegene />
-        <Adda247 />
-        <Pearl />
-        <XpressBees />
-        <Nihilent />
-        <BiryaniByKilo />
-        <MoveInSync />
-      </div>
+      <Image
+        src={startups}
+        alt="startups"
+        height="1080"
+        width="1920"
+      ></Image>
     </div>
   );
 };
