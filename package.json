@@ -60,7 +60,8 @@
     "react-photo-collage": "^1.0.9",
     "react-photo-gallery": "^8.0.0",
     "sass": "^1.45.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "typewriter-effect": "^2.18.2"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^8.5.5",
