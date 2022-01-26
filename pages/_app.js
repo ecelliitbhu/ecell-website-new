@@ -21,23 +21,23 @@ function MyApp({ Component, pageProps }) {
   return (
     <SSRProvider>
       <AuthProvider>
-        {loading ? (
-          <Player
-            autoplay
-            loop
-            src="https://assets8.lottiefiles.com/packages/lf20_b0firirj.json"
-            style={{ height: "300px", width: "300px" }}
-          >
-            <Controls visible={false} />
-          </Player>
-        ) : (
-          <Layout>
-            <Head>
-              <link rel="shortcut icon" href="/favicon.ico" />
-            </Head>
+        <Layout>
+          <Head>
+            <link rel="shortcut icon" href="/favicon.ico" />
+          </Head>
+          {loading ? (
+            <Player
+              autoplay
+              loop
+              src="https://assets8.lottiefiles.com/packages/lf20_b0firirj.json"
+              style={{ height: "300px", width: "300px" }}
+            >
+              <Controls visible={false} />
+            </Player>
+          ) : (
             <Component {...pageProps} />
-          </Layout>
-        )}
+          )}
+        </Layout>
       </AuthProvider>
     </SSRProvider>
   );
