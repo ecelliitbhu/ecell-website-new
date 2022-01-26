@@ -12,10 +12,11 @@ const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
   useEffect(() => {
     axios.get("api/startup").then(async (res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setStartups(res.data);
     });
   }, []);
+  startups.sort((a, b) => (a.Name > b.Name ? 1 : b.Name > a.Name ? -1 : 0));
   return (
     <>
       <Head>
@@ -49,12 +50,7 @@ const StartupDirectory = () => {
               </Row>
               <Row className="startups-list">
                 {startups.map((post) => {
-                  return (
-                    <Startup
-                      key={post._id}
-                      details={post}
-                    />
-                  );
+                  return <Startup key={post._id} details={post} />;
                 })}
                 {/* <Startup></Startup>
                 <Startup></Startup>
