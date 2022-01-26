@@ -71,9 +71,9 @@ const Footer = () => {
 
               <div>
                 <AiTwotoneMail className="contact-icons" />
-                <Link href="mailto:ecell@iitbhu.ac.in">
+                <a href="mailto:ecell@iitbhu.ac.in" className="mail-us">
                   Mail us @ ecell@iitbhu.ac.in
-                </Link>
+                </a>
               </div>
               <div
                 style={{
@@ -89,42 +89,42 @@ const Footer = () => {
           </Col>
           <Col className="footer-items">
             <h5>Important</h5>
-            <Row>
-              <Col>
+            <Row style={{display:"grid", gridTemplateColumns:"1.5fr 3fr"}}>
+              <Col >
                 <ul>
                   <li>
-                    <Link href="">Internship Portal</Link>
+                    <Link href="">Home</Link>
                   </li>
                   <li>
-                    <Link href="">Opportunity Connect</Link>
+                    <Link href="">Events</Link>
                   </li>
                   <li>
-                    <Link href="">Startup Services Portal</Link>
+                    <Link href="">Blogs</Link>
                   </li>
                   <li>
-                    <Link href="">IIT BHU Projects portal</Link>
+                    <Link href="">Initiatives</Link>
                   </li>
                   <li>
-                    <Link href="">Campus Ambassador program</Link>
+                    <Link href="">Gallery</Link>
                   </li>
                 </ul>
               </Col>
-              <Col>
+              <Col >
                 <ul>
                   <li>
-                    <Link href="">Internship Portal</Link>
+                    <Link href="">Who are we</Link>
                   </li>
                   <li>
-                    <Link href="">Opportunity Connect</Link>
+                    <Link href="">How E-Cell works</Link>
                   </li>
                   <li>
-                    <Link href="">Startup Services Portal</Link>
+                    <Link href="">Meet the team</Link>
                   </li>
                   <li>
-                    <Link href="">IIT BHU Projects portal</Link>
+                    <Link href="">TIIC</Link>
                   </li>
                   <li>
-                    <Link href="">Campus Ambassador program</Link>
+                    <Link href="">Contact Us</Link>
                   </li>
                 </ul>
               </Col>
