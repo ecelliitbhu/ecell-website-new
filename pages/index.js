@@ -141,8 +141,7 @@ export default function Home() {
               </Card>
             </Row>
           </Row>
-          <Row>
-          </Row>
+          <Row></Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
             <h1>What people think about us</h1>
             <Testimonials></Testimonials>

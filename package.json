@@ -14,6 +14,7 @@
     "@emotion/core": "10.1.1",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@lottiefiles/react-lottie-player": "^3.4.1",
     "@material-ui/core": "^5.0.0-alpha.27",
     "@material-ui/lab": "^5.0.0-alpha.44",
     "@mui/core": "^5.0.0-alpha.54",
