@@ -8,82 +8,11 @@ import Collage from "../components/collage/Collage";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
+import { useRouter } from "next/router";
+import Typewriter from "typewriter-effect";
 // import Vector from "../public/startup-image.png"
-var stripe_load = () => {
-  if (typeof window !== "undefined") {
-    const typingPromises = (message, timeout, reverse) =>
-      [...message].map(
-        (ch, i) =>
-          new Promise((resolve) => {
-            if (reverse) {
-              setTimeout(() => {
-                resolve(message.substring(0, message.length - i - 1));
-              }, (timeout / 2) * i);
-            } else {
-              setTimeout(() => {
-                resolve(message.substring(0, i + 1));
-              }, timeout * i);
-            }
-          })
-      );
 
-    // Used to add manual delays.
-    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
-    // Changes the text of the "#terminal" id.
-    class Terminal {
-      // Construct a new object using an array of text,
-      // interval between typing characters, and the
-      // delay between typing / erasing.
-      constructor(text, interval, pause) {
-        this.text = text;
-        this.interval = interval;
-        this.pause = pause;
-        this.counter = 0;
-        this.update();
-      }
-
-      // Asynchronously update the terminal text.
-      async update() {
-        // Circle back to the start of the list.
-        if (this.counter === this.text.length) {
-          this.counter = 0;
-        }
-
-        // Get the next message, and update the counter for next time.
-        let message = this.text[this.counter];
-        this.counter++;
-
-        // Type the word, going forwards.
-        typingPromises(message, this.interval, false).forEach((promise) => {
-          promise.then((portion) => {
-            document.getElementById("terminal").innerHTML = portion;
-          });
-        });
-
-        // Wait until it's finished.
-        await delay(this.interval * message.length + this.pause);
-
-        // Erase the word, going backwards.
-        typingPromises(message, this.interval, true).forEach((promise) => {
-          promise.then((portion) => {
-            document.getElementById("terminal").innerHTML = portion;
-          });
-        });
-
-        // Wait until it's finished.
-        await delay((this.interval / 4) * message.length + this.pause);
-
-        // Now do it again!
-        this.update();
-      }
-    }
-    let titles = ["Ideation", "Innovation", "Execution", "Incubation"];
-    const term = new Terminal(titles, 100, 1500);
-  }
-};
 export default function Home() {
-  useEffect(()=>stripe_load(),[]);
   return (
     <>
       <Head>
@@ -95,9 +24,35 @@ export default function Home() {
           <Row className="header">
             <Col className="info">
               <h1>E-Cell IIT BHU</h1>
-              <h2>{"Accelerate Your"}</h2>
-              <h2 id="terminal"></h2>
-              <h2>{"Journey!"}</h2>
+              <h2>
+                {"Accelerate Your"}
+                <br />
+                <Typewriter
+                  options={{
+                    autoStart: true,
+                    loop: true,
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString("Ideation")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .typeString("Innovation")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .typeString("Execution")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .typeString("Incubation")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .start();
+                  }}
+                />
+                {/* <br /> */}
+                {"Journey!"}
+              </h2>
+
               <p>
                 Welcome to the entrepreneurship community of IIT BHU where we
                 ideate, innovate and incubate the future innovations of the
@@ -156,9 +111,10 @@ export default function Home() {
           <Row className="what-we-do info">
             <h1>What we do?</h1>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem
-              veniam quibusdam explicabo deleniti sunt quas, dolorum velit,
-              pariatur labore alias a aspernatur impedit quia similique vol
+              {`Through our vision of "Learn, Build and Scale" we implement
+              various initiatives and events in IIT BHU to foster the
+              entrepreneurial minds and create a culture of enthralling startups
+              bound for success!`}
             </p>
             <Row className="card-container">
               <Card className="card">
@@ -170,13 +126,12 @@ export default function Home() {
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Learn</Card.Title>
                   <Card.Text>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.{" "}
+                    {`Learn  Through our Programmes like "E-Mentorship" and "Learn Together", we teach the students about all aspects of entrepreneurial journey!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
-                    Card Button &rarr;
+                    Learn Here &rarr;
                   </Button>
                 </Card.Body>
               </Card>
@@ -189,13 +144,12 @@ export default function Home() {
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Build</Card.Title>
                   <Card.Text>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.{" "}
+                    {`Build  With Initiatives like "Build With Us" and "Startup 101", deep dive into the ocean of building the solutions for tomorrow!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
-                    Card Button &rarr;
+                    Build with us &rarr;
                   </Button>
                 </Card.Body>
               </Card>
@@ -208,13 +162,12 @@ export default function Home() {
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Scale</Card.Title>
                   <Card.Text>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.{" "}
+                    {`Scale Network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
-                    Card Button &rarr;
+                    Escalate &rarr;
                   </Button>
                 </Card.Body>
               </Card>
