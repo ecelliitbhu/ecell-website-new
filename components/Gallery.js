@@ -2,6 +2,7 @@ import { ReactPhotoCollage } from "react-photo-collage";
 import React, { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
+
 const photos = [
   {
     src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
@@ -76,9 +77,41 @@ const photos = [
     height: 3,
   },
 ];
+
 export const Esummit = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <img
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -90,9 +123,12 @@ export const Esummit = () => {
     setViewerIsOpen(false);
   };
 
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} onClick={openLightbox} />
+      <Gallery photos={photos.slice(0, 8)} renderImage={imageRenderer} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
@@ -114,6 +150,37 @@ export const FoundersSpeak = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <img
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
+
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
@@ -124,9 +191,12 @@ export const FoundersSpeak = () => {
     setViewerIsOpen(false);
   };
 
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} onClick={openLightbox} />
+      <Gallery photos={photos.slice(0, 8)} renderImage={imageRenderer} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
@@ -148,6 +218,37 @@ export const Workshops = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <img
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
+
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
@@ -158,9 +259,12 @@ export const Workshops = () => {
     setViewerIsOpen(false);
   };
 
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} onClick={openLightbox} />
+      <Gallery photos={photos.slice(0, 8)} renderImage={imageRenderer} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
@@ -182,6 +286,37 @@ export const GuestLectures = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <img
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
+
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
@@ -192,9 +327,12 @@ export const GuestLectures = () => {
     setViewerIsOpen(false);
   };
 
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} onClick={openLightbox} />
+      <Gallery photos={photos.slice(0, 8)} renderImage={imageRenderer} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
