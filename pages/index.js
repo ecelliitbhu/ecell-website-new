@@ -1,13 +1,89 @@
 import Head from "next/head";
-// import Image from "next/image";
+import Image from "next/image";
+import { useEffect } from "react";
 // import styles from '../styles/Home.module.css'
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import Collage from "../components/collage/Collage";
 // import Collage from "../components/collage/Collage";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
 // import Vector from "../public/startup-image.png"
+var stripe_load = () => {
+  if (typeof window !== "undefined") {
+    const typingPromises = (message, timeout, reverse) =>
+      [...message].map(
+        (ch, i) =>
+          new Promise((resolve) => {
+            if (reverse) {
+              setTimeout(() => {
+                resolve(message.substring(0, message.length - i - 1));
+              }, (timeout / 2) * i);
+            } else {
+              setTimeout(() => {
+                resolve(message.substring(0, i + 1));
+              }, timeout * i);
+            }
+          })
+      );
+
+    // Used to add manual delays.
+    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
+    // Changes the text of the "#terminal" id.
+    class Terminal {
+      // Construct a new object using an array of text,
+      // interval between typing characters, and the
+      // delay between typing / erasing.
+      constructor(text, interval, pause) {
+        this.text = text;
+        this.interval = interval;
+        this.pause = pause;
+        this.counter = 0;
+        this.update();
+      }
+
+      // Asynchronously update the terminal text.
+      async update() {
+        // Circle back to the start of the list.
+        if (this.counter === this.text.length) {
+          this.counter = 0;
+        }
+
+        // Get the next message, and update the counter for next time.
+        let message = this.text[this.counter];
+        this.counter++;
+
+        // Type the word, going forwards.
+        typingPromises(message, this.interval, false).forEach((promise) => {
+          promise.then((portion) => {
+            document.getElementById("terminal").innerHTML = portion;
+          });
+        });
+
+        // Wait until it's finished.
+        await delay(this.interval * message.length + this.pause);
+
+        // Erase the word, going backwards.
+        typingPromises(message, this.interval, true).forEach((promise) => {
+          promise.then((portion) => {
+            document.getElementById("terminal").innerHTML = portion;
+          });
+        });
+
+        // Wait until it's finished.
+        await delay((this.interval / 4) * message.length + this.pause);
+
+        // Now do it again!
+        this.update();
+      }
+    }
+    let titles = ["Ideation", "Innovation", "Execution", "Incubation"];
+    const term = new Terminal(titles, 100, 1500);
+  }
+};
 export default function Home() {
+  useEffect(()=>stripe_load(),[]);
   return (
     <>
       <Head>
@@ -19,7 +95,9 @@ export default function Home() {
           <Row className="header">
             <Col className="info">
               <h1>E-Cell IIT BHU</h1>
-              <h2>Accelerate your Startup Journey</h2>
+              <h2>{"Accelerate Your"}</h2>
+              <h2 id="terminal"></h2>
+              <h2>{"Journey!"}</h2>
               <p>
                 Welcome to the entrepreneurship community of IIT BHU where we
                 ideate, innovate and incubate the future innovations of the
@@ -31,11 +109,10 @@ export default function Home() {
             </Col>
             <Col className="image-section">
               <lottie-player
-                src="https://assets8.lottiefiles.com/packages/lf20_ihwqyxn5.json"
-                background="transparent"
+                src="https://assets3.lottiefiles.com/packages/lf20_ewvhihmc.json"
                 speed="1"
-                autoplay
                 loop
+                autoplay
               ></lottie-player>
             </Col>
           </Row>
@@ -64,14 +141,17 @@ export default function Home() {
               </Row>
             </Col>
             <Col className="image-section">
-              <lottie-player
-                src="https://assets1.lottiefiles.com/packages/lf20_lxgjrju4.json"
+              <dotlottie-player
+                src="https://assets7.lottiefiles.com/dotlotties/dlf10_wpar4she.lottie"
                 background="transparent"
                 speed="1"
                 loop
                 autoplay
-              ></lottie-player>
+              ></dotlottie-player>
             </Col>
+          </Row>
+          <Row>
+            <Collage></Collage>
           </Row>
           <Row className="what-we-do info">
             <h1>What we do?</h1>
@@ -103,7 +183,7 @@ export default function Home() {
               <Card className="card">
                 <Card.Body>
                   <lottie-player
-                    src="https://assets8.lottiefiles.com/packages/lf20_gomzks5q.json"
+                    src="https://assets10.lottiefiles.com/packages/lf20_oxwzlirk.json"
                     background="transparent"
                     speed="1"
                     loop
@@ -122,7 +202,7 @@ export default function Home() {
               <Card className="card">
                 <Card.Body>
                   <lottie-player
-                    src="https://assets8.lottiefiles.com/packages/lf20_gomzks5q.json"
+                    src="https://assets2.lottiefiles.com/packages/lf20_s7vzoj2n.json"
                     background="transparent"
                     speed="1"
                     loop
@@ -130,9 +210,8 @@ export default function Home() {
                   ></lottie-player>
                   <Card.Title>Card title</Card.Title>
                   <Card.Text>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This card has even longer
-                    content than the first to show that equal height action.
+                    This card has supporting text below as a natural lead-in to
+                    additional content.{" "}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
                     Card Button &rarr;
@@ -155,7 +234,7 @@ export default function Home() {
       ></script>
       <script
         async
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+        src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"
       ></script>
       <script
         async

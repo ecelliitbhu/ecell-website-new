@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export const Contacts = () => {
@@ -9,8 +10,10 @@ export const Contacts = () => {
 };
 export const Startups = () => {
   return (
-    <button className="btn btn-info"  id="sign-up">
-     Startups
-    </button>
+    <Link href="/startups" passHref>
+      <button className="btn btn-info" id="sign-up">
+        Startups
+      </button>
+    </Link>
   );
 };

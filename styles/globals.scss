@@ -283,10 +283,10 @@ button {
   color: white;
   background-color: #fd9301;
 }
-.btn{
+.btn {
   border: none;
 }
-.btn{
+.btn {
   border: none;
 }
 .btn:focus {
@@ -660,6 +660,35 @@ button {
 .info h2 {
   font-size: 2.6rem;
   color: grey;
+}
+
+#terminal {
+  // text-align: left;
+  color: #fd9301;
+  height: 2.6rem;
+  &:before {
+    content: "";
+    // color: rgb(170,170,170);
+  }
+
+  /*
+  &:after {
+  content: ' _';
+  opacity: 0;
+  display: inline-block;
+  color: rgb(170,170,170);
+  animation: blink 1s linear infinite alternate;
+  }
+  */
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .info p {
   font-size: 1.3rem;
@@ -1460,7 +1489,7 @@ h2 {
       // display: flex;
       // justify-content: center;
       // align-items: center;
-      div{
+      div {
         margin: auto;
       }
       background-color: white;
