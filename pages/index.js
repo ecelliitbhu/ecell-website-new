@@ -1,17 +1,23 @@
 import Head from "next/head";
-// import Image from "next/image";
+import Image from "next/image";
+import { useEffect } from "react";
 // import styles from '../styles/Home.module.css'
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import Collage from "../components/collage/Collage";
 // import Collage from "../components/collage/Collage";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
+import { useRouter } from "next/router";
+import Typewriter from "typewriter-effect";
 // import Vector from "../public/startup-image.png"
+
 export default function Home() {
   return (
     <>
       <Head>
         <title>Home</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
       <div>
@@ -19,7 +25,35 @@ export default function Home() {
           <Row className="header">
             <Col className="info">
               <h1>E-Cell IIT BHU</h1>
-              <h2>Accelerate your Startup Journey</h2>
+              <h2>
+                {"Accelerate Your"}
+                <br />
+                <Typewriter
+                  options={{
+                    autoStart: true,
+                    loop: true,
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString("Ideation")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .typeString("Innovation")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .typeString("Execution")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .typeString("Incubation")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .start();
+                  }}
+                />
+                {/* <br /> */}
+                {"Journey!"}
+              </h2>
+
               <p>
                 Welcome to the entrepreneurship community of IIT BHU where we
                 ideate, innovate and incubate the future innovations of the
@@ -31,11 +65,10 @@ export default function Home() {
             </Col>
             <Col className="image-section">
               <lottie-player
-                src="https://assets8.lottiefiles.com/packages/lf20_ihwqyxn5.json"
-                background="transparent"
+                src="https://assets3.lottiefiles.com/packages/lf20_ewvhihmc.json"
                 speed="1"
-                autoplay
                 loop
+                autoplay
               ></lottie-player>
             </Col>
           </Row>
@@ -64,21 +97,25 @@ export default function Home() {
               </Row>
             </Col>
             <Col className="image-section">
-              <lottie-player
-                src="https://assets1.lottiefiles.com/packages/lf20_lxgjrju4.json"
+              <dotlottie-player
+                src="https://assets7.lottiefiles.com/dotlotties/dlf10_wpar4she.lottie"
                 background="transparent"
                 speed="1"
                 loop
                 autoplay
-              ></lottie-player>
+              ></dotlottie-player>
             </Col>
+          </Row>
+          <Row>
+            <Collage></Collage>
           </Row>
           <Row className="what-we-do info">
             <h1>What we do?</h1>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem
-              veniam quibusdam explicabo deleniti sunt quas, dolorum velit,
-              pariatur labore alias a aspernatur impedit quia similique vol
+              {`Through our vision of "Learn, Build and Scale" we implement
+              various initiatives and events in IIT BHU to foster the
+              entrepreneurial minds and create a culture of enthralling startups
+              bound for success!`}
             </p>
             <Row className="card-container">
               <Card className="card">
@@ -90,59 +127,54 @@ export default function Home() {
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Learn</Card.Title>
                   <Card.Text>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.{" "}
+                    {`Learn  Through our Programmes like "E-Mentorship" and "Learn Together", we teach the students about all aspects of entrepreneurial journey!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
-                    Card Button &rarr;
+                    Learn Here &rarr;
                   </Button>
                 </Card.Body>
               </Card>
               <Card className="card">
                 <Card.Body>
                   <lottie-player
-                    src="https://assets8.lottiefiles.com/packages/lf20_gomzks5q.json"
+                    src="https://assets10.lottiefiles.com/packages/lf20_oxwzlirk.json"
                     background="transparent"
                     speed="1"
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Build</Card.Title>
                   <Card.Text>
-                    This card has supporting text below as a natural lead-in to
-                    additional content.{" "}
+                    {`Build  With Initiatives like "Build With Us" and "Startup 101", deep dive into the ocean of building the solutions for tomorrow!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
-                    Card Button &rarr;
+                    Build with us &rarr;
                   </Button>
                 </Card.Body>
               </Card>
               <Card className="card">
                 <Card.Body>
                   <lottie-player
-                    src="https://assets8.lottiefiles.com/packages/lf20_gomzks5q.json"
+                    src="https://assets2.lottiefiles.com/packages/lf20_s7vzoj2n.json"
                     background="transparent"
                     speed="1"
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Scale</Card.Title>
                   <Card.Text>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This card has even longer
-                    content than the first to show that equal height action.
+                    {`Scale Network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
-                    Card Button &rarr;
+                    Escalate &rarr;
                   </Button>
                 </Card.Body>
               </Card>
             </Row>
           </Row>
-          <Row>
-          </Row>
+          <Row></Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
             <h1>What people think about us</h1>
             <Testimonials></Testimonials>
@@ -156,7 +188,7 @@ export default function Home() {
       ></script>
       <script
         async
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+        src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"
       ></script>
       <script
         async

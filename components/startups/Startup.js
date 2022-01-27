@@ -11,7 +11,7 @@ function toBase64(arr) {
 }
 
 function MyVerticallyCenteredModal(props) {
-  console.log(props.details);
+  // console.log(props.details);
   const details = props.details;
   return (
     <Modal
@@ -29,25 +29,30 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body style={{ display: "flex" }}>
-        <p style={{ marginRight: "7px" }}>
-          {details.description}
-        </p>
-        <div
-          className="startup-modal-image"
-          style={{
-            height: "120px",
-            width: "120px",
-            position: "relative",
-            bottom: "70px",
-          }}
-        >
-          <Image
-            src={`data:image/png;base64,${toBase64(details.avatar.data.data)}`}
-            alt="ankbajh"
-            layout="fixed"
-            height="120"
-            width="120"
-          ></Image>
+        <p style={{ marginRight: "7px"}}>{details.description}</p>
+        <div className="startup-modal-image" style={{
+              height: "1005",
+              width: "100%",
+            }}>
+          <div
+            style={{
+              height: "120px",
+              width: "120px",
+              position: "relative",
+              bottom: "70px",
+              float: "right",
+            }}
+          >
+            <Image
+              src={`data:image/png;base64,${toBase64(
+                details.avatar.data.data
+              )}`}
+              alt="ankbajh"
+              layout="fixed"
+              height="120"
+              width="120"
+            ></Image>
+          </div>
         </div>
       </Modal.Body>
       <div className="startup-modal-footer">
@@ -57,10 +62,14 @@ function MyVerticallyCenteredModal(props) {
             {details.founders.map((founder_details) => {
               const isOkay = founder_details.founder ? true : false;
               return (
-                isOkay && (
+                founder_details.founder.length>0?(
                   <a
                     key={founder_details.linkedin}
-                    href={"https://"+founder_details.linkedin}
+                    href={
+                      founder_details.linkedin.slice(0, 12) === "https://www."
+                        ? founder_details.linkedin
+                        : "https://www." + founder_details.linkedin
+                    }
                     rel="noreferrer"
                     target="_blank"
                   >
@@ -69,7 +78,7 @@ function MyVerticallyCenteredModal(props) {
                       {founder_details.founder}
                     </span>
                   </a>
-                )
+                ):""
               );
             })}
           </div>

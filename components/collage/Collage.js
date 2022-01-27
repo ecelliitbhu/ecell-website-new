@@ -1,31 +1,6 @@
-import {
-  Indegene,
-  Adda247,
-  Pearl,
-  XpressBees,
-  Nihilent,
-  BiryaniByKilo,
-  Qtrove,
-  Tynker,
-  Wizikey,
-  MoveInSync,
-  Zostel,
-  Quona,
-  Motion,
-  Zest,
-  Cricbuzz,
-  One,
-  Tredence,
-  Tlabs,
-  Firstcry,
-  Zscaler,
-  Portworx,
-  Excubator,
-  Edureka,
-  Thrillophilia,
-  BansalClasses,
-  Alphonso,
-} from "./CollageItems";
+import Image from "next/image";
+import startups from "../../public/startups.png";
+import startups_mobile from "../../public/startups_mobile.png";
 const Collage = () => {
   return (
     <div
@@ -39,41 +14,17 @@ const Collage = () => {
       }}
       className="collage-container"
     >
-      <h1>Successful ventures from IIT BHU Alumni</h1>
-      <div className="container collage">
-        <Indegene />
-        <Adda247 />
-        <Pearl />
-        <XpressBees />
-        <Nihilent />
-        <BiryaniByKilo />
-        <Qtrove />
-        <Tynker />
-        <Wizikey />
-        <MoveInSync />
-        <Zostel />
-        <Quona />
-        <Motion />
-        <Zest />
-        <Cricbuzz />
-        <One />
-        <Tredence />
-        <Tlabs />
-        <Firstcry />
-        <Zscaler />
-        <Portworx />
-        <Excubator />
-        <Edureka />
-        <Thrillophilia />
-        <BansalClasses />
-        <Alphonso />
-        <Indegene />
-        <Adda247 />
-        <Pearl />
-        <XpressBees />
-        <Nihilent />
-        <BiryaniByKilo />
-        <MoveInSync />
+      <h1>Successful Ventures from IIT BHU Alumni</h1>
+      <div className="collage">
+        <Image src={startups} alt="startups" height="1080" width="1920"></Image>
+      </div>
+      <div className="collage-mobile">
+        <Image
+          src={startups_mobile}
+          alt="startups"
+          height="2925"
+          width="2340"
+        ></Image>
       </div>
     </div>
   );

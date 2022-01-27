@@ -24,6 +24,7 @@ export default function Events() {
     <>
       <Head>
         <title>Events</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
       <div>
