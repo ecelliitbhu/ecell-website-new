@@ -13,6 +13,7 @@ const Gallery = () => {
     <>
       <Head>
         <title>Gallery</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
       <div>
