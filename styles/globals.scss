@@ -275,7 +275,8 @@ button {
 }
 
 .discover:hover {
-  border-bottom: 4px solid rgb(4, 125, 238);
+  // border-bottom: 4px solid rgb(4, 125, 238);
+  box-shadow: inset 0px -4px rgb(4, 125, 238);
 }
 
 .discover div h4 {
@@ -287,7 +288,8 @@ button {
 }
 
 .design:hover {
-  border-bottom: 4px solid #28c7a0;
+  box-shadow: inset 0px -4px #28c7a0;
+  // border-bottom: 4px solid #28c7a0;
 }
 
 .design div h4 {
@@ -299,7 +301,8 @@ button {
 }
 
 .code:hover {
-  border-bottom: 4px solid #cd57ff;
+  box-shadow: inset 0px -4px #cd57ff;
+  // border-bottom: 4px solid #cd57ff;
 }
 
 .code div h4 {
@@ -307,7 +310,8 @@ button {
 }
 
 .learn:hover {
-  border-bottom: 4px solid #fd9301;
+  box-shadow: inset 0px -4px #fd9301;
+  // border-bottom: 4px solid #fd9301;
 }
 
 .learn div h4 {
@@ -1453,7 +1457,7 @@ button {
 }
 
 .filter-container {
-  width: 280px;
+  width: 20%;
   background-color: white;
   padding: 20px;
   margin: 0px 20px;
@@ -1493,6 +1497,7 @@ button {
   max-width: 1000px;
   display: flex;
   flex-direction: column;
+  width: 80% !important;
   // justify-content: center;
   align-items: center;
   .search-container {

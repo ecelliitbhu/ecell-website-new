@@ -40,9 +40,12 @@ const StartupDirectory = () => {
               Startup Directory
             </h1>
           </Row>
-          <Row>
-            <Filter></Filter>
-            <Col className="startups">
+          <div style={{display:"flex",justifyContent:"center"}}>
+            <div className="filter-container">
+              <Filter></Filter>
+            </div>
+
+            <div className="startups">
               <Row className="search-container">
                 <input type="search" name="" id="" placeholder="Search..." />
               </Row>
@@ -62,8 +65,8 @@ const StartupDirectory = () => {
                 <Startup></Startup>
                 <Startup></Startup> */}
               </Row>
-            </Col>
-          </Row>
+            </div>
+          </div>
           <br />
           <br />
           <br />

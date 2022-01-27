@@ -4,13 +4,13 @@ import { FaFilter } from "react-icons/fa";
 
 const Filter = () => {
   return (
-    <Col class="filter-container">
+    <>
       <Row>
         <h2>
-          Filter out the results <FaFilter className="filter-icon"></FaFilter>
+          Filter out the results <FaFilter classNameName="filter-icon"></FaFilter>
         </h2>
       </Row>
-      <Row class="filter-subcontainer">
+      <Row className="filter-subcontainer">
         <h3>Domains</h3>
         <ul>
           <li>
@@ -60,7 +60,7 @@ const Filter = () => {
           </li>
         </ul>
       </Row>
-      <Row class="filter-subcontainer">
+      <Row className="filter-subcontainer">
         <h3>Year of graduation</h3>
         <ul>
           <li>
@@ -85,7 +85,7 @@ const Filter = () => {
           </li>
         </ul>
       </Row>
-      <Row class="filter-subcontainer">
+      <Row className="filter-subcontainer">
         <h3>Status</h3>
         <ul>
           <li>
@@ -106,7 +106,7 @@ const Filter = () => {
           </li>
         </ul>
       </Row>
-    </Col>
+    </>
   );
 };
 

@@ -215,20 +215,25 @@ export const Incubators = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>
-                    {"Technology Innovation"} <br />
-                    {"& Incubation Centre"}
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                  </p>
-                </div>
-              </a>
-            </Link>
+            {/* <Link href="https://tiiciitbhu.org"> */}
+            <a
+              className="dropdown-item"
+              href="https://tiiciitbhu.org"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>
+                  {"Technology Innovation"} <br />
+                  {"& Incubation Centre"}
+                </h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
+            {/* </Link> */}
 
             <Link href="/contacts">
               <a className="dropdown-item" href="#">
@@ -281,7 +286,12 @@ export const Incubators = () => {
             </Link>
 
             <Link href="/team">
-              <a className="dropdown-item">
+              <a
+                className="dropdown-item"
+                href="https://www.iitbhu.ac.in/cf/cis/innovation"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
                   <h4>
@@ -305,7 +315,7 @@ export const Connect = () => {
   const [isHover, setIsHover] = useState(false);
   return (
     <li
-      className="nav-item dropdown code"
+      className="nav-item code"
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
@@ -491,6 +501,28 @@ export const Learn = () => {
           </li>
         </ul>
       </div>
+    </li>
+  );
+};
+export const Contact = () => {
+  return (
+    <li className="nav-item dropdown learn">
+      <Link href="/contacts" passHref>
+        <a className="nav-link">
+          <h3>Contacts</h3>
+        </a>
+      </Link>
+    </li>
+  );
+};
+export const Startups = () => {
+  return (
+    <li className="nav-item dropdown learn">
+      <Link href="/startups" passHref>
+        <a className="nav-link">
+          <h3>Startups</h3>
+        </a>
+      </Link>
     </li>
   );
 };
