@@ -7,6 +7,7 @@ export default function FAQs() {
     <>
       <Head>
         <title>FAQs</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav/>
       <div>
