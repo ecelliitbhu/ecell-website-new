@@ -21,6 +21,7 @@ const StartupDirectory = () => {
     <>
       <Head>
         <title>Startups</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
       <div>

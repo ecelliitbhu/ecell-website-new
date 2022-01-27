@@ -17,6 +17,7 @@ export default function Home() {
     <>
       <Head>
         <title>Home</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
       <div>
