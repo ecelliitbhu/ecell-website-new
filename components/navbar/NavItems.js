@@ -40,28 +40,32 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
-              <div>
-                <h4>Events</h4>
-                <p>
-                  Discover what&apos;s trending <br />
-                  in the startup ecosystem.
-                </p>
-              </div>
-            </a>
+            <Link href="/events">
+              <a className="dropdown-item" href="#">
+                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <div>
+                  <h4>Events</h4>
+                  <p>
+                    Discover what&apos;s trending <br />
+                    in the startup ecosystem.
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
-              <div>
-                <h4>Gallery</h4>
-                <p>
-                  Initiatives taken up by E-Cell to improve <br /> the
-                  entrepreneurship culture @ IIT BHU
-                </p>
-              </div>
-            </a>
+            <Link href="/gallery">
+              <a className="dropdown-item" href="#">
+                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <div>
+                  <h4>Gallery</h4>
+                  <p>
+                    Initiatives taken up by E-Cell to improve <br /> the
+                    entrepreneurship culture @ IIT BHU
+                  </p>
+                </div>
+              </a>
+            </Link>
 
             <a className="dropdown-item" href="#">
               <FcCollaboration fontSize="2.2rem"></FcCollaboration>
@@ -434,7 +438,7 @@ export const Learn = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
+            <a className="dropdown-item" href="#">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>How E-cell works?</h4>
@@ -454,7 +458,7 @@ export const Learn = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Blogs</h4>
@@ -476,28 +480,24 @@ export const Learn = () => {
             </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Newsletter Archives</h4>
                 <p>Learn from the Entrepreneurship Experts</p>
               </div>
             </a>
-            <Link href="https://ecelliitbhu.substack.com/">
-              <a
-                className="dropdown-item"
-                href="https://ecelliitbhu.substack.com/"
-              >
-                <FcServices fontSize="2.2rem"></FcServices>
-                <div>
-                  <h4>E-Digest Magazine</h4>
-                  <p>
-                    Where those who work with Lottie <br />
-                    can come together
-                  </p>
-                </div>
-              </a>
-            </Link>
+
+            <a className="dropdown-item" href="#">
+              <FcServices fontSize="2.2rem"></FcServices>
+              <div>
+                <h4>E-Digest Magazine</h4>
+                <p>
+                  Where those who work with Lottie <br />
+                  can come together
+                </p>
+              </div>
+            </a>
           </li>
         </ul>
       </div>

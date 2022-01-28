@@ -16,7 +16,7 @@ const StartupDirectory = () => {
       setStartups(res.data);
     });
   }, []);
-  startups.sort((a, b) => (a.Name > b.Name ? 1 : b.Name > a.Name ? -1 : 0));
+  // startups.sort((a, b) => (a.Name > b.Name ? 1 : b.Name > a.Name ? -1 : 0));
   return (
     <>
       <Head>
