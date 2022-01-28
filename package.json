@@ -44,6 +44,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.13",
     "multer": "^1.4.4",
     "next": "11.1.2",
