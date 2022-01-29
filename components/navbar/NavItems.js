@@ -27,7 +27,7 @@ export const Discover = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <Link href="/events">
+            <Link href="/who_we_are">
               <a className="dropdown-item">
                 <FcCollaboration fontSize="2.2rem"></FcCollaboration>
                 <div>
@@ -239,76 +239,86 @@ export const Incubators = () => {
             </a>
             {/* </Link> */}
 
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>Cisco thingQbator</h4>
-                  <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://thingqbator.nasscomfoundation.org/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>Cisco thingQbator</h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>NCL-IIT BHU Incubation Centre</h4>
-                  <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://tiiciitbhu.org/ncl-iit-bhu-incubation-centre"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>NCL-IIT BHU Incubation Centre</h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
 
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>IDAPT-Hub Foundation</h4>
-                  <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://www.idapthub.org/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>IDAPT-Hub Foundation</h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/contacts">
-              <a className="dropdown-item">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>R-ABI, IIT BHU</h4>
-                  <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://tiiciitbhu.org/rabi"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>R-ABI, IIT BHU</h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
 
-            <Link href="/team">
-              <a
-                className="dropdown-item"
-                href="https://www.iitbhu.ac.in/cf/cis/innovation"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>
-                    {"Innovation"}
-                    <br />
-                    {"& Start-up Policy IIT BHU"}
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://www.iitbhu.ac.in/cf/cis/innovation"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>
+                  {"Innovation"}
+                  <br />
+                  {"& Start-up Policy IIT BHU"}
+                </h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
           </li>
         </ul>
       </div>
