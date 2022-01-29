@@ -198,7 +198,7 @@ const WhoWeAre = () => {
                       <li>
                         {" "}
                         <CheckCircleOutlinedIcon />
-                        {`Assistance & Mentor Support to young entrepreneurs of IIT BHU (brainstorming/ideation/incubation etc.)`}
+                        {`Assistance & Mentor Support to young entrepreneurs of IIT BHU (brainstorming/ ideation/ incubation etc.)`}
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon />
@@ -212,7 +212,7 @@ const WhoWeAre = () => {
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon />
-                        {`Organizing initiatives like "Build With Us", "Learn Together", "Entrepreneurship 101",&"Define Your Ideas".`}
+                        {`Organizing initiatives like "Build With Us", "Learn Together", "Entrepreneurship 101",& "Define Your Ideas".`}
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon />

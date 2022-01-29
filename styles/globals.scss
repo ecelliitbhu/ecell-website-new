@@ -1707,5 +1707,21 @@ button {
 @media (max-width: 1110px) {
   .ecell-verticals {
     grid-template-columns: 1fr;
+    .card{
+      width: 80%;
+      li{
+        font-size: 1rem;
+      }
+    }
+  }
+}
+@media (max-width: 550px) {
+  .ecell-verticals {
+    .card{
+      width: 100% !important;
+      li{
+        font-size: 0.8rem !important;
+      }
+    }
   }
 }
