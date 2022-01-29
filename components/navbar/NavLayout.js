@@ -1,6 +1,12 @@
-import { Discover, Initiatives, Learn, Connect, Incubators } from "./NavItems";
-import { Startups,Contacts } from "./NavButtons";
-import { SearchOffcanvas, Search } from "./NavSearch";
+import {
+  Discover,
+  Initiatives,
+  Learn,
+  Connect,
+  Incubators,
+  Contact,
+  Startups,
+} from "./NavItems";
 import { NavToggle } from "./NavToggle";
 import { NavLogo } from "./NavLogo";
 import Link from "next/link";
@@ -23,20 +29,14 @@ const Nav = () => {
               <Discover />
               <Initiatives />
               <Learn />
-              <Incubators/>
+              <Incubators />
               <Connect />
-              {/* <form className="d-flex">
-                <Search />
-              </form> */}
-              <div className="buttons">
-                <Startups />
-                {/* <Contacts /> */}
-              </div>
+              <Startups />
+              <Contact />
               <Notification />
             </ul>
           </div>
           <NavToggle />
-          {/* <SearchOffcanvas /> */}
         </div>
       </nav>
     </>

@@ -93,19 +93,19 @@ const Footer = () => {
               <Col >
                 <ul>
                   <li>
-                    <Link href="">Home</Link>
+                    <Link href="/">Home</Link>
                   </li>
                   <li>
-                    <Link href="">Events</Link>
+                    <Link href="/events">Events</Link>
                   </li>
                   <li>
-                    <Link href="">Blogs</Link>
+                    <a href="https://medium.com/ecelliitbhu">Blogs</a>
                   </li>
                   <li>
                     <Link href="">Initiatives</Link>
                   </li>
                   <li>
-                    <Link href="">Gallery</Link>
+                    <Link href="/gallery">Gallery</Link>
                   </li>
                 </ul>
               </Col>
@@ -118,13 +118,13 @@ const Footer = () => {
                     <Link href="">How E-Cell works</Link>
                   </li>
                   <li>
-                    <Link href="">Meet the team</Link>
+                    <Link href="/team">Meet the team</Link>
                   </li>
                   <li>
                     <Link href="">TIIC</Link>
                   </li>
                   <li>
-                    <Link href="">Contact Us</Link>
+                    <Link href="/contacts">Contact Us</Link>
                   </li>
                 </ul>
               </Col>

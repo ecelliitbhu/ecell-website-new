@@ -40,28 +40,32 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
-              <div>
-                <h4>Events</h4>
-                <p>
-                  Discover what&apos;s trending <br />
-                  in the startup ecosystem.
-                </p>
-              </div>
-            </a>
+            <Link href="/events">
+              <a className="dropdown-item" href="#">
+                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <div>
+                  <h4>Events</h4>
+                  <p>
+                    Discover what&apos;s trending <br />
+                    in the startup ecosystem.
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
-              <div>
-                <h4>Gallery</h4>
-                <p>
-                  Initiatives taken up by E-Cell to improve <br /> the
-                  entrepreneurship culture @ IIT BHU
-                </p>
-              </div>
-            </a>
+            <Link href="/gallery">
+              <a className="dropdown-item" href="#">
+                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <div>
+                  <h4>Gallery</h4>
+                  <p>
+                    Initiatives taken up by E-Cell to improve <br /> the
+                    entrepreneurship culture @ IIT BHU
+                  </p>
+                </div>
+              </a>
+            </Link>
 
             <a className="dropdown-item" href="#">
               <FcCollaboration fontSize="2.2rem"></FcCollaboration>
@@ -215,20 +219,25 @@ export const Incubators = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>
-                    {"Technology Innovation"} <br />
-                    {"& Incubation Centre"}
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                  </p>
-                </div>
-              </a>
-            </Link>
+            {/* <Link href="https://tiiciitbhu.org"> */}
+            <a
+              className="dropdown-item"
+              href="https://tiiciitbhu.org"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>
+                  {"Technology Innovation"} <br />
+                  {"& Incubation Centre"}
+                </h4>
+                <p>
+                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                </p>
+              </div>
+            </a>
+            {/* </Link> */}
 
             <Link href="/contacts">
               <a className="dropdown-item" href="#">
@@ -281,7 +290,12 @@ export const Incubators = () => {
             </Link>
 
             <Link href="/team">
-              <a className="dropdown-item">
+              <a
+                className="dropdown-item"
+                href="https://www.iitbhu.ac.in/cf/cis/innovation"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
                   <h4>
@@ -305,7 +319,7 @@ export const Connect = () => {
   const [isHover, setIsHover] = useState(false);
   return (
     <li
-      className="nav-item dropdown code"
+      className="nav-item code"
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
@@ -424,7 +438,7 @@ export const Learn = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
+            <a className="dropdown-item" href="#">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>How E-cell works?</h4>
@@ -444,7 +458,7 @@ export const Learn = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Blogs</h4>
@@ -466,31 +480,49 @@ export const Learn = () => {
             </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Newsletter Archives</h4>
                 <p>Learn from the Entrepreneurship Experts</p>
               </div>
             </a>
-            <Link href="https://ecelliitbhu.substack.com/">
-              <a
-                className="dropdown-item"
-                href="https://ecelliitbhu.substack.com/"
-              >
-                <FcServices fontSize="2.2rem"></FcServices>
-                <div>
-                  <h4>E-Digest Magazine</h4>
-                  <p>
-                    Where those who work with Lottie <br />
-                    can come together
-                  </p>
-                </div>
-              </a>
-            </Link>
+
+            <a className="dropdown-item" href="#">
+              <FcServices fontSize="2.2rem"></FcServices>
+              <div>
+                <h4>E-Digest Magazine</h4>
+                <p>
+                  Where those who work with Lottie <br />
+                  can come together
+                </p>
+              </div>
+            </a>
           </li>
         </ul>
       </div>
+    </li>
+  );
+};
+export const Contact = () => {
+  return (
+    <li className="nav-item dropdown learn">
+      <Link href="/contacts" passHref>
+        <a className="nav-link">
+          <h3>Contacts</h3>
+        </a>
+      </Link>
+    </li>
+  );
+};
+export const Startups = () => {
+  return (
+    <li className="nav-item dropdown learn">
+      <Link href="/startups" passHref>
+        <a className="nav-link">
+          <h3>Startups</h3>
+        </a>
+      </Link>
     </li>
   );
 };
