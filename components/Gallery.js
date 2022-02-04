@@ -8,8 +8,7 @@ const photos = [
     src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
     width: 4,
     height: 3,
-    title:
-      "i am very good ankjba adgd gygduyd guygduav agyuaguva",
+    title: "i am very good ankjba adgd gygduyd guygduav agyuaguva",
   },
   {
     src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
