@@ -6,7 +6,7 @@
 .test-shine:after {
   content: "";
   position: absolute;
-    top: -50%;
+  top: -50%;
   left: -60%;
   width: 20%;
   height: 200%;
@@ -19,7 +19,7 @@
     rgba(255, 255, 255, 0.13) 0%,
     rgba(255, 255, 255, 0.13) 77%,
     rgba(255, 255, 255, 0.5) 92%,
-    rgba(255, 255, 255, 0.0) 100%
+    rgba(255, 255, 255, 0) 100%
   );
 }
 
@@ -36,7 +36,6 @@
 .test-shine:active:after {
   opacity: 0;
 }
-
 
 * {
   margin: 0px;
@@ -872,7 +871,7 @@ button {
 }
 .card-title {
   text-align: center;
-  height: 10%;
+  height: fit-content;
   font-size: 1.4rem;
   color: black;
   background-color: white;
@@ -880,9 +879,9 @@ button {
 }
 .card-text {
   text-align: center;
-  margin: 5px !important;
+  // margin: 5px !important;
   width: 95% !important;
-  height: 30%;
+  height: fit-content;
   background-color: white;
   font-size: 1rem !important;
 }
@@ -1073,7 +1072,7 @@ button {
     margin: 0px;
     font-weight: bold;
   }
-  p{
+  p {
     color: grey;
   }
 }
@@ -1084,7 +1083,7 @@ button {
   justify-content: center;
   align-items: center;
 }
-.footer-items{
+.footer-items {
   margin: auto;
   width: 100%;
   height: 200px;
@@ -1119,7 +1118,7 @@ button {
   margin: 10px;
   display: inline;
 }
-.contact-icons{
+.contact-icons {
   color: grey;
   font-size: 18px;
   margin: 5px;
@@ -1127,11 +1126,11 @@ button {
 .social-icons:hover {
   transform: scale(1.5);
 }
-.mail-us{
-  text-decoration:none;
+.mail-us {
+  text-decoration: none;
   color: grey !important;
 }
-.newsletter{
+.newsletter {
   margin: auto;
   width: 100%;
   height: 200px;
@@ -1139,10 +1138,10 @@ button {
 @media (max-width: 991px) {
   .footer-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     /* width: 100%; */
   }
-  .footer-items{
+  .footer-items {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1656,5 +1655,73 @@ button {
 @media (max-width: 400px) {
   .offcanvas-container {
     width: 240px;
+  }
+}
+
+// WHO WE ARE?
+.download-brochure {
+  width: 240px;
+  font-size: 1.2rem;
+  height: fit-content;
+  color: white;
+  background-color: #fd9301;
+  margin: 40px 20px;
+}
+.download-brochure:hover {
+  background-color: #ca4611;
+  color: white;
+}
+.download-brochure:focus {
+  background-color: #ca4611;
+}
+.about-ecell-image {
+  padding: 40px;
+}
+@media (max-width: 991px) {
+  .download-brochure {
+    margin: auto;
+  }
+  .about-ecell-image {
+    width: 70%;
+    margin: 20px auto;
+  }
+}
+.ecell-verticals {
+  grid-template-columns: 1fr 1fr;
+  .card {
+    width: 100%;
+    height: 100%;
+    .card-text {
+      margin: 0px;
+    }
+  }
+  ul {
+    text-align: left;
+    padding: 0px;
+    li {
+      display: flex;
+      margin: 10px auto;
+    }
+  }
+}
+@media (max-width: 1110px) {
+  .ecell-verticals {
+    grid-template-columns: 1fr;
+    .card{
+      width: 80%;
+      li{
+        font-size: 1rem;
+      }
+    }
+  }
+}
+@media (max-width: 550px) {
+  .ecell-verticals {
+    .card{
+      width: 100% !important;
+      li{
+        font-size: 0.8rem !important;
+      }
+    }
   }
 }

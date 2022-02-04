@@ -17,28 +17,6 @@ const Footer = () => {
   return (
     <>
       <footer className="footer">
-        <Row>
-          <Col
-            style={{
-              // border: "1px solid #EEE",
-              margin: "auto",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          ></Col>
-          <Col
-            style={{
-              // border: "1px solid #EEE",
-              background: "#f8f9fa",
-              margin: "auto",
-              display: "flex",
-              alignItems: "center",
-              // justifyContent: "center",
-            }}
-          ></Col>
-        </Row>
-
         <Row className="footer-container">
           <Col className="footer-items contact-us">
             <h5>Contact Us</h5>
@@ -112,7 +90,7 @@ const Footer = () => {
               <Col >
                 <ul>
                   <li>
-                    <Link href="">Who are we</Link>
+                    <Link href="/who_we_are">Who we are?</Link>
                   </li>
                   <li>
                     <Link href="">How E-Cell works</Link>
