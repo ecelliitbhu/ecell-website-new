@@ -27,7 +27,7 @@ const WhoWeAre = () => {
             style={{ height: "fit-content", marginTop: "100px" }}
           >
             <Col className="info">
-              <h1>What is Ecell?</h1>
+              <h1>What is E-cell?</h1>
               <p>
                 The Entrepreneurship Cell IIT (BHU), Varanasi, is a conglomerate
                 of individuals with a vision, a dream. It is a place for all
