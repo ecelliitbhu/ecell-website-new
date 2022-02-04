@@ -64,7 +64,7 @@ const Gallery = () => {
                 fontWeight: "bold",
               }}
             >
-              Esummit
+              E-Summit
             </h1>
             <Esummit></Esummit>
           </Row>

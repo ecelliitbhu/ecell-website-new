@@ -1,16 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect } from "react";
-// import styles from '../styles/Home.module.css'
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Collage from "../components/collage/Collage";
-// import Collage from "../components/collage/Collage";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
 import { useRouter } from "next/router";
 import Typewriter from "typewriter-effect";
-// import Vector from "../public/startup-image.png"
 
 export default function Home() {
   return (
