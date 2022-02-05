@@ -76,5 +76,5 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2"
   },
-  "proxy": "https://ecell-website-new.vercel.app/api"
+  "proxy": "https://startup-directory.herokuapp.com/"
 }

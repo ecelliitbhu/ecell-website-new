@@ -11,7 +11,7 @@ import axios from "axios";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
   useEffect(() => {
-    axios.get("api/startup").then(async (res) => {
+    axios.get("https://startup-directory.herokuapp.com/startups").then(async (res) => {
       // console.log(res.data);
       setStartups(res.data);
     });
