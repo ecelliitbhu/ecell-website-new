@@ -46,6 +46,10 @@
   /* background-color: #f8f9fa; */
 }
 
+a{
+  text-decoration: none;
+}
+
 ::selection {
   background: #ffc26c;
 }
@@ -342,54 +346,9 @@ button {
   display: none;
 }
 
-@media only screen and (max-width: 2566px) and (min-width: 1830px) {
-  #login {
-    margin-left: 3vw;
-  }
-  .navbar-brand {
-    margin-left: 10vw;
-  }
-}
-@media only screen and (max-width: 1830px) and (min-width: 1453px) {
-  #login {
-    margin-left: 1.5vw;
-  }
-  .navbar-brand {
-    margin-left: 8.5vw;
-  }
-}
-@media only screen and (max-width: 1420px) and (min-width: 1340px) {
-  #login {
-    margin-left: 0.5vw;
-    width: 50px;
-  }
-  .navbar-brand {
-    margin-left: 4vw;
-  }
-}
 
-@media only screen and (max-width: 1339px) and (min-width: 1099px) {
-  #login {
-    margin-left: 0.5vw !important;
-    width: 68px !important;
-  }
-  .navbar-brand {
-    margin-left: 4vw;
-  }
-  .nav-item {
-    margin: 0.3vw;
-  }
-}
+
 @media only screen and (max-width: 1270px) and (min-width: 1130px) {
-  #sign-up {
-    width: 90px;
-  }
-  #login {
-    width: 55px;
-  }
-  .search {
-    width: 13vw;
-  }
   .dropdown-item div h4 {
     font-size: 1rem;
   }
@@ -403,27 +362,6 @@ button {
   }
   .dropdown-item div p {
     font-size: 0.7rem;
-  }
-  #login {
-    margin-left: 4vw;
-    background-color: #23caf1;
-    border: #23caf1;
-    color: white;
-    text-align: center;
-    width: 80px;
-  }
-  .search {
-    width: 15vw;
-  }
-
-  .navbar-brand {
-    margin-left: 3vw;
-  }
-  .nav-item {
-    margin: 5px;
-  }
-  #sign-up {
-    display: none;
   }
 }
 
@@ -708,13 +646,28 @@ button {
   color: grey;
 }
 .get-started {
-  height: 12%;
-  width: 40%;
+  height: 76px;
+  width: 333px;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
+  background-color: #F5A522;
   border-radius: 0.5rem;
   font-weight: bold;
+  margin: 10px 0px;
 }
+
+.get-started:hover{
+  color: white;
+  background-color: chocolate;
+}
+.get-started:focus{
+  color: white;
+  background-color: #F5A522;
+}
+
 
 .lottie-player {
   width: 300px;
@@ -788,6 +741,10 @@ button {
 .learn-more {
   height: 8%;
   width: 300px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .learn-more:hover {
   background-color: rgb(77, 76, 76);
@@ -901,6 +858,7 @@ button {
 .card-button {
   height: 40px;
   width: 140px;
+  margin: 10px;
 }
 .collage-container h1 {
   text-align: center;
@@ -920,7 +878,7 @@ button {
   grid-row: span 2;
 }
 @media (max-width: 991px) {
-  .collage {
+  .collage-normal {
     display: none;
   }
   .collage-mobile {
@@ -1118,6 +1076,9 @@ button {
   margin: 10px;
   display: inline;
 }
+.social-icons{
+  color: black;
+}
 .contact-icons {
   color: grey;
   font-size: 18px;
@@ -1159,6 +1120,9 @@ button {
     width: 280px;
     margin: 80px auto;
     row-gap: 30px;
+  }
+  .important-footer{
+    display: none;
   }
 }
 
@@ -1217,52 +1181,28 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: fit-content;
-  gap: 30px;
+  gap: 60px;
   margin: 15px auto;
 }
 .our-team {
   text-align: center;
   position: relative;
-  color: #fff;
-  width: 320px;
-  height: 435px;
-}
-.our-team:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease 0s;
-  opacity: 0;
+  width: 240px;
+  height: 360px;
+  margin: 20px;
 }
 
-.our-team img {
-  width: 100%;
-}
-.our-team .team-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 30px 0;
-  background-color: #fb6930;
-  transition: all 0.3s ease 0s;
-}
-.our-team:hover .team-content {
-  height: 42%;
-}
+// .our-team img {
+//   width: 800%;
+// }
 .our-team .team-content .name {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
-  letter-spacing: 1px;
   display: block;
   margin-bottom: 7px;
 }
 .our-team .team-content .post {
-  font-size: 17px;
+  font-size: 12px;
   display: block;
 }
 .team-content {
@@ -1274,7 +1214,6 @@ button {
 }
 .team-social {
   display: flex;
-  gap: 30px;
   align-items: center;
   justify-content: center;
   margin: 10px;
@@ -1661,11 +1600,15 @@ button {
 // WHO WE ARE?
 .download-brochure {
   width: 240px;
+  height: 50px !important;
   font-size: 1.2rem;
   height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
-  background-color: #fd9301;
-  margin: 40px 20px;
+  background-color: #F5A522 !important;
+  margin: 40px 0px;
 }
 .download-brochure:hover {
   background-color: #ca4611;
@@ -1679,7 +1622,7 @@ button {
 }
 @media (max-width: 991px) {
   .download-brochure {
-    margin: auto;
+    margin:40px auto;
   }
   .about-ecell-image {
     width: 70%;
@@ -1700,6 +1643,7 @@ button {
     padding: 0px;
     li {
       display: flex;
+      gap: 5px;
       margin: 10px auto;
     }
   }

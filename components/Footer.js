@@ -65,7 +65,7 @@ const Footer = () => {
               </div>
             </div>
           </Col>
-          <Col className="footer-items">
+          <Col className="footer-items important-footer">
             <h5>Important</h5>
             <Row style={{display:"grid", gridTemplateColumns:"1.5fr 3fr"}}>
               <Col >

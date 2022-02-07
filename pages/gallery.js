@@ -2,12 +2,12 @@ import Nav from "../components/navbar/NavLayout";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import { Container, Row } from "react-bootstrap";
-import {
-  Esummit,
-  GuestLectures,
-  FoundersSpeak,
-  Workshops,
-} from "../components/Gallery";
+// import {
+//   Esummit,
+//   GuestLectures,
+//   FoundersSpeak,
+//   Workshops,
+// } from "../components/Gallery";
 const Gallery = () => {
   return (
     <>
@@ -16,7 +16,7 @@ const Gallery = () => {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      <div>
+      {/* <div>
         <Container fluid className="body">
           <Row
             className="header"
@@ -142,7 +142,7 @@ const Gallery = () => {
           </Row>
           <Footer />
         </Container>
-      </div>
+      </div> */}
     </>
   );
 };

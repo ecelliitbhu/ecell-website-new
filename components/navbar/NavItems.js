@@ -33,9 +33,9 @@ export const Discover = () => {
                 <div>
                   <h4>Who we are?</h4>
                   <p>
-                    Discover the buzzing events
+                    Get to Know the E-Cell,
                     <br />
-                    happening throughout the year!
+                    who we are and what we do.
                   </p>
                 </div>
               </a>
@@ -46,8 +46,9 @@ export const Discover = () => {
                 <div>
                   <h4>Events</h4>
                   <p>
-                    Discover what&apos;s trending <br />
-                    in the startup ecosystem.
+                    Discover the buzzing events
+                    <br />
+                    happening throughout the year!
                   </p>
                 </div>
               </a>
@@ -59,10 +60,7 @@ export const Discover = () => {
                 <FcCollaboration fontSize="2.2rem"></FcCollaboration>
                 <div>
                   <h4>Gallery</h4>
-                  <p>
-                    Initiatives taken up by E-Cell to improve <br /> the
-                    entrepreneurship culture @ IIT BHU
-                  </p>
+                  <p>A glimpse of our culture through our E-Album!</p>
                 </div>
               </a>
             </Link>
@@ -72,8 +70,9 @@ export const Discover = () => {
               <div>
                 <h4>Initiatives</h4>
                 <p>
-                  Uncover the great startups <br />
-                  that have been #BuiltinIITBHU
+                  Initiatives taken by the E-Cell to improve
+                  <br />
+                  the entrepreneurship culture @ IIT BHU
                 </p>
               </div>
             </a>
@@ -84,8 +83,8 @@ export const Discover = () => {
               <div>
                 <h4>Past speakers</h4>
                 <p>
-                  Initiatives taken up by E-Cell to improve <br /> the
-                  entrepreneurship culture @ IIT BHU
+                  Witness our expansive lineup of <br /> prominent speakers and
+                  guests!
                 </p>
               </div>
             </a>
@@ -95,8 +94,8 @@ export const Discover = () => {
               <div>
                 <h4>Sponsors and Associates</h4>
                 <p>
-                  Uncover the great startups <br />
-                  that have been #BuiltinIITBHU
+                  Meet our facilitators who support us <br />
+                  to make the best of E-Cell!
                 </p>
               </div>
             </a>
@@ -129,13 +128,18 @@ export const Initiatives = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="https://ecelliitbhu.notion.site/Startup-Internship-Portal-a0455bf737864af29bdef29ab488fccf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FcApproval fontSize="2.2rem"></FcApproval>
               <div>
                 <h4>Internship Portal</h4>
                 <p>
-                  Register your startup for interns
-                  <br /> or work in budding startups!
+                  Reach out to us for getting interns
+                  <br /> for your budding startup!
                 </p>
               </div>
             </a>
@@ -145,8 +149,8 @@ export const Initiatives = () => {
               <div>
                 <h4>Startup Services Portal</h4>
                 <p>
-                  Tweak Lottie animations
-                  <br /> without Adobe After Effects
+                  Access the startup services for IIT BHU <br /> entrepreneurs
+                  provided by E-Cell Associations.
                 </p>
               </div>
             </a>
@@ -157,17 +161,24 @@ export const Initiatives = () => {
               <div>
                 <h4>Build with us</h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  Join our community of IIT BHU budding
+                  <br /> {`alumni & student entrepreneurs!`}
                 </p>
               </div>
             </a>
 
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="https://discord.link/ecelliitbhu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FcApproval fontSize="2.2rem"></FcApproval>
               <div>
-                <h4>IIT BHU Projects Portal</h4>
+                <h4>E-Community</h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  Join the world of entrepreneurs and enthusiasts
+                  <br /> and build the future together!
                 </p>
               </div>
             </a>
@@ -178,7 +189,8 @@ export const Initiatives = () => {
               <div>
                 <h4>Campus Ambassador program</h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  {`Join our initiative of creating & motivating`}
+                  <br /> {`the entrepreneurs of your college!`}
                 </p>
               </div>
             </a>
@@ -187,7 +199,8 @@ export const Initiatives = () => {
               <div>
                 <h4>Mentor Forum</h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  Request for a connect to a <br />{" "}
+                  {`mentor for your startup sector!`}
                 </p>
               </div>
             </a>
@@ -233,7 +246,9 @@ export const Incubators = () => {
                   {"& Incubation Centre"}
                 </h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  Umbrella organization at IIT BHU for
+                  <br />
+                  nurturing start-ups
                 </p>
               </div>
             </a>
@@ -249,7 +264,8 @@ export const Incubators = () => {
               <div>
                 <h4>Cisco thingQbator</h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  An internal makerspace “Internet of Things” <br />- focused
+                  incubator
                 </p>
               </div>
             </a>
@@ -265,7 +281,8 @@ export const Incubators = () => {
               <div>
                 <h4>NCL-IIT BHU Incubation Centre</h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  A Northern Coalfields Limited (NCL) <br /> CSR initiative
+                  funded incubator
                 </p>
               </div>
             </a>
@@ -280,7 +297,8 @@ export const Incubators = () => {
               <div>
                 <h4>IDAPT-Hub Foundation</h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  Technology Innovation Hub for “Data Analytics
+                  <br /> and Predictive Technologies”
                 </p>
               </div>
             </a>
@@ -296,7 +314,8 @@ export const Incubators = () => {
               <div>
                 <h4>R-ABI, IIT BHU</h4>
                 <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                  An Agribusiness and Agri-preneurship <br /> focused incubator
+                  @ IIT BHU
                 </p>
               </div>
             </a>
@@ -314,9 +333,7 @@ export const Incubators = () => {
                   <br />
                   {"& Start-up Policy IIT BHU"}
                 </h4>
-                <p>
-                  Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                </p>
+                <p>Official Startup Policy of IIT BHU</p>
               </div>
             </a>
           </li>
@@ -353,7 +370,8 @@ export const Connect = () => {
                 <div>
                   <h4>For students</h4>
                   <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                    Connect with us to request for <br /> any kind of startup
+                    assistance.
                   </p>
                 </div>
               </a>
@@ -365,7 +383,8 @@ export const Connect = () => {
                 <div>
                   <h4>For startups</h4>
                   <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                    Reach out to us for any startup assistance/ <br /> guidance/
+                    referral and other opportunities!
                   </p>
                 </div>
               </a>
@@ -378,7 +397,8 @@ export const Connect = () => {
                 <div>
                   <h4>For alumni</h4>
                   <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                    We’d love to network with our alums <br /> working towards
+                    the same cause!
                   </p>
                 </div>
               </a>
@@ -390,7 +410,8 @@ export const Connect = () => {
                 <div>
                   <h4>For Investor and VCs</h4>
                   <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                    Reach out to us for the full database of <br /> IIT BHU
+                    Entrepreneurs looking to raise funds!
                   </p>
                 </div>
               </a>
@@ -403,7 +424,8 @@ export const Connect = () => {
                 <div>
                   <h4>For corporates</h4>
                   <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
+                    We welcome all Corporate collaborations and
+                    <br /> CSR Initiatives to strengthen the startup community!
                   </p>
                 </div>
               </a>
@@ -414,9 +436,7 @@ export const Connect = () => {
                 <FcAddressBook fontSize="2.2rem"></FcAddressBook>
                 <div>
                   <h4>Meet the team</h4>
-                  <p>
-                    Lorem ipsum dolor sit <br /> amet consectetur adipisicing
-                  </p>
+                  <p>Get to know the Core Team of E-Cell.</p>
                 </div>
               </a>
             </Link>
@@ -451,61 +471,74 @@ export const Learn = () => {
             <a className="dropdown-item" href="#">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
-                <h4>How E-cell works?</h4>
-                <p>How-to guides, interviews, articles, and more</p>
+                <h4>Startup Bundle</h4>
+                <p>
+                  The Ultimate Guidebook for young <br /> entrepreneurs on
+                  starting up!
+                </p>
               </div>
             </a>
 
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="https://www.notion.so/ecelliitbhu/Entrepreneurship-Library-44a56c8083a24f9688554483b1aa3717"
+            >
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Resource Library</h4>
                 <p>
-                  Stay up-to-date with our latest <br />
-                  events held @ecelliitbhu
+                  Your go-to encyclopedia for all startup
+                  <br />
+                  resources- All at one place!
                 </p>
               </div>
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
-              <FcServices fontSize="2.2rem"></FcServices>
-              <div>
-                <h4>Blogs</h4>
-                <p>
-                  A comprehensive guide to this <br />
-                  powerful little format
-                </p>
-              </div>
-            </a>
-
             <Link href="/FAQs">
               <a className="dropdown-item">
                 <FcServices fontSize="2.2rem"></FcServices>
                 <div>
                   <h4>Frequently Asked Questions</h4>
-                  <p>Get your questions answered</p>
+                  <p>
+                    Get all your startup/ E-Cell <br /> related doubts answered!
+                  </p>
                 </div>
               </a>
             </Link>
-          </li>
-          <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="https://medium.com/ecelliitbhu">
-              <FcServices fontSize="2.2rem"></FcServices>
-              <div>
-                <h4>Newsletter Archives</h4>
-                <p>Learn from the Entrepreneurship Experts</p>
-              </div>
-            </a>
-
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://issuu.com/ecelliitbhu">
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>E-Digest Magazine</h4>
                 <p>
-                  Where those who work with Lottie <br />
-                  can come together
+                  Glance through the E-Cell <br />
+                  Quarterly Magazine{" "}
                 </p>
+              </div>
+            </a>
+          </li>
+          <li className="dropdown-subcontainer">
+            <a
+              className="dropdown-item"
+              href="https://ecelliitbhu.substack.com"
+            >
+              <FcServices fontSize="2.2rem"></FcServices>
+              <div>
+                <h4>Newsletter Archives</h4>
+                <p>
+                  Visit our E-Cell’s Weekly Newsletter <br />
+                  archive on Substack
+                </p>
+              </div>
+            </a>
+            <a
+              className="dropdown-item"
+              href="https://medium.com/ecelliitbhu/feature/home"
+            >
+              <FcServices fontSize="2.2rem"></FcServices>
+              <div>
+                <h4>Blogs</h4>
+                <p>Visit the Official E-Cell Medium Blog</p>
               </div>
             </a>
           </li>
@@ -531,6 +564,17 @@ export const Startups = () => {
       <Link href="/startups" passHref>
         <a className="nav-link">
           <h3>Startups</h3>
+        </a>
+      </Link>
+    </li>
+  );
+};
+export const Esummit = () => {
+  return (
+    <li className="nav-item dropdown learn">
+      <Link href="/" passHref>
+        <a className="nav-link">
+          <h3>{`E-Summit'22`}</h3>
         </a>
       </Link>
     </li>

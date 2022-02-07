@@ -6,7 +6,7 @@ const NotificationOffCanvas = () => {
   return (
     <>
       <Badge
-        badgeContent={17}
+        badgeContent={3}
         color="error"
         id="notification-button"
         // className="btn btn-primary"
@@ -36,18 +36,23 @@ const NotificationOffCanvas = () => {
         <div className="offcanvas-body">
           <h5>Notifications</h5>
           <Dropdown.Divider />
-          <Link href="https://dare2compete.com/competition/pitch-er-perfect-indian-institute-of-technology-iit-bhu-varanasi-225118">
-            <Alert icon={false} severity="info">
-              Register for Pitch er perfect{" "}
+          <a href="https://bit.ly/novice-fiesta-results">
+            <Alert icon={false} severity="warning">
+              Results of Novice Fiesta are out! Check Now!
               <Chip label="Click here!" color="warning" size="small" />
             </Alert>
-          </Link>
-          <Alert icon={false} severity="warning">
-            lorea vjhvahj ahjav hjgav
-          </Alert>
-          <Alert icon={false} severity="success">
-            lorea vjhvahj ahjav hjgav
-          </Alert>
+          </a>
+          <a href="https://instagram.com/ecelliitbhu">
+            <Alert icon={false} severity="info">
+              Stay tuned with E-Summit!
+              <Chip label="Click here!" color="warning" size="small" />
+            </Alert>
+          </a>
+          {/* <a href="https://instagram.com/ecelliitbhu"> */}
+            <Alert icon={false} severity="success">
+              Registrations for IDAPT-HUB Pitch Challenge is open!
+            </Alert>
+          {/* </a> */}
         </div>
       </div>
     </>

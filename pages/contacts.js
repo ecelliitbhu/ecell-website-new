@@ -54,7 +54,8 @@ export default function Contacts() {
               There are five kinds of people who can help you succeed in
               entrepreneurship: Mentors you admire, Partners you respects,
               Employees you can trust, Friends you make time for, A family that
-              supports you. Reach us out, we are always here to help you out..
+              supports you.
+              <br /> Reach us out, we are always here to help you out..
             </p>
           </Row>
           <Row

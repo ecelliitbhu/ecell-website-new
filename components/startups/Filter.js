@@ -25,38 +25,38 @@ const Filter = () => {
           <li>
             <input
               type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
+              id="fintech"
+              name="fintech"
+              value="fintech"
             />
-            <label htmlFor="agritech"> Agritech</label>
+            <label htmlFor="fintech"> Fintech</label>
           </li>
           <li>
             <input
               type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
+              id="ecommerce"
+              name="ecommerce"
+              value="ecommerce"
             />
-            <label htmlFor="agritech"> Agritech</label>
+            <label htmlFor="ecommerce">  E-Commerce</label>
           </li>
           <li>
             <input
               type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
+              id="edtech"
+              name="edtech"
+              value="edtech"
             />
-            <label htmlFor="agritech"> Agritech</label>
+            <label htmlFor="edtech"> Edtech</label>
           </li>
           <li>
             <input
               type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
+              id="adtech"
+              name="adtech"
+              value="adtech"
             />
-            <label htmlFor="agritech"> Agritech</label>
+            <label htmlFor="adtech"> Adtech</label>
           </li>
         </ul>
       </Row>
