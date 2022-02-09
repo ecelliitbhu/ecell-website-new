@@ -12,7 +12,7 @@ const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
   useEffect(() => {
     axios.get("https://startup-directory.herokuapp.com/startups").then(async (res) => {
-      // console.log(res.data);
+      console.log(res.data);
       setStartups(res.data);
     });
   }, []);

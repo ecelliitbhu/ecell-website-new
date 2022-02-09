@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import {Collage,CollagePhone} from "../components/Collage"
+import { Collage, CollagePhone } from "../components/Collage";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
@@ -53,7 +53,11 @@ export default function Home() {
                 ideate, innovate and incubate the future innovations of the
                 century!
               </p>
-              <Button variant="info" className="get-started" href="/#who-are-we">
+              <Button
+                variant="info"
+                className="get-started"
+                href="/#who-are-we"
+              >
                 Get Started !
               </Button>
             </Col>
@@ -126,7 +130,7 @@ export default function Home() {
                   ></lottie-player>
                   <Card.Title>Learn</Card.Title>
                   <Card.Text>
-                    {`through our Programmes like "E-Mentorship" and "Learn Together", we teach the students about all aspects of entrepreneurial journey!`}
+                    {`Through our Programmes like "E-Mentorship" and "Learn Together", we teach the students about all aspects of entrepreneurial journey!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
                     Learn Here &rarr;
@@ -144,7 +148,7 @@ export default function Home() {
                   ></lottie-player>
                   <Card.Title>Build</Card.Title>
                   <Card.Text>
-                    {`with Initiatives like "Build With Us" and "Startup 101", deep dive into the ocean of building the solutions for tomorrow!`}
+                    {`With Initiatives like "Build With Us" and "Startup 101", deep dive into the ocean of building the solutions for tomorrow!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
                     Build with us &rarr;
@@ -162,7 +166,7 @@ export default function Home() {
                   ></lottie-player>
                   <Card.Title>Scale</Card.Title>
                   <Card.Text>
-                    {`network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!`}
+                    {`Network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!`}
                   </Card.Text>
                   <Button variant="dark" className="card-button">
                     Escalate &rarr;

@@ -144,7 +144,12 @@ export const Initiatives = () => {
               </div>
             </a>
 
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="https://ecelliitbhu.notion.site/Startup-Services-Portal-33cd37c10e204f7c9b1cd2c465016429"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FcApproval fontSize="2.2rem"></FcApproval>
               <div>
                 <h4>Startup Services Portal</h4>
@@ -184,26 +189,30 @@ export const Initiatives = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
-              <FcApproval fontSize="2.2rem"></FcApproval>
-              <div>
-                <h4>Campus Ambassador program</h4>
-                <p>
-                  {`Join our initiative of creating & motivating`}
-                  <br /> {`the entrepreneurs of your college!`}
-                </p>
-              </div>
-            </a>
-            <a className="dropdown-item" href="#">
-              <FcApproval fontSize="2.2rem"></FcApproval>
-              <div>
-                <h4>Mentor Forum</h4>
-                <p>
-                  Request for a connect to a <br />{" "}
-                  {`mentor for your startup sector!`}
-                </p>
-              </div>
-            </a>
+            <Link href="/coming_soon" passHref>
+              <a className="dropdown-item" href="#">
+                <FcApproval fontSize="2.2rem"></FcApproval>
+                <div>
+                  <h4>Campus Ambassador program</h4>
+                  <p>
+                    {`Join our initiative of creating & motivating`}
+                    <br /> {`the entrepreneurs of your college!`}
+                  </p>
+                </div>
+              </a>
+            </Link>
+            <Link href="/coming_soon" passHref>
+              <a className="dropdown-item" href="#">
+                <FcApproval fontSize="2.2rem"></FcApproval>
+                <div>
+                  <h4>Mentor Forum</h4>
+                  <p>
+                    Request for a connect to a <br />{" "}
+                    {`mentor for your startup sector!`}
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -364,72 +373,87 @@ export const Connect = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>For students</h4>
-                  <p>
-                    Connect with us to request for <br /> any kind of startup
-                    assistance.
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://wa.me/916376592768"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>For students</h4>
+                <p>
+                  Connect with us to request for <br /> any kind of startup
+                  assistance.
+                </p>
+              </div>
+            </a>
 
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>For startups</h4>
-                  <p>
-                    Reach out to us for any startup assistance/ <br /> guidance/
-                    referral and other opportunities!
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://wa.me/916376592768"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>For startups</h4>
+                <p>
+                  Reach out to us for any startup assistance/ <br /> guidance/
+                  referral and other opportunities!
+                </p>
+              </div>
+            </a>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>For alumni</h4>
-                  <p>
-                    We’d love to network with our alums <br /> working towards
-                    the same cause!
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://wa.me/919587887413"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>For alumni</h4>
+                <p>
+                  We’d love to network with our alums <br /> working towards the
+                  same cause!
+                </p>
+              </div>
+            </a>
 
-            <Link href="/contacts">
-              <a className="dropdown-item" href="#">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>For Investor and VCs</h4>
-                  <p>
-                    Reach out to us for the full database of <br /> IIT BHU
-                    Entrepreneurs looking to raise funds!
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://wa.me/919587887413"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>For Investor and VCs</h4>
+                <p>
+                  Reach out to us for the full database of <br /> IIT BHU
+                  Entrepreneurs looking to raise funds!
+                </p>
+              </div>
+            </a>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/contacts">
-              <a className="dropdown-item">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
-                <div>
-                  <h4>For corporates</h4>
-                  <p>
-                    We welcome all Corporate collaborations and
-                    <br /> CSR Initiatives to strengthen the startup community!
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://wa.me/918233380939"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <div>
+                <h4>For corporates</h4>
+                <p>
+                  We welcome all Corporate collaborations and
+                  <br /> CSR Initiatives to strengthen the startup community!
+                </p>
+              </div>
+            </a>
 
             <Link href="/team">
               <a className="dropdown-item">
@@ -468,7 +492,12 @@ export const Learn = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a
+              className="dropdown-item"
+              href="https://ecelliitbhu.notion.site/Startup-Bundle-f47d0b39e4754468ad31fd9e0a212d21"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>Startup Bundle</h4>
@@ -482,6 +511,8 @@ export const Learn = () => {
             <a
               className="dropdown-item"
               href="https://www.notion.so/ecelliitbhu/Entrepreneurship-Library-44a56c8083a24f9688554483b1aa3717"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
@@ -506,7 +537,12 @@ export const Learn = () => {
                 </div>
               </a>
             </Link>
-            <a className="dropdown-item" href="https://issuu.com/ecelliitbhu">
+            <a
+              className="dropdown-item"
+              href="https://issuu.com/ecelliitbhu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
                 <h4>E-Digest Magazine</h4>
@@ -521,6 +557,8 @@ export const Learn = () => {
             <a
               className="dropdown-item"
               href="https://ecelliitbhu.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
@@ -534,6 +572,8 @@ export const Learn = () => {
             <a
               className="dropdown-item"
               href="https://medium.com/ecelliitbhu/feature/home"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FcServices fontSize="2.2rem"></FcServices>
               <div>
@@ -552,7 +592,7 @@ export const Contact = () => {
     <li className="nav-item dropdown learn">
       <Link href="/contacts" passHref>
         <a className="nav-link">
-          <h3>Contacts</h3>
+          <h3>Contact</h3>
         </a>
       </Link>
     </li>

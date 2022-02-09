@@ -61,48 +61,23 @@ const Filter = () => {
         </ul>
       </Row>
       <Row className="filter-subcontainer">
-        <h3>Year of graduation</h3>
+        <h3>Founded in</h3>
         <ul>
           <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
+            <input type="checkbox" id="2019-2022" name="2019-2022" value="2019-2022" />
+            <label htmlFor="2019-2022"> 2019-2022</label>
           </li>
           <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
+            <input type="checkbox" id="2015-2019" name="2015-2019" value="2015-2019" />
+            <label htmlFor="2015-2019"> 2015-2019</label>
           </li>
           <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
+            <input type="checkbox" id="2010-2015" name="2010-2015" value="2010-2015" />
+            <label htmlFor="2010-2015"> 2010-2015</label>
           </li>
           <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
-          </li>
-          <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
-          </li>
-        </ul>
-      </Row>
-      <Row className="filter-subcontainer">
-        <h3>Status</h3>
-        <ul>
-          <li>
-            <input type="checkbox" id="active" name="active" value="active" />
-            <label htmlFor="active"> Active</label>
-          </li>
-          <li>
-            <input type="checkbox" id="active" name="active" value="active" />
-            <label htmlFor="active"> Active</label>
-          </li>
-          <li>
-            <input type="checkbox" id="active" name="active" value="active" />
-            <label htmlFor="active"> Active</label>
-          </li>
-          <li>
-            <input type="checkbox" id="active" name="active" value="active" />
-            <label htmlFor="active"> Active</label>
+            <input type="checkbox" id="Before 2010" name="Before 2010" value="Before 2010" />
+            <label htmlFor="Before 2010"> Before 2010</label>
           </li>
         </ul>
       </Row>
