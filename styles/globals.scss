@@ -46,7 +46,7 @@
   /* background-color: #f8f9fa; */
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -103,9 +103,8 @@ body {
 .nav-link h3 {
   display: inline;
   font-size: 1.1rem;
-  padding-left: 0.4vw;
   height: 100%;
-  margin-top: 5px;
+  margin: 5px auto;
 }
 
 .navbar-collapse {
@@ -279,15 +278,15 @@ button {
 
 .discover:hover {
   // border-bottom: 4px solid rgb(4, 125, 238);
-  box-shadow: inset 0px -4px rgb(4, 125, 238);
+  box-shadow: inset 0px -4px #AB00FF;
 }
 
 .discover div h4 {
-  color: rgb(4, 125, 238);
+  color: #AB00FF;
 }
 
 .discover .right-nav-column div li a:hover {
-  color: rgb(4, 125, 238);
+  color: #AB00FF;
 }
 
 .design:hover {
@@ -304,12 +303,33 @@ button {
 }
 
 .code:hover {
-  box-shadow: inset 0px -4px #cd57ff;
+  box-shadow: inset 0px -4px rgb(4, 125, 238);
   // border-bottom: 4px solid #cd57ff;
 }
 
 .code div h4 {
   color: #cd57ff;
+}
+.connect:hover {
+  box-shadow: inset 0px -4px rgb(4, 125, 238);
+  // border-bottom: 4px solid #cd57ff;
+}
+
+.connect div h4 {
+  color: rgb(4, 125, 238);
+}
+
+.esummit:hover {
+  box-shadow: inset 0px -4px #BA4EFE;
+  // border-bottom: 4px solid #cd57ff;
+}
+.incubate:hover {
+  box-shadow: inset 0px -4px #505058;
+  // border-bottom: 4px solid #cd57ff;
+}
+
+.incubate div h4 {
+  color: #505058;
 }
 
 .learn:hover {
@@ -345,8 +365,6 @@ button {
 #notification-button {
   display: none;
 }
-
-
 
 @media only screen and (max-width: 1270px) and (min-width: 1130px) {
   .dropdown-item div h4 {
@@ -515,13 +533,13 @@ button {
     margin: 0px;
   }
   .discover:hover {
-    border-bottom: 3px solid rgb(4, 125, 238);
+    border-bottom: 3px solid #AB00FF;
   }
   .discover div h4 {
-    color: rgb(4, 125, 238);
+    color: #AB00FF;
   }
   .discover .right-nav-column div li a:hover {
-    color: rgb(4, 125, 238);
+    color: #AB00FF;
   }
   .design:hover {
     border-bottom: 3px solid #28c7a0;
@@ -653,21 +671,19 @@ button {
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: #F5A522;
+  background-color: #505058;
   border-radius: 0.5rem;
   font-weight: bold;
   margin: 10px 0px;
 }
 
-.get-started:hover{
+.get-started:hover {
   color: white;
-  background-color: chocolate;
+  background-color: #777777;
 }
-.get-started:focus{
+.get-started:focus {
   color: white;
-  background-color: #F5A522;
 }
-
 
 .lottie-player {
   width: 300px;
@@ -1076,7 +1092,7 @@ button {
   margin: 10px;
   display: inline;
 }
-.social-icons{
+.social-icons {
   color: black;
 }
 .contact-icons {
@@ -1121,7 +1137,7 @@ button {
     margin: 80px auto;
     row-gap: 30px;
   }
-  .important-footer{
+  .important-footer {
     display: none;
   }
 }
@@ -1278,7 +1294,7 @@ button {
 }
 .test-item h1,
 .test-item h2 {
-  color: #fa8231;
+  color: #F5A422;
   font-weight: bold;
 }
 @media screen and (max-width: 650px) {
@@ -1607,7 +1623,7 @@ button {
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: #F5A522 !important;
+  background-color: #24CAF2 !important;
   margin: 40px 0px;
 }
 .download-brochure:hover {
@@ -1622,7 +1638,7 @@ button {
 }
 @media (max-width: 991px) {
   .download-brochure {
-    margin:40px auto;
+    margin: 40px auto;
   }
   .about-ecell-image {
     width: 70%;
@@ -1651,9 +1667,9 @@ button {
 @media (max-width: 1110px) {
   .ecell-verticals {
     grid-template-columns: 1fr;
-    .card{
+    .card {
       width: 80%;
-      li{
+      li {
         font-size: 1rem;
       }
     }
@@ -1661,11 +1677,24 @@ button {
 }
 @media (max-width: 550px) {
   .ecell-verticals {
-    .card{
+    .card {
       width: 100% !important;
-      li{
+      li {
         font-size: 0.8rem !important;
       }
+    }
+  }
+}
+.past-speaker {
+  height: 100%;
+  div {
+    justify-content: flex-start;
+    h3 {
+      font-size: 23px !important;
+    }
+    span {
+      font-size: 16px !important;
+      font-weight: bold;
     }
   }
 }

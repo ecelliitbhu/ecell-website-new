@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { FcApproval } from "react-icons/fc";
-import { FcCollaboration } from "react-icons/fc";
-import { FcAddressBook } from "react-icons/fc";
-import { FcServices } from "react-icons/fc";
+import { FcApproval, FcIdea } from "react-icons/fc";
+import { FcCollaboration, FcBinoculars } from "react-icons/fc";
+import { FcNews } from "react-icons/fc";
 import { RiArrowDropDownLine } from "react-icons/ri";
 export const Discover = () => {
   const [isHover, setIsHover] = useState(false);
@@ -29,7 +28,7 @@ export const Discover = () => {
           <li className="dropdown-subcontainer">
             <Link href="/who_we_are">
               <a className="dropdown-item">
-                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <FcBinoculars fontSize="2.2rem"></FcBinoculars>
                 <div>
                   <h4>Who we are?</h4>
                   <p>
@@ -42,7 +41,7 @@ export const Discover = () => {
             </Link>
             <Link href="/events">
               <a className="dropdown-item" href="#">
-                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <FcBinoculars fontSize="2.2rem"></FcBinoculars>
                 <div>
                   <h4>Events</h4>
                   <p>
@@ -57,16 +56,18 @@ export const Discover = () => {
           <li className="dropdown-subcontainer">
             <Link href="/gallery">
               <a className="dropdown-item" href="#">
-                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <FcBinoculars fontSize="2.2rem"></FcBinoculars>
                 <div>
                   <h4>Gallery</h4>
-                  <p>A glimpse of our culture through our E-Album!</p>
+                  <p>
+                    A glimpse of our culture through <br /> our E-Album!
+                  </p>
                 </div>
               </a>
             </Link>
 
             <a className="dropdown-item" href="#">
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <FcBinoculars fontSize="2.2rem"></FcBinoculars>
               <div>
                 <h4>Initiatives</h4>
                 <p>
@@ -78,19 +79,21 @@ export const Discover = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
-              <div>
-                <h4>Past speakers</h4>
-                <p>
-                  Witness our expansive lineup of <br /> prominent speakers and
-                  guests!
-                </p>
-              </div>
-            </a>
+            <Link href="/past_speakers">
+              <a className="dropdown-item" href="#">
+                <FcBinoculars fontSize="2.2rem"></FcBinoculars>
+                <div>
+                  <h4>Past speakers</h4>
+                  <p>
+                    Witness our expansive lineup of <br /> prominent speakers
+                    and guests!
+                  </p>
+                </div>
+              </a>
+            </Link>
 
             <a className="dropdown-item" href="#">
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <FcBinoculars fontSize="2.2rem"></FcBinoculars>
               <div>
                 <h4>Sponsors and Associates</h4>
                 <p>
@@ -223,7 +226,7 @@ export const Incubators = () => {
   const [isHover, setIsHover] = useState(false);
   return (
     <li
-      className="nav-item dropdown code"
+      className="nav-item dropdown incubate"
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
@@ -248,7 +251,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcIdea fontSize="2.2rem"></FcIdea>
               <div>
                 <h4>
                   {"Technology Innovation"} <br />
@@ -269,7 +272,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcIdea fontSize="2.2rem"></FcIdea>
               <div>
                 <h4>Cisco thingQbator</h4>
                 <p>
@@ -286,7 +289,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcIdea fontSize="2.2rem"></FcIdea>
               <div>
                 <h4>NCL-IIT BHU Incubation Centre</h4>
                 <p>
@@ -302,7 +305,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcIdea fontSize="2.2rem"></FcIdea>
               <div>
                 <h4>IDAPT-Hub Foundation</h4>
                 <p>
@@ -319,7 +322,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcIdea fontSize="2.2rem"></FcIdea>
               <div>
                 <h4>R-ABI, IIT BHU</h4>
                 <p>
@@ -335,7 +338,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcIdea fontSize="2.2rem"></FcIdea>
               <div>
                 <h4>
                   {"Innovation"}
@@ -355,7 +358,7 @@ export const Connect = () => {
   const [isHover, setIsHover] = useState(false);
   return (
     <li
-      className="nav-item code"
+      className="nav-item connect"
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
@@ -379,7 +382,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
                 <h4>For students</h4>
                 <p>
@@ -395,7 +398,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
                 <h4>For startups</h4>
                 <p>
@@ -412,7 +415,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
                 <h4>For alumni</h4>
                 <p>
@@ -428,7 +431,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
                 <h4>For Investor and VCs</h4>
                 <p>
@@ -445,7 +448,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
               <div>
                 <h4>For corporates</h4>
                 <p>
@@ -457,10 +460,12 @@ export const Connect = () => {
 
             <Link href="/team">
               <a className="dropdown-item">
-                <FcAddressBook fontSize="2.2rem"></FcAddressBook>
+                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
                 <div>
                   <h4>Meet the team</h4>
-                  <p>Get to know the Core Team of E-Cell.</p>
+                  <p>
+                    Get to know the Core Team <br /> of E-Cell.
+                  </p>
                 </div>
               </a>
             </Link>
@@ -498,7 +503,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcServices fontSize="2.2rem"></FcServices>
+              <FcNews fontSize="2.2rem"></FcNews>
               <div>
                 <h4>Startup Bundle</h4>
                 <p>
@@ -514,7 +519,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcServices fontSize="2.2rem"></FcServices>
+              <FcNews fontSize="2.2rem"></FcNews>
               <div>
                 <h4>Resource Library</h4>
                 <p>
@@ -528,7 +533,7 @@ export const Learn = () => {
           <li className="dropdown-subcontainer">
             <Link href="/FAQs">
               <a className="dropdown-item">
-                <FcServices fontSize="2.2rem"></FcServices>
+                <FcNews fontSize="2.2rem"></FcNews>
                 <div>
                   <h4>Frequently Asked Questions</h4>
                   <p>
@@ -543,7 +548,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcServices fontSize="2.2rem"></FcServices>
+              <FcNews fontSize="2.2rem"></FcNews>
               <div>
                 <h4>E-Digest Magazine</h4>
                 <p>
@@ -560,7 +565,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcServices fontSize="2.2rem"></FcServices>
+              <FcNews fontSize="2.2rem"></FcNews>
               <div>
                 <h4>Newsletter Archives</h4>
                 <p>
@@ -575,10 +580,12 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcServices fontSize="2.2rem"></FcServices>
+              <FcNews fontSize="2.2rem"></FcNews>
               <div>
                 <h4>Blogs</h4>
-                <p>Visit the Official E-Cell Medium Blog</p>
+                <p>
+                  Visit the Official E-Cell <br /> Medium Blog
+                </p>
               </div>
             </a>
           </li>
@@ -611,7 +618,7 @@ export const Startups = () => {
 };
 export const Esummit = () => {
   return (
-    <li className="nav-item dropdown learn">
+    <li className="nav-item dropdown esummit">
       <Link href="/" passHref>
         <a className="nav-link">
           <h3>{`E-Summit'22`}</h3>

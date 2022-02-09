@@ -63,7 +63,7 @@ export default function Home() {
             </Col>
             <Col className="image-section">
               <lottie-player
-                src="https://assets6.lottiefiles.com/packages/lf20_3nvhl4jz.json"
+                src="https://assets4.lottiefiles.com/packages/lf20_3nvhl4jz.json"
                 speed="1"
                 loop
                 autoplay
@@ -100,13 +100,13 @@ export default function Home() {
               </Row>
             </Col>
             <Col className="image-section">
-              <dotlottie-player
-                src="https://assets7.lottiefiles.com/dotlotties/dlf10_wpar4she.lottie"
+              <lottie-player
+                src="https://assets8.lottiefiles.com/packages/lf20_sig6wqne.json"
                 background="transparent"
                 speed="1"
                 loop
                 autoplay
-              ></dotlottie-player>
+              ></lottie-player>
             </Col>
           </Row>
           <Row></Row>

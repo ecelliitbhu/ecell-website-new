@@ -116,7 +116,7 @@ const WhoWeAre = () => {
               <h2
                 style={{
                   fontSize: "1.8rem",
-                  color: "#F5A522",
+                  color: "#24CAF2",
                   fontWeight: "bold",
                   marginBottom: "10px",
                 }}

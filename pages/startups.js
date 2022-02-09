@@ -56,14 +56,6 @@ const StartupDirectory = () => {
                 {startups.map((post) => {
                   return <Startup key={post._id} details={post} />;
                 })}
-                {/* <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup> */}
               </Row>
             </div>
           </div>
