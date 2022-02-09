@@ -76,7 +76,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 2000px;
+  max-width: 1400px;
   margin: auto;
   padding: 0px;
   /* margin: 0px 100px 0px 80px; */
@@ -86,18 +86,17 @@ body {
 
 .navbar-nav {
   margin: 5px auto;
-  display: flex;
   padding: 0px;
-  margin: 0px;
-  /* gap: 40px; */
+  margin: 0px 20px;
   height: 100%;
   background-color: #f8f9fa;
 }
 
 .navbar-brand {
-  margin-left: 5vw;
-  margin-right: 4vw;
-  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 25px;
 }
 
 .nav-link h3 {
@@ -116,7 +115,7 @@ body {
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
-  margin: 0px 10px;
+  margin: 0px 1.2em;
   height: 100%;
   background-color: #f8f9fa;
 }
@@ -173,7 +172,6 @@ ul {
 
 .nav-icon {
   height: 30px;
-  margin-right: 10px;
 }
 
 .dropdown-item {
@@ -230,63 +228,21 @@ ul {
   background-color: white !important;
 }
 
-.search {
-  height: 45%;
-  margin-top: 22px;
-  margin-left: 30px;
-  width: 19vw;
-  border-radius: 8px;
-  /* box-shadow: 0px 2px 3px grey; */
-  font-family: averta;
-  font-size: smaller;
-  padding-left: 1.5vw;
-  background-color: rgb(241, 241, 241);
-  color: grey;
-}
-
-button {
-  color: white;
-  background-color: teal;
-  margin: 24px 10px 0px 20px;
-  font-size: 0.5rem;
-  width: 120px;
-  height: 45%;
-}
-
-#search-button {
-  display: none;
-}
-
-.search-offcanvas {
-  display: none;
-}
-
 .offcanvas {
   display: none;
 }
 
-#login {
-  margin-left: 2vw;
-  width: 60px;
-  border: none;
-}
-
-#login:hover {
-  color: chartreuse;
-  background-color: #f8f9fa;
-}
-
 .discover:hover {
   // border-bottom: 4px solid rgb(4, 125, 238);
-  box-shadow: inset 0px -4px #AB00FF;
+  box-shadow: inset 0px -4px #ab00ff;
 }
 
 .discover div h4 {
-  color: #AB00FF;
+  color: #ab00ff;
 }
 
 .discover .right-nav-column div li a:hover {
-  color: #AB00FF;
+  color: #ab00ff;
 }
 
 .design:hover {
@@ -320,7 +276,7 @@ button {
 }
 
 .esummit:hover {
-  box-shadow: inset 0px -4px #BA4EFE;
+  box-shadow: inset 0px -4px #ba4efe;
   // border-bottom: 4px solid #cd57ff;
 }
 .incubate:hover {
@@ -366,20 +322,183 @@ button {
   display: none;
 }
 
-@media only screen and (max-width: 1270px) and (min-width: 1130px) {
+@media only screen and (max-width: 1411px) and (min-width: 1336px) {
   .dropdown-item div h4 {
     font-size: 1rem;
   }
   .dropdown-item div p {
     font-size: 0.7rem;
+  }
+  .nav-item {
+    margin: 0px 1em;
+  }
+  .navbar-brand {
+    margin-left: 1em !important;
   }
 }
-@media only screen and (max-width: 1140px) and (min-width: 991px) {
+@media only screen and (max-width: 1335px) and (min-width: 1270px) {
   .dropdown-item div h4 {
     font-size: 1rem;
   }
   .dropdown-item div p {
     font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 1.2em;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1em;
+  }
+}
+@media only screen and (max-width: 1270px) and (min-width: 1230px) {
+  .dropdown-item div h4 {
+    font-size: 1rem;
+  }
+  .dropdown-item div p {
+    font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 1em;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1.2em;
+  }
+}
+@media only screen and (max-width: 1230px) and (min-width: 1190px) {
+  .dropdown-item div h4 {
+    font-size: 1rem;
+  }
+  .dropdown-item div p {
+    font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 1em;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1.2em;
+    width: 80px;
+  }
+}
+@media only screen and (max-width: 1190px) and (min-width: 1145px) {
+  .dropdown-item div h4 {
+    font-size: 1rem;
+  }
+  .dropdown-item div p {
+    font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 0.8em;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1.2em;
+    width: 80px;
+  }
+}
+@media only screen and (max-width: 1145px) and (min-width: 1115px) {
+  .dropdown-item div h4 {
+    font-size: 1rem;
+  }
+  .dropdown-item div p {
+    font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 0.7em;
+    width: fit-content;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1.2em;
+    width: 80px;
+  }
+}
+@media only screen and (max-width: 1115px) and (min-width: 1070px) {
+  .dropdown-item div h4 {
+    font-size: 1rem;
+  }
+  .dropdown-item div p {
+    font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 0.6em;
+    width: fit-content;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1em;
+    width: 70px;
+  }
+}
+@media only screen and (max-width: 1070px) and (min-width: 1045px) {
+  .dropdown-item div h4 {
+    font-size: 1rem;
+  }
+  .dropdown-item div p {
+    font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 0.5em;
+    width: fit-content;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1em;
+    width: 65px;
+  }
+}
+@media only screen and (max-width: 1045px) and (min-width: 1015px) {
+  .dropdown-item div h4 {
+    font-size: 1rem;
+  }
+  .dropdown-item div p {
+    font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 0.4em;
+    width: fit-content;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1em;
+    width: 65px;
+  }
+}
+@media only screen and (max-width: 1015px) and (min-width: 991px) {
+  .dropdown-item div h4 {
+    font-size: 1rem;
+  }
+  .dropdown-item div p {
+    font-size: 0.7rem;
+  }
+  .nav-item{
+    margin: 0px 0.3em;
+    width: fit-content;
+    h3{
+      font-size: 0.9rem;
+    }
+  }
+  .navbar-brand{
+    margin-left: 1em;
+    width: 65px;
   }
 }
 
@@ -391,13 +510,9 @@ button {
     height: 4rem;
   }
   .navbar-brand {
-    margin: 0px;
+    margin: 0px 10px;
     padding: 0px;
-  }
-  .navbar-brand div img {
-    width: 100px;
-    padding: 0px;
-    margin: 0px;
+    width: 90px !important;
   }
   .navbar-nav {
     position: absolute;
@@ -432,11 +547,8 @@ button {
   }
   .nav-item {
     width: 100%;
-    margin: 0px;
-    /* padding: 15px 0px; */
-    margin: 12px;
     display: block;
-    height: 40px !important;
+    height: fit-content !important;
   }
   .dropdown-menu {
     position: relative !important;
@@ -466,7 +578,7 @@ button {
   }
   .dropdown-item {
     margin: 5px;
-    padding: 5px 10px;
+    padding: 5px 10px 5x 10px;
     gap: 20px;
   }
   .dropdown-item div h4 {
@@ -495,35 +607,9 @@ button {
     position: absolute;
     top: 0px;
     right: 2px;
-    width: 15%;
+    width: 60px;
   }
-  .search {
-    display: none;
-    margin-top: 5px;
-    height: 60%;
-    width: 200px;
-  }
-  #search-button {
-    /* display: none; */
-    position: absolute;
-    right: 20vw;
-    top: 5px;
-    padding: 0px;
-    /* z-index: 99; */
-  }
-  .buttons {
-    display: flex;
-    gap: 48vw;
-    justify-content: center;
-    align-items: center;
-    /* width: 100%; */
-    width: 100vw;
-    padding: 40vh 0px 30px 0px;
-    /* margin-top:45vh; */
-    /* position: absolute;
-		bottom: 10px; */
-    background-color: #f8f9fa;
-  }
+  
   button {
     display: inline;
     height: 100%;
@@ -533,13 +619,13 @@ button {
     margin: 0px;
   }
   .discover:hover {
-    border-bottom: 3px solid #AB00FF;
+    border-bottom: 3px solid #ab00ff;
   }
   .discover div h4 {
-    color: #AB00FF;
+    color: #ab00ff;
   }
   .discover .right-nav-column div li a:hover {
-    color: #AB00FF;
+    color: #ab00ff;
   }
   .design:hover {
     border-bottom: 3px solid #28c7a0;
@@ -587,7 +673,7 @@ button {
   #notification-button {
     display: block;
     position: absolute;
-    right: 30vw;
+    right: 85px !important;
     top: 10px;
   }
   .search-offcanvas {
@@ -656,7 +742,7 @@ button {
   color: grey;
 }
 .Typewriter {
-  color: #F5A422;
+  color: #f5a422;
 }
 .info p {
   font-size: 1.3rem;
@@ -1294,7 +1380,7 @@ button {
 }
 .test-item h1,
 .test-item h2 {
-  color: #F5A422;
+  color: #f5a422;
   font-weight: bold;
 }
 @media screen and (max-width: 650px) {
@@ -1623,7 +1709,7 @@ button {
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: #24CAF2 !important;
+  background-color: #24caf2 !important;
   margin: 40px 0px;
 }
 .download-brochure:hover {
