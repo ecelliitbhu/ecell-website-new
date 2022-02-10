@@ -7,16 +7,18 @@ import Filter from "../components/startups/Filter";
 import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
 import axios from "axios";
-// import { FaFilter } from "react-icons/fa";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
   useEffect(() => {
-    axios.get("https://startup-directory.herokuapp.com/startups").then(async (res) => {
-      console.log(res.data);
-      setStartups(res.data);
-    });
+    axios
+      .get("https://startup-directory.herokuapp.com/startups")
+      .then(async (res) => {
+        // console.log(res.data);
+        setStartups(res.data);
+      });
   }, []);
   // startups.sort((a, b) => (a.Name > b.Name ? 1 : b.Name > a.Name ? -1 : 0));
+  const [search, setSearch] = useState("");
   return (
     <>
       <Head>
@@ -40,21 +42,39 @@ const StartupDirectory = () => {
               Startup Directory
             </h1>
           </Row>
-          <div style={{display:"flex",justifyContent:"center"}}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="filter-container">
               <Filter></Filter>
             </div>
 
             <div className="startups">
               <Row className="search-container">
-                <input type="search" name="" id="" placeholder="Search..." />
+                <input
+                  type="search"
+                  name=""
+                  id=""
+                  placeholder="Search..."
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
+                />
+                ;
               </Row>
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
                 <FilterOffcanvas style={{ float: "left" }}></FilterOffcanvas>
               </Row>
               <Row className="startups-list">
                 {startups.map((post) => {
-                  return <Startup key={post._id} details={post} />;
+                  if (
+                    post.Name.toLowerCase().includes(search.toLowerCase()) ||
+                    post.domain.toLowerCase().includes(search.toLowerCase()) ||
+                    post.description
+                      .toLowerCase()
+                      .includes(search.toLowerCase())
+                  ) {
+                    return <Startup key={post._id} details={post} />;
+                  }
                 })}
               </Row>
             </div>
