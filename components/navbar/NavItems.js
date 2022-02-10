@@ -596,7 +596,7 @@ export const Learn = () => {
 };
 export const Contact = () => {
   return (
-    <li className="nav-item dropdown learn">
+    <li className="nav-item dropdown contact-nav">
       <Link href="/contacts" passHref>
         <a className="nav-link">
           <h3>Contact</h3>
@@ -607,7 +607,7 @@ export const Contact = () => {
 };
 export const Startups = () => {
   return (
-    <li className="nav-item dropdown learn">
+    <li className="nav-item dropdown startups-nav">
       <Link href="/startups" passHref>
         <a className="nav-link">
           <h3>Startups</h3>

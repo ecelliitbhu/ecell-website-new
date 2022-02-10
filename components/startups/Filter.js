@@ -19,6 +19,7 @@ const Filter = () => {
               id="agritech"
               name="agritech"
               value="agritech"
+              htmlFor="domain"
             />
             <label htmlFor="agritech"> Agritech</label>
           </li>
@@ -28,6 +29,7 @@ const Filter = () => {
               id="fintech"
               name="fintech"
               value="fintech"
+              htmlFor="domain"
             />
             <label htmlFor="fintech"> Fintech</label>
           </li>

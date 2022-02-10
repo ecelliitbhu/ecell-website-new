@@ -262,6 +262,14 @@ ul {
   box-shadow: inset 0px -4px rgb(4, 125, 238);
   // border-bottom: 4px solid #cd57ff;
 }
+.startups-nav:hover {
+  box-shadow: inset 0px -4px #fdb902;
+  // border-bottom: 4px solid #cd57ff;
+}
+.contact-nav:hover {
+  box-shadow: inset 0px -4px #9a3f3f;
+  // border-bottom: 4px solid #cd57ff;
+}
 
 .code div h4 {
   color: #cd57ff;
@@ -308,10 +316,9 @@ ul {
   border: none;
 }
 .btn:focus {
-  outline: none;
-  box-shadow: none;
+  outline: none !important;
+  box-shadow: none !important;
 }
-
 .notification {
   display: flex;
   justify-content: center;
@@ -343,13 +350,13 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 1.2em;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1em;
   }
 }
@@ -360,13 +367,13 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 1em;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1.2em;
   }
 }
@@ -377,13 +384,13 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 1em;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1.2em;
     width: 80px;
   }
@@ -395,13 +402,13 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 0.8em;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1.2em;
     width: 80px;
   }
@@ -413,14 +420,14 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 0.7em;
     width: fit-content;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1.2em;
     width: 80px;
   }
@@ -432,14 +439,14 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 0.6em;
     width: fit-content;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1em;
     width: 70px;
   }
@@ -451,14 +458,14 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 0.5em;
     width: fit-content;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1em;
     width: 65px;
   }
@@ -470,14 +477,14 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 0.4em;
     width: fit-content;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1em;
     width: 65px;
   }
@@ -489,14 +496,14 @@ ul {
   .dropdown-item div p {
     font-size: 0.7rem;
   }
-  .nav-item{
+  .nav-item {
     margin: 0px 0.3em;
     width: fit-content;
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
   }
-  .navbar-brand{
+  .navbar-brand {
     margin-left: 1em;
     width: 65px;
   }
@@ -516,12 +523,13 @@ ul {
   }
   .navbar-nav {
     position: absolute;
+    margin: 0px;
     top: 30px;
     align-items: center;
     width: 100%;
-    margin-top: 25px;
     height: 100%;
     padding: 0px;
+    margin-top: 30px;
   }
   .navbar-collapse {
     margin-top: 50px;
@@ -540,6 +548,7 @@ ul {
     display: inline;
     font-size: 1.2rem;
     padding-left: 20px;
+    margin: 0px;
   }
   .nav-link svg {
     position: absolute;
@@ -609,7 +618,7 @@ ul {
     right: 2px;
     width: 60px;
   }
-  
+
   button {
     display: inline;
     height: 100%;
@@ -1555,16 +1564,13 @@ ul {
   .startups-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    // grid-auto-flow: row;
     margin: 30px auto;
+    min-height: 100vh;
     .startup-item {
       margin: 0.7rem;
       height: fit-content;
       width: 260px;
       box-sizing: border-box;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
       div {
         margin: auto;
       }
@@ -1709,7 +1715,7 @@ ul {
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: #24caf2 !important;
+  background-color: #fd9301 !important;
   margin: 40px 0px;
 }
 .download-brochure:hover {

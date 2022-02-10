@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Nav from "../components/navbar/NavLayout";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Filter from "../components/startups/Filter";
 import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
+import { StartupList } from "../components/startupList";
 import axios from "axios";
 const StartupDirectory = () => {
-  const [startups, setStartups] = useState([]);
+  const [startups, setStartups] = useState(StartupList);
   useEffect(() => {
     axios
       .get("https://startup-directory.herokuapp.com/startups")
@@ -17,7 +18,6 @@ const StartupDirectory = () => {
         setStartups(res.data);
       });
   }, []);
-  // startups.sort((a, b) => (a.Name > b.Name ? 1 : b.Name > a.Name ? -1 : 0));
   const [search, setSearch] = useState("");
   return (
     <>
@@ -53,13 +53,12 @@ const StartupDirectory = () => {
                   type="search"
                   name=""
                   id=""
-                  placeholder="Search..."
+                  placeholder="Search for startup's name, founder, category, foundation year..."
                   value={search}
                   onChange={(e) => {
                     setSearch(e.target.value);
                   }}
                 />
-                ;
               </Row>
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
                 <FilterOffcanvas style={{ float: "left" }}></FilterOffcanvas>
@@ -70,6 +69,24 @@ const StartupDirectory = () => {
                     post.Name.toLowerCase().includes(search.toLowerCase()) ||
                     post.domain.toLowerCase().includes(search.toLowerCase()) ||
                     post.description
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.yearOfGraduation
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[0].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[1].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[2].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[3].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[4].founder
                       .toLowerCase()
                       .includes(search.toLowerCase())
                   ) {

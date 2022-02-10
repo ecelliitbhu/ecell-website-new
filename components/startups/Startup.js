@@ -6,8 +6,9 @@ import { FaLinkedin } from "react-icons/fa";
 
 function toBase64(arr) {
   arr = new Uint8Array(arr);
-  // if it's an ArrayBuffer
-  return btoa(arr.reduce((data, byte) => data + String.fromCharCode(byte), ""));
+  // // if it's an ArrayBuffer
+  // return btoa(arr.reduce((data, byte) => data + String.fromCharCode(byte), ""));
+  return Buffer.from(arr).toString("base64");
 }
 
 function MyVerticallyCenteredModal(props) {
@@ -29,11 +30,14 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body style={{ display: "flex" }}>
-        <p style={{ marginRight: "7px"}}>{details.description}</p>
-        <div className="startup-modal-image" style={{
-              height: "1005",
-              width: "100%",
-            }}>
+        <p style={{ marginRight: "7px" }}>{details.description}</p>
+        <div
+          className="startup-modal-image"
+          style={{
+            height: "1005",
+            width: "100%",
+          }}
+        >
           <div
             style={{
               height: "120px",
@@ -61,24 +65,24 @@ function MyVerticallyCenteredModal(props) {
           <div className="founders-container">
             {details.founders.map((founder_details) => {
               const isOkay = founder_details.founder ? true : false;
-              return (
-                founder_details.founder.length>0?(
-                  <a
-                    key={founder_details.linkedin}
-                    href={
-                      founder_details.linkedin.slice(0, 12) === "https://www."
-                        ? founder_details.linkedin
-                        : "https://www." + founder_details.linkedin
-                    }
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <FaLinkedin fontSize="1.5rem"></FaLinkedin>
-                    <span style={{ fontSize: "0.8rem" }}>
-                      {founder_details.founder}
-                    </span>
-                  </a>
-                ):""
+              return founder_details.founder.length > 0 ? (
+                <a
+                  key={founder_details.linkedin}
+                  href={
+                    founder_details.linkedin.slice(0, 12) === "https://www."
+                      ? founder_details.linkedin
+                      : "https://www." + founder_details.linkedin
+                  }
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <FaLinkedin fontSize="1.5rem"></FaLinkedin>
+                  <span style={{ fontSize: "0.8rem" }}>
+                    {founder_details.founder}
+                  </span>
+                </a>
+              ) : (
+                ""
               );
             })}
           </div>
