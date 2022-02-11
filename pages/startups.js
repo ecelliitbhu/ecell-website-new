@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Nav from "../components/navbar/NavLayout";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Filter from "../components/startups/Filter";
 import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
+import { StartupList } from "../components/startupList";
 import axios from "axios";
-// import { FaFilter } from "react-icons/fa";
 const StartupDirectory = () => {
-  const [startups, setStartups] = useState([]);
+  const [startups, setStartups] = useState(StartupList);
   useEffect(() => {
-    axios.get("api/startup").then(async (res) => {
-      // console.log(res.data);
-      setStartups(res.data);
-    });
+    axios
+      .get("https://startup-directory.herokuapp.com/startups")
+      .then(async (res) => {
+        // console.log(res.data);
+        setStartups(res.data);
+      });
   }, []);
-  // startups.sort((a, b) => (a.Name > b.Name ? 1 : b.Name > a.Name ? -1 : 0));
+  const [search, setSearch] = useState("");
   return (
     <>
       <Head>
@@ -40,30 +42,57 @@ const StartupDirectory = () => {
               Startup Directory
             </h1>
           </Row>
-          <div style={{display:"flex",justifyContent:"center"}}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="filter-container">
               <Filter></Filter>
             </div>
 
             <div className="startups">
               <Row className="search-container">
-                <input type="search" name="" id="" placeholder="Search..." />
+                <input
+                  type="search"
+                  name=""
+                  id=""
+                  placeholder="Search for startup's name, founder, category, foundation year..."
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
+                />
               </Row>
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
                 <FilterOffcanvas style={{ float: "left" }}></FilterOffcanvas>
               </Row>
               <Row className="startups-list">
                 {startups.map((post) => {
-                  return <Startup key={post._id} details={post} />;
+                  if (
+                    post.Name.toLowerCase().includes(search.toLowerCase()) ||
+                    post.domain.toLowerCase().includes(search.toLowerCase()) ||
+                    post.description
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.yearOfGraduation
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[0].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[1].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[2].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[3].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    post.founders[4].founder
+                      .toLowerCase()
+                      .includes(search.toLowerCase())
+                  ) {
+                    return <Startup key={post._id} details={post} />;
+                  }
                 })}
-                {/* <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup>
-                <Startup></Startup> */}
               </Row>
             </div>
           </div>

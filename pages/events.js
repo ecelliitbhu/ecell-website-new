@@ -1,23 +1,25 @@
 import Head from "next/head";
+import Link from "next/link";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
-import Poster from "../public/esummit_poster.png";
+import Poster from "../public/esummit-poster.png";
 import Image from "next/image";
 import casex1 from "../public/casex1.png";
 import casex2 from "../public/casex2.png";
 import casex3 from "../public/casex3.png";
+import pep from "../public/pitch-er-perfect.png";
+import novice from "../public/ecell-novice.jpeg";
+import ama from "../public/ama.png";
+import pdmm from "../public/pdmm.png";
+import fs from "../public/founder-speak.png";
+import bootcamp from "../public/bootcamp.png";
+import flam from "../public/flam.png";
 import Nav from "../components/navbar/NavLayout";
-// import "@progress/kendo-theme-default/dist/all.css";
-// import { Calendar, CalendarCell } from "@progress/kendo-react-dateinputs";
-// import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css';
 import Calender from "../components/Calender";
 
 import { useState } from "react";
 
 export default function Events() {
-  const [loadMore, setLoadMore] = useState(false);
-  const [loadMore1, setLoadMore1] = useState(false);
   const [date, setDate] = useState(new Date());
 
   return (
@@ -56,17 +58,19 @@ export default function Events() {
                 The Annual Entrepreneurial Fest <br />
                 of IIT BHU is here !
               </h1>
-              <Button
-                variant="info"
-                className="get-started"
-                style={{
-                  backgroundColor: "#FA8231",
-                  border: "#FA8231",
-                  width: "200px",
-                }}
-              >
-                Register Now!
-              </Button>
+              <Link href="/coming_soon" passHref>
+                <Button
+                  variant="info"
+                  className="get-started"
+                  style={{
+                    backgroundColor: "#FA8231",
+                    border: "#FA8231",
+                    width: "200px",
+                  }}
+                >
+                  Register Now!
+                </Button>
+              </Link>
             </Col>
             <Col
               className="image-section"
@@ -80,7 +84,7 @@ export default function Events() {
                 width: "95%",
               }}
             >
-              <Image src={Poster} height={370} width={1394}></Image>
+              <Image src={Poster} height={225} width={1203}></Image>
             </Col>
           </Row>
           <Row></Row>
@@ -89,11 +93,11 @@ export default function Events() {
             <Row className="card-container">
               <Card className="card" style={{ height: "fit-content" }}>
                 <Card.Body style={{ padding: "25px 15px" }}>
-                  <Image src={casex1} height={250} width={250}></Image>
-                  <Card.Title style={{ margin: "10px auto" }}>CaseX</Card.Title>
-                  <Card.Text style={{ height: "15px" }}>
-                    3rd-12th Sept
-                  </Card.Text>
+                  <Image src={pep} height={250} width={250}></Image>
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    Pitching Events
+                  </Card.Title>
+
                   <Button
                     variant="danger"
                     style={{
@@ -109,13 +113,11 @@ export default function Events() {
               </Card>
               <Card className="card" style={{ height: "fit-content" }}>
                 <Card.Body style={{ padding: "25px 15px" }}>
-                  <Image src={casex2} height={250} width={250}></Image>
-                  <Card.Title style={{ margin: "10px auto" }}>
-                    Idea Validation Bootcamp
+                  <Image src={novice} height={250} width={250}></Image>
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    Freshers Weekend
                   </Card.Title>
-                  <Card.Text style={{ height: "15px" }}>
-                    3rd-12th Sept
-                  </Card.Text>
+
                   <Button
                     variant="danger"
                     style={{
@@ -132,12 +134,10 @@ export default function Events() {
               <Card className="card" style={{ height: "fit-content" }}>
                 <Card.Body style={{ padding: "25px 15px" }}>
                   <Image src={casex3} height={250} width={250}></Image>
-                  <Card.Title style={{ margin: "10px auto" }}>
-                    Design Rush
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    UI/UX Competition
                   </Card.Title>
-                  <Card.Text style={{ height: "15px" }}>
-                    3rd-12th Sept
-                  </Card.Text>
+
                   <Button
                     variant="danger"
                     style={{
@@ -152,164 +152,132 @@ export default function Events() {
                 </Card.Body>
               </Card>
             </Row>
-            {!loadMore && (
-              <Button
-                variant="warning"
-                style={{ width: "150px", margin: "auto" }}
-                onClick={() => setLoadMore(!loadMore)}
-              >
-                Load More
-              </Button>
-            )}
-            {loadMore && (
-              <Row className="card-container">
-                <Card className="card" style={{ height: "fit-content" }}>
-                  <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex1} height={250} width={250}></Image>
-                    <Card.Title style={{ margin: "10px auto" }}>
-                      CaseX
-                    </Card.Title>
-                    <Card.Text style={{ height: "15px" }}>
-                      3rd-12th Sept
-                    </Card.Text>
-                    <Button
-                      variant="danger"
-                      style={{
-                        backgroundColor: "#FA8231",
-                        border: "#FA8231",
-                        margin: "8px auto",
-                      }}
-                      className="card-button"
-                    >
-                      Know More! &rarr;
-                    </Button>
-                  </Card.Body>
-                </Card>
-                <Card className="card" style={{ height: "fit-content" }}>
-                  <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex2} height={250} width={250}></Image>
-                    <Card.Title style={{ margin: "10px auto" }}>
-                      Idea Validation Bootcamp
-                    </Card.Title>
-                    <Card.Text style={{ height: "15px" }}>
-                      3rd-12th Sept
-                    </Card.Text>
-                    <Button
-                      variant="danger"
-                      style={{
-                        backgroundColor: "#FA8231",
-                        border: "#FA8231",
-                        margin: "8px auto",
-                      }}
-                      className="card-button"
-                    >
-                      Know More! &rarr;
-                    </Button>
-                  </Card.Body>
-                </Card>
-                <Card className="card" style={{ height: "fit-content" }}>
-                  <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex3} height={250} width={250}></Image>
-                    <Card.Title style={{ margin: "10px auto" }}>
-                      Design Rush
-                    </Card.Title>
-                    <Card.Text style={{ height: "15px" }}>
-                      3rd-12th Sept
-                    </Card.Text>
-                    <Button
-                      variant="danger"
-                      style={{
-                        backgroundColor: "#FA8231",
-                        border: "#FA8231",
-                        margin: "8px auto",
-                      }}
-                      className="card-button"
-                    >
-                      Know More! &rarr;
-                    </Button>
-                  </Card.Body>
-                </Card>
-              </Row>
-            )}
-            {loadMore && !loadMore1 && (
-              <Button
-                variant="warning"
-                style={{ width: "150px", margin: "auto" }}
-                onClick={() => setLoadMore1(true)}
-              >
-                Load More
-              </Button>
-            )}
-            {loadMore1 && (
-              <Row className="card-container">
-                <Card className="card" style={{ height: "fit-content" }}>
-                  <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex1} height={250} width={250}></Image>
-                    <Card.Title style={{ margin: "10px auto" }}>
-                      CaseX
-                    </Card.Title>
-                    <Card.Text style={{ height: "15px" }}>
-                      3rd-12th Sept
-                    </Card.Text>
-                    <Button
-                      variant="danger"
-                      style={{
-                        backgroundColor: "#FA8231",
-                        border: "#FA8231",
-                        margin: "8px auto",
-                      }}
-                      className="card-button"
-                    >
-                      Know More! &rarr;
-                    </Button>
-                  </Card.Body>
-                </Card>
-                <Card className="card" style={{ height: "fit-content" }}>
-                  <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex2} height={250} width={250}></Image>
-                    <Card.Title style={{ margin: "10px auto" }}>
-                      Idea Validation Bootcamp
-                    </Card.Title>
-                    <Card.Text style={{ height: "15px" }}>
-                      3rd-12th Sept
-                    </Card.Text>
-                    <Button
-                      variant="danger"
-                      style={{
-                        backgroundColor: "#FA8231",
-                        border: "#FA8231",
-                        margin: "8px auto",
-                      }}
-                      className="card-button"
-                    >
-                      Know More! &rarr;
-                    </Button>
-                  </Card.Body>
-                </Card>
-                <Card className="card" style={{ height: "fit-content" }}>
-                  <Card.Body style={{ padding: "25px 15px" }}>
-                    <Image src={casex3} height={250} width={250}></Image>
-                    <Card.Title style={{ margin: "10px auto" }}>
-                      Design Rush
-                    </Card.Title>
-                    <Card.Text style={{ height: "15px" }}>
-                      3rd-12th Sept
-                    </Card.Text>
-                    <Button
-                      variant="danger"
-                      style={{
-                        backgroundColor: "#FA8231",
-                        border: "#FA8231",
-                        margin: "8px auto",
-                      }}
-                      className="card-button"
-                    >
-                      Know More! &rarr;
-                    </Button>
-                  </Card.Body>
-                </Card>
-              </Row>
-            )}
+
+            <Row className="card-container">
+              <Card className="card" style={{ height: "fit-content" }}>
+                <Card.Body style={{ padding: "25px 15px" }}>
+                  <Image src={casex1} height={250} width={250}></Image>
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    CasEx- National Case Study Competition
+                  </Card.Title>
+
+                  <Button
+                    variant="danger"
+                    style={{
+                      backgroundColor: "#FA8231",
+                      border: "#FA8231",
+                      margin: "8px auto",
+                    }}
+                    className="card-button"
+                  >
+                    Know More! &rarr;
+                  </Button>
+                </Card.Body>
+              </Card>
+              <Card className="card" style={{ height: "fit-content" }}>
+                <Card.Body style={{ padding: "25px 15px" }}>
+                  <Image src={ama} height={250} width={250}></Image>
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    Ask Me Anything Sessions
+                  </Card.Title>
+
+                  <Button
+                    variant="danger"
+                    style={{
+                      backgroundColor: "#FA8231",
+                      border: "#FA8231",
+                      margin: "8px auto",
+                    }}
+                    className="card-button"
+                  >
+                    Know More! &rarr;
+                  </Button>
+                </Card.Body>
+              </Card>
+              <Card className="card" style={{ height: "fit-content" }}>
+                <Card.Body style={{ padding: "25px 15px" }}>
+                  <Image src={pdmm} height={250} width={250}></Image>
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    Masterclasses
+                  </Card.Title>
+
+                  <Button
+                    variant="danger"
+                    style={{
+                      backgroundColor: "#FA8231",
+                      border: "#FA8231",
+                      margin: "8px auto",
+                    }}
+                    className="card-button"
+                  >
+                    Know More! &rarr;
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Row>
+
+            <Row className="card-container">
+              <Card className="card" style={{ height: "fit-content" }}>
+                <Card.Body style={{ padding: "25px 15px" }}>
+                  <Image src={fs} height={250} width={250}></Image>
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    {`Founder’s Speak`}
+                  </Card.Title>
+
+                  <Button
+                    variant="danger"
+                    style={{
+                      backgroundColor: "#FA8231",
+                      border: "#FA8231",
+                      margin: "8px auto",
+                    }}
+                    className="card-button"
+                  >
+                    Know More! &rarr;
+                  </Button>
+                </Card.Body>
+              </Card>
+              <Card className="card" style={{ height: "fit-content" }}>
+                <Card.Body style={{ padding: "25px 15px" }}>
+                  <Image src={bootcamp} height={250} width={250}></Image>
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    Bootcamps
+                  </Card.Title>
+
+                  <Button
+                    variant="danger"
+                    style={{
+                      backgroundColor: "#FA8231",
+                      border: "#FA8231",
+                      margin: "8px auto",
+                    }}
+                    className="card-button"
+                  >
+                    Know More! &rarr;
+                  </Button>
+                </Card.Body>
+              </Card>
+              <Card className="card" style={{ height: "fit-content" }}>
+                <Card.Body style={{ padding: "25px 15px" }}>
+                  <Image src={flam} height={250} width={250}></Image>
+                  <Card.Title style={{ margin: "20px auto 10px" }}>
+                    Webinars
+                  </Card.Title>
+
+                  <Button
+                    variant="danger"
+                    style={{
+                      backgroundColor: "#FA8231",
+                      border: "#FA8231",
+                      margin: "8px auto",
+                    }}
+                    className="card-button"
+                  >
+                    Know More! &rarr;
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Row>
           </Row>
           <Row style={{ margin: "100px auto" }} className="calender-component">
             <h1
@@ -324,6 +292,7 @@ export default function Events() {
             </h1>
             <Calender />
           </Row>
+          <div id="instafeed-container"></div>
           <Footer />
         </Container>
       </div>

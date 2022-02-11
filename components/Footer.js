@@ -65,10 +65,10 @@ const Footer = () => {
               </div>
             </div>
           </Col>
-          <Col className="footer-items">
+          <Col className="footer-items important-footer">
             <h5>Important</h5>
-            <Row style={{display:"grid", gridTemplateColumns:"1.5fr 3fr"}}>
-              <Col >
+            <Row style={{ display: "grid", gridTemplateColumns: "1.5fr 3fr" }}>
+              <Col>
                 <ul>
                   <li>
                     <Link href="/">Home</Link>
@@ -77,17 +77,23 @@ const Footer = () => {
                     <Link href="/events">Events</Link>
                   </li>
                   <li>
-                    <a href="https://medium.com/ecelliitbhu">Blogs</a>
+                    <a
+                      href="https://medium.com/ecelliitbhu/feature/home"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Blogs
+                    </a>
                   </li>
                   <li>
-                    <Link href="">Initiatives</Link>
+                    <a href="https://bit.ly/build-with-us-ecell">Initiatives</a>
                   </li>
                   <li>
                     <Link href="/gallery">Gallery</Link>
                   </li>
                 </ul>
               </Col>
-              <Col >
+              <Col>
                 <ul>
                   <li>
                     <Link href="/who_we_are">Who we are?</Link>
@@ -99,7 +105,13 @@ const Footer = () => {
                     <Link href="/team">Meet the team</Link>
                   </li>
                   <li>
-                    <Link href="">TIIC</Link>
+                    <a
+                      href="https://tiiciitbhu.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      TIIC
+                    </a>
                   </li>
                   <li>
                     <Link href="/contacts">Contact Us</Link>
@@ -125,24 +137,48 @@ const Footer = () => {
           </Col>
         </Row>
         <Row className="social">
-          <Link href="https://www.instagram.com/ecelliitbhu/">
+          <a
+            href="https://www.instagram.com/ecelliitbhu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaInstagram className="social-icons"></FaInstagram>
-          </Link>
-          <Link href="https://www.facebook.com/ecelliitvaranasi">
+          </a>
+          <a
+            href="https://www.facebook.com/ecelliitvaranasi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaFacebook className="social-icons"></FaFacebook>
-          </Link>
-          <Link href="https://www.linkedin.com/company/ecelliitbhu/">
+          </a>
+          <a
+            href="https://www.linkedin.com/company/ecelliitbhu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaLinkedin className="social-icons"></FaLinkedin>
-          </Link>
-          <Link href="https://twitter.com/ecelliitbhu">
+          </a>
+          <a
+            href="https://twitter.com/ecelliitbhu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTwitter className="social-icons"></FaTwitter>
-          </Link>
-          <Link href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ">
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaYoutube className="social-icons"></FaYoutube>
-          </Link>
-          <Link href="https://discord.com/invite/EPm5mfbCKP">
+          </a>
+          <a
+            href="https://discord.com/invite/EPm5mfbCKP"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaDiscord className="social-icons"></FaDiscord>
-          </Link>
+          </a>
         </Row>
       </footer>
     </>

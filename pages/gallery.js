@@ -3,10 +3,13 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import { Container, Row } from "react-bootstrap";
 import {
-  Esummit,
-  GuestLectures,
   FoundersSpeak,
-  Workshops,
+  AlumniMeetups,
+  ESummit,
+  MentorshipSessions,
+  PitchingEvents,
+  Incubators,
+  ELectures,
 } from "../components/Gallery";
 const Gallery = () => {
   return (
@@ -45,7 +48,6 @@ const Gallery = () => {
             </h3>
           </Row>
           <Row
-            className="esummit"
             style={{
               height: "fit-content",
               marginBottom: "50px",
@@ -64,9 +66,9 @@ const Gallery = () => {
                 fontWeight: "bold",
               }}
             >
-              Esummit
+              Alumni Meetups
             </h1>
-            <Esummit></Esummit>
+            <AlumniMeetups></AlumniMeetups>
           </Row>
           <Row
             className="founder-speak"
@@ -88,9 +90,9 @@ const Gallery = () => {
                 fontWeight: "bold",
               }}
             >
-              {`Founder's Speak`}
+              E-Summit
             </h1>
-            <FoundersSpeak></FoundersSpeak>
+            <ESummit></ESummit>
           </Row>
           <Row
             className="workshops"
@@ -112,12 +114,11 @@ const Gallery = () => {
                 fontWeight: "bold",
               }}
             >
-              Workshops
+              Entrepreneurship Lectures
             </h1>
-            <Workshops></Workshops>
+            <ELectures></ELectures>
           </Row>
           <Row
-            className="guest-lectures"
             style={{
               height: "fit-content",
               marginBottom: "50px",
@@ -136,9 +137,78 @@ const Gallery = () => {
                 fontWeight: "bold",
               }}
             >
-              Guest Lectures
+              Mentorship Sessions
             </h1>
-            <GuestLectures></GuestLectures>
+            <MentorshipSessions></MentorshipSessions>
+          </Row>
+          <Row
+            style={{
+              height: "fit-content",
+              marginBottom: "50px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <h1
+              style={{
+                margin: "10px auto",
+                textAlign: "center",
+                fontSize: "2.5rem",
+                color: "black",
+                fontWeight: "bold",
+              }}
+            >
+              Incubators
+            </h1>
+            <Incubators></Incubators>
+          </Row>
+          <Row
+            style={{
+              height: "fit-content",
+              marginBottom: "50px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <h1
+              style={{
+                margin: "10px auto",
+                textAlign: "center",
+                fontSize: "2.5rem",
+                color: "black",
+                fontWeight: "bold",
+              }}
+            >
+              Pitching Events
+            </h1>
+            <PitchingEvents></PitchingEvents>
+          </Row>
+          <Row
+            style={{
+              height: "fit-content",
+              marginBottom: "50px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <h1
+              style={{
+                margin: "10px auto",
+                textAlign: "center",
+                fontSize: "2.5rem",
+                color: "black",
+                fontWeight: "bold",
+              }}
+            >
+              {`Founder's Speak`}
+            </h1>
+            <FoundersSpeak></FoundersSpeak>
           </Row>
           <Footer />
         </Container>
