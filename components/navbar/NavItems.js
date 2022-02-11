@@ -198,7 +198,7 @@ export const Initiatives = () => {
               <a className="dropdown-item" href="#">
                 <FcApproval fontSize="2rem"></FcApproval>
                 <div>
-                  <h4>Campus Ambassador program</h4>
+                  <h4>Campus Ambassador <br /> program</h4>
                   <p>
                     {`Join our initiative of creating & motivating`}
                     <br /> {`the entrepreneurs of your college!`}
@@ -293,7 +293,7 @@ export const Incubators = () => {
             >
               <FcIdea fontSize="2rem"></FcIdea>
               <div>
-                <h4>NCL-IIT BHU Incubation Centre</h4>
+                <h4>NCL-IIT BHU <br /> Incubation Centre</h4>
                 <p>
                   A Northern Coalfields Limited (NCL) <br /> CSR initiative
                   funded incubator
