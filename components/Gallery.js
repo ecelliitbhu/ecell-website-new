@@ -259,6 +259,103 @@ const photos = [
     height: 9,
   },
 ];
+const esummit = [
+  {
+    src: "/e-summit/2-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/8-min.jpg ",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/9-min.jpg ",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC04546-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC05331-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC05337-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC05339-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC_0018.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC_0026-5.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC_0044-6-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC_0071-7 (1).jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC_009-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC_0099-8-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/DSC_0151-2-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/IMG-20200203-WA0147-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/_DSC0128 (1).jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/_DSC0310.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/_DSC0311.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-summit/mbg-min.jpg",
+    width: 16,
+    height: 9,
+  },
+];
 
 export const AlumniMeetups = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -447,13 +544,13 @@ export const ESummit = () => {
   );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} renderImage={imageRenderer} />
+      <Gallery photos={esummit.slice(0, 8)} renderImage={imageRenderer} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={photos.map((x) => ({
+              views={esummit.map((x) => ({
                 ...x,
                 srcset: x.srcSet,
                 caption: x.title,
