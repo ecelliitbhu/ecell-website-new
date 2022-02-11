@@ -1,7 +1,6 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import Image from "next/image";
-import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 
 function toBase64(arr) {
