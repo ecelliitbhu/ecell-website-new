@@ -4,13 +4,13 @@ import { FaFilter } from "react-icons/fa";
 
 const Filter = () => {
   return (
-    <Col class="filter-container">
+    <>
       <Row>
         <h2>
-          Filter out the results <FaFilter className="filter-icon"></FaFilter>
+          Filter out the results <FaFilter classNameName="filter-icon"></FaFilter>
         </h2>
       </Row>
-      <Row class="filter-subcontainer">
+      <Row className="filter-subcontainer">
         <h3>Domains</h3>
         <ul>
           <li>
@@ -19,94 +19,71 @@ const Filter = () => {
               id="agritech"
               name="agritech"
               value="agritech"
+              htmlFor="domain"
             />
             <label htmlFor="agritech"> Agritech</label>
           </li>
           <li>
             <input
               type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
+              id="fintech"
+              name="fintech"
+              value="fintech"
+              htmlFor="domain"
             />
-            <label htmlFor="agritech"> Agritech</label>
+            <label htmlFor="fintech"> Fintech</label>
           </li>
           <li>
             <input
               type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
+              id="ecommerce"
+              name="ecommerce"
+              value="ecommerce"
             />
-            <label htmlFor="agritech"> Agritech</label>
+            <label htmlFor="ecommerce">  E-Commerce</label>
           </li>
           <li>
             <input
               type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
+              id="edtech"
+              name="edtech"
+              value="edtech"
             />
-            <label htmlFor="agritech"> Agritech</label>
+            <label htmlFor="edtech"> Edtech</label>
           </li>
           <li>
             <input
               type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
+              id="adtech"
+              name="adtech"
+              value="adtech"
             />
-            <label htmlFor="agritech"> Agritech</label>
+            <label htmlFor="adtech"> Adtech</label>
           </li>
         </ul>
       </Row>
-      <Row class="filter-subcontainer">
-        <h3>Year of graduation</h3>
+      <Row className="filter-subcontainer">
+        <h3>Founded in</h3>
         <ul>
           <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
+            <input type="checkbox" id="2019-2022" name="2019-2022" value="2019-2022" />
+            <label htmlFor="2019-2022"> 2019-2022</label>
           </li>
           <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
+            <input type="checkbox" id="2015-2019" name="2015-2019" value="2015-2019" />
+            <label htmlFor="2015-2019"> 2015-2019</label>
           </li>
           <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
+            <input type="checkbox" id="2010-2015" name="2010-2015" value="2010-2015" />
+            <label htmlFor="2010-2015"> 2010-2015</label>
           </li>
           <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
-          </li>
-          <li>
-            <input type="checkbox" id="2006" name="2006" value="2006" />
-            <label htmlFor="2006"> 2006</label>
+            <input type="checkbox" id="Before 2010" name="Before 2010" value="Before 2010" />
+            <label htmlFor="Before 2010"> Before 2010</label>
           </li>
         </ul>
       </Row>
-      <Row class="filter-subcontainer">
-        <h3>Status</h3>
-        <ul>
-          <li>
-            <input type="checkbox" id="active" name="active" value="active" />
-            <label htmlFor="active"> Active</label>
-          </li>
-          <li>
-            <input type="checkbox" id="active" name="active" value="active" />
-            <label htmlFor="active"> Active</label>
-          </li>
-          <li>
-            <input type="checkbox" id="active" name="active" value="active" />
-            <label htmlFor="active"> Active</label>
-          </li>
-          <li>
-            <input type="checkbox" id="active" name="active" value="active" />
-            <label htmlFor="active"> Active</label>
-          </li>
-        </ul>
-      </Row>
-    </Col>
+    </>
   );
 };
 

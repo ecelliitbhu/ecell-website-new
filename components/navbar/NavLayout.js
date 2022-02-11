@@ -1,6 +1,13 @@
-import { Discover, Initiatives, Learn, Connect, Incubators } from "./NavItems";
-import { Startups,Contacts } from "./NavButtons";
-import { SearchOffcanvas, Search } from "./NavSearch";
+import {
+  Discover,
+  Initiatives,
+  Learn,
+  Connect,
+  Incubators,
+  Contact,
+  Startups,
+  Esummit,
+} from "./NavItems";
 import { NavToggle } from "./NavToggle";
 import { NavLogo } from "./NavLogo";
 import Link from "next/link";
@@ -12,31 +19,23 @@ const Nav = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <Link href="/">
-            <a>
-              <NavLogo />
-            </a>
-          </Link>
+          
+            <NavLogo />
           <NotificationOffCanvas />
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <Discover />
               <Initiatives />
               <Learn />
-              <Incubators/>
+              <Incubators />
               <Connect />
-              {/* <form className="d-flex">
-                <Search />
-              </form> */}
-              <div className="buttons">
-                <Startups />
-                {/* <Contacts /> */}
-              </div>
+              <Startups />
+              <Contact />
+              <Esummit />
               <Notification />
             </ul>
           </div>
           <NavToggle />
-          {/* <SearchOffcanvas /> */}
         </div>
       </nav>
     </>

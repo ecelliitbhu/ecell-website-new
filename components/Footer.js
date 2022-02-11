@@ -17,28 +17,6 @@ const Footer = () => {
   return (
     <>
       <footer className="footer">
-        <Row>
-          <Col
-            style={{
-              // border: "1px solid #EEE",
-              margin: "auto",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          ></Col>
-          <Col
-            style={{
-              // border: "1px solid #EEE",
-              background: "#f8f9fa",
-              margin: "auto",
-              display: "flex",
-              alignItems: "center",
-              // justifyContent: "center",
-            }}
-          ></Col>
-        </Row>
-
         <Row className="footer-container">
           <Col className="footer-items contact-us">
             <h5>Contact Us</h5>
@@ -87,44 +65,56 @@ const Footer = () => {
               </div>
             </div>
           </Col>
-          <Col className="footer-items">
+          <Col className="footer-items important-footer">
             <h5>Important</h5>
-            <Row style={{display:"grid", gridTemplateColumns:"1.5fr 3fr"}}>
-              <Col >
+            <Row style={{ display: "grid", gridTemplateColumns: "1.5fr 3fr" }}>
+              <Col>
                 <ul>
                   <li>
-                    <Link href="">Home</Link>
+                    <Link href="/">Home</Link>
                   </li>
                   <li>
-                    <Link href="">Events</Link>
+                    <Link href="/events">Events</Link>
                   </li>
                   <li>
-                    <Link href="">Blogs</Link>
+                    <a
+                      href="https://medium.com/ecelliitbhu/feature/home"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Blogs
+                    </a>
                   </li>
                   <li>
-                    <Link href="">Initiatives</Link>
+                    <a href="https://bit.ly/build-with-us-ecell">Initiatives</a>
                   </li>
                   <li>
-                    <Link href="">Gallery</Link>
+                    <Link href="/gallery">Gallery</Link>
                   </li>
                 </ul>
               </Col>
-              <Col >
+              <Col>
                 <ul>
                   <li>
-                    <Link href="">Who are we</Link>
+                    <Link href="/who_we_are">Who we are?</Link>
                   </li>
                   <li>
                     <Link href="">How E-Cell works</Link>
                   </li>
                   <li>
-                    <Link href="">Meet the team</Link>
+                    <Link href="/team">Meet the team</Link>
                   </li>
                   <li>
-                    <Link href="">TIIC</Link>
+                    <a
+                      href="https://tiiciitbhu.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      TIIC
+                    </a>
                   </li>
                   <li>
-                    <Link href="">Contact Us</Link>
+                    <Link href="/contacts">Contact Us</Link>
                   </li>
                 </ul>
               </Col>
@@ -147,24 +137,48 @@ const Footer = () => {
           </Col>
         </Row>
         <Row className="social">
-          <Link href="https://www.instagram.com/ecelliitbhu/">
+          <a
+            href="https://www.instagram.com/ecelliitbhu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaInstagram className="social-icons"></FaInstagram>
-          </Link>
-          <Link href="https://www.facebook.com/ecelliitvaranasi">
+          </a>
+          <a
+            href="https://www.facebook.com/ecelliitvaranasi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaFacebook className="social-icons"></FaFacebook>
-          </Link>
-          <Link href="https://www.linkedin.com/company/ecelliitbhu/">
+          </a>
+          <a
+            href="https://www.linkedin.com/company/ecelliitbhu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaLinkedin className="social-icons"></FaLinkedin>
-          </Link>
-          <Link href="https://twitter.com/ecelliitbhu">
+          </a>
+          <a
+            href="https://twitter.com/ecelliitbhu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTwitter className="social-icons"></FaTwitter>
-          </Link>
-          <Link href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ">
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaYoutube className="social-icons"></FaYoutube>
-          </Link>
-          <Link href="https://discord.com/invite/EPm5mfbCKP">
+          </a>
+          <a
+            href="https://discord.com/invite/EPm5mfbCKP"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaDiscord className="social-icons"></FaDiscord>
-          </Link>
+          </a>
         </Row>
       </footer>
     </>

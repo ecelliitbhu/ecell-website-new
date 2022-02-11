@@ -1,84 +1,299 @@
-import { ReactPhotoCollage } from "react-photo-collage";
+import Image from "next/image";
 import React, { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-const photos = [
+const AlumniMeet = [
   {
-    src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
-    width: 4,
-    height: 3,
-    title:
-      "i am very good ankjba absbbas iadib hiasgad agyiaga aguyaguya hgiuagia agyidgd gygduyd guygduav agyuaguva",
+    src: "/alumni_meet/5-min.jpg",
+    width: 16,
+    height: 9,
   },
   {
-    src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
-    width: 1,
-    height: 1,
+    src: "/alumni_meet/DSC_0074-5-min.jpg",
+    width: 16,
+    height: 9,
   },
   {
-    src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
-    width: 3,
-    height: 4,
+    src: "/alumni_meet/DSC_0534-min.jpg",
+    width: 16,
+    height: 9,
   },
   {
-    src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
-    width: 3,
-    height: 4,
-  },
-  {
-    src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
-    width: 3,
-    height: 4,
-  },
-  {
-    src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
-    width: 4,
-    height: 3,
-  },
-  {
-    src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
-    width: 3,
-    height: 4,
-  },
-  {
-    src: "https://source.unsplash.com/PpOHJezOalU/800x599",
-    width: 4,
-    height: 3,
-  },
-  {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-    width: 4,
-    height: 3,
-  },
-  {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-    width: 4,
-    height: 3,
-  },
-  {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-    width: 4,
-    height: 3,
-  },
-  {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-    width: 4,
-    height: 3,
-  },
-  {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-    width: 4,
-    height: 3,
-  },
-  {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-    width: 4,
-    height: 3,
+    src: "/alumni_meet/DSC_0549-min.jpg",
+    width: 16,
+    height: 9,
   },
 ];
-export const Esummit = () => {
+
+const founspeak = [
+  {
+    src: "/foundersSpeak/_DSC0008-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/foundersSpeak/_DSC0040-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/foundersSpeak/_DSC0055-min.jpg",
+    width: 16,
+    height: 9,
+  },
+];
+const pitchingEvents = [
+  {
+    src: "/pitching_events/DSC04981-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/pitching_events/DSC05081-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/pitching_events/DSC_0092-2-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/pitching_events/hult1-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/pitching_events/DSC05026-min.jpg",
+    width: 16,
+    height: 9,
+  },
+
+  {
+    src: "/pitching_events/DSC_0071-3-min.jpg",
+    width: 16,
+    height: 9,
+  },
+
+  {
+    src: "/pitching_events/gsw-min.jpg",
+    width: 16,
+    height: 9,
+  },
+];
+const mentorship = [
+  {
+    src: "/mentorship-Sessions/DSC04819-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/mentorship-Sessions/DSC_0094-3-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/mentorship-Sessions/slide6-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/mentorship-Sessions/DSC_006_mono-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/mentorship-Sessions/slide5-min.jpg",
+    width: 16,
+    height: 9,
+  },
+];
+const incu = [
+  {
+    src: "/incubators/mciie2.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/incubators/rkvy1.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/incubators/rkvy12.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/incubators/slide7.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/incubators/thinq2.PNG",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/incubators/mciie3.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/incubators/rkvy11.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/incubators/rkvy4.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/incubators/thinq1.jpg",
+    width: 16,
+    height: 9,
+  },
+];
+const electures = [
+  {
+    src: "/e-lectures/6-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/7-min.jpg ",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC04914-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC04931-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC04938-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC05063-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC05145-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC05459-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC05467-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC_0139-3-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/DSC_0142-5-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/_DSC0082-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/biz1 (3)-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/gsw2-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/slide4-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 16,
+    height: 9,
+  },
+];
+const photos = [
+  {
+    src: "/alumni_meet/5-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/alumni_meet/DSC_0074-5-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/alumni_meet/DSC_0534-min.jpg",
+    width: 16,
+    height: 9,
+  },
+  {
+    src: "/alumni_meet/DSC_0549-min.jpg",
+    width: 16,
+    height: 9,
+  },
+];
+
+export const AlumniMeetups = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <Image
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -90,15 +305,18 @@ export const Esummit = () => {
     setViewerIsOpen(false);
   };
 
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} onClick={openLightbox} />
+      <Gallery photos={AlumniMeet} renderImage={imageRenderer} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={photos.map((x) => ({
+              views={AlumniMeet.map((x) => ({
                 ...x,
                 srcset: x.srcSet,
                 caption: x.title,
@@ -110,10 +328,42 @@ export const Esummit = () => {
     </div>
   );
 };
+
 export const FoundersSpeak = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <Image
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
+
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
@@ -124,9 +374,80 @@ export const FoundersSpeak = () => {
     setViewerIsOpen(false);
   };
 
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} onClick={openLightbox} />
+      <Gallery photos={founspeak.slice(0, 8)} renderImage={imageRenderer} />
+      <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={founspeak.map((x) => ({
+                ...x,
+                srcset: x.srcSet,
+                caption: x.title,
+              }))}
+            />
+          </Modal>
+        ) : null}
+      </ModalGateway>
+    </div>
+  );
+};
+export const ESummit = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <Image
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
+
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
+  };
+
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
+  return (
+    <div>
+      <Gallery photos={photos.slice(0, 8)} renderImage={imageRenderer} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
@@ -144,9 +465,41 @@ export const FoundersSpeak = () => {
     </div>
   );
 };
-export const Workshops = () => {
+
+export const MentorshipSessions = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <Image
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -158,15 +511,18 @@ export const Workshops = () => {
     setViewerIsOpen(false);
   };
 
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} onClick={openLightbox} />
+      <Gallery photos={mentorship.slice(0, 8)} renderImage={imageRenderer} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={photos.map((x) => ({
+              views={mentorship.map((x) => ({
                 ...x,
                 srcset: x.srcSet,
                 caption: x.title,
@@ -178,9 +534,41 @@ export const Workshops = () => {
     </div>
   );
 };
-export const GuestLectures = () => {
+
+export const PitchingEvents = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <Image
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -192,15 +580,159 @@ export const GuestLectures = () => {
     setViewerIsOpen(false);
   };
 
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
   return (
     <div>
-      <Gallery photos={photos.slice(0, 8)} onClick={openLightbox} />
+      <Gallery
+        photos={pitchingEvents.slice(0, 8)}
+        renderImage={imageRenderer}
+      />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={photos.map((x) => ({
+              views={pitchingEvents.map((x) => ({
+                ...x,
+                srcset: x.srcSet,
+                caption: x.title,
+              }))}
+            />
+          </Modal>
+        ) : null}
+      </ModalGateway>
+    </div>
+  );
+};
+
+export const Incubators = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <Image
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
+
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
+  };
+
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
+  return (
+    <div>
+      <Gallery photos={incu.slice(0, 8)} renderImage={imageRenderer} />
+      <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={incu.map((x) => ({
+                ...x,
+                srcset: x.srcSet,
+                caption: x.title,
+              }))}
+            />
+          </Modal>
+        ) : null}
+      </ModalGateway>
+    </div>
+  );
+};
+
+export const ELectures = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const imgStyle = {
+    transition:
+      "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+  };
+  const cont = {
+    backgroundColor: "#eee",
+    cursor: "pointer",
+    overflow: "hidden",
+    position: "relative",
+  };
+
+  const RenderImage = ({ index, photo, margin }) => {
+    const handleOnClick = (e) => {
+      openLightbox(e, { photo, index });
+    };
+
+    return (
+      <div
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        className="test-shine"
+      >
+        <Image
+          alt={photo.title}
+          style={{ ...imgStyle }}
+          {...photo}
+          onClick={handleOnClick}
+        />
+      </div>
+    );
+  };
+
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
+  };
+
+  const imageRenderer = ({ index, key, photo }) => (
+    <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
+  );
+  return (
+    <div>
+      <Gallery photos={electures.slice(0, 8)} renderImage={imageRenderer} />
+      <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={electures.map((x) => ({
                 ...x,
                 srcset: x.srcSet,
                 caption: x.title,
