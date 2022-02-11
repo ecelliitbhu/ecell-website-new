@@ -5,258 +5,258 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 const AlumniMeet = [
   {
     src: "/alumni_meet/5-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/alumni_meet/DSC_0074-5-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/alumni_meet/DSC_0534-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/alumni_meet/DSC_0549-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
 ];
 
 const founspeak = [
   {
     src: "/foundersSpeak/_DSC0008-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/foundersSpeak/_DSC0040-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/foundersSpeak/_DSC0055-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
 ];
 const pitchingEvents = [
   {
     src: "/pitching_events/DSC04981-min.jpg",
-    width: 3,
-    height: 2,
+    width: 16,
+    height: 9,
   },
   {
     src: "/pitching_events/DSC05081-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/pitching_events/DSC_0092-2-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/pitching_events/hult1-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/pitching_events/DSC05026-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
 
   {
     src: "/pitching_events/DSC_0071-3-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
 
   {
     src: "/pitching_events/gsw-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
 ];
 const mentorship = [
   {
     src: "/mentorship-Sessions/DSC04819-min.jpg",
-    width: 3,
-    height: 2,
+    width: 16,
+    height: 9,
   },
   {
     src: "/mentorship-Sessions/DSC_0094-3-min.jpg",
-    width: 3,
-    height: 2,
+    width: 16,
+    height: 9,
   },
   {
     src: "/mentorship-Sessions/slide6-min.jpg",
-    width: 3,
-    height: 2,
+    width: 16,
+    height: 9,
   },
   {
     src: "/mentorship-Sessions/DSC_006_mono-min.jpg",
-    width: 3,
-    height: 2,
+    width: 16,
+    height: 9,
   },
   {
     src: "/mentorship-Sessions/slide5-min.jpg",
-    width: 3,
-    height: 2,
+    width: 16,
+    height: 9,
   },
 ];
 const incu = [
   {
     src: "/incubators/mciie2.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/incubators/rkvy1.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/incubators/rkvy12.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/incubators/slide7.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/incubators/thinq2.PNG",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/incubators/mciie3.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/incubators/rkvy11.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/incubators/rkvy4.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/incubators/thinq1.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
 ];
 const electures = [
   {
     src: "/e-lectures/6-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/7-min.jpg ",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC04914-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC04931-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC04938-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC05063-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC05145-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC05459-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC05467-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC_0139-3-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/DSC_0142-5-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/_DSC0082-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/biz1 (3)-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/gsw2-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/slide4-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/e-lectures/stock-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
 ];
 const photos = [
   {
     src: "/alumni_meet/5-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/alumni_meet/DSC_0074-5-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/alumni_meet/DSC_0534-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
   {
     src: "/alumni_meet/DSC_0549-min.jpg",
-    width: 1,
-    height: 1,
+    width: 16,
+    height: 9,
   },
 ];
 
@@ -354,7 +354,7 @@ export const FoundersSpeak = () => {
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         className="test-shine"
       >
-        <img
+        <Image
           alt={photo.title}
           style={{ ...imgStyle }}
           {...photo}
@@ -422,7 +422,7 @@ export const ESummit = () => {
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         className="test-shine"
       >
-        <img
+        <Image
           alt={photo.title}
           style={{ ...imgStyle }}
           {...photo}
@@ -491,7 +491,7 @@ export const MentorshipSessions = () => {
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         className="test-shine"
       >
-        <img
+        <Image
           alt={photo.title}
           style={{ ...imgStyle }}
           {...photo}
@@ -560,7 +560,7 @@ export const PitchingEvents = () => {
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         className="test-shine"
       >
-        <img
+        <Image
           alt={photo.title}
           style={{ ...imgStyle }}
           {...photo}
@@ -632,7 +632,7 @@ export const Incubators = () => {
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         className="test-shine"
       >
-        <img
+        <Image
           alt={photo.title}
           style={{ ...imgStyle }}
           {...photo}
@@ -701,7 +701,7 @@ export const ELectures = () => {
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         className="test-shine"
       >
-        <img
+        <Image
           alt={photo.title}
           style={{ ...imgStyle }}
           {...photo}

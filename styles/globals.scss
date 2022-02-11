@@ -203,7 +203,7 @@ ul {
 }
 
 .dropdown-item div p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   background-color: white;
   color: grey;
 }
@@ -267,7 +267,7 @@ ul {
   // border-bottom: 4px solid #cd57ff;
 }
 .contact-nav:hover {
-  box-shadow: inset 0px -4px #9a3f3f;
+  box-shadow: inset 0px -4px #00d9ff;
   // border-bottom: 4px solid #cd57ff;
 }
 
@@ -334,7 +334,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
   .nav-item {
     margin: 0px 1em;
@@ -348,7 +348,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
   .nav-item {
     margin: 0px 1.2em;
@@ -365,7 +365,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
   .nav-item {
     margin: 0px 1em;
@@ -382,7 +382,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .nav-item {
     margin: 0px 1em;
@@ -400,7 +400,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .nav-item {
     margin: 0px 0.8em;
@@ -418,7 +418,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .nav-item {
     margin: 0px 0.7em;
@@ -437,7 +437,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .nav-item {
     margin: 0px 0.6em;
@@ -456,7 +456,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .nav-item {
     margin: 0px 0.5em;
@@ -475,7 +475,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .nav-item {
     margin: 0px 0.4em;
@@ -494,7 +494,7 @@ ul {
     font-size: 1rem;
   }
   .dropdown-item div p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
   .nav-item {
     margin: 0px 0.3em;
@@ -591,11 +591,15 @@ ul {
     gap: 20px;
   }
   .dropdown-item div h4 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-weight: bold;
     color: #138bdb;
     position: relative;
     top: 8px;
+  }
+  .dropdown-item:hover {
+    transform: none;
+    transition: none;
   }
   .dropdown-item div p {
     display: none;
@@ -617,6 +621,9 @@ ul {
     top: 0px;
     right: 2px;
     width: 60px;
+  }
+  .nav-item:hover {
+    box-shadow: none;
   }
 
   button {

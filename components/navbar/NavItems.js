@@ -28,7 +28,7 @@ export const Discover = () => {
           <li className="dropdown-subcontainer">
             <Link href="/who_we_are">
               <a className="dropdown-item">
-                <FcBinoculars fontSize="2.2rem"></FcBinoculars>
+                <FcBinoculars fontSize="2rem"></FcBinoculars>
                 <div>
                   <h4>Who we are?</h4>
                   <p>
@@ -41,7 +41,7 @@ export const Discover = () => {
             </Link>
             <Link href="/events">
               <a className="dropdown-item" href="#">
-                <FcBinoculars fontSize="2.2rem"></FcBinoculars>
+                <FcBinoculars fontSize="2rem"></FcBinoculars>
                 <div>
                   <h4>Events</h4>
                   <p>
@@ -56,7 +56,7 @@ export const Discover = () => {
           <li className="dropdown-subcontainer">
             <Link href="/gallery">
               <a className="dropdown-item" href="#">
-                <FcBinoculars fontSize="2.2rem"></FcBinoculars>
+                <FcBinoculars fontSize="2rem"></FcBinoculars>
                 <div>
                   <h4>Gallery</h4>
                   <p>
@@ -65,23 +65,24 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-
-            <a className="dropdown-item" href="#">
-              <FcBinoculars fontSize="2.2rem"></FcBinoculars>
-              <div>
-                <h4>Initiatives</h4>
-                <p>
-                  Initiatives taken by the E-Cell to improve
-                  <br />
-                  the entrepreneurship culture @ IIT BHU
-                </p>
-              </div>
-            </a>
+            
+              <a className="dropdown-item" href="https://bit.ly/build-with-us-ecell">
+                <FcBinoculars fontSize="2rem"></FcBinoculars>
+                <div>
+                  <h4>Initiatives</h4>
+                  <p>
+                    Initiatives taken by the E-Cell to improve
+                    <br />
+                    the entrepreneurship culture @ IIT BHU
+                  </p>
+                </div>
+              </a>
+           
           </li>
           <li className="dropdown-subcontainer">
             <Link href="/past_speakers">
               <a className="dropdown-item" href="#">
-                <FcBinoculars fontSize="2.2rem"></FcBinoculars>
+                <FcBinoculars fontSize="2rem"></FcBinoculars>
                 <div>
                   <h4>Past speakers</h4>
                   <p>
@@ -91,17 +92,18 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-
-            <a className="dropdown-item" href="#">
-              <FcBinoculars fontSize="2.2rem"></FcBinoculars>
-              <div>
-                <h4>Sponsors and Associates</h4>
-                <p>
-                  Meet our facilitators who support us <br />
-                  to make the best of E-Cell!
-                </p>
-              </div>
-            </a>
+            <Link href="/coming_soon" passHref>
+              <a className="dropdown-item" href="#">
+                <FcBinoculars fontSize="2rem"></FcBinoculars>
+                <div>
+                  <h4>Sponsors and Associates</h4>
+                  <p>
+                    Meet our facilitators who support us <br />
+                    to make the best of E-Cell!
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -137,7 +139,7 @@ export const Initiatives = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcApproval fontSize="2.2rem"></FcApproval>
+              <FcApproval fontSize="2rem"></FcApproval>
               <div>
                 <h4>Internship Portal</h4>
                 <p>
@@ -153,7 +155,7 @@ export const Initiatives = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcApproval fontSize="2.2rem"></FcApproval>
+              <FcApproval fontSize="2rem"></FcApproval>
               <div>
                 <h4>Startup Services Portal</h4>
                 <p>
@@ -165,7 +167,7 @@ export const Initiatives = () => {
           </li>
           <li className="dropdown-subcontainer">
             <a className="dropdown-item" href="#">
-              <FcApproval fontSize="2.2rem"></FcApproval>
+              <FcApproval fontSize="2rem"></FcApproval>
               <div>
                 <h4>Build with us</h4>
                 <p>
@@ -181,7 +183,7 @@ export const Initiatives = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcApproval fontSize="2.2rem"></FcApproval>
+              <FcApproval fontSize="2rem"></FcApproval>
               <div>
                 <h4>E-Community</h4>
                 <p>
@@ -194,7 +196,7 @@ export const Initiatives = () => {
           <li className="dropdown-subcontainer">
             <Link href="/coming_soon" passHref>
               <a className="dropdown-item" href="#">
-                <FcApproval fontSize="2.2rem"></FcApproval>
+                <FcApproval fontSize="2rem"></FcApproval>
                 <div>
                   <h4>Campus Ambassador program</h4>
                   <p>
@@ -206,7 +208,7 @@ export const Initiatives = () => {
             </Link>
             <Link href="/coming_soon" passHref>
               <a className="dropdown-item" href="#">
-                <FcApproval fontSize="2.2rem"></FcApproval>
+                <FcApproval fontSize="2rem"></FcApproval>
                 <div>
                   <h4>Mentor Forum</h4>
                   <p>
@@ -251,7 +253,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcIdea fontSize="2.2rem"></FcIdea>
+              <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>
                   {"Technology Innovation"} <br />
@@ -272,7 +274,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcIdea fontSize="2.2rem"></FcIdea>
+              <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>Cisco thingQbator</h4>
                 <p>
@@ -289,7 +291,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcIdea fontSize="2.2rem"></FcIdea>
+              <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>NCL-IIT BHU Incubation Centre</h4>
                 <p>
@@ -305,7 +307,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcIdea fontSize="2.2rem"></FcIdea>
+              <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>IDAPT-Hub Foundation</h4>
                 <p>
@@ -322,7 +324,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcIdea fontSize="2.2rem"></FcIdea>
+              <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>R-ABI, IIT BHU</h4>
                 <p>
@@ -338,7 +340,7 @@ export const Incubators = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <FcIdea fontSize="2.2rem"></FcIdea>
+              <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>
                   {"Innovation"}
@@ -382,7 +384,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <FcCollaboration fontSize="2rem"></FcCollaboration>
               <div>
                 <h4>For students</h4>
                 <p>
@@ -398,7 +400,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <FcCollaboration fontSize="2rem"></FcCollaboration>
               <div>
                 <h4>For startups</h4>
                 <p>
@@ -415,7 +417,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <FcCollaboration fontSize="2rem"></FcCollaboration>
               <div>
                 <h4>For alumni</h4>
                 <p>
@@ -431,7 +433,7 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <FcCollaboration fontSize="2rem"></FcCollaboration>
               <div>
                 <h4>For Investor and VCs</h4>
                 <p>
@@ -448,19 +450,21 @@ export const Connect = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+              <FcCollaboration fontSize="2rem"></FcCollaboration>
               <div>
                 <h4>For corporates</h4>
                 <p>
-                  We welcome all Corporate collaborations and
-                  <br /> CSR Initiatives to strengthen the startup community!
+                  We welcome all Corporate <br /> collaborations and CSR
+                  Initiatives to
+                  <br />
+                  strengthen the startup community!
                 </p>
               </div>
             </a>
 
             <Link href="/team">
               <a className="dropdown-item">
-                <FcCollaboration fontSize="2.2rem"></FcCollaboration>
+                <FcCollaboration fontSize="2rem"></FcCollaboration>
                 <div>
                   <h4>Meet the team</h4>
                   <p>
@@ -503,7 +507,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcNews fontSize="2.2rem"></FcNews>
+              <FcNews fontSize="2rem"></FcNews>
               <div>
                 <h4>Startup Bundle</h4>
                 <p>
@@ -519,7 +523,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcNews fontSize="2.2rem"></FcNews>
+              <FcNews fontSize="2rem"></FcNews>
               <div>
                 <h4>Resource Library</h4>
                 <p>
@@ -533,7 +537,7 @@ export const Learn = () => {
           <li className="dropdown-subcontainer">
             <Link href="/FAQs">
               <a className="dropdown-item">
-                <FcNews fontSize="2.2rem"></FcNews>
+                <FcNews fontSize="2rem"></FcNews>
                 <div>
                   <h4>Frequently Asked Questions</h4>
                   <p>
@@ -548,7 +552,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcNews fontSize="2.2rem"></FcNews>
+              <FcNews fontSize="2rem"></FcNews>
               <div>
                 <h4>E-Digest Magazine</h4>
                 <p>
@@ -565,7 +569,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcNews fontSize="2.2rem"></FcNews>
+              <FcNews fontSize="2rem"></FcNews>
               <div>
                 <h4>Newsletter Archives</h4>
                 <p>
@@ -580,7 +584,7 @@ export const Learn = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FcNews fontSize="2.2rem"></FcNews>
+              <FcNews fontSize="2rem"></FcNews>
               <div>
                 <h4>Blogs</h4>
                 <p>
@@ -619,7 +623,7 @@ export const Startups = () => {
 export const Esummit = () => {
   return (
     <li className="nav-item dropdown esummit">
-      <Link href="/" passHref>
+      <Link href="/coming_soon" passHref>
         <a className="nav-link">
           <h3>{`E-Summit'22`}</h3>
         </a>

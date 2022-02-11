@@ -9,7 +9,9 @@ export const Collage = () => {
       className="collage-container collage-normal"
       style={{ margin: "70px 0px" }}
     >
-      <h1>Successful Ventures From IIT BHU Alumni</h1>
+      <h1 style={{ margin: "20px 0px" }}>
+        Successful Ventures From IIT BHU Alumni
+      </h1>
       <Image src={startups} alt="startups"></Image>
     </Row>
   );
@@ -20,7 +22,9 @@ export const CollagePhone = () => {
       className="collage-container collage-mobile"
       style={{ margin: "70px 0px" }}
     >
-      <h1  style={{ fontSize:"1.8rem" }}>Startups From IIT BHU</h1>
+      <h1 style={{ fontSize: "1.8rem", margin: "20px 0px" }}>
+        Startups From IIT BHU
+      </h1>
       <Image src={startups_mobile} alt="startups"></Image>
     </Row>
   );

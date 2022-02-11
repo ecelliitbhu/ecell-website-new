@@ -132,9 +132,15 @@ export default function Home() {
                   <Card.Text>
                     {`Through our Programmes like "E-Mentorship" and "Learn Together", we teach the students about all aspects of entrepreneurial journey!`}
                   </Card.Text>
-                  <Button variant="dark" className="card-button">
-                    Learn Here &rarr;
-                  </Button>
+                  <a
+                    href="https://ecelliitbhu.notion.site/Startup-Bundle-f47d0b39e4754468ad31fd9e0a212d21"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="dark" className="card-button">
+                      Learn Here &rarr;
+                    </Button>
+                  </a>
                 </Card.Body>
               </Card>
               <Card className="card">
@@ -150,9 +156,15 @@ export default function Home() {
                   <Card.Text>
                     {`With Initiatives like "Build With Us" and "Startup 101", deep dive into the ocean of building the solutions for tomorrow!`}
                   </Card.Text>
-                  <Button variant="dark" className="card-button">
-                    Build with us &rarr;
-                  </Button>
+                  <a
+                    href="https://bit.ly/build-with-us-ecell"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="dark" className="card-button">
+                      Build with us &rarr;
+                    </Button>
+                  </a>
                 </Card.Body>
               </Card>
               <Card className="card">
@@ -168,9 +180,15 @@ export default function Home() {
                   <Card.Text>
                     {`Network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!`}
                   </Card.Text>
-                  <Button variant="dark" className="card-button">
-                    Escalate &rarr;
-                  </Button>
+                  <a
+                    href="https://tiiciitbhu.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="dark" className="card-button">
+                      Escalate &rarr;
+                    </Button>
+                  </a>
                 </Card.Body>
               </Card>
             </Row>
