@@ -194,7 +194,7 @@ export const Initiatives = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/coming_soon" passHref>
+            <Link href="/cd" passHref>
               <a className="dropdown-item" href="#">
                 <FcApproval fontSize="2rem"></FcApproval>
                 <div>

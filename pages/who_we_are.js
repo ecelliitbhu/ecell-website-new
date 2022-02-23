@@ -94,18 +94,14 @@ const WhoWeAre = () => {
                 // alignItems:"center"
               }}
             >
-              <a
-                href={`https://www.youtube.com/watch?v=PSEKcZQINvM&t=21s`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src={aboutNew}
-                  height="580"
-                  width="604"
-                  alt="image"
-                ></Image>
-              </a>
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/PSEKcZQINvM"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{width:"100%"}}
+              ></iframe>
             </Col>
             <Col
               className="info waw"
