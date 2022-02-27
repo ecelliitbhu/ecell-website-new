@@ -1814,9 +1814,9 @@ ul {
     justify-content: flex-start;
     align-items: center;
     .perk-image{
-      height: 180px;
-      width: 180px;
-      margin: 20px auto;
+      height: 120px;
+      width: 120px;
+      margin: 40px auto 20px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -1845,4 +1845,8 @@ ul {
       color: green;
     }
   }
+}
+
+.join-cd:active {
+  color: #505058;
 }

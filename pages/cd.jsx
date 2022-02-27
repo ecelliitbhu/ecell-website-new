@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import Testimonials from "../components/Testimonials";
+import CdTestimonials from "../components/CdTestimonials";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
 import Image from "next/image";
 
@@ -72,9 +72,9 @@ export default function CampusDirector() {
                 </Col>
               </Row>
             </Col>
-            <Col className="image-section">
+            <Col className="image-section" style={{ padding: "40px" }}>
               <lottie-player
-                src="https://assets6.lottiefiles.com/packages/lf20_qAEc0l.json"
+                src="https://assets2.lottiefiles.com/packages/lf20_fctyz3y8.json"
                 background="transparent"
                 speed="1"
                 loop
@@ -83,10 +83,7 @@ export default function CampusDirector() {
             </Col>
           </Row>
           <Row></Row>
-          <Row
-            className="what-we-do info"
-            style={{ backgroundColor: "#f7fbff", padding: "30px 0px" }}
-          >
+          <Row className="what-we-do info" style={{ padding: "30px 0px" }}>
             <h1>What we offer?</h1>
             <p>
               {`Through our vision of "Learn, Build and Scale" we implement
@@ -205,18 +202,24 @@ export default function CampusDirector() {
           </Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
             <h1>{`Testimonials from previous CDs`}</h1>
-            <Testimonials></Testimonials>
+            <CdTestimonials />
           </Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
             <h1>Convinced Enough? Register Now!</h1>
-            <Button
-              variant="info"
-              className="get-started"
-              href="/#who-are-we"
-              style={{ margin: "30px auto" }}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeYonqr-htA7xzhFInag45C5L3FbNGr-2dbKTouSi_uqe5kFg/viewform?usp=sf_link"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Join Us
-            </Button>
+              <btn
+                variant="info"
+                className="get-started"
+                id="join-cd"
+                style={{ margin: "30px auto" }}
+              >
+                Join Us
+              </btn>
+            </a>
           </Row>
           <Footer />
         </Container>
