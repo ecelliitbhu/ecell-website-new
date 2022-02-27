@@ -16,8 +16,8 @@ export default function CampusDirector() {
       <Nav />
       <div>
         <Container fluid className="body">
-          <Row className="header">
-            <Col className="info">
+          <Row className="header" style={{ margin: "80px auto" }}>
+            <Col className="info cd-info">
               <h1>Join the Campus Director Programme!</h1>
               <h2>
                 Accelerate the entrepreneurial <br /> journey in your college!
@@ -26,10 +26,12 @@ export default function CampusDirector() {
                 Become the Student Lead of enhancing and expanding the
                 entrepreneurial opportunities in your college!
               </p>
+
               <Button
-                variant="info"
-                className="get-started"
-                href="/#who-are-we"
+                className="get-started join-cd"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeYonqr-htA7xzhFInag45C5L3FbNGr-2dbKTouSi_uqe5kFg/viewform?usp=sf_link"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Get Started !
               </Button>
@@ -54,7 +56,12 @@ export default function CampusDirector() {
                 your college with various startup related activities and events
                 to inculcate the entrepreneurial culture in your own college!
               </p>
-              <Button variant="dark" className="learn-more" href="/who_we_are">
+              <Button
+                className="learn-more join-cd"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeYonqr-htA7xzhFInag45C5L3FbNGr-2dbKTouSi_uqe5kFg/viewform?usp=sf_link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Learn more &rarr;
               </Button>
               <Row className="reach">
@@ -74,7 +81,7 @@ export default function CampusDirector() {
             </Col>
             <Col className="image-section" style={{ padding: "40px" }}>
               <lottie-player
-                src="https://assets2.lottiefiles.com/packages/lf20_fctyz3y8.json"
+                src="https://assets3.lottiefiles.com/packages/lf20_lnn3liuj.json"
                 background="transparent"
                 speed="1"
                 loop
@@ -83,7 +90,7 @@ export default function CampusDirector() {
             </Col>
           </Row>
           <Row></Row>
-          <Row className="what-we-do info" style={{ padding: "30px 0px" }}>
+          <Row className="what-we-do info" style={{ margin: "60px auto 0px" }}>
             <h1>What we offer?</h1>
             <p>
               {`Through our vision of "Learn, Build and Scale" we implement
@@ -159,7 +166,7 @@ export default function CampusDirector() {
               </div>
             </div>
           </Row>
-          <Row className="who-are-we" style={{ margin: "30px auto" }}>
+          <Row className="who-are-we" style={{ margin: "auto" }}>
             <Col className="image-section">
               <lottie-player
                 src="https://assets7.lottiefiles.com/packages/lf20_9qt5pr9g.json"
@@ -170,7 +177,9 @@ export default function CampusDirector() {
               ></lottie-player>
             </Col>
             <Col className="info waw">
-              <h1 style={{ fontSize: "3rem" }}>Responsibilities</h1>
+              <h1 style={{ fontSize: "3rem", margin: "30px 0px" }}>
+                Responsibilities
+              </h1>
               <ul className="ca-responsibilities">
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
@@ -206,20 +215,16 @@ export default function CampusDirector() {
           </Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
             <h1>Convinced Enough? Register Now!</h1>
-            <a
+
+            <Button
+              className="get-started join-cd"
+              style={{ margin: "30px auto" }}
               href="https://docs.google.com/forms/d/e/1FAIpQLSeYonqr-htA7xzhFInag45C5L3FbNGr-2dbKTouSi_uqe5kFg/viewform?usp=sf_link"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <btn
-                variant="info"
-                className="get-started"
-                id="join-cd"
-                style={{ margin: "30px auto" }}
-              >
-                Join Us
-              </btn>
-            </a>
+              Join Us
+            </Button>
           </Row>
           <Footer />
         </Container>
