@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { FcApproval, FcIdea } from "react-icons/fc";
-import { FcCollaboration, FcBinoculars } from "react-icons/fc";
-import { FcNews } from "react-icons/fc";
+import {
+  FcApproval,
+  FcIdea,
+  FcFinePrint,
+  FcCollaboration,
+  FcNews,
+} from "react-icons/fc";
 import { RiArrowDropDownLine } from "react-icons/ri";
 export const Discover = () => {
   const [isHover, setIsHover] = useState(false);
@@ -28,7 +32,7 @@ export const Discover = () => {
           <li className="dropdown-subcontainer">
             <Link href="/who_we_are">
               <a className="dropdown-item">
-                <FcBinoculars fontSize="2rem"></FcBinoculars>
+                <FcFinePrint fontSize="2rem"></FcFinePrint>
                 <div>
                   <h4>Who we are?</h4>
                   <p>
@@ -41,7 +45,7 @@ export const Discover = () => {
             </Link>
             <Link href="/events">
               <a className="dropdown-item" href="#">
-                <FcBinoculars fontSize="2rem"></FcBinoculars>
+                <FcFinePrint fontSize="2rem"></FcFinePrint>
                 <div>
                   <h4>Events</h4>
                   <p>
@@ -56,7 +60,7 @@ export const Discover = () => {
           <li className="dropdown-subcontainer">
             <Link href="/gallery">
               <a className="dropdown-item" href="#">
-                <FcBinoculars fontSize="2rem"></FcBinoculars>
+                <FcFinePrint fontSize="2rem"></FcFinePrint>
                 <div>
                   <h4>Gallery</h4>
                   <p>
@@ -65,24 +69,26 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-            
-              <a className="dropdown-item" href="https://bit.ly/build-with-us-ecell">
-                <FcBinoculars fontSize="2rem"></FcBinoculars>
-                <div>
-                  <h4>Initiatives</h4>
-                  <p>
-                    Initiatives taken by the E-Cell to improve
-                    <br />
-                    the entrepreneurship culture @ IIT BHU
-                  </p>
-                </div>
-              </a>
-           
+
+            <a
+              className="dropdown-item"
+              href="https://bit.ly/build-with-us-ecell"
+            >
+              <FcFinePrint fontSize="2rem"></FcFinePrint>
+              <div>
+                <h4>Initiatives</h4>
+                <p>
+                  Initiatives taken by the E-Cell to improve
+                  <br />
+                  the entrepreneurship culture @ IIT BHU
+                </p>
+              </div>
+            </a>
           </li>
           <li className="dropdown-subcontainer">
             <Link href="/past_speakers">
               <a className="dropdown-item" href="#">
-                <FcBinoculars fontSize="2rem"></FcBinoculars>
+                <FcFinePrint fontSize="2rem"></FcFinePrint>
                 <div>
                   <h4>Past speakers</h4>
                   <p>
@@ -94,7 +100,7 @@ export const Discover = () => {
             </Link>
             <Link href="/coming_soon" passHref>
               <a className="dropdown-item" href="#">
-                <FcBinoculars fontSize="2rem"></FcBinoculars>
+                <FcFinePrint fontSize="2rem"></FcFinePrint>
                 <div>
                   <h4>Sponsors and Associates</h4>
                   <p>
@@ -194,11 +200,13 @@ export const Initiatives = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/coming_soon" passHref>
+            <Link href="/cd" passHref>
               <a className="dropdown-item" href="#">
                 <FcApproval fontSize="2rem"></FcApproval>
                 <div>
-                  <h4>Campus Ambassador <br /> program</h4>
+                  <h4>
+                    Campus Ambassador <br /> program
+                  </h4>
                   <p>
                     {`Join our initiative of creating & motivating`}
                     <br /> {`the entrepreneurs of your college!`}
@@ -293,7 +301,9 @@ export const Incubators = () => {
             >
               <FcIdea fontSize="2rem"></FcIdea>
               <div>
-                <h4>NCL-IIT BHU <br /> Incubation Centre</h4>
+                <h4>
+                  NCL-IIT BHU <br /> Incubation Centre
+                </h4>
                 <p>
                   A Northern Coalfields Limited (NCL) <br /> CSR initiative
                   funded incubator
