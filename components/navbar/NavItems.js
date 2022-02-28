@@ -204,7 +204,7 @@ export const Initiatives = () => {
               <a className="dropdown-item" href="#">
                 <FcApproval fontSize="2rem"></FcApproval>
                 <div>
-                <h4>Campus Ambassador <br /> program</h4>
+                  <h4>Campus Ambassador <br /> program</h4>
                   <p>
                     {`Join our initiative of creating & motivating`}
                     <br /> {`the entrepreneurs of your college!`}
