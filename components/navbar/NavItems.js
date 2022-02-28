@@ -205,8 +205,7 @@ export const Initiatives = () => {
                 <FcApproval fontSize="2rem"></FcApproval>
                 <div>
                   <h4>
-                    Campus Ambassador <br /> program
-                  </h4>
+                    Campus Ambassador <br /> program</h4>
                   <p>
                     {`Join our initiative of creating & motivating`}
                     <br /> {`the entrepreneurs of your college!`}
