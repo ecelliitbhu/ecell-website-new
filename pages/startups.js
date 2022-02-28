@@ -35,11 +35,12 @@ const StartupDirectory = () => {
             <h1
               style={{
                 margin: "20px auto 0px auto",
-                fontSize: "4rem",
+                fontSize: "3rem",
                 color: "black",
+                fontWeight:"bold",
               }}
             >
-              Startup Directory
+               IIT BHU Startup Directory
             </h1>
           </Row>
           <div style={{ display: "flex", justifyContent: "center" }}>
