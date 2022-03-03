@@ -33,7 +33,7 @@ export default function CampusDirector() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get Started !
+                Register Now!
               </Button>
             </Col>
             <Col className="image-section">
