@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }) {
         <Layout>
           <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-01SQ8SP29M"></script>
           </Head>
           {loading ? (
             <Player
