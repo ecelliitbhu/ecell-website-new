@@ -58,7 +58,7 @@ export default function Events() {
                 The Annual Entrepreneurial Fest <br />
                 of IIT BHU is here !
               </h1>
-              <Link href="/coming_soon" passHref>
+              <Link href="https://esummit.ecelliitbhu.com/" passHref>
                 <Button
                   variant="info"
                   className="get-started"
