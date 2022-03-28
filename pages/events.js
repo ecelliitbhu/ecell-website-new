@@ -84,7 +84,7 @@ export default function Events() {
                 width: "95%",
               }}
             >
-              <Image src={Poster} height={225} width={1203}></Image>
+              <Image src={Poster} height={1469} width={2480}></Image>
             </Col>
           </Row>
           <Row className="what-we-do info" style={{ margin: "50px auto" }}>
