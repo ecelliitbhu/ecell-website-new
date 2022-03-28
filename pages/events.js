@@ -87,7 +87,6 @@ export default function Events() {
               <Image src={Poster} height={225} width={1203}></Image>
             </Col>
           </Row>
-          <Row></Row>
           <Row className="what-we-do info" style={{ margin: "50px auto" }}>
             <h1 style={{ padding: "0px" }}>Events @ E-Cell IIT BHU</h1>
             <Row className="card-container">
