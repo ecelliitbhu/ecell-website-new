@@ -98,8 +98,8 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-            <Link href="/coming_soon" passHref>
-              <a className="dropdown-item" href="#">
+            <Link>
+              <a className="dropdown-item" href="https://esummit.ecelliitbhu.com/sponsors/index.html" target="_blank" rel="noopener noreferrer">
                 <FcFinePrint fontSize="2rem"></FcFinePrint>
                 <div>
                   <h4>Sponsors and Associates</h4>
