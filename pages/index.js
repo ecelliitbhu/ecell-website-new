@@ -73,7 +73,7 @@ export default function Home() {
                 width: "95%",
               }}
             >
-              <Image src={Poster} height={1469} width={2480}></Image>
+              <Image src={Poster} height={1183} width={2184}></Image>
             </Col>
           </Row>
           <Row className="header">
