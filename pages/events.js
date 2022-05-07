@@ -31,62 +31,6 @@ export default function Events() {
       <Nav />
       <div>
         <Container fluid className="body">
-          <Row
-            className="header"
-            style={{
-              backgroundColor: "white",
-              width: "fit-content",
-              border: "1px solid white",
-              borderRadius: "20px",
-              padding: "20px 0px",
-              margin: "40px auto",
-              justifyContent: "center",
-            }}
-          >
-            <Col
-              className="info"
-              style={{ backgroundColor: "white", width: "95%" }}
-            >
-              <h1
-                style={{
-                  backgroundColor: "white",
-                  color: "black",
-                  marginTop: "40px",
-                  fontWeight: "normal",
-                }}
-              >
-                The Annual Entrepreneurial Fest <br />
-                of IIT BHU is here !
-              </h1>
-              <Link href="https://esummit.ecelliitbhu.com/" passHref>
-                <Button
-                  variant="info"
-                  className="get-started"
-                  style={{
-                    backgroundColor: "#FA8231",
-                    border: "#FA8231",
-                    width: "200px",
-                  }}
-                >
-                  Register Now!
-                </Button>
-              </Link>
-            </Col>
-            <Col
-              className="image-section"
-              style={{
-                backgroundColor: "white",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "50px auto",
-                padding: "0px",
-                width: "95%",
-              }}
-            >
-              <Image src={Poster} height={1183} width={2184}></Image>
-            </Col>
-          </Row>
           <Row className="what-we-do info" style={{ margin: "50px auto" }}>
             <h1 style={{ padding: "0px" }}>Events @ E-Cell IIT BHU</h1>
             <Row className="card-container">
