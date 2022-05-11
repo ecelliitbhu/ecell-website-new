@@ -69,7 +69,7 @@ const TeamExpansionForm = () => {
   };
   return (
     <>
-      <form className="cf contact-form" onSubmit={handleSubmit}>
+      <form className="cf teamExpansion-form" onSubmit={handleSubmit} style={{width:"95%", maxWidth:"800px"}}>
         <Row className="form-item">
           <label htmlFor="fname">
             <h5>
@@ -155,7 +155,7 @@ const TeamExpansionForm = () => {
               onChange={() => setIit(!iit)}
             />
 
-            <span>Innovation and Incubation Team</span>
+            <span>{`Innovation & Incubation Team`}</span>
           </Row>
           <Row className="checkbox-option">
             <input
