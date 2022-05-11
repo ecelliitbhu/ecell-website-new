@@ -42,10 +42,10 @@ export default function Contacts() {
                 width: "90%",
               }}
             >
-              The Entrepreneurship Cell (E Cell), IIT (BHU) Varanasi aims to
+              The Entrepreneurship Cell (E-Cell), IIT BHU Varanasi aims to
               foster the spirit of entrepreneurship and innovation in the
               college.
-              <br /> Fill this form to be a part of the E Cell, and contribute
+              <br /> Fill this form to be a part of the E-Cell, and contribute
               to building the entrepreneurship culture!
             </p>
           </Row>
