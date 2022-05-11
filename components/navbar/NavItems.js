@@ -98,18 +98,21 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-            <Link href="/coming_soon" passHref>
-              <a className="dropdown-item" href="#">
-                <FcFinePrint fontSize="2rem"></FcFinePrint>
-                <div>
-                  <h4>Sponsors and Associates</h4>
-                  <p>
-                    Meet our facilitators who support us <br />
-                    to make the best of E-Cell!
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://esummit.ecelliitbhu.com/sponsors/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FcFinePrint fontSize="2rem"></FcFinePrint>
+              <div>
+                <h4>Sponsors and Associates</h4>
+                <p>
+                  Meet our facilitators who support us <br />
+                  to make the best of E-Cell!
+                </p>
+              </div>
+            </a>
           </li>
         </ul>
       </div>
@@ -633,7 +636,7 @@ export const Startups = () => {
 export const Esummit = () => {
   return (
     <li className="nav-item dropdown esummit">
-      <Link href="/coming_soon" passHref>
+      <Link href="https://esummit.ecelliitbhu.com/" passHref>
         <a className="nav-link">
           <h3>{`E-Summit'22`}</h3>
         </a>

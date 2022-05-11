@@ -8,7 +8,7 @@ import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
 import Typewriter from "typewriter-effect";
 import { useEffect, useState } from "react";
-
+import Poster from "../public/esummit-poster.png";
 export default function Home() {
   return (
     <>

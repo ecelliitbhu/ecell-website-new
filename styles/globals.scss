@@ -635,13 +635,13 @@ ul {
     margin: 0px;
   }
   .discover:hover {
-    border-bottom: 3px solid #ab00ff;
+    border-bottom: 3px solid rgb(4, 125, 238);
   }
   .discover div h4 {
-    color: #ab00ff;
+    color: rgb(4, 125, 238);
   }
   .discover .right-nav-column div li a:hover {
-    color: #ab00ff;
+    color: rgb(4, 125, 238);
   }
   .design:hover {
     border-bottom: 3px solid #28c7a0;
@@ -1441,26 +1441,40 @@ ul {
 }
 
 .cf {
-  text-align: center;
+  // text-align: center;
   margin: 20px auto;
   width: 60%;
-
+  .form-item {
+    margin: 25px 0px;
+    .checkbox-option {
+      input, span {
+        width: fit-content;
+        font-size: 1.1rem;
+      }
+    }
+    label{
+      padding: 0;
+      span{
+        font-size: 0.9rem;
+      }
+      h5{
+        font-size: 1.1rem;
+      }
+      .radio-item {
+        font-size: 1.1rem;
+      }
+    }
+  }
   input,
   textarea {
     border: 0;
     outline: 0;
-    padding: 1em;
-    // @include border-radius(8px);
+    padding: 10px;
     display: block;
     width: 100%;
-    margin-top: 1em;
+    margin-top: 5px;
     font-family: "Merriweather", sans-serif;
-    // @include box-shadow(0 1px 1px rgba(black, 0.1));
     resize: none;
-
-    // &:focus {
-    //   @include box-shadow(0 0px 2px rgba($red, 1) !important);
-    // }
   }
 
   #input-submit {
@@ -1906,5 +1920,8 @@ ul {
     h2 {
       font-size: 1.5rem;
     }
+  }
+  .join-cd {
+    width: 260px;
   }
 }
