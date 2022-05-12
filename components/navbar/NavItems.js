@@ -633,14 +633,3 @@ export const Startups = () => {
     </li>
   );
 };
-export const Esummit = () => {
-  return (
-    <li className="nav-item dropdown esummit">
-      <Link href="https://esummit.ecelliitbhu.com/" passHref>
-        <a className="nav-link">
-          <h3>{`E-Summit'22`}</h3>
-        </a>
-      </Link>
-    </li>
-  );
-};

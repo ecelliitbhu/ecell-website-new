@@ -85,9 +85,8 @@ body {
 }
 
 .navbar-nav {
-  margin: 5px auto;
   padding: 0px;
-  margin: 0px 20px;
+  margin: 0px auto;
   height: 100%;
   background-color: #f8f9fa;
 }
@@ -115,7 +114,7 @@ body {
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
-  margin: 0px 1.2em;
+  margin: 0px 1.8em;
   height: 100%;
   background-color: #f8f9fa;
 }
@@ -323,6 +322,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin:0 10px 0;
   cursor: pointer;
 }
 #notification-button {
@@ -1225,7 +1225,7 @@ ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 20px 0;
   }
   .footer-items h5 {
     font-size: 1.5rem;
@@ -1363,6 +1363,12 @@ ul {
     margin-bottom: 30px !important;
     width: 250px;
   }
+}
+
+.past-team {
+  box-shadow: none;
+  margin: 40px auto;
+  border: 1px solid grey;
 }
 
 .testimonials {
