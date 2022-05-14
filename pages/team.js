@@ -344,7 +344,7 @@ const Team = () => {
             >
               <h2
                 style={{
-                  fontSize: "1.8rem",
+                  fontSize: "1.4rem",
                   textAlign: "center",
                   width: "100%",
                   fontWeight: "bold",
