@@ -322,7 +322,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:0 10px 0;
+  margin: 0 10px 0;
   cursor: pointer;
 }
 #notification-button {
@@ -1306,7 +1306,7 @@ ul {
   text-align: center;
   position: relative;
   width: 240px;
-  height: 360px;
+  // height: 360px;
   margin: 20px;
 }
 
@@ -1336,11 +1336,11 @@ ul {
   justify-content: center;
   margin: 10px;
 }
-@media screen and (max-width: 1200px) {
-  .our-team {
-    width: 300px;
-  }
-}
+// @media screen and (max-width: 1200px) {
+//   .our-team {
+//     width: 300px;
+//   }
+// }
 @media screen and (max-width: 1130px) {
   .our-team {
     margin-bottom: 30px !important;
@@ -1361,13 +1361,14 @@ ul {
 @media screen and (max-width: 330px) {
   .our-team {
     margin-bottom: 30px !important;
-    width: 250px;
+    // width: 250px;
   }
 }
 
 .past-team {
   box-shadow: none;
-  margin: 40px auto;
+  width: 95%;
+  margin: 40px auto !important;
   border: 1px solid grey;
 }
 
@@ -1453,17 +1454,18 @@ ul {
   .form-item {
     margin: 25px 0px;
     .checkbox-option {
-      input, span {
+      input,
+      span {
         width: fit-content;
         font-size: 1.1rem;
       }
     }
-    label{
+    label {
       padding: 0;
-      span{
+      span {
         font-size: 0.9rem;
       }
-      h5{
+      h5 {
         font-size: 1.1rem;
       }
       .radio-item {
@@ -1833,7 +1835,7 @@ ul {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    .perk-image{
+    .perk-image {
       height: 120px;
       width: 120px;
       margin: 40px auto 20px;
@@ -1875,45 +1877,45 @@ ul {
     rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0.2) 37%,
     rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0.0) 50%
+    rgba(255, 255, 255, 0) 50%
   );
   background-image: -moz-linear-gradient(
     0 0,
     rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0.2) 37%,
     rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0.0) 50%
-  );    
+    rgba(255, 255, 255, 0) 50%
+  );
   background-image: -o-linear-gradient(
     0 0,
     rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0.2) 37%,
     rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0.0) 50%
+    rgba(255, 255, 255, 0) 50%
   );
   background-image: linear-gradient(
     0 0,
     rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0.2) 37%,
     rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0.0) 50%
+    rgba(255, 255, 255, 0) 50%
   );
-  
+
   -moz-background-size: 250% 250%, 100% 100%;
-       background-size: 250% 250%, 100% 100%;
-  
+  background-size: 250% 250%, 100% 100%;
+
   -webkit-transition: background-position 0s ease;
-     -moz-transition: background-position 0s ease;       
-       -o-transition: background-position 0s ease;
-          transition: background-position 0s ease;
+  -moz-transition: background-position 0s ease;
+  -o-transition: background-position 0s ease;
+  transition: background-position 0s ease;
 }
 
 .join-cd:hover {
   background-position: 0 0, 0 0;
-  background-color: #1D5FD7;
+  background-color: #1d5fd7;
   -webkit-transition-duration: 0.5s;
-     -moz-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 .join-cd:focus {
   background-color: black;
