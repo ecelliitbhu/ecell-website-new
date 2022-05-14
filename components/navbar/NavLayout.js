@@ -6,7 +6,6 @@ import {
   Incubators,
   Contact,
   Startups,
-  Esummit,
 } from "./NavItems";
 import { NavToggle } from "./NavToggle";
 import { NavLogo } from "./NavLogo";
@@ -31,7 +30,6 @@ const Nav = () => {
               <Connect />
               <Startups />
               <Contact />
-              <Esummit />
               <Notification />
             </ul>
           </div>

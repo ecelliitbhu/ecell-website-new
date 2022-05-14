@@ -21,7 +21,7 @@ export default function Contacts() {
               style={{
                 margin: "50px auto 0px auto",
                 textAlign: "center",
-                fontSize: "3rem",
+                fontSize: "2.1rem",
                 color: "black",
                 fontWeight: "bold",
               }}
@@ -37,12 +37,12 @@ export default function Contacts() {
               style={{
                 margin: "auto",
                 textAlign: "center",
-                fontSize: "1.2rem",
+                fontSize: "1rem",
                 color: "black",
                 width: "90%",
               }}
             >
-              The Entrepreneurship Cell (E-Cell), IIT BHU Varanasi aims to
+              The Entrepreneurship Cell (E-Cell), IIT (BHU) Varanasi aims to
               foster the spirit of entrepreneurship and innovation in the
               college.
               <br /> Fill this form to be a part of the E-Cell, and contribute

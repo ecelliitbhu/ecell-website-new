@@ -69,7 +69,11 @@ const TeamExpansionForm = () => {
   };
   return (
     <>
-      <form className="cf teamExpansion-form" onSubmit={handleSubmit} style={{width:"95%", maxWidth:"800px"}}>
+      <form
+        className="cf teamExpansion-form"
+        onSubmit={handleSubmit}
+        style={{ width: "95%", maxWidth: "800px" }}
+      >
         <Row className="form-item">
           <label htmlFor="fname">
             <h5>
@@ -79,6 +83,7 @@ const TeamExpansionForm = () => {
           <input
             type="text"
             style={{ borderBottom: "2px solid grey" }}
+            placeholder="Ethan Hunt"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -110,6 +115,7 @@ const TeamExpansionForm = () => {
           <input
             type="text"
             value={number}
+            placeholder="9876543210"
             onChange={(e) => setNumber(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
             required
@@ -125,6 +131,7 @@ const TeamExpansionForm = () => {
           <input
             type="text"
             value={branch}
+            placeholder="Mechanical Engineering BTech 1st Year"
             onChange={(e) => setBranch(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
             required
@@ -207,6 +214,7 @@ const TeamExpansionForm = () => {
           <input
             type="text"
             value={commitment}
+            placeholder="10"
             onChange={(e) => setCommitment(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
             required
@@ -215,13 +223,14 @@ const TeamExpansionForm = () => {
         <Row className="form-item">
           <label htmlFor="fname">
             <h5>
-              Why do you want to join E Cell, and the above selected unit?
+              Why do you want to join E-Cell, and the above selected unit?
               <span style={{ color: "red" }}>*</span>
             </h5>
           </label>
           <input
             type="text"
             value={why_join_ecell_and_selected_vertical}
+            placeholder="Enter your answer"
             onChange={(e) =>
               setWhy_join_ecell_and_selected_vertical(e.target.value)
             }
@@ -240,6 +249,7 @@ const TeamExpansionForm = () => {
           <input
             type="text"
             value={prev_experience}
+            placeholder="Enter your answer"
             onChange={(e) => setPrev_experience(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
             required
@@ -255,6 +265,7 @@ const TeamExpansionForm = () => {
           <input
             type="text"
             value={non_acad_engagements}
+            placeholder="Enter your answer"
             onChange={(e) => setNon_acad_engagements(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
             required
@@ -270,6 +281,7 @@ const TeamExpansionForm = () => {
           <input
             type="text"
             value={any_other_point}
+            placeholder="Enter your answer"
             onChange={(e) => setAny_other_point(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
             required

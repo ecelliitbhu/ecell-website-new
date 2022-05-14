@@ -17,6 +17,7 @@
     "@lottiefiles/react-lottie-player": "^3.4.1",
     "@mapbox/node-pre-gyp": "^1.0.8",
     "@material-ui/core": "^5.0.0-alpha.27",
+    "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^5.0.0-alpha.44",
     "@mui/core": "^5.0.0-alpha.54",
     "@mui/icons-material": "^5.0.5",
