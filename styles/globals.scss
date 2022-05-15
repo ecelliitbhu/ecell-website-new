@@ -1154,7 +1154,7 @@ ul {
 }
 .footer-container {
   width: 80%;
-  margin: 70px auto;
+  margin: 40px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1184,7 +1184,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   width: 360px;
-  margin: 80px auto;
+  margin: 40px auto;
 }
 .social-icons,
 .contact-icons {
@@ -1218,7 +1218,10 @@ ul {
   .footer-container {
     display: flex;
     flex-direction: column-reverse;
-    /* width: 100%; */
+    width: 95%;
+  }
+  .footer-address {
+    text-align: center;
   }
   .footer-items {
     display: flex;
@@ -1236,7 +1239,7 @@ ul {
   .social {
     grid-template-columns: 1fr 1fr 1fr;
     width: 280px;
-    margin: 80px auto;
+    margin: 40px auto;
     row-gap: 30px;
   }
   .important-footer {
@@ -1276,8 +1279,6 @@ ul {
     padding: 0px;
   }
   .calender-events {
-    /* width: 105%; */
-    /* padding: 0px; */
     height: 100%;
   }
 }
@@ -1472,6 +1473,9 @@ ul {
         font-size: 1.1rem;
       }
     }
+    #contact-message {
+      height: 10px;
+    }
   }
   input,
   textarea {
@@ -1520,6 +1524,12 @@ ul {
     width: 100%;
     float: none;
     margin-bottom: 0;
+  }
+  .contact-form {
+    width: 95%;
+  }
+  .right {
+    margin-top: 0px;
   }
 }
 
