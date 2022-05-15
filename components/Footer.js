@@ -30,6 +30,7 @@ const Footer = () => {
               }}
             >
               <div
+              className="footer-address"
                 style={{
                   display: "flex",
                   flexDirection: "row",
