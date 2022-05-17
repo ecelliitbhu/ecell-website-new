@@ -14,7 +14,7 @@ import rieu from "../public/team/rieu.jpeg";
 import ev from "../public/team/ev.jpeg";
 import wnb from "../public/team/wnb.jpg";
 import tqb from "../public/team/tqb.jpeg";
-import Amit from "../public/team/2022-2023/Amit.png";
+import Amit from "../public/team/2022-2023/Amit.jpg";
 import Tanaya from "../public/team/2022-2023/Tanaya.jpg";
 import Tanya from "../public/team/2022-2023/Tanya.jpeg";
 import Parth from "../public/team/2022-2023/Parth.jpg";
