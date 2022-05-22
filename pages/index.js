@@ -25,8 +25,9 @@ export default function Home() {
             style={{
               background: "white",
               borderRadius: "80px",
-              height: "400px",
-              margin: "60px 0 80px 0",
+              height: "fit-content",
+              padding:"20px 0",
+              margin: "60px auto",
             }}
           >
             <Col
@@ -51,7 +52,7 @@ export default function Home() {
                 <Button
                   variant="info"
                   className="get-started"
-                  style={{color: "white",background: "#fb6930"}}
+                  style={{color: "white",background: "#fb6930",width:"fit-content"}}
                 >
                   Click Here to Apply!
                 </Button>

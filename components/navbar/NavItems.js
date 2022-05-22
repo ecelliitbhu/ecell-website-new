@@ -389,7 +389,7 @@ export const Connect = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://wa.me/8793177332"
+              href="https://wa.me/+918793177332"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -405,7 +405,7 @@ export const Connect = () => {
 
             <a
               className="dropdown-item"
-              href="https://wa.me/8793177332"
+              href="https://wa.me/+919587887413"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -422,7 +422,7 @@ export const Connect = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://wa.me/8793177332"
+              href="https://wa.me/+918793177332"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -438,7 +438,7 @@ export const Connect = () => {
 
             <a
               className="dropdown-item"
-              href="https://wa.me/8793177332"
+              href="https://wa.me/+919587887413"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -455,7 +455,7 @@ export const Connect = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://wa.me/8793177332"
+              href="https://wa.me/+918793177332"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -472,7 +472,7 @@ export const Connect = () => {
             </a>
             <a
               className="dropdown-item"
-              href="https://wa.me/8793177332"
+              href="https://wa.me/+918793177332"
               target="_blank"
               rel="noopener noreferrer"
             >
