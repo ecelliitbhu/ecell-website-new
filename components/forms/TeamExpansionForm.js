@@ -1,9 +1,8 @@
 import React from "react";
 import { ref, push } from "firebase/database";
 import { useState } from "react";
-import { firebaseDB } from "../lib/firebase";
+import { firebaseDB } from "../../lib/firebase";
 import { Row } from "react-bootstrap";
-import { MdVerticalSplit } from "react-icons/md";
 const TeamExpansionForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
