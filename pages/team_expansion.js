@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Container, Row } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import TeamExpansionForm from "../components/TeamExpansionForm";
+import TeamExpansionForm from "../components/forms/TeamExpansionForm";
 export default function Contacts() {
   return (
     <>
