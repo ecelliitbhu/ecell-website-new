@@ -30,7 +30,7 @@ const Footer = () => {
               }}
             >
               <div
-              className="footer-address"
+                className="footer-address"
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -62,7 +62,7 @@ const Footer = () => {
                 }}
               >
                 <BsFillTelephoneOutboundFill className="contact-icons" />
-                <p>+91 9451279308</p>
+                <p>+91 9587887413</p>
               </div>
             </div>
           </Col>

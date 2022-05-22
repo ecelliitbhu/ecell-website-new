@@ -11,7 +11,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/forms/ContactForm";
 export default function Contacts() {
   return (
     <>
@@ -115,7 +115,7 @@ export default function Contacts() {
                   color: "black",
                 }}
               >
-                +91 9451279308
+                +91 9587887413
               </p>
             </Col>
             <Col

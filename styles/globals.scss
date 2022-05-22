@@ -716,7 +716,8 @@ ul {
   justify-content: center;
   padding: 10px;
   box-shadow: none;
-  height: 500px;
+  height: fit-content;
+  min-height: 200px;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -1185,6 +1186,11 @@ ul {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   width: 360px;
   margin: 40px auto;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .social-icons,
 .contact-icons {
@@ -1777,10 +1783,12 @@ ul {
   }
 }
 .ecell-verticals {
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .card {
-    width: 100%;
-    height: 100%;
+    width: 40%;
+    height: 650px;
     .card-text {
       margin: 0px;
     }
@@ -1797,9 +1805,11 @@ ul {
 }
 @media (max-width: 1110px) {
   .ecell-verticals {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    // grid-template-columns: 1fr;
     .card {
       width: 80%;
+      height: fit-content;
       li {
         font-size: 1rem;
       }

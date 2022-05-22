@@ -1,5 +1,5 @@
 import React from "react";
-import { firebaseDB } from "../lib/firebase";
+import { firebaseDB } from "../../lib/firebase";
 import { ref, push } from "firebase/database";
 import { useState } from "react";
 const ContactForm = () => {
