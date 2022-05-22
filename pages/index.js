@@ -9,6 +9,7 @@ import Testimonials from "../components/Testimonials";
 import Typewriter from "typewriter-effect";
 import { useEffect, useState } from "react";
 import Poster from "../public/esummit-poster.png";
+import team_exp from "../public/team_exp.png";
 export default function Home() {
   return (
     <>
@@ -19,6 +20,44 @@ export default function Home() {
       <Nav />
       <div>
         <Container fluid className="body">
+          <Row
+            className="header"
+            style={{
+              background: "white",
+              borderRadius: "80px",
+              height: "400px",
+              margin: "60px 0 80px 0",
+            }}
+          >
+            <Col
+              className="image-section"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                src={team_exp}
+                height={380}
+                width={380}
+                alt="Team Expansion"
+              ></Image>
+            </Col>
+            <Col className="info">
+              {/* <h1>E-Cell IIT BHU</h1> */}
+              <h1 style={{ fontSize: "3rem" }}>Team Expansion 2022-23</h1>
+              <Link href="/team_expansion" passHref>
+                <Button
+                  variant="info"
+                  className="get-started"
+                  style={{color: "white",background: "#fb6930"}}
+                >
+                  Click Here to Apply!
+                </Button>
+              </Link>
+            </Col>
+          </Row>
           <Row className="header">
             <Col className="info">
               <h1>E-Cell IIT BHU</h1>
