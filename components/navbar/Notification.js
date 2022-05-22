@@ -15,9 +15,10 @@ const Notification = () => {
           margin: "0px",
         }}
       >
-        <Badge 
-        // badgeContent={3} 
-        color="error">
+        <Badge
+          // badgeContent={3}
+          color="error"
+        >
           <BsFillBellFill
             style={{ fontSize: "1.5rem", color: "black" }}
           ></BsFillBellFill>
@@ -26,6 +27,17 @@ const Notification = () => {
       <Dropdown.Menu className="notification-dropdown-menu">
         <h5>Notifications</h5>
         <Dropdown.Divider />
+        <Link href="/team_expansion" passHref>
+          <Alert icon={false} severity="warning">
+            Fill the form to be a part of E-Cell IIT (BHU)!
+            <Chip
+              label="Click here!"
+              color="warning"
+              size="small"
+              style={{ margin: "0 10px", cursor: "pointer" }}
+            />
+          </Alert>
+        </Link>
       </Dropdown.Menu>
     </Dropdown>
   );
