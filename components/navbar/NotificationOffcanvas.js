@@ -6,7 +6,7 @@ const NotificationOffCanvas = () => {
   return (
     <>
       <Badge
-        badgeContent={3}
+        badgeContent={1}
         color="error"
         id="notification-button"
         // className="btn btn-primary"
