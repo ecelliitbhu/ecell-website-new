@@ -24,9 +24,9 @@ export default function Home() {
             className="header"
             style={{
               background: "white",
-              borderRadius: "80px",
+              borderRadius: "20px",
               height: "fit-content",
-              padding:"20px 0",
+              padding: "20px 0",
               margin: "60px auto",
             }}
           >
@@ -47,12 +47,23 @@ export default function Home() {
             </Col>
             <Col className="info">
               {/* <h1>E-Cell IIT BHU</h1> */}
-              <h1 style={{ fontSize: "3rem" }}>Team Expansion 2022-23</h1>
+              <h1 style={{ fontSize: "2.6rem" }}>Team Expansion 2022-23</h1>
+              <p>
+                Intrigued and fascinated by entrepreneurship and the startup
+                culture and want to be a part of E-Cell IIT BHU?
+              </p>
               <Link href="/team_expansion" passHref>
                 <Button
                   variant="info"
                   className="get-started"
-                  style={{color: "white",background: "#fb6930",width:"fit-content"}}
+                  style={{
+                    color: "white",
+                    background: "#fb6930",
+                    width: "fit-content",
+                    fontSize:"1.2rem",
+                    height:"fit-content",
+                    padding:"15px 15px"
+                  }}
                 >
                   Click Here to Apply!
                 </Button>
