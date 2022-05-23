@@ -16,7 +16,7 @@ const Notification = () => {
         }}
       >
         <Badge
-          // badgeContent={3}
+          badgeContent={1}
           color="error"
         >
           <BsFillBellFill
