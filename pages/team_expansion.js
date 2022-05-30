@@ -65,32 +65,16 @@ export default function Contacts() {
               alignItems: "center",
             }}
           >
-            <h2 style={{ marginTop: "80px", fontSize: "0.9rem", color: "red", fontWeight: "bold" }}>
+            <h2 style={{ margin: "200px auto", fontSize: "0.9rem", color: "red", fontWeight: "bold" }}>
               Thanks for visiting! The form has now closed, if you think that
               you are a valuable asset to the team, then please mail your
               candidature at
               <a href="mailto:ecell@iitbhu.ac.in"> ecell@iitbhu.ac.in</a>
             </h2>
-            <lottie-player
-              src="https://assets10.lottiefiles.com/packages/lf20_25qm2qe0.json"
-              background="transparent"
-              speed="1"
-              style={{
-                height: "500px",
-                width: "80%",
-                margin: "0px auto",
-              }}
-              loop
-              autoplay
-            ></lottie-player>
           </div>
           <Footer />
         </Container>
       </div>
-      <script
-        async
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-      ></script>
     </>
   );
 }
