@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Container, Row } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import TeamExpansionForm from "../components/TeamExpansionForm";
+import TeamExpansionForm from "../components/forms/TeamExpansionForm";
 export default function Contacts() {
   return (
     <>
@@ -11,7 +11,7 @@ export default function Contacts() {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      <div>
+      {/* <div>
         <Container fluid className="body">
           <Row
             className="header"
@@ -52,6 +52,26 @@ export default function Contacts() {
           <Row>
             <TeamExpansionForm />
           </Row>
+          <Footer />
+        </Container>
+      </div> */}
+      <div>
+        <Container>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h2 style={{ margin: "200px auto", fontSize: "0.9rem", color: "red", fontWeight: "bold" }}>
+              Thanks for visiting! The form has now closed, if you think that
+              you are a valuable asset to the team, then please mail your
+              candidature at
+              <a href="mailto:ecell@iitbhu.ac.in"> ecell@iitbhu.ac.in</a>
+            </h2>
+          </div>
           <Footer />
         </Container>
       </div>

@@ -6,7 +6,7 @@ const NotificationOffCanvas = () => {
   return (
     <>
       <Badge
-        badgeContent={3}
+        badgeContent={1}
         color="error"
         id="notification-button"
         // className="btn btn-primary"
@@ -36,22 +36,22 @@ const NotificationOffCanvas = () => {
         <div className="offcanvas-body">
           <h5>Notifications</h5>
           <Dropdown.Divider />
-          <a href="https://bit.ly/novice-fiesta-results">
+          <Link href="/team_expansion" passHref>
             <Alert icon={false} severity="warning">
-              Results of Novice Fiesta are out! Check Now!
-              <Chip label="Click here!" color="warning" size="small" />
+              Fill the form to be a part of E-Cell IIT (BHU)!
+              <Chip label="Click here!"  color="warning" size="small" style={{margin:"0 10px"}}/>
             </Alert>
-          </a>
-          <a href="https://instagram.com/ecelliitbhu">
+          </Link>
+          {/* <a href="https://instagram.com/ecelliitbhu">
             <Alert icon={false} severity="info">
               Stay tuned with E-Summit!
               <Chip label="Click here!" color="warning" size="small" />
             </Alert>
-          </a>
+          </a> */}
           {/* <a href="https://instagram.com/ecelliitbhu"> */}
-            <Alert icon={false} severity="success">
+          {/* <Alert icon={false} severity="success">
               Registrations for IDAPT-HUB Pitch Challenge is open!
-            </Alert>
+            </Alert> */}
           {/* </a> */}
         </div>
       </div>

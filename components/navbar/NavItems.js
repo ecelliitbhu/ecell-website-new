@@ -69,21 +69,17 @@ export const Discover = () => {
                 </div>
               </a>
             </Link>
-
-            <a
-              className="dropdown-item"
-              href="https://bit.ly/build-with-us-ecell"
-            >
-              <FcFinePrint fontSize="2rem"></FcFinePrint>
-              <div>
-                <h4>Initiatives</h4>
-                <p>
-                  Initiatives taken by the E-Cell to improve
-                  <br />
-                  the entrepreneurship culture @ IIT BHU
-                </p>
-              </div>
-            </a>
+            <Link href="/team">
+              <a className="dropdown-item">
+                <FcFinePrint fontSize="2rem"></FcFinePrint>
+                <div>
+                  <h4>Meet the team</h4>
+                  <p>
+                    Get to know the Core Team <br /> of E-Cell.
+                  </p>
+                </div>
+              </a>
+            </Link>
           </li>
           <li className="dropdown-subcontainer">
             <Link href="/past_speakers">
@@ -393,7 +389,7 @@ export const Connect = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://wa.me/916376592768"
+              href="https://wa.me/+918793177332"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -409,7 +405,7 @@ export const Connect = () => {
 
             <a
               className="dropdown-item"
-              href="https://wa.me/916376592768"
+              href="https://wa.me/+919587887413"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -426,7 +422,7 @@ export const Connect = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://wa.me/919587887413"
+              href="https://wa.me/+918793177332"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -442,7 +438,7 @@ export const Connect = () => {
 
             <a
               className="dropdown-item"
-              href="https://wa.me/919587887413"
+              href="https://wa.me/+919587887413"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -459,7 +455,7 @@ export const Connect = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://wa.me/918233380939"
+              href="https://wa.me/+918793177332"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -474,18 +470,20 @@ export const Connect = () => {
                 </p>
               </div>
             </a>
-
-            <Link href="/team">
-              <a className="dropdown-item">
-                <FcCollaboration fontSize="2rem"></FcCollaboration>
-                <div>
-                  <h4>Meet the team</h4>
-                  <p>
-                    Get to know the Core Team <br /> of E-Cell.
-                  </p>
-                </div>
-              </a>
-            </Link>
+            <a
+              className="dropdown-item"
+              href="https://wa.me/+918793177332"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FcCollaboration fontSize="2rem"></FcCollaboration>
+              <div>
+                <h4>For internship listing</h4>
+                <p>
+                  Reach out to us to list your <br /> intership for hiring.
+                </p>
+              </div>
+            </a>
           </li>
         </ul>
       </div>

@@ -9,6 +9,7 @@ import Testimonials from "../components/Testimonials";
 import Typewriter from "typewriter-effect";
 import { useEffect, useState } from "react";
 import Poster from "../public/esummit-poster.png";
+import team_exp from "../public/team_exp.png";
 export default function Home() {
   return (
     <>
@@ -19,6 +20,56 @@ export default function Home() {
       <Nav />
       <div>
         <Container fluid className="body">
+          <Row
+            className="header"
+            style={{
+              background: "white",
+              borderRadius: "20px",
+              height: "fit-content",
+              padding: "20px 0",
+              margin: "60px auto",
+            }}
+          >
+            <Col
+              className="image-section"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                src={team_exp}
+                height={380}
+                width={380}
+                alt="Team Expansion"
+              ></Image>
+            </Col>
+            <Col className="info">
+              {/* <h1>E-Cell IIT BHU</h1> */}
+              <h1 style={{ fontSize: "2.6rem" }}>Team Expansion 2022-23</h1>
+              <p>
+                Intrigued and fascinated by entrepreneurship and the startup
+                culture and want to be a part of E-Cell IIT BHU?
+              </p>
+              <Link href="/team_expansion" passHref>
+                <Button
+                  variant="info"
+                  className="get-started"
+                  style={{
+                    color: "white",
+                    background: "#fb6930",
+                    width: "fit-content",
+                    fontSize:"1.2rem",
+                    height:"fit-content",
+                    padding:"15px 15px"
+                  }}
+                >
+                  Click Here to Apply!
+                </Button>
+              </Link>
+            </Col>
+          </Row>
           <Row className="header">
             <Col className="info">
               <h1>E-Cell IIT BHU</h1>

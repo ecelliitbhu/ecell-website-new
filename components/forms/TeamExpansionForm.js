@@ -1,9 +1,8 @@
 import React from "react";
 import { ref, push } from "firebase/database";
 import { useState } from "react";
-import { firebaseDB } from "../lib/firebase";
+import { firebaseDB } from "../../lib/firebase";
 import { Row } from "react-bootstrap";
-import { MdVerticalSplit } from "react-icons/md";
 const TeamExpansionForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -11,6 +10,7 @@ const TeamExpansionForm = () => {
   const [branch, setBranch] = useState("");
   const [sap, setSap] = useState(false);
   const [iit, setIit] = useState(false);
+  const [cisco, setCisco] = useState(false);
   const [events, setEvents] = useState(false);
   const [tech, setTech] = useState(false);
   const [SR, setSR] = useState(false);
@@ -32,6 +32,7 @@ const TeamExpansionForm = () => {
     tech && verticals.push("Tech");
     brand && verticals.push("Branding");
     iit && verticals.push("Innovation & Incubation");
+    cisco && verticals.push("Cisco thingqbator");
     const db = firebaseDB;
     push(ref(db, "teamExpansionResponses/"), {
       a_name: name,
@@ -45,7 +46,6 @@ const TeamExpansionForm = () => {
       h_prev_experience: prev_experience,
       i_non_acad_engagements: non_acad_engagements,
       j_any_other_point: any_other_point,
-      k_sap: sap,
     })
       .then(() => {
         alert("Form submitted successfully");
@@ -59,6 +59,7 @@ const TeamExpansionForm = () => {
         setTech(false);
         setEvents(false);
         setSR(false);
+        setCisco(false);
         setCommitment("");
         setWhy_join_ecell_and_selected_vertical("");
         setPrev_experience("");
@@ -202,6 +203,15 @@ const TeamExpansionForm = () => {
               onChange={() => setSR(!SR)}
             />
             <span> Strategic Relations Team</span>
+          </Row>
+          <Row className="checkbox-option">
+            <input
+              type="checkbox"
+              value="cisco"
+              checked={cisco}
+              onChange={() => setCisco(!cisco)}
+            />
+            <span> Cisco thingQbator</span>
           </Row>
         </Row>
         <Row className="form-item">

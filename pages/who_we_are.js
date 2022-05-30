@@ -100,7 +100,7 @@ const WhoWeAre = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
               ></iframe>
             </Col>
             <Col
@@ -222,7 +222,7 @@ const WhoWeAre = () => {
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Web and Branding Team</Card.Title>
+                  <Card.Title>Branding Team</Card.Title>
                   <Card.Text>
                     <ul>
                       <li>
@@ -244,11 +244,41 @@ const WhoWeAre = () => {
                         Publicity of various achievements of alums in the field
                         of entrepreneurship.
                       </li>
+                    </ul>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              <Card className="card">
+                <Card.Body>
+                  <lottie-player
+                    src="https://assets5.lottiefiles.com/packages/lf20_gssu2dkm.json"
+                    speed="1"
+                    loop
+                    autoplay
+                  ></lottie-player>
+                  <Card.Title>Technical Team</Card.Title>
+                  <Card.Text>
+                    <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
                         Provide an interactive platform for students to get
                         connected with people of our own college through our
                         official website
+                      </li>
+                      <li>
+                        <CheckCircleOutlinedIcon style={{ color: "green" }} />
+                        Maintaining the Startup Directory for start-ups founded
+                        by the Alumnis of IIT BHU.
+                      </li>
+                      <li>
+                        <CheckCircleOutlinedIcon style={{ color: "green" }} />
+                        Development and maintenance of portals for Campus
+                        Director Program, Internships, Startup Services etc.
+                      </li>
+                      <li>
+                        <CheckCircleOutlinedIcon style={{ color: "green" }} />
+                        Responsible for building and handling of the TIIC
+                        website
                       </li>
                     </ul>
                   </Card.Text>
@@ -266,7 +296,6 @@ const WhoWeAre = () => {
                   <Card.Text>
                     <ul>
                       <li>
-                        {" "}
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
                         Handling and organizing all the events, webinars, and
                         workshops, conducted by E-Cell during the course of the
@@ -387,7 +416,7 @@ const WhoWeAre = () => {
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Innovations Team</Card.Title>
+                  <Card.Title>Innovations and Incubation Team</Card.Title>
                   <Card.Text>
                     <ul>
                       <li>
