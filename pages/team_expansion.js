@@ -65,7 +65,7 @@ export default function Contacts() {
               alignItems: "center",
             }}
           >
-            <h2 style={{ margin: "200px auto", fontSize: "0.9rem", color: "red", fontWeight: "bold" }}>
+            <h2 style={{ margin: "200px auto", fontSize: "2rem", color: "red", fontWeight: "bold" }}>
               Thanks for visiting! The form has now closed, if you think that
               you are a valuable asset to the team, then please mail your
               candidature at
