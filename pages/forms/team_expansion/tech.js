@@ -1,17 +1,17 @@
 import Head from "next/head";
 import { Container, Row } from "react-bootstrap";
-import Footer from "../components/Footer";
-import Nav from "../components/navbar/NavLayout";
-import TeamExpansionForm from "../components/forms/TeamExpansionForm";
-export default function Contacts() {
+import Footer from "../../../components/Footer";
+import Nav from "../../../components/navbar/NavLayout";
+import TechTeamExpansionForm from "../../../components/forms/TechTeamExpansionForm";
+export default function TechTeamExpansion() {
   return (
     <>
       <Head>
-        <title>Team Expansion</title>
+        <title>Tech Team Expansion</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      {/* <div>
+      <div>
         <Container fluid className="body">
           <Row
             className="header"
@@ -26,7 +26,7 @@ export default function Contacts() {
                 fontWeight: "bold",
               }}
             >
-              E-Cell IIT BHU, Team Expansion 2022-23
+              Tech Team Expansion 2022-23
             </h1>
           </Row>
           <Row
@@ -50,11 +50,11 @@ export default function Contacts() {
             </p>
           </Row>
           <Row>
-            <TeamExpansionForm />
+            <TechTeamExpansionForm />
           </Row>
           <Footer />
         </Container>
-      </div> */}
+      </div>
       <div>
         <Container>
           <div
