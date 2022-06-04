@@ -55,26 +55,6 @@ export default function TechTeamExpansion() {
           <Footer />
         </Container>
       </div>
-      <div>
-        <Container>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <h2 style={{ margin: "200px auto", fontSize: "2rem", color: "red", fontWeight: "bold" }}>
-              Thanks for visiting! The form has now closed, if you think that
-              you are a valuable asset to the team, then please mail your
-              candidature at
-              <a href="mailto:ecell@iitbhu.ac.in"> ecell@iitbhu.ac.in</a>
-            </h2>
-          </div>
-          <Footer />
-        </Container>
-      </div>
     </>
   );
 }
