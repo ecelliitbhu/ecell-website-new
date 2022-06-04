@@ -52,7 +52,7 @@ export default function Home() {
                 Intrigued and fascinated by entrepreneurship and the startup
                 culture and want to be a part of E-Cell IIT BHU?
               </p>
-              <Link href="/team_expansion" passHref>
+              <Link href="/forms/team_expansion" passHref>
                 <Button
                   variant="info"
                   className="get-started"

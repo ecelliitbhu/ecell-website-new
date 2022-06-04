@@ -27,7 +27,7 @@ const Notification = () => {
       <Dropdown.Menu className="notification-dropdown-menu">
         <h5>Notifications</h5>
         <Dropdown.Divider />
-        <Link href="/team_expansion" passHref>
+        <Link href="/forms/team_expansion" passHref>
           <Alert icon={false} severity="warning">
             Fill the form to be a part of E-Cell IIT (BHU)!
             <Chip
