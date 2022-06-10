@@ -1,17 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import Image from "next/image";
 import { FaLinkedin } from "react-icons/fa";
 
-function toBase64(arr) {
-  arr = new Uint8Array(arr);
-  // // if it's an ArrayBuffer
-  // return btoa(arr.reduce((data, byte) => data + String.fromCharCode(byte), ""));
-  return Buffer.from(arr).toString("base64");
-}
-
 function MyVerticallyCenteredModal(props) {
-  // console.log(props.details);
   const details = props.details;
   return (
     <Modal
@@ -22,9 +14,9 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
-          {details.Name}
+          {details.name}
           <div style={{ fontSize: "1rem", color: "grey" }}>
-            {details.domain}, Founded in {details.yearOfGraduation}
+            {details.domain}, Founded in {details.year}
           </div>
         </Modal.Title>
       </Modal.Header>
@@ -47,14 +39,11 @@ function MyVerticallyCenteredModal(props) {
             }}
           >
             <Image
-              src={`data:image/png;base64,${toBase64(
-                details.avatar.data.data
-              )}`}
-              alt="ankbajh"
-              layout="fixed"
-              height="120"
-              width="120"
-            ></Image>
+              src={details.avatar}
+              alt={details.name}
+              height="1000"
+              width="1000"
+            />
           </div>
         </div>
       </Modal.Body>
@@ -62,28 +51,29 @@ function MyVerticallyCenteredModal(props) {
         <div style={{ width: "85%", marginRight: "7px" }}>
           <h2 style={{ fontSize: "1rem" }}>Founders</h2>
           <div className="founders-container">
-            {details.founders.map((founder_details) => {
-              const isOkay = founder_details.founder ? true : false;
-              return founder_details.founder.length > 0 ? (
-                <a
-                  key={founder_details.linkedin}
-                  href={
-                    founder_details.linkedin.slice(0, 12) === "https://www."
-                      ? founder_details.linkedin
-                      : "https://www." + founder_details.linkedin
-                  }
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <FaLinkedin fontSize="1.5rem"></FaLinkedin>
-                  <span style={{ fontSize: "0.8rem" }}>
-                    {founder_details.founder}
-                  </span>
-                </a>
-              ) : (
-                ""
-              );
-            })}
+            {details.founders &&
+              details.founders.map((founder_details) => {
+                const isOkay = founder_details.founder ? true : false;
+                return founder_details.founder.length > 0 ? (
+                  <a
+                    key={founder_details.linkedin}
+                    href={
+                      founder_details.linkedin.slice(0, 12) === "https://www."
+                        ? founder_details.linkedin
+                        : "https://www." + founder_details.linkedin
+                    }
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <FaLinkedin fontSize="1.5rem"></FaLinkedin>
+                    <span style={{ fontSize: "0.8rem" }}>
+                      {founder_details.founder}
+                    </span>
+                  </a>
+                ) : (
+                  ""
+                );
+              })}
           </div>
         </div>
         <Button
@@ -104,25 +94,25 @@ function MyVerticallyCenteredModal(props) {
 }
 
 const Startup = (props) => {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   // console.log(props.details.avatar.data);
   return (
     <>
-      <div className="startup-item" onClick={() => setModalShow(true)}>
+      <div className="startup-item" onClick={handleShow}>
         <Image
-          src={`data:image/png;base64,${toBase64(
-            props.details.avatar.data.data
-          )}`}
-          alt="ankbajh"
-          layout="responsive"
+          src={props.details.avatar}
+          alt={props.details.name}
           height="1000"
           width="1000"
         />
       </div>
       <MyVerticallyCenteredModal
-        show={modalShow}
         details={props.details}
-        onHide={() => setModalShow(false)}
+        show={show}
+        onHide={handleClose}
       />
     </>
   );
