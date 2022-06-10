@@ -7,7 +7,7 @@ const Filter = () => {
     <>
       <Row>
         <h2>
-          Filter out the results <FaFilter classNameName="filter-icon"></FaFilter>
+          Filter out the results <FaFilter className="filter-icon"></FaFilter>
         </h2>
       </Row>
       <Row className="filter-subcontainer">

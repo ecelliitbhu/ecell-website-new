@@ -6,16 +6,21 @@ import Footer from "../components/Footer";
 import Filter from "../components/startups/Filter";
 import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
-import { StartupList } from "../components/startupList";
-import axios from "axios";
+import { ref, get } from "firebase/database";
+import { firebaseDB } from "../lib/firebase";
 const StartupDirectory = () => {
-  const [startups, setStartups] = useState(StartupList);
+  const [startups, setStartups] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://startup-directory.herokuapp.com/startups")
-      .then(async (res) => {
-        // console.log(res.data);
-        setStartups(res.data);
+    get(ref(firebaseDB, `startupDirectory/`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setStartups(Object.entries(snapshot.val()));
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
       });
   }, []);
   const [search, setSearch] = useState("");
@@ -37,10 +42,10 @@ const StartupDirectory = () => {
                 margin: "20px auto 0px auto",
                 fontSize: "3rem",
                 color: "black",
-                fontWeight:"bold",
+                fontWeight: "bold",
               }}
             >
-               IIT BHU Startup Directory
+              IIT BHU Startup Directory
             </h1>
           </Row>
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -66,32 +71,46 @@ const StartupDirectory = () => {
               </Row>
               <Row className="startups-list">
                 {startups.map((post) => {
+                  console.log(post[1]);
                   if (
-                    post.Name.toLowerCase().includes(search.toLowerCase()) ||
-                    post.domain.toLowerCase().includes(search.toLowerCase()) ||
-                    post.description
-                      .toLowerCase()
-                      .includes(search.toLowerCase()) ||
-                    post.yearOfGraduation
-                      .toLowerCase()
-                      .includes(search.toLowerCase()) ||
-                    post.founders[0].founder
-                      .toLowerCase()
-                      .includes(search.toLowerCase()) ||
-                    post.founders[1].founder
-                      .toLowerCase()
-                      .includes(search.toLowerCase()) ||
-                    post.founders[2].founder
-                      .toLowerCase()
-                      .includes(search.toLowerCase()) ||
-                    post.founders[3].founder
-                      .toLowerCase()
-                      .includes(search.toLowerCase()) ||
-                    post.founders[4].founder
-                      .toLowerCase()
-                      .includes(search.toLowerCase())
+                    (post[1].name &&
+                      post[1].name
+                        .toLowerCase()
+                        .includes(search.toLowerCase())) ||
+                    (post[1].domain &&
+                      post[1].domain
+                        .toLowerCase()
+                        .includes(search.toLowerCase())) ||
+                    (post[1].description &&
+                      post[1].description
+                        .toLowerCase()
+                        .includes(search.toLowerCase())) ||
+                    (post[1].year &&
+                      post[1].year
+                        .toLowerCase()
+                        .includes(search.toLowerCase())) ||
+                    (post[1].founders[0] &&
+                      post[1].founders[0].founder
+                        .toLowerCase()
+                        .includes(search.toLowerCase())) ||
+                    (post[1].founders[1] &&
+                      post[1].founders[1].founder
+                        .toLowerCase()
+                        .includes(search.toLowerCase())) ||
+                    (post[1].founders[2] &&
+                      post[1].founders[2].founder
+                        .toLowerCase()
+                        .includes(search.toLowerCase())) ||
+                    (post[1].founders[3] &&
+                      post[1].founders[3].founder
+                        .toLowerCase()
+                        .includes(search.toLowerCase())) ||
+                    (post[1].founders[4] &&
+                      post[1].founders[4].founder
+                        .toLowerCase()
+                        .includes(search.toLowerCase()))
                   ) {
-                    return <Startup key={post._id} details={post} />;
+                    return <Startup key={post[0]} details={post[1]} />;
                   }
                 })}
               </Row>

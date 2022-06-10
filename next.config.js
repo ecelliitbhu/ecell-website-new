@@ -5,7 +5,7 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['images.unsplash.com','firebasestorage.googleapis.com'],
   },
   reactStrictMode: true,
   target: 'serverless',
