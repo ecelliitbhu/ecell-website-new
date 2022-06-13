@@ -42,7 +42,7 @@ const AddStartup = () => {
   const [files, setFiles] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   // console.log(files);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     var foundersArray = [];
@@ -69,7 +69,8 @@ const AddStartup = () => {
       storage,
       `startupDirectory/${imageName}`
     );
-    uploadBytes(storageRef, files).then((snapshot) => {
+    const metadata = { contentType: "image/png" };
+    uploadBytes(storageRef, files, metadata).then((snapshot) => {
       getDownloadURL(
         firebaseStorageRef(storage, `startupDirectory/${imageName}`)
       )
