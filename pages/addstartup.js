@@ -61,7 +61,7 @@ const AddStartup = () => {
     founder5 &&
       linkedin5 &&
       foundersArray.push({ founder: founder5, linkedin: linkedin5 });
-    setFounders(foundersArray);
+    // setFounders(foundersArray);
     const storage = getStorage();
     const db = firebaseDB;
     const imageName = name + year + uuidv4();
@@ -81,7 +81,7 @@ const AddStartup = () => {
             status: status,
             year: year,
             website: website,
-            founders: founders,
+            founders: foundersArray,
             avatar: url,
           })
             .then(() => {
