@@ -71,7 +71,6 @@ const StartupDirectory = () => {
               </Row>
               <Row className="startups-list">
                 {startups.map((post) => {
-                  console.log(post[1]);
                   if (
                     (post[1].name &&
                       post[1].name
