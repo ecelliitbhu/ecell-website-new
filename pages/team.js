@@ -104,21 +104,21 @@ const Team = () => {
                 <span className="post">VICE PRESIDENT E-CELL</span>
                 <div className="team-social">
                   <a
-                    href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=harshitshukla.eee18@iitbhu.ac.in`}
+                    href={`mailto:amit.krbaheti.eee19@itbhu.ac.in`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <GrMail className="social-icons"></GrMail>
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/harshitshuklaiitbhu/"
+                    href="https://www.linkedin.com/in/amitkumarbaheti/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <FaLinkedin className="social-icons"></FaLinkedin>
                   </a>
                   <a
-                    href="https://twitter.com/harshit_tw"
+                    href="https://twitter.com/amit_baheti_"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
