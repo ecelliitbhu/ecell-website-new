@@ -67,6 +67,12 @@ const TeamInfo = () => {
         setTwitter("");
         setDiscord("");
         setBranch("");
+        setSap(false);
+        setIit(false);
+        setBrand(false);
+        setTech(false);
+        setEvents(false);
+        setSR(false);
         setIsSubmitting(false);
         alert("Form submitted successfully");
       })
