@@ -9,40 +9,15 @@ const TeamInfo = () => {
   const [number, setNumber] = useState("");
   const [rollNo, setRollNo] = useState("");
   const [branch, setBranch] = useState("");
-  const [sap, setSap] = useState(false);
-  const [iit, setIit] = useState(false);
-  const [events, setEvents] = useState(false);
-  const [tech, setTech] = useState(false);
-  const [SR, setSR] = useState(false);
-  const [brand, setBrand] = useState(false);
+  const [vertical, setVertical] = useState("");
   const [linkedin, setlinkedin] = useState("");
   const [insta, setInsta] = useState("");
   const [twitter, setTwitter] = useState("");
   const [discord, setDiscord] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const checkIsokay = () => {
-    let count = 0;
-    if (sap) count++;
-    if (iit) count++;
-    if (events) count++;
-    if (tech) count++;
-    if (SR) count++;
-    if (brand) count++;
-    if (count==0) {
-      return true;
-    }
-    return false;
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    let vertical;
-    if (sap) vertical = "SAP";
-    if (iit) vertical = "InI";
-    if (tech) vertical = "Tech";
-    if (brand) vertical = "Branding";
-    if (SR) vertical = "SR";
-    if (events) vertical = "Events";
-    if(!vertical) return;
+    if (!vertical) return;
     setIsSubmitting(true);
     const db = firebaseDB;
     push(ref(db, "teamMembers/"), {
@@ -67,12 +42,7 @@ const TeamInfo = () => {
         setTwitter("");
         setDiscord("");
         setBranch("");
-        setSap(false);
-        setIit(false);
-        setBrand(false);
-        setTech(false);
-        setEvents(false);
-        setSR(false);
+        setVertical("");
         setIsSubmitting(false);
         alert("Form submitted successfully");
       })
@@ -163,7 +133,11 @@ const TeamInfo = () => {
             required
           />
         </Row>
-        <Row className="form-item">
+        <Row
+          className="form-item"
+          onChange={(e) => setVertical(e.target.value)}
+          value={vertical}
+        >
           <label htmlFor="fname">
             <h5>
               Team
@@ -171,86 +145,34 @@ const TeamInfo = () => {
             </h5>
           </label>
           <Row className="checkbox-option">
-            <input
-              type="checkbox"
-              value="SAP"
-              checked={sap}
-              onChange={() => {
-                if (sap) setSap(false);
-                else checkIsokay() && setSap(true);
-              }}
-            />
+            <input type="radio" value="SAP" name="vertical" />
             <span> Startup Assistance Program</span>
           </Row>
           <Row className="checkbox-option">
-            <input
-              type="checkbox"
-              value="Inno and Incu"
-              checked={iit}
-              onChange={() => {
-                if (iit) setIit(false);
-                else checkIsokay() && setIit(true);
-              }}
-            />
-
+            <input type="radio" value="InI" name="vertical" />
             <span>{`Innovation & Incubation Team`}</span>
           </Row>
           <Row className="checkbox-option">
-            <input
-              type="checkbox"
-              value="Events"
-              checked={events}
-              onChange={() => {
-                if (events) setEvents(false);
-                else checkIsokay() && setEvents(true);
-              }}
-            />
-
+            <input type="radio" value="events" name="vertical" />
             <span>Events Team</span>
           </Row>
           <Row className="checkbox-option">
-            <input
-              type="checkbox"
-              value="Branding"
-              checked={brand}
-              onChange={() => {
-                if (brand) setBrand(false);
-                else checkIsokay() && setBrand(true);
-              }}
-            />
-
+            <input type="radio" value="Branding" name="vertical" />
             <span>Branding Team</span>
           </Row>
           <Row className="checkbox-option">
-            <input
-              type="checkbox"
-              value="Tech"
-              checked={tech}
-              onChange={() => {
-                if (tech) setTech(false);
-                else checkIsokay() && setTech(true);
-              }}
-            />
-
+            <input type="radio" value="tech" name="vertical" />
             <span>Technical Team</span>
           </Row>
           <Row className="checkbox-option">
-            <input
-              type="checkbox"
-              value="SR"
-              checked={SR}
-              onChange={() => {
-                if (SR) setSR(false);
-                else checkIsokay() && setSR(true);
-              }}
-            />
+            <input type="radio" value="SR" name="vertical" />
             <span> Strategic Relations Team</span>
           </Row>
         </Row>
         <Row className="form-item">
           <label htmlFor="fname">
             <h5>
-              Linkedin Username<span style={{ color: "red" }}>*</span>
+              Linkedin Profile Link<span style={{ color: "red" }}>*</span>
             </h5>
           </label>
           <input
