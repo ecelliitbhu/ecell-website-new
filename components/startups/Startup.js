@@ -53,11 +53,11 @@ function MyVerticallyCenteredModal(props) {
           <div className="founders-container">
             {details.founders &&
               details.founders.map((founder_details) => {
-                const isOkay = founder_details.founder ? true : false;
                 return founder_details.founder.length > 0 ? (
                   <a
                     key={founder_details.linkedin}
                     href={
+                      founder_details.linkedin &&
                       founder_details.linkedin.slice(0, 12) === "https://www."
                         ? founder_details.linkedin
                         : "https://www." + founder_details.linkedin
