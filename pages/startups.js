@@ -23,6 +23,43 @@ const StartupDirectory = () => {
         console.error(error);
       });
   }, []);
+  const isOkay = (post) => {
+    return (
+      (post[1].name &&
+        post[1].name.toLowerCase().includes(search.toLowerCase())) ||
+      (post[1].domain &&
+        post[1].domain.toLowerCase().includes(search.toLowerCase())) ||
+      (post[1].description &&
+        post[1].description.toLowerCase().includes(search.toLowerCase())) ||
+      (post[1].year &&
+        post[1].year.toLowerCase().includes(search.toLowerCase())) ||
+      (post[1].founders &&
+        post[1].founders[0] &&
+        post[1].founders[0].founder
+          .toLowerCase()
+          .includes(search.toLowerCase())) ||
+      (post[1].founders &&
+        post[1].founders[1] &&
+        post[1].founders[1].founder
+          .toLowerCase()
+          .includes(search.toLowerCase())) ||
+      (post[1].founders &&
+        post[1].founders[2] &&
+        post[1].founders[2].founder
+          .toLowerCase()
+          .includes(search.toLowerCase())) ||
+      (post[1].founders &&
+        post[1].founders[3] &&
+        post[1].founders[3].founder
+          .toLowerCase()
+          .includes(search.toLowerCase())) ||
+      (post[1].founders &&
+        post[1].founders[4] &&
+        post[1].founders[4].founder
+          .toLowerCase()
+          .includes(search.toLowerCase()))
+    );
+  };
   const [search, setSearch] = useState("");
   return (
     <>
@@ -71,46 +108,8 @@ const StartupDirectory = () => {
               </Row>
               <Row className="startups-list">
                 {startups.map((post) => {
-                  if (
-                    (post[1].name &&
-                      post[1].name
-                        .toLowerCase()
-                        .includes(search.toLowerCase())) ||
-                    (post[1].domain &&
-                      post[1].domain
-                        .toLowerCase()
-                        .includes(search.toLowerCase())) ||
-                    (post[1].description &&
-                      post[1].description
-                        .toLowerCase()
-                        .includes(search.toLowerCase())) ||
-                    (post[1].year &&
-                      post[1].year
-                        .toLowerCase()
-                        .includes(search.toLowerCase())) ||
-                    (post[1].founders[0] &&
-                      post[1].founders[0].founder
-                        .toLowerCase()
-                        .includes(search.toLowerCase())) ||
-                    (post[1].founders[1] &&
-                      post[1].founders[1].founder
-                        .toLowerCase()
-                        .includes(search.toLowerCase())) ||
-                    (post[1].founders[2] &&
-                      post[1].founders[2].founder
-                        .toLowerCase()
-                        .includes(search.toLowerCase())) ||
-                    (post[1].founders[3] &&
-                      post[1].founders[3].founder
-                        .toLowerCase()
-                        .includes(search.toLowerCase())) ||
-                    (post[1].founders[4] &&
-                      post[1].founders[4].founder
-                        .toLowerCase()
-                        .includes(search.toLowerCase()))
-                  ) {
+                  if (isOkay(post))
                     return <Startup key={post[0]} details={post[1]} />;
-                  }
                 })}
               </Row>
             </div>
