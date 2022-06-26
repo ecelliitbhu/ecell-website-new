@@ -95,7 +95,7 @@ const TechTeamExpansionForm = () => {
         <Row className="form-item">
           <label htmlFor="fname">
             <h5>
-              Branch (B Tech/ IDD/ PG) and Year{" "}
+              Branch (B Tech/B Arch/IDD/PG) and Year{" "}
               <span style={{ color: "red" }}>*</span>
             </h5>
           </label>
