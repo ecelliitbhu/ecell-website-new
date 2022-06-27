@@ -69,7 +69,7 @@ const AddStartup = () => {
       storage,
       `startupDirectory/${imageName}`
     );
-    const metadata = { contentType: "image/png" };
+    const metadata = { contentType: files.type };
     uploadBytes(storageRef, files, metadata).then((snapshot) => {
       getDownloadURL(
         firebaseStorageRef(storage, `startupDirectory/${imageName}`)
