@@ -26,13 +26,16 @@ export default function Events() {
     <>
       <Head>
         <title>Events</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
       <div>
         <Container fluid className="body">
           <Row className="what-we-do info" style={{ margin: "50px auto" }}>
-            <h1 style={{ padding: "0px" ,margin:"10px auto"}}>Events @ E-Cell IIT BHU</h1>
+            <h1 style={{ padding: "0px", margin: "10px auto" }}>
+              Events @ E-Cell IIT BHU
+            </h1>
             <Row className="card-container">
               <Card className="card" style={{ height: "fit-content" }}>
                 <Card.Body style={{ padding: "25px 15px" }}>

@@ -14,6 +14,7 @@ const WhoWeAre = () => {
     <>
       <Head>
         <title>Who We Are?</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />

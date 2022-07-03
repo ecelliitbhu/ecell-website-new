@@ -15,6 +15,7 @@ export default function Home() {
     <>
       <Head>
         <title>Home</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
@@ -60,9 +61,9 @@ export default function Home() {
                     color: "white",
                     background: "#fb6930",
                     width: "fit-content",
-                    fontSize:"1.2rem",
-                    height:"fit-content",
-                    padding:"15px 15px"
+                    fontSize: "1.2rem",
+                    height: "fit-content",
+                    padding: "15px 15px",
                   }}
                 >
                   Click Here to Apply!

@@ -12,6 +12,7 @@ export default function CampusDirector() {
       <Head>
         <title>Campus Director</title>
         <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="robots" content="index, follow"/>
       </Head>
       <Nav />
       <div>

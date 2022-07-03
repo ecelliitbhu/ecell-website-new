@@ -12,7 +12,6 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import Router from "next/router";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 const Event = ({
   title,
