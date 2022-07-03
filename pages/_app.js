@@ -6,6 +6,7 @@ import SSRProvider from "react-bootstrap/SSRProvider";
 import { AuthProvider } from "../context/auth";
 import Head from "next/head";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -20,11 +21,22 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <SSRProvider>
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-BGE65NNDEZ`}
+      />
+      <Script
+        strategy="lazyOnload"
+        src={`window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BGE65NNDEZ');`}
+      />
+
       <AuthProvider>
         <Layout>
           <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-01SQ8SP29M"></script>
           </Head>
           {loading ? (
             <Player
