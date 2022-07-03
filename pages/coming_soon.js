@@ -8,6 +8,7 @@ const ComingSoon = () => {
     <>
       <Head>
         <title>Coming Soon</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />

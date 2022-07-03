@@ -17,6 +17,7 @@ export default function Contacts() {
     <>
       <Head>
         <title>Contact Us</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />

@@ -21,22 +21,16 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <SSRProvider>
-      <Script
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-BGE65NNDEZ`}
-      />
-      <Script
-        strategy="lazyOnload"
-        src={`window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-BGE65NNDEZ');`}
-      />
-
       <AuthProvider>
         <Layout>
           <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+              key="viewport"
+            />
+            <meta name="robots" content="index, follow" />
           </Head>
           {loading ? (
             <Player
@@ -48,7 +42,22 @@ function MyApp({ Component, pageProps }) {
               <Controls visible={false} />
             </Player>
           ) : (
-            <Component {...pageProps} />
+            <>
+              <Script
+                strategy="afterInteractive"
+                src={`https://www.googletagmanager.com/gtag/js?id=G-Y2J09VFNXJ`}
+              />
+
+              <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-Y2J09VFNXJ');
+                `}
+              </Script>
+              <Component {...pageProps} />
+            </>
           )}
         </Layout>
       </AuthProvider>

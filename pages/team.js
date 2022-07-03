@@ -23,16 +23,14 @@ import Divyansh from "../public/team/2022-2023/Divyansh.jpg";
 import Shreya from "../public/team/2022-2023/Shreya.JPG";
 import Vanshika from "../public/team/2022-2023/Vanshika.jpg";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {
-  Accordion,
-  AccordionSummary,
-} from "@mui/material";
+import { Accordion, AccordionSummary } from "@mui/material";
 
 const Team = () => {
   return (
     <>
       <Head>
         <title>Team</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
@@ -98,7 +96,13 @@ const Team = () => {
           </h2>
           <div className="team-container">
             <div className="our-team">
-              <Image src={Amit} height={1000} width={1000} className="img-responsive" alt="team member" />
+              <Image
+                src={Amit}
+                height={1000}
+                width={1000}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">AMIT KUMAR BAHETI</h3>
                 <span className="post">VICE PRESIDENT E-CELL</span>
@@ -128,7 +132,11 @@ const Team = () => {
               </div>
             </div>
             <div className="our-team">
-              <Image src={Tanaya} className="img-responsive" alt="team member" />
+              <Image
+                src={Tanaya}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">TANAYA MUJUMDAR</h3>
                 <span className="post">ASSOCIATE VICE PRESIDENT E-CELL</span>
@@ -195,7 +203,11 @@ const Team = () => {
                 <h3 className="name">PARTH GUPTA</h3>
                 <span className="post">SAP HEAD</span>
                 <div className="team-social">
-                  <a href={`mailto:parthsanjeev.gupta.che20@itbhu.ac.in`} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={`mailto:parthsanjeev.gupta.che20@itbhu.ac.in`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <GrMail className="social-icons"></GrMail>
                   </a>
                   <a
@@ -216,7 +228,11 @@ const Team = () => {
               </div>
             </div>
             <div className="our-team  ">
-              <Image src={Ashwat} className="img-responsive" alt="team member" />
+              <Image
+                src={Ashwat}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">ASHWAT KUMAR SINGH</h3>
                 <span className="post">TECH HEAD</span>
@@ -246,7 +262,11 @@ const Team = () => {
               </div>
             </div>
             <div className="our-team ">
-              <Image src={Shreya} className="img-responsive" alt="team member" />
+              <Image
+                src={Shreya}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">SHREYA JAIN</h3>
                 <span className="post">EVENTS HEAD</span>
@@ -276,7 +296,11 @@ const Team = () => {
               </div>
             </div>
             <div className="our-team">
-              <Image src={Vanshika} className="img-responsive" alt="team member" />
+              <Image
+                src={Vanshika}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">VANSHIKA GUPTA</h3>
                 <span className="post">STRATEGIC RELATIONS HEAD</span>
@@ -306,7 +330,11 @@ const Team = () => {
               </div>
             </div>
             <div className="our-team  ">
-              <Image src={Divyansh} className="img-responsive" alt="team member" />
+              <Image
+                src={Divyansh}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">DIVYANSH THAKRE</h3>
                 <span className="post">{`INNOVATION & INCUBATION HEAD`}</span>

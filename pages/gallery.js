@@ -16,6 +16,7 @@ const Gallery = () => {
     <>
       <Head>
         <title>Gallery</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />

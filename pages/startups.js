@@ -10,6 +10,7 @@ import { ref, get } from "firebase/database";
 import { firebaseDB } from "../lib/firebase";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
+
   useEffect(() => {
     get(ref(firebaseDB, `startupDirectory/`))
       .then((snapshot) => {
@@ -65,6 +66,7 @@ const StartupDirectory = () => {
     <>
       <Head>
         <title>Startups</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />

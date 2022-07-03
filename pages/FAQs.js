@@ -7,12 +7,16 @@ export default function FAQs() {
     <>
       <Head>
         <title>FAQs</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <Nav/>
+      <Nav />
       <div>
         <Container fluid className="body">
-          <Row className="header" style={{ height: "fit-content" , marginBottom:"50px"}}>
+          <Row
+            className="header"
+            style={{ height: "fit-content", marginBottom: "50px" }}
+          >
             <h1
               style={{
                 margin: "10px auto",
@@ -24,10 +28,36 @@ export default function FAQs() {
             >
               FAQs
             </h1>
-            <Col className="info" style={{gap:"30px", display:"flex", flexDirection:"column", alignItems:"flex-start", margin:"30px auto"}}>
+            <Col
+              className="info"
+              style={{
+                gap: "30px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                margin: "30px auto",
+              }}
+            >
               <Row>
-                <h2 style={{fontSize:"1.5rem", color:"black",fontWeight:"bold", textAlign:"left", paddingLeft:"30px"}}>What is E-Cell IIT BHU ?</h2>
-                <p style={{fontSize:"1.1rem", textAlign:"left", paddingLeft:"30px", margin:"0px"}}>
+                <h2
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "black",
+                    fontWeight: "bold",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                  }}
+                >
+                  What is E-Cell IIT BHU ?
+                </h2>
+                <p
+                  style={{
+                    fontSize: "1.1rem",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                    margin: "0px",
+                  }}
+                >
                   E-Cell IIT BHU is the entrepreneurial community of IIT BHU
                   providing budding entrepreneurs and enthusiasts a nurturing
                   ground to ideate innovate and incubate their startups and
@@ -35,8 +65,25 @@ export default function FAQs() {
                 </p>
               </Row>
               <Row>
-                <h2 style={{fontSize:"1.5rem", color:"black",fontWeight:"bold", textAlign:"left", paddingLeft:"30px"}}>How can I join E-Cell IIT BHU?</h2>
-                <p style={{fontSize:"1.1rem", textAlign:"left", paddingLeft:"30px", margin:"0px"}}>
+                <h2
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "black",
+                    fontWeight: "bold",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                  }}
+                >
+                  How can I join E-Cell IIT BHU?
+                </h2>
+                <p
+                  style={{
+                    fontSize: "1.1rem",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                    margin: "0px",
+                  }}
+                >
                   Get in touch with any of the coordinators in the Team page of
                   E-Cell Website and we’ll get you added to our community.
                   Complete your assigned tasks diligently and voila! you’re now
@@ -45,8 +92,25 @@ export default function FAQs() {
               </Row>
 
               <Row>
-                <h2 style={{fontSize:"1.5rem", color:"black",fontWeight:"bold", textAlign:"left", paddingLeft:"30px"}}>How can I join E-Cell IIT BHU?</h2>
-                <p style={{fontSize:"1.1rem", textAlign:"left", paddingLeft:"30px", margin:"0px"}}>
+                <h2
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "black",
+                    fontWeight: "bold",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                  }}
+                >
+                  How can I join E-Cell IIT BHU?
+                </h2>
+                <p
+                  style={{
+                    fontSize: "1.1rem",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                    margin: "0px",
+                  }}
+                >
                   Get in touch with any of the coordinators in the Team page of
                   E-Cell Website and we’ll get you added to our community.
                   Complete your assigned tasks diligently and voila! you’re now
@@ -54,10 +118,35 @@ export default function FAQs() {
                 </p>
               </Row>
             </Col>
-            <Col className="info" style={{gap:"30px", display:"flex", flexDirection:"column", alignItems:"start"}}>
+            <Col
+              className="info"
+              style={{
+                gap: "30px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "start",
+              }}
+            >
               <Row>
-                <h2 style={{fontSize:"1.5rem", color:"black",fontWeight:"bold", textAlign:"left", paddingLeft:"30px"}}>What does E-Cell IIT BHU do ?</h2>
-                <p style={{fontSize:"1.1rem", textAlign:"left", paddingLeft:"30px", margin:"0px"}}> 
+                <h2
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "black",
+                    fontWeight: "bold",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                  }}
+                >
+                  What does E-Cell IIT BHU do ?
+                </h2>
+                <p
+                  style={{
+                    fontSize: "1.1rem",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                    margin: "0px",
+                  }}
+                >
                   Get in touch with any of the coordinators in the Team page of
                   E-Cell Website and we’ll get you added to our community.
                   Complete your assigned tasks diligently and voila! you’re now
@@ -74,8 +163,25 @@ export default function FAQs() {
               </Row>
 
               <Row>
-                <h2 style={{fontSize:"1.5rem", color:"black",fontWeight:"bold", textAlign:"left", paddingLeft:"30px"}}>How do I get my startup associated with E-Cell?</h2>
-                <p style={{fontSize:"1.1rem", textAlign:"left", paddingLeft:"30px", margin:"0px"}}>
+                <h2
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "black",
+                    fontWeight: "bold",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                  }}
+                >
+                  How do I get my startup associated with E-Cell?
+                </h2>
+                <p
+                  style={{
+                    fontSize: "1.1rem",
+                    textAlign: "left",
+                    paddingLeft: "30px",
+                    margin: "0px",
+                  }}
+                >
                   Get in touch with any of the coordinators in the Team page of
                   E-Cell Website and we’ll get you added to our community.
                   Complete your assigned tasks diligently and voila! you’re now
