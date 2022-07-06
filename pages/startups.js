@@ -29,8 +29,6 @@ const StartupDirectory = () => {
         post[1].name.toLowerCase().includes(search.toLowerCase())) ||
       (post[1].domain &&
         post[1].domain.toLowerCase().includes(search.toLowerCase())) ||
-      (post[1].description &&
-        post[1].description.toLowerCase().includes(search.toLowerCase())) ||
       (post[1].year &&
         post[1].year.toLowerCase().includes(search.toLowerCase())) ||
       (post[1].founders &&
