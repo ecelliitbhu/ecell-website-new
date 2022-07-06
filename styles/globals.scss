@@ -1610,7 +1610,7 @@ ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 30px auto;
-    min-height: 100vh;
+    height: fit-content;
     .startup-item {
       margin: 0.7rem;
       height: 260px;
@@ -1955,4 +1955,8 @@ ul {
   .join-cd {
     width: 260px;
   }
+}
+
+.loadingGif{
+  margin: auto;
 }

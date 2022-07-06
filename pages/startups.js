@@ -8,9 +8,10 @@ import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
 import { ref, get } from "firebase/database";
 import { firebaseDB } from "../lib/firebase";
+import Image from "next/image";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
-
+  const [isLoading, setIsloading] = useState(true);
   useEffect(() => {
     get(ref(firebaseDB, `startupDirectory/`))
       .then((snapshot) => {
@@ -19,6 +20,7 @@ const StartupDirectory = () => {
         } else {
           console.log("No data available");
         }
+        setIsloading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -87,9 +89,8 @@ const StartupDirectory = () => {
           </Row>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="filter-container">
-              <Filter></Filter>
+              <Filter />
             </div>
-
             <div className="startups">
               <Row className="search-container">
                 <input
@@ -104,14 +105,25 @@ const StartupDirectory = () => {
                 />
               </Row>
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
-                <FilterOffcanvas style={{ float: "left" }}></FilterOffcanvas>
+                <FilterOffcanvas style={{ float: "left" }} />
               </Row>
-              <Row className="startups-list">
+              {isLoading ? (
+                <div className="loadingGif">
+                  <Image
+                    src="/loading.gif"
+                    width="300"
+                    alt="Loading..."
+                    height="300"
+                  />
+                </div>
+              ) : (
+                <Row className="startups-list">
                 {startups.map((post) => {
                   if (isOkay(post))
                     return <Startup key={post[0]} details={post[1]} />;
                 })}
               </Row>
+              )}
             </div>
           </div>
           <br />
