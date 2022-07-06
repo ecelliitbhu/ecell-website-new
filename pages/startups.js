@@ -8,13 +8,16 @@ import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
 import { ref, get } from "firebase/database";
 import { firebaseDB } from "../lib/firebase";
+import Spinner from "../components/startups/LoadingGif";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     get(ref(firebaseDB, `startupDirectory/`))
       .then((snapshot) => {
         if (snapshot.exists()) {
           setStartups(Object.entries(snapshot.val()));
+          setLoading(false);
         } else {
           console.log("No data available");
         }
@@ -101,6 +104,9 @@ const StartupDirectory = () => {
                   }}
                 />
               </Row>
+              <div style={{marginTop: '10vh'}}>
+                {loading && <Spinner/>}
+              </div>
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
                 <FilterOffcanvas style={{ float: "left" }}></FilterOffcanvas>
               </Row>
