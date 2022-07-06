@@ -6,25 +6,26 @@ import Footer from "../components/Footer";
 import Filter from "../components/startups/Filter";
 import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
-import { ref, get } from "firebase/database";
+import { ref, get, once, onValue } from "firebase/database";
 import { firebaseDB } from "../lib/firebase";
 import Image from "next/image";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
   const [isLoading, setIsloading] = useState(true);
   useEffect(() => {
-    get(ref(firebaseDB, `startupDirectory/`))
-      .then((snapshot) => {
+    onValue(
+      ref(firebaseDB, `startupDirectory/`),
+      (snapshot) => {
         if (snapshot.exists()) {
+          // console.log(Object.entries(snapshot.val()));
           setStartups(Object.entries(snapshot.val()));
         } else {
           console.log("No data available");
         }
         setIsloading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      },
+      (error) => console.log(error)
+    );
   }, []);
   const isOkay = (post) => {
     return (
@@ -118,11 +119,11 @@ const StartupDirectory = () => {
                 </div>
               ) : (
                 <Row className="startups-list">
-                {startups.map((post) => {
-                  if (isOkay(post))
-                    return <Startup key={post[0]} details={post[1]} />;
-                })}
-              </Row>
+                  {startups.map((post) => {
+                    if (isOkay(post))
+                      return <Startup key={post[0]} details={post[1]} />;
+                  })}
+                </Row>
               )}
             </div>
           </div>
