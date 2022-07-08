@@ -73,7 +73,7 @@ const StartupDirectory = () => {
   })
   const unavailableStartup = () => {
     if (searchedStartups.filter(isValid).length === 0) {
-      return <h3>If your startup is not in the list, then please fill the form here, we will add it as soon as possible, and update you as well!</h3>;
+      return <h3 style={{marginTop: '5vh'}}>If your startup is not in the list, then please fill the form here, we will add it as soon as possible, and update you as well!</h3>;
     }
   }
 
@@ -132,7 +132,7 @@ const StartupDirectory = () => {
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
                 <FilterOffcanvas style={{ float: "left" }} />
               </Row>
-              <div style={{ marginTop: '10vh', textAlign: 'center', maxWidth: '40vw' }}>{!isLoading && unavailableStartup()}</div>
+              <div style={{textAlign: 'center', maxWidth: '40vw' }}>{!isLoading && unavailableStartup()}</div>
               {isLoading ? (
                 <div className="loadingGif">
                   <Image
