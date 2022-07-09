@@ -20,6 +20,7 @@ const Event = ({
   endDate,
   register,
 }) => {
+  console.log(register)
   return (
     <Card className="card" style={{ height: "fit-content" }}>
       <Card.Body style={{ padding: "25px 15px" }}>
@@ -126,7 +127,7 @@ export default function Events() {
                       key={id}
                       poster={event.poster}
                       knowMore={event.knowMoreLink}
-                      register={event.registerationLink}
+                      register={event.registrationLink}
                       title={event.title}
                       beginDate={event.beginDate}
                       endDate={event.endDate}
