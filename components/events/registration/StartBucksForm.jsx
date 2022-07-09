@@ -6,6 +6,7 @@ import { Row } from "react-bootstrap";
 const StartBucksForm = () => {
   const [formDetails, setFormDetails] = useState({
     teamName: "",
+    college:"",
     teamLeader: { name: "", phoneNumber: "", email: "" },
     teamMember1: { name: "", phoneNumber: "" },
     teamMember2: { name: "", phoneNumber: "" },
@@ -31,6 +32,7 @@ const StartBucksForm = () => {
         setIsSubmitting(false);
         setFormDetails({
           teamName: "",
+          college:"",
           teamLeader: { name: "", phoneNumber: "", email: "" },
           teamMember1: { name: "", phoneNumber: "" },
           teamMember2: { name: "", phoneNumber: "" },
@@ -60,6 +62,23 @@ const StartBucksForm = () => {
             value={formDetails.teamName}
             onChange={(e) =>
               setFormDetails({ ...formDetails, teamName: e.target.value })
+            }
+            required
+          />
+        </Row>
+        <Row className="form-item">
+          <label htmlFor="fname">
+            <h5>
+              College <span style={{ color: "red" }}>*</span>
+            </h5>
+          </label>
+          <input
+            type="text"
+            style={{ borderBottom: "2px solid grey" }}
+            placeholder="College Name"
+            value={formDetails.college}
+            onChange={(e) =>
+              setFormDetails({ ...formDetails, college: e.target.value })
             }
             required
           />
