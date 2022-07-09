@@ -6,7 +6,7 @@ import { firebaseDB as db } from "../../lib/firebase";
 import { ref, onValue } from "firebase/database";
 import { useEffect, useState } from "react";
 import Nav from "../../components/navbar/NavLayout";
-import Calender from "../../components/Calender";
+// import Calender from "../../components/Calender";
 
 function todaysDate() {
   return new Date().toISOString().slice(0, 10);
@@ -84,7 +84,7 @@ export default function Events() {
           events = events.map((event) => {
             return { id: event[0], ...event[1] };
           });
-          events.sort((a, b) => (a.beginDate > b.beginDate ? 1 : -1));
+          events.sort((a, b) => (a.beginDate < b.beginDate ? 1 : -1));
           setEventsList(events);
           setIsLoading(false);
         } else {
@@ -136,7 +136,7 @@ export default function Events() {
               </Row>
             )}
           </Row>
-          <Row style={{ margin: "100px auto" }} className="calender-component">
+          {/* <Row style={{ margin: "100px auto" }} className="calender-component">
             <h1
               style={{
                 margin: "auto",
@@ -149,7 +149,7 @@ export default function Events() {
             </h1>
             <Calender />
           </Row>
-          <div id="instafeed-container"></div>
+          <div id="instafeed-container"></div> */}
           <Footer />
         </Container>
       </div>
