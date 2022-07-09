@@ -8,25 +8,64 @@ import { useEffect, useState } from "react";
 import Nav from "../../components/navbar/NavLayout";
 import Calender from "../../components/Calender";
 
-const Event = ({ poster, knowMore, title }) => {
+function todaysDate() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+const Event = ({
+  poster,
+  knowMore,
+  title,
+  beginDate,
+  endDate,
+  registrationLink,
+}) => {
   return (
     <Card className="card" style={{ height: "fit-content" }}>
       <Card.Body style={{ padding: "25px 15px" }}>
         <Image src={poster} alt={title} height={250} width={250}></Image>
         <Card.Title style={{ margin: "20px auto 10px" }}>{title}</Card.Title>
-        <a href={knowMore} target="_blank" rel="noopener noreferrer">
-          <Button
-            variant="danger"
-            style={{
-              backgroundColor: "#FA8231",
-              border: "#FA8231",
-              margin: "8px auto",
-            }}
-            className="card-button"
-          >
-            Know More! &rarr;
-          </Button>
-        </a>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {endDate >= todaysDate && beginDate <= todaysDate && (
+            <a href={register} target="_blank" rel="noopener noreferrer">
+              <Button
+                style={{
+                  backgroundColor: "#2AB574",
+                  border: "#2AB574",
+                  margin: "4px",
+                  fontSize: "0.9rem",
+                  height: "fit-content",
+                  width: "fit-content",
+                }}
+                className="card-button"
+              >
+                Register Now!
+              </Button>
+            </a>
+          )}
+          <a href={knowMore} target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="danger"
+              style={{
+                backgroundColor: "#FA8231",
+                border: "#FA8231",
+                margin: "4px",
+                fontSize: "0.9rem",
+                height: "fit-content",
+                width: "fit-content",
+              }}
+              className="card-button"
+            >
+              Know More! &rarr;
+            </Button>
+          </a>
+        </div>
       </Card.Body>
     </Card>
   );
@@ -42,10 +81,10 @@ export default function Events() {
       (snapshot) => {
         if (snapshot.exists()) {
           let events = Object.entries(snapshot.val());
-          //   console.log(Object.entries(snapshot.val()));
           events = events.map((event) => {
             return { id: event[0], ...event[1] };
           });
+          events.sort((a, b) => (a.beginDate > b.beginDate ? 1 : -1));
           setEventsList(events);
           setIsLoading(false);
         } else {
@@ -56,7 +95,6 @@ export default function Events() {
       (error) => console.log(error)
     );
   }, []);
-  console.log(eventsList);
   return (
     <>
       <Head>
@@ -88,7 +126,10 @@ export default function Events() {
                       key={id}
                       poster={event.poster}
                       knowMore={event.knowMoreLink}
+                      register={event.registerationLink}
                       title={event.title}
+                      beginDate={event.beginDate}
+                      endDate={event.endDate}
                     />
                   );
                 })}

@@ -40,20 +40,20 @@ export default function Home() {
               }}
             >
               <Image
-                src={team_exp}
-                height={380}
-                width={380}
+                src="/start-bucks.jpg"
+                height={703}
+                width={1080}
                 alt="Team Expansion"
               ></Image>
             </Col>
             <Col className="info">
               {/* <h1>E-Cell IIT BHU</h1> */}
-              <h1 style={{ fontSize: "2.6rem" }}>Team Expansion 2022-23</h1>
+              <h1 style={{ fontSize: "2.6rem" }}>Start-Bucks</h1>
               <p>
-                Intrigued and fascinated by entrepreneurship and the startup
-                culture and want to be a part of E-Cell IIT BHU?
+                A uniquely designed event to help beginners build and enhance
+                the problem-solving and entrepreneurial mindset!!
               </p>
-              <Link href="/forms/team_expansion" passHref>
+              <Link href="/events/start-bucks" passHref>
                 <Button
                   variant="info"
                   className="get-started"
@@ -66,7 +66,7 @@ export default function Home() {
                     padding: "15px 15px",
                   }}
                 >
-                  Click Here to Apply!
+                  Register Now!
                 </Button>
               </Link>
             </Col>

@@ -1,15 +1,62 @@
+import { Badge, Chip, Alert } from "@mui/material";
 import { BsFillBellFill } from "react-icons/bs";
 import { Dropdown } from "react-bootstrap";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Chip, Badge, Alert } from "@mui/material";
+import { ref, onValue } from "firebase/database";
+import { firebaseDB } from "../../lib/firebase";
+const Notifi = ({ title, description, knowMoreLink }) => {
+  // console.log(title, description);
+  return (
+    <Link href={knowMoreLink} passHref>
+      <Alert icon={false} severity="warning">
+        {description}
+        <Chip
+          label="Click here!"
+          color="warning"
+          size="small"
+          style={{ margin: "0 10px", cursor: "pointer" }}
+        />
+      </Alert>
+    </Link>
+  );
+};
 const NotificationOffCanvas = () => {
+  const initialNotifState = {
+    title: "",
+    description: "",
+    isActive: true,
+    knowMoreLink: "",
+  };
+  const [notif, setNotif] = useState(initialNotifState);
+  const [notifsList, setNotifsList] = useState([]);
+
+  useEffect(() => {
+    onValue(
+      ref(firebaseDB, `notifs/`),
+      (snapshot) => {
+        if (snapshot.exists()) {
+          // console.log(Object.entries(snapshot.val()));
+          let notifs = Object.entries(snapshot.val());
+          notifs = notifs.map((notif) => {
+            return { id: notif[0], ...notif[1] };
+          });
+          setNotifsList(notifs);
+        } else {
+          // console.log("No data available");
+          setNotifsList([]);
+        }
+        // setIsloading(false);
+      },
+      (error) => console.log(error)
+    );
+  }, []);
   return (
     <>
       <Badge
-        badgeContent={1}
+        badgeContent={notifsList.length}
         color="error"
         id="notification-button"
-        // className="btn btn-primary"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNotification"
@@ -36,23 +83,9 @@ const NotificationOffCanvas = () => {
         <div className="offcanvas-body">
           <h5>Notifications</h5>
           <Dropdown.Divider />
-          <Link href="/forms/team_expansion" passHref>
-            <Alert icon={false} severity="warning">
-              Fill the form to be a part of E-Cell IIT (BHU)!
-              <Chip label="Click here!"  color="warning" size="small" style={{margin:"0 10px"}}/>
-            </Alert>
-          </Link>
-          {/* <a href="https://instagram.com/ecelliitbhu">
-            <Alert icon={false} severity="info">
-              Stay tuned with E-Summit!
-              <Chip label="Click here!" color="warning" size="small" />
-            </Alert>
-          </a> */}
-          {/* <a href="https://instagram.com/ecelliitbhu"> */}
-          {/* <Alert icon={false} severity="success">
-              Registrations for IDAPT-HUB Pitch Challenge is open!
-            </Alert> */}
-          {/* </a> */}
+          {notifsList.map((notif, _id) => (
+            <Notifi key={notif.id} {...notif} />
+          ))}
         </div>
       </div>
     </>
