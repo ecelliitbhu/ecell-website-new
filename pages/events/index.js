@@ -1,21 +1,21 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
-import Footer from "../components/Footer";
-import Poster from "../public/esummit-poster.png";
+import Footer from "../../components/Footer";
+import Poster from "../../public/esummit-poster.png";
 import Image from "next/image";
-import casex1 from "../public/casex1.png";
-import casex2 from "../public/casex2.png";
-import casex3 from "../public/casex3.png";
-import pep from "../public/pitch-er-perfect.png";
-import novice from "../public/ecell-novice.jpeg";
-import ama from "../public/ama.png";
-import pdmm from "../public/pdmm.png";
-import fs from "../public/founder-speak.png";
-import bootcamp from "../public/bootcamp.png";
-import flam from "../public/flam.png";
-import Nav from "../components/navbar/NavLayout";
-import Calender from "../components/Calender";
+import casex1 from "../../public/casex1.png";
+import casex2 from "../../public/casex2.png";
+import casex3 from "../../public/casex3.png";
+import pep from "../../public/pitch-er-perfect.png";
+import novice from "../../public/ecell-novice.jpeg";
+import ama from "../../public/ama.png";
+import pdmm from "../../public/pdmm.png";
+import fs from "../../public/founder-speak.png";
+import bootcamp from "../../public/bootcamp.png";
+import flam from "../../public/flam.png";
+import Nav from "../../components/navbar/NavLayout";
+import Calender from "../../components/Calender";
 
 import { useState } from "react";
 
