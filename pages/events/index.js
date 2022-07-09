@@ -84,7 +84,7 @@ export default function Events() {
           events = events.map((event) => {
             return { id: event[0], ...event[1] };
           });
-          events.sort((a, b) => (a.beginDate > b.beginDate ? 1 : -1));
+          events.sort((a, b) => (a.beginDate < b.beginDate ? 1 : -1));
           setEventsList(events);
           setIsLoading(false);
         } else {
