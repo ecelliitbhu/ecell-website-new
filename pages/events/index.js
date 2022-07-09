@@ -18,8 +18,9 @@ const Event = ({
   title,
   beginDate,
   endDate,
-  registrationLink,
+  register,
 }) => {
+  console.log(register)
   return (
     <Card className="card" style={{ height: "fit-content" }}>
       <Card.Body style={{ padding: "25px 15px" }}>
@@ -32,7 +33,7 @@ const Event = ({
             alignItems: "center",
           }}
         >
-          {endDate >= todaysDate && beginDate <= todaysDate && (
+          {endDate >= todaysDate() && beginDate <= todaysDate() && (
             <a href={register} target="_blank" rel="noopener noreferrer">
               <Button
                 style={{
@@ -62,7 +63,7 @@ const Event = ({
               }}
               className="card-button"
             >
-              Know More! &rarr;
+              Know More
             </Button>
           </a>
         </div>
@@ -106,7 +107,7 @@ export default function Events() {
       <div>
         <Container fluid className="body">
           <Row className="what-we-do info" style={{ margin: "50px auto" }}>
-            <h1 style={{ padding: "0px", margin: "40px auto" }}>
+            <h1 style={{ padding: "0px", margin: "40px auto 0 auto" }}>
               Events @ E-Cell IIT BHU
             </h1>
             {isLoading ? (
@@ -126,7 +127,7 @@ export default function Events() {
                       key={id}
                       poster={event.poster}
                       knowMore={event.knowMoreLink}
-                      register={event.registerationLink}
+                      register={event.registrationLink}
                       title={event.title}
                       beginDate={event.beginDate}
                       endDate={event.endDate}
