@@ -117,7 +117,7 @@ const StartBucksForm = () => {
           </label>
           <input
             type="email"
-            placeholder="example@itbhu.ac.in"
+            placeholder="example@gmail.com"
             value={formDetails.teamLeader.email}
             onChange={(e) =>
               setFormDetails({
