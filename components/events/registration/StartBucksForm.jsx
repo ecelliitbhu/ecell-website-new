@@ -9,6 +9,7 @@ const StartBucksForm = () => {
     teamLeader: { name: "", phoneNumber: "", email: "" },
     teamMember1: { name: "", phoneNumber: "" },
     teamMember2: { name: "", phoneNumber: "" },
+    teamMember3: { name: "", phoneNumber: "" },
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const handleSubmit = (e) => {
@@ -33,6 +34,7 @@ const StartBucksForm = () => {
           teamLeader: { name: "", phoneNumber: "", email: "" },
           teamMember1: { name: "", phoneNumber: "" },
           teamMember2: { name: "", phoneNumber: "" },
+          teamMember3: { name: "", phoneNumber: "" },
         });
         alert("Form submitted successfully");
       })
@@ -205,6 +207,47 @@ const StartBucksForm = () => {
                 ...formDetails,
                 teamMember2: {
                   ...formDetails.teamMember2,
+                  phoneNumber: e.target.value,
+                },
+              })
+            }
+            style={{ borderBottom: "2px solid grey" }}
+          />
+        </Row>
+        <Row className="form-item">
+          <label htmlFor="fname">
+            <h5>Team Member 3 Name</h5>
+          </label>
+          <input
+            type="text"
+            style={{ borderBottom: "2px solid grey" }}
+            placeholder="Ethan Hunt"
+            value={formDetails.teamMember3.name}
+            onChange={(e) =>
+              setFormDetails({
+                ...formDetails,
+                teamMember3: {
+                  ...formDetails.teamMember3,
+                  name: e.target.value,
+                },
+              })
+            }
+          />
+        </Row>
+        <Row className="form-item">
+          <label htmlFor="fname">
+            <h5>Team Member 3 Whatsapp number</h5>
+            <span>Please share WhatsApp number without +91</span>
+          </label>
+          <input
+            type="text"
+            placeholder="9876543210"
+            value={formDetails.teamMember3.phoneNumber}
+            onChange={(e) =>
+              setFormDetails({
+                ...formDetails,
+                teamMember3: {
+                  ...formDetails.teamMember3,
                   phoneNumber: e.target.value,
                 },
               })
