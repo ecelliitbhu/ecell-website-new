@@ -68,14 +68,18 @@ const StartupDirectory = () => {
     return value != undefined;
   }
   const searchedStartups = startups.map((post) => {
-    if (isOkay(post))
-      return <Startup key={post[0]} details={post[1]} />;
-  })
+    if (isOkay(post)) return <Startup key={post[0]} details={post[1]} />;
+  });
   const unavailableStartup = () => {
     if (searchedStartups.filter(isValid).length === 0) {
-      return <h3 style={{marginTop: '5vh'}}>If your startup is not in the list, then please fill the form here, we will add it as soon as possible, and update you as well!</h3>;
+      return (
+        <h3 style={{ marginTop: "5vh" }}>
+          If your startup is not in the list, then please fill the form here, we
+          will add it as soon as possible, and update you as well!
+        </h3>
+      );
     }
-  }
+  };
 
   return (
     <>
@@ -87,7 +91,7 @@ const StartupDirectory = () => {
       <Nav />
       <div>
         <Container fluid className="body">
-          <Row
+          {/* <Row
             className="header"
             style={{ height: "fit-content", marginBottom: "50px" }}
           >
@@ -101,18 +105,20 @@ const StartupDirectory = () => {
             >
               IIT BHU Startup Directory
             </h1>
-          </Row>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <aside style={{
-              position: 'sticky',
-              top: '5rem',
-              display: 'block !important',
-              height: 'calc(96vh - 4rem)',
-              paddingLeft: '0.25rem',
-              marginLeft: '-0.25rem',
-              overflowY: 'auto',
-            }}>
-              <div className="filter-container" style={{width: '18vw'}}>
+          </Row> */}
+          {/* <div style={{ display: "flex", justifyContent: "center" }}>
+            <aside
+              style={{
+                position: "sticky",
+                top: "5rem",
+                display: "block !important",
+                height: "calc(96vh - 4rem)",
+                paddingLeft: "0.25rem",
+                marginLeft: "-0.25rem",
+                overflowY: "auto",
+              }}
+            >
+              <div className="filter-container" style={{ width: "18vw" }}>
                 <Filter />
               </div>
             </aside>
@@ -132,7 +138,9 @@ const StartupDirectory = () => {
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
                 <FilterOffcanvas style={{ float: "left" }} />
               </Row>
-              <div style={{textAlign: 'center', maxWidth: '40vw' }}>{!isLoading && unavailableStartup()}</div>
+              <div style={{ textAlign: "center", maxWidth: "40vw" }}>
+                {!isLoading && unavailableStartup()}
+              </div>
               {isLoading ? (
                 <div className="loadingGif">
                   <Image
@@ -143,18 +151,37 @@ const StartupDirectory = () => {
                   />
                 </div>
               ) : (
-                <Row className="startups-list">
-                  {searchedStartups}
-                </Row>
+                <Row className="startups-list">{searchedStartups}</Row>
               )}
             </div>
+          </div> */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <lottie-player
+              src="https://assets5.lottiefiles.com/packages/lf20_m6cuL6.json"
+              background="transparent"
+              speed="1"
+              style={{
+                height: "100%",
+                width: "80%",
+                marginBottom: "80px",
+              }}
+              loop
+              autoplay
+            ></lottie-player>
           </div>
-          <br />
-          <br />
-          <br />
           <Footer />
         </Container>
       </div>
+      <script
+        async
+        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+      ></script>
     </>
   );
 };
