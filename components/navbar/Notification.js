@@ -4,10 +4,7 @@ import { Dropdown } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ref, onValue } from "firebase/database";
-import { collection, getDocs } from "@firebase/firestore";
-import { firebaseDB, firestore } from "../../lib/firebase";
-import { async } from "@firebase/util";
-import { get } from "mongoose";
+import { firebaseDB } from "../../lib/firebase";
 
 const Notifi = ({ title, description, knowMoreLink }) => {
   // console.log(title, description);
@@ -67,7 +64,7 @@ const Notification = () => {
           margin: "0px",
         }}
       >
-        <Badge badgeContent={1} color="error">
+        <Badge badgeContent={notifsList.length} color="error">
           <BsFillBellFill
             style={{ fontSize: "1.5rem", color: "black" }}
           ></BsFillBellFill>
