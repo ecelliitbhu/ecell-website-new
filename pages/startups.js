@@ -63,6 +63,20 @@ const StartupDirectory = () => {
     );
   };
   const [search, setSearch] = useState("");
+
+  function isValid(value) {
+    return value != undefined;
+  }
+  const searchedStartups = startups.map((post) => {
+    if (isOkay(post))
+      return <Startup key={post[0]} details={post[1]} />;
+  })
+  const unavailableStartup = () => {
+    if (searchedStartups.filter(isValid).length === 0) {
+      return <h3 style={{marginTop: '5vh'}}>If your startup is not in the list, then please fill the form here, we will add it as soon as possible, and update you as well!</h3>;
+    }
+  }
+
   return (
     <>
       <Head>
@@ -89,9 +103,19 @@ const StartupDirectory = () => {
             </h1>
           </Row>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <div className="filter-container">
-              <Filter />
-            </div>
+            <aside style={{
+              position: 'sticky',
+              top: '5rem',
+              display: 'block !important',
+              height: 'calc(96vh - 4rem)',
+              paddingLeft: '0.25rem',
+              marginLeft: '-0.25rem',
+              overflowY: 'auto',
+            }}>
+              <div className="filter-container" style={{width: '18vw'}}>
+                <Filter />
+              </div>
+            </aside>
             <div className="startups">
               <Row className="search-container">
                 <input
@@ -108,6 +132,7 @@ const StartupDirectory = () => {
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
                 <FilterOffcanvas style={{ float: "left" }} />
               </Row>
+              <div style={{textAlign: 'center', maxWidth: '40vw' }}>{!isLoading && unavailableStartup()}</div>
               {isLoading ? (
                 <div className="loadingGif">
                   <Image
@@ -119,10 +144,7 @@ const StartupDirectory = () => {
                 </div>
               ) : (
                 <Row className="startups-list">
-                  {startups.map((post) => {
-                    if (isOkay(post))
-                      return <Startup key={post[0]} details={post[1]} />;
-                  })}
+                  {searchedStartups}
                 </Row>
               )}
             </div>
