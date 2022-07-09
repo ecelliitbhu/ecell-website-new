@@ -8,7 +8,7 @@ export default function StartBucks() {
   return (
     <>
       <Head>
-        <title>Start Bucks Registration</title>
+        <title>Start-Bucks Registration</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
@@ -27,7 +27,7 @@ export default function StartBucks() {
                 fontWeight: "bold",
               }}
             >
-              Start Bucks Registration
+              Start-Bucks Registration
             </h1>
           </Row>
           {/* <Row
