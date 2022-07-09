@@ -1,7 +1,15 @@
 import { Card, Button } from "react-bootstrap";
 import Image from "next/image";
 import { firebaseDB as db } from "../../lib/firebase";
-import { ref, set, getDatabase, get, child, update } from "firebase/database";
+import {
+  ref,
+  set,
+  getDatabase,
+  get,
+  child,
+  update,
+  onValue,
+} from "firebase/database";
 import {
   getStorage,
   ref as firebaseStorageRef,
@@ -158,8 +166,9 @@ const AddEvent = () => {
   };
 
   useEffect(() => {
-    get(ref(db, `events/`))
-      .then((snapshot) => {
+    onValue(
+      ref(db, `events/`),
+      (snapshot) => {
         if (snapshot.exists()) {
           let events = Object.entries(snapshot.val());
           //   console.log(Object.entries(snapshot.val()));
@@ -171,10 +180,10 @@ const AddEvent = () => {
           console.log("No data available");
           setEventsList([]);
         }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        // setIsloading(false);
+      },
+      (error) => console.log(error)
+    );
   }, [isLoading]);
   return (
     <>
