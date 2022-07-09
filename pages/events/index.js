@@ -95,7 +95,6 @@ export default function Events() {
       (error) => console.log(error)
     );
   }, []);
-  console.log(eventsList);
   return (
     <>
       <Head>
