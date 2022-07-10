@@ -168,6 +168,10 @@ const TeamInfo = () => {
             <input type="radio" value="SR" name="vertical" />
             <span> Strategic Relations Team</span>
           </Row>
+          <Row className="checkbox-option">
+            <input type="radio" value="E-Summit" name="vertical" />
+            <span>{`E-Summit'23`}</span>
+          </Row>
         </Row>
         <Row className="form-item">
           <label htmlFor="fname">
