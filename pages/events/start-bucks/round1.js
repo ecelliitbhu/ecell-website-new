@@ -1,14 +1,14 @@
 import Head from "next/head";
 import { Container, Row } from "react-bootstrap";
-import Footer from "../../components/Footer";
-import Nav from "../../components/navbar/NavLayout";
+import Footer from "../../../components/Footer";
+import Nav from "../../../components/navbar/NavLayout";
 // import TeamInfo from "../../components/forms/TeamInfo"
-import StartBucksForm from "../../components/events/registration/StartBucksForm";
-export default function StartBucks() {
+import StartBucksRound1 from "../../../components/events/submission/round1/StartBucksRound1";
+export default function StartBucksRound1Submission() {
   return (
     <>
       <Head>
-        <title>Start-Bucks Registration</title>
+        <title>Start-Bucks Round 1 Submission</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
@@ -27,7 +27,7 @@ export default function StartBucks() {
                 fontWeight: "bold",
               }}
             >
-              Start-Bucks Registration
+              Start-Bucks Round 1 Submission
             </h1>
           </Row>
           {/* <Row
@@ -51,7 +51,7 @@ export default function StartBucks() {
             </p>
           </Row> */}
           <Row>
-            <StartBucksForm />
+            <StartBucksRound1 />
           </Row>
           <Footer />
         </Container>
