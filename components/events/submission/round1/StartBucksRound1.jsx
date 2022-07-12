@@ -31,7 +31,7 @@ const MyDropzone = ({ formDetails, setFormDetails }) => {
   return (
     <>
       <div {...getRootProps()}>
-        <input {...getInputProps()} required />
+        <input {...getInputProps()} />
         <div
           style={{
             height: "180px",
@@ -83,6 +83,7 @@ const StartBucksRound1 = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formDetails.file) return;
     setIsSubmitting(true);
     const db = firebaseDB;
     const storage = getStorage();
@@ -94,7 +95,10 @@ const StartBucksRound1 = () => {
     const metadata = { contentType: formDetails.file.type };
     uploadBytes(storageRef, formDetails.file, metadata).then((snapshot) => {
       getDownloadURL(
-        firebaseStorageRef(storage, `eventsSubmission/startBucks/round1/${fileName}`)
+        firebaseStorageRef(
+          storage,
+          `events/startBucks/round1/${fileName}`
+        )
       ).then((fileLink) => {
         set(
           ref(
