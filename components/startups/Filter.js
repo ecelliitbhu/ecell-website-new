@@ -3,7 +3,23 @@ import { Col, Row } from "react-bootstrap";
 import { FaFilter } from "react-icons/fa";
 
 const Filter = (props) => {
-  const { agritechf, fintechf, ecommercef, edtechf, adtechf, traveltechf, electricvehiclesf, healthtechf, itsectorf, logisticsf, retailf, startupecosystemf, enterprisetechf, consultancyservicesf, insurtechf } = props
+  const {
+    agritechf,
+    fintechf,
+    ecommercef,
+    edtechf,
+    adtechf,
+    traveltechf,
+    electricvehiclesf,
+    healthtechf,
+    itsectorf,
+    logisticsf,
+    retailf,
+    startupecosystemf,
+    enterprisetechf,
+    consultancyservicesf,
+    insurtechf,
+  } = props;
   return (
     <>
       <Row>
@@ -21,7 +37,9 @@ const Filter = (props) => {
               name="agritech"
               value="agritech"
               htmlFor="domain"
-              onClick={() => { agritechf() }}
+              onClick={() => {
+                agritechf();
+              }}
             />
             <label htmlFor="agritech"> Agritech</label>
           </li>
@@ -32,7 +50,9 @@ const Filter = (props) => {
               name="fintech"
               value="fintech"
               htmlFor="domain"
-              onClick={() => { fintechf() }}
+              onClick={() => {
+                fintechf();
+              }}
             />
             <label htmlFor="fintech"> Fintech</label>
           </li>
@@ -42,9 +62,11 @@ const Filter = (props) => {
               id="ecommerce"
               name="ecommerce"
               value="ecommerce"
-              onClick={() => { ecommercef() }}
+              onClick={() => {
+                ecommercef();
+              }}
             />
-            <label htmlFor="ecommerce">  E-Commerce</label>
+            <label htmlFor="ecommerce"> E-Commerce</label>
           </li>
           <li>
             <input
@@ -52,7 +74,9 @@ const Filter = (props) => {
               id="edtech"
               name="edtech"
               value="edtech"
-              onClick={() => { edtechf() }}
+              onClick={() => {
+                edtechf();
+              }}
             />
             <label htmlFor="edtech"> Edtech</label>
           </li>
@@ -62,7 +86,9 @@ const Filter = (props) => {
               id="adtech"
               name="adtech"
               value="adtech"
-              onClick={() => { adtechf() }}
+              onClick={() => {
+                adtechf();
+              }}
             />
             <label htmlFor="adtech"> Adtech</label>
           </li>
@@ -72,7 +98,9 @@ const Filter = (props) => {
               id="traveltech"
               name="traveltech"
               value="traveltech"
-              onClick={() => { traveltechf() }}
+              onClick={() => {
+                traveltechf();
+              }}
             />
             <label htmlFor="traveltech"> Traveltech</label>
           </li>
@@ -82,7 +110,9 @@ const Filter = (props) => {
               id="electricvehicles"
               name="electricvehicles"
               value="electricvehicles"
-              onClick={() => { electricvehiclesf() }}
+              onClick={() => {
+                electricvehiclesf();
+              }}
             />
             <label htmlFor="electricvehicles"> Electric Vehicles</label>
           </li>
@@ -92,7 +122,9 @@ const Filter = (props) => {
               id="healthtech"
               name="healthtech"
               value="healthtech"
-              onClick={() => { healthtechf() }}
+              onClick={() => {
+                healthtechf();
+              }}
             />
             <label htmlFor="healthtech"> Healthtech</label>
           </li>
@@ -102,7 +134,9 @@ const Filter = (props) => {
               id="itsector"
               name="itsector"
               value="itsector"
-              onClick={() => { itsectorf() }}
+              onClick={() => {
+                itsectorf();
+              }}
             />
             <label htmlFor="itsector"> IT Sector</label>
           </li>
@@ -112,7 +146,9 @@ const Filter = (props) => {
               id="logistics"
               name="logistics"
               value="logistics"
-              onClick={() => { logisticsf() }}
+              onClick={() => {
+                logisticsf();
+              }}
             />
             <label htmlFor="logistics"> Logistics</label>
           </li>
@@ -122,7 +158,9 @@ const Filter = (props) => {
               id="retail"
               name="retail"
               value="retail"
-              onClick={() => { retailf() }}
+              onClick={() => {
+                retailf();
+              }}
             />
             <label htmlFor="retail"> Retail</label>
           </li>
@@ -132,7 +170,9 @@ const Filter = (props) => {
               id="startupecosystem"
               name="startupecosystem"
               value="startupecosystem"
-              onClick={() => { startupecosystemf() }}
+              onClick={() => {
+                startupecosystemf();
+              }}
             />
             <label htmlFor="startupecosystem"> Startup Ecosystem</label>
           </li>
@@ -142,7 +182,9 @@ const Filter = (props) => {
               id="enterprisetech"
               name="enterprisetech"
               value="enterprisetech"
-              onClick={() => { enterprisetechf() }}
+              onClick={() => {
+                enterprisetechf();
+              }}
             />
             <label htmlFor="enterprisetech"> Enterprisetech</label>
           </li>
@@ -152,7 +194,9 @@ const Filter = (props) => {
               id="consultancyservices"
               name="consultancyservices"
               value="consultancyservices"
-              onClick={() => { consultancyservicesf() }}
+              onClick={() => {
+                consultancyservicesf();
+              }}
             />
             <label htmlFor="consultancyservices"> Consultancy Services</label>
           </li>
@@ -162,7 +206,9 @@ const Filter = (props) => {
               id="insurtech"
               name="insurtech"
               value="insurtech"
-              onClick={() => { insurtechf() }}
+              onClick={() => {
+                insurtechf();
+              }}
             />
             <label htmlFor="insurtech"> Insurtech</label>
           </li>
@@ -172,27 +218,57 @@ const Filter = (props) => {
         <h3>Founded in</h3>
         <ul>
           <li>
-            <input type="checkbox" id="before 2000" name="before 2000" value="before 2000" />
+            <input
+              type="checkbox"
+              id="before 2000"
+              name="before 2000"
+              value="before 2000"
+            />
             <label htmlFor="before 2000"> Before 2000</label>
           </li>
           <li>
-            <input type="checkbox" id="2000-2005" name="2000-2005" value="2000-2005" />
+            <input
+              type="checkbox"
+              id="2000-2005"
+              name="2000-2005"
+              value="2000-2005"
+            />
             <label htmlFor="2000-2005"> 2000-2005</label>
           </li>
           <li>
-            <input type="checkbox" id="2005-2010" name="2005-2010" value="2005-2010" />
+            <input
+              type="checkbox"
+              id="2005-2010"
+              name="2005-2010"
+              value="2005-2010"
+            />
             <label htmlFor="2005-2010"> 2005-2010</label>
           </li>
           <li>
-            <input type="checkbox" id="2010-2015" name="2010-2015" value="2010-2015" />
+            <input
+              type="checkbox"
+              id="2010-2015"
+              name="2010-2015"
+              value="2010-2015"
+            />
             <label htmlFor="2010-2015"> 2010-2015</label>
           </li>
           <li>
-            <input type="checkbox" id="2015-2020" name="2015-2020" value="2015-2020" />
+            <input
+              type="checkbox"
+              id="2015-2020"
+              name="2015-2020"
+              value="2015-2020"
+            />
             <label htmlFor="2015-2020"> 2015-2020</label>
           </li>
           <li>
-            <input type="checkbox" id="after 2020" name="after 2020" value="after 2020" />
+            <input
+              type="checkbox"
+              id="after 2020"
+              name="after 2020"
+              value="after 2020"
+            />
             <label htmlFor="after 2020"> After 2020</label>
           </li>
         </ul>
