@@ -26,6 +26,8 @@ const Notifi = ({
   editNotif,
   deleteNotif,
   description,
+  beginDate,
+  endDate,
   knowMoreLink,
 }) => {
   //   console.log(title, description);
@@ -45,6 +47,8 @@ const Notifi = ({
         {/* <Image src={poster} alt="" height={1000} width={1000} /> */}
       </div>
       <span>{`Title: ${title}`}</span>
+      <span>{`BeginDate: ${beginDate}`}</span>
+      <span>{`End Date: ${endDate}`}</span>
       <p>{`Description: ${description}`}</p>
       <span>{`Know More link: ${knowMoreLink}`}</span>
       <Button variant="danger" onClick={deleteNotif}>
@@ -69,6 +73,8 @@ const AddNotif = () => {
   }
   const initialNotifState = {
     title: "",
+    beginDate: "",
+    endDate: "",
     description: "",
     isActive: true,
     knowMoreLink: "",
@@ -89,13 +95,21 @@ const AddNotif = () => {
   };
 
   const handleEdit = async (id) => {
-    setNotifs(notifsList[id]);
+    setNotif(notifsList[id]);
     setIsEditing(id + 1);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { id, title, description, isActive, knowMoreLink } = notif;
+    const {
+      id,
+      title,
+      beginDate,
+      endDate,
+      description,
+      isActive,
+      knowMoreLink,
+    } = notif;
     setIsLoading(true);
     const storage = getStorage();
     const imageName = title + "_" + uuidv4();
@@ -121,6 +135,8 @@ const AddNotif = () => {
         .then(() => {
           set(ref(db, `notifs/${isEditing ? id : imageName}`), {
             title,
+            beginDate,
+            endDate,
             description,
             isActive,
             knowMoreLink,
@@ -187,6 +203,24 @@ const AddNotif = () => {
                 placeholder="Enter Notification title"
                 value={notif.title}
                 onChange={(e) => setNotif({ ...notif, title: e.target.value })}
+                required
+              />
+              <input
+                type="date"
+                placeholder="enter begin date"
+                value={notif.beginDate}
+                onChange={(e) =>
+                  setNotif({ ...notif, beginDate: e.target.value })
+                }
+                required
+              />
+              <input
+                type="date"
+                placeholder="enter end date"
+                value={notif.endDate}
+                onChange={(e) =>
+                  setNotif({ ...notif, endDate: e.target.value })
+                }
                 required
               />
               <textarea

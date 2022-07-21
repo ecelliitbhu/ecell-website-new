@@ -1,4 +1,4 @@
-import { Badge, Chip, Alert } from "@mui/material";
+import { Badge, Chip, Alert, Divider } from "@mui/material";
 import { BsFillBellFill } from "react-icons/bs";
 import { Dropdown } from "react-bootstrap";
 import { useState, useEffect } from "react";
@@ -6,11 +6,17 @@ import Link from "next/link";
 import { ref, onValue } from "firebase/database";
 import { firebaseDB } from "../../lib/firebase";
 
-const Notifi = ({ title, description, knowMoreLink }) => {
-  // console.log(title, description);
+function todaysDate() {
+  return new Date().toISOString().slice(0, 10);
+}
+let fx = 0.0;
+const Notifi = ({ title, beginDate, endDate, description, knowMoreLink }) => {
+  // console.log(title, description, endDate, beginDate, todaysDate());
+  fx = fx + 1 / 2;
+  console.log(fx);
   return (
     <Link href={knowMoreLink} passHref>
-      <Alert icon={false} severity="warning">
+      <Alert icon={false} severity={fx % 2 == 0 ? "warning" : "info"}>
         {description}
         <Chip
           label="Click here!"
@@ -18,19 +24,20 @@ const Notifi = ({ title, description, knowMoreLink }) => {
           size="small"
           style={{ margin: "0 10px", cursor: "pointer" }}
         />
+        {endDate >= todaysDate() && beginDate <= todaysDate() && (
+          <Chip
+            label="New!!"
+            color="success"
+            size="small"
+            style={{ margin: "0 10px", cursor: "pointer" }}
+          />
+        )}
       </Alert>
     </Link>
   );
 };
 
 const Notification = () => {
-  const initialNotifState = {
-    title: "",
-    description: "",
-    isActive: true,
-    knowMoreLink: "",
-  };
-  const [notif, setNotif] = useState(initialNotifState);
   const [notifsList, setNotifsList] = useState([]);
 
   useEffect(() => {
@@ -43,6 +50,7 @@ const Notification = () => {
           notifs = notifs.map((notif) => {
             return { id: notif[0], ...notif[1] };
           });
+          notifs.reverse();
           setNotifsList(notifs);
         } else {
           // console.log("No data available");
@@ -74,7 +82,10 @@ const Notification = () => {
         <h5>Notifications</h5>
         <Dropdown.Divider />
         {notifsList.map((notif, _id) => (
-          <Notifi key={notif.id} {...notif} />
+          <>
+            <Notifi key={_id} {...notif} />
+            <Divider />
+          </>
         ))}
       </Dropdown.Menu>
     </Dropdown>
