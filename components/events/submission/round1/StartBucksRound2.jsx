@@ -47,6 +47,7 @@ const MyDropzone = ({ formDetails, setFormDetails }) => {
           {!formDetails.file ? (
             <>
               <Button onClick={open}>Click here to select a file</Button>
+              <span style={{ color: "red" }}>Strictly two slides</span>
               <span style={{ color: "red" }}>Only PDF files are allowed</span>
             </>
           ) : (
@@ -74,10 +75,11 @@ const MyDropzone = ({ formDetails, setFormDetails }) => {
   );
 };
 
-const StartBucksRound1 = () => {
+const StartBucksRound2 = () => {
   const [formDetails, setFormDetails] = useState({
     teamName: "",
     teamLeader: { name: "", phoneNumber: "", email: "" },
+    college: "",
     file: undefined,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -90,20 +92,20 @@ const StartBucksRound1 = () => {
     const fileName = formDetails.file.name + uuidv4();
     const storageRef = firebaseStorageRef(
       storage,
-      `events/startBucks/round1/${fileName}`
+      `events/startBucks/round2/${fileName}`
     );
     const metadata = { contentType: formDetails.file.type };
     uploadBytes(storageRef, formDetails.file, metadata).then((snapshot) => {
       getDownloadURL(
         firebaseStorageRef(
           storage,
-          `events/startBucks/round1/${fileName}`
+          `events/startBucks/round2/${fileName}`
         )
       ).then((fileLink) => {
         set(
           ref(
             db,
-            `startBucks2022/round1/${
+            `startBucks2022/round2/${
               formDetails.teamName + formDetails.teamLeader.phoneNumber
             }`
           ),
@@ -117,6 +119,7 @@ const StartBucksRound1 = () => {
             setFormDetails({
               teamName: "",
               teamLeader: { name: "", phoneNumber: "", email: "" },
+              college:"",
               file: undefined,
             });
             alert("Form submitted successfully");
@@ -218,6 +221,25 @@ const StartBucksRound1 = () => {
             required
           />
         </Row>
+        <Row className="form-item">
+          <label htmlFor="fname">
+            <h5>
+              College <span style={{ color: "red" }}>*</span>
+            </h5>
+          </label>
+          <input
+            type="text"
+            value={formDetails.college}
+            onChange={(e) =>
+              setFormDetails({
+                ...formDetails,
+                college: e.target.value
+              })
+            }
+            style={{ borderBottom: "2px solid grey" }}
+            required
+          />
+        </Row>
         <Row>
           <MyDropzone
             formDetails={formDetails}
@@ -235,4 +257,4 @@ const StartBucksRound1 = () => {
   );
 };
 
-export default StartBucksRound1;
+export default StartBucksRound2;
