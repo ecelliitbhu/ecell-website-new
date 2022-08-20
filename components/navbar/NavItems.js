@@ -263,8 +263,8 @@ export const Incubators = () => {
               <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>
-                  {"Technology Innovation"} <br />
-                  {"& Incubation Centre"}
+                  {"Ideation Innovation"} <br />
+                  {"& Incubation Foundation"}
                 </h4>
                 <p>
                   Umbrella organization at IIT BHU for

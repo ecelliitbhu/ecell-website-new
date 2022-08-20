@@ -111,7 +111,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      TIIC
+                      I-3 F
                     </a>
                   </li>
                   <li>
