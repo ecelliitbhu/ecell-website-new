@@ -117,7 +117,7 @@ function Build_us_with() {
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Founder's Name <span style={{ color: "red" }}>*</span>
+                            {`Founder's Name`} <span style={{ color: "red" }}>*</span>
                         </h5>
                     </label>
                     <input
@@ -132,7 +132,7 @@ function Build_us_with() {
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Founder's Institute/Organisationn <span style={{ color: "red" }}>*</span>
+                            {`Founder's Institute/Organisation`} <span style={{ color: "red" }}>*</span>
                         </h5>
                     </label>
                     <input
@@ -147,7 +147,7 @@ function Build_us_with() {
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Founder's Email <span style={{ color: "red" }}>*</span>
+                            {`Founder's Email`} <span style={{ color: "red" }}>*</span>
                         </h5>
                     </label>
                     <input
@@ -162,7 +162,7 @@ function Build_us_with() {
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Founder's Contact No. <span style={{ color: "red" }}>*</span>
+                            {`Founder's Contact No.`} <span style={{ color: "red" }}>*</span>
                         </h5>
                     </label>
                     <input
