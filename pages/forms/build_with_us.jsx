@@ -39,14 +39,15 @@ function build_with_us() {
                                 fontWeight: "bold",
                             }}
                         >
-                            Build With Us Cohorot
+                            Build With Us Cohort
                         </h1>
                         <p style={{alignItems: "center", justifyContent: "center", textAlign: "center"}}>A program to catalyse the journey of starting up a successful venture for budding entrepreneurs who just have an idea.</p>
-                        <Row className='cf'>
-                            <Col style={{fontWeight: "bold", fontSize: "1.2rem"}}><span>&#11044;</span> Have An Idea ?</Col>
-                            <Col style={{fontWeight: "bold", fontSize: "1.2rem"}}><span>&#11044;</span> Build With Us</Col>
-                            <Col style={{fontWeight: "bold", fontSize: "1.2rem"}}><span>&#11044;</span> Launch With US</Col>
-                        </Row>
+                        {/* <Row className='cf'>
+                            <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}>Have An Idea ?</Col>
+                            <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}><span>&#11044;</span> Build With Us<span>&#11044;</span></Col>
+                            <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}> Launch With US</Col>
+                        </Row> */}
+                        <div className='veer'><p>Have an idea?<span style={{margin:"0 1%"}}>&#11044;</span>Build With Us<span style={{margin:"0 1%"}}>&#11044;</span>Launch With Us </p></div>
                     </Row>
                     <Row>
                         <Build_us_with />
