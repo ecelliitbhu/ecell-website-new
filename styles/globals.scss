@@ -1563,6 +1563,11 @@ ul {
   clear: both;
 }
 
+.Text_Area{
+  border-bottom: "2px solid grey" ;
+  background-color: #dce8eb;
+}
+
 .filter-container {
   width: 20%;
   background-color: white;
@@ -1598,6 +1603,10 @@ ul {
   button {
     float: left;
   }
+}
+
+.image-set{
+  margin: "50px auto 0px auto"
 }
 
 .startups {

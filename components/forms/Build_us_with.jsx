@@ -28,13 +28,23 @@ function Build_us_with() {
         member4_organisation: "",
         member4_email: "",
         member4_phone: "",
-        idea_sector: "",
+        idea_sector: "None",
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [text, setText] = useState(false);
+    const [idea_Sec, setIdea_Sec] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(idea_Sec == "others")
+        {
+            if(!text)
+            {
+                alert("Blank Idea Sector Not allowed")
+                return ;
+            }
+        }
         setIsSubmitting(true);
         const db = firebaseDB;
         push(ref(db, "/build_with_us"), {
@@ -83,12 +93,32 @@ function Build_us_with() {
                 member4_organisation: "",
                 member4_email: "",
                 member4_phone: "",
-                idea_sector: "",
+                idea_sector: "None",
             })
             setIsSubmitting(false);
             alert("Form Submitted Sucessfully");
         })
             .catch((error) => alert(error.message));
+    }
+
+    const handleSelect = (e) => {
+        console.log(e.target.value);
+        let field = e.target.value;
+        setIdea_Sec(field);
+        if (field == "Others") {
+            setText(true);
+        }
+        else {
+            setText(false);
+            setForm_detail({ ...form_detail, idea_sector: field });
+        }
+
+    }
+
+    const handleText = (e) => {
+        let text = e.target.value;
+
+        setForm_detail({ ...form_detail, idea_sector: text });
     }
 
 
@@ -102,7 +132,7 @@ function Build_us_with() {
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Name of startup <span style={{ color: "red" }}>*</span>
+                            Name of startup/idea <span style={{ color: "red" }}>*</span>
                         </h5>
                     </label>
                     <input
@@ -418,10 +448,10 @@ function Build_us_with() {
                             Idea Sector <span style={{ color: "red" }}>*</span>
                         </h5>
                     </label>
-                    <select 
-                    className="select"
-                    value={form_detail.idea_sector}
-                    onChange={(e) => setForm_detail({...form_detail, idea_sector:e.target.value})}
+                    <select
+                        className="select"
+                        value={idea_Sec}
+                        onChange={handleSelect}
                     >
                         <option value="Not Sure">Not Sure</option>
                         <option value="Logistics">Logistics</option>
@@ -437,6 +467,7 @@ function Build_us_with() {
                         <option value="Community">Community</option>
                         <option value="Others">Others</option>
                     </select>
+                    <textarea name="idea_Sec" id="idea_Sec" cols="5" rows="8" className="Text_Area" style={text ? { display: "block" } : { display: "none" }} onChange={handleText}></textarea>
                 </Row>
                 <input
                     type={isSubmitting ? "button" : "submit"}
