@@ -207,7 +207,7 @@ function Build_us_with() {
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 1 Name <span style={{ color: "red" }}>*</span>
+                            Team Member 1 Name 
                         </h5>
                     </label>
                     <input
@@ -216,13 +216,13 @@ function Build_us_with() {
                         placeholder="Ethan Hunt"
                         value={form_detail.member1_name}
                         onChange={(e) => setForm_detail({ ...form_detail, member1_name: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 1 Email <span style={{ color: "red" }}>*</span>
+                            Team Member 1 Email 
                         </h5>
                     </label>
                     <input
@@ -231,13 +231,13 @@ function Build_us_with() {
                         placeholder="ethan_hunt@gmail.com"
                         value={form_detail.member1_email}
                         onChange={(e) => setForm_detail({ ...form_detail, member1_email: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 1 Institue/Organisation <span style={{ color: "red" }}>*</span>
+                            Team Member 1 Institue/Organisation 
                         </h5>
                     </label>
                     <input
@@ -246,13 +246,13 @@ function Build_us_with() {
                         placeholder="Name of your organisation"
                         value={form_detail.member1_organisation}
                         onChange={(e) => setForm_detail({ ...form_detail, member1_organisation: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 1 Contact <span style={{ color: "red" }}>*</span>
+                            Team Member 1 Contact
                         </h5>
                     </label>
                     <input
@@ -261,13 +261,13 @@ function Build_us_with() {
                         placeholder="9899564515"
                         value={form_detail.member1_phone}
                         onChange={(e) => setForm_detail({ ...form_detail, member1_phone: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 2 Name <span style={{ color: "red" }}>*</span>
+                            Team Member 2 Name
                         </h5>
                     </label>
                     <input
@@ -276,13 +276,13 @@ function Build_us_with() {
                         placeholder="Ethan Hunt"
                         value={form_detail.member2_name}
                         onChange={(e) => setForm_detail({ ...form_detail, member2_name: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 2 Email <span style={{ color: "red" }}>*</span>
+                            Team Member 2 Email
                         </h5>
                     </label>
                     <input
@@ -291,13 +291,13 @@ function Build_us_with() {
                         placeholder="ethan_hunt@gmail.com"
                         value={form_detail.member2_email}
                         onChange={(e) => setForm_detail({ ...form_detail, member2_email: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 2 Institue/Organisation <span style={{ color: "red" }}>*</span>
+                            Team Member 2 Institue/Organisation
                         </h5>
                     </label>
                     <input
@@ -306,13 +306,13 @@ function Build_us_with() {
                         placeholder="Name of your organisation"
                         value={form_detail.member2_organisation}
                         onChange={(e) => setForm_detail({ ...form_detail, member2_organisation: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 2 Contact <span style={{ color: "red" }}>*</span>
+                            Team Member 2 Contact
                         </h5>
                     </label>
                     <input
@@ -321,12 +321,12 @@ function Build_us_with() {
                         placeholder="9899564515"
                         value={form_detail.member2_phone}
                         onChange={(e) => setForm_detail({ ...form_detail, member2_phone: e.target.value })}
-                        required
+                        
                     />
                 </Row><Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 3 Name <span style={{ color: "red" }}>*</span>
+                            Team Member 3 Name
                         </h5>
                     </label>
                     <input
@@ -335,13 +335,13 @@ function Build_us_with() {
                         placeholder="Ethan Hunt"
                         value={form_detail.member3_name}
                         onChange={(e) => setForm_detail({ ...form_detail, member3_name: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 3 Email <span style={{ color: "red" }}>*</span>
+                            Team Member 3 Email
                         </h5>
                     </label>
                     <input
@@ -350,13 +350,13 @@ function Build_us_with() {
                         placeholder="ethan_hunt@gmail.com"
                         value={form_detail.member3_email}
                         onChange={(e) => setForm_detail({ ...form_detail, member3_email: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 3 Institue/Organisation <span style={{ color: "red" }}>*</span>
+                            Team Member 3 Institue/Organisation
                         </h5>
                     </label>
                     <input
@@ -365,13 +365,13 @@ function Build_us_with() {
                         placeholder="Name of your organisation"
                         value={form_detail.member3_organisation}
                         onChange={(e) => setForm_detail({ ...form_detail, member3_organisation: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 3 Contact <span style={{ color: "red" }}>*</span>
+                            Team Member 3 Contact
                         </h5>
                     </label>
                     <input
@@ -380,12 +380,12 @@ function Build_us_with() {
                         placeholder="9899564515"
                         value={form_detail.member3_phone}
                         onChange={(e) => setForm_detail({ ...form_detail, member3_phone: e.target.value })}
-                        required
+                        
                     />
                 </Row><Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 4 Name <span style={{ color: "red" }}>*</span>
+                            Team Member 4 Name
                         </h5>
                     </label>
                     <input
@@ -394,13 +394,13 @@ function Build_us_with() {
                         placeholder="Ethan Hunt"
                         value={form_detail.member4_name}
                         onChange={(e) => setForm_detail({ ...form_detail, member4_name: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 4 Email <span style={{ color: "red" }}>*</span>
+                            Team Member 4 Email
                         </h5>
                     </label>
                     <input
@@ -409,13 +409,13 @@ function Build_us_with() {
                         placeholder="ethan_hunt@gmail.com"
                         value={form_detail.member4_email}
                         onChange={(e) => setForm_detail({ ...form_detail, member4_email: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 4 Institue/Organisation <span style={{ color: "red" }}>*</span>
+                            Team Member 4 Institue/Organisation
                         </h5>
                     </label>
                     <input
@@ -424,13 +424,13 @@ function Build_us_with() {
                         placeholder="Name of your organisation"
                         value={form_detail.member4_organisation}
                         onChange={(e) => setForm_detail({ ...form_detail, member4_organisation: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
                     <label htmlFor="fname">
                         <h5>
-                            Team Member 4 Contact <span style={{ color: "red" }}>*</span>
+                            Team Member 4 Contact
                         </h5>
                     </label>
                     <input
@@ -439,7 +439,7 @@ function Build_us_with() {
                         placeholder="9899564515"
                         value={form_detail.member4_phone}
                         onChange={(e) => setForm_detail({ ...form_detail, member4_phone: e.target.value })}
-                        required
+                        
                     />
                 </Row>
                 <Row className="form-item">
