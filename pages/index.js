@@ -40,7 +40,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/start-bucks.jpg"
+                src="/cohort.jpg"
                 height={703}
                 width={1080}
                 alt="Team Expansion"
@@ -48,12 +48,11 @@ export default function Home() {
             </Col>
             <Col className="info">
               {/* <h1>E-Cell IIT BHU</h1> */}
-              <h1 style={{ fontSize: "2.6rem" }}>Start-Bucks</h1>
+              <h1 style={{ fontSize: "2.6rem" }}>Build With Us Cohort</h1>
               <p>
-                A uniquely designed event to help beginners build and enhance
-                the problem-solving and entrepreneurial mindset!!
+              A cohort facilitated by a personal accountability partner, a one-to-one guidance session, and a structured roadmap uniquely designed for your idea to build your startup from an idea and get funding at the end of the program.
               </p>
-              <Link href="/events/start-bucks" passHref>
+              <Link href="/forms/build_with_us" passHref>
                 <Button
                   variant="info"
                   className="get-started"
