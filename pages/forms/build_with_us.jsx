@@ -22,7 +22,8 @@ function build_with_us() {
                     >
                         <div style={{ margin: "50px auto 0px auto" }}>
                             <Image
-                                src="/../public/bulid_with_us.jpeg"
+                                src="/bulid_with_us.jpeg"
+                                alt="build_with_us"
                                 height={500}
                                 width={2000}
                                 layout="responsive"

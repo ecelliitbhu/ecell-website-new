@@ -7,9 +7,6 @@ import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
 import Typewriter from "typewriter-effect";
-import { useEffect, useState } from "react";
-import Poster from "../public/esummit-poster.png";
-import team_exp from "../public/team_exp.png";
 export default function Home() {
   return (
     <>
@@ -37,10 +34,11 @@ export default function Home() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                margin:"30px 0"
               }}
             >
               <Image
-                src="/cohort.jpg"
+                src="/cohort.png"
                 height={703}
                 width={1080}
                 alt="Team Expansion"
