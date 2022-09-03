@@ -68,6 +68,7 @@ function build_with_us() {
                 <a
                   href="https://www.instagram.com/p/CiDdL8xBI80/?utm_source=ig_web_copy_link"
                   target={"_blank"}
+                  rel={"noreferrer"}
                 >
                   events.ecelliitbhu.com/info-cohort
                 </a>
