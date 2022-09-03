@@ -57,9 +57,18 @@ function build_with_us() {
                             <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}> Launch With US</Col>
                         </Row> */}
             <div className="veer">
-              <p>
-                To know more details about Cohort visit:
-                <a href="events.ecelliitbhu.com/info-cohort">
+              <p>To know more details about Cohort visit:</p>
+              <p
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                }}
+              >
+                <a
+                  href="https://www.instagram.com/p/CiDdL8xBI80/?utm_source=ig_web_copy_link"
+                  target={"_blank"}
+                >
                   events.ecelliitbhu.com/info-cohort
                 </a>
               </p>
