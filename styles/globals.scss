@@ -1455,6 +1455,19 @@ ul {
     font-size: 0.4rem;
   }
 }
+.veer{
+
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  p{
+    text-align: center;
+    white-space: nowrap;
+   font-size: 0.9rem;
+    display: block;
+    font-weight: bold;
+  }
+}
 
 .cf {
   // text-align: center;
@@ -1469,6 +1482,7 @@ ul {
         font-size: 1.1rem;
       }
     }
+   
     label {
       padding: 0;
       span {
@@ -1511,6 +1525,10 @@ ul {
   textarea {
     height: 126px;
   }
+}
+
+.col{
+  justify-content: space-around;
 }
 
 .select{
@@ -1563,6 +1581,11 @@ ul {
   clear: both;
 }
 
+.Text_Area{
+  border-bottom: "2px solid grey" ;
+  background-color: #dce8eb;
+}
+
 .filter-container {
   width: 20%;
   background-color: white;
@@ -1598,6 +1621,10 @@ ul {
   button {
     float: left;
   }
+}
+
+.image-set{
+  margin: "50px auto 0px auto"
 }
 
 .startups {

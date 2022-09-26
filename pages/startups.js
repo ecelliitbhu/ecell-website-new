@@ -12,6 +12,10 @@ import Image from "next/image";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
   const [isLoading, setIsloading] = useState(true);
+  const [domainFiltersList, setDomainFiltersList] = useState([]);
+  const [foundedInFiltersList, setFoundedInFiltersList] = useState([]);
+  console.log(domainFiltersList, foundedInFiltersList);
+  console.log(startups);
   useEffect(() => {
     onValue(
       ref(firebaseDB, `startupDirectory/`),
@@ -27,6 +31,30 @@ const StartupDirectory = () => {
       (error) => console.log(error)
     );
   }, []);
+  const isDomainOkay = (post) => {
+    if (domainFiltersList.length === 0) {
+      // if no filters are selected then show all posts
+      return true;
+    } else {
+      return domainFiltersList.includes(post[1].domain.toLowerCase());
+    }
+  };
+  const isFoundedInOkay = (post) => {
+    if (foundedInFiltersList.length === 0) {
+      // if no filters are selected then show all posts
+      return true;
+    } else {
+      for (let i = 0; i < foundedInFiltersList.length; i++) {
+        if (
+          post[1].year >= foundedInFiltersList[i].start &&
+          post[1].year < foundedInFiltersList[i].end
+        ) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
   const isOkay = (post) => {
     return (
       (post[1].name &&
@@ -67,9 +95,12 @@ const StartupDirectory = () => {
   function isValid(value) {
     return value != undefined;
   }
+
   const searchedStartups = startups.map((post) => {
-    if (isOkay(post)) return <Startup key={post[0]} details={post[1]} />;
-  });
+    if (isOkay(post) && isDomainOkay(post) && isFoundedInOkay(post)) {
+      return <Startup key={post[0]} details={post[1]} />;
+  }});
+
   const unavailableStartup = () => {
     if (searchedStartups.filter(isValid).length === 0) {
       return (
@@ -91,7 +122,7 @@ const StartupDirectory = () => {
       <Nav />
       <div>
         <Container fluid className="body">
-          {/* <Row
+          <Row
             className="header"
             style={{ height: "fit-content", marginBottom: "50px" }}
           >
@@ -105,8 +136,8 @@ const StartupDirectory = () => {
             >
               IIT BHU Startup Directory
             </h1>
-          </Row> */}
-          {/* <div style={{ display: "flex", justifyContent: "center" }}>
+          </Row>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <aside
               style={{
                 position: "sticky",
@@ -119,7 +150,12 @@ const StartupDirectory = () => {
               }}
             >
               <div className="filter-container" style={{ width: "18vw" }}>
-                <Filter />
+                <Filter
+                  domainFiltersList={domainFiltersList}
+                  setDomainFiltersList={setDomainFiltersList}
+                  foundedInFiltersList={foundedInFiltersList}
+                  setFoundedInFiltersList={setFoundedInFiltersList}
+                />
               </div>
             </aside>
             <div className="startups">
@@ -136,10 +172,16 @@ const StartupDirectory = () => {
                 />
               </Row>
               <Row style={{ margin: "10px" }} className="filter-offcanvas">
-                <FilterOffcanvas style={{ float: "left" }} />
+                <FilterOffcanvas
+                  style={{ float: "left" }}
+                  domainFiltersList={domainFiltersList}
+                  setDomainFiltersList={setDomainFiltersList}
+                  foundedInFiltersList={foundedInFiltersList}
+                  setFoundedInFiltersList={setFoundedInFiltersList}
+                />
               </Row>
               <div style={{ textAlign: "center", maxWidth: "40vw" }}>
-                {!isLoading && unavailableStartup()}
+                {!isLoading && unavailableStartup() && isFoundedInOkay()}
               </div>
               {isLoading ? (
                 <div className="loadingGif">
@@ -154,8 +196,8 @@ const StartupDirectory = () => {
                 <Row className="startups-list">{searchedStartups}</Row>
               )}
             </div>
-          </div> */}
-          <div
+          </div>
+          {/* <div
             style={{
               display: "flex",
               justifyContent: "center",
@@ -174,7 +216,7 @@ const StartupDirectory = () => {
               loop
               autoplay
             ></lottie-player>
-          </div>
+          </div> */}
           <Footer />
         </Container>
       </div>

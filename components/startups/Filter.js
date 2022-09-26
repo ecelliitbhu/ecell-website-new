@@ -1,8 +1,105 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { FaFilter } from "react-icons/fa";
 
-const Filter = () => {
+const domainFilterItems = [
+  "agritech",
+  "fintech",
+  "e-commerce",
+  "edtech",
+  "adtech",
+];
+
+const foundedInFilterItems = [
+  {
+    start: 2019,
+    end: 2022,
+  },
+  {
+    start: 2015,
+    end: 2019,
+  },
+  {
+    start: 2010,
+    end: 2015,
+  },
+  {
+    start: 0,
+    end: 2010,
+  },
+];
+const DomainInput = ({ name, domainFiltersList, setDomainFiltersList }) => {
+  const isOkay = domainFiltersList.includes(name);
+  const [isChecked, setIsChecked] = useState(isOkay);
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
+  };
+  useEffect(() => {
+    if (isChecked) {
+      setDomainFiltersList([...domainFiltersList, name]);
+    } else {
+      setDomainFiltersList(domainFiltersList.filter((item) => item !== name));
+    }
+  }, [isChecked]);
+  return (
+    <li className="domain-input-container">
+      <input
+        type="checkbox"
+        name={name}
+        value={name}
+        checked={isChecked}
+        onChange={handleOnChange}
+        htmlFor="domain"
+      />
+      <label htmlFor={name}>
+        {name.charAt(0).toUpperCase() + name.slice(1)}
+      </label>
+    </li>
+  );
+};
+const FoundedInInput = ({
+  duration,
+  foundedInFiltersList,
+  setFoundedInFiltersList,
+}) => {
+  const isOkay = foundedInFiltersList.includes(duration);
+  const [isChecked, setIsChecked] = useState(isOkay);
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
+  };
+  useEffect(() => {
+    if (isChecked) {
+      setFoundedInFiltersList([...foundedInFiltersList, duration]);
+    } else {
+      setFoundedInFiltersList(
+        foundedInFiltersList.filter((item) => item !== duration)
+      );
+    }
+  }, [isChecked]);
+  const name =
+    duration.start > 0
+      ? duration.start + "-" + duration.end
+      : "before " + duration.end;
+  return (
+    <li className="domain-input-container">
+      <input
+        type="checkbox"
+        checked={isChecked}
+        name={name}
+        value={name}
+        onChange={handleOnChange}
+        htmlFor="foundedin"
+      />
+      <label htmlFor={name}>{name}</label>
+    </li>
+  );
+};
+const Filter = ({
+  domainFiltersList,
+  setDomainFiltersList,
+  foundedInFiltersList,
+  setFoundedInFiltersList,
+}) => {
   return (
     <>
       <Row>
@@ -13,74 +110,31 @@ const Filter = () => {
       <Row className="filter-subcontainer">
         <h3>Domains</h3>
         <ul>
-          <li>
-            <input
-              type="checkbox"
-              id="agritech"
-              name="agritech"
-              value="agritech"
-              htmlFor="domain"
-            />
-            <label htmlFor="agritech"> Agritech</label>
-          </li>
-          <li>
-            <input
-              type="checkbox"
-              id="fintech"
-              name="fintech"
-              value="fintech"
-              htmlFor="domain"
-            />
-            <label htmlFor="fintech"> Fintech</label>
-          </li>
-          <li>
-            <input
-              type="checkbox"
-              id="ecommerce"
-              name="ecommerce"
-              value="ecommerce"
-            />
-            <label htmlFor="ecommerce">  E-Commerce</label>
-          </li>
-          <li>
-            <input
-              type="checkbox"
-              id="edtech"
-              name="edtech"
-              value="edtech"
-            />
-            <label htmlFor="edtech"> Edtech</label>
-          </li>
-          <li>
-            <input
-              type="checkbox"
-              id="adtech"
-              name="adtech"
-              value="adtech"
-            />
-            <label htmlFor="adtech"> Adtech</label>
-          </li>
+          {domainFilterItems.map((item, id) => {
+            return (
+              <DomainInput
+                key={id}
+                name={item}
+                domainFiltersList={domainFiltersList}
+                setDomainFiltersList={setDomainFiltersList}
+              />
+            );
+          })}
         </ul>
       </Row>
       <Row className="filter-subcontainer">
         <h3>Founded in</h3>
         <ul>
-          <li>
-            <input type="checkbox" id="2019-2022" name="2019-2022" value="2019-2022" />
-            <label htmlFor="2019-2022"> 2019-2022</label>
-          </li>
-          <li>
-            <input type="checkbox" id="2015-2019" name="2015-2019" value="2015-2019" />
-            <label htmlFor="2015-2019"> 2015-2019</label>
-          </li>
-          <li>
-            <input type="checkbox" id="2010-2015" name="2010-2015" value="2010-2015" />
-            <label htmlFor="2010-2015"> 2010-2015</label>
-          </li>
-          <li>
-            <input type="checkbox" id="Before 2010" name="Before 2010" value="Before 2010" />
-            <label htmlFor="Before 2010"> Before 2010</label>
-          </li>
+          {foundedInFilterItems.map((item, id) => {
+            return (
+              <FoundedInInput
+                key={id}
+                duration={item}
+                foundedInFiltersList={foundedInFiltersList}
+                setFoundedInFiltersList={setFoundedInFiltersList}
+              />
+            );
+          })}
         </ul>
       </Row>
     </>
