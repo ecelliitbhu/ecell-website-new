@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import Carousel from 'react-bootstrap/Carousel';
 import { Collage, CollagePhone } from "../components/Collage";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
@@ -18,56 +19,164 @@ export default function Home() {
       <Nav />
       <div>
         <Container fluid className="body">
-          <Row
-            className="header"
-            style={{
-              background: "white",
-              borderRadius: "20px",
-              height: "fit-content",
-              padding: "20px 0",
-              margin: "60px auto",
-            }}
-          >
-            <Col
-              className="image-section"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin:"30px 0"
-              }}
-            >
-              <Image
-                src="/cohort.png"
-                height={703}
-                width={1080}
-                alt="Team Expansion"
-              ></Image>
-            </Col>
-            <Col className="info">
-              {/* <h1>E-Cell IIT BHU</h1> */}
-              <h1 style={{ fontSize: "2.6rem" }}>Build With Us Cohort</h1>
-              <p>
-              A cohort facilitated by a personal accountability partner, a one-to-one guidance session, and a structured roadmap uniquely designed for your idea to build your startup from an idea and get funding at the end of the program.
-              </p>
-              <Link href="/forms/build_with_us" passHref>
-                <Button
-                  variant="info"
-                  className="get-started"
+          <Carousel variant="dark">
+            <Carousel.Item interval={2000}>
+              <Row
+                className="header"
+                style={{
+                  background: "white",
+                  borderRadius: "20px",
+                  height: "fit-content",
+                  padding: "20px 0",
+                  margin: "60px auto",
+                }}
+              >
+                <Col
+                  className="image-section"
                   style={{
-                    color: "white",
-                    background: "#fb6930",
-                    width: "fit-content",
-                    fontSize: "1.2rem",
-                    height: "fit-content",
-                    padding: "15px 15px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    margin: "30px 0"
                   }}
                 >
-                  Register Now!
-                </Button>
-              </Link>
-            </Col>
-          </Row>
+                  <Image
+                    src="/cohort.png"
+                    height={703}
+                    width={1080}
+                    alt="Team Expansion"
+                  ></Image>
+                </Col>
+                <Col className="info">
+                  {/* <h1>E-Cell IIT BHU</h1> */}
+                  <h1 style={{ fontSize: "2.6rem" }}>Build With Us Cohort</h1>
+                  <p>
+                    A cohort facilitated by a personal accountability partner, a one-to-one guidance session, and a structured roadmap uniquely designed for your idea to build your startup from an idea and get funding at the end of the program.
+                  </p>
+                  <Link href="/forms/build_with_us" passHref>
+                    <Button
+                      variant="info"
+                      className="get-started"
+                      style={{
+                        color: "white",
+                        background: "#fb6930",
+                        width: "fit-content",
+                        fontSize: "1.2rem",
+                        height: "fit-content",
+                        padding: "15px 15px",
+                      }}
+                    >
+                      Register Now!
+                    </Button>
+                  </Link>
+                </Col>
+              </Row>
+            </Carousel.Item>
+            <Carousel.Item interval={1000}>
+              <Row
+                className="header"
+                style={{
+                  background: "white",
+                  borderRadius: "20px",
+                  height: "fit-content",
+                  padding: "20px 0",
+                  margin: "60px auto",
+                }}
+              >
+                <Col
+                  className="image-section"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    margin: "30px 0"
+                  }}
+                >
+                  <Image
+                    src="/cohort.png"
+                    height={703}
+                    width={1080}
+                    alt="Team Expansion"
+                  ></Image>
+                </Col>
+                <Col className="info">
+                  {/* <h1>E-Cell IIT BHU</h1> */}
+                  <h1 style={{ fontSize: "2.6rem" }}>Build With Us Cohort</h1>
+                  <p>
+                    A cohort facilitated by a personal accountability partner, a one-to-one guidance session, and a structured roadmap uniquely designed for your idea to build your startup from an idea and get funding at the end of the program.
+                  </p>
+                  <Link href="/forms/build_with_us" passHref>
+                    <Button
+                      variant="info"
+                      className="get-started"
+                      style={{
+                        color: "white",
+                        background: "#fb6930",
+                        width: "fit-content",
+                        fontSize: "1.2rem",
+                        height: "fit-content",
+                        padding: "15px 15px",
+                      }}
+                    >
+                      Register Now!
+                    </Button>
+                  </Link>
+                </Col>
+              </Row>
+            </Carousel.Item>
+            <Carousel.Item interval={1000}>
+              <Row
+                className="header"
+                style={{
+                  background: "white",
+                  borderRadius: "20px",
+                  height: "fit-content",
+                  padding: "20px 0",
+                  margin: "60px auto",
+                }}
+              >
+                <Col
+                  className="image-section"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    margin: "30px 0"
+                  }}
+                >
+                  <Image
+                    src="/cohort.png"
+                    height={703}
+                    width={1080}
+                    alt="Team Expansion"
+                  ></Image>
+                </Col>
+                <Col className="info">
+                  {/* <h1>E-Cell IIT BHU</h1> */}
+                  <h1 style={{ fontSize: "2.6rem" }}>Build With Us Cohort</h1>
+                  <p>
+                    A cohort facilitated by a personal accountability partner, a one-to-one guidance session, and a structured roadmap uniquely designed for your idea to build your startup from an idea and get funding at the end of the program.
+                  </p>
+                  <Link href="/forms/build_with_us" passHref>
+                    <Button
+                      variant="info"
+                      className="get-started"
+                      style={{
+                        color: "white",
+                        background: "#fb6930",
+                        width: "fit-content",
+                        fontSize: "1.2rem",
+                        height: "fit-content",
+                        padding: "15px 15px",
+                      }}
+                    >
+                      Register Now!
+                    </Button>
+                  </Link>
+                </Col>
+              </Row>
+            </Carousel.Item>
+          </Carousel>
           <Row className="header">
             <Col className="info">
               <h1>E-Cell IIT BHU</h1>

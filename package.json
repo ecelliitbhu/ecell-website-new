@@ -48,6 +48,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "firebase": "^9.8.1",
+    "global": "^4.4.0",
     "jsonwebtoken": "^8.5.1",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^2.7.0",
