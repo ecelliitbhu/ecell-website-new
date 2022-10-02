@@ -3,6 +3,7 @@ import {
   Initiatives,
   Learn,
   Connect,
+  Team,
   Incubators,
   Contact,
   Startups,
@@ -27,7 +28,8 @@ const Nav = () => {
               <Initiatives />
               <Learn />
               <Incubators />
-              <Connect />
+              {/* <Connect /> */}
+              <Team />
               <Startups />
               <Contact />
               <Notification />

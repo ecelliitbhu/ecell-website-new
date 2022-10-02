@@ -620,6 +620,17 @@ export const Contact = () => {
     </li>
   );
 };
+export const Team = () => {
+  return (
+    <li className="nav-item dropdown contact-nav">
+      <Link href="/team" passHref>
+        <a className="nav-link">
+          <h3>Team</h3>
+        </a>
+      </Link>
+    </li>
+  );
+};
 export const Startups = () => {
   return (
     <li className="nav-item dropdown startups-nav">

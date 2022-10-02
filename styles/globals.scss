@@ -1631,7 +1631,6 @@ ul {
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  width: 80% !important;
   // justify-content: center;
   align-items: center;
   .search-container {
@@ -1640,7 +1639,7 @@ ul {
       border-radius: 10px;
       padding: 7px;
       border: 1px solid rgb(200, 200, 200);
-      width: 95%;
+      width: 98%;
       margin: auto;
       color: grey;
     }
@@ -1999,4 +1998,10 @@ ul {
 
 .loadingGif {
   margin: auto;
+}
+
+.domain-input-container {
+  label {
+    margin: 5px;
+  }
 }

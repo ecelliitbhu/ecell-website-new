@@ -5,7 +5,12 @@ import { FaFilter } from "react-icons/fa";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import CloseIcon from "@mui/icons-material/Close";
 import Filter from "./Filter";
-const FilterOffcanvas = ({ domainFiltersList, setDomainFiltersList }) => {
+const FilterOffcanvas = ({
+  domainFiltersList,
+  setDomainFiltersList,
+  foundedInFiltersList,
+  setFoundedInFiltersList,
+}) => {
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -50,6 +55,8 @@ const FilterOffcanvas = ({ domainFiltersList, setDomainFiltersList }) => {
           <Filter
             domainFiltersList={domainFiltersList}
             setDomainFiltersList={setDomainFiltersList}
+            foundedInFiltersList={foundedInFiltersList}
+            setFoundedInFiltersList={setFoundedInFiltersList}
           />
         </Col>
       </Drawer>

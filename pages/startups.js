@@ -14,8 +14,6 @@ const StartupDirectory = () => {
   const [isLoading, setIsloading] = useState(true);
   const [domainFiltersList, setDomainFiltersList] = useState([]);
   const [foundedInFiltersList, setFoundedInFiltersList] = useState([]);
-  console.log(domainFiltersList, foundedInFiltersList);
-  console.log(startups);
   useEffect(() => {
     onValue(
       ref(firebaseDB, `startupDirectory/`),
@@ -92,24 +90,17 @@ const StartupDirectory = () => {
   };
   const [search, setSearch] = useState("");
 
-  function isValid(value) {
-    return value != undefined;
-  }
-
-  const searchedStartups = startups.map((post) => {
-    if (isOkay(post) && isDomainOkay(post) && isFoundedInOkay(post)) {
-      return <Startup key={post[0]} details={post[1]} />;
-  }});
+  const searchedStartups = startups.filter(
+    (post) => isOkay(post) && isDomainOkay(post) && isFoundedInOkay(post)
+  );
 
   const unavailableStartup = () => {
-    if (searchedStartups.filter(isValid).length === 0) {
-      return (
-        <h3 style={{ marginTop: "5vh" }}>
-          If your startup is not in the list, then please fill the form here, we
-          will add it as soon as possible, and update you as well!
-        </h3>
-      );
-    }
+    return (
+      <h3 style={{ margin: "5vh auto", fontSize:"1.2rem", width:"80%", textAlign:"center" }}>
+        If your startup is not in the list, then please fill the form here, we
+        will add it as soon as possible, and update you as well!
+      </h3>
+    );
   };
 
   return (
@@ -147,6 +138,7 @@ const StartupDirectory = () => {
                 paddingLeft: "0.25rem",
                 marginLeft: "-0.25rem",
                 overflowY: "auto",
+                overflowY: "hidden",
               }}
             >
               <div className="filter-container" style={{ width: "18vw" }}>
@@ -180,9 +172,9 @@ const StartupDirectory = () => {
                   setFoundedInFiltersList={setFoundedInFiltersList}
                 />
               </Row>
-              <div style={{ textAlign: "center", maxWidth: "40vw" }}>
-                {!isLoading && unavailableStartup() && isFoundedInOkay()}
-              </div>
+              {/* <div style={{ textAlign: "center", maxWidth: "40vw" }}>
+                {!isLoading && unavailableStartup()}
+              </div> */}
               {isLoading ? (
                 <div className="loadingGif">
                   <Image
@@ -192,8 +184,14 @@ const StartupDirectory = () => {
                     height="300"
                   />
                 </div>
+              ) : searchedStartups.length == 0 ? (
+                unavailableStartup()
               ) : (
-                <Row className="startups-list">{searchedStartups}</Row>
+                <Row className="startups-list">
+                  {searchedStartups.map((startup) => (
+                    <Startup key={startup[0]} details={startup[1]} />
+                  ))}
+                </Row>
               )}
             </div>
           </div>
