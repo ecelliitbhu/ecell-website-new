@@ -190,12 +190,16 @@ const StartupDirectory = () => {
                   style={{
                     backgroundColor: "#fb6930",
                     color: "white",
-                    margin: "20px 0 0 0",
+                    margin: "20px 0 20px 0",
                   }}
                 >
                   Fill out the form here to add your startup
                 </Button>
               </Link>
+              <a style={{ color: "black" }} href="mailto:ecell@iitbhu.ac.in">
+                For any queries and suggestions please drop a mail at:
+                startupdirectory@ecelliitbhu.com
+              </a>
               {/* <div style={{ textAlign: "center", maxWidth: "40vw" }}>
                 {!isLoading && unavailableStartup()}
               </div> */}
