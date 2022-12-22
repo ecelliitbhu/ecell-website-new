@@ -259,13 +259,13 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>Linkedin of Founder 2</h5>
+                  <h5>Linkedin of Founder 1</h5>
                 </label>
                 <input
                   type="text"
-                  placeholder="Linkedin of Founder 2"
-                  value={linkedin2}
-                  onChange={(e) => setLinkedin2(e.target.value)}
+                  placeholder="Linkedin of Founder 1"
+                  value={linkedin1}
+                  onChange={(e) => setLinkedin1(e.target.value)}
                   style={{ borderBottom: "2px solid grey" }}
                 />
               </Row>
@@ -279,6 +279,7 @@ const AddStartup = () => {
                   value={founder2}
                   onChange={(e) => setFounder2(e.target.value)}
                   style={{ borderBottom: "2px solid grey" }}
+                  required
                 />
               </Row>
               <Row className="form-item">
