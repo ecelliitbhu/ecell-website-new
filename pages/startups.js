@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Nav from "../components/navbar/NavLayout";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Filter from "../components/startups/Filter";
 import Startup from "../components/startups/Startup";
@@ -9,6 +9,7 @@ import FilterOffcanvas from "../components/startups/FilterOffcanvas";
 import { ref, get, once, onValue } from "firebase/database";
 import { firebaseDB } from "../lib/firebase";
 import Image from "next/image";
+import Link from "next/link";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
   const [isLoading, setIsloading] = useState(true);
@@ -96,9 +97,17 @@ const StartupDirectory = () => {
 
   const unavailableStartup = () => {
     return (
-      <h3 style={{ margin: "5vh auto", fontSize:"1.2rem", width:"80%", textAlign:"center" }}>
-        If your startup is not in the list, then please fill the form here, we
-        will add it as soon as possible, and update you as well!
+      <h3
+        style={{
+          margin: "25vh auto",
+          fontSize: "2rem",
+          width: "80%",
+          color: "red",
+          height: "fit-content !important",
+          textAlign: "center",
+        }}
+      >
+        No results found!
       </h3>
     );
   };
@@ -123,25 +132,29 @@ const StartupDirectory = () => {
                 fontSize: "3rem",
                 color: "black",
                 fontWeight: "bold",
+                textAlign: "center",
               }}
             >
               IIT BHU Startup Directory
             </h1>
           </Row>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "flex", justifyContent: "left", gap: "20px" }}>
             <aside
               style={{
                 position: "sticky",
                 top: "5rem",
                 display: "block !important",
                 height: "calc(96vh - 4rem)",
-                paddingLeft: "0.25rem",
-                marginLeft: "-0.25rem",
+                // paddingLeft: "0.25rem",
+                // marginLeft: "-0.25rem",
                 overflowY: "auto",
                 overflowY: "hidden",
               }}
             >
-              <div className="filter-container" style={{ width: "18vw" }}>
+              <div
+                className="filter-container"
+                style={{ width: "fit-content" }}
+              >
                 <Filter
                   domainFiltersList={domainFiltersList}
                   setDomainFiltersList={setDomainFiltersList}
@@ -172,6 +185,17 @@ const StartupDirectory = () => {
                   setFoundedInFiltersList={setFoundedInFiltersList}
                 />
               </Row>
+              <Link href="/forms/add_startup">
+                <Button
+                  style={{
+                    backgroundColor: "#fb6930",
+                    color: "white",
+                    margin: "20px 0 0 0",
+                  }}
+                >
+                  Fill out the form here to add your startup
+                </Button>
+              </Link>
               {/* <div style={{ textAlign: "center", maxWidth: "40vw" }}>
                 {!isLoading && unavailableStartup()}
               </div> */}

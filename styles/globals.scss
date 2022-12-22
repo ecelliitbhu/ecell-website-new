@@ -628,7 +628,7 @@ ul {
 
   button {
     display: inline;
-    height: 100%;
+    height: fit-content;
     margin: 0px;
   }
   #login {
@@ -1455,15 +1455,14 @@ ul {
     font-size: 0.4rem;
   }
 }
-.veer{
-
+.veer {
   justify-content: center;
   text-align: center;
   align-items: center;
-  p{
+  p {
     text-align: center;
     white-space: nowrap;
-   font-size: 0.9rem;
+    font-size: 0.9rem;
     display: block;
     font-weight: bold;
   }
@@ -1482,7 +1481,7 @@ ul {
         font-size: 1.1rem;
       }
     }
-   
+
     label {
       padding: 0;
       span {
@@ -1527,11 +1526,11 @@ ul {
   }
 }
 
-.col{
+.col {
   justify-content: space-around;
 }
 
-.select{
+.select {
   background-color: #1c1f1f;
   padding: 10px;
   font-weight: bold;
@@ -1540,7 +1539,6 @@ ul {
   align-items: center;
   text-align: center;
 }
-
 
 .half {
   float: left;
@@ -1581,8 +1579,8 @@ ul {
   clear: both;
 }
 
-.Text_Area{
-  border-bottom: "2px solid grey" ;
+.Text_Area {
+  border-bottom: "2px solid grey";
   background-color: #dce8eb;
 }
 
@@ -1623,13 +1621,14 @@ ul {
   }
 }
 
-.image-set{
-  margin: "50px auto 0px auto"
+.image-set {
+  margin: "50px auto 0px auto";
 }
 
 .startups {
   max-width: 1000px;
   display: flex;
+  width: 100%;
   flex-direction: column;
   // justify-content: center;
   align-items: center;
@@ -1638,7 +1637,7 @@ ul {
     input {
       border-radius: 10px;
       padding: 7px;
-      border: 1px solid rgb(200, 200, 200);
+      border: 3px solid rgb(200, 200, 200);
       width: 98%;
       margin: auto;
       color: grey;
