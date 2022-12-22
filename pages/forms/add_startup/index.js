@@ -42,7 +42,6 @@ const AddStartup = () => {
   const [linkedin4, setLinkedin4] = useState("");
   const [linkedin5, setLinkedin5] = useState("");
   const [website, setWebsite] = useState("");
-  const [status, setStatus] = useState("");
   const [files, setFiles] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   // console.log(files);
@@ -71,19 +70,18 @@ const AddStartup = () => {
     const imageName = name + year + uuidv4();
     const storageRef = firebaseStorageRef(
       storage,
-      `startupDirectory/${imageName}`
+      `startupDirectory/addRequests/${imageName}`
     );
     const metadata = { contentType: "image/png" };
     uploadBytes(storageRef, files, metadata).then((snapshot) => {
       getDownloadURL(
-        firebaseStorageRef(storage, `startupDirectory/${imageName}`)
+        firebaseStorageRef(storage, `startupDirectory/addRequests/${imageName}`)
       )
         .then((url) => {
-          push(ref(db, "startupDirectory/"), {
+          push(ref(db, "startupDirectory/addRequests/"), {
             name: name,
             description: description,
             domain: domain,
-            status: status,
             year: year,
             website: website,
             founders: foundersArray,
@@ -93,7 +91,6 @@ const AddStartup = () => {
               setName("");
               setDomain("");
               setDescription("");
-              setStatus("");
               setYear("");
               setWebsite("");
               setFounder1("");
@@ -171,7 +168,7 @@ const AddStartup = () => {
               <Row className="form-item">
                 <label>
                   <h5>
-                    Name <span style={{ color: "red" }}>*</span>
+                    Name of the startup <span style={{ color: "red" }}>*</span>
                   </h5>
                 </label>
                 <input
@@ -186,7 +183,7 @@ const AddStartup = () => {
               <Row className="form-item">
                 <label>
                   <h5>
-                    File <span style={{ color: "red" }}>*</span>
+                    Logo of the startup <span style={{ color: "red" }}>*</span>
                   </h5>
                 </label>
                 <input
@@ -201,7 +198,7 @@ const AddStartup = () => {
               <Row className="form-item">
                 <label>
                   <h5>
-                    Enter Domain <span style={{ color: "red" }}>*</span>
+                    Enter the domain <span style={{ color: "red" }}>*</span>
                   </h5>
                 </label>
                 <input
@@ -215,7 +212,8 @@ const AddStartup = () => {
               <Row className="form-item">
                 <label>
                   <h5>
-                    Enter Year <span style={{ color: "red" }}>*</span>
+                    Enter the year the startup was founded in{" "}
+                    <span style={{ color: "red" }}>*</span>
                   </h5>
                 </label>
                 <input
@@ -225,21 +223,6 @@ const AddStartup = () => {
                   style={{ borderBottom: "2px solid grey" }}
                   onChange={(e) => setYear(e.target.value)}
                   required
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>
-                    Enter Status <span style={{ color: "red" }}>*</span>
-                  </h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter status"
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value)}
-                  required
-                  style={{ borderBottom: "2px solid grey" }}
                 />
               </Row>
               <Row className="form-item">
@@ -271,14 +254,24 @@ const AddStartup = () => {
                   value={founder1}
                   onChange={(e) => setFounder1(e.target.value)}
                   style={{ borderBottom: "2px solid grey" }}
+                  required
                 />
               </Row>
-
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Enter Founder 2 <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Linkedin of Founder 2</h5>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Linkedin of Founder 2"
+                  value={linkedin2}
+                  onChange={(e) => setLinkedin2(e.target.value)}
+                  style={{ borderBottom: "2px solid grey" }}
+                />
+              </Row>
+              <Row className="form-item">
+                <label>
+                  <h5>Enter Founder 2</h5>
                 </label>
                 <input
                   type="text"
@@ -290,13 +283,11 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Linkedin Founder 2 <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Linkedin of Founder 2</h5>
                 </label>
                 <input
                   type="text"
-                  placeholder="Linkedin Founder 2"
+                  placeholder="Linkedin of Founder 2"
                   value={linkedin2}
                   onChange={(e) => setLinkedin2(e.target.value)}
                   style={{ borderBottom: "2px solid grey" }}
@@ -304,9 +295,7 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Enter Founder 3 <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Enter Founder 3</h5>
                 </label>
                 <input
                   type="text"
@@ -318,13 +307,11 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Linkedin Founder 3 <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Linkedin of Founder 3</h5>
                 </label>
                 <input
                   type="text"
-                  placeholder="Linkedin Founder 3"
+                  placeholder="Linkedin of Founder 3"
                   value={linkedin3}
                   onChange={(e) => setLinkedin3(e.target.value)}
                   style={{ borderBottom: "2px solid grey" }}
@@ -332,9 +319,7 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Enter Founder 4 <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Enter Founder 4</h5>
                 </label>
                 <input
                   type="text"
@@ -346,13 +331,11 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Linkedin Founder 4 <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Linkedin of Founder 4</h5>
                 </label>
                 <input
                   type="text"
-                  placeholder="Linkedin Founder 4"
+                  placeholder="Linkedin of Founder 4"
                   value={linkedin4}
                   onChange={(e) => setLinkedin4(e.target.value)}
                   style={{ borderBottom: "2px solid grey" }}
@@ -360,9 +343,7 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Enter Founder 5 <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Enter Founder 5</h5>
                 </label>
                 <input
                   type="text"
@@ -374,13 +355,11 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Linkedin Founder 5 <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Linkedin of Founder 5</h5>
                 </label>
                 <input
                   type="text"
-                  placeholder="Linkedin Founder 5"
+                  placeholder="Linkedin of Founder 5"
                   value={linkedin5}
                   onChange={(e) => setLinkedin5(e.target.value)}
                   style={{ borderBottom: "2px solid grey" }}
@@ -388,9 +367,7 @@ const AddStartup = () => {
               </Row>
               <Row className="form-item">
                 <label>
-                  <h5>
-                    Startup Website <span style={{ color: "red" }}>*</span>
-                  </h5>
+                  <h5>Startup Website</h5>
                 </label>
                 <input
                   type="text"
@@ -550,7 +527,7 @@ const AddStartup = () => {
           </label>
           <input
             type="text"
-            placeholder="Linkedin Founder 2"
+            placeholder="Linkedin of Founder 2"
             value={linkedin2}
             onChange={(e) => setLinkedin2(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
@@ -592,7 +569,7 @@ const AddStartup = () => {
           </label>
           <input
             type="text"
-            placeholder="Linkedin Founder 4"
+            placeholder="Linkedin of Founder 4"
             value={linkedin4}
             onChange={(e) => setLinkedin4(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
@@ -620,7 +597,7 @@ const AddStartup = () => {
           </label>
           <input
             type="text"
-            placeholder="Linkedin Founder 5"
+            placeholder="Linkedin of Founder 5"
             value={linkedin5}
             onChange={(e) => setLinkedin5(e.target.value)}
             style={{ borderBottom: "2px solid grey" }}
