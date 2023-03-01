@@ -3,7 +3,7 @@ import Head from "next/head"
 import { firebaseDB } from "../../lib/firebase";
 import { ref, push } from "firebase/database";
 import { useState } from "react";
-const form = () => {
+const Form = () => {
     const [teamname, setTeamname] = useState("")
     const [email, setEmail] = useState("")
     const [tleadname, setTleadname] = useState("")
@@ -52,7 +52,7 @@ const form = () => {
             </Head>
             <div className='novice'>
                 <h2>Novice Fiesta</h2>
-                <h4>Let's see, what Novice Fiesta 2022 is all about?</h4>
+                <h4>Let&apos;s see, what Novice Fiesta 2022 is all about?</h4>
                 <span>Are you exhausted from writing your lengthy mid-sem assignments? Come explore the enthralling world of entrepreneurship with Novice Fiesta.</span>
                 <span>E-Cell IIT BHU brings to you 3 fun and exciting events, 3 insightful talks with successful startup founders, and 3 days filled with fun and interesting prizes.</span>
 
@@ -74,7 +74,7 @@ const form = () => {
                         <label><h5 htmlFor="teamname" className="">Team Name<span style={{ color: "red" }}>*</span></h5></label>
                         <input value={teamname} type="text" className='form-input' id="teamname" name="teamname" placeholder="Proxy" required onChange={(e) => setTeamname(e.target.value)} />
                     </div>
-                    <div className="novicename">Team Leader's Details</div>
+                    <div className="novicename">Team Leader&apos;s Details</div>
                     <div className='noviceitem'>
                         <label><h5 htmlFor="tleadname" className="">Name<span style={{ color: "red" }}>*</span></h5></label>
                         <input value={tleadname} type="text" className='form-input' id="tleadname" name="tleadname" placeholder="Name" required onChange={(e) => setTleadname(e.target.value)} />
@@ -115,4 +115,4 @@ const form = () => {
     )
 }
 
-export default form
+export default Form
