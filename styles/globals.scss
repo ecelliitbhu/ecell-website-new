@@ -12,7 +12,6 @@
   height: 200%;
   opacity: 0;
   transform: rotate(30deg);
-
   background: rgba(255, 255, 255, 0.13);
   background: linear-gradient(
     to right,
@@ -1467,12 +1466,36 @@ ul {
     font-weight: bold;
   }
 }
-
+.novice h2{
+  margin-top: 5%;
+  text-align: center;
+  font-size: 35px;
+}
+.novice span{
+  display: block;
+}
+.novice ul{
+  background-color: wheat;
+  margin-top: 3%;
+}
+.novice{
+  margin: 2% 10%;
+  padding: 2% 5%;
+  background-color: wheat;
+}
+.novicename{
+  margin: 3%;
+  font-size: 20px;
+  font-weight: bold;
+}
+.noviceitem{
+  margin: 3%;
+}
 .cf {
   // text-align: center;
   margin: 20px auto;
   width: 60%;
-  .form-item {
+  .form-item { 
     margin: 25px 0px;
     .checkbox-option {
       input,

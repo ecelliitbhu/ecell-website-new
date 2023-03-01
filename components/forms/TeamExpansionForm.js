@@ -182,7 +182,6 @@ const TeamExpansionForm = () => {
               checked={brand}
               onChange={() => setBrand(!brand)}
             />
-
             <span>Branding Team</span>
           </Row>
           <Row className="checkbox-option">
