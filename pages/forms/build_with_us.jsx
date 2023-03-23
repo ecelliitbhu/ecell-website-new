@@ -57,7 +57,7 @@ function build_with_us() {
                             <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}> Launch With US</Col>
                         </Row> */}
             <div className="veer">
-              <p>To know more details about Cohort visit:</p>
+              {/*<p>To know more details about Cohort visit:</p>
               <p
                 style={{
                   alignItems: "center",
@@ -72,7 +72,7 @@ function build_with_us() {
                 >
                   events.ecelliitbhu.com/info-cohort
                 </a>
-              </p>
+              </p>*/}
               <p>
                 Have an idea?<span style={{ margin: "0 1%" }}>&#11044;</span>
                 Build With Us<span style={{ margin: "0 1%" }}>&#11044;</span>
