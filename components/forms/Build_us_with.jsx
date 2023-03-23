@@ -44,7 +44,7 @@ function Build_us_with() {
     }
     setIsSubmitting(true);
     const db = firebaseDB;
-    push(ref(db, "/build_with_us"), {
+    push(ref(db, "/build_with_us2"), {
       Startup_Name: form_detail.Startup_Name,
       Founder_Name: form_detail.Founder_Name,
       Founder_Oraganisation: form_detail.Founder_Oraganisation,
