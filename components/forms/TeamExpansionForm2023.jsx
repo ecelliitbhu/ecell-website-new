@@ -5,8 +5,9 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 
-import { firebaseDB } from "../../lib/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { firestoreDB } from "../../lib/firebase";
+
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const VERTICALS = [
   "Startup Assistance Program",
@@ -52,8 +53,9 @@ export default function TeamExpansionForm2023() {
 
   const onSubmit = (data) => {
     // console.log(data);
-    addDoc(collection(firebaseDB, "teamExpansion2023"), {
+    addDoc(collection(firestoreDB, "teamExpansion2023"), {
       ...data,
+      timestamp: serverTimestamp(),
     })
       .then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
