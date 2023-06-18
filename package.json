@@ -66,6 +66,8 @@
     "react-cookie": "^4.1.1",
     "react-dom": "17.0.2",
     "react-dropzone": "^14.2.2",
+    "react-hook-form": "^7.44.3",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.2.0",
     "react-image": "^4.0.3",
     "react-modern-calendar-datepicker": "^3.1.6",
@@ -77,6 +79,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@hookform/devtools": "^4.3.1",
     "@types/jsonwebtoken": "^8.5.5",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2"

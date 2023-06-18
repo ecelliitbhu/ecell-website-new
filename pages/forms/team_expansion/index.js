@@ -3,15 +3,16 @@ import { Container, Row } from "react-bootstrap";
 import Footer from "../../../components/Footer";
 import Nav from "../../../components/navbar/NavLayout";
 import TeamExpansionForm from "../../../components/forms/TeamExpansionForm";
+import TeamExpansionForm2023 from "../../../components/forms/TeamExpansionForm2023";
 export default function Contacts() {
   return (
     <>
       <Head>
-        <title>Team Expansion</title>
+        <title>Team Expansion 2023</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      {/* <div>
+      <div>
         <Container fluid className="body">
           <Row
             className="header"
@@ -50,12 +51,12 @@ export default function Contacts() {
             </p>
           </Row>
           <Row>
-            <TeamExpansionForm />
+            <TeamExpansionForm2023 />
           </Row>
           <Footer />
         </Container>
-      </div> */}
-      <div>
+      </div>
+      {/* <div>
         <Container>
           <div
             style={{
@@ -74,7 +75,7 @@ export default function Contacts() {
           </div>
           <Footer />
         </Container>
-      </div>
+      </div> */}
     </>
   );
 }

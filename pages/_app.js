@@ -7,6 +7,8 @@ import { AuthProvider } from "../context/auth";
 import Head from "next/head";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import Script from "next/script";
+import { DevTool } from "@hookform/devtools";
+import { Toaster } from "react-hot-toast";
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -57,6 +59,9 @@ function MyApp({ Component, pageProps }) {
                 `}
               </Script>
               <Component {...pageProps} />
+              <div>
+                <Toaster position={"bottom-right"} />
+              </div>
             </>
           )}
         </Layout>
