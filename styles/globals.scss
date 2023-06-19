@@ -19,8 +19,8 @@
   border-radius: 0.5rem;
   border-width: 1px;
   border-style: solid;
-  background-color: var(--background);
-  color: var(--card-foreground);
+  background-color: hsl(var(--background));
+  color: hsl(var(--card-foreground));
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -32,13 +32,25 @@
 }
 
 .form-card-description {
-  font-size: 0.875rem; /* Equivalent to text-sm */
-  color: var(--muted-foreground); /* Equivalent to text-muted-foreground */
+  font-size: 1rem; /* Equivalent to text-sm */
+  //color:  hsl(var(--muted-foreground)); /* Equivalent to text-muted-foreground */
 }
 
 .form-card-content {
+  font-size: 1.2rem;
   padding: 1.5rem; /* Equivalent to p-6 */
-  padding-top: 0; /* Equivalent to pt-0 */
+  //padding-top: 0; /* Equivalent to pt-0 */
+}
+@media screen and (min-width: 768px) {
+  /* Styles for tablet and devices with greater width */
+  //.name-email {
+  //  display: flex;
+  //  width: 100%;
+  //  justify-content: space-between;
+  //}
+  .form-card-content{
+    padding: 3rem; /* Equivalent to p-8 */
+  }
 }
 
 .test-shine:after {
