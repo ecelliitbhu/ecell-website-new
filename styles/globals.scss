@@ -2,6 +2,44 @@
   font-family: "averta";
   src: url("../public/averta.ttf");
 }
+:root{
+  --foreground: 222.2 47.4% 11.2%;
+  --background: 0 0% 100%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 47.4% 11.2%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 47.4% 11.2%;
+}
+.form-card{
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  background-color: var(--background);
+  color: var(--card-foreground);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.form-card-title {
+  font-size: 1.125rem; /* Equivalent to text-lg */
+  font-weight: 600; /* Equivalent to font-semibold */
+  line-height: 1; /* Equivalent to leading-none */
+  letter-spacing: -0.025em; /* Equivalent to tracking-tight */
+}
+
+.form-card-description {
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  color: var(--muted-foreground); /* Equivalent to text-muted-foreground */
+}
+
+.form-card-content {
+  padding: 1.5rem; /* Equivalent to p-6 */
+  padding-top: 0; /* Equivalent to pt-0 */
+}
 
 .test-shine:after {
   content: "";
