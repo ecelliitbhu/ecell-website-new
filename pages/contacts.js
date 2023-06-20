@@ -143,7 +143,7 @@ export default function Contacts() {
                   width: "280px",
                 }}
               >
-                <Link href="https://www.instagram.com/ecelliitbhu/">
+                <Link href="https://www.instagram.com/ecelliitbhu/" passHref>
                   <FaInstagram
                     className="social-icons"
                     style={
@@ -154,7 +154,7 @@ export default function Contacts() {
                     }
                   ></FaInstagram>
                 </Link>
-                <Link href="https://www.facebook.com/ecelliitvaranasi">
+                <Link href="https://www.facebook.com/ecelliitvaranasi" passHref>
                   <FaFacebook
                     className="social-icons"
                     style={
@@ -165,7 +165,10 @@ export default function Contacts() {
                     }
                   ></FaFacebook>
                 </Link>
-                <Link href="https://www.linkedin.com/company/ecelliitbhu/">
+                <Link
+                  href="https://www.linkedin.com/company/ecelliitbhu/"
+                  passHref
+                >
                   <FaLinkedin
                     className="social-icons"
                     style={
@@ -176,7 +179,7 @@ export default function Contacts() {
                     }
                   ></FaLinkedin>
                 </Link>
-                <Link href="https://twitter.com/ecelliitbhu">
+                <Link href="https://twitter.com/ecelliitbhu" passHref>
                   <FaTwitter
                     className="social-icons"
                     style={
@@ -187,7 +190,10 @@ export default function Contacts() {
                     }
                   ></FaTwitter>
                 </Link>
-                <Link href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ">
+                <Link
+                  href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"
+                  passHref
+                >
                   <FaYoutube
                     className="social-icons"
                     style={
@@ -198,7 +204,7 @@ export default function Contacts() {
                     }
                   ></FaYoutube>
                 </Link>
-                <Link href="https://discord.com/invite/EPm5mfbCKP">
+                <Link href="https://discord.com/invite/EPm5mfbCKP" passHref>
                   <FaDiscord
                     className="social-icons"
                     style={

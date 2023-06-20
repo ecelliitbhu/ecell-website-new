@@ -185,7 +185,7 @@ const StartupDirectory = () => {
                   setFoundedInFiltersList={setFoundedInFiltersList}
                 />
               </Row>
-              <Link href="/forms/add_startup">
+              <Link href="/forms/add_startup" passHref>
                 <Button
                   style={{
                     backgroundColor: "#fb6930",
@@ -212,7 +212,7 @@ const StartupDirectory = () => {
                     height="300"
                   />
                 </div>
-              ) : searchedStartups.length == 0 ? (
+              ) : searchedStartups.length === 0 ? (
                 unavailableStartup()
               ) : (
                 <Row className="startups-list">

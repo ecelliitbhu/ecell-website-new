@@ -32,8 +32,9 @@
 }
 
 .form-card-description {
-  font-size: 1rem; /* Equivalent to text-sm */
-  //color:  hsl(var(--muted-foreground)); /* Equivalent to text-muted-foreground */
+  font-size: 0.825rem;
+  margin-left: 2rem;
+  color:  hsl(var(--muted-foreground)); /* Equivalent to text-muted-foreground */
 }
 
 .form-card-content {

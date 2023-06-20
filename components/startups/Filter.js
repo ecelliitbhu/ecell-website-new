@@ -40,7 +40,7 @@ const DomainInput = ({ name, domainFiltersList, setDomainFiltersList }) => {
     } else {
       setDomainFiltersList(domainFiltersList.filter((item) => item !== name));
     }
-  }, [isChecked]);
+  }, [domainFiltersList, isChecked, name, setDomainFiltersList]);
   return (
     <li className="domain-input-container">
       <input
@@ -75,7 +75,7 @@ const FoundedInInput = ({
         foundedInFiltersList.filter((item) => item !== duration)
       );
     }
-  }, [isChecked]);
+  }, [duration, foundedInFiltersList, isChecked, setFoundedInFiltersList]);
   const name =
     duration.start > 0
       ? duration.start + "-" + duration.end

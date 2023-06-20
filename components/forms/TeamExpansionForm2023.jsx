@@ -9,14 +9,51 @@ import { firestoreDB } from "../../lib/firebase";
 
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
+// const VERTICALS = [
+//   "Startup Assistance Program",
+//   "Events Team",
+//   "Branding Team",
+//   "Technical Team",
+//   "Strategic Relations Team",
+//   "Cisco thingQbator",
+//   "Innovation & Incubation Team",
+// ];
 const VERTICALS = [
-  "Startup Assistance Program",
-  "Events Team",
-  "Branding Team",
-  "Technical Team",
-  "Strategic Relations Team",
-  "Cisco thingQbator",
-  "Innovation & Incubation Team",
+  {
+    name: "Tech Team",
+    description:
+      "The Tech Team builds and manages the technical infrastructure of E-Cell, the institute's incubators, and provides technical support to startups.",
+  },
+  {
+    name: "Startup Assistance Program (SAP) Team",
+    description:
+      "The SAP team plays a crucial role in supporting young entrepreneurs by connecting them with the right resources and networks. They provide valuable assistance in brainstorming, ideation, and incubation, helping entrepreneurs connect and access the necessary support for their startup journey. Additionally, the team organizes initiatives to foster collaboration and knowledge sharing among startup founders.",
+  },
+  {
+    name: "Relations Team",
+    description:
+      "The Relations Team works towards strengthening connections and collaborations within the entrepreneurial ecosystem. We foster strategic partnerships with corporations and alumni, coordinate guest talks, and secure sponsorships for various activities.",
+  },
+  {
+    name: "Strategy and Outreach Team",
+    description:
+      "The Outreach Team is responsible for managing and expanding our outreach efforts. The team plays a vital role in expanding the reach and impact of E-Cell IIT BHU. The primary objective is to engage with a wider audience and create awareness about the entrepreneurial opportunities and activities offered by E-Cell.",
+  },
+  {
+    name: "Branding Team",
+    description:
+      "The Branding Team manages our social media presence, conducts design events, promotes college events, and highlights alumni achievements to enhance the brand value of E-Cell IIT BHU.",
+  },
+  {
+    name: " Innovation and Incubation Team",
+    description:
+      "The Innovation and Incubation Team is dedicated to fostering research and innovation and nurturing entrepreneurial ventures among students. We work closely with the incubators and startup accelerators at our institute to promote innovation and extend incubation support to promising startups.",
+  },
+  {
+    name: "Events Team",
+    description:
+      "The Events Team organizes various events, webinars, and workshops throughout the year. They coordinate Founder's Speak and Ask Me Anything sessions, invite speakers, and manage entrepreneurship-related events",
+  },
 ];
 const BRANCHES = [
   "Architecture, Planning and Design",
@@ -161,14 +198,19 @@ export default function TeamExpansionForm2023() {
             <Form.Label>Select interested verticals</Form.Label>
             <div style={{ paddingLeft: ".825rem" }}>
               {VERTICALS.map((vertical) => (
-                <Form.Check
-                  key={vertical}
-                  className={"form-card-description"}
-                  type="checkbox"
-                  label={vertical}
-                  value={vertical}
-                  {...register("interestedVerticals")}
-                />
+                <div key={vertical.name}>
+                  <Form.Check
+                    key={vertical.name}
+                    style={{ fontSize: "1.2rem" }}
+                    type="checkbox"
+                    label={vertical.name}
+                    value={vertical.name}
+                    {...register("interestedVerticals")}
+                  />
+                  <p className={"form-card-description"}>
+                    {vertical.description}
+                  </p>
+                </div>
               ))}
             </div>
           </Form.Group>
