@@ -379,8 +379,8 @@ const WhoWeAre = () => {
                       <li>
                         {" "}
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Enhances the cell's visibility and manages communication
-                        channels.
+                        Enhances the cell&apos;s visibility and manages
+                        communication channels.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -390,7 +390,7 @@ const WhoWeAre = () => {
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
                         Measures and assesses the impact of the entrepreneurship
-                        cell's activities.
+                        cell&apos;s activities.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
