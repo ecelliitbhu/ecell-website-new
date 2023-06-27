@@ -252,7 +252,7 @@ const WhoWeAre = () => {
               <Card className="card">
                 <Card.Body>
                   <lottie-player
-                    src="https://assets5.lottiefiles.com/packages/lf20_gssu2dkm.json"
+                    src="https://assets1.lottiefiles.com/packages/lf20_qjryhqec/data.json"
                     speed="1"
                     loop
                     autoplay
@@ -368,42 +368,34 @@ const WhoWeAre = () => {
               <Card className="card">
                 <Card.Body>
                   <lottie-player
-                    src="https://assets2.lottiefiles.com/packages/lf20_lbstqvfm.json"
+                    src="https://assets10.lottiefiles.com/packages/lf20_biwpfsmp.json"
                     speed="1"
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Cisco thingQbator body</Card.Title>
+                  <Card.Title>Strategy and Outreach Team</Card.Title>
                   <Card.Text>
                     <ul>
                       <li>
                         {" "}
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Act as a whole-body supporting and helping in the
-                        functioning of all the activities conducted by Cisco
-                        thingQbator.
+                        Enhances the cell's visibility and manages communication
+                        channels.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Handling and organizing events, webinars and workshops
-                        conducted by the Cisco thingQbator during the cohort.
+                        Promotes events and initiatives and ensures a seamless
+                        and enjoyable experience for participants and guests.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Act as an intermediary between the Cisco thingQbator and
-                        the students at IIT (BHU), Varanasi and help in
-                        increasing the reach in the college.
+                        Measures and assesses the impact of the entrepreneurship
+                        cell's activities.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        To provide aid to the teams of our college who are part
-                        of the cohort.
-                      </li>
-                      <li>
-                        <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Organize regular brainstorming sessions with the
-                        makerspace managers and other thingQbator student bodies
-                        on future plans and events.
+                        Identifies growth opportunities through market analysis,
+                        trend monitoring, and innovative thinking
                       </li>
                     </ul>
                   </Card.Text>
@@ -412,7 +404,7 @@ const WhoWeAre = () => {
               <Card className="card">
                 <Card.Body>
                   <lottie-player
-                    src="https://assets2.lottiefiles.com/packages/lf20_luxumspe.json"
+                    src="https://assets3.lottiefiles.com/packages/lf20_dOedNBDWpA.json"
                     speed="1"
                     loop
                     autoplay
