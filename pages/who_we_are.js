@@ -333,7 +333,7 @@ const WhoWeAre = () => {
                     loop
                     autoplay
                   ></lottie-player>
-                  <Card.Title>Strategic Relations Team</Card.Title>
+                  <Card.Title>Relations Team</Card.Title>
                   <Card.Text>
                     <ul>
                       <li>
