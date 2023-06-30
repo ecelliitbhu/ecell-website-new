@@ -147,8 +147,8 @@ const StartupDirectory = () => {
                 height: "calc(96vh - 4rem)",
                 // paddingLeft: "0.25rem",
                 // marginLeft: "-0.25rem",
-                overflowY: "auto",
-                overflowY: "hidden",
+                // overflowY: "auto",
+                // overflowY: "hidden",
               }}
             >
               <div
