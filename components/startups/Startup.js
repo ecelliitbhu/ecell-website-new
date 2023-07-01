@@ -58,7 +58,12 @@ function MyVerticallyCenteredModal(props) {
                     key={founder_details.linkedin}
                     href={
                       founder_details.linkedin &&
-                      founder_details.linkedin.slice(0, 12) === "https://www."
+                      (founder_details.linkedin.startsWith(
+                        "https://www.linkedin.com/"
+                      ) ||
+                        founder_details.linkedin.startsWith(
+                          "https://in.linkedin.com/"
+                        ))
                         ? founder_details.linkedin
                         : "https://www." + founder_details.linkedin
                     }
