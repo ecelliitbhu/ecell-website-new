@@ -51,7 +51,7 @@ const Footer = () => {
               <div>
                 <AiTwotoneMail className="contact-icons" />
                 <a href="mailto:ecell@iitbhu.ac.in" className="mail-us">
-                  Mail us @ ecell@iitbhu.ac.in
+                  ecell@iitbhu.ac.in
                 </a>
               </div>
               <div
@@ -139,6 +139,13 @@ const Footer = () => {
         </Row>
         <Row className="social">
           <a
+            href="https://www.linkedin.com/company/ecelliitbhu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin className="social-icons"></FaLinkedin>
+          </a>
+          <a
             href="https://www.instagram.com/ecelliitbhu/"
             target="_blank"
             rel="noopener noreferrer"
@@ -152,13 +159,7 @@ const Footer = () => {
           >
             <FaFacebook className="social-icons"></FaFacebook>
           </a>
-          <a
-            href="https://www.linkedin.com/company/ecelliitbhu/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin className="social-icons"></FaLinkedin>
-          </a>
+
           <a
             href="https://twitter.com/ecelliitbhu"
             target="_blank"
