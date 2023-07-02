@@ -27,11 +27,16 @@ const WhoWeAre = () => {
             <Col className="info">
               <h1>What is E-Cell?</h1>
               <p>
-                The Entrepreneurship Cell IIT (BHU), Varanasi, is a conglomerate
-                of individuals with a vision, a dream. It is a place for all
-                those who shirk from taking beaten paths and believe in leaving
-                trails in all walks of life. The cell aims at manifesting the
-                latent entrepreneurial spirit of young students.
+                E-Cell IIT BHU (The Entrepreneurship Cell) supports
+                entrepreneurship through resources, mentorship, networking, and
+                events like workshops, competitions, and speaker sessions and
+                fosters the overall startup ecosystem in the institute.
+              </p>
+              <p>
+                It is an institute body run by students devoted to acting as a
+                link between budding entrepreneurs and the existing startup
+                ecosystem. It is a hub where all startups can meet, collaborate
+                and innovate.
               </p>
             </Col>
           </Row>
