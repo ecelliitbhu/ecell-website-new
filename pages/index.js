@@ -86,7 +86,7 @@ export default function Home() {
                       .typeString("Ideation")
                       .pauseFor(1000)
                       .deleteAll()
-                      .typeString("Innovation")
+                      .typeString("Iteration")
                       .pauseFor(1000)
                       .deleteAll()
                       .typeString("Incubation")
@@ -101,7 +101,7 @@ export default function Home() {
 
               <p>
                 Welcome to the entrepreneurship community of IIT BHU where we
-                ideate, innovate and incubate the future innovations of the
+                ideate, iterate and incubate the future innovations of the
                 century!
               </p>
               <Button
