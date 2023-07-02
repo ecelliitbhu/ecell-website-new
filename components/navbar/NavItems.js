@@ -256,7 +256,7 @@ export const Incubators = () => {
             {/* <Link href="https://tiiciitbhu.org"> */}
             <a
               className="dropdown-item"
-              href="https://tiiciitbhu.org"
+              href="https://i3f-iitbhu.org/"
               rel="noreferrer"
               target="_blank"
             >
@@ -294,7 +294,7 @@ export const Incubators = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://tiiciitbhu.org/ncl-iit-bhu-incubation-centre"
+              href="https://i3f-iitbhu.org/"
               rel="noreferrer"
               target="_blank"
             >
@@ -329,7 +329,7 @@ export const Incubators = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://tiiciitbhu.org/rabi"
+              href="https://i3f-iitbhu.org/"
               rel="noreferrer"
               target="_blank"
             >
@@ -345,7 +345,7 @@ export const Incubators = () => {
 
             <a
               className="dropdown-item"
-              href="https://www.iitbhu.ac.in/cf/cis/innovation"
+              href="https://www.iitbhu.ac.in/contents/institute/cf/misc/doc/innovation_start_up_policy.pdf"
               rel="noreferrer"
               target="_blank"
             >
