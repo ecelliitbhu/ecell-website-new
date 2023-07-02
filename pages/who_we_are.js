@@ -25,7 +25,7 @@ const WhoWeAre = () => {
             style={{ height: "fit-content", marginTop: "100px" }}
           >
             <Col className="info">
-              <h1>What is E-Cell?</h1>
+              <h1>What is E-Cell IIT BHU?</h1>
               <p>
                 E-Cell IIT BHU (The Entrepreneurship Cell) supports
                 entrepreneurship through resources, mentorship, networking, and
@@ -40,6 +40,44 @@ const WhoWeAre = () => {
               </p>
             </Col>
           </Row>
+          <Row
+            className="header"
+            style={{ height: "fit-content", marginTop: "70px" }}
+          >
+            <Col
+              className="info"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                verticalAlign: "middle",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: "4rem",
+                  marginRight: "1rem",
+
+                  color: "#000",
+                }}
+              >
+                <b>Why join E-Cell?</b>
+              </h2>
+              <Button
+                className="download-brochure"
+                href="https://drive.google.com/file/d/1Fl8qtF1snMM-RL8jTs7euku8adDQcyTL/view?usp=sharing"
+                rel="noreferrer"
+                target="_blank"
+                style={{
+                  marginRight: "4rem",
+                  borderRadius: "12px",
+                  marginTop: "0.6rem",
+                }}
+              >
+                Download Brochure
+              </Button>
+            </Col>
+          </Row>
           <Row className="card-container">
             <Card className="card" style={{ height: "360px" }}>
               <div style={{ width: "fit-content", margin: "40px auto 20px" }}>
@@ -52,9 +90,12 @@ const WhoWeAre = () => {
               </div>
 
               <Card.Body>
-                <Card.Title>Entrepreneurial Mindset</Card.Title>
+                <Card.Title>Foster Entrepreneurial Mindset</Card.Title>
                 <Card.Text>
-                  {`Learn  Through our Programmes like "E-Mentorship" and "Learn Together", we teach the students about all aspects of entrepreneurial journey!`}
+                  Start your Entrepreneurial journey and learn through our
+                  programmes like <i>Founder&apos;s Talk</i>, <i>AMA Session</i>{" "}
+                  and
+                  <i> E-Mentorship</i>.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -70,7 +111,10 @@ const WhoWeAre = () => {
               <Card.Body>
                 <Card.Title>Improved Interpersonal Skills</Card.Title>
                 <Card.Text>
-                  {`Build  With Initiatives like "Build With Us" and "Startup 101", deep dive into the ocean of building the solutions for tomorrow!`}
+                  Enhance your skills of <em>Leadership</em>,{" "}
+                  <em>Communication </em> and
+                  <em> Collaboration </em> by working in teams and engaging with
+                  industry professionals.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -84,9 +128,9 @@ const WhoWeAre = () => {
                 ></Image>
               </div>
               <Card.Body>
-                <Card.Title>Network With Alumni Entrepreneurs</Card.Title>
+                <Card.Title>Network With Startup Ecosystem</Card.Title>
                 <Card.Text>
-                  {`Scale Network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!`}
+                  {`Expand your network and connect with like minded individuals like fellow entrepreneurs, alumni founderrs and industry experts`}
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -106,74 +150,8 @@ const WhoWeAre = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                style={{ width: "100%" }}
+                style={{ width: "70%", minHeight: "30rem" }}
               ></iframe>
-            </Col>
-            <Col
-              className="info waw"
-              style={{
-                padding: "0px",
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: "1.8rem",
-                  color: "#fd9301",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
-                }}
-              >
-                About E-Cell
-              </h2>
-              <h1 style={{ fontSize: "2.5rem" }}>We nurture Entrepreneurs!</h1>
-              <p>
-                E-Cell IIT BHU is an institute body run by the students of IIT
-                (BHU) Varanasi devoted to acting as a symbiotic link between the
-                entrepreneurs of E-Cell and the existing startup ecosystem as
-                well as acting as a hub where all the startups can meet,
-                collaborate and innovate!
-              </p>
-              {/* <Row style={{ margin: "10px auto", paddingLeft: "15px" }}>
-                <Col>
-                  <h3 style={{ fontSize: "1.5rem" }}>
-                    <GrMapLocation /> Where?
-                  </h3>
-                  <p
-                    style={{
-                      textAlign: "left",
-                      fontSize: "15px",
-                      margin: "0px",
-                      width: "100%",
-                    }}
-                  >
-                    Technology Innovation and Incubation Centre IIT BHU
-                    Varanasi.
-                  </p>
-                </Col>
-                <Col>
-                  <h3 style={{ fontSize: "1.5rem" }}>
-                    <BsCalendarCheck /> How?
-                  </h3>
-                  <p
-                    style={{
-                      textAlign: "left",
-                      fontSize: "15px",
-                      margin: "0px",
-                      width: "100%",
-                    }}
-                  >
-                    Mentor | Monitor | Motivate
-                  </p>
-                </Col>
-              </Row> */}
-              <Button
-                className="download-brochure"
-                href="https://drive.google.com/file/d/1Fl8qtF1snMM-RL8jTs7euku8adDQcyTL/view?usp=sharing"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Download Brochure
-              </Button>
             </Col>
           </Row>
           <Row className="what-we-do info" style={{ margin: "50px auto" }}>
@@ -181,7 +159,7 @@ const WhoWeAre = () => {
               Verticals of E-Cell
             </h1>
             <p>
-              E-Cell comprises 6 verticals to cater all the functioning and
+              E-Cell comprises 7 verticals to cater all the functioning and
               activities pertaining to promotion of entrepreneurial culture in
               IIT BHU.
             </p>
