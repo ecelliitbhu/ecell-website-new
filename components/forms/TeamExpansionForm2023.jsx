@@ -34,6 +34,20 @@ const VERTICALS = [
     name: "Branding Team",
     description:
       "The Branding Team manages our social media presence, conducts design events, promotes college events, and highlights alumni achievements to enhance the brand value of E-Cell IIT BHU.",
+    subOptions: [
+      {
+        name: "Design",
+        description: "Responsible for graphic design and visual content.",
+      },
+      {
+        name: "Content",
+        description: "Creates engaging written content and copywriting.",
+      },
+      {
+        name: "Video Editing",
+        description: "Handles video editing and production tasks.",
+      },
+    ],
   },
   {
     name: " Innovation and Incubation Team",
@@ -201,13 +215,33 @@ export default function TeamExpansionForm2023() {
                     value={vertical.name}
                     {...register("interestedVerticals")}
                   />
-                  <p className={"form-card-description"}>
-                    {vertical.description}
-                  </p>
+                  <p className={"form-card-description"}>{vertical.description}</p>
+                  {vertical.name === "Branding Team" && (
+                    <div style={{ paddingLeft: "1rem" }}>
+                      <p className="form-card-description form-branding">If selecting branding team then, choose atleast one sub-vertical</p>
+
+                      {vertical.subOptions.map((subOption) => (
+                        <div key={subOption.name}>
+                          <Form.Check
+                            key={subOption.name}
+                            style={{ fontSize: "1.2rem", marginLeft: "1rem" }}
+                            type="checkbox"
+                            label={subOption.name}
+                            value={subOption.name}
+                            {...register("interestedVerticals")}
+                          />
+                          <p className={"form-card-description"}>
+                            {subOption.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </Form.Group>
+
           <Form.Group className="mb-3" controlId="Commitment">
             <Form.Label>Commitment (hours per week)</Form.Label>
             <Form.Range
