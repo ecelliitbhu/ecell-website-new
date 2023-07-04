@@ -62,7 +62,7 @@ const Footer = () => {
                 }}
               >
                 <BsFillTelephoneOutboundFill className="contact-icons" />
-                <p>+91 9587887413</p>
+                <p>+91 9120787959</p>
               </div>
             </div>
           </Col>

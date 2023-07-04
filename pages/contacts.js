@@ -116,7 +116,7 @@ export default function Contacts() {
                   color: "black",
                 }}
               >
-                +91 9587887413
+                +91 9120787959
               </p>
             </Col>
             <Col

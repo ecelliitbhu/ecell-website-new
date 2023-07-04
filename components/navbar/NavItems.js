@@ -405,7 +405,7 @@ export const Connect = () => {
 
             <a
               className="dropdown-item"
-              href="https://wa.me/+919587887413"
+              href="https://wa.me/+919120787959"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -438,7 +438,7 @@ export const Connect = () => {
 
             <a
               className="dropdown-item"
-              href="https://wa.me/+919587887413"
+              href="https://wa.me/+919120787959"
               target="_blank"
               rel="noopener noreferrer"
             >
