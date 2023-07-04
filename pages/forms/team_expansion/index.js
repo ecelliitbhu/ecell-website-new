@@ -27,7 +27,7 @@ export default function Contacts() {
                 fontWeight: "bold",
               }}
             >
-              E-Cell IIT BHU, Team Expansion 2022-23
+              E-Cell IIT BHU, Team Expansion 2023-24
             </h1>
           </Row>
           <Row

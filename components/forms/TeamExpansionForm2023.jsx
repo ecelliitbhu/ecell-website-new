@@ -7,17 +7,8 @@ import { toast } from "react-hot-toast";
 
 import { firestoreDB } from "../../lib/firebase";
 
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
 
-// const VERTICALS = [
-//   "Startup Assistance Program",
-//   "Events Team",
-//   "Branding Team",
-//   "Technical Team",
-//   "Strategic Relations Team",
-//   "Cisco thingQbator",
-//   "Innovation & Incubation Team",
-// ];
 const VERTICALS = [
   {
     name: "Tech Team",
@@ -82,28 +73,31 @@ export default function TeamExpansionForm2023() {
     watch,
     formState: { errors },
     control,
+    reset,
   } = useForm();
   const [commitmentValue, setCommitmentValue] = useState(5);
   const handleCommitmentChange = (event) => {
     setCommitmentValue(parseInt(event.target.value));
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // console.log(data);
-    addDoc(collection(firestoreDB, "teamExpansion2023"), {
-      ...data,
-      timestamp: serverTimestamp(),
-    })
-      .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-        toast.success("Form submitted successfully!");
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-        toast.error("Error submitting form");
+    try {
+      const customDocId = data.fullname + data.branch;
+      const docRef = doc(firestoreDB, "teamExpansion2023", customDocId);
+
+      await setDoc(docRef, {
+        ...data,
+        timestamp: serverTimestamp(),
       });
 
-    console.log(data);
+      console.log("Document written with ID: ", customDocId);
+      toast.success("Form submitted successfully!");
+      reset();
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      toast.error("Error submitting form");
+    }
   };
   return (
     <div className={"form-card"}>
