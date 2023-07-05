@@ -164,6 +164,26 @@ export default function TeamExpansionForm2023() {
               </span>
             )}
           </Form.Group>
+          <Form.Group className="mb-3" controlId="year">
+            <Form.Label>
+              Select your year <span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Select
+              aria-label="Default select example"
+              {...register("year", { required: true })}
+            >
+              <option>Open this select menu</option>
+              <option value="1st year">1st year</option>
+              <option value="2nd year">2nd year</option>
+              <option value="3rd year">3rd year</option>
+              <option value="4th year">4th year</option>
+              <option value="5th year">5th year</option>
+              
+            </Form.Select>
+            {errors.course && (
+              <span style={{ color: "red" }}>Please select your year</span>
+            )}
+          </Form.Group>
           <Form.Group className="mb-3" controlId="Course">
             <Form.Label>
               Select your course <span style={{ color: "red" }}> *</span>
