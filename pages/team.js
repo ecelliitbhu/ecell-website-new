@@ -24,6 +24,7 @@ import Shreya from "../public/team/2022-2023/Shreya.JPG";
 import Vanshika from "../public/team/2022-2023/Vanshika.jpg";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Accordion, AccordionSummary } from "@mui/material";
+import Team22 from "../components/Team22";
 
 const Team = () => {
   return (
@@ -364,6 +365,7 @@ const Team = () => {
               </div>
             </div>
           </div>
+          <Team22 />
           <Accordion className="past-team">
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
