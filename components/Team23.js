@@ -1,5 +1,3 @@
-import { Accordion, AccordionSummary } from "@mui/material";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React from "react";
 import Image from "next/image";
 import { GrMail } from "react-icons/gr";
@@ -21,12 +19,12 @@ import vanishka from "../public/team/2023-2024/Vanshika.jpg";
 import Varun from "../public/team/2023-2024/Varun.jpg";
 import om from "../public/team/2023-2024/om.png";
 import rishav from "../public/team/2023-2024/rishav.jpeg";
-
+import akshat from "../public/team/2023-2024/akshat.png";
 const presidents = [
   {
     name: "PARTH GUPTA",
     image: parth,
-    post: "PRESIDENT E-CELL",
+    post: "VICE PRESIDENT E-CELL",
     email: "mailto:parthsanjeev.gupta.che20@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/parthgupta03/",
   },
@@ -39,6 +37,90 @@ const presidents = [
   },
 ];
 const verticalHeads = [
+  {
+    name: "Atharv Patil",
+    image: atharv,
+    position: "STARTUP ASSISTANCE PROGRAM HEAD",
+    email: "mailto:atharv.patil.che21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/atharv-patil/",
+  },
+  {
+    name: "Mridul Ramakrishnan",
+    image: mridul,
+    position: "STARTUP ASSISTANCE PROGRAM HEAD",
+    email: "mailto:mridul.ramakrishnan.mat21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/mridul-ramakrishnan-267401229/",
+  },
+  {
+    name: "Shailesh Agarwal",
+    image: shailesh,
+    position: "INNOVATION & INCUBATION HEAD",
+    email: "mailto:shailesh.agarwal.eee21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/mridul-ramakrishnan-267401229/",
+  },
+  {
+    name: "ABHIRVEY IYER",
+    image: abhirvey,
+    position: "STRATEGIC RELATIONS HEAD",
+    email: "mailto:abhirvey.rajeshiyer.phe21@iitbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/abhirveyiyer27/",
+  },
+  {
+    name: "Varun Barve",
+    image: Varun,
+    position: "PUBLIC RELATION HEAD",
+    email: "mailto:barvevarun.makarand.cd.mst21@iitbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/varunbarvem",
+  },
+  {
+    name: "Rishav Thakur",
+    image: rishav,
+    position: "MARKETING HEAD",
+    email: "mailto:rishav.thakur.cer21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/rishav-thakur-23b290199",
+  },
+  {
+    name: "Pranjali Yadav",
+    image: pranjali,
+    position: "EVENTS HEAD",
+    email: "mailto:pranjali.yadav.cd.mec21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/pranjali-yadav-39583022b",
+  },
+  {
+    name: "Akshat Shah",
+    image: akshat,
+    position: "EVENTS HEAD",
+    email: "mailto:sakshat.kalpeshbhai.mst21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/akshat-shah-639b46223",
+  },
+  {
+    name: "Sahil Gupta",
+    image: sahil,
+    position: "PUBLICITY HEAD",
+    email: "mailto:sahil.sgupta.cer21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/sahil-gupta-87268a23a",
+  },
+  {
+    name: "Om Subham Pati",
+    image: om,
+    position: "BRANDING HEAD",
+    email: "mailto:omsubham.pati.cse21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/om-subham-pati-a49785242/",
+  },
+  {
+    name: "Muskan Aggarwal",
+    image: muskan,
+    position: "DESIGN HEAD",
+    email: "mailto:muskan.aggarwal.min21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/muskan-aggarwal-3bba63238",
+  },
+  {
+    name: "Indrajeet Gupta",
+    image: Indrajeet,
+    position: "CONTENT HEAD",
+    email: "mailto:indrajeet.gupta.min21@itbhu.ac.in",
+    linkedin: "https://www.linkedin.com/in/indrajeet-gupta-0a5b25209",
+  },
   {
     name: "Balveer Singh Rao",
     image: balveer,
@@ -53,55 +135,7 @@ const verticalHeads = [
     email: "mailto:rahul.kumarsonkar.eee21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/rahul-kumar-sonkar-262442253/",
   },
-  {
-    name: "ABHIRVEY IYER",
-    image: abhirvey,
-    position: "STRATEGIC RELATIONS HEAD",
-    email: "mailto:abhirvey.rajeshiyer.phe21@iitbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/abhirveyiyer27/",
-  },
-  {
-    name: "Atharv Patil",
-    image: atharv,
-    position: "STARTUP ASSISTANCE PROGRAM HEAD",
-    email: "mailto:atharv.patil.che21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/atharv-patil/",
-  },
-  {
-    name: "Indrajeet Gupta",
-    image: Indrajeet,
-    position: "CONTENT HEAD",
-    email: "mailto:indrajeet.gupta.min21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/indrajeet-gupta-0a5b25209",
-  },
-  {
-    name: "Mridul Ramakrishnan",
-    image: mridul,
-    position: "STARTUP ASSISTANCE PROGRAM HEAD",
-    email: "mailto:mridul.ramakrishnan.mat21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/mridul-ramakrishnan-267401229/",
-  },
-  {
-    name: "Muskan Aggarwal",
-    image: muskan,
-    position: "DESIGN HEAD",
-    email: "mailto:muskan.aggarwal.min21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/muskan-aggarwal-3bba63238",
-  },
-  {
-    name: "Pranjali Yadav",
-    image: pranjali,
-    position: "EVENTS HEAD",
-    email: "mailto:pranjali.yadav.cd.mec21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/pranjali-yadav-39583022b",
-  },
-  {
-    name: "Sahil Gupta",
-    image: sahil,
-    position: "PUBLICITY HEAD",
-    email: "mailto:sahil.sgupta.cer21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/sahil-gupta-87268a23a",
-  },
+
   {
     name: "Sameer Sharma",
     image: sameer,
@@ -115,34 +149,6 @@ const verticalHeads = [
     position: "PARLIAMENT REPRESENTATIVE",
     email: "mailto:sanskar.pandey.civ22@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/sanskar-pandey-12687825b",
-  },
-  {
-    name: "Shailesh Agarwal",
-    image: shailesh,
-    position: "INNOVATION & INCUBATION HEAD",
-    email: "mailto:shailesh.agarwal.eee21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/mridul-ramakrishnan-267401229/",
-  },
-  {
-    name: "Varun Barve",
-    image: Varun,
-    position: "PUBLIC RELATION HEAD",
-    email: "mailto:barvevarun.makarand.cd.mst21@iitbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/varunbarvem",
-  },
-  {
-    name: "Om Subham Pati",
-    image: om,
-    position: "BRANDING HEAD",
-    email: "mailto:omsubham.pati.cse21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/om-subham-pati-a49785242/",
-  },
-  {
-    name: "Rishav Thakur",
-    image: rishav,
-    position: "MARKETING HEAD",
-    email: "mailto:rishav.thakur.cer21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/rishav-thakur-23b290199",
   },
 ];
 export default function Team23(props) {
