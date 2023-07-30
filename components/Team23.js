@@ -3,7 +3,7 @@ import Image from "next/image";
 import { GrMail } from "react-icons/gr";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import parth from "../public/team/2023-2024/parth.jpeg";
-import abhirvey from "../public/team/2023-2024/ Abhirvey.png";
+import abhirvey from "../public/team/2023-2024/Abhirvey.jpeg";
 import balveer from "../public/team/2023-2024/balveer.jpeg";
 import atharv from "../public/team/2023-2024/Atharv.jpg";
 import Indrajeet from "../public/team/2023-2024/Indrajeet.jpg";
@@ -168,7 +168,7 @@ export default function Team23(props) {
             fontWeight: "bold",
           }}
         >
-          TEAM OF 2022-23
+          TEAM OF 2023-24
         </h2>
         <div className="team-container">
           {presidents.map((president, index) => {
