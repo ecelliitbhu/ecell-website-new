@@ -96,7 +96,7 @@ export const Discover = () => {
             </Link>
             <a
               className="dropdown-item"
-              href="https://esummit.ecelliitbhu.com/sponsors/index.html"
+              href="https://esummit.ecelliitbhu.com/sponsors"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -171,7 +171,7 @@ export const Initiatives = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://discord.com/invite/EPm5mfbCKP">
               <FcApproval fontSize="2rem"></FcApproval>
               <div>
                 <h4>Build with us</h4>
