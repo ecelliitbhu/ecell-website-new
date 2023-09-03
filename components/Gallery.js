@@ -1,30 +1,10 @@
 import Image from "next/image";
 import React, { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
-const AlumniMeet = [
-  {
-    src: "/alumni_meet/5-min.jpg",
-    width: 3,
-    height: 2,
-  },
-  {
-    src: "/alumni_meet/DSC_0074-5-min.jpg",
-    width: 3,
-    height: 2,
-  },
-  {
-    src: "/alumni_meet/DSC_0534-min.jpg",
-    width: 3,
-    height: 2,
-  },
-  {
-    src: "/alumni_meet/DSC_0549-min.jpg",
-    width: 3,
-    height: 2,
-  },
-];
+import { Modal, ModalGateway } from "react-images";
 
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 const founspeak = [
   {
     src: "/foundersSpeak/_DSC0008-min.jpg",
@@ -111,13 +91,13 @@ const mentorship = [
 const incu = [
   {
     src: "/incubators/mciie2.jpg",
-    width: 2.04,
-    height: 1,
+    width: 3,
+    height: 2,
   },
   {
     src: "/incubators/rkvy1.jpg",
-    width: 2.22,
-    height: 1,
+    width: 3,
+    height: 2,
   },
   {
     src: "/incubators/rkvy12.jpg",
@@ -237,6 +217,48 @@ const electures = [
     width: 4,
     height: 3,
   },
+  ////
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 4,
+    height: 3,
+  },
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 4,
+    height: 3,
+  },
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 4,
+    height: 3,
+  },
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 4,
+    height: 3,
+  },
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 4,
+    height: 3,
+  },
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 4,
+    height: 3,
+  },
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 4,
+    height: 3,
+  },
+
+  {
+    src: "/e-lectures/stock-min.jpg",
+    width: 4,
+    height: 3,
+  },
 ];
 const esummit = [
   {
@@ -333,9 +355,32 @@ const esummit = [
     src: "/e-summit/mbg-min.jpg",
     width: 4,
     height: 3,
+    height: 3,
   },
 ];
 
+const AlumniMeet = [
+  {
+    src: "/alumni_meet/5-min.jpg",
+    width: 3,
+    height: 2,
+  },
+  {
+    src: "/alumni_meet/DSC_0074-5-min.jpg",
+    width: 3,
+    height: 2,
+  },
+  {
+    src: "/alumni_meet/DSC_0534-min.jpg",
+    width: 3,
+    height: 2,
+  },
+  {
+    src: "/alumni_meet/DSC_0549-min.jpg",
+    width: 3,
+    height: 2,
+  },
+];
 export const AlumniMeetups = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
@@ -384,23 +429,55 @@ export const AlumniMeetups = () => {
   const imageRenderer = ({ index, key, photo }) => (
     <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
   );
+  // return (
+  //   <div>
+  //     <Gallery photos={AlumniMeet} renderImage={imageRenderer} />
+  //     <ModalGateway>
+  //       {viewerIsOpen ? (
+  //         <Modal onClose={closeLightbox}>
+  //           <Carousel
+  //             currentIndex={currentImage}
+  //             views={AlumniMeet.map((x) => ({
+  //               ...x,
+  //               srcset: x.srcSet,
+  //               caption: x.title,
+  //             }))}
+  //           />
+  //         </Modal>
+  //       ) : null}
+  //     </ModalGateway>
+  //   </div>
+  // );
+  const numRows = 2;
+
   return (
     <div>
-      <Gallery photos={AlumniMeet} renderImage={imageRenderer} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={AlumniMeet.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+      <Carousel
+        showArrows={true}
+        showThumbs={false}
+        showStatus={false}
+        infiniteLoop={true}
+        showIndicators={false}
+        autoPlay={true} // Enable automatic scrolling
+        interval={3000}
+      >
+        {Array.from({ length: numRows }).map((_, rowIndex) => (
+          <div key={rowIndex} className="row">
+            {AlumniMeet.slice(rowIndex * 2, (rowIndex + 1) * 2).map((photo) => (
+              <div
+                key={photo.id}
+                className="photo"
+                style={{
+                  "margin-bottom": "20px",
+                  width: "calc(50% - 1px)",
+                }}
+              >
+                <img src={photo.src} alt={photo.title} />
+              </div>
+            ))}
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
@@ -517,28 +594,39 @@ export const ESummit = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
   };
+  const numRows = 4;
 
   const imageRenderer = ({ index, key, photo }) => (
     <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
   );
+
   return (
-    <div>
-      <Gallery photos={esummit.slice(0, 8)} renderImage={imageRenderer} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={esummit.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    <Carousel
+      showArrows={true}
+      showThumbs={false}
+      showStatus={false}
+      infiniteLoop={true}
+      showIndicators={false}
+      autoPlay={true} // Enable automatic scrolling
+      interval={3000}
+    >
+      {Array.from({ length: numRows }).map((_, rowIndex) => (
+        <div key={rowIndex} className="row">
+          {esummit.slice(rowIndex * 4, (rowIndex + 1) * 4).map((photo) => (
+            <div
+              key={photo.id}
+              className="photo"
+              style={{
+                "margin-bottom": "20px",
+                width: "calc(25% - 1px)",
+              }}
+            >
+              <img src={photo.src} alt={photo.title} />
+            </div>
+          ))}
+        </div>
+      ))}
+    </Carousel>
   );
 };
 
@@ -731,24 +819,48 @@ export const Incubators = () => {
   const imageRenderer = ({ index, key, photo }) => (
     <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
   );
+  const numRows = 3;
   return (
-    <div>
-      <Gallery photos={incu.slice(0, 8)} renderImage={imageRenderer} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={incu.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    <Carousel
+      showArrows={true}
+      showThumbs={false}
+      showStatus={false}
+      infiniteLoop={true}
+      showIndicators={false}
+      autoPlay={true} // Enable automatic scrolling
+      interval={9000}
+    >
+      {Array.from({ length: numRows }).map((_, rowIndex) => (
+        <div
+          key={rowIndex}
+          className="row"
+          style={{
+            display: "flex",
+          }}
+        >
+          {incu.slice(rowIndex * 3, (rowIndex + 1) * 3).map((photo) => (
+            <div
+              key={photo.id}
+              className="photo"
+              style={{
+                "margin-bottom": "20px",
+                width: "calc(33.33% - 1px)",
+              }}
+            >
+              <img
+                src={photo.src}
+                alt={photo.title}
+                style={{
+                  height: "230px",
+                  objectFit:"cover"
+
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      ))}
+    </Carousel>
   );
 };
 
@@ -800,23 +912,88 @@ export const ELectures = () => {
   const imageRenderer = ({ index, key, photo }) => (
     <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
   );
+  const numRows = 4;
   return (
-    <div>
-      <Gallery photos={electures.slice(0, 8)} renderImage={imageRenderer} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={electures.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    <>
+      <Carousel
+        showArrows={true}
+        showThumbs={false}
+        showStatus={false}
+        infiniteLoop={true}
+        showIndicators={false}
+        autoPlay={true} // Enable automatic scrolling
+        interval={4000}
+      >
+        {Array.from({ length: numRows }).map((_, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="row"
+            style={{
+              display: "flex",
+             
+            }}
+          >
+            {electures.slice(rowIndex * 3, (rowIndex + 1) * 3).map((photo) => (
+              <div
+                key={photo.id}
+                className="photo"
+                style={{
+                  "margin-bottom": "20px",
+                  width: "calc(33.33% - 1px)",
+                }}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.title}
+                  style={{
+                    height: "230px",
+                    objectFit:"cover"
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        ))}
+      </Carousel>
+
+      <Carousel
+        showArrows={true}
+        showThumbs={false}
+        showStatus={false}
+        infiniteLoop={true}
+        showIndicators={false}
+        autoPlay={true} // Enable automatic scrolling
+        interval={20000}
+      >
+        {Array.from({ length: numRows }).map((_, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="row"
+            style={{
+              display: "flex",
+              objectFit:"cover"
+            }}
+          >
+            {electures.slice(rowIndex * 4, (rowIndex + 1) * 4).map((photo) => (
+              <div
+                key={photo.id}
+                className="photo"
+                style={{
+                  "margin-bottom": "20px",
+                  width: "calc(25%)",
+                }}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.title}
+                  style={{
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        ))}
+      </Carousel>
+    </>
   );
 };
