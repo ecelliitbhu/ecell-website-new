@@ -5,21 +5,14 @@ import Nav from "../components/navbar/NavLayout";
 import CdTestimonials from "../components/CdTestimonials";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
 import Image from "next/image";
+import { useRef } from "react";
 
 export default function CampusDirector() {
+  const whatWeOfferRef = useRef(null);
+
   const scrollToWhatWeOffer = () => {
-    const targetElement = document.getElementById("what-we-offer");
-
-    if (targetElement) {
-      // Calculate the scroll position of the target element
-      const targetOffset =
-        targetElement.getBoundingClientRect().top + window.scrollY;
-
-      // Scroll to the target element with smooth behavior
-      window.scrollTo({
-        top: targetOffset,
-        behavior: "smooth",
-      });
+    if (whatWeOfferRef.current) {
+      whatWeOfferRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (
@@ -75,10 +68,10 @@ export default function CampusDirector() {
               </p>
               <Button
                 className="learn-more join-cd"
-                onClick={scrollToWhatWeOffer}
                 // href="/cd/#what-we-offer"
+                onClick={scrollToWhatWeOffer}
                 // target="_blank"
-                rel="noopener noreferrer"
+                // rel="noopener noreferrer"
               >
                 Learn more &rarr;
               </Button>
@@ -87,7 +80,7 @@ export default function CampusDirector() {
                   <h3 className="reach-num" id="count1">
                     1700+
                   </h3>
-                  <p className="reach-info">{`Enthusiastic CD's Onboarded`}</p>
+                  <p className="reach-info">{`Enthusiastic Campus Intern's Onboarded`}</p>
                 </Col>
                 <Col>
                   <h3 className="reach-num" id="count2">
@@ -109,7 +102,8 @@ export default function CampusDirector() {
           </Row>
           <Row></Row>
           <Row
-            id={"what-we-offer"}
+            id="what-we-offer"
+            ref={whatWeOfferRef}
             className="what-we-do info"
             style={{ margin: "60px auto 0px" }}
           >
