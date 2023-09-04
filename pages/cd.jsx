@@ -22,6 +22,17 @@ export default function CampusDirector() {
 
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="robots" content="index, follow" />
+        <meta name={"description"} content={"Campus Executive Internship"} />
+        <meta property="og:title" content="Campus Executive Internship" />
+        <meta
+          property="og:description"
+          content="Become the Student Lead of enhancing and expanding the
+                entrepreneurial opportunities in your college!"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ecelliitbhu.com/cd" />
+        <meta httpEquiv="Content-Language" content="en-us" />
+        <meta charSet="UTF-8" />
       </Head>
       <Nav />
       <div>
