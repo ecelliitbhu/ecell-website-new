@@ -171,13 +171,13 @@ export const Initiatives = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="https://iaan.ecelliitbhu.com">
               <FcApproval fontSize="2rem"></FcApproval>
               <div>
-                <h4>Build with us</h4>
+                <h4>IIT BHU Alumni Angel Network</h4>
                 <p>
-                  Join our community of IIT BHU budding
-                  <br /> {`alumni & student entrepreneurs!`}
+                  An initiative by IIT BHU Alumni
+                  <br /> and E-Cell IIT BHU
                 </p>
               </div>
             </a>
