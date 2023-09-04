@@ -10,7 +10,8 @@ export default function CampusDirector() {
   return (
     <>
       <Head>
-        <title>Campus Director</title>
+        <title>Campus Executive Internship</title>
+
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="robots" content="index, follow"/>
       </Head>
@@ -19,7 +20,7 @@ export default function CampusDirector() {
         <Container fluid className="body">
           <Row className="header" style={{ margin: "80px auto" }}>
             <Col className="info cd-info">
-              <h1>Join the Campus Director Programme!</h1>
+              <h1>Join the Campus Executive Intership Programme!</h1>
               <h2>
                 Accelerate the entrepreneurial <br /> journey in your college!
               </h2>
@@ -30,7 +31,7 @@ export default function CampusDirector() {
 
               <Button
                 className="get-started join-cd"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeYonqr-htA7xzhFInag45C5L3FbNGr-2dbKTouSi_uqe5kFg/viewform?usp=sf_link"
+                href="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeZfM1LGMAkT1HbChxNtvm5pobNqnvE7uNMf32OmBAble6aTw/viewform?usp=sf_link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -49,7 +50,7 @@ export default function CampusDirector() {
           </Row>
           <Row className="who-are-we">
             <Col className="info waw">
-              <h1>Why Campus Director?</h1>
+              <h1>Why Campus Executive Internship?</h1>
               <p>
                 Devoted to acting as a symbiotic link between the entrepreneurs
                 and the existing startup ecosystem, E-Cell IIT BHU provides you
@@ -59,8 +60,8 @@ export default function CampusDirector() {
               </p>
               <Button
                 className="learn-more join-cd"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeYonqr-htA7xzhFInag45C5L3FbNGr-2dbKTouSi_uqe5kFg/viewform?usp=sf_link"
-                target="_blank"
+                href="/cd/#what-we-offer"
+                // target="_blank"
                 rel="noopener noreferrer"
               >
                 Learn more &rarr;
@@ -91,7 +92,7 @@ export default function CampusDirector() {
             </Col>
           </Row>
           <Row></Row>
-          <Row className="what-we-do info" style={{ margin: "60px auto 0px" }}>
+          <Row id={"what-we-offer"} className="what-we-do info" style={{ margin: "60px auto 0px" }}>
             <h1>What we offer?</h1>
             <p>
               {`Through our vision of "Learn, Build and Scale" we implement
