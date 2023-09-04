@@ -106,27 +106,27 @@ export default function CampusDirector() {
                   <Image src="/perks/1.png" alt="" height="512" width="512" />
                 </div>
 
-                <p>Free E-Summit 2022 Passes</p>
+                <p>Free E-Summit 2024 Passes</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
                   <Image src="/perks/2.png" alt="" height="512" width="512" />
                 </div>
 
-                <p>50% off on GrowthSchool Workshops</p>
+                <p>Network with Unicorn Founders and gain valuable experience.</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
                   <Image src="/perks/3.png" alt="" height="512" width="512" />
                 </div>
 
-                <p>E-Learn Markets Financial Course Worth 999</p>
+                <p>One-to-one mentorship by startup founders</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
                   <Image src="/perks/4.png" alt="" height="512" width="512" />
                 </div>
-                <p>D2C Pro Memberships worth 999 (Top 50 Performers)</p>
+                <p>Top performers will be featured on the social media handles of E-Cell IIT BHU.</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
@@ -136,9 +136,9 @@ export default function CampusDirector() {
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="/perks/6.png" alt="" height="512" width="512" />
+                  <Image src="/perks/8.png" alt="" height="512" width="512" />
                 </div>
-                <p>GeeksforGeeks Coupons</p>
+                <p>Opportunity to enter BWU Cohort and start your entrepreneurship journey</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
@@ -148,23 +148,29 @@ export default function CampusDirector() {
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="/perks/8.png" alt="" height="512" width="512" />
+                  <Image src="/perks/6.png" alt="" height="512" width="512" />
                 </div>
                 <p>
-                  {`Top CDs to be featured in the E-Cell IIT BHU's Weekly Newsletter`}
+                  {`Top Campus Executive Interns to be featured in the E-Cell IIT BHU's Weekly Newsletter`}
                 </p>
               </div>
               <div className="perk">
                 <div className="perk-image">
                   <Image src="/perks/9.png" alt="" height="512" width="512" />
                 </div>
-                <p>Certificate of CD Programme verified by E-Cell IIT BHU</p>
+                <p>Certificate of Internship verified by E-Cell IIT BHU</p>
               </div>
+              {/*<div className="perk">*/}
+              {/*  <div className="perk-image">*/}
+              {/*    <Image src="/perks/10.png" alt="" height="512" width="512" />*/}
+              {/*  </div>*/}
+              {/*  <p>Free E-Summit 2024 Merch to the (Top 5 Performers)</p>*/}
+              {/*</div>*/}
               <div className="perk">
                 <div className="perk-image">
                   <Image src="/perks/10.png" alt="" height="512" width="512" />
                 </div>
-                <p>Free E-Summit 2022 Merch to the (Top 5 Performers)</p>
+                <p>Goodies, merchandise and learning resources from our sponsors</p>
               </div>
             </div>
           </Row>
@@ -185,34 +191,29 @@ export default function CampusDirector() {
               <ul className="ca-responsibilities">
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  Acting as a link between IIT (BHU) Varanasi and your own
-                  campus throughout the year.
+                  The Campus Executive Intern must assist the students with their total capacity in registering for E-Cell IIT BHU&apos;s competitions.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  Coordinating with Strategic Relations’ team of
-                  Entrepreneurship Cell, IIT BHU to conduct various events
-                  throughout the year in your college.
+                  The Campus Executive Intern must increase the outreach of the initiatives of the E-Cell IIT BHU to promote entrepreneurial activities in his/her college network.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  Publicising entrepreneurship oriented events and competitions
-                  in your college as well as over Social Media.
+                  The Campus Executive Intern may coordinate with the college authorities to extensively circulate the message regarding the conduction of E-Cell IIT BHU events and initatives.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  Inviting Alumni Entrepreneurs of your college to participate
-                  in Shark Tank IIT BHU.
+                  The Campus Executive Intern must Ideate by engaging in discussions with the other Campus Interns and E-cell coordinators to bring new ideas and increase overall reach of E-Cell IIT BHU
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  Networking with Local Startups and Startup Co-Founders.
+                  The Campus Executive intern may organize events/sessions promoting entrepreneurship in their respective colleges with the support of E-Cell IIT BHU.
                 </li>
               </ul>
             </Col>
           </Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
-            <h1>{`Testimonials from previous CDs`}</h1>
+            <h1>{`Testimonials from previous Campus Executives`}</h1>
             <CdTestimonials />
           </Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
@@ -221,7 +222,7 @@ export default function CampusDirector() {
             <Button
               className="get-started join-cd"
               style={{ margin: "30px auto" }}
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeYonqr-htA7xzhFInag45C5L3FbNGr-2dbKTouSi_uqe5kFg/viewform?usp=sf_link"
+              href="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeZfM1LGMAkT1HbChxNtvm5pobNqnvE7uNMf32OmBAble6aTw/viewform?usp=sf_link"
               target="_blank"
               rel="noopener noreferrer"
             >
