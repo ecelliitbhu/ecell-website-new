@@ -7,13 +7,28 @@ import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
 import Image from "next/image";
 
 export default function CampusDirector() {
+  const scrollToWhatWeOffer = () => {
+    const targetElement = document.getElementById("what-we-offer");
+
+    if (targetElement) {
+      // Calculate the scroll position of the target element
+      const targetOffset =
+        targetElement.getBoundingClientRect().top + window.scrollY;
+
+      // Scroll to the target element with smooth behavior
+      window.scrollTo({
+        top: targetOffset,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <>
       <Head>
         <title>Campus Executive Internship</title>
 
         <link rel="shortcut icon" href="/favicon.ico" />
-        <meta name="robots" content="index, follow"/>
+        <meta name="robots" content="index, follow" />
       </Head>
       <Nav />
       <div>
@@ -60,7 +75,8 @@ export default function CampusDirector() {
               </p>
               <Button
                 className="learn-more join-cd"
-                href="/cd/#what-we-offer"
+                onClick={scrollToWhatWeOffer}
+                // href="/cd/#what-we-offer"
                 // target="_blank"
                 rel="noopener noreferrer"
               >
@@ -92,7 +108,11 @@ export default function CampusDirector() {
             </Col>
           </Row>
           <Row></Row>
-          <Row id={"what-we-offer"} className="what-we-do info" style={{ margin: "60px auto 0px" }}>
+          <Row
+            id={"what-we-offer"}
+            className="what-we-do info"
+            style={{ margin: "60px auto 0px" }}
+          >
             <h1>What we offer?</h1>
             <p>
               {`Through our vision of "Learn, Build and Scale" we implement
@@ -113,7 +133,9 @@ export default function CampusDirector() {
                   <Image src="/perks/2.png" alt="" height="512" width="512" />
                 </div>
 
-                <p>Network with Unicorn Founders and gain valuable experience.</p>
+                <p>
+                  Network with Unicorn Founders and gain valuable experience.
+                </p>
               </div>
               <div className="perk">
                 <div className="perk-image">
@@ -126,7 +148,10 @@ export default function CampusDirector() {
                 <div className="perk-image">
                   <Image src="/perks/4.png" alt="" height="512" width="512" />
                 </div>
-                <p>Top performers will be featured on the social media handles of E-Cell IIT BHU.</p>
+                <p>
+                  Top performers will be featured on the social media handles of
+                  E-Cell IIT BHU.
+                </p>
               </div>
               <div className="perk">
                 <div className="perk-image">
@@ -138,7 +163,10 @@ export default function CampusDirector() {
                 <div className="perk-image">
                   <Image src="/perks/8.png" alt="" height="512" width="512" />
                 </div>
-                <p>Opportunity to enter BWU Cohort and start your entrepreneurship journey</p>
+                <p>
+                  Opportunity to enter BWU Cohort and start your
+                  entrepreneurship journey
+                </p>
               </div>
               <div className="perk">
                 <div className="perk-image">
@@ -170,7 +198,9 @@ export default function CampusDirector() {
                 <div className="perk-image">
                   <Image src="/perks/10.png" alt="" height="512" width="512" />
                 </div>
-                <p>Goodies, merchandise and learning resources from our sponsors</p>
+                <p>
+                  Goodies, merchandise and learning resources from our sponsors
+                </p>
               </div>
             </div>
           </Row>
@@ -191,23 +221,34 @@ export default function CampusDirector() {
               <ul className="ca-responsibilities">
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive Intern must assist the students with their total capacity in registering for E-Cell IIT BHU&apos;s competitions.
+                  The Campus Executive Intern must assist the students with
+                  their total capacity in registering for E-Cell IIT BHU&apos;s
+                  competitions.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive Intern must increase the outreach of the initiatives of the E-Cell IIT BHU to promote entrepreneurial activities in his/her college network.
+                  The Campus Executive Intern must increase the outreach of the
+                  initiatives of the E-Cell IIT BHU to promote entrepreneurial
+                  activities in his/her college network.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive Intern may coordinate with the college authorities to extensively circulate the message regarding the conduction of E-Cell IIT BHU events and initatives.
+                  The Campus Executive Intern may coordinate with the college
+                  authorities to extensively circulate the message regarding the
+                  conduction of E-Cell IIT BHU events and initatives.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive Intern must Ideate by engaging in discussions with the other Campus Interns and E-cell coordinators to bring new ideas and increase overall reach of E-Cell IIT BHU
+                  The Campus Executive Intern must Ideate by engaging in
+                  discussions with the other Campus Interns and E-cell
+                  coordinators to bring new ideas and increase overall reach of
+                  E-Cell IIT BHU
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive intern may organize events/sessions promoting entrepreneurship in their respective colleges with the support of E-Cell IIT BHU.
+                  The Campus Executive intern may organize events/sessions
+                  promoting entrepreneurship in their respective colleges with
+                  the support of E-Cell IIT BHU.
                 </li>
               </ul>
             </Col>
