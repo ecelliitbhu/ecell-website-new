@@ -203,7 +203,7 @@ export const Initiatives = () => {
                 <FcApproval fontSize="2rem"></FcApproval>
                 <div>
                   <h4>
-                    Campus Ambassador <br /> program
+                    Campus Executive <br /> Internship
                   </h4>
                   <p>
                     {`Join our initiative of creating & motivating`}
