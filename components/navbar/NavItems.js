@@ -217,10 +217,10 @@ export const Initiatives = () => {
               <a className="dropdown-item" href="#">
                 <FcApproval fontSize="2rem"></FcApproval>
                 <div>
-                  <h4>Mentor Forum</h4>
+                  <h4>Scale</h4>
                   <p>
-                    Request for a connect to a <br />{" "}
-                    {`mentor for your startup sector!`}
+                  Link with alumni, use our incubators,<br/>pitch to Angel Investors & VCs!
+                    
                   </p>
                 </div>
               </a>
@@ -520,7 +520,7 @@ export const Learn = () => {
             >
               <FcNews fontSize="2rem"></FcNews>
               <div>
-                <h4>Startup Bundle</h4>
+                <h4>Startup HelpBook</h4>
                 <p>
                   The Ultimate Guidebook for young <br /> entrepreneurs on
                   starting up!
@@ -547,12 +547,17 @@ export const Learn = () => {
           </li>
           <li className="dropdown-subcontainer">
             <Link href="/FAQs">
-              <a className="dropdown-item">
+              <a
+                className="dropdown-item"
+                href="https://medium.com/ecelliitbhu/feature/home"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FcNews fontSize="2rem"></FcNews>
                 <div>
-                  <h4>Frequently Asked Questions</h4>
+                  <h4>Blogs</h4>
                   <p>
-                    Get all your startup/ E-Cell <br /> related doubts answered!
+                    Visit the Official E-Cell <br /> Medium Blog
                   </p>
                 </div>
               </a>
@@ -589,17 +594,12 @@ export const Learn = () => {
                 </p>
               </div>
             </a>
-            <a
-              className="dropdown-item"
-              href="https://medium.com/ecelliitbhu/feature/home"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a className="dropdown-item">
               <FcNews fontSize="2rem"></FcNews>
               <div>
-                <h4>Blogs</h4>
+                <h4>Frequently Asked Questions</h4>
                 <p>
-                  Visit the Official E-Cell <br /> Medium Blog
+                  Get all your startup/ E-Cell <br /> related doubts answered!
                 </p>
               </div>
             </a>
