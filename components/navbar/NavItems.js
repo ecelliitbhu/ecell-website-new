@@ -219,8 +219,9 @@ export const Initiatives = () => {
                 <div>
                   <h4>Scale</h4>
                   <p>
-                  Link with alumni, use our incubators,<br/>pitch to Angel Investors & VCs!
-                    
+                    Link with alumni, use our incubators,
+                    <br />
+                    pitch to Angel Investors & VCs!
                   </p>
                 </div>
               </a>
@@ -514,7 +515,8 @@ export const Learn = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://ecelliitbhu.notion.site/Startup-Bundle-f47d0b39e4754468ad31fd9e0a212d21"
+              // href="https://ecelliitbhu.notion.site/Startup-Bundle-f47d0b39e4754468ad31fd9e0a212d21"
+              href="/startup_help_book"
               target="_blank"
               rel="noopener noreferrer"
             >
