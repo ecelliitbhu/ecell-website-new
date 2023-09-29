@@ -69,7 +69,10 @@ export default function StartupBundle() {
                   justifyContent: "flex-end",
                 }}
               >
-                <Link href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view">
+                <Link
+                  passHref
+                  href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
+                >
                   <div>
                     <DownloadForOfflineIcon
                       onMouseEnter={handleIconHoverLeft}
@@ -104,7 +107,10 @@ export default function StartupBundle() {
                   justifyContent: "flex-end",
                 }}
               >
-                <Link href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view">
+                <Link
+                  passHref
+                  href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
+                >
                   <div>
                     <DownloadForOfflineIcon
                       onMouseEnter={handleIconHoverRight}

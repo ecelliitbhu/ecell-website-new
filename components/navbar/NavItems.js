@@ -513,22 +513,27 @@ export const Learn = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <a
-              className="dropdown-item"
-              // href="https://ecelliitbhu.notion.site/Startup-Bundle-f47d0b39e4754468ad31fd9e0a212d21"
-              href="/startup_help_book"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FcNews fontSize="2rem"></FcNews>
-              <div>
-                <h4>Startup HelpBook</h4>
-                <p>
-                  The Ultimate Guidebook for young <br /> entrepreneurs on
-                  starting up!
-                </p>
-              </div>
-            </a>
+            <Link href={"/startup_help_book"}>
+              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+              <a
+                className="dropdown-item"
+                // href="https://ecelliitbhu.notion.site/Startup-Bundle-f47d0b39e4754468ad31fd9e0a212d21"
+                href="/startup_help_book"
+                // target="_blank"
+                // rel="noopener noreferrer"
+              >
+                <div>
+                  <FcNews fontSize="2rem"></FcNews>
+                  <div>
+                    <h4>Startup HelpBook</h4>
+                    <p>
+                      The Ultimate Guidebook for young <br /> entrepreneurs on
+                      starting up!
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </Link>
 
             <a
               className="dropdown-item"
