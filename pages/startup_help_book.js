@@ -51,7 +51,12 @@ export default function StartupBundle() {
       <div style={flexContainerStyle} className="FlexContainer">
         <div style={{ marginRight: "7%", border: "3px solid #EBEBE3" }}>
           <Card sx={{ maxWidth: 370 }}>
-            <Image src={part1_img} alt="logic"></Image>
+            <Link
+              passHref
+              href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
+            >
+              <Image src={part1_img} alt="logic"></Image>
+            </Link>
             <div
               style={{
                 display: "flex",
@@ -89,7 +94,12 @@ export default function StartupBundle() {
 
         <div style={{ marginLeft: "7%", border: "3px solid #EBEBE3" }}>
           <Card sx={{ maxWidth: 370 }}>
-            <Image src={part2_img} alt="logic"></Image>
+            <Link
+              passHref
+              href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
+            >
+              <Image src={part2_img} alt="logic"></Image>
+            </Link>
             <div
               style={{
                 display: "flex",
