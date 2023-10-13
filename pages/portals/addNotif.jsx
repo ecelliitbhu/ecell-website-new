@@ -1,7 +1,10 @@
 import { Card, Button } from "react-bootstrap";
 import Image from "next/image";
 import { firebaseDB as db } from "../../lib/firebase";
-import {
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { firebaseconfig } from "../../lib/firebase"
+ import {
   ref,
   set,
   getDatabase,
@@ -62,11 +65,9 @@ const Notifi = ({
 };
 
 const AddNotif = () => {
-  // const { superAdminUserName, superAdminToken, logoutSuperAdmin } = useAuth();
-  // console.log(superAdminToken)
-  // useEffect(() => {
-  //   if (!superAdminToken) Router.replace("/adminlogin");
-  // });
+  const [password, setPassword] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+
   function logout(e) {
     e.preventDefault();
     // logoutSuperAdmin();
@@ -155,6 +156,31 @@ const AddNotif = () => {
     });
   };
 
+
+  const app = initializeApp(firebaseconfig);
+  const firestore = getFirestore(app);
+  const getPasswordFromFirestore = async () => {
+    const snapshot = await getDocs(collection(firestore, "Passwords"));
+    var stored = "";
+
+    snapshot.forEach((doc) => {
+      stored = doc.data().password;
+    });
+    return stored;
+  };
+
+  const handleCheckPassword = async () => {
+    const storedPassword = await getPasswordFromFirestore();
+    if (storedPassword && password === storedPassword) {
+      setPassword(password);
+      setIsPasswordValid(true);
+    } else {
+      setPassword(password);
+      setIsPasswordValid(false);
+      alert("Password does not match.");
+    }
+  };
+
   useEffect(() => {
     onValue(
       ref(db, `notifs/`),
@@ -177,108 +203,136 @@ const AddNotif = () => {
   }, [isLoading]);
   return (
     <>
-      {/* {superAdminToken && ( */}
-      <Card style={{ margin: "50px auto", width: "70%" }}>
-        {/* {superAdminToken && <span>{superAdminUserName}</span>} */}
-        {/* <Button variant="primary" onClick={() => logout()}>
-            Logout
-          </Button> */}
-        <Card.Body>
-          <Card.Title>
-            {isEditing
-              ? `Editing ${notifsList[isEditing - 1].title + " "}`
-              : `Add Notifications`}
-          </Card.Title>
-          <form onSubmit={handleSubmit}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <input
-                type="title"
-                placeholder="Enter Notification title"
-                value={notif.title}
-                onChange={(e) => setNotif({ ...notif, title: e.target.value })}
-                required
-              />
-              <input
-                type="date"
-                placeholder="enter begin date"
-                value={notif.beginDate}
-                onChange={(e) =>
-                  setNotif({ ...notif, beginDate: e.target.value })
-                }
-                required
-              />
-              <input
-                type="date"
-                placeholder="enter end date"
-                value={notif.endDate}
-                onChange={(e) =>
-                  setNotif({ ...notif, endDate: e.target.value })
-                }
-                required
-              />
-              <textarea
-                type="text"
-                placeholder="Enter Description"
-                rows="8"
-                cols="40"
-                value={notif.description}
-                onChange={(e) =>
-                  setNotif({ ...notif, description: e.target.value })
-                }
-                required
-              />
-              <input
-                type="know more link"
-                placeholder="Enter know more link"
-                value={notif.knowMoreLink}
-                onChange={(e) =>
-                  setNotif({ ...notif, knowMoreLink: e.target.value })
-                }
-                required
-              />
-
-              {!isLoading && (
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>
-              )}
-              {isEditing && (
-                <Button
-                  variant="danger"
-                  onClick={() => {
-                    setIsEditing(false);
-                    setNotif(initialNotifState);
-                  }}
-                >
-                  Cancel
-                </Button>
-              )}
-            </div>
-          </form>
-          {notifsList.length > 0 && (
-            <>
-              <Card.Title>Added Notifications</Card.Title>
-              <div style={{ display: "flex", width: "100%" }}>
-                {notifsList.map((notif, _id) => (
-                  <Notifi
-                    key={notif.id}
-                    {...notif}
-                    deleteNotif={() => handleDelete(_id)}
-                    editNotif={() => handleEdit(_id)}
-                  />
-                ))}
-              </div>
-            </>
-          )}
+      {isPasswordValid === false && (
+        <Card style={{ margin: "50px auto", width: "30%" ,height:"20%"}}>
+          <Card.Body>
+        <form onSubmit={handleSubmit}>
+        <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+          <label>
+            Enter Password:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <Button type="submit" className="my-2" onClick={handleCheckPassword}>
+            Submit
+          </Button>
+          </div>
+        </form>
         </Card.Body>
-      </Card>
+        </Card>
+      )}
+      {isPasswordValid == true && (
+        <Card style={{ margin: "50px auto", width: "70%" }}>
+          <Card.Body>
+            <Card.Title>
+              {isEditing
+                ? `Editing ${notifsList[isEditing - 1].title + " "}`
+                : `Add Notifications`}
+            </Card.Title>
+            <form onSubmit={handleSubmit}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <input
+                  type="title"
+                  placeholder="Enter Notification title"
+                  value={notif.title}
+                  onChange={(e) =>
+                    setNotif({ ...notif, title: e.target.value })
+                  }
+                  required
+                />
+                <input
+                  type="date"
+                  placeholder="enter begin date"
+                  value={notif.beginDate}
+                  onChange={(e) =>
+                    setNotif({ ...notif, beginDate: e.target.value })
+                  }
+                  required
+                />
+                <input
+                  type="date"
+                  placeholder="enter end date"
+                  value={notif.endDate}
+                  onChange={(e) =>
+                    setNotif({ ...notif, endDate: e.target.value })
+                  }
+                  required
+                />
+                <textarea
+                  type="text"
+                  placeholder="Enter Description"
+                  rows="8"
+                  cols="40"
+                  value={notif.description}
+                  onChange={(e) =>
+                    setNotif({ ...notif, description: e.target.value })
+                  }
+                  required
+                />
+                <input
+                  type="know more link"
+                  placeholder="Enter know more link"
+                  value={notif.knowMoreLink}
+                  onChange={(e) =>
+                    setNotif({ ...notif, knowMoreLink: e.target.value })
+                  }
+                  required
+                />
+
+                {!isLoading && (
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                )}
+                {isEditing && (
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      setIsEditing(false);
+                      setNotif(initialNotifState);
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                )}
+              </div>
+            </form>
+            {notifsList.length > 0 && (
+              <>
+                <Card.Title>Added Notifications</Card.Title>
+                <div style={{ display: "flex", width: "100%" }}>
+                  {notifsList.map((notif, _id) => (
+                    <Notifi
+                      key={notif.id}
+                      {...notif}
+                      deleteNotif={() => handleDelete(_id)}
+                      editNotif={() => handleEdit(_id)}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </Card.Body>
+        </Card>
+      )}
+
       {/* )} */}
     </>
   );
