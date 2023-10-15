@@ -21,6 +21,10 @@
     "@progress/kendo-react-dropdowns": "^4.9.0",
     "@progress/kendo-react-intl": "^4.9.0",
     "@progress/kendo-theme-default": "^4.41.2",
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.8.6",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
     "@vercel/analytics": "^1.0.1",
     "aws-sdk": "^2.1473.0",
     "axios": "^0.25.0",
@@ -51,6 +55,7 @@
     "sass": "^1.45.1",
     "sharp": "^0.32.6",
     "styled-components": "^5.3.3",
+    "typescript": "^5.2.2",
     "typewriter-effect": "^2.18.2",
     "uuid": "^8.3.2"
   },
