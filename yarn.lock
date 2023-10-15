@@ -3498,7 +3498,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.4.2 || ^6.0.0":
+"@typescript-eslint/parser@npm:^5.4.2 || ^6.0.0, @typescript-eslint/parser@npm:^6.7.5":
   version: 6.7.5
   resolution: "@typescript-eslint/parser@npm:6.7.5"
   dependencies:
@@ -5377,6 +5377,7 @@ __metadata:
     "@types/node": ^20.8.6
     "@types/react": ^18.2.28
     "@types/react-dom": ^18.2.13
+    "@typescript-eslint/parser": ^6.7.5
     "@vercel/analytics": ^1.0.1
     aws-sdk: ^2.1473.0
     axios: ^0.25.0
