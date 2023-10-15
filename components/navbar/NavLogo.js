@@ -5,7 +5,7 @@ import logo from "../../public/Ecell-logo.png";
 export const NavLogo = () => {
   return (
     <div className="navbar-brand">
-      <Link href="/" passHref>
+      <Link href="/" passHref legacyBehavior>
         <Image
           src={logo}
           height="50"

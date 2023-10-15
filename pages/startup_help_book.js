@@ -54,7 +54,7 @@ export default function StartupBundle() {
             <Link
               passHref
               href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
-            >
+              legacyBehavior>
               <Image src={part1_img} alt="logic"></Image>
             </Link>
             <div
@@ -77,7 +77,7 @@ export default function StartupBundle() {
                 <Link
                   passHref
                   href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
-                >
+                  legacyBehavior>
                   <div>
                     <DownloadForOfflineIcon
                       onMouseEnter={handleIconHoverLeft}
@@ -97,7 +97,7 @@ export default function StartupBundle() {
             <Link
               passHref
               href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
-            >
+              legacyBehavior>
               <Image src={part2_img} alt="logic"></Image>
             </Link>
             <div
@@ -120,7 +120,7 @@ export default function StartupBundle() {
                 <Link
                   passHref
                   href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
-                >
+                  legacyBehavior>
                   <div>
                     <DownloadForOfflineIcon
                       onMouseEnter={handleIconHoverRight}
