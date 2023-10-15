@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Card from "@mui/material/Card";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 import part1_img from "../public/startup_help_book/part1.jpg";

@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import CdTestimonials from "../components/CdTestimonials";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRef } from "react";
 
 export default function CampusDirector() {

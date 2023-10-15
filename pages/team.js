@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import akj from "../public/team/akj.jpg";
 import prof from "../public/team/rajnesh_tyagi.png";
 import vp from "../public/team/vp.jpg";

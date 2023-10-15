@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import { Modal, ModalGateway } from "react-images";

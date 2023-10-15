@@ -1,5 +1,5 @@
 import { Card, Button } from "react-bootstrap";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { firebaseDB as db } from "../../lib/firebase";
 import {
   ref,

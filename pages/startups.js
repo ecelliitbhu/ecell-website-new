@@ -8,7 +8,7 @@ import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
 import { ref, get, once, onValue } from "firebase/database";
 import { firebaseDB } from "../lib/firebase";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);

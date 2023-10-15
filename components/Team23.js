@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { GrMail } from "react-icons/gr";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import parth from "../public/team/2023-2024/parth.jpeg";
