@@ -2,7 +2,7 @@
   font-family: "averta";
   src: url("../public/averta.ttf");
 }
-:root{
+:root {
   --foreground: 222.2 47.4% 11.2%;
   --background: 0 0% 100%;
 
@@ -15,7 +15,7 @@
   --card: 0 0% 100%;
   --card-foreground: 222.2 47.4% 11.2%;
 }
-.form-card{
+.form-card {
   border-radius: 0.5rem;
   border-width: 1px;
   border-style: solid;
@@ -34,10 +34,10 @@
 .form-card-description {
   font-size: 0.825rem;
   margin-left: 2rem;
-  color:  hsl(var(--muted-foreground)); /* Equivalent to text-muted-foreground */
+  color: hsl(var(--muted-foreground)); /* Equivalent to text-muted-foreground */
 }
-.form-branding{
-  color:red;
+.form-branding {
+  color: red;
 }
 
 .form-card-content {
@@ -52,7 +52,7 @@
   //  width: 100%;
   //  justify-content: space-between;
   //}
-  .form-card-content{
+  .form-card-content {
     padding: 3rem; /* Equivalent to p-8 */
   }
 }
@@ -146,6 +146,7 @@ body {
 
 .navbar-brand {
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   margin: 0px 0px 0px 25px;
@@ -640,7 +641,7 @@ ul {
   }
   .dropdown-item {
     margin: 5px;
-    padding: 5px 10px 5x 10px;
+    padding: 5px 10px 5px 10px;
     gap: 20px;
   }
   .dropdown-item div h4 {
@@ -1520,36 +1521,36 @@ ul {
     font-weight: bold;
   }
 }
-.novice h2{
+.novice h2 {
   margin-top: 5%;
   text-align: center;
   font-size: 35px;
 }
-.novice span{
+.novice span {
   display: block;
 }
-.novice ul{
+.novice ul {
   background-color: wheat;
   margin-top: 3%;
 }
-.novice{
+.novice {
   margin: 2% 10%;
   padding: 2% 5%;
   background-color: wheat;
 }
-.novicename{
+.novicename {
   margin: 3%;
   font-size: 20px;
   font-weight: bold;
 }
-.noviceitem{
+.noviceitem {
   margin: 3%;
 }
 .cf {
   // text-align: center;
   margin: 20px auto;
   width: 60%;
-  .form-item { 
+  .form-item {
     margin: 25px 0px;
     .checkbox-option {
       input,
@@ -1657,7 +1658,7 @@ ul {
 }
 
 .Text_Area {
-  border-bottom: "2px solid grey";
+  border-bottom: 2px solid grey;
   background-color: #dce8eb;
 }
 
@@ -1699,7 +1700,7 @@ ul {
 }
 
 .image-set {
-  margin: "50px auto 0px auto";
+  margin: 50px auto 0px auto;
 }
 
 .startups {
@@ -1968,7 +1969,7 @@ ul {
   .perk {
     width: 280px;
     height: 280px;
-    background-color: f8f9fa;
+    background-color: #f8f9fa;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -2017,22 +2018,8 @@ ul {
     rgba(255, 255, 255, 0.8) 45%,
     rgba(255, 255, 255, 0) 50%
   );
-  background-image: -moz-linear-gradient(
-    0 0,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.2) 37%,
-    rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0) 50%
-  );
-  background-image: -o-linear-gradient(
-    0 0,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.2) 37%,
-    rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0) 50%
-  );
   background-image: linear-gradient(
-    0 0,
+    0deg,
     rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0.2) 37%,
     rgba(255, 255, 255, 0.8) 45%,
@@ -2082,8 +2069,11 @@ ul {
   }
 }
 
-.img-contain{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.row {
+  --bs-gutter-x: 0.3rem;
 }
