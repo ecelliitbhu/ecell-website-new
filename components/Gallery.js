@@ -355,7 +355,6 @@ const esummit = [
     src: "/e-summit/mbg-min.jpg",
     width: 4,
     height: 3,
-    height: 3,
   },
 ];
 
@@ -852,8 +851,7 @@ export const Incubators = () => {
                 alt={photo.title}
                 style={{
                   height: "230px",
-                  objectFit:"cover"
-
+                  objectFit: "cover",
                 }}
               />
             </div>
@@ -930,7 +928,6 @@ export const ELectures = () => {
             className="row"
             style={{
               display: "flex",
-             
             }}
           >
             {electures.slice(rowIndex * 3, (rowIndex + 1) * 3).map((photo) => (
@@ -947,7 +944,7 @@ export const ELectures = () => {
                   alt={photo.title}
                   style={{
                     height: "230px",
-                    objectFit:"cover"
+                    objectFit: "cover",
                   }}
                 />
               </div>
@@ -971,7 +968,7 @@ export const ELectures = () => {
             className="row"
             style={{
               display: "flex",
-              objectFit:"cover"
+              objectFit: "cover",
             }}
           >
             {electures.slice(rowIndex * 4, (rowIndex + 1) * 4).map((photo) => (
@@ -983,12 +980,7 @@ export const ELectures = () => {
                   width: "calc(25%)",
                 }}
               >
-                <img
-                  src={photo.src}
-                  alt={photo.title}
-                  style={{
-                  }}
-                />
+                <img src={photo.src} alt={photo.title} style={{}} />
               </div>
             ))}
           </div>

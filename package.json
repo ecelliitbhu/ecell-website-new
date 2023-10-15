@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -49,6 +49,7 @@
     "react-photo-gallery": "^8.0.0",
     "react-responsive-carousel": "^3.2.23",
     "sass": "^1.45.1",
+    "sharp": "^0.32.6",
     "styled-components": "^5.3.3",
     "typewriter-effect": "^2.18.2",
     "uuid": "^8.3.2"

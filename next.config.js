@@ -9,17 +9,17 @@ module.exports = {
   },
   reactStrictMode: true,
   // target: "serverless",
-  webpack: (config) => {
-    config.plugins.push(new webpack.DefinePlugin({ "global.GENTLY": false }));
-
-    config.module.rules.push({
-      test: /\.html$/,
-      use: "html-loader",
-    });
-    config.module.rules.push({
-      test: /\.cs$/,
-      use: "raw-loader",
-    });
-    return config;
-  },
+  // webpack: (config) => {
+  //   config.plugins.push(new webpack.DefinePlugin({ "global.GENTLY": false }));
+  //
+  //   config.module.rules.push({
+  //     test: /\.html$/,
+  //     use: "html-loader",
+  //   });
+  //   config.module.rules.push({
+  //     test: /\.cs$/,
+  //     use: "raw-loader",
+  //   });
+  //   return config;
+  // },
 };

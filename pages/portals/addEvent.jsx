@@ -142,7 +142,6 @@ const AddEvent = () => {
         .then((poster) => {
           set(ref(db, `events/${isEditing ? id : imageName}`), {
             title,
-            description,
             poster,
             description,
             beginDate,

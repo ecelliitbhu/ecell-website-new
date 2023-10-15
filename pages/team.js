@@ -20,7 +20,7 @@ import Tanya from "../public/team/2022-2023/Tanya.jpeg";
 import Parth from "../public/team/2022-2023/Parth.jpg";
 import Ashwat from "../public/team/2022-2023/Ashwat.jpg";
 import Divyansh from "../public/team/2022-2023/Divyansh.jpg";
-import Shreya from "../public/team/2022-2023/Shreya.JPG";
+import Shreya from "../public/team/2022-2023/Shreya.jpg";
 import Vanshika from "../public/team/2022-2023/Vanshika.jpg";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Accordion, AccordionSummary } from "@mui/material";
