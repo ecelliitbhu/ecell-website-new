@@ -175,9 +175,10 @@ const AddNotif = () => {
       setPassword(password);
       setIsPasswordValid(true);
     } else {
+      alert("Password does not match.");
       setPassword(password);
       setIsPasswordValid(false);
-      alert("Password does not match.");
+      
     }
   };
 

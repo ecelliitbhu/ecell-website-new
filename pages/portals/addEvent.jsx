@@ -183,8 +183,10 @@ const AddEvent = () => {
       setIsPasswordValid(true);
       setPassword(storedPassword);
     } else {
+      alert("Password does not match.");
       setIsPasswordValid(false);
       setPassword(storedPassword);
+
     }
   };
   useEffect(() => {
