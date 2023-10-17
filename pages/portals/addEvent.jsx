@@ -41,18 +41,21 @@ const Event = ({
     <div
       style={{
         border: "2px solid black",
-        // width: "300px",
+        width: "400px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         margin: "5px",
+        maxWidth: "500px",  // Set maximum width for the event container
+        maxHeight: "450px", // Set maximum height for the event container
+        overflow: "auto",
       }}
     >
       <div style={{ height: "70px", width: "70px" }}>
         <Image src={poster} alt="" height={1000} width={1000} />
       </div>
-      <span>{`Title: ${title}`}</span>
+      <span >{`Title: ${title}`}</span>
       <p>{`Description: ${description}`}</p>
       <span>{`BeginDate: ${beginDate}`}</span>
       <span>{`End Date: ${endDate}`}</span>
@@ -252,11 +255,13 @@ const AddEvent = () => {
                   type="text"
                   placeholder="Enter Description"
                   rows="8"
-                  cols="40"
+                  cols="80%"
                   value={event.description}
                   onChange={(e) =>
                     setEvent({ ...event, description: e.target.value })
                   }
+                  style={{ width: '100%', boxSizing: 'border-box' }}
+
                   required
                 />
                 <input
@@ -341,15 +346,26 @@ const AddEvent = () => {
             {eventsList.length > 0 && (
               <>
                 <Card.Title>Added Events</Card.Title>
-                <div style={{ display: "flex", width: "100%" }}>
-                  {eventsList.map((event, _id) => (
-                    <Event
-                      key={event.id}
+                <div className="d-flex justify-content-center">
+                  <div className="row">
+
+                  {eventsList.map((event, _id) => {
+                    return (
+                      <div className="col-md-6" key={event.id}>
+                        <Event
+                      
                       {...event}
                       deleteEvent={() => handleDelete(_id)}
                       editEvent={() => handleEdit(_id)}
                     />
-                  ))}
+                    </div>
+
+
+                    )
+                    })}
+                    
+                  
+                  </div>
                 </div>
               </>
             )}

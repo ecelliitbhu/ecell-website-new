@@ -280,11 +280,13 @@ const AddNotif = () => {
                   type="text"
                   placeholder="Enter Description"
                   rows="8"
-                  cols="40"
+                  cols="80%"
                   value={notif.description}
                   onChange={(e) =>
                     setNotif({ ...notif, description: e.target.value })
                   }
+                  style={{ width: '100%', boxSizing: 'border-box' }}
+
                   required
                 />
                 <input
@@ -318,15 +320,22 @@ const AddNotif = () => {
             {notifsList.length > 0 && (
               <>
                 <Card.Title>Added Notifications</Card.Title>
-                <div style={{ display: "flex", width: "100%" }}>
-                  {notifsList.map((notif, _id) => (
+                <div className="container">
+                <div className="row">
+                    
+                  {notifsList.map((notif, _id) => {
+                    return (
+                      <div className="col-md-3" key={notif.id}>
                     <Notifi
-                      key={notif.id}
+                      
                       {...notif}
                       deleteNotif={() => handleDelete(_id)}
                       editNotif={() => handleEdit(_id)}
                     />
-                  ))}
+                    </div>
+                  );
+                    })};
+                </div>
                 </div>
               </>
             )}

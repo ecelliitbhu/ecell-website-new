@@ -42,6 +42,9 @@ const Evaluation = ({
         justifyContent: "center",
         alignItems: "center",
         margin: "5px",
+        maxWidth: "500px",  
+        maxHeight: "450px", 
+        overflow: "auto",
       }}
     >
       <div style={{ height: "70px", width: "70px" }}>
@@ -275,15 +278,24 @@ const AddEvaluation = () => {
             {eventsList.length > 0 && (
               <>
                 <Card.Title>Added Evaluation Team</Card.Title>
-                <div style={{ display: "flex", width: "100%" }}>
-                  {eventsList.map((event, _id) => (
-                    <Evaluation
-                      key={event.id}
+                <div className="d-flex justify-content-center ">
+                  <div className="row">
+                  {eventsList.map((event, _id) => {
+                    return (
+                      <div className="col-md-4" key={event.id}>
+                      <Evaluation
+                      
                       {...event}
                       deleteEvent={() => handleDelete(_id)}
                       editEvent={() => handleEdit(_id)}
                     />
-                  ))}
+                    </div>
+                    );
+                    })};
+                  
+                    
+                  
+                </div>
                 </div>
               </>
             )}
