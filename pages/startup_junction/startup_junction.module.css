@@ -1,13 +1,13 @@
-html {
-  /* This is done so that 1rem = 10px taking into consideration that default font-size of browser is 16px and then from now on I'll use rem as a length unit. */
-  font-size: 62.5%;
-}
+/*html {*/
+/*  !* This is done so that 1rem = 10px taking into consideration that default font-size of browser is 16px and then from now on I'll use rem as a length unit. *!*/
+/*  font-size: 62.5%;*/
+/*}*/
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/** {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  box-sizing: border-box;*/
+/*}*/
 
 .body {
   font-family: "Rubik", sans-serif;
