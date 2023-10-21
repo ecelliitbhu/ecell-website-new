@@ -1,0 +1,129 @@
+html {
+  /* This is done so that 1rem = 10px taking into consideration that default font-size of browser is 16px and then from now on I'll use rem as a length unit. */
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  color: #555; /* This is our main text color*/
+  font-weight: 400;
+}
+
+.sectionHero {
+  background-color: #fdf2e9;
+  padding: 8.4rem 0 9.6rem 0;
+}
+
+.hero {
+  /* We'll not use px to define the length and will use rem. */
+  /* max-width: 1300px; */
+  max-width: 130rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+  align-items: center;
+  gap: 0 9.6rem;
+}
+
+.headingPrimary {
+  font-size: 5.2rem;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  margin-bottom: 3.6rem;
+}
+
+.heroDescription {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-bottom: 4.8rem;
+}
+
+.heroImgBox {
+  grid-column: 2/3;
+  grid-row: 1 / 3;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  border-radius: 9px;
+  /* margin-top: 4.8rem; */
+  padding: 1.6rem 3.2rem;
+  text-decoration: none;
+
+  transition: background-color 500ms;
+}
+
+.btnFill:link,
+.btnFill:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btnOutline:link,
+.btnOutline:visited {
+  color: #555;
+  background-color: #fff;
+}
+
+.btnFill:hover,
+.btnFill:active {
+  background-color: #cf711f;
+  text-decoration: underline;
+}
+
+.btnOutline:hover,
+.btnOutline:active {
+  background-color: #fdf2e9;
+  /* Now we'll not use border as in border the outlines are on the outside. Instead we'll use the outline or box-shadow property */
+  box-shadow: inset 0px 0px 0px 3px #fff;
+  text-decoration: underline;
+  /* outline: #fff solid 3px; */
+}
+
+/* We'll create a utility class that can be used for any element by simply adding a class. */
+.marginRightBtn {
+  margin-right: 2.4rem;
+}
+
+.deliveredMeals {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.deliveredImages img {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+  margin-right: -1.6rem;
+  outline: #fdf2e9 solid 3px;
+}
+
+.deliveredText {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.delivered-text span {
+  color: #cf711f;
+}
