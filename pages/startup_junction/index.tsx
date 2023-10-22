@@ -36,7 +36,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 </p>
 
                 <Link
-                  href="#"
+                  href="/forms/startup_junction"
                   className={`${styles.btn} ${styles.btnFill} ${styles.marginRightBtn}`}
                 >
                   Register

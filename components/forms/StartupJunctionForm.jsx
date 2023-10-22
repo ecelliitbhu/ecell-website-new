@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import { Button } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 import { getStorage, ref, uploadBytes, getDownloadURL,uploadBytesResumable, } from "firebase/storage";
@@ -18,7 +17,6 @@ export default function StartupJunctionForm() {
     control,
     reset,
   } = useForm();
-
   const uploadFileToFirebaseStorage = async (file, folderName, fileName) => {
     try {
       const storage = getStorage();
@@ -28,19 +26,16 @@ export default function StartupJunctionForm() {
       console.error("Error uploading file to Firebase Storage:", error);
       throw error;
     }
-    finally {
-      setIsLoading(false); // Hide loading state
-    }
   };
   const onSubmit = async (data) => {
     setIsLoading(true);
     try {
       const customDocId = data.fullname + data.phoneNumber;
       const docRef = doc(firestoreDB, "StartupJunction", customDocId);
-       await uploadFileToFirebaseStorage(data.pitchDeck[0], customDocId,"pitchDeck");
+      await uploadFileToFirebaseStorage(data.pitchDeck[0], customDocId,"pitchDeck");
       await uploadFileToFirebaseStorage(data.shareholder[0], customDocId,"Shareholder Agreement");
       if (data.moa[0]){
-      await uploadFileToFirebaseStorage(data.moa[0], customDocId,"moa");
+        await uploadFileToFirebaseStorage(data.moa[0], customDocId,"moa");
       }
       if(data.aoa[0]) {
         await uploadFileToFirebaseStorage(data.aoa[0], customDocId, "aoa");
@@ -62,6 +57,9 @@ export default function StartupJunctionForm() {
     } catch (error) {
       console.error("Error adding document: ", error);
       toast.error(error.message);
+    }
+    finally {
+      setIsLoading(false); // Hide loading state
     }
   };
   return (
@@ -223,7 +221,6 @@ export default function StartupJunctionForm() {
               </Button>
             )}
           </div>
-          <DevTool control={control} placement="top-right" />
         </Form>
       </div>
     </div>
