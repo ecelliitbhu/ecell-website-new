@@ -27,14 +27,14 @@
   max-width: 130rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0 3.2rem;
+  padding-left: 2rem;
   margin: 0 auto;
   align-items: center;
   gap: 0 9.6rem;
 }
 
 .headingPrimary {
-  font-size: 5.2rem;
+  font-size: 4rem;
   color: #333;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -43,9 +43,9 @@
 }
 
 .heroDescription {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.5;
-  margin-bottom: 4.8rem;
+  margin-bottom: 3.6rem;
 }
 
 .heroImgBox {
@@ -60,17 +60,18 @@
 .btn:link,
 .btn:visited {
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   font-family: inherit;
   border: none;
   cursor: pointer;
   border-radius: 9px;
   /* margin-top: 4.8rem; */
-  padding: 1.6rem 3.2rem;
+  padding: 0.7rem 1.2rem;
   text-decoration: none;
 
   transition: background-color 500ms;
+  margin-bottom: 3.6rem;
 }
 
 .btnFill:link,
@@ -112,16 +113,17 @@
 }
 
 .deliveredImages img {
-  width: 4.8rem;
-  height: 4.8rem;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
-  margin-right: -1.6rem;
+  margin-right: -1.8rem;
   outline: #fdf2e9 solid 3px;
 }
 
 .deliveredText {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
+  margin-top: 1rem;
 }
 
 .delivered-text span {
