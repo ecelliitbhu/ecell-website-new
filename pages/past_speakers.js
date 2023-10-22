@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import teslaSpeaker from "../public/past_speakers/tesla_speaker.jpg";
 import sanjaysethi from "../public/past_speakers/sanjaysethi.jpeg";
 import amisaha from "../public/past_speakers/amitavasaha.jpeg";

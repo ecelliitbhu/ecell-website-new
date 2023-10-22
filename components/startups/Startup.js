@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FaLinkedin } from "react-icons/fa";
 
 function MyVerticallyCenteredModal(props) {

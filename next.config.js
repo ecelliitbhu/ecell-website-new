@@ -8,18 +8,18 @@ module.exports = {
     domains: ["images.unsplash.com", "firebasestorage.googleapis.com"],
   },
   reactStrictMode: true,
-  target: "serverless",
-  webpack: (config) => {
-    config.plugins.push(new webpack.DefinePlugin({ 'global.GENTLY': false }));
-
-    config.module.rules.push({
-      test: /\.html$/,
-      use: 'html-loader',
-    });
-    config.module.rules.push({
-      test: /\.cs$/,
-      use: 'raw-loader',
-    });
-    return config;
-  },
+  // target: "serverless",
+  // webpack: (config) => {
+  //   config.plugins.push(new webpack.DefinePlugin({ "global.GENTLY": false }));
+  //
+  //   config.module.rules.push({
+  //     test: /\.html$/,
+  //     use: "html-loader",
+  //   });
+  //   config.module.rules.push({
+  //     test: /\.cs$/,
+  //     use: "raw-loader",
+  //   });
+  //   return config;
+  // },
 };

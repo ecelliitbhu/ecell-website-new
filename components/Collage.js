@@ -1,6 +1,6 @@
 import React from "react";
 import { Row } from "react-bootstrap";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import startups from "../public/startups.png";
 import startups_mobile from "../public/startups_mobile.png";
 export const Collage = () => {

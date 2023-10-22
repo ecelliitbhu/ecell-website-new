@@ -1,6 +1,10 @@
 import { Card, Button } from "react-bootstrap";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { firebaseDB as db } from "../../lib/firebase";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { firebaseconfig } from "../../lib/firebase"
+import { initializeApp } from "firebase/app";
+
 import {
   ref,
   set,
@@ -37,18 +41,21 @@ const Event = ({
     <div
       style={{
         border: "2px solid black",
-        // width: "300px",
+        width: "400px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         margin: "5px",
+        maxWidth: "500px",  // Set maximum width for the event container
+        maxHeight: "450px", // Set maximum height for the event container
+        overflow: "auto",
       }}
     >
       <div style={{ height: "70px", width: "70px" }}>
         <Image src={poster} alt="" height={1000} width={1000} />
       </div>
-      <span>{`Title: ${title}`}</span>
+      <span >{`Title: ${title}`}</span>
       <p>{`Description: ${description}`}</p>
       <span>{`BeginDate: ${beginDate}`}</span>
       <span>{`End Date: ${endDate}`}</span>
@@ -63,13 +70,11 @@ const Event = ({
     </div>
   );
 };
-
+const app = initializeApp(firebaseconfig);
+const firestore = getFirestore(app);
 const AddEvent = () => {
-  // const { superAdminUserName, superAdminToken, logoutSuperAdmin } = useAuth();
-  // console.log(superAdminToken)
-  // useEffect(() => {
-  //   if (!superAdminToken) Router.replace("/adminlogin");
-  // });
+  const [password, setPassword] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
   function logout(e) {
     e.preventDefault();
     // logoutSuperAdmin();
@@ -142,7 +147,6 @@ const AddEvent = () => {
         .then((poster) => {
           set(ref(db, `events/${isEditing ? id : imageName}`), {
             title,
-            description,
             poster,
             description,
             beginDate,
@@ -165,6 +169,28 @@ const AddEvent = () => {
     });
   };
 
+  const getPasswordFromFirestore=async()=>{
+    const snapshot = await getDocs(collection(firestore, "Passwords"));
+    var stored = "";
+
+    snapshot.forEach((doc) => {
+      stored = doc.data().password;
+    });
+    return stored;
+
+  }
+  const handleCheckPassword = async () => {
+    const storedPassword = await getPasswordFromFirestore();
+    if (password == storedPassword && storedPassword) {
+      setIsPasswordValid(true);
+      setPassword(storedPassword);
+    } else {
+      alert("Password does not match.");
+      setIsPasswordValid(false);
+      setPassword(storedPassword);
+
+    }
+  };
   useEffect(() => {
     onValue(
       ref(db, `events/`),
@@ -187,148 +213,197 @@ const AddEvent = () => {
   }, [isLoading]);
   return (
     <>
-      {/* {superAdminToken && ( */}
-      <Card style={{ margin: "50px auto", width: "70%" }}>
-        {/* {superAdminToken && <span>{superAdminUserName}</span>} */}
-        {/* <Button variant="primary" onClick={() => logout()}>
+      {isPasswordValid && (
+        <Card style={{ margin: "50px auto", width: "70%" }}>
+          {/* {superAdminToken && <span>{superAdminUserName}</span>} */}
+          {/* <Button variant="primary" onClick={() => logout()}>
             Logout
           </Button> */}
-        <Card.Body>
-          <Card.Title>
-            {isEditing
-              ? `Editing ${
-                  eventsList[isEditing - 1].title +
-                  " " +
-                  eventsList[isEditing - 1].beginDate +
-                  "- " +
-                  eventsList[isEditing - 1].endDate +
-                  " ..."
-                }`
-              : `Add Event`}
-          </Card.Title>
-          <form onSubmit={handleSubmit}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <input
-                type="title"
-                placeholder="Enter event title"
-                value={event.title}
-                onChange={(e) => setEvent({ ...event, title: e.target.value })}
-                required
-              />
-              <textarea
-                type="text"
-                placeholder="Enter Description"
-                rows="8"
-                cols="40"
-                value={event.description}
-                onChange={(e) =>
-                  setEvent({ ...event, description: e.target.value })
-                }
-                required
-              />
-              <input
-                type="date"
-                placeholder="enter begin date"
-                value={event.beginDate}
-                onChange={(e) =>
-                  setEvent({ ...event, beginDate: e.target.value })
-                }
-                required
-              />
-              <input
-                type="date"
-                placeholder="enter end date"
-                value={event.endDate}
-                onChange={(e) =>
-                  setEvent({ ...event, endDate: e.target.value })
-                }
-                required
-              />
-              <input
-                type="know more link"
-                placeholder="Enter know more link"
-                value={event.knowMoreLink}
-                onChange={(e) =>
-                  setEvent({ ...event, knowMoreLink: e.target.value })
-                }
-                required
-              />
-              <input
-                type="registration link"
-                placeholder="Enter registration link"
-                value={event.registrationLink}
-                onChange={(e) =>
-                  setEvent({ ...event, registrationLink: e.target.value })
-                }
-                required
-              />
-              <div>
+          <Card.Body>
+            <Card.Title>
+              {isEditing
+                ? `Editing ${
+                    eventsList[isEditing - 1].title +
+                    " " +
+                    eventsList[isEditing - 1].beginDate +
+                    "- " +
+                    eventsList[isEditing - 1].endDate +
+                    " ..."
+                  }`
+                : `Add Event`}
+            </Card.Title>
+            <form onSubmit={handleSubmit}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 <input
-                  type="file"
-                  name="poster"
+                  type="title"
+                  placeholder="Enter event title"
+                  value={event.title}
                   onChange={(e) =>
-                    setEvent({ ...event, poster: e.target.files[0] })
+                    setEvent({ ...event, title: e.target.value })
                   }
                   required
                 />
-              </div>
-              <div style={{ width: "150px", margin: "10px auto" }}>
-                {event.poster && (
-                  <Image
-                    src={
-                      typeof event.poster == "string"
-                        ? event.poster
-                        : URL.createObjectURL(event.poster)
+                <textarea
+                  type="text"
+                  placeholder="Enter Description"
+                  rows="8"
+                  cols="80%"
+                  value={event.description}
+                  onChange={(e) =>
+                    setEvent({ ...event, description: e.target.value })
+                  }
+                  style={{ width: '100%', boxSizing: 'border-box' }}
+
+                  required
+                />
+                <input
+                  type="date"
+                  placeholder="enter begin date"
+                  value={event.beginDate}
+                  onChange={(e) =>
+                    setEvent({ ...event, beginDate: e.target.value })
+                  }
+                  required
+                />
+                <input
+                  type="date"
+                  placeholder="enter end date"
+                  value={event.endDate}
+                  onChange={(e) =>
+                    setEvent({ ...event, endDate: e.target.value })
+                  }
+                  required
+                />
+                <input
+                  type="know more link"
+                  placeholder="Enter know more link"
+                  value={event.knowMoreLink}
+                  onChange={(e) =>
+                    setEvent({ ...event, knowMoreLink: e.target.value })
+                  }
+                  required
+                />
+                <input
+                  type="registration link"
+                  placeholder="Enter registration link"
+                  value={event.registrationLink}
+                  onChange={(e) =>
+                    setEvent({ ...event, registrationLink: e.target.value })
+                  }
+                  required
+                />
+                <div>
+                  <input
+                    type="file"
+                    name="poster"
+                    onChange={(e) =>
+                      setEvent({ ...event, poster: e.target.files[0] })
                     }
-                    alt=""
-                    height="1000"
-                    width="1000"
+                    required
                   />
+                </div>
+                <div style={{ width: "150px", margin: "10px auto" }}>
+                  {event.poster && (
+                    <Image
+                      src={
+                        typeof event.poster == "string"
+                          ? event.poster
+                          : URL.createObjectURL(event.poster)
+                      }
+                      alt=""
+                      height="1000"
+                      width="1000"
+                    />
+                  )}
+                </div>
+
+                {!isLoading && (
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                )}
+                {isEditing && (
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      setIsEditing(false);
+                      setEvent(initialEventState);
+                    }}
+                  >
+                    Cancel
+                  </Button>
                 )}
               </div>
+            </form>
+            {eventsList.length > 0 && (
+              <>
+                <Card.Title>Added Events</Card.Title>
+                <div className="d-flex justify-content-center">
+                  <div className="row">
 
-              {!isLoading && (
-                <Button variant="primary" type="submit">
+                  {eventsList.map((event, _id) => {
+                    return (
+                      <div className="col-md-6" key={event.id}>
+                        <Event
+                      
+                      {...event}
+                      deleteEvent={() => handleDelete(_id)}
+                      editEvent={() => handleEdit(_id)}
+                    />
+                    </div>
+
+
+                    )
+                    })}
+                    
+                  
+                  </div>
+                </div>
+              </>
+            )}
+          </Card.Body>
+        </Card>
+      )}
+
+      {!isPasswordValid && (
+        <Card style={{ margin: "50px auto", width: "30%", height: "20%" }}>
+          <Card.Body>
+            <form onSubmit={handleSubmit}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <label>
+                  Enter Password:
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </label>
+                <Button
+                  type="submit"
+                  className="my-2"
+                  onClick={handleCheckPassword}
+                >
                   Submit
                 </Button>
-              )}
-              {isEditing && (
-                <Button
-                  variant="danger"
-                  onClick={() => {
-                    setIsEditing(false);
-                    setEvent(initialEventState);
-                  }}
-                >
-                  Cancel
-                </Button>
-              )}
-            </div>
-          </form>
-          {eventsList.length > 0 && (
-            <>
-              <Card.Title>Added Events</Card.Title>
-              <div style={{ display: "flex", width: "100%" }}>
-                {eventsList.map((event, _id) => (
-                  <Event
-                    key={event.id}
-                    {...event}
-                    deleteEvent={() => handleDelete(_id)}
-                    editEvent={() => handleEdit(_id)}
-                  />
-                ))}
               </div>
-            </>
-          )}
-        </Card.Body>
-      </Card>
+            </form>
+          </Card.Body>
+        </Card>
+      )}
       {/* )} */}
     </>
   );

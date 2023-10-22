@@ -10,7 +10,7 @@ export const Contacts = () => {
 };
 export const Startups = () => {
   return (
-    <Link href="/startups" passHref>
+    <Link href="/startups" passHref legacyBehavior>
       <button className="btn btn-info" id="sign-up">
         Startups
       </button>

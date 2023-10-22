@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Container, Row, Button, Card } from "react-bootstrap";
 import Footer from "../../components/Footer";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { firebaseDB as db } from "../../lib/firebase";
 import { ref, onValue } from "firebase/database";
 import { useEffect, useState } from "react";

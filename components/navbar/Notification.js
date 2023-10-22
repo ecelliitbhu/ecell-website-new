@@ -15,7 +15,7 @@ const Notifi = ({ title, beginDate, endDate, description, knowMoreLink }) => {
   fx = fx + 1 / 2;
   console.log(fx);
   return (
-    <Link href={knowMoreLink} passHref>
+    <Link href={knowMoreLink} passHref legacyBehavior>
       <Alert icon={false} severity={fx % 2 == 0 ? "warning" : "info"}>
         {description}
         <Chip

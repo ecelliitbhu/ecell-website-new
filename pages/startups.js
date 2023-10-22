@@ -8,7 +8,7 @@ import Startup from "../components/startups/Startup";
 import FilterOffcanvas from "../components/startups/FilterOffcanvas";
 import { ref, get, once, onValue } from "firebase/database";
 import { firebaseDB } from "../lib/firebase";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 const StartupDirectory = () => {
   const [startups, setStartups] = useState([]);
@@ -112,146 +112,144 @@ const StartupDirectory = () => {
     );
   };
 
-  return (
-    <>
-      <Head>
-        <title>Startups</title>
-        <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-      </Head>
-      <Nav />
-      <div>
-        <Container fluid className="body">
-          <Row
-            className="header"
-            style={{ height: "fit-content", marginBottom: "50px" }}
-          >
-            <h1
-              style={{
-                margin: "20px auto 0px auto",
-                fontSize: "3rem",
-                color: "black",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-            >
-              IIT BHU Startup Directory
-            </h1>
-          </Row>
-          <div style={{ display: "flex", justifyContent: "left", gap: "20px" }}>
-            <aside
-              style={{
-                position: "sticky",
-                top: "5rem",
-                display: "block !important",
-                height: "calc(96vh - 4rem)",
-                // paddingLeft: "0.25rem",
-                // marginLeft: "-0.25rem",
-                // overflowY: "auto",
-                // overflowY: "hidden",
-              }}
-            >
-              <div
-                className="filter-container"
-                style={{ width: "fit-content" }}
-              >
-                <Filter
-                  domainFiltersList={domainFiltersList}
-                  setDomainFiltersList={setDomainFiltersList}
-                  foundedInFiltersList={foundedInFiltersList}
-                  setFoundedInFiltersList={setFoundedInFiltersList}
-                />
-              </div>
-            </aside>
-            <div className="startups">
-              <Row className="search-container">
-                <input
-                  type="search"
-                  name=""
-                  id=""
-                  placeholder="Search for startup's name, founder, category, foundation year..."
-                  value={search}
-                  onChange={(e) => {
-                    setSearch(e.target.value);
-                  }}
-                />
-              </Row>
-              <Row style={{ margin: "10px" }} className="filter-offcanvas">
-                <FilterOffcanvas
-                  style={{ float: "left" }}
-                  domainFiltersList={domainFiltersList}
-                  setDomainFiltersList={setDomainFiltersList}
-                  foundedInFiltersList={foundedInFiltersList}
-                  setFoundedInFiltersList={setFoundedInFiltersList}
-                />
-              </Row>
-              <Link href="/forms/add_startup" passHref>
-                <Button
-                  style={{
-                    backgroundColor: "#fb6930",
-                    color: "white",
-                    margin: "20px 0 20px 0",
-                  }}
-                >
-                  Fill out the form here to add your startup
-                </Button>
-              </Link>
-              <a style={{ color: "black" }} href="mailto:ecell@iitbhu.ac.in">
-                For any queries and suggestions please drop a mail at:
-                startupdirectory@ecelliitbhu.com
-              </a>
-              {/* <div style={{ textAlign: "center", maxWidth: "40vw" }}>
-                {!isLoading && unavailableStartup()}
-              </div> */}
-              {isLoading ? (
-                <div className="loadingGif">
-                  <Image
-                    src="/loading.gif"
-                    width="300"
-                    alt="Loading..."
-                    height="300"
-                  />
-                </div>
-              ) : searchedStartups.length === 0 ? (
-                unavailableStartup()
-              ) : (
-                <Row className="startups-list">
-                  {searchedStartups.map((startup) => (
-                    <Startup key={startup[0]} details={startup[1]} />
-                  ))}
-                </Row>
-              )}
-            </div>
-          </div>
-          {/* <div
+  return <>
+    <Head>
+      <title>Startups</title>
+      <meta name="robots" content="index, follow" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+    </Head>
+    <Nav />
+    <div>
+      <Container fluid className="body">
+        <Row
+          className="header"
+          style={{ height: "fit-content", marginBottom: "50px" }}
+        >
+          <h1
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              margin: "20px auto 0px auto",
+              fontSize: "3rem",
+              color: "black",
+              fontWeight: "bold",
+              textAlign: "center",
             }}
           >
-            <lottie-player
-              src="https://assets5.lottiefiles.com/packages/lf20_m6cuL6.json"
-              background="transparent"
-              speed="1"
-              style={{
-                height: "100%",
-                width: "80%",
-                marginBottom: "80px",
-              }}
-              loop
-              autoplay
-            ></lottie-player>
-          </div> */}
-          <Footer />
-        </Container>
-      </div>
-      <script
-        async
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-      ></script>
-    </>
-  );
+            IIT BHU Startup Directory
+          </h1>
+        </Row>
+        <div style={{ display: "flex", justifyContent: "left", gap: "20px" }}>
+          <aside
+            style={{
+              position: "sticky",
+              top: "5rem",
+              display: "block !important",
+              height: "calc(96vh - 4rem)",
+              // paddingLeft: "0.25rem",
+              // marginLeft: "-0.25rem",
+              // overflowY: "auto",
+              // overflowY: "hidden",
+            }}
+          >
+            <div
+              className="filter-container"
+              style={{ width: "fit-content" }}
+            >
+              <Filter
+                domainFiltersList={domainFiltersList}
+                setDomainFiltersList={setDomainFiltersList}
+                foundedInFiltersList={foundedInFiltersList}
+                setFoundedInFiltersList={setFoundedInFiltersList}
+              />
+            </div>
+          </aside>
+          <div className="startups">
+            <Row className="search-container">
+              <input
+                type="search"
+                name=""
+                id=""
+                placeholder="Search for startup's name, founder, category, foundation year..."
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+              />
+            </Row>
+            <Row style={{ margin: "10px" }} className="filter-offcanvas">
+              <FilterOffcanvas
+                style={{ float: "left" }}
+                domainFiltersList={domainFiltersList}
+                setDomainFiltersList={setDomainFiltersList}
+                foundedInFiltersList={foundedInFiltersList}
+                setFoundedInFiltersList={setFoundedInFiltersList}
+              />
+            </Row>
+            <Link href="/forms/add_startup" passHref legacyBehavior>
+              <Button
+                style={{
+                  backgroundColor: "#fb6930",
+                  color: "white",
+                  margin: "20px 0 20px 0",
+                }}
+              >
+                Fill out the form here to add your startup
+              </Button>
+            </Link>
+            <a style={{ color: "black" }} href="mailto:ecell@iitbhu.ac.in">
+              For any queries and suggestions please drop a mail at:
+              startupdirectory@ecelliitbhu.com
+            </a>
+            {/* <div style={{ textAlign: "center", maxWidth: "40vw" }}>
+              {!isLoading && unavailableStartup()}
+            </div> */}
+            {isLoading ? (
+              <div className="loadingGif">
+                <Image
+                  src="/loading.gif"
+                  width="300"
+                  alt="Loading..."
+                  height="300"
+                />
+              </div>
+            ) : searchedStartups.length === 0 ? (
+              unavailableStartup()
+            ) : (
+              <Row className="startups-list">
+                {searchedStartups.map((startup) => (
+                  <Startup key={startup[0]} details={startup[1]} />
+                ))}
+              </Row>
+            )}
+          </div>
+        </div>
+        {/* <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <lottie-player
+            src="https://assets5.lottiefiles.com/packages/lf20_m6cuL6.json"
+            background="transparent"
+            speed="1"
+            style={{
+              height: "100%",
+              width: "80%",
+              marginBottom: "80px",
+            }}
+            loop
+            autoplay
+          ></lottie-player>
+        </div> */}
+        <Footer />
+      </Container>
+    </div>
+    <script
+      async
+      src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+    ></script>
+  </>;
 };
 
 export default StartupDirectory;

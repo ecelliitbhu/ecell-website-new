@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Container, Row, Col } from "react-bootstrap";
 import Footer from "../../components/Footer";
 import Nav from "../../components/navbar/NavLayout";

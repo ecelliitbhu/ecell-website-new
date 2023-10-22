@@ -30,69 +30,69 @@ export const Discover = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <Link href="/who_we_are">
-              <a className="dropdown-item">
-                <FcFinePrint fontSize="2rem"></FcFinePrint>
-                <div>
-                  <h4>Who we are?</h4>
-                  <p>
-                    Get to Know the E-Cell,
-                    <br />
-                    who we are and what we do.
-                  </p>
-                </div>
-              </a>
+            <Link href="/who_we_are" className="dropdown-item">
+
+              <FcFinePrint fontSize="2rem"></FcFinePrint>
+              <div>
+                <h4>Who we are?</h4>
+                <p>
+                  Get to Know the E-Cell,
+                  <br />
+                  who we are and what we do.
+                </p>
+              </div>
+
             </Link>
-            <Link href="/events">
-              <a className="dropdown-item" href="#">
-                <FcFinePrint fontSize="2rem"></FcFinePrint>
-                <div>
-                  <h4>Events</h4>
-                  <p>
-                    Discover the buzzing events
-                    <br />
-                    happening throughout the year!
-                  </p>
-                </div>
-              </a>
-            </Link>
-          </li>
-          <li className="dropdown-subcontainer">
-            <Link href="/gallery">
-              <a className="dropdown-item" href="#">
-                <FcFinePrint fontSize="2rem"></FcFinePrint>
-                <div>
-                  <h4>Gallery</h4>
-                  <p>
-                    A glimpse of our culture through <br /> our E-Album!
-                  </p>
-                </div>
-              </a>
-            </Link>
-            <Link href="/team">
-              <a className="dropdown-item">
-                <FcFinePrint fontSize="2rem"></FcFinePrint>
-                <div>
-                  <h4>Meet the team</h4>
-                  <p>
-                    Get to know the Core Team <br /> of E-Cell.
-                  </p>
-                </div>
-              </a>
+            <Link href="/events" className="dropdown-item">
+
+              <FcFinePrint fontSize="2rem"></FcFinePrint>
+              <div>
+                <h4>Events</h4>
+                <p>
+                  Discover the buzzing events
+                  <br />
+                  happening throughout the year!
+                </p>
+              </div>
+
             </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/past_speakers">
-              <a className="dropdown-item" href="#">
-                <FcFinePrint fontSize="2rem"></FcFinePrint>
-                <div>
-                  <h4>Past speakers</h4>
-                  <p>
-                    Witness our expansive lineup of <br /> prominent speakers
-                    and guests!
-                  </p>
-                </div>
-              </a>
+            <Link href="/gallery" className="dropdown-item">
+
+              <FcFinePrint fontSize="2rem"></FcFinePrint>
+              <div>
+                <h4>Gallery</h4>
+                <p>
+                  A glimpse of our culture through <br /> our E-Album!
+                </p>
+              </div>
+
+            </Link>
+            <Link href="/team" className="dropdown-item">
+
+              <FcFinePrint fontSize="2rem"></FcFinePrint>
+              <div>
+                <h4>Meet the team</h4>
+                <p>
+                  Get to know the Core Team <br /> of E-Cell.
+                </p>
+              </div>
+
+            </Link>
+          </li>
+          <li className="dropdown-subcontainer">
+            <Link href="/past_speakers" className="dropdown-item">
+
+              <FcFinePrint fontSize="2rem"></FcFinePrint>
+              <div>
+                <h4>Past speakers</h4>
+                <p>
+                  Witness our expansive lineup of <br /> prominent speakers
+                  and guests!
+                </p>
+              </div>
+
             </Link>
             <a
               className="dropdown-item"
@@ -199,32 +199,32 @@ export const Initiatives = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/cd" passHref>
-              <a className="dropdown-item" href="#">
-                <FcApproval fontSize="2rem"></FcApproval>
-                <div>
-                  <h4>
-                    Campus Executive <br /> Internship
-                  </h4>
-                  <p>
-                    {`Join our initiative of creating & motivating`}
-                    <br /> {`the entrepreneurs of your college!`}
-                  </p>
-                </div>
-              </a>
+            <Link href="/cd" passHref className="dropdown-item">
+
+              <FcApproval fontSize="2rem"></FcApproval>
+              <div>
+                <h4>
+                  Campus Executive <br /> Internship
+                </h4>
+                <p>
+                  {`Join our initiative of creating & motivating`}
+                  <br /> {`the entrepreneurs of your college!`}
+                </p>
+              </div>
+
             </Link>
-            <Link href="/coming_soon" passHref>
-              <a className="dropdown-item" href="#">
-                <FcApproval fontSize="2rem"></FcApproval>
-                <div>
-                  <h4>Scale</h4>
-                  <p>
-                    Link with alumni, use our incubators,
-                    <br />
-                    pitch to Angel Investors & VCs!
-                  </p>
-                </div>
-              </a>
+            <Link href="/coming_soon" passHref className="dropdown-item">
+
+              <FcApproval fontSize="2rem"></FcApproval>
+              <div>
+                <h4>Scale</h4>
+                <p>
+                  Link with alumni, use our incubators,
+                  <br />
+                  pitch to Angel Investors & VCs!
+                </p>
+              </div>
+
             </Link>
           </li>
         </ul>
@@ -513,26 +513,20 @@ export const Learn = () => {
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
-            <Link href={"/startup_help_book"}>
+            <Link href={"/startup_help_book"} className="dropdown-item">
               {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-              <a
-                className="dropdown-item"
-                // href="https://ecelliitbhu.notion.site/Startup-Bundle-f47d0b39e4754468ad31fd9e0a212d21"
-                href="/startup_help_book"
-                // target="_blank"
-                // rel="noopener noreferrer"
-              >
+
+              <div>
+                <FcNews fontSize="2rem"></FcNews>
                 <div>
-                  <FcNews fontSize="2rem"></FcNews>
-                  <div>
-                    <h4>Startup HelpBook</h4>
-                    <p>
-                      The Ultimate Guidebook for young <br /> entrepreneurs on
-                      starting up!
-                    </p>
-                  </div>
+                  <h4>Startup HelpBook</h4>
+                  <p>
+                    The Ultimate Guidebook for young <br /> entrepreneurs on
+                    starting up!
+                  </p>
                 </div>
-              </a>
+              </div>
+
             </Link>
 
             <a
@@ -553,21 +547,20 @@ export const Learn = () => {
             </a>
           </li>
           <li className="dropdown-subcontainer">
-            <Link href="/FAQs">
-              <a
-                className="dropdown-item"
-                href="https://medium.com/ecelliitbhu/feature/home"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FcNews fontSize="2rem"></FcNews>
-                <div>
-                  <h4>Blogs</h4>
-                  <p>
-                    Visit the Official E-Cell <br /> Medium Blog
-                  </p>
-                </div>
-              </a>
+            <Link
+              href="/FAQs"
+              className="dropdown-item"
+              target="_blank"
+              rel="noopener noreferrer">
+
+              <FcNews fontSize="2rem"></FcNews>
+              <div>
+                <h4>Blogs</h4>
+                <p>
+                  Visit the Official E-Cell <br /> Medium Blog
+                </p>
+              </div>
+
             </Link>
             <a
               className="dropdown-item"
@@ -619,10 +612,10 @@ export const Learn = () => {
 export const Contact = () => {
   return (
     <li className="nav-item dropdown contact-nav">
-      <Link href="/contacts" passHref>
-        <a className="nav-link">
-          <h3>Contact</h3>
-        </a>
+      <Link href="/contacts" passHref className="nav-link">
+
+        <h3>Contact</h3>
+
       </Link>
     </li>
   );
@@ -630,10 +623,10 @@ export const Contact = () => {
 export const Team = () => {
   return (
     <li className="nav-item dropdown contact-nav">
-      <Link href="/team" passHref>
-        <a className="nav-link">
-          <h3>Team</h3>
-        </a>
+      <Link href="/team" passHref className="nav-link">
+
+        <h3>Team</h3>
+
       </Link>
     </li>
   );
@@ -641,10 +634,10 @@ export const Team = () => {
 export const Startups = () => {
   return (
     <li className="nav-item dropdown startups-nav">
-      <Link href="/startups" passHref>
-        <a className="nav-link">
-          <h3>Startups</h3>
-        </a>
+      <Link href="/startups" passHref className="nav-link">
+
+        <h3>Startups</h3>
+
       </Link>
     </li>
   );

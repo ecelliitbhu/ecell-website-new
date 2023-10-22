@@ -1,6 +1,9 @@
 import { Card, Button } from "react-bootstrap";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { firebaseDB as db } from "../../lib/firebase";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { firebaseconfig } from "../../lib/firebase";
 import {
   ref,
   set,
@@ -39,6 +42,9 @@ const Evaluation = ({
         justifyContent: "center",
         alignItems: "center",
         margin: "5px",
+        maxWidth: "500px",  
+        maxHeight: "450px", 
+        overflow: "auto",
       }}
     >
       <div style={{ height: "70px", width: "70px" }}>
@@ -76,6 +82,8 @@ const AddEvaluation = () => {
   const [eventsList, setEvalList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [password, setPassword] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
 
   const handleDelete = async (id) => {
     setIsLoading(true);
@@ -138,6 +146,30 @@ const AddEvaluation = () => {
     });
   };
 
+  const app = initializeApp(firebaseconfig);
+  const firestore = getFirestore(app);
+  const getPasswordFromFirestore = async () => {
+    const snapshot = await getDocs(collection(firestore, "Passwords"));
+    var stored = "";
+
+    snapshot.forEach((doc) => {
+      stored = doc.data().password;
+    });
+    return stored;
+  };
+
+  const handleCheckPassword = async () => {
+    const storedPassword = await getPasswordFromFirestore();
+    if (storedPassword && password === storedPassword) {
+      setPassword(password);
+      setIsPasswordValid(true);
+    } else {
+      alert("Password does not match.");
+      setPassword(password);
+      setIsPasswordValid(false);
+    }
+  };
+
   useEffect(() => {
     onValue(
       ref(db, `evalteam/`),
@@ -160,104 +192,149 @@ const AddEvaluation = () => {
   }, [isLoading]);
   return (
     <>
-      {/* {superAdminToken && ( */}
-      <Card style={{ margin: "50px auto", width: "70%" }}>
-        {/* {superAdminToken && <span>{superAdminUserName}</span>} */}
-        {/* <Button variant="primary" onClick={() => logout()}>
+      {isPasswordValid && (
+        <Card style={{ margin: "50px auto", width: "70%" }}>
+          {/* {superAdminToken && <span>{superAdminUserName}</span>} */}
+          {/* <Button variant="primary" onClick={() => logout()}>
             Logout
           </Button> */}
-        <Card.Body>
-          <Card.Title>
-            {isEditing
-              ? `Editing ${eventsList[isEditing - 1].title + " "}`
-              : `Add Evaluation Team Member`}
-          </Card.Title>
-          <form onSubmit={handleSubmit}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <input
-                type="title"
-                placeholder="Enter name"
-                value={event.title}
-                onChange={(e) => setEvent({ ...event, title: e.target.value })}
-                required
-              />
-
-              <input
-                type="know more link"
-                placeholder="Enter LinkedIn url"
-                value={event.knowMoreLink}
-                onChange={(e) =>
-                  setEvent({ ...event, knowMoreLink: e.target.value })
-                }
-                required
-              />
-              <div>
+          <Card.Body>
+            <Card.Title>
+              {isEditing
+                ? `Editing ${eventsList[isEditing - 1].title + " "}`
+                : `Add Evaluation Team Member`}
+            </Card.Title>
+            <form onSubmit={handleSubmit}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 <input
-                  type="file"
-                  name="poster"
+                  type="title"
+                  placeholder="Enter name"
+                  value={event.title}
                   onChange={(e) =>
-                    setEvent({ ...event, poster: e.target.files[0] })
+                    setEvent({ ...event, title: e.target.value })
                   }
                   required
                 />
-              </div>
-              <div style={{ width: "150px", margin: "10px auto" }}>
-                {event.poster && (
-                  <Image
-                    src={
-                      typeof event.poster == "string"
-                        ? event.poster
-                        : URL.createObjectURL(event.poster)
+
+                <input
+                  type="know more link"
+                  placeholder="Enter LinkedIn url"
+                  value={event.knowMoreLink}
+                  onChange={(e) =>
+                    setEvent({ ...event, knowMoreLink: e.target.value })
+                  }
+                  required
+                />
+                <div>
+                  <input
+                    type="file"
+                    name="poster"
+                    onChange={(e) =>
+                      setEvent({ ...event, poster: e.target.files[0] })
                     }
-                    alt=""
-                    height="1000"
-                    width="1000"
+                    required
                   />
+                </div>
+                <div style={{ width: "150px", margin: "10px auto" }}>
+                  {event.poster && (
+                    <Image
+                      src={
+                        typeof event.poster == "string"
+                          ? event.poster
+                          : URL.createObjectURL(event.poster)
+                      }
+                      alt=""
+                      height="1000"
+                      width="1000"
+                    />
+                  )}
+                </div>
+
+                {!isLoading && (
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                )}
+                {isEditing && (
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      setIsEditing(false);
+                      setEvent(initialEventState);
+                    }}
+                  >
+                    Cancel
+                  </Button>
                 )}
               </div>
+            </form>
+            {eventsList.length > 0 && (
+              <>
+                <Card.Title>Added Evaluation Team</Card.Title>
+                <div className="d-flex justify-content-center ">
+                  <div className="row">
+                  {eventsList.map((event, _id) => {
+                    return (
+                      <div className="col-md-4" key={event.id}>
+                      <Evaluation
+                      
+                      {...event}
+                      deleteEvent={() => handleDelete(_id)}
+                      editEvent={() => handleEdit(_id)}
+                    />
+                    </div>
+                    );
+                    })};
+                  
+                    
+                  
+                </div>
+                </div>
+              </>
+            )}
+          </Card.Body>
+        </Card>
+      )}
 
-              {!isLoading && (
-                <Button variant="primary" type="submit">
+      {!isPasswordValid && (
+        <Card style={{ margin: "50px auto", width: "30%", height: "20%" }}>
+          <Card.Body>
+            <form onSubmit={handleSubmit}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <label>
+                  Enter Password:
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </label>
+                <Button
+                  type="submit"
+                  className="my-2"
+                  onClick={handleCheckPassword}
+                >
                   Submit
                 </Button>
-              )}
-              {isEditing && (
-                <Button
-                  variant="danger"
-                  onClick={() => {
-                    setIsEditing(false);
-                    setEvent(initialEventState);
-                  }}
-                >
-                  Cancel
-                </Button>
-              )}
-            </div>
-          </form>
-          {eventsList.length > 0 && (
-            <>
-              <Card.Title>Added Evaluation Team</Card.Title>
-              <div style={{ display: "flex", width: "100%" }}>
-                {eventsList.map((event, _id) => (
-                  <Evaluation
-                    key={event.id}
-                    {...event}
-                    deleteEvent={() => handleDelete(_id)}
-                    editEvent={() => handleEdit(_id)}
-                  />
-                ))}
               </div>
-            </>
-          )}
-        </Card.Body>
-      </Card>
+            </form>
+          </Card.Body>
+        </Card>
+      )}
       {/* )} */}
     </>
   );
