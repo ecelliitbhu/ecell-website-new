@@ -8,20 +8,17 @@
 /*  padding: 0;*/
 /*  box-sizing: border-box;*/
 /*}*/
-@font-face {
-  font-family: "averta";
-  src: url("@/public/averta.ttf");
-}
+
 
 .body {
-  font-family: "averta", sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1;
   color: #555; /* This is our main text color*/
   font-weight: 400;
 }
 
 .sectionHero {
-  font-family: "averta", sans-serif;
+  font-family: "Rubik", sans-serif;
   padding: 8.4rem 0 9.6rem 0;
   background-color: #f8f9fa;
 }
