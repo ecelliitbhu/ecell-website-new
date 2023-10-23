@@ -25,9 +25,10 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
           <section className={styles.sectionHero}>
             <div className={styles.hero}>
               <div className="hero-text-box">
-                <h1 className={styles.headingPrimary}>
-                  Startup Junction - Nurturing Innovation and Growth
-                </h1>
+                <h1 className={styles.headingPrimary}>Startup Junction </h1>
+                <h2 className={styles.headingSecondary}>
+                  Nurturing Innovation and Growth
+                </h2>
                 <p className={styles.heroDescription}>
                   Startup Junction, an initiative by the Entrepreneurship Cell
                   of IIT BHU, fosters our nation&apos;s startup ecosystem. We
@@ -101,6 +102,44 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 </p>
               </div>
             </div>
+          </section>
+          <section className={styles.about}>
+            <h1>About Startup Junction</h1>
+            <p>
+              Startup Junction, a pre-event of E-Summit&apos;24 is an initiative
+              by the Entrepreneurship Cell of IIT BHU aimed at nurturing and
+              advancing the startup ecosystem in our country. Our vision is to
+              connect venture capitalists with promising startups, providing a
+              platform for innovation, growth, and collaboration.This one-day
+              event, will take place in Delhi/NCR and Bengaluru and serve as an
+              exclusive platform for visibility, mentorship, and funding.
+            </p>
+          </section>{" "}
+          <section className={styles.about}>
+            <h1>Why should you attend?</h1>
+            <p>
+              Startup Junction is a great opportunity for all the startups
+              around the country looking at accelerating their growth. This
+              event offers a unique opportunity to pitch to venture capitalists,
+              connect with industry experts and receive invaluable guidance. By
+              participating, startups gain exposure, networking, and potential
+              investment, making it a pivotal step toward success in the
+              entrepreneurial world.
+            </p>
+          </section>{" "}
+          <section className={styles.about}>
+            <h1>How to Register?</h1>
+            <p>
+              To register, startups should complete the form provided below,
+              along with the submission of relevant documents. Our team will
+              then conduct the due diligence, verifying the provided information
+              and assessing each startup&apos;s potential. The shortlisted teams,
+              selected to pitch in front of the VC panel on the event day, will
+              be required to pay a fee of Rs. 599. This process ensures that the
+              most promising and committed startups have the opportunity to
+              connect with venture capitalists and elevate their entrepreneurial
+              journey.
+            </p>
           </section>
         </Container>
         <Footer />
