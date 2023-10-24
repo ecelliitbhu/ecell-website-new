@@ -18,7 +18,7 @@
 
 .sectionHero {
   font-family: "Rubik", sans-serif;
-  padding: 8.4rem 0 6.5rem 0;
+  padding: 4.2rem 0 6.5rem 0;
   background-color: #f8f9fa;
 }
 
@@ -40,7 +40,26 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.05;
-  margin-bottom: 3.6rem;
+  /* margin-bottom: 3.6rem; */
+}
+.venue {
+  display: flex;
+  /* padding: 1rem; */
+  margin: 2rem 0;
+}
+.venue div {
+  display: flex;
+  align-items: center;
+}
+.venue svg {
+  margin-right: 0.5rem;
+  color: #cf711f;
+}
+.venue span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  /* color: #555; */
+  margin-right: 0.5rem;
 }
 
 .headingSecondary {
@@ -140,6 +159,7 @@
 /* About Startup Junction */
 
 .about {
+  margin: 2rem auto;
   font-family: "Red Hat Text", sans-serif;
   text-align: center;
   color: #333;
