@@ -2,6 +2,7 @@ import Image from "next/legacy/image";
 import React, { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import { Modal, ModalGateway } from "react-images";
+import metadata from "../app/layout";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -448,6 +449,9 @@ export const AlumniMeetups = () => {
   //   </div>
   // );
   const numRows = 2;
+  metadata.title="dddddd"
+
+
 
   return (
     <div>

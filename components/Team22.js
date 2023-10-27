@@ -1,5 +1,5 @@
 import { Accordion, AccordionSummary } from "@mui/material";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import React from "react";
 import Image from "next/legacy/image";
 import { GrMail } from "react-icons/gr";

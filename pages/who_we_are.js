@@ -9,6 +9,7 @@ import spaceShip from "../public/spaceship.png";
 import networking from "../public/networking.png";
 import aboutNew from "../public/who-we-are.png";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+
 const WhoWeAre = () => {
   return (
     <>
@@ -16,6 +17,10 @@ const WhoWeAre = () => {
         <title>Who We Are?</title>
         <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Discover the dynamic world of E-cell IIT-BHU. Explore our various verticals, including SAP, Tech Team, Innovation and Incubation Team, Relations Team, and more. Learn about our mission as an institute body run by students, dedicated to bridging the gap between aspiring entrepreneurs and the thriving startup ecosystem. Join us in a collaborative hub where startups connect, collaborate, and innovate."
+        />
       </Head>
       <Nav />
       <div>

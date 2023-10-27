@@ -24,8 +24,14 @@ const PastSpeakers = () => {
     <>
       <Head>
         <title>Past Speakers</title>
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Explore a gallery of influential past speakers who've graced E-cell IIT-BHU with their presence. View images of founders and their companies, such as ShopClues, FirstCry, and PhysicsWallah, who've shared their insights and experiences with our entrepreneurial community."
+        />
       </Head>
+
       <Nav />
       <div
         className="container"
@@ -59,14 +65,22 @@ const PastSpeakers = () => {
               </div>
             </div>
             <div className="our-team past-speaker">
-              <Image src={sanjaysethi} className="img-responsive" alt="team member" />
+              <Image
+                src={sanjaysethi}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Sanjay Sethi</h3>
                 <span className="post">Co-Founder, CEO @ShopClues.com</span>
               </div>
             </div>
             <div className="our-team past-speaker">
-              <Image src={amisaha} className="img-responsive" alt="team member" />
+              <Image
+                src={amisaha}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Amitava Saha</h3>
                 <span className="post">Co-Founder,CEO @XpressBees</span>
@@ -74,11 +88,7 @@ const PastSpeakers = () => {
               </div>
             </div>
             <div className="our-team past-speaker">
-              <Image
-                src={piyu}
-                className="img-responsive"
-                alt="team member"
-              />
+              <Image src={piyu} className="img-responsive" alt="team member" />
               <div className="team-content">
                 <h3 className="name">Piyush Agrawal</h3>
                 <span className="post"> Founder, Director @cricbuzz.com</span>
@@ -92,63 +102,99 @@ const PastSpeakers = () => {
               </div>
             </div>
             <div className="our-team past-speaker ">
-              <Image src={dharam} className="img-responsive" alt="team member" />
+              <Image
+                src={dharam}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Dharamveer Singh Chouhan</h3>
                 <span className="post">Co-Founder,CEO @Zostel</span>
               </div>
             </div>
             <div className="our-team past-speaker">
-              <Image src={manish} className="img-responsive" alt="team member" />
+              <Image
+                src={manish}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Manish Gupta</h3>
                 <span className="post">Founder @Alphonso Inc.</span>
               </div>
             </div>
             <div className="our-team past-speaker  ">
-              <Image src={priyasharma} className="img-responsive" alt="team member" />
+              <Image
+                src={priyasharma}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Priya Sharma</h3>
                 <span className="post">Co-Founder @ZestMoney</span>
               </div>
             </div>
             <div className="our-team past-speaker  ">
-              <Image src={gunjan} className="img-responsive" alt="team member" />
+              <Image
+                src={gunjan}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Gunjan Shukla</h3>
                 <span className="post">ex-CFO @Paypal India</span>
               </div>
             </div>
             <div className="our-team past-speaker  ">
-              <Image src={vishwanathan} className="img-responsive" alt="team member" />
+              <Image
+                src={vishwanathan}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Vishwanathan Iyer</h3>
                 <span className="post">VP Architecture @Cisco (APJ)</span>
               </div>
             </div>
             <div className="our-team past-speaker  ">
-              <Image src={jagadeesh} className="img-responsive" alt="team member" />
+              <Image
+                src={jagadeesh}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">BV Jagadeesh</h3>
                 <span className="post">MD Kaaj Ventures</span>
               </div>
             </div>
             <div className="our-team past-speaker  ">
-              <Image src={sandeep} className="img-responsive" alt="team member" />
+              <Image
+                src={sandeep}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Sandeep Jain</h3>
                 <span className="post">Founder, CEO @GeeksforGeeks</span>
               </div>
             </div>
             <div className="our-team past-speaker  ">
-              <Image src={krishna} className="img-responsive" alt="team member" />
+              <Image
+                src={krishna}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Krishna Vedati</h3>
                 <span className="post">Co-Founder, CEO @Tynker.com</span>
               </div>
             </div>
             <div className="our-team past-speaker  ">
-              <Image src={vinamra} className="img-responsive" alt="team member" />
+              <Image
+                src={vinamra}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Vinamra Pandya</h3>
                 <span className="post">
@@ -157,7 +203,11 @@ const PastSpeakers = () => {
               </div>
             </div>
             <div className="our-team past-speaker  ">
-              <Image src={kaustuv} className="img-responsive" alt="team member" />
+              <Image
+                src={kaustuv}
+                className="img-responsive"
+                alt="team member"
+              />
               <div className="team-content">
                 <h3 className="name">Kaustuv Mukherjee</h3>
                 <span className="post">Managing Director @BCG Consulting</span>
