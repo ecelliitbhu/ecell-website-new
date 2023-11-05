@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
 import Typewriter from "typewriter-effect";
+import { NextSeo } from "next-seo";
+
 export default function Home() {
   return (
     <>
@@ -15,6 +17,36 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        description="Welcome to the vibrant entrepreneurship community of E-cell IIT BHU. Join us as we ideate, iterate, and incubate the innovations that will shape the future of this century. Explore opportunities, events, and resources for aspiring entrepreneurs"
+        canonical="https://www.ecelliitbhu.com/"
+        openGraph={{
+          url: "https://www.ecelliitbhu.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FEcell-logo.2af076de.png&w=128&q=75",
+          title: "E-CELL IIT-BHU",
+          description:
+            "Join the IIT BHU entrepreneurship community, where we nurture the future groundbreaking innovations!",
+          images: [
+            {
+              url: "https://www.ecelliitbhu.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FEcell-logo.2af076de.png&w=128&q=75",
+              width: 800,
+              height: 600,
+              alt: "E-CELL IIT-BHU",
+              type: "image/jpeg",
+            },
+            {
+              url: "https://media.licdn.com/dms/image/D4D0BAQGNc2KeTCR0Lg/company-logo_200_200/0/1688221885114/ecelliitbhu_logo?e=1706745600&v=beta&t=GyUQXhXpSQD86Ak3oUEqCQlR2Xc1CL_HOOwkMwCck8I",
+              width: 900,
+              height: 800,
+              type: "image/jpeg",
+            },
+          ],
+          siteName: "ecelliitbhu",
+        }}
+        twitter={{
+          handle: "@ecelliitbhu",
+          cardType: "summary_large_image",
+        }}
+      />
       <Nav />
       <div>
         <Container fluid className="body">

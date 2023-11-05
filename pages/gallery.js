@@ -11,6 +11,7 @@ import {
   Incubators,
   ELectures,
 } from "../components/Gallery";
+
 const Gallery = () => {
   return (
     <>
@@ -18,6 +19,10 @@ const Gallery = () => {
         <title>Gallery</title>
         <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Explore E-cell IIT-BHU gallery showcasing memorable moments from alumni meets, E-Summit events, entrepreneurship lectures, mentorship sessions, Founder's Speak, and the journey of incubated startups. Immerse yourself in our entrepreneurial community's journey and success stories."
+        />
       </Head>
       <Nav />
       <div>

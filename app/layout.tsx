@@ -6,6 +6,17 @@ import { Toaster } from "@/components/ui/toaster";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import React from "react";
 import { cn } from "@/lib/utils";
+import Head from "next/head";
+import { Metadata } from "next";
+
+// export const metadata: Metadata = {
+//   title: {
+//     default:"E-Cell IIT BHU",
+//     template:"%s | IIT BHU"
+// },
+//   description:
+//     "Welcome to the entrepreneurship community of IIT BHU where we ideate, iterate and incubate the future innovations of the century!",
+// };
 
 interface LayoutProps {
   children: React.ReactNode;
