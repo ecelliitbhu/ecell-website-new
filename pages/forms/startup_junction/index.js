@@ -27,12 +27,12 @@ export default function Contacts() {
                 fontWeight: "bold",
               }}
             >
-               Startup Junction, E-Cell IIT BHU
+              Startup Junction, E-Cell IIT BHU
             </h1>
           </Row>
           <Row
             className="who-are-we"
-            style={{ height: "fit-content", margin:"20px 0" }}
+            style={{ height: "fit-content", margin: "20px 0" }}
           >
             <p
               style={{
@@ -43,13 +43,15 @@ export default function Contacts() {
                 width: "90%",
               }}
             >
-              Startup Junction, an initiative by the Entrepreneurship Cell of IIT BHU, fosters our nation&apos;s startup ecosystem.
-              We connect venture capitalists with promising startups, offering a dynamic platform for innovation, growth, and collaboration.
-              <br /> Fill this form to be a part of the E-Cell
+              Startup Junction, an initiative by the Entrepreneurship Cell of
+              IIT BHU, fosters our nation&apos;s startup ecosystem. We connect
+              venture capitalists with promising startups, offering a dynamic
+              platform for innovation, growth, and collaboration.
+              <br />
             </p>
           </Row>
           <Row>
-            <StartupJunctionForm/>
+            <StartupJunctionForm />
           </Row>
           <Footer />
         </Container>
