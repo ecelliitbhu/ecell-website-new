@@ -129,7 +129,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
               <Image
                 width={200}
                 height={200}
-                src="/startup_junction_vcs/fortyTwo Black Logo_HiRes.png"
+                src="/startup_junction_vcs/FortyTwo.png"
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
@@ -203,52 +203,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
               the VC panel on the event day, will be required to pay a moderate
               fee of Rs. 999 for the final presentation.
             </p>
-            <h1 style={{ marginTop: "1.8rem", marginBottom: "1.2rem" }}>
-              VC Partner
-            </h1>
-            <div className="image-container" style={{ marginBottom: "2.5rem" }}>
-              <Image
-                width={90}
-                height={90}
-                style={{ paddingLeft: "10px", paddingRight: "10px" }}
-                src="/startup_junction/Axilor.png"
-                alt="Sab moh maya hai"
-                className="register-img"
-              />
-              <Image
-                width={120}
-                height={90}
-                style={{ paddingLeft: "10px", paddingRight: "10px" }}
-                src="/startup_junction/ipv.png"
-                alt="Sab moh maya hai"
-                className="register-img"
-              />
-              <Image
-                width={100}
-                height={90}
-                style={{ paddingLeft: "10px", paddingRight: "10px" }}
-                src="/startup_junction/xscale.png"
-                alt="Sab moh maya hai"
-                className="register-img"
-              />
-              <Image
-                width={90}
-                height={90}
-                style={{ paddingLeft: "10px", paddingRight: "10px" }}
-                src="/startup_junction/sv.png"
-                alt="Sab moh maya hai"
-                className="register-img"
-              />
-              <Image
-                width={110}
-                height={90}
-                style={{ paddingLeft: "10px", paddingRight: "10px" }}
-                src="/startup_junction/fort_two.png"
-                alt="Sab moh maya hai"
-                className="register-img"
-              />
-            </div>
-          </section>
+           </section>
         </Container>
         <Footer />
       </div>
