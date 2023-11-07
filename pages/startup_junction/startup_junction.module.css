@@ -23,15 +23,21 @@
 }
 
 .hero {
-  /* We'll not use px to define the length and will use rem. */
-  /* max-width: 1300px; */
   max-width: 130rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
   padding-left: 2rem;
   margin: 0 auto;
   align-items: center;
-  gap: 0 9.6rem;
+}
+
+.hero > * {
+  flex: 1;
+  margin-right: 9.6rem;
+}
+
+.hero > :last-child {
+  margin-right: 0;
 }
 
 .headingPrimary {
@@ -77,10 +83,14 @@
 .heroImgBox {
   grid-column: 2/3;
   grid-row: 1 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-img {
-  width: 100%;
+.heroImgBox img {
+  width: 90%;
+  height: auto; /* Let the height adjust according to the image ratio */
 }
 
 .btn:link,
@@ -174,12 +184,55 @@
   background-size: cover;
   background-position: center;
 }
+
 .about h1 {
   font-weight: 700;
   font-size: 3rem;
 }
+
 .about p {
   max-width: 50rem;
   line-height: 1.5;
   padding: 1em;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.register-img {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (max-width: 1000px) {
+  /* Hero */
+  .hero {
+    flex-direction: column;
+    padding-left: 0;
+    align-items: center;
+  }
+
+  .hero > * {
+    margin-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .hero > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* Venue */
+  .venue {
+    flex-direction: column;
+    align-items: center;
+  }
+  .venue div {
+    margin-bottom: 1rem; /* Add spacing between rows */
+  }
 }
