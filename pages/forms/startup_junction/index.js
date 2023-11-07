@@ -45,7 +45,7 @@ export default function Contacts() {
             >
               Startup Junction, an initiative by the Entrepreneurship Cell of IIT BHU, fosters our nation&apos;s startup ecosystem.
               We connect venture capitalists with promising startups, offering a dynamic platform for innovation, growth, and collaboration.
-              <br /> Fill this form to be a part of the E-Cell
+              <br /> Fill this form to grab this amazing opportunity
             </p>
           </Row>
           <Row>

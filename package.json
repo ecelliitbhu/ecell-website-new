@@ -49,7 +49,7 @@
     "next": "latest",
     "next-connect": "^0.11.0",
     "next-themes": "^0.2.1",
-    "node-sass": "^7.0.0",
+    "node-sass": "^7.0.3",
     "react": "latest",
     "react-bootstrap": "^2.0.0-beta.6",
     "react-cookie": "^4.1.1",

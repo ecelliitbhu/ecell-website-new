@@ -66,7 +66,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 <Image
                   width={500}
                   height={500}
-                  src="/startup-image.png"
+                  src="/startupjunction.jpg"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className="hero-Image"
                 />
@@ -117,6 +117,46 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
             </div>
           </section>
           <section className={styles.about} id="about">
+            <h1>Our VC Partners</h1>
+            <div className={styles.vcsimage}>
+              <Image
+                width={200}
+                height={200}
+                src="/startup_junction_vcs/Axilor.png"
+                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                className={styles.vcimg}
+              />
+              <Image
+                width={200}
+                height={200}
+                src="/startup_junction_vcs/fortyTwo Black Logo_HiRes.png"
+                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                className={styles.vcimg}
+              />
+              <Image
+                width={200}
+                height={200}
+                src="/startup_junction_vcs/ipv.png"
+                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                className={styles.vcimg}
+              />
+              <Image
+                width={200}
+                height={200}
+                src="/startup_junction_vcs/sv.jpg"
+                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                className={styles.vcimg}
+              />
+              <Image
+                width={200}
+                height={200}
+                src="/startup_junction_vcs/xscale.png"
+                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                className={styles.vcimg}
+              />
+            </div>
+          </section>
+          <section className={styles.about} id="about">
             <h1>About Startup Junction</h1>
             <p>
               Startup Junction, a pre-event of E-Summit&apos;24 is an initiative
@@ -149,13 +189,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
           <section className={styles.about}>
             <h1>Why should you attend?</h1>
             <p>
-              Startup Junction is a great opportunity for all the startups
-              around the country looking at accelerating their growth. This
-              event offers a unique opportunity to pitch to venture capitalists,
-              connect with industry experts and receive invaluable guidance. By
-              participating, startups gain exposure, networking, and potential
-              investment, making it a pivotal step toward success in the
-              entrepreneurial world.
+              Startup Junction is a great opportunity for the seed and pre-seed stage startups looking forward to raising funds, building a strong network and  accelerating their growth. This event offers a unique opportunity to pitch to venture capitalists, connect with industry experts and receive invaluable guidance. By participating, startups gain exposure, networking, and potential investment, making it a pivotal step toward success in the entrepreneurial world. The shortlisted teams would also receive credits from AWS, Microsoft, Freshworks, and CleverTape.
             </p>
           </section>{" "}
           <section className={styles.about}>
