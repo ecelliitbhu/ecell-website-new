@@ -1,0 +1,18 @@
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  padding: 1rem;
+}
+.iframe {
+  width: 90%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
