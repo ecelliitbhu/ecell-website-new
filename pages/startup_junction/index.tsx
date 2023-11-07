@@ -64,10 +64,10 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
               </div>
               <div className={styles.heroImgBox}>
                 <Image
-                  width={500}
-                  height={500}
-                  src="/startupjunction.jpg"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  width={400}
+                  height={400}
+                  src="/startup_junction/startup-junction.png"
+                  alt="Startup Junction"
                   className="hero-Image"
                 />
               </div>
@@ -198,11 +198,56 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
               To register, startups should click on the “Register” tab above and
               complete the form provided, along with the submission of relevant
               documents. Our team will then conduct the due diligence, verifying
-              the provided information and assessing each startup&apos;s potential.
-              The shortlisted teams, selected to pitch in front of the VC panel
-              on the event day, will be required to pay a moderate fee of Rs.
-              999 for the final presentation.
+              the provided information and assessing each startup&apos;s
+              potential. The shortlisted teams, selected to pitch in front of
+              the VC panel on the event day, will be required to pay a moderate
+              fee of Rs. 999 for the final presentation.
             </p>
+            <h1 style={{ marginTop: "1.8rem", marginBottom: "1.2rem" }}>
+              VC Partner
+            </h1>
+            <div className="image-container" style={{ marginBottom: "2.5rem" }}>
+              <Image
+                width={90}
+                height={90}
+                style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                src="/startup_junction/Axilor.png"
+                alt="Sab moh maya hai"
+                className="register-img"
+              />
+              <Image
+                width={120}
+                height={90}
+                style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                src="/startup_junction/ipv.png"
+                alt="Sab moh maya hai"
+                className="register-img"
+              />
+              <Image
+                width={100}
+                height={90}
+                style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                src="/startup_junction/xscale.png"
+                alt="Sab moh maya hai"
+                className="register-img"
+              />
+              <Image
+                width={90}
+                height={90}
+                style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                src="/startup_junction/sv.png"
+                alt="Sab moh maya hai"
+                className="register-img"
+              />
+              <Image
+                width={110}
+                height={90}
+                style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                src="/startup_junction/fort_two.png"
+                alt="Sab moh maya hai"
+                className="register-img"
+              />
+            </div>
           </section>
         </Container>
         <Footer />

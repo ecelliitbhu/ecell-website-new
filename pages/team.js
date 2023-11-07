@@ -22,7 +22,7 @@ import Ashwat from "../public/team/2022-2023/Ashwat.jpg";
 import Divyansh from "../public/team/2022-2023/Divyansh.jpg";
 import Shreya from "../public/team/2022-2023/Shreya.jpg";
 import Vanshika from "../public/team/2022-2023/Vanshika.jpg";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionSummary } from "@mui/material";
 import Team22 from "../components/Team22";
 import Team23 from "../components/Team23";

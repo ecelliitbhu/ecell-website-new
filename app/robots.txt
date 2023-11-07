@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /portals/
+
+Sitemap: https://www.ecelliitbhu.com/sitemap.xml    
