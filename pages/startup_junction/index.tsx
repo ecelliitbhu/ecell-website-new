@@ -71,49 +71,6 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                   className="hero-Image"
                 />
               </div>
-              {/* <div className={styles.deliveredMeals}>
-                <div className={styles.deliveredImages}>
-                  <Image
-                    width={100}
-                    height={100}
-                    src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-1.jpg"
-                    alt="Customer photo"
-                  />
-                  <Image
-                    width={100}
-                    height={100}
-                    src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-2.jpg"
-                    alt="Customer photo"
-                  />
-                  <Image
-                    width={100}
-                    height={100}
-                    src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-3.jpg"
-                    alt="Customer photo"
-                  />
-                  <Image
-                    width={100}
-                    height={100}
-                    src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-4.jpg"
-                    alt="Customer photo"
-                  />
-                  <Image
-                    width={100}
-                    height={100}
-                    src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-5.jpg"
-                    alt="Customer photo"
-                  />
-                  <Image
-                    width={100}
-                    height={100}
-                    src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-6.jpg"
-                    alt="Customer photo"
-                  />
-                </div>
-                <p className={styles.deliveredText}>
-                  <span>250,000+</span> meals delivered last year!
-                </p>
-              </div> */}
             </div>
           </section>
           <section className={styles.about} id="about">

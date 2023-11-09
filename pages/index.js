@@ -8,7 +8,9 @@ import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
 import Typewriter from "typewriter-effect";
 import { NextSeo } from "next-seo";
-
+import styles from "../pages/startup_junction/startup_junction.module.css";
+import { CalendarDays, MapPin } from "lucide-react";
+import React from "react";
 export default function Home() {
   return (
     <>
@@ -50,6 +52,54 @@ export default function Home() {
       <Nav />
       <div>
         <Container fluid className="body">
+
+
+          <section className={styles.sectionHero}>
+            <div className={styles.hero}>
+              <div className="hero-text-box">
+                <h1 className={styles.headingPrimary}>Startup Junction </h1>
+                <div className={styles.venue}>
+                  <div>
+                    <CalendarDays />
+                    <span className={styles.heroDate}> 15th December 2023</span>
+                  </div>
+                  <div>
+                    <MapPin />
+                    <span className={styles.heroDate}>
+                      {" "}
+                      Delhi/NCR and Bengaluru
+                    </span>
+                  </div>
+                </div>
+
+                <p className={styles.heroDescription}>
+                  Accelerate your startup&apos;s journey at Startup Junction,
+                  E-Cell IIT BHU&apos;s visionary initiative to connect
+                  promising startups with VCs, fostering innovation, growth, and
+                  collaboration. Register now for this incredible chance to
+                  propel your startup forward.
+                </p>
+
+                <Link
+                  href="/startup_junction"
+                  className={`${styles.btn} ${styles.btnFill} ${styles.marginRightBtn}`}
+                  style={{textAlign:"center"}}
+                >
+                  Register
+                </Link>
+              </div>
+              <div className={styles.heroImgBox}>
+                <Image
+                  width={500}
+                  height={300}
+                  src="/startup_junction/startup-junction.png"
+                  alt="Startup Junction"
+                  className="hero-Image"
+                />
+              </div>
+            </div>
+          </section>
+
           {/* <Row
             className="header"
             style={{
