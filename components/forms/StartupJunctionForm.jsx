@@ -50,6 +50,7 @@ export default function StartupJunctionForm() {
         name:data.fullname,
         phone:data.phoneNumber,
         email:data.email,
+        city:data.city,
         timestamp: serverTimestamp(),
       });
       toast.success("Form submitted successfully!");
@@ -111,6 +112,24 @@ export default function StartupJunctionForm() {
               <span style={{ color: "red" }}>
                 Please provide your phone number
               </span>
+            )}
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="City">
+            <Form.Label>
+             Preferred City <span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Select
+              aria-label="Default select example"
+              placeholder="Open this select preferred city"
+              {...register("city", { required: true })}
+            >
+              <option>Open this select preferred city</option>
+              <option value="Delhi/NCR">Delhi/NCR</option>
+              <option value="Bengaluru">Bengaluru</option>
+
+            </Form.Select>
+            {errors.city && (
+              <span style={{ color: "red" }}>Please select preferred city</span>
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="PitchDeck">

@@ -117,7 +117,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
             </div>
           </section>
           <section className={styles.about} id="about">
-            <h1>Our VC Partners</h1>
+            <h1>Our Partners</h1>
             <div className={styles.vcsimage}>
               <Image
                 width={200}
@@ -127,30 +127,37 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 className={styles.vcimg}
               />
               <Image
-                width={200}
-                height={200}
+                width={150}
+                height={100}
                 src="/startup_junction_vcs/FortyTwo.png"
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
               <Image
-                width={200}
-                height={200}
+                width={150}
+                height={100}
                 src="/startup_junction_vcs/ipv.png"
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
               <Image
-                width={200}
-                height={200}
+                width={100}
+                height={100}
                 src="/startup_junction_vcs/sv.jpg"
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
               <Image
-                width={200}
-                height={200}
+                width={150}
+                height={100}
                 src="/startup_junction_vcs/xscale.png"
+                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                className={styles.vcimg}
+              />
+              <Image
+                width={100}
+                height={100}
+                src="/startup_junction_vcs/s91.png"
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
