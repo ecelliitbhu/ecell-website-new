@@ -132,7 +132,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
               </Link>
               <div>
                < p style={{fontWeight:"bold"}}>
-               More...
+               Others Coming soon...
                </p>
               </div>
             </div>
