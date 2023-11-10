@@ -76,13 +76,16 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
           <section className={styles.about} id="about">
             <h1>Our Partners</h1>
             <div className={styles.vcsimage}>
-              <Image
-                width={200}
-                height={200}
-                src="/startup_junction_vcs/Axilor.png"
-                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
-                className={styles.vcimg}
-              />
+              <Link href="https://ivycamp.in/" target="_blank">
+                <Image
+                  width={150}
+                  height={150}
+                  src="/startup_junction_vcs/ivy.jpg"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
+              </Link>
+              <Link href="https://www.fortytwo.vc/" target="_blank">
               <Image
                 width={150}
                 height={100}
@@ -90,6 +93,8 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
+              </Link>
+              <Link href="https://ipventures.in/" target="_blank">
               <Image
                 width={150}
                 height={100}
@@ -97,6 +102,8 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
+              </Link>
+              <Link href="https://soonicornventures.com/" target="_blank">
               <Image
                 width={100}
                 height={100}
@@ -104,6 +111,8 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
+              </Link>
+              <Link href="https://xscaleglobal.com/" target="_blank">
               <Image
                 width={150}
                 height={100}
@@ -111,6 +120,8 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
+              </Link>
+              <Link href="https://www.91springboard.com/" target="_blank">
               <Image
                 width={100}
                 height={100}
@@ -118,6 +129,12 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                 className={styles.vcimg}
               />
+              </Link>
+              <div>
+               < p style={{fontWeight:"bold"}}>
+               More...
+               </p>
+              </div>
             </div>
           </section>
           <section className={styles.about} id="about">
