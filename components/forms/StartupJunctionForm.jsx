@@ -51,6 +51,7 @@ export default function StartupJunctionForm() {
         phone:data.phoneNumber,
         email:data.email,
         city:data.city,
+        info:data.info,
         timestamp: serverTimestamp(),
       });
       toast.success("Form submitted successfully!");
@@ -230,6 +231,16 @@ export default function StartupJunctionForm() {
                 Please provide your CIN Number
               </span>
             )}
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="info">
+            <Form.Label style={{ fontSize: "1.2rem" }}>
+              How do you got to know about this?
+            </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Like Instagram/WhatsApp"
+              {...register("info")}
+            />
           </Form.Group>
           <div className="d-grid gap-2">
             {isLoading ? (

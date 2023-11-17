@@ -130,6 +130,33 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 className={styles.vcimg}
               />
               </Link>
+              <Link href="https://www.faad.in" target="_blank">
+                <Image
+                  width={120}
+                  height={120}
+                  src="/startup_junction_vcs/faad.jpeg"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
+              </Link>
+              <Link href="https://fluidvc.in/" target="_blank">
+                <Image
+                  width={100}
+                  height={30}
+                  src="/startup_junction_vcs/fluid.jpeg"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
+              </Link>
+              <Link href="https://nas.io/the-ecosystem-community" target="_blank">
+                <Image
+                  width={120}
+                  height={120}
+                  src="/startup_junction_vcs/nas.jpeg"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
+              </Link>
               <div>
                < p style={{fontWeight:"bold"}}>
                Others Coming soon...
