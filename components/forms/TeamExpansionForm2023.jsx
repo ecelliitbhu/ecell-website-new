@@ -98,7 +98,7 @@ export default function TeamExpansionForm2023() {
     // console.log(data);
     try {
       const customDocId = data.fullname + data.branch;
-      const docRef = doc(firestoreDB, "teamExpansion2023", customDocId);
+      const docRef = doc(firestoreDB, "teamExpansionESummit24", customDocId);
 
       await setDoc(docRef, {
         ...data,
@@ -175,10 +175,9 @@ export default function TeamExpansionForm2023() {
               <option>Open this select menu</option>
               <option value="1st year">1st year</option>
               <option value="2nd year">2nd year</option>
-              <option value="3rd year">3rd year</option>
+              {/* <option value="3rd year">3rd year</option>
               <option value="4th year">4th year</option>
-              <option value="5th year">5th year</option>
-              
+              <option value="5th year">5th year</option> */}
             </Form.Select>
             {errors.course && (
               <span style={{ color: "red" }}>Please select your year</span>
@@ -196,8 +195,8 @@ export default function TeamExpansionForm2023() {
               <option value="BTech">BTech</option>
               <option value="BArch">BArch</option>
               <option value="IDD">IDD</option>
-              <option value="MTech">MTech</option>
-              <option value="PhD">PhD</option>
+              {/* <option value="MTech">MTech</option>
+              <option value="PhD">PhD</option> */}
             </Form.Select>
             {errors.course && (
               <span style={{ color: "red" }}>Please select your course</span>
@@ -223,7 +222,7 @@ export default function TeamExpansionForm2023() {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="Verticals">
-            <Form.Label>Select interested verticals</Form.Label>
+            <Form.Label>Select interested teams</Form.Label>
             <div style={{ paddingLeft: ".825rem" }}>
               {VERTICALS.map((vertical) => (
                 <div key={vertical.name}>
@@ -235,10 +234,15 @@ export default function TeamExpansionForm2023() {
                     value={vertical.name}
                     {...register("interestedVerticals")}
                   />
-                  <p className={"form-card-description"}>{vertical.description}</p>
+                  <p className={"form-card-description"}>
+                    {vertical.description}
+                  </p>
                   {vertical.name === "Branding Team" && (
                     <div style={{ paddingLeft: "1rem" }}>
-                      <p className="form-card-description form-branding">If selecting branding team then, choose atleast one sub-vertical</p>
+                      <p className="form-card-description form-branding">
+                        If selecting branding team then, choose atleast one
+                        sub-vertical
+                      </p>
 
                       {vertical.subOptions.map((subOption) => (
                         <div key={subOption.name}>

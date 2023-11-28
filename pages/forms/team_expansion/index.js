@@ -27,12 +27,13 @@ export default function Contacts() {
                 fontWeight: "bold",
               }}
             >
-              E-Cell IIT BHU, Team Expansion 2023-24
+              E-Summit'24 Team Expansion
+              {/* E-Cell IIT BHU, Team Expansion 2023-24 */}
             </h1>
           </Row>
           <Row
             className="who-are-we"
-            style={{ height: "fit-content", margin:"20px 0" }}
+            style={{ height: "fit-content", margin: "20px 0" }}
           >
             <p
               style={{
@@ -46,7 +47,8 @@ export default function Contacts() {
               The Entrepreneurship Cell (E-Cell), IIT (BHU) Varanasi aims to
               foster the spirit of entrepreneurship and innovation in the
               college.
-              <br /> Fill this form to be a part of the E-Cell, and contribute
+              <br /> Fill this form to be a part of
+              E-Summit'24 and contribute
               to building the entrepreneurship culture!
             </p>
           </Row>
