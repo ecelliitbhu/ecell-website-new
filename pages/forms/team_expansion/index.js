@@ -27,7 +27,7 @@ export default function Contacts() {
                 fontWeight: "bold",
               }}
             >
-              E-Summit'24 Team Expansion
+              E-Summit&apos;24 Team Expansion
               {/* E-Cell IIT BHU, Team Expansion 2023-24 */}
             </h1>
           </Row>
@@ -48,7 +48,7 @@ export default function Contacts() {
               foster the spirit of entrepreneurship and innovation in the
               college.
               <br /> Fill this form to be a part of
-              E-Summit'24 and contribute
+              E-Summit&apos;24 and contribute
               to building the entrepreneurship culture!
             </p>
           </Row>
