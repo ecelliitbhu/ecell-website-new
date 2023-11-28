@@ -98,7 +98,7 @@ export default function TeamExpansionForm2023() {
     // console.log(data);
     try {
       const customDocId = data.fullname + data.branch;
-      const docRef = doc(firestoreDB, "teamExpansion2023", customDocId);
+      const docRef = doc(firestoreDB, "teamExpansionESummit24", customDocId);
 
       await setDoc(docRef, {
         ...data,
