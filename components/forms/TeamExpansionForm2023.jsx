@@ -5,59 +5,30 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 
-import { firestoreDB } from "../../lib/firebase";
+import { firestoreDB } from "@/lib/firebase";
 
 import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 const VERTICALS = [
   {
-    name: "Tech Team",
+    name: "Design",
     description:
-      "The Tech Team builds and manages the technical infrastructure of E-Cell, the institute's incubators, and provides technical support to startups.",
+      "The Design Team is responsible for creating all of the visual materials for E-Summit, including the logo, website, posters, and social media graphics.",
   },
   {
-    name: "Startup Assistance Program (SAP) Team",
+    name: "Operations and marketing",
     description:
-      "The SAP team plays a crucial role in supporting young entrepreneurs by connecting them with the right resources and networks. They provide valuable assistance in brainstorming, ideation, and incubation, helping entrepreneurs connect and access the necessary support for their startup journey. Additionally, the team organizes initiatives to foster collaboration and knowledge sharing among startup founders.",
+      "The Operations and Marketing Team is responsible for planning and executing all of the logistics for E-Summit, including registration, ticketing, sponsorships, and vendor relations. ",
   },
   {
-    name: "Relations Team",
+    name: "Social Media and Content",
     description:
-      "The Relations Team works towards strengthening connections and collaborations within the entrepreneurial ecosystem. We foster strategic partnerships with corporations and alumni, coordinate guest talks, and secure sponsorships for various activities.",
+      "The Social Media and Content Team is responsible for creating and managing all of the social media content for E-Summit. They will also be responsible for creating other content, such as blog posts, articles, and videos.",
   },
   {
-    name: "Strategy and Outreach Team",
+    name: "Publicity",
     description:
-      "The Outreach Team is responsible for managing and expanding our outreach efforts. The team plays a vital role in expanding the reach and impact of E-Cell IIT BHU. The primary objective is to engage with a wider audience and create awareness about the entrepreneurial opportunities and activities offered by E-Cell.",
-  },
-  {
-    name: "Branding Team",
-    description:
-      "The Branding Team manages our social media presence, conducts design events, promotes college events, and highlights alumni achievements to enhance the brand value of E-Cell IIT BHU.",
-    subOptions: [
-      {
-        name: "Design",
-        description: "Responsible for graphic design and visual content.",
-      },
-      {
-        name: "Content",
-        description: "Creates engaging written content and copywriting.",
-      },
-      {
-        name: "Video Editing",
-        description: "Handles video editing and production tasks.",
-      },
-    ],
-  },
-  {
-    name: " Innovation and Incubation Team",
-    description:
-      "The Innovation and Incubation Team is dedicated to fostering research and innovation and nurturing entrepreneurial ventures among students. We work closely with the incubators and startup accelerators at our institute to promote innovation and extend incubation support to promising startups.",
-  },
-  {
-    name: "Events Team",
-    description:
-      "The Events Team organizes various events, webinars, and workshops throughout the year. They coordinate Founder's Speak and Ask Me Anything sessions, invite speakers, and manage entrepreneurship-related events",
+      "The Publicity Team is responsible for generating media coverage for E-Summit. They will also be responsible for managing the reputation of E-Summit. They will also be responsible for promoting the event through various channels, including social media, email, and print.",
   },
 ];
 const BRANCHES = [
@@ -232,35 +203,11 @@ export default function TeamExpansionForm2023() {
                     type="checkbox"
                     label={vertical.name}
                     value={vertical.name}
-                    {...register("interestedVerticals")}
+                    {...register("interestedTeams")}
                   />
                   <p className={"form-card-description"}>
                     {vertical.description}
                   </p>
-                  {vertical.name === "Branding Team" && (
-                    <div style={{ paddingLeft: "1rem" }}>
-                      <p className="form-card-description form-branding">
-                        If selecting branding team then, choose atleast one
-                        sub-vertical
-                      </p>
-
-                      {vertical.subOptions.map((subOption) => (
-                        <div key={subOption.name}>
-                          <Form.Check
-                            key={subOption.name}
-                            style={{ fontSize: "1.2rem", marginLeft: "1rem" }}
-                            type="checkbox"
-                            label={subOption.name}
-                            value={subOption.name}
-                            {...register("interestedVerticals")}
-                          />
-                          <p className={"form-card-description"}>
-                            {subOption.description}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
