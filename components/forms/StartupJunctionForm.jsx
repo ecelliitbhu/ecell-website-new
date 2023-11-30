@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 import { getStorage, ref, uploadBytes, getDownloadURL,uploadBytesResumable, } from "firebase/storage";
-import { firestoreDB,StorageDB } from "../../lib/firebase";
+import { firestoreDB,StorageDB } from "@/lib/firebase";
 import { doc, setDoc,serverTimestamp } from "firebase/firestore";
 
 export default function StartupJunctionForm() {
@@ -150,17 +150,12 @@ export default function StartupJunctionForm() {
 
           <Form.Group className="mb-3" controlId="Shareholder">
             <Form.Label>
-              Shareholder Agreement<span style={{ color: "red" }}> *</span>
+              Shareholder Agreement
             </Form.Label>
             <Form.Control
               type="file"
-              {...register("shareholder", { required: true })}
+              {...register("shareholder")}
             />
-            {errors.shareholder && (
-              <span style={{ color: "red" }}>
-                Please provide your Shareholder Agreement
-              </span>
-            )}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="moa">
@@ -183,31 +178,26 @@ export default function StartupJunctionForm() {
           </Form.Group>
           <Form.Group className="mb-3" controlId="businessplan">
             <Form.Label>
-              Business Plan<span style={{ color: "red" }}> *</span>
+              Business Plan
             </Form.Label>
             <Form.Control
               type="file"
-              {...register("businessplan", { required: true })}
+              {...register("businessplan", )}
             />
-            {errors.businessplan && (
-              <span style={{ color: "red" }}>
-                Please provide your Business Plan
-              </span>
-            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="companyincorporation">
             <Form.Label>
-              Company Incorporation<span style={{ color: "red" }}> *</span>
+              Company Incorporation
             </Form.Label>
             <Form.Control
               type="file"
-              {...register("companyincorporation", { required: true })}
+              {...register("companyincorporation", )}
             />
-            {errors.companyincorporation && (
-              <span style={{ color: "red" }}>
-                Please provide your Company Incorporation
-              </span>
-            )}
+            {/*{errors.companyincorporation && (*/}
+            {/*  <span style={{ color: "red" }}>*/}
+            {/*    Please provide your Company Incorporation*/}
+            {/*  </span>*/}
+            {/*)}*/}
           </Form.Group>
           <Form.Group className="mb-3" controlId="Certificate">
             <Form.Label>
@@ -220,17 +210,17 @@ export default function StartupJunctionForm() {
           </Form.Group>
           <Form.Group className="mb-3" controlId="Cinnumber">
             <Form.Label>
-              CIN Number<span style={{ color: "red" }}> *</span>
+              CIN Number
             </Form.Label>
             <Form.Control
               type="file"
-              {...register("cinnumber", { required: true })}
+              {...register("cinnumber",)}
             />
-            {errors.cinnumber && (
-              <span style={{ color: "red" }}>
-                Please provide your CIN Number
-              </span>
-            )}
+            {/*{errors.cinnumber && (*/}
+            {/*  <span>*/}
+            {/*    Please provide your CIN Number*/}
+            {/*  </span>*/}
+            {/*)}*/}
           </Form.Group>
           <Form.Group className="mb-3" controlId="info">
             <Form.Label style={{ fontSize: "1.2rem" }}>
