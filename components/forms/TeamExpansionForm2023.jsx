@@ -13,7 +13,12 @@ const VERTICALS = [
   {
     name: "Design",
     description:
-      "The Design Team is responsible for creating all of the visual materials for E-Summit, including the logo, website, posters, and social media graphics.",
+    "The Design Team is responsible for designing all of the visual graphics for E-Summit, including the logo, website, posters, and social media graphics."
+  },
+  {
+    name:"Creative Team",
+    description:
+    "The creatives team is responsible for creating catchy crafts. From graphics to multimedia elements, contribute to crafting a dynamic and engaging narrative for the summit."
   },
   {
     name: "Operations and marketing",
