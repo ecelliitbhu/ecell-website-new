@@ -205,6 +205,7 @@
 .vcimg{
   margin: 1rem;
   display: block;
+  mix-blend-mode: darken;
 }
 
 .image-container {

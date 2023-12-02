@@ -179,7 +179,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 <Image
                   width={170}
                   height={73}
-                  src="/startup_junction_vcs/letsventure.png"
+                  src="/startup_junction_vcs/letsVenture.jpg"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
                 />
