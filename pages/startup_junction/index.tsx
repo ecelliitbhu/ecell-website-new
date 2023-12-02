@@ -80,61 +80,61 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 <Image
                   width={150}
                   height={150}
-                  src="/startup_junction_vcs/ivy.jpg"
+                  src="/startup_junction_vcs/ivy.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
                 />
               </Link>
               <Link href="https://www.fortytwo.vc/" target="_blank">
-              <Image
-                width={150}
-                height={100}
-                src="/startup_junction_vcs/FortyTwo.png"
-                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
-                className={styles.vcimg}
-              />
+                <Image
+                  width={150}
+                  height={100}
+                  src="/startup_junction_vcs/FortyTwo.png"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
               </Link>
               <Link href="https://ipventures.in/" target="_blank">
-              <Image
-                width={150}
-                height={100}
-                src="/startup_junction_vcs/ipv.png"
-                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
-                className={styles.vcimg}
-              />
+                <Image
+                  width={150}
+                  height={100}
+                  src="/startup_junction_vcs/ip.png"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
               </Link>
               <Link href="https://soonicornventures.com/" target="_blank">
-              <Image
-                width={100}
-                height={100}
-                src="/startup_junction_vcs/sv.jpg"
-                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
-                className={styles.vcimg}
-              />
+                <Image
+                  width={100}
+                  height={100}
+                  src="/startup_junction_vcs/sv.png"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
               </Link>
               <Link href="https://xscaleglobal.com/" target="_blank">
-              <Image
-                width={150}
-                height={100}
-                src="/startup_junction_vcs/xscale.png"
-                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
-                className={styles.vcimg}
-              />
+                <Image
+                  width={150}
+                  height={100}
+                  src="/startup_junction_vcs/xscale.png"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
               </Link>
               <Link href="https://www.91springboard.com/" target="_blank">
-              <Image
-                width={100}
-                height={100}
-                src="/startup_junction_vcs/s91.png"
-                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
-                className={styles.vcimg}
-              />
+                <Image
+                  width={100}
+                  height={100}
+                  src="/startup_junction_vcs/s19.png"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
               </Link>
               <Link href="https://www.faad.in" target="_blank">
                 <Image
                   width={120}
                   height={120}
-                  src="/startup_junction_vcs/faad.jpeg"
+                  src="/startup_junction_vcs/fadd.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
                 />
@@ -143,24 +143,49 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 <Image
                   width={100}
                   height={30}
-                  src="/startup_junction_vcs/fluid.jpeg"
+                  src="/startup_junction_vcs/fluid.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
                 />
               </Link>
-              <Link href="https://nas.io/the-ecosystem-community" target="_blank">
+              <Link
+                href="https://nas.io/the-ecosystem-community"
+                target="_blank"
+              >
                 <Image
                   width={120}
                   height={120}
-                  src="/startup_junction_vcs/nas.jpeg"
+                  src="/startup_junction_vcs/nas.png"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
+              </Link>
+              <Link
+                href="https://nas.io/the-ecosystem-community"
+                target="_blank"
+              >
+                <Image
+                  width={140}
+                  height={90}
+                  src="/startup_junction_vcs/launchx.png"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
+              </Link>
+              <Link
+                href="https://nas.io/the-ecosystem-community"
+                target="_blank"
+              >
+                <Image
+                  width={170}
+                  height={73}
+                  src="/startup_junction_vcs/letsventure.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
                 />
               </Link>
               <div>
-               < p style={{fontWeight:"bold"}}>
-               Others Coming soon...
-               </p>
+                <p style={{ fontWeight: "bold" }}>Others Coming soon...</p>
               </div>
             </div>
           </section>
@@ -197,7 +222,15 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
           <section className={styles.about}>
             <h1>Why should you attend?</h1>
             <p>
-              Startup Junction is a great opportunity for the seed and pre-seed stage startups looking forward to raising funds, building a strong network and  accelerating their growth. This event offers a unique opportunity to pitch to venture capitalists, connect with industry experts and receive invaluable guidance. By participating, startups gain exposure, networking, and potential investment, making it a pivotal step toward success in the entrepreneurial world. The shortlisted teams would also receive credits from AWS, Microsoft, Freshworks, and CleverTape.
+              Startup Junction is a great opportunity for the seed and pre-seed
+              stage startups looking forward to raising funds, building a strong
+              network and accelerating their growth. This event offers a unique
+              opportunity to pitch to venture capitalists, connect with industry
+              experts and receive invaluable guidance. By participating,
+              startups gain exposure, networking, and potential investment,
+              making it a pivotal step toward success in the entrepreneurial
+              world. The shortlisted teams would also receive credits from AWS,
+              Microsoft, Freshworks, and CleverTape.
             </p>
           </section>{" "}
           <section className={styles.about}>
@@ -211,7 +244,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
               the VC panel on the event day, will be required to pay a moderate
               fee of Rs. 999 for the final presentation.
             </p>
-           </section>
+          </section>
         </Container>
         <Footer />
       </div>
