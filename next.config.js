@@ -5,10 +5,22 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: [
-      "images.unsplash.com",
-      "firebasestorage.googleapis.com",
-      "prayagtandon.github.io",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        pathname:"**"
+      },
+      {
+        protocol: "https",
+        hostname: "prayagtandon.github.io",
+        pathname:"**"
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname:"**"
+      },
     ],
   },
   reactStrictMode: true,

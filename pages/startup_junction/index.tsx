@@ -161,7 +161,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 />
               </Link>
               <Link
-                href="https://nas.io/the-ecosystem-community"
+                href="https://launchxlabs.com/"
                 target="_blank"
               >
                 <Image
@@ -173,7 +173,7 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 />
               </Link>
               <Link
-                href="https://nas.io/the-ecosystem-community"
+                href="https://www.letsventure.com/"
                 target="_blank"
               >
                 <Image
@@ -184,9 +184,6 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                   className={styles.vcimg}
                 />
               </Link>
-              <div>
-                <p style={{ fontWeight: "bold" }}>Others Coming soon...</p>
-              </div>
             </div>
           </section>
           <section className={styles.about} id="about">
