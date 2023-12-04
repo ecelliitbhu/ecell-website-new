@@ -12,7 +12,7 @@ interface OwnProps {}
 
 type Props = OwnProps;
 
-const StartupJunction: FunctionComponent<Props> = (props) => {
+const StartupJunction: FunctionComponent<Props> = () => {
   return (
     <>
       <Head>
@@ -50,7 +50,8 @@ const StartupJunction: FunctionComponent<Props> = (props) => {
                 </p>
 
                 <Link
-                  href="/forms/startup_junction"
+                  href="https://forms.gle/LZhuEfNJ1Qhkc4cy7"
+                  target={"_blank"}
                   className={`${styles.btn} ${styles.btnFill} ${styles.marginRightBtn}`}
                 >
                   Register
