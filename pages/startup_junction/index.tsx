@@ -185,6 +185,18 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   className={styles.vcimg}
                 />
               </Link>
+              <Link
+                href="https://xfibonacci.com/"
+                target="_blank"
+              >
+                <Image
+                  width={170}
+                  height={73}
+                  src="/startup_junction_vcs/fibonacci.jpg"
+                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  className={styles.vcimg}
+                />
+              </Link>
             </div>
           </section>
           <section className={styles.about} id="about">
