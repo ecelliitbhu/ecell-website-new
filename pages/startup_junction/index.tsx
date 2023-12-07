@@ -79,9 +79,9 @@ const StartupJunction: FunctionComponent<Props> = () => {
             <div className={styles.vcsimage}>
               <Link href="https://ivycamp.in/" target="_blank">
                 <Image
-                  width={150}
+                  width={350}
                   height={150}
-                  src="/startup_junction_vcs/ivy.png"
+                  src="/startup_junction_vcs/IvyCamp.jpeg"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
                 />
