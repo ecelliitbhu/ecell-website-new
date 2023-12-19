@@ -1,14 +1,21 @@
 import "../styles/globals.scss";
 import React, { useEffect, useState } from "react";
 import Router from "next/router";
+import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
-// import SSRProvider from "react-bootstrap/SSRProvider";
 import { AuthProvider } from "../context/auth";
 import Head from "next/head";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player"),
+  { ssr: false } // This will load the component only on client side
+);
+const Controls = dynamic(
+  () => import("@lottiefiles/react-lottie-player"),
+  { ssr: false } // This will load the component only on client side
+);
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -22,7 +29,6 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    // <SSRProvider>
     <AuthProvider>
       <Layout>
         <Head>
@@ -67,7 +73,6 @@ function MyApp({ Component, pageProps }) {
         )}
       </Layout>
     </AuthProvider>
-    // </SSRProvider>
   );
 }
 
