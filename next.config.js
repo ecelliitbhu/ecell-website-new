@@ -1,5 +1,7 @@
 const path = require("path");
+const { parsed: localEnv } = require("dotenv").config();
 const webpack = require("webpack");
+
 module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
@@ -9,17 +11,17 @@ module.exports = {
       {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
-        pathname:"**"
+        pathname: "**",
       },
       {
         protocol: "https",
         hostname: "prayagtandon.github.io",
-        pathname:"**"
+        pathname: "**",
       },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        pathname:"**"
+        pathname: "**",
       },
     ],
   },
@@ -38,6 +40,4 @@ module.exports = {
   //   });
   //   return config;
   // },
-
-  
 };
