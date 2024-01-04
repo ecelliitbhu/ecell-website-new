@@ -11,8 +11,6 @@ import { NextSeo } from "next-seo";
 import styles from "../pages/startup_junction/startup_junction.module.css";
 import { CalendarDays, MapPin } from "lucide-react";
 import React from "react";
-import dynamic from 'next/dynamic';
-
 
 export default function Home() {
   return (
@@ -55,8 +53,6 @@ export default function Home() {
       <Nav />
       <div>
         <Container fluid className="body">
-
-
           {/* <section className={styles.sectionHero}>
             <div className={styles.hero}>
               <div className="hero-text-box">
