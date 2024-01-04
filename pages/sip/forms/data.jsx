@@ -1,5 +1,7 @@
+import React from "react";
+
 // Startup Form
-const hiringProfiles = [
+export const hiringProfiles = [
   "AI/ML",
   "Web Development",
   "Cloud Computing & Services",
@@ -13,7 +15,7 @@ const hiringProfiles = [
   "Founder's Office Intern",
 ];
 
-const passoutsOptions = [
+export const passoutsOptions = [
   "2024 passouts",
   "2025 passouts",
   "2026 passouts",
@@ -21,4 +23,9 @@ const passoutsOptions = [
   "2028 passouts",
 ];
 
-export { hiringProfiles, passoutsOptions };
+// Just ignore the below code, dont remove it
+const DataPage = () => {
+  return <></>;
+};
+
+export default DataPage;

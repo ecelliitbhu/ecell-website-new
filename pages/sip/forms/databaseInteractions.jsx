@@ -1,3 +1,4 @@
+import React from "react";
 import {
   collection,
   addDoc,
@@ -19,7 +20,7 @@ import {
 } from "firebase/storage";
 import { v4 } from "uuid";
 
-const getDataFromStartupModalById = async (doc_id) => {
+export const getDataFromStartupModalById = async (doc_id) => {
   console.log(`id : ${doc_id}`);
   try {
     const docRef = doc(firestoreDB, "StartupApplicationsData", doc_id);
@@ -33,7 +34,7 @@ const getDataFromStartupModalById = async (doc_id) => {
   }
 };
 
-const getDataFromStartupModal = async () => {
+export const getDataFromStartupModal = async () => {
   try {
     const querySnapshot = await getDocs(
       collection(firestoreDB, "StartupApplicationsData")
@@ -57,7 +58,7 @@ const getDataFromStartupModal = async () => {
   }
 };
 
-const addJdfileToCloudStorage = async (jdfile) => {
+export const addJdfileToCloudStorage = async (jdfile) => {
   if (jdfile == null) return;
 
   try {
@@ -78,7 +79,7 @@ const addJdfileToCloudStorage = async (jdfile) => {
   }
 };
 
-const addDataToStartupModal = async (
+export const addDataToStartupModal = async (
   formData,
   profilesOthersText,
   hiringProfiles,
@@ -124,7 +125,7 @@ const addDataToStartupModal = async (
   }
 };
 
-const addDataToStudentModal = async (formData, resume_url) => {
+export const addDataToStudentModal = async (formData, resume_url) => {
   const data = {
     name: formData.name,
     year: formData.year,
@@ -149,7 +150,7 @@ const addDataToStudentModal = async (formData, resume_url) => {
   }
 };
 
-const addResumeToCloudStorage = async (resume) => {
+export const addResumeToCloudStorage = async (resume) => {
   if (resume == null) return;
 
   try {
@@ -170,11 +171,9 @@ const addResumeToCloudStorage = async (resume) => {
   }
 };
 
-export {
-  addDataToStartupModal,
-  addJdfileToCloudStorage,
-  getDataFromStartupModal,
-  getDataFromStartupModalById,
-  addDataToStudentModal,
-  addResumeToCloudStorage,
+// Just ignore the below code, dont remove it
+const dbInteraction = () => {
+  return <></>;
 };
+
+export default dbInteraction;

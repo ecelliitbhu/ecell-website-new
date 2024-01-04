@@ -75,7 +75,7 @@ const FoundedInInput = ({
         foundedInFiltersList.filter((item) => item !== duration)
       );
     }
-  }, [duration,isChecked]);
+  }, [duration, isChecked]);
   const name =
     duration.start > 0
       ? duration.start + "-" + duration.end
