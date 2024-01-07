@@ -5,9 +5,12 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 
-import { CustomAccordion } from "./accordion";
+import CustomAccordion from "./accordion";
 
 function StartupDetailsModal(props) {
+  if (!props.data) {
+    return null; // or some default content, or handle the absence of data appropriately
+  }
   return (
     <>
       <Modal
@@ -174,4 +177,4 @@ function StartupDetailsModal(props) {
   );
 }
 
-export { StartupDetailsModal };
+export default StartupDetailsModal;

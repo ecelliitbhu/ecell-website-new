@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
-import { StudentForm } from "../forms/studentForm";
+import StudentForm from "../forms/studentForm";
 
 const PINK = "rgba(255, 192, 203, 0.6)";
 const BLUE = "rgba(0, 0, 255, 0.6)";
@@ -23,4 +23,4 @@ function CustomAccordion() {
   );
 }
 
-export { CustomAccordion };
+export default CustomAccordion;

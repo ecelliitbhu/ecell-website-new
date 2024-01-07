@@ -170,4 +170,4 @@ function StudentForm() {
   );
 }
 
-export { StudentForm };
+export default StudentForm;

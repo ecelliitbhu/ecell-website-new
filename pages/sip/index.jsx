@@ -14,6 +14,8 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
 export default function SIP() {
   const [show, setShow] = useState(false);
@@ -97,6 +99,36 @@ export default function SIP() {
     }
   };
 
+  const handleInstituteVerification = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+
+      // The signed-in user info.
+      const user = result.user;
+
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+      return result;
+    } catch (error) {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      // The email of the user's account used.
+      const email = error.customData?.email || null;
+
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      return error;
+    }
+  };
+
   return (
     <>
       <Head>
@@ -137,11 +169,11 @@ export default function SIP() {
                     Some quick example text to build on the card title and make
                     up the bulk of the card content.
                   </Card.Text>
-                  <a href="/sip/startup">
+                  <Link href="/sip/startup">
                     <Button style={{ marginTop: "0.8rem" }} variant="primary">
                       Read More
                     </Button>
-                  </a>
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>

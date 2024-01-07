@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
-import { StartupDetailsModal } from "./modal";
+import StartupDetailsModal from "./modal";
 import { getDataFromStartupModal } from "../forms/databaseInteractions";
 
 export default function StudentPortal() {
