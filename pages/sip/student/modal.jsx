@@ -171,7 +171,10 @@ function StartupDetailsModal(props) {
         </Modal.Body>
 
         {/* Accordion of Form for student data  */}
-        <CustomAccordion />
+        <CustomAccordion
+          hiringProfilesString={props.hiringProfilesString}
+          applicableCandidatesString={props.applicableCandidatesString}
+        />
       </Modal>
     </>
   );

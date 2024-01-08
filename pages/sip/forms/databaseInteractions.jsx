@@ -131,7 +131,7 @@ export const addDataToStudentModal = async (formData, resume_url) => {
     year: formData.year,
     email: formData.email,
     contactNumber: formData.contactNumber,
-    proposedJoiningDate: formData.proposedJoiningDate,
+    // proposedJoiningDate: formData.proposedJoiningDate,
     applyingPosition: formData.applyingPosition,
     linkedinId: formData.linkedinId,
     githubId: formData.githubId,
