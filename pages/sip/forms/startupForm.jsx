@@ -30,23 +30,6 @@ function StartupForm() {
   const [selectedCheckbox, setSelectedCheckbox] = useState("immediate-check");
   const [joiningDate, setJoiningDate] = useState("immediate");
 
-  // const generatePdf = () => {
-  //   console.log("Under generating pdf");
-  //   const pdf = new jsPDF();
-  //   pdf.text(jdfileTextarea, 10, 10);
-
-  //   // Save the PDF as a file
-  //   const pdfBlob = pdf.output("blob");
-  //   saveAs(pdfBlob, "generated.pdf");
-
-  //   // Convert the file to a data URL and save it to state
-  //   const reader = new FileReader();
-  //   reader.onloadend = () => {
-  //     setJdfile(reader.result);
-  //   };
-  //   reader.readAsDataURL(pdfBlob);
-  // };
-
   /* Toast Functions */
   const showToastMessageSuccess = (success_message) => {
     toast.success(success_message, {
