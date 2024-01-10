@@ -86,7 +86,8 @@ export const addDataToStartupModal = async (
   applicableCandidates,
   selectedLoc,
   joiningDate,
-  jdurl
+  jdurl,
+  jdText
 ) => {
   // If profilesOthersText is not null and not an empty string, add it to hiringProfiles
   if (profilesOthersText !== null && profilesOthersText !== "") {
@@ -107,11 +108,12 @@ export const addDataToStartupModal = async (
     applicable_candidates: applicableCandidates,
     joining_date: joiningDate,
     jdurl: jdurl,
+    jd_text: jdText,
   };
   console.log(`url : ${jdurl}`);
   try {
     const docRef = await addDoc(
-      collection(firestoreDB, "StartupApplicationsData"),
+      collection(firestoreDB, "DummyStartupApplications"),
       data
     );
     console.log("Document written with ID: ", docRef.id);

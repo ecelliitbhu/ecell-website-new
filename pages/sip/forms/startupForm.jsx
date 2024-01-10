@@ -25,9 +25,27 @@ function StartupForm() {
   // Job Description states
   const [jdfile, setJdfile] = useState(null);
   const [jdfileUrl, setJdfileUrl] = useState(null);
+  const [jdfileTextarea, setJdfileTextarea] = useState("");
   // Joining Date states
   const [selectedCheckbox, setSelectedCheckbox] = useState("immediate-check");
   const [joiningDate, setJoiningDate] = useState("immediate");
+
+  // const generatePdf = () => {
+  //   console.log("Under generating pdf");
+  //   const pdf = new jsPDF();
+  //   pdf.text(jdfileTextarea, 10, 10);
+
+  //   // Save the PDF as a file
+  //   const pdfBlob = pdf.output("blob");
+  //   saveAs(pdfBlob, "generated.pdf");
+
+  //   // Convert the file to a data URL and save it to state
+  //   const reader = new FileReader();
+  //   reader.onloadend = () => {
+  //     setJdfile(reader.result);
+  //   };
+  //   reader.readAsDataURL(pdfBlob);
+  // };
 
   /* Toast Functions */
   const showToastMessageSuccess = (success_message) => {
@@ -122,7 +140,6 @@ function StartupForm() {
       "Please enter URL for your company's POC website"
     );
     validateField("stipend", stipend, "Please enter stipend amount");
-    validateField("jdfile", jdfile, "Please provide Job Description");
 
     // Other validations if required
     // Validate that at least one hiring profile is selected
@@ -136,6 +153,22 @@ function StartupForm() {
       console.log("Applicable Candidates error");
       newErrors.applicableCandidates =
         "Please select at least one Applicable Candidates";
+    }
+    // console.log(`jdfile :${jdfile}`);
+    // console.log(`text area :${jdfileTextarea}`);
+
+    // Validate the JD fields
+    if (jdfileTextarea === "") {
+      if (jdfile === null || jdfile === undefined) {
+        console.log("job description error 1");
+        newErrors.jdfileTextarea = "Please provide your Job Description";
+      }
+    } else {
+      if (jdfile != null) {
+        console.log("job description error 2");
+        newErrors.jdfileTextarea =
+          "Please choose either to upload a PDF for the JD OR enter your JD in the provided text area";
+      }
     }
 
     return newErrors;
@@ -153,11 +186,11 @@ function StartupForm() {
       console.log(data);
       showToastMessageSuccess("Form Submitted");
 
-      try {
-        const jdUrl = await addJdfileToCloudStorage(jdfile);
-        setJdfileUrl(jdUrl);
-        console.log("JD uploaded successfully!");
+      console.log(`jdfile :${jdfile}`);
+      console.log(`text area :${jdfileTextarea}`);
 
+      if (jdfileTextarea !== "") {
+        console.log(`jd text:${jdfileTextarea}`);
         // Storing form data to database
         try {
           const documentId = await addDataToStartupModal(
@@ -167,7 +200,8 @@ function StartupForm() {
             applicableCandidates,
             selectedLoc,
             joiningDate,
-            jdUrl // Use jdUrl directly here instead of jdfileUrl
+            null, // Use jdUrl directly here instead of jdfileUrl
+            jdfileTextarea
           );
 
           // router.push("/sip");
@@ -176,9 +210,35 @@ function StartupForm() {
           console.error("Failed to add data to Firestore: ", error);
           showToastMessageError("Failed to add data");
         }
-      } catch (jdError) {
-        console.error("Failed to upload JD file: ", jdError);
-        showToastMessageError("Failed to upload Job Description");
+      } else {
+        try {
+          const jdUrl = await addJdfileToCloudStorage(jdfile);
+          setJdfileUrl(jdUrl);
+          console.log("JD uploaded successfully!");
+
+          // Storing form data to database
+          try {
+            const documentId = await addDataToStartupModal(
+              data,
+              profile_other_text,
+              selectedProfiles,
+              applicableCandidates,
+              selectedLoc,
+              joiningDate,
+              jdUrl, // Use jdUrl directly here instead of jdfileUrl
+              ""
+            );
+
+            // router.push("/sip");
+            window.location.href = "/sip";
+          } catch (error) {
+            console.error("Failed to add data to Firestore: ", error);
+            showToastMessageError("Failed to add data");
+          }
+        } catch (jdError) {
+          console.error("Failed to upload JD file: ", jdError);
+          showToastMessageError("Failed to upload Job Description");
+        }
       }
     }
   };
@@ -440,8 +500,21 @@ function StartupForm() {
           }}
           isInvalid={!!errors.jdfile}
         />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Label>Or</Form.Label>
+        <Form.Control
+          as="textarea"
+          value={jdfileTextarea}
+          onChange={(e) => {
+            setJdfileTextarea(e.target.value);
+          }}
+          isInvalid={!!errors.jdfileTextarea}
+          rows={4}
+          placeholder="Write your Job Description here"
+        />
         <Form.Control.Feedback type="invalid">
-          {errors.jdfile}
+          {errors.jdfileTextarea}
         </Form.Control.Feedback>
       </Form.Group>
 

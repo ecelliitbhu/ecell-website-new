@@ -91,25 +91,44 @@ function StartupDetailsModal(props) {
                   {props.data.company_pos_web}
                 </span>
               </div>
-              <div className="mb-3">
-                <span style={{ fontSize: "20px", fontWeight: "600" }}>
-                  Job Description
-                </span>
-                <a
-                  href={props.data.jdurl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
+              {props.data.jdurl != null ? (
+                <div className="mb-3">
+                  <span style={{ fontSize: "20px", fontWeight: "600" }}>
+                    Job Description
+                  </span>
+                  <a
+                    href={props.data.jdurl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      style={{
+                        height: "1.5rem",
+                        paddingLeft: "0.8rem",
+                      }}
+                      src="/sip/next.png"
+                      alt="click"
+                    />
+                  </a>
+                </div>
+              ) : (
+                // Render something else when props.data.jdurl is null
+                <div className="mb-3">
+                  <span style={{ fontSize: "20px", fontWeight: "600" }}>
+                    Job Description
+                  </span>
+                  <p
                     style={{
-                      height: "1.5rem",
-                      paddingLeft: "0.8rem",
+                      fontSize: "15px",
+                      fontWeight: "400",
+                      border: "2px solid #D9D1E0", // Set border width and color
+                      padding: "10px", // Optional: Add padding for better visual appearance
                     }}
-                    src="/sip/next.png"
-                    alt="click"
-                  />
-                </a>
-              </div>
+                  >
+                    {props.data.jd_text}
+                  </p>
+                </div>
+              )}
             </Col>
 
             <Col md={6}>
