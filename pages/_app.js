@@ -2,7 +2,7 @@ import "../styles/globals.scss";
 import React, { useEffect, useState } from "react";
 import Router from "next/router";
 import dynamic from "next/dynamic";
-import SSRProvider from "react-bootstrap/SSRProvider";
+// import SSRProvider from "react-bootstrap/SSRProvider";
 import Layout from "../components/Layout";
 import { AuthProvider } from "../context/auth";
 import Head from "next/head";
@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <SSRProvider>
+    // <SSRProvider>
     <AuthProvider>
       <Layout>
         <Head>
@@ -77,7 +77,7 @@ function MyApp({ Component, pageProps }) {
         )}
       </Layout>
     </AuthProvider>
-    </SSRProvider>
+    // </SSRProvider>
   );
 }
 
