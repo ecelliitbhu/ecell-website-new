@@ -128,56 +128,50 @@ const verticalHeads = [
 ];
 export default function Mentors() {
   return (
-    <div
-      className={"container"}
+    <div className="container" style={{ margin: "10px auto" }}>
+    <h2
       style={{
-        margin: "10px auto",
+        fontSize: "2rem",
+        textAlign: "center",
+        width: "100%",
+        fontWeight: "bold",
+        color: "black",
       }}
     >
-      <div className={"row"}>
-        <h2
-          style={{
-            fontSize: "2rem",
-            textAlign: "center",
-            width: "100%",
-            fontWeight: "bold",
-            color:"black",
-          }}
-        >
-          Featured Mentors
-        </h2>
-        
-        <div className="team-container-1">
-          {verticalHeads.map((head, index) => {
-            return (
-              <div className="our-team" key={index}>
-                <Image
-                  src={head.image}
-                  height={1600}
-                  width={1600}
-                  className="img-responsive img-contain"
-                  alt="team member"
-                />
-                <div className="team-content">
-                  <h3 className="name">{head.name.toUpperCase()}</h3>
-                  <span className="post">{head.position}</span>
-                  <span className="post">{head.institute}</span>
-                  <div className="team-social">
-                
-                    <a
-                      href={head.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaLinkedin className="social-icons"></FaLinkedin>
-                    </a>
-                  </div>
-                </div>
+      Featured Mentors
+    </h2>
+  
+    <div className="row justify-content-center">
+      {verticalHeads.map((head, index) => (
+        <div className="col-md-3" key={index}>
+          <div className="our-team">
+            <Image
+              src={head.image}
+              height={1600}
+              width={1600}
+              className="img-responsive img-contain"
+              alt="team member"
+            />
+            <div className="team-content">
+              <h3 className="name">{head.name.toUpperCase()}</h3>
+              <span className="post">{head.position}</span>
+              <span className="post">{head.institute}</span>
+              <div className="team-social">
+                <a
+                  href={head.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="social-icons"></FaLinkedin>
+                </a>
               </div>
-            );
-          })}
+            </div>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
+  </div>
+  
+
   );
 }
