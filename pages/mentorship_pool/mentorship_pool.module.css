@@ -253,8 +253,11 @@
     
   }
   .fatCard{
-    width: 25%;
-    height: auto;
+    width: 40%;
+    height: 100%;
+  }
+  .ht{
+    height: 525px;
   }
   .card_row{
     margin-top: 4rem;

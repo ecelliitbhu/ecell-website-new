@@ -176,7 +176,7 @@ export const Initiatives = () => {
               <FcApproval fontSize="2rem"></FcApproval>
               <div>
                 <h4>
-                  StartUp Mentor Pool
+                  Startup Mentor Pool
                 </h4>
                 <p>
                   {`Elevate Your Journey:`}
