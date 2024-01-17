@@ -172,21 +172,18 @@ export const Initiatives = () => {
               </div>
             </a>
 
-            <a
-              className="dropdown-item"
-              href="https://discord.link/ecelliitbhu"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/mentorship_pool" passHref className="dropdown-item">
               <FcApproval fontSize="2rem"></FcApproval>
               <div>
-                <h4>E-Community</h4>
+                <h4>
+                  StartUp Mentor Pool
+                </h4>
                 <p>
-                  Join the world of entrepreneurs and enthusiasts
-                  <br /> and build the future together!
+                  {`Elevate Your Journey:`}
+                  <br /> {`Join Our Startup Mentor Pool for Guided Success!`}
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
           <li className="dropdown-subcontainer">
             <Link href="/cd" passHref className="dropdown-item">

@@ -187,6 +187,22 @@
     background-size: cover;
     background-position: center;
   }
+  .button {
+    text-align: center;
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+  }
+  
+  /* Additional styles for mobile responsiveness */
+  @media (max-width: 767px) {
+    .button {
+      flex-direction: column; /* Stack buttons vertically on smaller screens */
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  
   
   .about h1 {
     font-weight: 700;
@@ -236,6 +252,10 @@
     justify-content: center;
     
   }
+  .fatCard{
+    width: 25%;
+    height: auto;
+  }
   .card_row{
     margin-top: 4rem;
     display: flex;
@@ -278,6 +298,12 @@
     .card_row {
         display: flex;
         flex-direction: column;
+      }
+      .fatCard{
+        width: 90%;
+      }
+      .hero1{
+        margin: 60px auto;
       }
   }
   .space{
