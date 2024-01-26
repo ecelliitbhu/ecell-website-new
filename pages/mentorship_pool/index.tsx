@@ -26,16 +26,17 @@ const MentorshipPool: FunctionComponent<Props> = () => {
         <Container fluid className="body">
           <section className={styles.sectionHero}>
           <Row className={`header ${styles.hero1}`}>
-  <Col className="info cd-info">
-    <h1 style={{ marginBottom: '10px' }}>Startup Mentor Pool</h1>
-    <p style={{ marginTop: '0', marginBottom: '20px' }}>
+  <Col className={`info cd-info ${styles.ht}`} >
+    
+    <h1 style={{ marginBottom: '0' }}>Startup Mentor Pool</h1>
+    <p style={{ marginTop: '0', marginBottom: '0  ' }}>
     Connect with seasoned industry professionals and boost your entrepreneurial journey!
-<br></br><br></br>
+
 <li>
 Personalised Guidance</li>
 <li>Industry Insights</li>
 <li>Invaluable support</li>
-<br></br>
+
 Specially curated programs where mentors across various industries share their experience and expertise and guide you through your journey.
 
     </p>
@@ -48,9 +49,15 @@ Specially curated programs where mentors across various industries share their e
       </a>
     </div>
   </Col>
+ 
   <Col className="image-section">
-    <img src={img.src} className="img-fluid" style={{justifyContent: 'center'}} alt="Responsive" />
-  </Col>
+  <img
+    src={img.src}
+    className="img-fluid"
+    style={{ justifyContent: 'center', marginTop: '40px' }}
+    alt="Responsive"
+  />
+</Col>
 </Row>
 
             

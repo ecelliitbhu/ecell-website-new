@@ -17,6 +17,7 @@ import sunil from "../../../public/mentorship_pool/sunil.jpeg"
 import vinaytosh from "../../../public/mentorship_pool/vinaytosh.jpeg"
 import rishi from "../../../public/mentorship_pool/rishi.jpeg"
 import nitin from "../../../public/mentorship_pool/nitin.jpg"
+import binod from "../../../public/mentorship_pool/BINOD.jpg"
 
 const verticalHeads = [
   {
@@ -118,6 +119,13 @@ const verticalHeads = [
     linkedin: "https://www.linkedin.com/in/agrawal-rishi/",
   },
   {
+    name: "Binod Kumar",
+    position: "Founder & CEO At TrueFirms™",
+    institute:"",
+    image: binod,
+    linkedin: "https://www.linkedin.com/in/kumar-binod/",
+  },
+  {
     name: "Nitin",
     position: "Core Team, Director- Business and Growth at Falcon, ex-Razorpay and PayU",
     institute:"IIM-B Graduate",
@@ -141,7 +149,7 @@ export default function Mentors() {
       Featured Mentors
     </h2>
   
-    <div className="row justify-content-center">
+    <div className="row">
       {verticalHeads.map((head, index) => (
         <div className="col-md-3" key={index}>
           <div className="our-team">

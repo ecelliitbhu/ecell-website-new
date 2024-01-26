@@ -11,6 +11,7 @@ import { NextSeo } from "next-seo";
 import styles from "../pages/startup_junction/startup_junction.module.css";
 import { CalendarDays, MapPin } from "lucide-react";
 import React from "react";
+import Summit from "../public/summit.png";
 
 export default function Home() {
   return (
@@ -56,43 +57,40 @@ export default function Home() {
           {/* <section className={styles.sectionHero}>
             <div className={styles.hero}>
               <div className="hero-text-box">
-                <h1 className={styles.headingPrimary}>Startup Junction </h1>
+                <h1 className={styles.headingPrimary}>E-Summit'24 </h1>
                 <div className={styles.venue}>
                   <div>
                     <CalendarDays />
-                    <span className={styles.heroDate}> 15th December 2023</span>
+                    <span className={styles.heroDate}> 02-04 February 2024</span>
                   </div>
                   <div>
                     <MapPin />
                     <span className={styles.heroDate}>
                       {" "}
-                      Delhi/NCR and Bengaluru
+                      Varanasi
                     </span>
                   </div>
                 </div>
 
                 <p className={styles.heroDescription}>
-                  Accelerate your startup&apos;s journey at Startup Junction,
-                  E-Cell IIT BHU&apos;s visionary initiative to connect
-                  promising startups with VCs, fostering innovation, growth, and
-                  collaboration. Register now for this incredible chance to
-                  propel your startup forward.
+                E-Summit is an electrifying celebration of innovation and entrepreneurship, brought to you by the Entrepreneurship Cell ( E-Cell ) at the Indian Institute of Technology ( IIT ) BHU.
                 </p>
 
                 <Link
-                  href="/startup_junction"
+                  href="https://esummit.ecelliitbhu.com/"
+                  target="_blank"
                   className={`${styles.btn} ${styles.btnFill} ${styles.marginRightBtn}`}
                   style={{textAlign:"center"}}
                 >
-                  Register
+                  Explore More
                 </Link>
               </div>
               <div className={styles.heroImgBox}>
                 <Image
-                  width={500}
+                  width={700}
                   height={300}
-                  src="/startup_junction/startup-junction.png"
-                  alt="Startup Junction"
+                  src={Summit}
+                  alt="E-Summit"
                   className="hero-Image"
                 />
               </div>
@@ -151,6 +149,53 @@ export default function Home() {
               </Link>
             </Col>
           </Row> */}
+
+<section 
+  style={{
+    height: '100vh',
+    
+    paddingBottom: '150px',
+    boxSizing: 'border-box', // Ensures padding is included in the total height
+    display: 'flex',
+    flexDirection: 'column',
+    // justifyContent: 'space-between', // Adjust based on your layout needs
+    alignItems: 'center', // Center items horizontally
+  }}
+  className={styles.herosection}
+>
+  <div className={styles.heroImgBox}>
+    <Image
+      width={1000}
+      height={400}
+      src={Summit}
+      alt="E-Summit"
+      className="hero-Image"
+      style={{ margin: 'auto' }} // Center the image within its container
+    />
+  </div>
+  
+  <Link href="https://esummit.ecelliitbhu.com/" passHref>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Button
+        variant="info"
+        className="get-started"
+        style={{
+          color: 'white',
+          background: '#166F8A',
+          width: 'fit-content',
+          fontSize: '1.2rem',
+          height: 'fit-content',
+          padding: '15px 15px',
+        }}
+      >
+        Explore More!
+      </Button>
+    </div>
+  </Link>
+</section>
+
+
+
           <Row className="header">
             <Col className="info">
               <h1>E-Cell IIT BHU</h1>
