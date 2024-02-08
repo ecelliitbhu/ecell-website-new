@@ -41,10 +41,10 @@ Specially curated programs where mentors across various industries share their e
 
     </p>
     <div className={styles.button}>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlsizxKMUltELAMoUwdv8wuw0GSv_aAyUqHywX018J-_ucAQ/viewform?usp=sf_link">
+      <a href="https://forms.gle/xQsffLTWAnuZLKuw6">
         <button type="button" className="btn btn-dark btn-lg btn-block">Startup Application→</button>
       </a>
-      <a href="https://forms.gle/xQsffLTWAnuZLKuw6">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlsizxKMUltELAMoUwdv8wuw0GSv_aAyUqHywX018J-_ucAQ/viewform?usp=sf_link">
         <button type="button" className="btn btn-lg btn-block" style={{backgroundColor: "#e67e22", color:"white"}}>Mentor Application→</button>
       </a>
     </div>
