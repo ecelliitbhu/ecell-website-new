@@ -36,7 +36,7 @@ const verticalHeads = [
   },
   {
     name: "Saikat Sinha",
-    position: "APAC- Social and Digital Lead (APAC) at Lenovo",
+    position: "Director- Consumer Experiences at The Coca-Cola Company",
     institute:"NIT-Rourkela, IIM-L Graduate",
     image: saikat,
     linkedin: "https://www.linkedin.com/in/saikatsinha2/",
