@@ -127,7 +127,7 @@ const verticalHeads = [
   },
   {
     name: "Nitin",
-    position: "Core Team, Director- Business and Growth at Falcon, ex-Razorpay and PayU",
+    position: "Director- Business and Growth at Falcon, ex-Razorpay and PayU",
     institute:"IIM-B Graduate",
     image: nitin,
     linkedin: "https://www.linkedin.com/in/nitinsharmavats/",
