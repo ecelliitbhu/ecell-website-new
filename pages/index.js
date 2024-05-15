@@ -54,7 +54,8 @@ export default function Home() {
       <Nav />
       <div>
         <Container fluid className="body">
-          {/* <section className={styles.sectionHero}>
+          {/*
+          <section className={styles.sectionHero}>
             <div className={styles.hero}>
               <div className="hero-text-box">
                 <h1 className={styles.headingPrimary}>E-Summit'24 </h1>
@@ -95,7 +96,8 @@ export default function Home() {
                 />
               </div>
             </div>
-          </section> */}
+          </section>
+          */}
 
           {/* <Row
             className="header"
