@@ -127,7 +127,7 @@ const verticalHeads = [
   },
   {
     name: "Nitin",
-    position: "Director- Business and Growth at Falcon, ex-Razorpay and PayU",
+    position: "Digital Payments Expert eith 14+ experience. Ex-Flipkart,Razorpay and PayU",
     institute:"IIM-B Graduate",
     image: nitin,
     linkedin: "https://www.linkedin.com/in/nitinsharmavats/",
