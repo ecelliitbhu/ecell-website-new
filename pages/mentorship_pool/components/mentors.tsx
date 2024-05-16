@@ -127,7 +127,7 @@ const verticalHeads = [
   },
   {
     name: "Nitin",
-    position: "Digital Payments Expert with 14+ experience. Ex-Flipkart,Razorpay and PayU",
+    position: "Digital Payments Expert with 14+ years experience. Ex-Flipkart,Razorpay and PayU",
     institute:"IIM-B Graduate",
     image: nitin,
     linkedin: "https://www.linkedin.com/in/nitinsharmavats/",
