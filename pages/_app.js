@@ -2,20 +2,22 @@ import "../styles/globals.scss";
 import React, { useEffect, useState } from "react";
 import Router from "next/router";
 import dynamic from "next/dynamic";
+// import SSRProvider from "react-bootstrap/SSRProvider";
 import Layout from "../components/Layout";
 import { AuthProvider } from "../context/auth";
 import Head from "next/head";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
-const Player = dynamic(
-  () => import("@lottiefiles/react-lottie-player"),
-  { ssr: false } // This will load the component only on client side
-);
-const Controls = dynamic(
-  () => import("@lottiefiles/react-lottie-player"),
-  { ssr: false } // This will load the component only on client side
-);
+// import { Player, Controls } from "@lottiefiles/react-lottie-player";
+// const Player = dynamic(
+//   () => import("@lottiefiles/react-lottie-player"),
+//   { ssr: false } // This will load the component only on client side
+// );
+// const Controls = dynamic(
+//   () => import("@lottiefiles/react-lottie-player"),
+//   { ssr: false } // This will load the component only on client side
+// );
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -29,6 +31,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
+    // <SSRProvider>
     <AuthProvider>
       <Layout>
         <Head>
@@ -41,14 +44,15 @@ function MyApp({ Component, pageProps }) {
           <meta name="robots" content="index, follow" />
         </Head>
         {loading ? (
-          <Player
-            autoplay
-            loop
-            src="https://assets8.lottiefiles.com/packages/lf20_b0firirj.json"
-            style={{ height: "300px", width: "300px" }}
-          >
-            <Controls visible={false} />
-          </Player>
+          // <Player
+          //   autoplay
+          //   loop
+          //   src="https://assets8.lottiefiles.com/packages/lf20_b0firirj.json"
+          //   style={{ height: "300px", width: "300px" }}
+          // >
+          //   <Controls visible={false} />
+          // </Player>
+          <p>Loading...</p>
         ) : (
           <>
             <Script
@@ -73,6 +77,7 @@ function MyApp({ Component, pageProps }) {
         )}
       </Layout>
     </AuthProvider>
+    // </SSRProvider>
   );
 }
 
