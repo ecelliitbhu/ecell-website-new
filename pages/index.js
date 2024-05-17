@@ -152,7 +152,7 @@ export default function Home() {
             </Col>
           </Row> */}
 
-<section 
+{/* <section 
   style={{
     height: '100vh',
     
@@ -194,7 +194,7 @@ export default function Home() {
       </Button>
     </div>
   </Link>
-</section>
+</section> */}
 
 
 
