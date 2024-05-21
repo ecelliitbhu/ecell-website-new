@@ -2,12 +2,12 @@ import Head from "next/head";
 import { Container, Row } from "react-bootstrap";
 import Footer from "../../../components/Footer";
 import Nav from "../../../components/navbar/NavLayout";
-import ESummitTeamExpansionForm from "../../../components/forms/ESummitTeamExpansionForm";
+import TeamExpansionForm2024 from "../../../components/forms/TeamExpansionForm2024";
 export default function Contacts() {
   return (
     <>
       <Head>
-        <title>{`E-Summit'23 Team Expansion`}</title>
+        <title>Team Expansion 2024</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
@@ -26,10 +26,11 @@ export default function Contacts() {
                 fontWeight: "bold",
               }}
             >
-              {`E-Summit 2023 Team Expansion`}
+              E-Cell&apos;24 Team Expansion
+              {/* E-Cell IIT BHU, Team Expansion 2023-24 */}
             </h1>
           </Row>
-          {/* <Row
+          <Row
             className="who-are-we"
             style={{ height: "fit-content", margin: "20px 0" }}
           >
@@ -45,12 +46,13 @@ export default function Contacts() {
               The Entrepreneurship Cell (E-Cell), IIT (BHU) Varanasi aims to
               foster the spirit of entrepreneurship and innovation in the
               college.
-              <br /> Fill this form to be a part of the E-Cell, and contribute
+              <br /> Fill this form to be a part of
+              E-Cell Team &apos; and contribute
               to building the entrepreneurship culture!
             </p>
-          </Row> */}
+          </Row>
           <Row>
-            <ESummitTeamExpansionForm />
+            <TeamExpansionForm2024 />
           </Row>
           <Footer />
         </Container>
