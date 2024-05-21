@@ -9,6 +9,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
+import { ToastContainer } from "react-toastify";
 // import { Player, Controls } from "@lottiefiles/react-lottie-player";
 // const Player = dynamic(
 //   () => import("@lottiefiles/react-lottie-player"),
@@ -69,9 +70,10 @@ function MyApp({ Component, pageProps }) {
                 `}
             </Script>
             <Component {...pageProps} />
+            <ToastContainer position="top-center" />
             <Analytics />
             <div>
-              <Toaster position={"bottom-right"} />
+              <Toaster position={"top-center"} />
             </div>
           </>
         )}

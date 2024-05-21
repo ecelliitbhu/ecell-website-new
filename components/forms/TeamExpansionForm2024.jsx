@@ -7,35 +7,61 @@ import { toast } from "react-hot-toast";
 
 import { firestoreDB } from "@/lib/firebase";
 
-import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+
+
 
 const VERTICALS = [
   {
-    name: "Design",
+    name: "Design Team",
     description:
-    "The Design Team is responsible for designing all of the visual graphics for E-Summit, including the logo, website, posters, and social media graphics."
+    "The Design Team at E-Cell is responsible for creating all visual graphics, including the logo, website, posters, and social media graphics, ensuring a cohesive and engaging visual identity for the organisation."
   },
   {
-    name:"Creative Team",
+    name:"SAP Team",
     description:
-    "The creatives team is responsible for creating catchy crafts. From graphics to multimedia elements, contribute to crafting a dynamic and engaging narrative for the summit."
+    "The Student Assistance Program (SAP) team of E-Cell IIT BHU supports student startups by providing essential resources, connections, and guidance to help turn their ideas into reality."
   },
   {
-    name: "Operations and marketing",
+    name: "Tech Team",
     description:
-      "The Operations and Marketing Team is responsible for planning and executing all of the logistics for E-Summit, including registration, ticketing, sponsorships, and vendor relations. ",
+      "The tech team of E-Cell IIT(BHU) manages the digital infrastructure, including website development, website maintenance, and technical support for all events and initiatives.",
   },
   {
-    name: "Social Media and Content",
+    name: "Branding Team",
     description:
-      "The Social Media and Content Team is responsible for creating and managing all of the social media content for E-Summit. They will also be responsible for creating other content, such as blog posts, articles, and videos.",
+      "Branding team is dedicated towards crafting a compelling and unique identity of E-Cell, enhancing our presence and fostering a strong, cohesive image. We blend creativity with strategy to engage our community and amplify our message.",
   },
   {
-    name: "Publicity",
+    name: "Relations Team",
     description:
-      "The Publicity Team is responsible for generating media coverage for E-Summit. They will also be responsible for managing the reputation of E-Summit. They will also be responsible for promoting the event through various channels, including social media, email, and print.",
+      "Relations Team at E-Cell cultivates partnerships with industry leaders, investors, and VCs, fostering innovation, growth, and enriching the events with sponsors and esteemed speakers.",
   },
+  {
+    name: "Strategy and Outreach",
+    description:
+      "The Strategy and Outreach Team of E-Cell drives entrepreneurial growth through robust partnerships with like minded institutions and organisations. We also develop and implement strategies to amplify E-Cell’s online presence and engage with the broader community to raise awareness about E-Cell and its initiatives."
+  },
+{
+    name: "Innovation and Incubation Team",
+    description:
+      "The INI Vertical ensures seamless coordination between IIT BHU Incubators and E-Cell by handling all the official tasks. We are also responsible for coordinating with PG students facilitating commercialisation of their researches.",
+  },
+{
+    name: "Events Team",
+    description:
+      "Events Team is responsible for handling and organizing all the events, webinars, and workshops, conducted by E-Cell during the course of the session.",
+  },
+{
+    name: "Video Editing Team",
+    description:
+      "Responsible for creating, editing, and producing engaging video content for E-Cell events, promotions, and social media channels, thereby creating an impact on audience."
+},
+
+
 ];
+
+
 const BRANCHES = [
   "Architecture, Planning and Design",
   "Biomedical Engineering",
@@ -52,15 +78,14 @@ const BRANCHES = [
   "Biochemical Engineering",
   "Industrial Chemistry",
   "Mathematical Sciences",
-  "Physics",
+  "Engineering Physics",
   "Chemistry",
   "Material Science and Technology",
 ];
-export default function TeamExpansionForm2023() {
+export default function TeamExpansionForm2024() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
     control,
     reset,
@@ -71,10 +96,10 @@ export default function TeamExpansionForm2023() {
   };
 
   const onSubmit = async (data) => {
-    // console.log(data);
+    console.log(data);
     try {
       const customDocId = data.fullname + data.branch;
-      const docRef = doc(firestoreDB, "teamExpansionESummit24", customDocId);
+      const docRef = doc(firestoreDB, "TeamExpansion_E-Cell_2024", customDocId);
 
       await setDoc(docRef, {
         ...data,
@@ -82,11 +107,13 @@ export default function TeamExpansionForm2023() {
       });
 
       console.log("Document written with ID: ", customDocId);
-      toast.success("Form submitted successfully!");
-      reset();
+      toast.success("Form submitted successfully! See you in the E-Cell Team !",{
+        duration: 4000});
+      // reset();
     } catch (error) {
       console.error("Error adding document: ", error);
-      toast.error("Error submitting form");
+      toast.error("Error submitting form",{
+        duration: 4000});
     }
   };
   return (
@@ -149,10 +176,10 @@ export default function TeamExpansionForm2023() {
               {...register("year", { required: true })}
             >
               <option>Open this select menu</option>
-              <option value="1st year">1st year</option>
+              {/* <option value="1st year">1st year</option> */}
               <option value="2nd year">2nd year</option>
-              {/* <option value="3rd year">3rd year</option>
-              <option value="4th year">4th year</option>
+               {/* <option value="3rd year">3rd year</option> */}
+              {/*<option value="4th year">4th year</option>
               <option value="5th year">5th year</option> */}
             </Form.Select>
             {errors.course && (
