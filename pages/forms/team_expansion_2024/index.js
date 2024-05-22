@@ -48,7 +48,7 @@ export default function Contacts() {
               college.
               <br /> Fill this form to be a part of
               E-Cell Team &apos; and contribute
-              to building the entrepreneurship culture!
+              to build the entrepreneurship culture!
             </p>
           </Row>
           <Row>
