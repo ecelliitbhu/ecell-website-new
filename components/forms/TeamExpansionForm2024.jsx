@@ -1,5 +1,5 @@
 import Form from "react-bootstrap/Form";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
@@ -89,7 +89,29 @@ export default function TeamExpansionForm2024() {
     formState: { errors },
     control,
     reset,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      interestedTeams: []
+    }});
+
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handleCheckboxChange = (e, vertical) => {
+    const updatedSelections = e.target.checked
+      ? [...selectedOptions, vertical]
+      : selectedOptions.filter((item) => item !== vertical);
+
+    setSelectedOptions(updatedSelections);
+  };
+
+  const getPreferenceText = (vertical) => {
+    const index = selectedOptions.indexOf(vertical);
+    if (index === 0) return 'First preference';
+    if (index === 1) return 'Second preference';
+    if (index === 2) return 'Third preference';
+    return '';
+  };
+
   const [commitmentValue, setCommitmentValue] = useState(5);
   const handleCommitmentChange = (event) => {
     setCommitmentValue(parseInt(event.target.value));
@@ -178,9 +200,9 @@ export default function TeamExpansionForm2024() {
               <option>Open this select menu</option>
               {/* <option value="1st year">1st year</option> */}
               <option value="2nd year">2nd year</option>
-               {/* <option value="3rd year">3rd year</option> */}
-              {/*<option value="4th year">4th year</option>
-              <option value="5th year">5th year</option> */}
+               <option value="3rd year">3rd year</option>
+              <option value="4th year">4th year</option>
+              <option value="5th year">5th year</option>
             </Form.Select>
             {errors.course && (
               <span style={{ color: "red" }}>Please select your year</span>
@@ -225,18 +247,38 @@ export default function TeamExpansionForm2024() {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="Verticals">
-            <Form.Label>Select interested teams</Form.Label>
+            <Form.Label>Select interested teams according to preference </Form.Label>
             <div style={{ paddingLeft: ".825rem" }}>
               {VERTICALS.map((vertical) => (
                 <div key={vertical.name}>
-                  <Form.Check
-                    key={vertical.name}
-                    style={{ fontSize: "1.2rem" }}
-                    type="checkbox"
-                    label={vertical.name}
-                    value={vertical.name}
-                    {...register("interestedTeams")}
-                  />
+                   <Controller
+              name="interestedTeams"
+              control={control}
+              render={({ field }) => (
+                <Form.Check
+                  key={vertical.name}
+                  style={{ fontSize: "1.2rem" }}
+                  type="checkbox"
+                  label={vertical.name}
+                  value={vertical.name}
+                  onChange={(e) => {
+                    const updatedValue = e.target.checked
+                      ? [...(field.value || []), vertical.name]
+                      : (field.value || []).filter((item) => item !== vertical.name);
+
+                    field.onChange(updatedValue);
+                    handleCheckboxChange(e, vertical.name);
+                  }}
+                  checked={field.value?.includes(vertical.name)}
+                  disabled={!field.value?.includes(vertical.name) && selectedOptions.length >= 3}
+                />
+              )}
+            />
+                   {selectedOptions.includes(vertical.name) && (
+              <span style={{ color: 'red', marginLeft: '1rem' }}>
+                {getPreferenceText(vertical.name)}
+              </span>
+            )}
                   <p className={"form-card-description"}>
                     {vertical.description}
                   </p>
