@@ -4,138 +4,8 @@ import { GrMail } from "react-icons/gr";
 import { FaLinkedin } from "react-icons/fa";
 import { listAll, getDownloadURL, ref } from "firebase/storage";
 import { StorageDB } from "@/lib/firebase";
+import { team2023 } from "@/staticdata/TeamsData/Team2023";
 
-const presidents = [
-  {
-    name: "PARTH GUPTA",
-    image: "parth.jpeg",
-    post: "VICE PRESIDENT E-CELL",
-    email: "mailto:parthsanjeev.gupta.che20@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/parthgupta03/",
-  },
-  {
-    name: "VANSHIKA GUPTA",
-    image: "Vanshika.jpg",
-    post: "ASSOCIATE VICE PRESIDENT E-CELL",
-    email: "mailto:vanshika.gupta.met20@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/vanshikagupta13",
-  },
-];
-
-const verticalHeads = [
-  {
-    name: "Atharv Patil",
-    image: "Atharv.jpg",
-    position: "STARTUP ASSISTANCE PROGRAM HEAD",
-    email: "mailto:atharv.patil.che21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/atharv-patil/",
-  },
-  {
-    name: "Mridul Ramakrishnan",
-    image: "Mridul.jpg",
-    position: "STARTUP ASSISTANCE PROGRAM HEAD",
-    email: "mailto:mridul.ramakrishnan.mat21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/mridul-ramakrishnan-267401229/",
-  },
-  {
-    name: "Shailesh Agarwal",
-    image: "shailesh.jpg",
-    position: "INNOVATION & INCUBATION HEAD",
-    email: "mailto:shailesh.agarwal.eee21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/mridul-ramakrishnan-267401229/",
-  },
-  {
-    name: "ABHIRVEY IYER",
-    image: "Abhirvey.jpeg",
-    position: "STRATEGIC RELATIONS HEAD",
-    email: "mailto:abhirvey.rajeshiyer.phe21@iitbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/abhirveyiyer27/",
-  },
-  {
-    name: "Varun Barve",
-    image: "Varun.jpg",
-    position: "PUBLIC RELATION HEAD",
-    email: "mailto:barvevarun.makarand.cd.mst21@iitbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/varunbarvem",
-  },
-  {
-    name: "Rishav Thakur",
-    image: "rishav.jpeg",
-    position: "MARKETING HEAD",
-    email: "mailto:rishav.thakur.cer21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/rishav-thakur-23b290199",
-  },
-  {
-    name: "Pranjali Yadav",
-    image: "Pranjali.jpg",
-    position: "EVENTS HEAD",
-    email: "mailto:pranjali.yadav.cd.mec21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/pranjali-yadav-39583022b",
-  },
-  {
-    name: "Akshat Shah",
-    image: "akshat.jpg",
-    position: "EVENTS HEAD",
-    email: "mailto:sakshat.kalpeshbhai.mst21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/akshat-shah-639b46223",
-  },
-  {
-    name: "Sahil Gupta",
-    image: "sahil.jpeg",
-    position: "PUBLICITY HEAD",
-    email: "mailto:sahil.sgupta.cer21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/sahil-gupta-87268a23a",
-  },
-  {
-    name: "Om Subham Pati",
-    image: "om.png",
-    position: "BRANDING HEAD",
-    email: "mailto:omsubham.pati.cse21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/om-subham-pati-a49785242/",
-  },
-  {
-    name: "Muskan Aggarwal",
-    image: "Muskan_Aggarwal.png",
-    position: "DESIGN HEAD",
-    email: "mailto:muskan.aggarwal.min21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/muskan-aggarwal-3bba63238",
-  },
-  {
-    name: "Indrajeet Gupta",
-    image: "Indrajeet.jpg",
-    position: "CONTENT HEAD",
-    email: "mailto:indrajeet.gupta.min21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/indrajeet-gupta-0a5b25209",
-  },
-  {
-    name: "Balveer Singh Rao",
-    image: "balveer.jpeg",
-    position: "TECH HEAD",
-    email: "mailto:balveer.singhrao.eee21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/balveer-singh-rao-636449229/",
-  },
-  {
-    name: "Rahul Kumar Sonkar",
-    image: "rahul.jpeg",
-    position: "TECH HEAD",
-    email: "mailto:rahul.kumarsonkar.eee21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/rahul-kumar-sonkar-262442253/",
-  },
-  {
-    name: "Sameer Sharma",
-    image: "sameer.jpg",
-    position: "HOSPITALITY HEAD",
-    email: "mailto:sameer.sharma.che21@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/sameer-sharma-9720a022a",
-  },
-  {
-    name: "Sanskar Pandey",
-    image: "Sanskar.jpg",
-    position: "PARLIAMENT REPRESENTATIVE",
-    email: "mailto:sanskar.pandey.civ22@itbhu.ac.in",
-    linkedin: "https://www.linkedin.com/in/sanskar-pandey-12687825b",
-  },
-];
 
 export default function Team23(props) {
   const [imageLinks, setImageLinks] = useState([]);
@@ -192,7 +62,7 @@ export default function Team23(props) {
           TEAM OF 2023-24
         </h2>
         <div className="team-container">
-          {presidents.map((president, index) => {
+          {team2023?.presidents.map((president, index) => {
             const imageUrl = (imageLinks.find(image=>image.name==president.image))|| '/path/to/default/image.png';  // Use a default image if URL is not available
            console.log(imageUrl)
             return (
@@ -229,7 +99,7 @@ export default function Team23(props) {
           })}
         </div>
         <div className="team-container-1">
-          {verticalHeads.map((head, index) => {
+          {team2023.verticalHeads.map((head, index) => {
             const imageUrl = (imageLinks.find(image=>image.name==head.image))  || '/path/to/default/image.png';  // Use a default image if URL is not available
             return (
               <div className="our-team" key={index}>
