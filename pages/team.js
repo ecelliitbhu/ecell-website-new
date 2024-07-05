@@ -14,14 +14,6 @@ import rieu from "../public/team/rieu.jpeg";
 import ev from "../public/team/ev.jpeg";
 import wnb from "../public/team/wnb.jpg";
 import tqb from "../public/team/tqb.jpeg";
-import Amit from "../public/team/2022-2023/Amit.jpg";
-import Tanaya from "../public/team/2022-2023/Tanaya.jpg";
-import Tanya from "../public/team/2022-2023/Tanya.jpeg";
-import Parth from "../public/team/2022-2023/Parth.jpg";
-import Ashwat from "../public/team/2022-2023/Ashwat.jpg";
-import Divyansh from "../public/team/2022-2023/Divyansh.jpg";
-import Shreya from "../public/team/2022-2023/Shreya.jpg";
-import Vanshika from "../public/team/2022-2023/Vanshika.jpg";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionSummary } from "@mui/material";
 import Team22 from "../components/Team22";
@@ -97,7 +89,6 @@ const Team = () => {
             CORE TEAM MEMBERS
           </h2>
           <Team23 />
-
           <Team22 />
           <Accordion className="past-team">
             <AccordionSummary

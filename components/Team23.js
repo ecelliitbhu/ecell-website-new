@@ -1,164 +1,185 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
 import { GrMail } from "react-icons/gr";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
-import parth from "../public/team/2023-2024/parth.jpeg";
-import abhirvey from "../public/team/2023-2024/Abhirvey.jpeg";
-import balveer from "../public/team/2023-2024/balveer.jpeg";
-import atharv from "../public/team/2023-2024/Atharv.jpg";
-import Indrajeet from "../public/team/2023-2024/Indrajeet.jpg";
-import mridul from "../public/team/2023-2024/Mridul.jpg";
-import muskan from "../public/team/2023-2024/Muskan_Aggarwal.png";
-import pranjali from "../public/team/2023-2024/Pranjali.jpg";
-import rahul from "../public/team/2023-2024/rahul.jpeg";
-import sahil from "../public/team/2023-2024/sahil.jpeg";
-import sameer from "../public/team/2023-2024/sameer.jpg";
-import sanskar from "../public/team/2023-2024/Sanskar.jpg";
-import shailesh from "../public/team/2023-2024/shailesh.jpg";
-import vanishka from "../public/team/2023-2024/Vanshika.jpg";
-import Varun from "../public/team/2023-2024/Varun.jpg";
-import om from "../public/team/2023-2024/om.png";
-import rishav from "../public/team/2023-2024/rishav.jpeg";
-import akshat from "../public/team/2023-2024/akshat.png";
+import { FaLinkedin } from "react-icons/fa";
+import { listAll, getDownloadURL, ref } from "firebase/storage";
+import { StorageDB } from "@/lib/firebase";
+
 const presidents = [
   {
     name: "PARTH GUPTA",
-    image: parth,
+    image: "parth.jpeg",
     post: "VICE PRESIDENT E-CELL",
     email: "mailto:parthsanjeev.gupta.che20@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/parthgupta03/",
   },
   {
     name: "VANSHIKA GUPTA",
-    image: vanishka,
+    image: "Vanshika.jpg",
     post: "ASSOCIATE VICE PRESIDENT E-CELL",
     email: "mailto:vanshika.gupta.met20@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/vanshikagupta13",
   },
 ];
+
 const verticalHeads = [
   {
     name: "Atharv Patil",
-    image: atharv,
+    image: "Atharv.jpg",
     position: "STARTUP ASSISTANCE PROGRAM HEAD",
     email: "mailto:atharv.patil.che21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/atharv-patil/",
   },
   {
     name: "Mridul Ramakrishnan",
-    image: mridul,
+    image: "Mridul.jpg",
     position: "STARTUP ASSISTANCE PROGRAM HEAD",
     email: "mailto:mridul.ramakrishnan.mat21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/mridul-ramakrishnan-267401229/",
   },
   {
     name: "Shailesh Agarwal",
-    image: shailesh,
+    image: "shailesh.jpg",
     position: "INNOVATION & INCUBATION HEAD",
     email: "mailto:shailesh.agarwal.eee21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/mridul-ramakrishnan-267401229/",
   },
   {
     name: "ABHIRVEY IYER",
-    image: abhirvey,
+    image: "Abhirvey.jpeg",
     position: "STRATEGIC RELATIONS HEAD",
     email: "mailto:abhirvey.rajeshiyer.phe21@iitbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/abhirveyiyer27/",
   },
   {
     name: "Varun Barve",
-    image: Varun,
+    image: "Varun.jpg",
     position: "PUBLIC RELATION HEAD",
     email: "mailto:barvevarun.makarand.cd.mst21@iitbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/varunbarvem",
   },
   {
     name: "Rishav Thakur",
-    image: rishav,
+    image: "rishav.jpeg",
     position: "MARKETING HEAD",
     email: "mailto:rishav.thakur.cer21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/rishav-thakur-23b290199",
   },
   {
     name: "Pranjali Yadav",
-    image: pranjali,
+    image: "Pranjali.jpg",
     position: "EVENTS HEAD",
     email: "mailto:pranjali.yadav.cd.mec21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/pranjali-yadav-39583022b",
   },
   {
     name: "Akshat Shah",
-    image: akshat,
+    image: "akshat.jpg",
     position: "EVENTS HEAD",
     email: "mailto:sakshat.kalpeshbhai.mst21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/akshat-shah-639b46223",
   },
   {
     name: "Sahil Gupta",
-    image: sahil,
+    image: "sahil.jpeg",
     position: "PUBLICITY HEAD",
     email: "mailto:sahil.sgupta.cer21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/sahil-gupta-87268a23a",
   },
   {
     name: "Om Subham Pati",
-    image: om,
+    image: "om.png",
     position: "BRANDING HEAD",
     email: "mailto:omsubham.pati.cse21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/om-subham-pati-a49785242/",
   },
   {
     name: "Muskan Aggarwal",
-    image: muskan,
+    image: "Muskan_Aggarwal.png",
     position: "DESIGN HEAD",
     email: "mailto:muskan.aggarwal.min21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/muskan-aggarwal-3bba63238",
   },
   {
     name: "Indrajeet Gupta",
-    image: Indrajeet,
+    image: "Indrajeet.jpg",
     position: "CONTENT HEAD",
     email: "mailto:indrajeet.gupta.min21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/indrajeet-gupta-0a5b25209",
   },
   {
     name: "Balveer Singh Rao",
-    image: balveer,
+    image: "balveer.jpeg",
     position: "TECH HEAD",
     email: "mailto:balveer.singhrao.eee21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/balveer-singh-rao-636449229/",
   },
   {
     name: "Rahul Kumar Sonkar",
-    image: rahul,
+    image: "rahul.jpeg",
     position: "TECH HEAD",
     email: "mailto:rahul.kumarsonkar.eee21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/rahul-kumar-sonkar-262442253/",
   },
-
   {
     name: "Sameer Sharma",
-    image: sameer,
+    image: "sameer.jpg",
     position: "HOSPITALITY HEAD",
     email: "mailto:sameer.sharma.che21@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/sameer-sharma-9720a022a",
   },
   {
     name: "Sanskar Pandey",
-    image: sanskar,
+    image: "Sanskar.jpg",
     position: "PARLIAMENT REPRESENTATIVE",
     email: "mailto:sanskar.pandey.civ22@itbhu.ac.in",
     linkedin: "https://www.linkedin.com/in/sanskar-pandey-12687825b",
   },
 ];
+
 export default function Team23(props) {
+  const [imageLinks, setImageLinks] = useState([]);
+  const [isLoading, setIsloading] = useState(true);
+  useEffect(() => {
+    const fetchImageLinks = async () => {
+      const folderName = "Team2023";
+      const folderRef = ref(StorageDB, folderName);
+      try {
+        const listResult = await listAll(folderRef);
+        const imageUrls = await Promise.all(
+          listResult.items.map(async (itemRef) => {
+            const imageName = itemRef.name;
+            const url = await getDownloadURL(itemRef);
+            return { name: imageName, url };
+          })
+        );
+        setImageLinks(imageUrls);
+        setIsloading(false);
+      } catch (error) {
+        setIsloading(false);
+        console.error('Error getting image URLs:', error);
+      }
+    };
+
+    fetchImageLinks();
+  }, []);
+
   return (
-    <div
+ <div
       className={"container"}
       style={{
         margin: "80px auto",
       }}
     >
+{isLoading ? 
+        <img
+        className="block mx-auto"
+          src="/loading.gif"
+          width="300"
+          alt="Loading..."
+          height="300"
+        />
+    :
       <div className={"row"}>
         <h2
           style={{
@@ -172,14 +193,16 @@ export default function Team23(props) {
         </h2>
         <div className="team-container">
           {presidents.map((president, index) => {
+            const imageUrl = (imageLinks.find(image=>image.name==president.image))|| '/path/to/default/image.png';  // Use a default image if URL is not available
+           console.log(imageUrl)
             return (
               <div className="our-team" key={index}>
                 <Image
-                  src={president.image}
+                  src={imageUrl.url}
                   height={1600}
                   width={1600}
                   className="img-responsive img-contain"
-                  alt="team member"
+                  alt={president.name}
                 />
                 <div className="team-content">
                   <h3 className="name">{president.name}</h3>
@@ -190,14 +213,14 @@ export default function Team23(props) {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <GrMail className="social-icons"></GrMail>
+                      <GrMail className="social-icons" />
                     </a>
                     <a
                       href={president.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaLinkedin className="social-icons"></FaLinkedin>
+                      <FaLinkedin className="social-icons" />
                     </a>
                   </div>
                 </div>
@@ -207,14 +230,15 @@ export default function Team23(props) {
         </div>
         <div className="team-container-1">
           {verticalHeads.map((head, index) => {
+            const imageUrl = (imageLinks.find(image=>image.name==head.image))  || '/path/to/default/image.png';  // Use a default image if URL is not available
             return (
               <div className="our-team" key={index}>
                 <Image
-                  src={head.image}
+                  src={imageUrl.url}
                   height={1600}
                   width={1600}
                   className="img-responsive img-contain"
-                  alt="team member"
+                  alt={head.name}
                 />
                 <div className="team-content">
                   <h3 className="name">{head.name.toUpperCase()}</h3>
@@ -225,14 +249,14 @@ export default function Team23(props) {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <GrMail className="social-icons"></GrMail>
+                      <GrMail className="social-icons" />
                     </a>
                     <a
                       href={head.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaLinkedin className="social-icons"></FaLinkedin>
+                      <FaLinkedin className="social-icons" />
                     </a>
                   </div>
                 </div>
@@ -240,7 +264,7 @@ export default function Team23(props) {
             );
           })}
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
