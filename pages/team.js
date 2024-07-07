@@ -18,6 +18,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionSummary } from "@mui/material";
 import Team22 from "../components/Team22";
 import Team23 from "../components/Team23";
+import Team24 from "../components/Team24";
 
 const Team = () => {
   return (
@@ -88,6 +89,7 @@ const Team = () => {
           >
             CORE TEAM MEMBERS
           </h2>
+          <Team24 />
           <Team23 />
           <Team22 />
           <Accordion className="past-team">
