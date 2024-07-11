@@ -1,4 +1,6 @@
 export const team2024 = {
+  year: "Team2024",
+  session: "2024-25",
   presidents: [
     {
       name: "PRANJALI YADAV",

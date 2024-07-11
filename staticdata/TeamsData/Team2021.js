@@ -1,4 +1,6 @@
 export const team2021 = {
+    year: "Team2021",
+    session: "2021-22",
     presidents: [{
         name: "HARSHIT SHUKLA",
         image: "HARSHIT_SHUKLA.jpg",

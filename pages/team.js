@@ -6,10 +6,11 @@ import Image from "next/legacy/image";
 import prof from "../public/rajnesh_tyagi.png";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionSummary } from "@mui/material";
-import Team21 from "@/components/Team21";
-import Team22 from "../components/Team22";
-import Team23 from "../components/Team23";
-import Team24 from "../components/Team24";
+import TeamLayout from "@/components/TeamLayout";
+import { team2021 } from "@/staticdata/TeamsData/Team2021";
+import { team2022 } from "@/staticdata/TeamsData/Team2022";
+import { team2023 } from "@/staticdata/TeamsData/Team2023";
+import { team2024 } from "@/staticdata/TeamsData/Team2024";
 
 const Team = () => {
   return (
@@ -80,8 +81,8 @@ const Team = () => {
           >
             CORE TEAM MEMBERS
           </h2>
-          <Team24 />
-          <Team23 />
+          <TeamLayout teamData={team2024}/>
+          <TeamLayout teamData={team2023}/>
           <Accordion className="past-team">
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -96,10 +97,10 @@ const Team = () => {
                   fontWeight: "bold",
                 }}
               >
-                TEAM OF 2022-23
+                TEAM OF {team2022.session}
               </h2>
             </AccordionSummary>
-            <Team22 />
+            <TeamLayout teamData={team2022} showheading={false}/>
           </Accordion>
           <Accordion className="past-team">
             <AccordionSummary
@@ -115,10 +116,10 @@ const Team = () => {
                   fontWeight: "bold",
                 }}
               >
-                TEAM OF 2021-22
+                TEAM OF {team2021.session}
               </h2>
             </AccordionSummary>
-            <Team21 />
+            <TeamLayout teamData={team2021} showheading={false}/>
           </Accordion>
         </div>
       </div>

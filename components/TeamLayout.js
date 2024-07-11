@@ -4,14 +4,13 @@ import { GrMail } from "react-icons/gr";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import { listAll, getDownloadURL, ref } from "firebase/storage";
 import { StorageDB } from "@/lib/firebase";
-import { team2021 } from "@/staticdata/TeamsData/Team2021";
 
-export default function Team21(props) {
+export default function TeamLayout({ teamData, showheading = true }) {
     const [imageLinks, setImageLinks] = useState([]);
     const [isLoading, setIsloading] = useState(true);
     useEffect(() => {
         const fetchImageLinks = async () => {
-            const folderName = "Team2021";
+            const folderName = teamData.year;
             const folderRef = ref(StorageDB, folderName);
             try {
                 const listResult = await listAll(folderRef);
@@ -49,9 +48,22 @@ export default function Team21(props) {
                     margin: "80px auto",
                 }}
             >
+
+                {showheading && (
+                    <h2
+                        style={{
+                            fontSize: "1.4rem",
+                            textAlign: "center",
+                            width: "100%",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        TEAM OF {teamData.session}
+                    </h2>
+                )}
                 <div className={"row"}>
                     <div className="team-container">
-                        {team2021?.presidents.map((president, index) => {
+                        {teamData?.presidents.map((president, index) => {
                             const imageUrl = (imageLinks.find(image => image.name == president.image)) || '/path/to/default/image.png';  // Use a default image if URL is not available
                             console.log(imageUrl)
                             return (
@@ -81,13 +93,15 @@ export default function Team21(props) {
                                             >
                                                 <FaLinkedin className="social-icons" />
                                             </a>
-                                            <a
-                                                href={president.twitter}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <FaTwitter className="social-icons" />
-                                            </a>
+                                            {president.twitter && (
+                                                <a
+                                                    href={president.twitter}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <FaTwitter className="social-icons" />
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +109,7 @@ export default function Team21(props) {
                         })}
                     </div>
                     <div className="team-container-1">
-                        {team2021.verticalHeads.map((head, index) => {
+                        {teamData.verticalHeads.map((head, index) => {
                             const imageUrl = (imageLinks.find(image => image.name == head.image)) || '/path/to/default/image.png';  // Use a default image if URL is not available
                             return (
                                 <div className="our-team" key={index}>
@@ -124,13 +138,15 @@ export default function Team21(props) {
                                             >
                                                 <FaLinkedin className="social-icons" />
                                             </a>
-                                            <a
-                                                href={head.twitter}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <FaTwitter className="social-icons" />
-                                            </a>
+                                            {head.twitter && (
+                                                <a
+                                                    href={head.twitter}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <FaTwitter className="social-icons" />
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

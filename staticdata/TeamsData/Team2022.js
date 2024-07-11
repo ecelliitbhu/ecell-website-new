@@ -1,4 +1,6 @@
 export const team2022 = {
+  year: "Team2022",
+  session: "2022-23",
   presidents: [{
     name: "AMIT KUMAR BAHETI",
     image: "Amit.jpg",
