@@ -7,12 +7,14 @@ import {
   Incubators,
   Contact,
   Startups,
+  SignInButton
 } from "./NavItems";
 import { NavToggle } from "./NavToggle";
 import { NavLogo } from "./NavLogo";
 import Link from "next/link";
 import Notification from "./Notification";
 import NotificationOffCanvas from "./NotificationOffcanvas";
+
 
 const Nav = () => {
   return (
@@ -34,6 +36,7 @@ const Nav = () => {
               <Contact />
               <Notification />
             </ul>
+            <SignInButton/>
           </div>
           <NavToggle />
         </div>
