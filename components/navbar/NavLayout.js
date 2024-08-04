@@ -36,9 +36,9 @@ const Nav = () => {
               <Contact />
               <Notification />
             </ul>
-            <SignInButton/>
           </div>
           <NavToggle />
+          <SignInButton/>
         </div>
       </nav>
     </>
