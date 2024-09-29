@@ -7,7 +7,6 @@ import {
   Incubators,
   Contact,
   Startups,
-  SignInButton
 } from "./NavItems";
 import { NavToggle } from "./NavToggle";
 import { NavLogo } from "./NavLogo";
@@ -38,7 +37,6 @@ const Nav = () => {
             </ul>
           </div>
           <NavToggle />
-          <SignInButton/>
         </div>
       </nav>
     </>

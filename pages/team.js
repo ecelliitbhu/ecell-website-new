@@ -11,6 +11,7 @@ import { team2021 } from "@/staticdata/TeamsData/Team2021";
 import { team2022 } from "@/staticdata/TeamsData/Team2022";
 import { team2023 } from "@/staticdata/TeamsData/Team2023";
 import { team2024 } from "@/staticdata/TeamsData/Team2024";
+import Link from 'next/link';
 
 const Team = () => {
   return (
@@ -82,10 +83,34 @@ const Team = () => {
             CORE TEAM MEMBERS
           </h2>
           <TeamLayout teamData={team2024}/>
-          <TeamLayout teamData={team2023}/>
+
+          <Link href="/team2023-24">
           <Accordion className="past-team">
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <h2
+                style={{
+                  fontSize: "1.4rem",
+                  textAlign: "center",
+                  width: "100%",
+                  fontWeight: "bold",
+                }}
+              >
+                TEAM OF {team2023.session}
+              </h2>
+            </AccordionSummary>
+            
+          </Accordion>
+          </Link>
+
+
+          <Link href="/team2022-23">
+          <Accordion className="past-team">
+            <AccordionSummary
+              
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -100,11 +125,15 @@ const Team = () => {
                 TEAM OF {team2022.session}
               </h2>
             </AccordionSummary>
-            <TeamLayout teamData={team2022} showheading={false}/>
+            
           </Accordion>
+          </Link>
+
+
+           <Link href="/team2021-22">
           <Accordion className="past-team">
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -119,8 +148,10 @@ const Team = () => {
                 TEAM OF {team2021.session}
               </h2>
             </AccordionSummary>
-            <TeamLayout teamData={team2021} showheading={false}/>
+            
           </Accordion>
+          </Link>
+
         </div>
       </div>
       <Footer />
