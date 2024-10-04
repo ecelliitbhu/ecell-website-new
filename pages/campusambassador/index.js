@@ -114,7 +114,7 @@ export default function CampusAmbassador() {
 
                     {/* Task Section */}
                     <div className="bg-white shadow-lg rounded-lg p-6">
-                        <h2 className="text-2xl font-bold mb-4">This Week's Tasks</h2>
+                        <h2 className="text-2xl font-bold mb-4">This Week&apos;s Tasks</h2>
                         <ul className="list-group">
                         {user.tasks.map((task) => {
     const taskLastDate = new Date(task.lastDate);
