@@ -69,7 +69,7 @@ export default function CampusDirector() {
           </Row>
           <Row className="who-are-we">
             <Col className="info waw">
-              <h1 className="mb-2">Why Campus Executive Internship?</h1>
+              <h1>Why Campus Executive Internship?</h1>
               <p>
                 Devoted to acting as a symbiotic link between the entrepreneurs
                 and the existing startup ecosystem, E-Cell IIT BHU provides you
@@ -78,7 +78,7 @@ export default function CampusDirector() {
                 to inculcate the entrepreneurial culture in your own college!
               </p>
               <Button
-                className="learn-more mt-2 join-cd"
+                className="learn-more join-cd"
                 // href="/cd/#what-we-offer"
                 onClick={scrollToWhatWeOffer}
                 // target="_blank"
