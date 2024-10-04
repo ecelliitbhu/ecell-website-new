@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/legacy/image";
 import { Collage, CollagePhone } from "../components/Collage";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
@@ -8,11 +6,9 @@ import Nav from "../components/navbar/NavLayout";
 import Testimonials from "../components/Testimonials";
 import Typewriter from "typewriter-effect";
 import { NextSeo } from "next-seo";
-import styles from "../pages/startup_junction/startup_junction.module.css";
-import { CalendarDays, MapPin } from "lucide-react";
+import "../styles/globals.scss";
 import React from "react";
 import Summit from "../public/summit.png";
-
 export default function Home() {
   return (
     <>
