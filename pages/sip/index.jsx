@@ -99,6 +99,10 @@ export default function SIP() {
     }
   };
 
+  const handleStartupClick = () => {
+    window.location.href = "/sip/startup";
+  };
+
   const handleInstituteVerification = async () => {
     const provider = new GoogleAuthProvider();
 
@@ -169,11 +173,13 @@ export default function SIP() {
                     Some quick example text to build on the card title and make
                     up the bulk of the card content.
                   </Card.Text>
-                  <Link href="/sip/startup">
-                    <Button style={{ marginTop: "0.8rem" }} variant="primary">
-                      Read More
-                    </Button>
-                  </Link>
+                  <Button
+                    onClick={handleStartupClick}
+                    style={{ marginTop: "0.8rem" }}
+                    variant="primary"
+                  >
+                    Read More
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
