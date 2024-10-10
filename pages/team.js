@@ -85,18 +85,18 @@ const Team = () => {
           </h2>
           <TeamLayout teamData={team2024}/>
           
-          <div className="flex-col sm:flex justify-center">
+          <div className="sm:flex justify-center">
         <div className="m-4">
           <Link href="/team2023-24">
               <h2
                 style={{
-                  fontSize: "1.4rem",
+                  fontSize: "1.5rem",
                   textAlign: "center",
                   width: "100%",
                   backgroundColor: "#fa8231",  
                   color: "white",  
-                  padding: "0.5rem",  
-                  borderRadius: "0.5rem" 
+                  padding: "0.6rem",  
+                  borderRadius: "0.6rem" 
                 }}
               >
                 TEAM OF {team2023.session}
@@ -112,13 +112,13 @@ const Team = () => {
           
               <h2
                 style={{
-                  fontSize: "1.4rem",
+                  fontSize: "1.5rem",
                   textAlign: "center",
                   width: "100%",
                   backgroundColor: "#fa8231",  
                   color: "white",  
-                  padding: "0.5rem",  
-                  borderRadius: "0.5rem"  
+                  padding: "0.6rem",  
+                  borderRadius: "0.6rem"  
                 }}
               >
                 TEAM OF {team2022.session}
@@ -133,13 +133,13 @@ const Team = () => {
             
               <h2
                 style={{
-                  fontSize: "1.4rem",
+                  fontSize: "1.5rem",
                   textAlign: "center",
                   width: "100%",
                   backgroundColor: "#fa8231",  
                   color: "white",  
-                  padding: "0.5rem",  
-                  borderRadius: "0.5rem"  
+                  padding: "0.6rem",  
+                  borderRadius: "0.6rem"  
                 }}
               >
                 TEAM OF {team2021.session}
