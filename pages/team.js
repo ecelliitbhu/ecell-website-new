@@ -11,6 +11,8 @@ import { team2021 } from "@/staticdata/TeamsData/Team2021";
 import { team2022 } from "@/staticdata/TeamsData/Team2022";
 import { team2023 } from "@/staticdata/TeamsData/Team2023";
 import { team2024 } from "@/staticdata/TeamsData/Team2024";
+import Link from 'next/link';
+import { orange } from "@mui/material/colors";
 
 const Team = () => {
   return (
@@ -82,45 +84,71 @@ const Team = () => {
             CORE TEAM MEMBERS
           </h2>
           <TeamLayout teamData={team2024}/>
-          <TeamLayout teamData={team2023}/>
-          <Accordion className="past-team">
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
+          
+          <div className="sm:flex justify-center">
+        <div className="m-4">
+          <Link href="/team2023-24">
               <h2
                 style={{
-                  fontSize: "1.4rem",
+                  fontSize: "1.5rem",
                   textAlign: "center",
                   width: "100%",
-                  fontWeight: "bold",
+                  backgroundColor: "#fa8231",  
+                  color: "white",  
+                  padding: "0.6rem",  
+                  borderRadius: "0.6rem" 
+                }}
+              >
+                TEAM OF {team2023.session}
+              </h2>
+              
+            
+          </Link>
+          </div>
+
+
+          <div className="m-4">
+          <Link href="/team2022-23">
+          
+              <h2
+                style={{
+                  fontSize: "1.5rem",
+                  textAlign: "center",
+                  width: "100%",
+                  backgroundColor: "#fa8231",  
+                  color: "white",  
+                  padding: "0.6rem",  
+                  borderRadius: "0.6rem"  
                 }}
               >
                 TEAM OF {team2022.session}
               </h2>
-            </AccordionSummary>
-            <TeamLayout teamData={team2022} showheading={false}/>
-          </Accordion>
-          <Accordion className="past-team">
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
+           
+          </Link>
+          </div>
+
+          <div className="m-4">
+           <Link href="/team2021-22">
+          
+            
               <h2
                 style={{
-                  fontSize: "1.4rem",
+                  fontSize: "1.5rem",
                   textAlign: "center",
                   width: "100%",
-                  fontWeight: "bold",
+                  backgroundColor: "#fa8231",  
+                  color: "white",  
+                  padding: "0.6rem",  
+                  borderRadius: "0.6rem"  
                 }}
               >
                 TEAM OF {team2021.session}
               </h2>
-            </AccordionSummary>
-            <TeamLayout teamData={team2021} showheading={false}/>
-          </Accordion>
+            
+          </Link>
+          </div>
+          </div>
+         
         </div>
       </div>
       <Footer />
