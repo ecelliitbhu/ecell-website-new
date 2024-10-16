@@ -12,18 +12,30 @@ datasource db {
   provider = "postgresql"
   url      ="postgresql://postgres.vhsxmepmuedqqataplcg:CampusAmbassador%232024@aws-0-ap-south-1.pooler.supabase.com:6543/postgres"
 }
+//change the url as req.
 
 
 //models
 
 model User {
-  id           Int     @id @default(autoincrement())
-  name         String
-  collegeName  String
-  collegeYear  String
-  phone        String
-  points       Int
-  tasks        Task[]
+  id                Int      @id @default(autoincrement())
+  name              String
+  collegeName       String
+  collegeYear       String
+  program           String  
+  phone             String
+  email             String   @unique 
+  POR               String   
+  reasonToJoin      String
+  roleInStudentBody String
+  skills            String
+  experience        String
+  roleInEcell       String
+  hours             String      
+  contribution      String
+  motivation        String
+  points            Int      @default(0) 
+  tasks             Task[]   
 }
 
 model Task {
