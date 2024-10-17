@@ -1,8 +1,8 @@
 import Nav from "@/components/navbar/NavLayout";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react"
 import { useForm } from "react-hook-form";
-import { FaEdit, FaPlus } from "react-icons/fa"; // Importing icons for Edit and Create
+import { FaEdit, FaPlus } from "react-icons/fa"; 
 
 const mockUserData = {
     name: "John Doe",
@@ -24,19 +24,55 @@ const mockLeaderboard = [
 ];
 
 export default function CampusAmbassador() {
-    const [user, setUser] = useState(mockUserData);
+    const [user, setUser] = useState(mockUserData); 
     const [editing, setEditing] = useState(false);
+    const [leaderboard, setLeaderboard] = useState(mockLeaderboard); 
 
-    const { register, handleSubmit } = useForm({
-        defaultValues: user,
-    });
+    const { register, handleSubmit, reset } = useForm({
+        defaultValues: mockUserData,
+    }
+    ); 
 
-    const onSubmit = (data) => {
-        setUser(data);
-        setEditing(false);
+    // Fetch user data and leaderboard
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/campusambassador'); 
+                const data = await response.json();
+
+                setUser(data.currentUser); 
+                setLeaderboard(data.topUsers); 
+                reset(data.currentUser); 
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [reset]); 
+
+    const onSubmit = async (data) => {
+        try {
+            // sending the updated user data 
+            const response = await fetch('/campusambassador/updateUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: user.id, ...data }), 
+            });
+            const updatedUser = await response.json();
+            setUser(updatedUser); 
+            reset(updatedUser); 
+            setEditing(false);
+        } catch (error) {
+            console.error("Error updating user:", error);
+        }
     };
 
     const currentDate = new Date();
+
+   
 
     return (
         <>
@@ -103,7 +139,7 @@ export default function CampusAmbassador() {
                     <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
                         <h2 className="text-2xl font-bold mb-4">Leaderboard</h2>
                         <ul className="list-group">
-                            {mockLeaderboard.map((leader, index) => (
+                            {leaderboard.map((leader, index) => (
                                 <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
                                     {leader.name}
                                     <span className="badge bg-primary">{leader.points}</span>
