@@ -18,12 +18,12 @@ export default function CampusDirector() {
   return (
     <>
       <Head>
-        <title>Campus Executive Internship</title>
+        <title>Campus Ambassador's Program</title>
 
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="robots" content="index, follow" />
-        <meta name={"description"} content={"Campus Executive Internship"} />
-        <meta property="og:title" content="Campus Executive Internship" />
+        <meta name={"description"} content={"Campus Ambassador's Program"} />
+        <meta property="og:title" content="Campus Ambassador's Program" />
         <meta
           property="og:description"
           content="Become the Student Lead of enhancing and expanding the
@@ -39,7 +39,7 @@ export default function CampusDirector() {
         <Container fluid className="body">
           <Row className="header" style={{ margin: "80px auto" }}>
             <Col className="info cd-info">
-              <h1>Join the Campus Executive Intership Programme!</h1>
+              <h1>Join the Campus Ambassador's Program!</h1>
               <h2>
                 Accelerate the entrepreneurial <br /> journey in your college!
               </h2>
@@ -69,7 +69,7 @@ export default function CampusDirector() {
           </Row>
           <Row className="who-are-we">
             <Col className="info waw">
-              <h1 className="mb-2">Why Campus Executive Internship?</h1>
+              <h1 className="mb-2">Why Campus Ambassador's Program?</h1>
               <p>
                 Devoted to acting as a symbiotic link between the entrepreneurs
                 and the existing startup ecosystem, E-Cell IIT BHU provides you
@@ -91,7 +91,7 @@ export default function CampusDirector() {
                   <h3 className="reach-num" id="count1">
                     1700+
                   </h3>
-                  <p className="reach-info">{`Enthusiastic Campus Intern's Onboarded`}</p>
+                  <p className="reach-info">{`Enthusiastic Campus Ambassador's Onboarded`}</p>
                 </Col>
                 <Col>
                   <h3 className="reach-num" id="count2">
@@ -184,7 +184,7 @@ export default function CampusDirector() {
                   <Image src="/perks/6.png" alt="" height="512" width="512" />
                 </div>
                 <p>
-                  {`Top Campus Executive Interns to be featured in the E-Cell IIT BHU's Weekly Newsletter`}
+                  {`Top Campus Ambassadors to be featured in the E-Cell IIT BHU's Weekly Newsletter`}
                 </p>
               </div>
               <div className="perk">
@@ -226,32 +226,32 @@ export default function CampusDirector() {
               <ul className="ca-responsibilities">
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive Intern must assist the students with
+                  The Campus Ambassador must assist the students with
                   their total capacity in registering for E-Cell IIT BHU&apos;s
                   competitions.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive Intern must increase the outreach of the
+                  The Campus Ambassador must increase the outreach of the
                   initiatives of the E-Cell IIT BHU to promote entrepreneurial
                   activities in his/her college network.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive Intern may coordinate with the college
+                  The Campus Ambassador may coordinate with the college
                   authorities to extensively circulate the message regarding the
                   conduction of E-Cell IIT BHU events and initatives.
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive Intern must Ideate by engaging in
+                  The Campus Ambassador must Ideate by engaging in
                   discussions with the other Campus Interns and E-cell
                   coordinators to bring new ideas and increase overall reach of
                   E-Cell IIT BHU
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Executive intern may organize events/sessions
+                  The Campus Ambassador may organize events/sessions
                   promoting entrepreneurship in their respective colleges with
                   the support of E-Cell IIT BHU.
                 </li>
@@ -259,7 +259,7 @@ export default function CampusDirector() {
             </Col>
           </Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
-            <h1>{`Testimonials from previous Campus Executives`}</h1>
+            <h1>{`Testimonials from previous Campus Ambassadors`}</h1>
             <CdTestimonials />
           </Row>
           <Row className="collage-container" style={{ margin: "70px 0px" }}>
