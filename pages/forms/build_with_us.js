@@ -1,15 +1,16 @@
 import React from "react";
 import Head from "next/head";
+import Image from "next/legacy/image";
 import { Container, Row, Col } from "react-bootstrap";
 import Footer from "../../components/Footer";
 import Nav from "../../components/navbar/NavLayout";
-import MentorshipProgramme from "../../components/forms/MentorshipProgramme";
+import Build_us_with from "../../components/forms/Build_us_with";
 
-function build_with_us() {
+function Build_with_us() {
   return (
     <>
       <Head>
-        <title>Mentorship Programme 2022-23</title>
+        <title>Build With Us Cohort</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
@@ -19,7 +20,7 @@ function build_with_us() {
             className="header"
             style={{ height: "fit-content", marginBottom: "10px" }}
           >
-            {/* <div style={{ margin: "50px auto 0px auto" }}>
+            <div style={{ margin: "50px auto 0px auto" }}>
               <Image
                 src="/bulid_with_us.jpeg"
                 alt="build_with_us"
@@ -27,7 +28,7 @@ function build_with_us() {
                 width={2000}
                 layout="responsive"
               ></Image>
-            </div> */}
+            </div>
 
             <h1
               style={{
@@ -38,9 +39,9 @@ function build_with_us() {
                 fontWeight: "bold",
               }}
             >
-              Mentorship Programme 2022-23
+              Build With Us Cohort
             </h1>
-            {/* <p
+            <p
               style={{
                 alignItems: "center",
                 justifyContent: "center",
@@ -49,14 +50,14 @@ function build_with_us() {
             >
               A program to catalyse the journey of starting up a successful
               venture for budding entrepreneurs who just have an idea.
-            </p> */}
+            </p>
             {/* <Row className='cf'>
                             <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}>Have An Idea ?</Col>
                             <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}><span>&#11044;</span> Build With Us<span>&#11044;</span></Col>
                             <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}> Launch With US</Col>
                         </Row> */}
-            {/* <div className="veer">
-              <p>To know more details about Cohort visit:</p>
+            <div className="veer">
+              {/*<p>To know more details about Cohort visit:</p>
               <p
                 style={{
                   alignItems: "center",
@@ -71,16 +72,16 @@ function build_with_us() {
                 >
                   events.ecelliitbhu.com/info-cohort
                 </a>
-              </p>
+              </p>*/}
               <p>
                 Have an idea?<span style={{ margin: "0 1%" }}>&#11044;</span>
                 Build With Us<span style={{ margin: "0 1%" }}>&#11044;</span>
                 Launch With Us{" "}
               </p>
-            </div> */}
+            </div>
           </Row>
           <Row>
-            <MentorshipProgramme />
+            <Build_us_with />
           </Row>
           <Footer />
         </Container>
@@ -89,4 +90,4 @@ function build_with_us() {
   );
 }
 
-export default build_with_us;
+export default Build_with_us;
