@@ -19,46 +19,66 @@ export default function CampusAmbassadorProgram() {
     defaultValues: {
     }
   });
-
   const selectedYear = watch("year");
   const [selectedSkills, setSelectedSkills] = useState([]);
-
+  
   const onSubmit = async (data) => {
-
+    
     if (selectedSkills.length === 0 && !data.otherSkills) {
       alert(
         'Please select at least one skill.'
       );
       return;
     }
+    console.log("HERE")
 
     if (!data.commitment) {
       alert("Please select the number of hours you can commit.");
       return;
     }
+    data.skills = selectedSkills.join(', '); // Convert array of skills to a single string
 
-    console.log(data);
+  // Sending the form data as a POST request
+  try {
+    const response = await fetch('https://cell-backend-8gp3.onrender.com/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: data.fullname,
+        collegeName: data.collegename,
+        collegeYear: data.year,
+        program: data.degreename,
+        phone: data.mobileNumber,
+        email: data.email,
+        POR: data.PoR,
+        reasonToJoin: data.Reason,
+        roleInStudentBody: data.role,
+        skills: data.skills, // Now a single string of skills
+        experience: data.previousExperiences,
+        roleInEcell: data.previousAssociation,
+        hours: data.commitment,
+        contribution: data.contribute,
+        motivation: data.otherPoints,
+      }),
+    });
 
-    try {
-      const customDocId = data.fullname + data.branch;
-      const docRef = doc(firestoreDB, "Campus_Ambassador_Program ", customDocId);
+    const result = await response.json();
 
-      await setDoc(docRef, {
-        ...data,
-        timestamp: serverTimestamp(),
-      });
-
-      console.log("Document written with ID: ", customDocId);
-      toast.success("Form submitted successfully!", {
-        duration: 4000
-      });
-      reset();
-    } catch (error) {
-      console.error("Error adding document: ", error);
-      toast.error("Error submitting form", {
-        duration: 4000
-      });
+    if (response.ok) {
+      // Successfully registered
+      alert('User successfully registered!');
+      console.log(result);
+    } else {
+      // Registration failed
+      alert(`Error: ${result.error}`);
     }
+  } catch (error) {
+    console.error('Error registering user:', error);
+    alert('Failed to register user');
+  }
+    
   };
 
   return (
