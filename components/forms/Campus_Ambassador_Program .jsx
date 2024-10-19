@@ -208,7 +208,7 @@ export default function CampusAmbassadorProgram() {
 
           <Form.Group className="mb-3" controlId="Reason">
             <Form.Label>
-              Why are you interested in joining the Campus Executive Internship Program ?
+              Why are you interested in joining the Campus Ambassador Program ?
               <span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
@@ -244,7 +244,7 @@ export default function CampusAmbassadorProgram() {
 
           <Form.Group className="mb-3 flex flex-col" controlId="skills">
             <Form.Label>
-              What Skills do you think you can contribute in the Campus Executive Program?{' '}
+              What Skills do you think you can contribute in the Campus Ambassador Program?{' '}
               <span style={{ color: 'red' }}>*</span>
             </Form.Label>
 
@@ -367,7 +367,7 @@ export default function CampusAmbassadorProgram() {
 
           <Form.Group className="mb-3" controlId="otherPoints">
             <Form.Label>
-              Is there anything else you'd like us to know about you or your motivation to join the Campus Executive Internship Program ?
+              Is there anything else you'd like us to know about you or your motivation to join the Campus Ambassador Program ?
               <span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control

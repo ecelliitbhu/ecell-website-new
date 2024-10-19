@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import  { Container, Col, Button, Card,  Row }  from "react-bootstrap";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import CdTestimonials from "../components/CdTestimonials";
