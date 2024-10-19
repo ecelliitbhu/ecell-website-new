@@ -131,7 +131,7 @@ export default function CampusDirector() {
                   <Image src="/perks/1.png" alt="" height="512" width="512" />
                 </div>
 
-                <p>Free E-Summit 2024 Passes</p>
+                <p>Free E-Summit 2025 Passes</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
