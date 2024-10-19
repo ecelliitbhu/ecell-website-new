@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import  { Container, Col, Button, Card,  Row }  from "react-bootstrap";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import CdTestimonials from "../components/CdTestimonials";
@@ -50,7 +50,7 @@ export default function CampusDirector() {
 
               <Button
                 className="get-started join-cd"
-                href="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeZfM1LGMAkT1HbChxNtvm5pobNqnvE7uNMf32OmBAble6aTw/viewform?usp=sf_link"
+                href="/campus-ambassador"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -268,7 +268,7 @@ export default function CampusDirector() {
             <Button
               className="get-started join-cd"
               style={{ margin: "30px auto" }}
-              href="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeZfM1LGMAkT1HbChxNtvm5pobNqnvE7uNMf32OmBAble6aTw/viewform?usp=sf_link"
+              href="/campus-ambassador"
               target="_blank"
               rel="noopener noreferrer"
             >

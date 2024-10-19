@@ -17,13 +17,13 @@ import NotificationOffCanvas from "./NotificationOffcanvas";
 
 const Nav = () => {
   return (
-    <>
+    <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           
             <NavLogo />
           <NotificationOffCanvas />
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <Discover />
               <Initiatives />
@@ -39,7 +39,7 @@ const Nav = () => {
           <NavToggle />
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 
