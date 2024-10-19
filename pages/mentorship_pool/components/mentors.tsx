@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/legacy/image";
-import { GrMail } from "react-icons/gr";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import sharad from "../../../public/mentorship_pool/Sharad_seth.jpeg"
 import anshu from "../../../public/mentorship_pool/Anshu.jpeg"
 import saikat from "../../../public/mentorship_pool/saikat.jpeg"
