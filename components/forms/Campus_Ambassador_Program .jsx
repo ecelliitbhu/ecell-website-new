@@ -311,7 +311,7 @@ export default function CampusAmbassadorProgram() {
 
           <Form.Group className="mb-3" controlId="PreviousExperiences">
             <Form.Label>
-              Any Previous Experience in the Campus Executive/Ambassador program?
+              Any Previous Experience in the Campus Ambassador program?
               <span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control

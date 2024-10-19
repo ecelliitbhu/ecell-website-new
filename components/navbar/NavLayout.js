@@ -17,7 +17,7 @@ import NotificationOffCanvas from "./NotificationOffcanvas";
 
 const Nav = () => {
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           
@@ -39,7 +39,7 @@ const Nav = () => {
           <NavToggle />
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 
