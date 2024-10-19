@@ -1,9 +1,0 @@
-.team {
-    display: flex;  /* Use flexbox to make children appear in a row */
-  }
-  
-  .social {
-    /* Add any additional styling you want for the icons, such as margin or padding */
-    margin-right: 10px;  /* Adjust as needed */
-  }
-  
