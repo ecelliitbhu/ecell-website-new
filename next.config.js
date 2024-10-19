@@ -26,6 +26,9 @@ module.exports = {
     ],
   },
   reactStrictMode: true,
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
   // target: "serverless",
   // webpack: (config) => {
   //   config.plugins.push(new webpack.DefinePlugin({ "global.GENTLY": false }));
