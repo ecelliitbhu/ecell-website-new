@@ -21,6 +21,7 @@ export default function CampusAmbassadorProgram() {
   });
   const selectedYear = watch("year");
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [otherSelected, setOtherSelected] = useState(false);
 
   const onSubmit = async (data) => {
 
@@ -36,8 +37,8 @@ export default function CampusAmbassadorProgram() {
       alert("Please select the number of hours you can commit.");
       return;
     }
-    if (selectedSkills.includes("Other_skills")) {
-      const index = selectedSkills.indexOf("Other_skills");
+    if (selectedSkills.includes("Other Skills")) {
+      const index = selectedSkills.indexOf("Other Skills");
       selectedSkills[index] = data.otherSkills;
     }
     data.skills = selectedSkills.join(', '); // Convert array of skills to a single string
@@ -280,7 +281,11 @@ export default function CampusAmbassadorProgram() {
                     name="skills"
                     value={skill}
                     onChange={(e) => {
-                      setSelectedSkills([...selectedSkills, e.target.value]);
+                      if (e.target.checked) {
+                        setSelectedSkills([...selectedSkills, e.target.value]);
+                      } else {
+                        setSelectedSkills(selectedSkills.filter(skill => skill !== e.target.value));
+                      }
                     }}
                   />
                   <span>{skill}</span>
@@ -293,16 +298,21 @@ export default function CampusAmbassadorProgram() {
                 <input
                   type="checkbox"
                   name="other"
-                  value="Other_skills"
+                  value="Other Skills"
                   onChange={(e) => {
-                    setSelectedSkills([...selectedSkills, e.target.value]);
+                    setOtherSelected(e.target.checked);
+                    if (e.target.checked) {
+                      setSelectedSkills([...selectedSkills, "Other Skills"]);
+                    } else {
+                      setSelectedSkills(selectedSkills.filter(skill => skill !== "Other Skills"));
+                    }
                   }}
                 />
                 <span> Other Skills: </span>
               </div>
-              <Form.Control controlId="otherSkills" as="textarea" {...register("otherSkills", { required: true })}
+              {otherSelected && (<Form.Control controlId="otherSkills" as="textarea" {...register("otherSkills", { required: true })}
                 className="mb-2"
-              />
+              />)}
             </div>
             <br />
             {errors.otherSkills && (
