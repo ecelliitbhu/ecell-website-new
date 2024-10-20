@@ -1,8 +1,10 @@
+import Leaderboard from "@/components/campus ambassador/Leaderboard";
 import Nav from "@/components/navbar/NavLayout";
 import Head from "next/head";
 import React, { useState ,useEffect} from "react"
 import { useForm } from "react-hook-form";
 import { FaEdit, FaPlus } from "react-icons/fa"; 
+
 
 const mockUserData = {
     name: "John Doe",
@@ -17,16 +19,12 @@ const mockUserData = {
     ],
 };
 
-const mockLeaderboard = [
-    { name: "Alice", points: 1500 },
-    { name: "Bob", points: 1400 },
-    { name: "John Doe", points: 1200 },
-];
+
 
 export default function CampusAmbassador() {
     const [user, setUser] = useState(mockUserData); 
     const [editing, setEditing] = useState(false);
-    const [leaderboard, setLeaderboard] = useState(mockLeaderboard); 
+   
 
     const { register, handleSubmit, reset } = useForm({
         defaultValues: mockUserData,
@@ -135,18 +133,9 @@ export default function CampusAmbassador() {
                         <p className="mt-2">Points: {user.points}</p>
                     </div>
 
-                    {/* Leaderboard Section */}
-                    <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
-                        <h2 className="text-2xl font-bold mb-4">Leaderboard</h2>
-                        <ul className="list-group">
-                            {leaderboard.map((leader, index) => (
-                                <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
-                                    {leader.name}
-                                    <span className="badge bg-primary">{leader.points}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                   {/* Leaderboard Section */}
+                    <Leaderboard/>
+
 
                     {/* Task Section */}
                     <div className="bg-white shadow-lg rounded-lg p-6">
