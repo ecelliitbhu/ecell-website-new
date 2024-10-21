@@ -4,6 +4,7 @@ import Head from "next/head";
 import React, { useState ,useEffect} from "react"
 import { useForm } from "react-hook-form";
 import { FaEdit, FaPlus } from "react-icons/fa"; 
+import cn from 'classnames';
 
 
 const mockUserData = {
@@ -134,7 +135,7 @@ export default function CampusAmbassador() {
                     </div>
 
                    {/* Leaderboard Section */}
-                    <Leaderboard/>
+                    <Leaderboard />
 
 
                     {/* Task Section */}

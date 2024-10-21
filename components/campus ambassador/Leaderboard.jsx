@@ -1,5 +1,5 @@
-
-const Leaderboard = () => {
+import cn from 'classnames';
+const Leaderboard = ({className = ""}) => {
     const leaderboard = [
         { name: "Alice", points: 1900 ,college: "IIT-BHU" },
         { name: "Bob", points: 1400 ,college: "IIT-BHU" },
@@ -17,6 +17,7 @@ const Leaderboard = () => {
         { name: "John Doe", points: 1100 ,college: "IIT-BHU" },
     ];
     return(
+        <div className={cn("xyz", className)}>
         <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
                     <h2 className="text-2xl font-bold mb-4">Leaderboard</h2>
                         <div className="grid grid-cols-4 font-bold bg-gray-200 p-3 rounded-md mb-3">
@@ -38,6 +39,7 @@ const Leaderboard = () => {
                 </div>
             ))}
                  </div>
+        </div>
         </div>
     )
 }
