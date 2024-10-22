@@ -21,20 +21,22 @@ export default function CampusAmbassadorProgram() {
   });
   const selectedYear = watch("year");
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [otherSelected, setOtherSelected] = useState(false);
-
+  const [otherSelected,setOtherSelected]=useState(false)
+  const [loading,setLoading]=useState(false)
+  
   const onSubmit = async (data) => {
-
+    setLoading(true)
     if (selectedSkills.length === 0 && !data.otherSkills) {
-      alert(
+      toast.error(
         'Please select at least one skill.'
       );
+      setLoading(false)
       return;
     }
-    console.log("HERE")
 
     if (!data.commitment) {
-      alert("Please select the number of hours you can commit.");
+      setLoading(false)
+      toast.error("Please select the number of hours you can commit.");
       return;
     }
     if (selectedSkills.includes("Other Skills")) {
@@ -71,19 +73,20 @@ export default function CampusAmbassadorProgram() {
 
       const result = await response.json();
 
-      if (response.ok) {
-        // Successfully registered
-        alert('User successfully registered!');
-        console.log(result);
-      } else {
-        // Registration failed
-        alert(`Error: ${result.error}`);
-      }
-    } catch (error) {
-      console.error('Error registering user:', error);
-      alert('Failed to register user');
+    if (response.ok) {
+      // Successfully registered
+      toast.success('User successfully registered!');
+      setLoading(false)
+      console.log(result);
+    } else {
+      setLoading(false)
+      toast.error(`Error: ${result.error}`);
     }
-
+  } catch (error) {
+    console.error('Error registering user:', error);
+    toast.error('Failed to register user');
+  }
+    
   };
 
   return (
@@ -153,7 +156,7 @@ export default function CampusAmbassadorProgram() {
                 <Form.Control
                   type="text"
                   placeholder="Your answer"
-                  {...register("otherYear", { required: true })}
+                  {...register("otherYear", { required: selectedSkills.length==0 })}
                   className="mb-2"
                 />
               </>}
@@ -419,7 +422,7 @@ export default function CampusAmbassadorProgram() {
 
 
           <div className="d-grid gap-2">
-            <Button variant="primary" type={"submit"} size="lg">
+            <Button disabled={loading}  variant="primary" type={"submit"} size="lg">
               Submit
             </Button>
           </div>
