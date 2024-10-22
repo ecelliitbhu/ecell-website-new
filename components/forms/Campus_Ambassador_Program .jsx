@@ -21,6 +21,7 @@ export default function CampusAmbassadorProgram() {
   });
   const selectedYear = watch("year");
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [otherSelected,setOtherSelected]=useState(false)
   const [loading,setLoading]=useState(false)
   
   const onSubmit = async (data) => {
@@ -155,7 +156,7 @@ export default function CampusAmbassadorProgram() {
                 <Form.Control
                   type="text"
                   placeholder="Your answer"
-                  {...register("otherYear", { required: true })}
+                  {...register("otherYear", { required: selectedSkills.length==0 })}
                   className="mb-2"
                 />
               </>}
