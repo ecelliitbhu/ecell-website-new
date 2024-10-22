@@ -8,22 +8,24 @@ import {
   Contact,
   Startups,
 } from "./NavItems";
-import { NavToggle } from "./NavToggle";
 import { NavLogo } from "./NavLogo";
 import Link from "next/link";
 import Notification from "./Notification";
 import NotificationOffCanvas from "./NotificationOffcanvas";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 
 const Nav = () => {
+  const [collapse, setCollapse] = useState(true)
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          
-            <NavLogo />
+
+          <NavLogo />
           <NotificationOffCanvas />
-          <div className="navbar-collapse" id="navbarSupportedContent">
+          <div className={cn("navbar-collapse",collapse && "max-lg:collapse")} id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <Discover />
               <Initiatives />
@@ -36,7 +38,17 @@ const Nav = () => {
               <Notification />
             </ul>
           </div>
-          <NavToggle />
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={()=>setCollapse(!collapse)}
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
         </div>
       </nav>
     </>
