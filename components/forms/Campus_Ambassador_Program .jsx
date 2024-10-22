@@ -21,19 +21,21 @@ export default function CampusAmbassadorProgram() {
   });
   const selectedYear = watch("year");
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [loading,setLoading]=useState(false)
   
   const onSubmit = async (data) => {
-    
+    setLoading(true)
     if (selectedSkills.length === 0 && !data.otherSkills) {
-      alert(
+      toast.error(
         'Please select at least one skill.'
       );
+      setLoading(false)
       return;
     }
-    console.log("HERE")
 
     if (!data.commitment) {
-      alert("Please select the number of hours you can commit.");
+      setLoading(false)
+      toast.error("Please select the number of hours you can commit.");
       return;
     }
     data.skills = selectedSkills.join(', '); // Convert array of skills to a single string
@@ -68,15 +70,16 @@ export default function CampusAmbassadorProgram() {
 
     if (response.ok) {
       // Successfully registered
-      alert('User successfully registered!');
+      toast.success('User successfully registered!');
+      setLoading(false)
       console.log(result);
     } else {
-      // Registration failed
-      alert(`Error: ${result.error}`);
+      setLoading(false)
+      toast.error(`Error: ${result.error}`);
     }
   } catch (error) {
     console.error('Error registering user:', error);
-    alert('Failed to register user');
+    toast.error('Failed to register user');
   }
     
   };
@@ -277,6 +280,7 @@ export default function CampusAmbassadorProgram() {
                     value={skill}
                     onChange={(e) => {
                       setSelectedSkills([...selectedSkills, e.target.value]);
+                      console.log(selectedSkills)
                     }}
                   />
                   <span>{skill}</span>
@@ -296,7 +300,7 @@ export default function CampusAmbassadorProgram() {
                 />
                 <span> Other Skills: </span>
               </div>
-              <Form.Control as="textarea" {...register("otherSkills", {required : true })} 
+              <Form.Control as="textarea" {...register("otherSkills", {required : selectedSkills.length==0 })} 
               className="mb-2"
               />
             </div>
@@ -405,7 +409,7 @@ export default function CampusAmbassadorProgram() {
 
 
           <div className="d-grid gap-2">
-            <Button variant="primary" type={"submit"} size="lg">
+            <Button disabled={loading}  variant="primary" type={"submit"} size="lg">
               Submit
             </Button>
           </div>
