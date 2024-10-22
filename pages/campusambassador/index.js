@@ -1,3 +1,4 @@
+import Leaderboard from "@/components/Campus ambassador/Leaderboard";
 import Nav from "@/components/navbar/NavLayout";
 import Head from "next/head";
 import React, { useState ,useEffect} from "react"
@@ -136,17 +137,7 @@ export default function CampusAmbassador() {
                     </div>
 
                     {/* Leaderboard Section */}
-                    <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
-                        <h2 className="text-2xl font-bold mb-4">Leaderboard</h2>
-                        <ul className="list-group">
-                            {leaderboard.map((leader, index) => (
-                                <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
-                                    {leader.name}
-                                    <span className="badge bg-primary">{leader.points}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    <Leaderboard/>
 
                     {/* Task Section */}
                     <div className="bg-white shadow-lg rounded-lg p-6">

@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 const Nav = () => {
   const [collapse, setCollapse] = useState(true)
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
 
@@ -51,7 +51,7 @@ const Nav = () => {
           </button>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 
