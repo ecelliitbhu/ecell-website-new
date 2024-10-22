@@ -13,6 +13,7 @@
 /.next/
 /out/
 
+
 # production
 /build
 
@@ -41,5 +42,3 @@ env
 .vercel
 
 package-lock.json
-
-Removal.md

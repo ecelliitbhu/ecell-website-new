@@ -21,9 +21,10 @@ export default function CampusAmbassadorProgram() {
   });
   const selectedYear = watch("year");
   const [selectedSkills, setSelectedSkills] = useState([]);
-  
+  const [otherSelected, setOtherSelected] = useState(false);
+
   const onSubmit = async (data) => {
-    
+
     if (selectedSkills.length === 0 && !data.otherSkills) {
       alert(
         'Please select at least one skill.'
@@ -36,49 +37,53 @@ export default function CampusAmbassadorProgram() {
       alert("Please select the number of hours you can commit.");
       return;
     }
+    if (selectedSkills.includes("Other Skills")) {
+      const index = selectedSkills.indexOf("Other Skills");
+      selectedSkills[index] = data.otherSkills;
+    }
     data.skills = selectedSkills.join(', '); // Convert array of skills to a single string
 
-  // Sending the form data as a POST request
-  try {
-    const response = await fetch('https://cell-backend-8gp3.onrender.com/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: data.fullname,
-        collegeName: data.collegename,
-        collegeYear: data.year,
-        program: data.degreename,
-        phone: data.mobileNumber,
-        email: data.email,
-        POR: data.PoR,
-        reasonToJoin: data.Reason,
-        roleInStudentBody: data.role,
-        skills: data.skills, // Now a single string of skills
-        experience: data.previousExperiences,
-        roleInEcell: data.previousAssociation,
-        hours: data.commitment,
-        contribution: data.contribute,
-        motivation: data.otherPoints,
-      }),
-    });
+    // Sending the form data as a POST request
+    try {
+      const response = await fetch('https://cell-backend-8gp3.onrender.com/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.fullname,
+          collegeName: data.collegename,
+          collegeYear: data.year,
+          program: data.degreename,
+          phone: data.mobileNumber,
+          email: data.email,
+          POR: data.PoR,
+          reasonToJoin: data.Reason,
+          roleInStudentBody: data.role,
+          skills: data.skills, // Now a single string of skills
+          experience: data.previousExperiences,
+          roleInEcell: data.previousAssociation,
+          hours: data.commitment,
+          contribution: data.contribute,
+          motivation: data.otherPoints,
+        }),
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (response.ok) {
-      // Successfully registered
-      alert('User successfully registered!');
-      console.log(result);
-    } else {
-      // Registration failed
-      alert(`Error: ${result.error}`);
+      if (response.ok) {
+        // Successfully registered
+        alert('User successfully registered!');
+        console.log(result);
+      } else {
+        // Registration failed
+        alert(`Error: ${result.error}`);
+      }
+    } catch (error) {
+      console.error('Error registering user:', error);
+      alert('Failed to register user');
     }
-  } catch (error) {
-    console.error('Error registering user:', error);
-    alert('Failed to register user');
-  }
-    
+
   };
 
   return (
@@ -276,7 +281,11 @@ export default function CampusAmbassadorProgram() {
                     name="skills"
                     value={skill}
                     onChange={(e) => {
-                      setSelectedSkills([...selectedSkills, e.target.value]);
+                      if (e.target.checked) {
+                        setSelectedSkills([...selectedSkills, e.target.value]);
+                      } else {
+                        setSelectedSkills(selectedSkills.filter(skill => skill !== e.target.value));
+                      }
                     }}
                   />
                   <span>{skill}</span>
@@ -289,21 +298,26 @@ export default function CampusAmbassadorProgram() {
                 <input
                   type="checkbox"
                   name="other"
-                  value="Other_skills"
+                  value="Other Skills"
                   onChange={(e) => {
-                    setSelectedSkills([...selectedSkills, e.target.value]);
+                    setOtherSelected(e.target.checked);
+                    if (e.target.checked) {
+                      setSelectedSkills([...selectedSkills, "Other Skills"]);
+                    } else {
+                      setSelectedSkills(selectedSkills.filter(skill => skill !== "Other Skills"));
+                    }
                   }}
                 />
                 <span> Other Skills: </span>
               </div>
-              <Form.Control as="textarea" {...register("otherSkills", {required : true })} 
-              className="mb-2"
-              />
+              {otherSelected && (<Form.Control controlId="otherSkills" as="textarea" {...register("otherSkills", { required: true })}
+                className="mb-2"
+              />)}
             </div>
             <br />
             {errors.otherSkills && (
               <span style={{ color: "red" }}>
-                Please select at least one skill. 
+                Please select at least one skill.
               </span>
             )}
           </Form.Group>
@@ -311,7 +325,7 @@ export default function CampusAmbassadorProgram() {
 
           <Form.Group className="mb-3" controlId="PreviousExperiences">
             <Form.Label>
-              Any Previous Experience in the Campus Executive/Ambassador program?
+              Any Previous Experience in the Campus Ambassador program?
               <span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import  { Container, Col, Button, Card,  Row }  from "react-bootstrap";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import CdTestimonials from "../components/CdTestimonials";
@@ -131,7 +131,7 @@ export default function CampusDirector() {
                   <Image src="/perks/1.png" alt="" height="512" width="512" />
                 </div>
 
-                <p>Free E-Summit 2024 Passes</p>
+                <p>Free E-Summit 2025 Passes</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
