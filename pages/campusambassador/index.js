@@ -1,9 +1,12 @@
 import Leaderboard from "@/components/Campus ambassador/Leaderboard";
+import Profile from "@/components/Campus ambassador/profile";
+import TaskList from "@/components/Campus ambassador/Tasks";
 import Nav from "@/components/navbar/NavLayout";
 import Head from "next/head";
 import React, { useState ,useEffect} from "react"
 import { useForm } from "react-hook-form";
 import { FaEdit, FaPlus } from "react-icons/fa"; 
+
 
 const mockUserData = {
     name: "John Doe",
@@ -25,55 +28,6 @@ const mockLeaderboard = [
 ];
 
 export default function CampusAmbassador() {
-    const [user, setUser] = useState(mockUserData); 
-    const [editing, setEditing] = useState(false);
-    const [leaderboard, setLeaderboard] = useState(mockLeaderboard); 
-
-    const { register, handleSubmit, reset } = useForm({
-        defaultValues: mockUserData,
-    }
-    ); 
-
-    // Fetch user data and leaderboard
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('/campusambassador'); 
-                const data = await response.json();
-
-                setUser(data.currentUser); 
-                setLeaderboard(data.topUsers); 
-                reset(data.currentUser); 
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        fetchData();
-    }, [reset]); 
-
-    const onSubmit = async (data) => {
-        try {
-            // sending the updated user data 
-            const response = await fetch('/campusambassador/updateUser', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: user.id, ...data }), 
-            });
-            const updatedUser = await response.json();
-            setUser(updatedUser); 
-            reset(updatedUser); 
-            setEditing(false);
-        } catch (error) {
-            console.error("Error updating user:", error);
-        }
-    };
-
-    const currentDate = new Date();
-
-   
 
     return (
         <>
@@ -87,60 +41,16 @@ export default function CampusAmbassador() {
 
                 <div className="flex px-4 mb-6 flex-col gap-6">
                     <h1 className="text-3xl font-bold text-center p-6">Campus Ambassador Dashboard E-Cell IIT BHU</h1>
-                    <div className="shadow-lg rounded-lg p-6">
-                        <h2 className="text-2xl font-bold mb-4">User Profile</h2>
-                        {editing ? (
-                            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-                                <input
-                                    type="text"
-                                    className="border p-2 rounded"
-                                    placeholder="Name"
-                                    {...register("name")}
-                                />
-                                <input
-                                    type="text"
-                                    className="border p-2 rounded"
-                                    placeholder="College Name"
-                                    {...register("collegeName")}
-                                />
-                                <input
-                                    type="text"
-                                    className="border p-2 rounded"
-                                    placeholder="College Year"
-                                    {...register("collegeYear")}
-                                />
-                                <input
-                                    type="tel"
-                                    className="border p-2 rounded"
-                                    placeholder="Phone Number"
-                                    {...register("phone")}
-                                />
-                                <button
-                                    type="submit"
-                                    className="btn btn-primary"
-                                >
-                                    Save
-                                </button>
-                            </form>
-                        ) : (
-                            <div className="flex items-center justify-between">
-                                <h3 className="text-xl">Name: {user.name}</h3>
-                                <button
-                                    className="btn btn-outline-primary"
-                                    onClick={() => setEditing(true)}
-                                >
-                                    Edit Profile
-                                </button>
-                            </div>
-                        )}
-                        <p className="mt-2">Points: {user.points}</p>
-                    </div>
+                    
+                     {/* profile section */}
+                    <Profile/>
 
                     {/* Leaderboard Section */}
                     <Leaderboard/>
 
                     {/* Task Section */}
-                    <div className="bg-white shadow-lg rounded-lg p-6">
+                    
+                    {/* <div className="bg-white shadow-lg rounded-lg p-6">
                         <h2 className="text-2xl font-bold mb-4">This Week&apos;s Tasks</h2>
                         <ul className="list-group">
                         {user.tasks.map((task) => {
@@ -191,7 +101,7 @@ export default function CampusAmbassador() {
 })}
 
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
