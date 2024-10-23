@@ -871,6 +871,7 @@ export const ELectures = () => {
   const imgStyle = {
     transition:
       "transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s",
+
   };
   const cont = {
     backgroundColor: "#eee",
