@@ -50,7 +50,7 @@ This document typically sets the groundwork for how the incubator will support t
           {`font-family:'Poppins',sans-serif;`}
         </style>
       </Head>
-      <Nav />
+     
       <IncubatorPage
         title="NCL-IIT (BHU) INCUBATION CENTRE "
         highlightedTitle="(NIIC)"
@@ -65,7 +65,7 @@ It provides services like Mentoring, Counselling, Training, Financial Linkages, 
         selectionCriteria={selectionCriteria}
         title2="What Is "
       />
-      <Footer />
+      
     </>
   );
 };

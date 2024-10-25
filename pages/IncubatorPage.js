@@ -1,8 +1,11 @@
 
+
+
 import React from "react";
 import Image from "next/legacy/image";
 import { Row, Container, Col } from "react-bootstrap";
-
+import Footer from "@/components/Footer";
+import Nav from "../components/navbar/NavLayout";
 const IncubatorPage = ({
   title,
   highlightedTitle,
@@ -20,11 +23,12 @@ const IncubatorPage = ({
   selectionCriteria=[],
   description2,
   title2,
-  title3
+  title3,
+  i3Image
 }) => {
   return (
     <Container fluid className="body">
-    
+      <Nav/>
       <div className="heading mt-[60px] text-center">
         <h1 className="text-6xl font-bold text-[#333]">
           {title} <span className="text-[#DD6D23]">{highlightedTitle}</span>
@@ -54,7 +58,10 @@ const IncubatorPage = ({
   )}
                 </div>
               )}
-              <Image src={questionMarkSrc} height={42.5} width={29.23} alt="Question mark" />
+              {questionMarkSrc &&(
+                <Image src={questionMarkSrc} height={42.5} width={29.23} alt="" />
+              )}
+              
             </div>
             <p className="text-[1.2rem] text-[#676767]">{description2}</p>
             <button
@@ -72,7 +79,20 @@ const IncubatorPage = ({
           </div>
         </Col>
       </Row>
-      
+      if{i3Image &&(
+        <div className="flex justify-center items-center mt-10 md:mt-12 lg:mt-16">
+  <div className="image-container w-full max-w-[700px] h-auto">
+    <Image
+      src={i3Image}
+      alt="I3 Foundation"
+      layout="responsive"
+      width={700}
+      height={700}
+    />
+  </div>
+</div>
+      )}
+    
       {selectionCriteria.length > 0 && (
         <>
           <div className="bg-[#D9D9D9C4] h-[90px] mb-8 shadow-md flex items-center mt-12 justify-center relative">
@@ -143,7 +163,7 @@ const IncubatorPage = ({
       {incubationPrograms.length > 0 && (
         <>
           <div className="bg-[#D9D9D9C4] h-[90px] mb-8 shadow-md flex items-center mt-12 justify-center relative">
-            <p className="text-[#4F4F52] text-[3rem] font-black ml-[90px] m-0">Incubation Programs</p>
+            <p className="text-[#4F4F52] text-[3rem] font-black ml-[90px] m-0 ">Incubation Programs</p>
           </div>
 
           <Row className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
@@ -176,9 +196,11 @@ const IncubatorPage = ({
           </div>
         </>
       )} 
+    
+    
+      <Footer/>
     </Container>
   );
 };
 
 export default IncubatorPage;
-

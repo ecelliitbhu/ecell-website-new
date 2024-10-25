@@ -55,7 +55,7 @@ Help in further fund raising`,
           {`font-family:'Poppins',sans-serif;`}
         </style>
       </Head>
-      <Nav />
+    
       <IncubatorPage
         title="I-"
         highlightedTitle="DAPT"
@@ -76,7 +76,7 @@ Help in further fund raising`,
 · Defense R&D
 · Health & Family Welfare"
       />
-      <Footer />
+    
     </>
   );
 };

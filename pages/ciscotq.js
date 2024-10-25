@@ -32,6 +32,7 @@ const ciscotq = () => {
 
   return (
     <>
+   
       <Head>
         <title>Cisco ThingQbator</title>
         <meta name="robots" content="index, follow" />
@@ -39,7 +40,7 @@ const ciscotq = () => {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <style>{`font-family:'Poppins',sans-serif;`}</style>
       </Head>
-      <Nav />
+      
       
       <IncubatorPage
         title="Cisco"
@@ -56,8 +57,8 @@ const ciscotq = () => {
         title2="What is"  
       />
            
-
-      <Footer />
+     
+    
     </>
   );
 };
