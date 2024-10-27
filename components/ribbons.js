@@ -58,14 +58,14 @@ const Ribbon = () => {
          
           }
           .text-container {
-            display: flex; /* Flexbox for horizontal alignment */
-            align-items: center; /* Center vertically */
+            display: flex; 
+            align-items: center; 
             flex-wrap:wrap;
           }
              .text-shadow {
-            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); /* Add your desired shadow here */
-            font-weight: bold; /* Make text bold */
-            // font-size: 1.5rem;
+            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); 
+            font-weight: bold; 
+           
           }
         `}
       </style>
