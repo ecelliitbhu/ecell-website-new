@@ -120,7 +120,7 @@ const IncubatorPage = ({
           </div>
 
           <div className="bg-white h-auto mb-20 pt-4 rounded-lg shadow-md sm:h-[85px] sm:mb-9">
-            <ul className="list-disc p-3 flex flex-col items-center gap-2 text-md sm:flex-row sm:justify-around text-[#505058] sm:text-[1.2rem] font-bold">
+            <ul className="list-disc p-3 flex flex-col items-center gap-2 text-md sm:flex-row sm:justify-around text-[#505058] sm:text-[1.2rem] font-bold lg:text-2xl md:text-md">
               {facilities.map((facility, index) => (
                 <li key={index}>{facility}</li>
               ))}
