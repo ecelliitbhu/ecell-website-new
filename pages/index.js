@@ -9,6 +9,7 @@ import { NextSeo } from "next-seo";
 import "../styles/globals.scss";
 import React from "react";
 import Summit from "../public/summit.png";
+import Ribbon from "../components/ribbons"
 export default function Home() {
   return (
     <>
@@ -48,6 +49,7 @@ export default function Home() {
         }}
       />
       <Nav />
+      <Ribbon></Ribbon>
       <div>
         <Container fluid className="body">
 {/*           
