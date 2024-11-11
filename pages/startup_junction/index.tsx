@@ -30,13 +30,13 @@ const StartupJunction: FunctionComponent<Props> = () => {
                 <div className={styles.venue}>
                   <div>
                     <CalendarDays />
-                    <span className={styles.heroDate}> 15th December 2023</span>
+                    <span className={styles.heroDate}> 13th December 2024</span>
                   </div>
                   <div>
                     <MapPin />
                     <span className={styles.heroDate}>
                       {" "}
-                      Delhi/NCR and Bengaluru
+                      Pune and Banglore
                     </span>
                   </div>
                 </div>
