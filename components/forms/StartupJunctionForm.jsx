@@ -8,6 +8,7 @@ import { firestoreDB,StorageDB } from "@/lib/firebase";
 import { doc, setDoc,serverTimestamp } from "firebase/firestore";
 
 export default function StartupJunctionForm() {
+ 
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -31,6 +32,7 @@ export default function StartupJunctionForm() {
     setIsLoading(true);
     try {
       const customDocId = data.fullname + data.phoneNumber;
+      
       const docRef = doc(firestoreDB, "StartupJunction", customDocId);
       await uploadFileToFirebaseStorage(data.pitchDeck[0], customDocId,"pitchDeck");
       await uploadFileToFirebaseStorage(data.shareholder[0], customDocId,"Shareholder Agreement");
@@ -55,6 +57,7 @@ export default function StartupJunctionForm() {
         timestamp: serverTimestamp(),
       });
       toast.success("Form submitted successfully!");
+     
       reset();
     } catch (error) {
       console.error("Error adding document: ", error);
@@ -67,6 +70,7 @@ export default function StartupJunctionForm() {
   return (
     <div className={"form-card"}>
       <div className={"form-card-content"}>
+        
         <Form onSubmit={handleSubmit(onSubmit)}>
           <div className={"name-email"}>
             <Form.Group className="mb-3" controlId="Fullname">

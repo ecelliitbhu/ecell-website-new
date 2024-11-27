@@ -7,7 +7,7 @@ export default function Contacts() {
   return (
     <>
       <Head>
-        <title>Startup Junction 2023</title>
+        <title>Startup Junction 2024</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Nav />
