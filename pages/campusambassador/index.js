@@ -1,33 +1,37 @@
-import Leaderboard from "@/components/Campus ambassador/Leaderboard";
-import Profile from "@/components/Campus ambassador/profile";
-import TaskList from "@/components/Campus ambassador/Tasks";
+import Leaderboard from "@/components/CampusAmbassador/Leaderboard";
+import Profile from "@/components/CampusAmbassador/Profile";
+import TaskList from "@/components/CampusAmbassador/Tasks";
 import Nav from "@/components/navbar/NavLayout";
+import { updateLeaderboard, updateLoading, updateUser } from "@/lib/redux/slices/campusAmbassadorSlice";
+import { Loader } from "lucide-react";
 import Head from "next/head";
-import React, { useState ,useEffect} from "react"
-import { useForm } from "react-hook-form";
-import { FaEdit, FaPlus } from "react-icons/fa"; 
+import React, { useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux";
 
 
-const mockUserData = {
-    name: "John Doe",
-    collegeName: "IIT BHU",
-    collegeYear: "2024",
-    phone: "123-456-7890",
-    points: 1200,
-    tasks: [
-        { id: 1, title: "Get the startupjunction form filled by at least 10 people", completed: true, lastDate: "2024-10-10" },
-        { id: 2, title: "Task 2", completed: false, lastDate: "2024-10-05" },
-        { id: 3, title: "Task 3", completed: false, lastDate: "2024-10-08" },
-    ],
-};
-
-const mockLeaderboard = [
-    { name: "Alice", points: 1500 },
-    { name: "Bob", points: 1400 },
-    { name: "John Doe", points: 1200 },
-];
 
 export default function CampusAmbassador() {
+    const dispatch = useDispatch()
+    const loading = useSelector(state => state.campusAmbassador.loading)
+    const leaderboard = useSelector(state => state.campusAmbassador.leaderboard)
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/campusambassador');
+                const data = await response.json();
+                dispatch(updateUser(data.currentUser));
+                dispatch(updateLeaderboard(data.topUsers));
+                dispatch(updateLoading(false))
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                dispatch(updateLoading(false))
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
 
     return (
         <>
@@ -38,70 +42,19 @@ export default function CampusAmbassador() {
             </Head>
             <div>
                 <Nav />
-
-                <div className="flex px-4 mb-6 flex-col gap-6">
-                    <h1 className="text-3xl font-bold text-center p-6">Campus Ambassador Dashboard E-Cell IIT BHU</h1>
-                    
-                     {/* profile section */}
-                    <Profile/>
-
-                    {/* Leaderboard Section */}
-                    <Leaderboard/>
-
-                    {/* Task Section */}
-                    
-                    {/* <div className="bg-white shadow-lg rounded-lg p-6">
-                        <h2 className="text-2xl font-bold mb-4">This Week&apos;s Tasks</h2>
-                        <ul className="list-group">
-                        {user.tasks.map((task) => {
-    const taskLastDate = new Date(task.lastDate);
-    const isLastDatePassed = currentDate > taskLastDate;
-
-    let statusText = '';
-    let bgColor = '';
-    
-    if (task.completed && !isLastDatePassed) {
-        statusText = 'Submitted';
-        bgColor = 'bg-primary'; 
-    } else if (!task.completed && !isLastDatePassed) {
-        statusText = 'Pending';
-        bgColor = 'bg-warning'; 
-    } else if (!task.completed && isLastDatePassed) {
-        statusText = 'Missed';
-        bgColor = 'bg-destructive'; 
-    } else if (task.completed && isLastDatePassed) {
-        statusText = 'Completed';
-        bgColor = 'bg-success'; 
-    }
-
-    return (
-        <li
-            key={task.id}
-            className={`list-group-item text-background d-flex justify-between align-items-center ${bgColor}`}
-        >
-            <div>
-                {task.title}
-                <br />
-                <small>Last Date: {task.lastDate}</small>
-            </div>
-            <div className="flex  items-center gap-2">
-                {task.completed && !isLastDatePassed ? (
-                    <button className="btn flex items-center justify-between btn-outline-light me-2">
-                        <p className="w-12">Edit</p><FaEdit /> 
-                    </button>
-                ) : !task.completed && !isLastDatePassed ? (
-                    <button className="btn flex items-center gap-2 btn-outline-light">
-                        <p className="w-12">Create</p>  <FaPlus />
-                    </button>
-                ) : null}
-             <p>{statusText}</p>
-            </div>
-        </li>
-    );
-})}
-
-                        </ul>
-                    </div> */}
+                <div className="flex px-4 mb-4 flex-col gap-6">
+                    <h1 className="text-3xl font-bold text-center my-4">Campus Ambassador Dashboard E-Cell IIT BHU</h1>
+                    {loading ?
+                        <Loader className="block mt-12 mx-auto w-16 h-16" />
+                        : <div className="grid grid-cols-12 gap-6">
+                            <div className="col-span-12 w-fit mx-auto py-3 px-4 rounded-sm border border-green flex justify-center">
+                                <p className="md:text-xl max-md:text-lg"><span className="text-orange-400">{leaderboard[0].name}</span> from {"IIT BHU"} is leading the points table with <span className="text-green-600">{leaderboard[0].points}</span> points !</p>
+                            </div>
+                            <Profile className={"md:col-span-4 max-md:col-span-12"} />
+                            <TaskList className={"md:col-span-8 max-md:col-span-12 h-[434px] overflow-y-auto"} />
+                            <Leaderboard className="col-span-12" />
+                        </div>
+}
                 </div>
             </div>
         </>

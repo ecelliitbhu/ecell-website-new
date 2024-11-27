@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
-
+import { FaEdit, FaPlus } from "react-icons/fa";
+import { useSelector } from "react-redux";
 function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 const TaskList = ({ className }) => {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "Task 1", status: "Pending", description: "Task description of task 1", submitted: false },
-    { id: 2, title: "Task 2", status: "Missed", description: "Task description of task 2", submitted: false },
-    { id: 3, title: "Task 3", status: "Submitted", description: "Task description of task 3", submitted: true },
-  ]);
 
+  const tasks=useSelector(state=>state.campusAmbassador.user.tasks)
   const [dropdownOpen, setDropdownOpen] = useState({});
   const [fileUpload, setFileUpload] = useState(null);
 
@@ -36,25 +33,31 @@ const TaskList = ({ className }) => {
       case "Submitted":
         return "bg-success";  
       default:
-        return "bg-primary";  
+        return "bg-blue-400";  
     }
   };
 
   return (
-    <div className={cn("p-6 bg-white rounded-lg shadow-md", className)}>
-      <h2 className="text-2xl font-bold mb-4">Tasks</h2>
-      <ul className="space-y-4">
+    <div className={cn("md:p-6 max-md:p-4 bg-white rounded-lg shadow-md", className)}>
+      <h2 className="text-2xl sticky font-bold mb-2">Tasks</h2>
+      <ul className="flex flex-col gap-y-4 h-[340px] overflow-y-auto">
         {tasks.map((task) => (
-          <li key={task.id} className={`p-4 rounded-lg shadow ${getStatusColor(task.status)} mb-4`}>
-            <div className="flex justify-between items-start">
-              <div className="flex flex-col">
-                <h3 className="font-bold text-lg">{task.title}</h3>
+          <li key={task.id} className={`p-4 rounded-lg shadow ${getStatusColor(task.status)}`}>
+            <div className="flex max-md:flex-col max-md:gap-3 md:justify-between items-start">
+              <div className="flex flex-col max-md:gap-2">
+                <h3 className="md:font-bold max-md:font-semibold md:text-lg max-md:text-md">{task.title}</h3>
                 <p className="text-sm mb-1">Deadline: 00/00/0000</p>
               </div>
               <div className="flex items-center gap-3">
+              <button
+                  className="text-black flex items-center"
+                  onClick={() => toggleDropdown(task.id)}
+                >
+                <span >{dropdownOpen[task.id] ? "Hide" : "Show"} Details</span>  {dropdownOpen[task.id] ? <FaCaretUp className="max-md:w-8 max-md:h-8" /> : <FaCaretDown  className="max-md:w-8 max-md:h-8"/>} 
+                </button>
                 {!task.submitted ? (
                   <label className="bg-success text-white rounded-full px-4 py-2 transition cursor-pointer">
-                    <span>Submit Document</span>
+                    <span>Submit</span>
                     <input
                       type="file"
                       onChange={(e) => handleUpload(task.id, e)}
@@ -64,12 +67,6 @@ const TaskList = ({ className }) => {
                 ) : (
                   <p className="text-black font-bold">Submitted</p>
                 )}
-                <button
-                  className="text-black flex items-center"
-                  onClick={() => toggleDropdown(task.id)}
-                >
-                  {dropdownOpen[task.id] ? <FaCaretUp /> : <FaCaretDown />} {dropdownOpen[task.id] ? "Hide" : "Show"} Details
-                </button>
               </div>
             </div>
             {dropdownOpen[task.id] && (
