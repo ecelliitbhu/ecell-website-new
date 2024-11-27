@@ -592,6 +592,7 @@ ul {
   }
 }
 @media only screen and (max-width: 1015px) and (min-width: 991px) {
+ 
   .dropdown-item div h4 {
     font-size: 1rem;
   }
@@ -609,9 +610,12 @@ ul {
     margin-left: 1em;
     width: 65px;
   }
+ 
 }
 
 @media (max-width: 991px) {
+
+  
   .notification {
     display: none;
   }
@@ -727,6 +731,7 @@ ul {
   .nav-item:hover {
     box-shadow: none;
   }
+ 
 
   button {
     display: inline;
@@ -837,6 +842,8 @@ ul {
 .body {
   max-width: 1390px;
   margin: auto;
+ 
+ 
 }
 .header {
   /* max-width: 1480px; */
@@ -901,11 +908,15 @@ ul {
   color: grey;
 }
 @media (max-width: 991px) {
+  .body{
+    margin-top:200px;
+  }
   .header {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 100px;
+    
   }
   .info {
     padding-left: 0px;

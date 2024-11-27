@@ -10,7 +10,9 @@ import "../styles/globals.scss";
 import React from "react";
 import Summit from "../public/summit.png";
 import Ribbon from "../components/ribbons"
+
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -48,10 +50,21 @@ export default function Home() {
           cardType: "summary_large_image",
         }}
       />
+
+      
       <Nav />
-      <Ribbon></Ribbon>
+
+
+  
+      
+   
       <div>
+      <Row>
+  <Ribbon></Ribbon>
+</Row>
+ 
         <Container fluid className="body">
+ 
 {/*           
           <section className={styles.sectionHero}>
             <div className={styles.hero}>
@@ -195,9 +208,23 @@ export default function Home() {
 </section> */}
 
 
+          <Row className="header" >
 
-          <Row className="header">
             <Col className="info">
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
               <h1>E-Cell IIT BHU</h1>
               <h2>
                 {"Accelerate Your"}
