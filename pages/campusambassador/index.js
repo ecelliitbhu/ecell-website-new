@@ -1,5 +1,5 @@
 import Leaderboard from "@/components/Campus ambassador/Leaderboard";
-import Profile from "@/components/Campus ambassador/profile";
+import Profile from "@/components/Campus ambassador/Profile";
 import TaskList from "@/components/Campus ambassador/Tasks";
 import Nav from "@/components/navbar/NavLayout";
 import { updateLeaderboard, updateLoading, updateUser } from "@/lib/redux/slices/campusAmbassadorSlice";
@@ -54,6 +54,7 @@ export default function CampusAmbassador() {
                             <TaskList className={"md:col-span-8 max-md:col-span-12 h-[434px] overflow-y-auto"} />
                             <Leaderboard className="col-span-12" />
                         </div>
+}
                 </div>
             </div>
         </>
