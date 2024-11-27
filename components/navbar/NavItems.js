@@ -238,12 +238,13 @@ export const Incubators = () => {
         <ul className="dropdown-container">
           <li className="dropdown-subcontainer">
             {/* <Link href="https://tiiciitbhu.org"> */}
-            <a
+            {/*<a
               className="dropdown-item"
               href="https://i3f-iitbhu.org/"
               rel="noreferrer"
               target="_blank"
-            >
+            >*/}
+            <Link href="/i3" passHref className="dropdown-item">
               <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>
@@ -256,15 +257,16 @@ export const Incubators = () => {
                   nurturing start-ups
                 </p>
               </div>
-            </a>
+            </Link>
             {/* </Link> */}
 
-            <a
+          {/* <a
               className="dropdown-item"
               href="https://thingqbator.nasscomfoundation.org/"
               rel="noreferrer"
               target="_blank"
-            >
+            > */}
+            <Link href="/ciscotq" passHref className="dropdown-item">
               <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>Cisco thingQbator</h4>
@@ -273,15 +275,16 @@ export const Incubators = () => {
                   incubator
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <a
+            {/*<a
               className="dropdown-item"
               href="https://i3f-iitbhu.org/"
               rel="noreferrer"
               target="_blank"
-            >
+            >*/}
+            <Link href="/ncl" passHref className="dropdown-item">
               <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>
@@ -292,14 +295,15 @@ export const Incubators = () => {
                   funded incubator
                 </p>
               </div>
-            </a>
+            </Link>
 
-            <a
+           {/* <a
               className="dropdown-item"
               href="https://www.idapthub.org/"
               rel="noreferrer"
               target="_blank"
-            >
+            > */}
+              <Link href="/idaptHub" passHref className="dropdown-item">
               <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>IDAPT-Hub Foundation</h4>
@@ -308,15 +312,16 @@ export const Incubators = () => {
                   <br /> and Predictive Technologies”
                 </p>
               </div>
-            </a>
+              </Link>
           </li>
           <li className="dropdown-subcontainer">
-            <a
+           { /*<a
               className="dropdown-item"
               href="https://i3f-iitbhu.org/"
               rel="noreferrer"
               target="_blank"
-            >
+            >*/ }
+            <Link href="/rabi" passHref className="dropdown-item">
               <FcIdea fontSize="2rem"></FcIdea>
               <div>
                 <h4>R-ABI, IIT BHU</h4>
@@ -325,7 +330,7 @@ export const Incubators = () => {
                   @ IIT BHU
                 </p>
               </div>
-            </a>
+            </Link>
 
             <a
               className="dropdown-item"

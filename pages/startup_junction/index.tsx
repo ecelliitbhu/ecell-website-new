@@ -30,13 +30,13 @@ const StartupJunction: FunctionComponent<Props> = () => {
                 <div className={styles.venue}>
                   <div>
                     <CalendarDays />
-                    <span className={styles.heroDate}> 15th December 2023</span>
+                    <span className={styles.heroDate}> 13th December 2024</span>
                   </div>
                   <div>
                     <MapPin />
                     <span className={styles.heroDate}>
                       {" "}
-                      Delhi/NCR and Bengaluru
+                      Pune and Banglore
                     </span>
                   </div>
                 </div>
@@ -49,13 +49,18 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   propel your startup forward.
                 </p>
 
+               
                 <Link
-                  href="https://forms.gle/LZhuEfNJ1Qhkc4cy7"
-                  target={"_blank"}
+                  href="/forms/startup_junction"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`${styles.btn} ${styles.btnFill} ${styles.marginRightBtn}`}
                 >
                   Register
                 </Link>
+
+
+
                 <Link
                   href={"/startup_junction#about"}
                   className={`${styles.btn} ${styles.btnOutline} ${styles.marginRightBtn}`}

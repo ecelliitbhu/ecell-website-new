@@ -125,8 +125,8 @@ export default function StartupJunctionForm() {
               {...register("city", { required: true })}
             >
               <option>Open this select preferred city</option>
-              <option value="Delhi/NCR">Delhi/NCR</option>
-              <option value="Bengaluru">Bengaluru</option>
+              <option value="Pune">Pune</option>
+              <option value="Banglore">Banglore</option>
 
             </Form.Select>
             {errors.city && (
