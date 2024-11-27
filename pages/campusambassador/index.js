@@ -1,6 +1,6 @@
-import Leaderboard from "@/components/Campus ambassador/Leaderboard";
-import Profile from "@/components/Campus ambassador/Profile";
-import TaskList from "@/components/Campus ambassador/Tasks";
+import Leaderboard from "@/components/CampusAmbassador/Leaderboard";
+import Profile from "@/components/CampusAmbassador/Profile";
+import TaskList from "@/components/CampusAmbassador/Tasks";
 import Nav from "@/components/navbar/NavLayout";
 import { updateLeaderboard, updateLoading, updateUser } from "@/lib/redux/slices/campusAmbassadorSlice";
 import { Loader } from "lucide-react";
