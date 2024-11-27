@@ -10,6 +10,11 @@ import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
 import { ToastContainer } from "react-toastify";
+import { Provider } from 'react-redux';
+import { store } from "@/lib/redux/store";
+import GlobalDialog from "@/components/GlobalDialogWrapper/GlobalDialogWrapper";
+import GlobalProvider from "@/components/Providers/GlobalProvider";
+
 // import { Player, Controls } from "@lottiefiles/react-lottie-player";
 // const Player = dynamic(
 //   () => import("@lottiefiles/react-lottie-player"),
@@ -33,7 +38,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     // <SSRProvider>
-    <AuthProvider>
+<GlobalProvider>
       <Layout>
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
@@ -78,7 +83,7 @@ function MyApp({ Component, pageProps }) {
           </>
         )}
       </Layout>
-    </AuthProvider>
+</GlobalProvider>
     // </SSRProvider>
   );
 }

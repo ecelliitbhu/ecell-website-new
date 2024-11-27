@@ -14,6 +14,9 @@ import Notification from "./Notification";
 import NotificationOffCanvas from "./NotificationOffcanvas";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { UserCircle, UserCircle2Icon, UserCircleIcon, UserIcon, UserX2Icon } from "lucide-react";
+import { FaRegUserCircle } from "react-icons/fa";
+import CAAuth from "./CAAuth";
 
 
 const Nav = () => {
@@ -24,7 +27,7 @@ const Nav = () => {
         <div className="container-fluid">
 
           <NavLogo />
-          <NotificationOffCanvas />
+          <CAAuth className="md:hidden max-md:flex"/>
           <div className={cn("navbar-collapse",collapse && "max-lg:collapse")} id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <Discover />
@@ -35,7 +38,7 @@ const Nav = () => {
               <Team />
               <Startups />
               <Contact />
-              <Notification />
+              <CAAuth className="max-md:hidden md:flex"/>
             </ul>
           </div>
           <button
