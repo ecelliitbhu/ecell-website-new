@@ -30,7 +30,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                 <div className={styles.venue}>
                   <div>
                     <CalendarDays />
-                    <span className={styles.heroDate}> 13th December 2024</span>
+                    <span className={styles.heroDate}> 20th December 2024</span>
                   </div>
                   <div>
                     <MapPin />
@@ -51,9 +51,11 @@ const StartupJunction: FunctionComponent<Props> = () => {
 
                
                 <Link
-                  href="/forms/startup_junction"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  // href="/forms/startup_junction"
+                  // target="_blank"
+                  // rel="noopener noreferrer"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSctDWO1Msnpk6PHlOTq8mWrog8Zzyf1M0Hqt86VzCFEAOVfrw/viewform"
+                  target={"_blank"}
                   className={`${styles.btn} ${styles.btnFill} ${styles.marginRightBtn}`}
                 >
                   Register
@@ -224,8 +226,8 @@ const StartupJunction: FunctionComponent<Props> = () => {
               advancing the startup ecosystem in our country. Our vision is to
               connect venture capitalists with promising startups, providing a
               platform for innovation, growth, and collaboration.This one-day
-              event, will take place in Delhi/NCR and Bengaluru on 15th
-              Dec&apos;23, where the startups shortlisted after the due
+              event, will take place in Pune and Banglore on 20th
+              Dec&apos;24, where the startups shortlisted after the due
               diligence round would get to pitch in front our VC panel, and
               serve as an exclusive platform for visibility, mentorship, and
               funding.
