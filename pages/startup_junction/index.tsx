@@ -221,7 +221,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
           <section className={styles.about} id="about">
             <h1>About Startup Junction</h1>
             <p>
-              Startup Junction, a pre-event of E-Summit&apos;24 is an initiative
+              Startup Junction, a pre-event of E-Summit&apos;25 is an initiative
               by the Entrepreneurship Cell of IIT BHU aimed at nurturing and
               advancing the startup ecosystem in our country. Our vision is to
               connect venture capitalists with promising startups, providing a
@@ -234,7 +234,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
             </p>
           </section>{" "}
           <section className={styles.about}>
-            <h1>About E-Summit&apos;24</h1>
+            <h1>About E-Summit&apos;25</h1>
             <p>
               E-Summit IIT BHU is the annual flagship event of Entrepreneurship
               Cell of IIT BHU. It stands as a testament to our commitment to
@@ -243,8 +243,8 @@ const StartupJunction: FunctionComponent<Props> = () => {
               dynamic platform for startups, young innovators, students, and
               industry leaders to come together, share knowledge, and inspire
               innovation. The latest edition of this entrepreneurial
-              extravaganza, E-Summit&apos;24 is all set to take place from
-              February 2nd to February 4th, 2024, and promises to be an
+              extravaganza, E-Summit&apos;25 is all set to take place from
+              February 2nd to February 4th, 2025, and promises to be an
               enriching experience for all the participants.
             </p>
           </section>{" "}
