@@ -33,12 +33,12 @@ const TaskList = ({ className }) => {
       case "Submitted":
         return "bg-success";  
       default:
-        return "bg-blue-400";  
+        return "bg-gradient-to-l from-[rgb(251,146,60)] to-white";  
     }
   };
 
   return (
-    <div className={cn("md:p-6 max-md:p-4 bg-white rounded-lg shadow-md", className)}>
+    <div className={cn("md:p-6 max-md:p-4 bg-white rounded-lg shadow-lg", className)}>
       <h2 className="text-2xl sticky font-bold mb-2">Tasks</h2>
       <ul className="flex flex-col gap-y-4 h-[340px] overflow-y-auto">
         {tasks.map((task) => (
@@ -56,7 +56,7 @@ const TaskList = ({ className }) => {
                 <span >{dropdownOpen[task.id] ? "Hide" : "Show"} Details</span>  {dropdownOpen[task.id] ? <FaCaretUp className="max-md:w-8 max-md:h-8" /> : <FaCaretDown  className="max-md:w-8 max-md:h-8"/>} 
                 </button>
                 {!task.submitted ? (
-                  <label className="bg-success text-white rounded-full px-4 py-2 transition cursor-pointer">
+                  <label className="bg-black text-white rounded-full px-4 py-2 transition cursor-pointer">
                     <span>Submit</span>
                     <input
                       type="file"
