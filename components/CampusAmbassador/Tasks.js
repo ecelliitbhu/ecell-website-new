@@ -1,7 +1,11 @@
+import { updateTask, updateTaskLoading } from "@/lib/redux/slices/campusAmbassadorSlice";
+import { useSession } from "next-auth/react";
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+import toast from "react-hot-toast";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { FaEdit, FaPlus } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -9,16 +13,57 @@ function cn(...classes) {
 const TaskList = ({ className }) => {
 
   const tasks=useSelector(state=>state.campusAmbassador.user.tasks)
+  const id=useSelector(state=>state.campusAmbassador.user.id)
   const [dropdownOpen, setDropdownOpen] = useState({});
   const [fileUpload, setFileUpload] = useState(null);
+  const session=useSession()
+  const dispatch=useDispatch()
 
-  const handleUpload = (id, event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setTasks(tasks.map(task => task.id === id ? { ...task, status: "Submitted", submitted: true } : task));
-      setFileUpload(file);
+
+
+  const handleUpload = async (taskId) => {
+  
+    if (fileUpload) {
+      try {
+        const response = await fetch('https://cell-backend-8gp3.onrender.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            taskId: taskId,
+            submission: fileUpload,
+            email:session?.data?.user?.email // This is the file URL or drive link
+          }),
+        });
+  
+        // Check if the request was successful
+        if (!response.ok) {
+          throw new Error('Error submitting task');
+        }
+  
+        // Handle successful task submission
+        const data = await response.json();
+        dispatch(updateTask({
+          id: taskId,  // Task ID
+          updates: { 
+            status: 'Submitted', 
+            submissionLink: fileUpload,
+            submitted: true,
+          }
+        }));        
+        setFileUpload(''); // Clear file upload state after submission
+  
+        // Optionally, you can display a success message based on the response
+        toast.success('Task submission successful:');
+      } catch (error) {
+        console.log(error)
+        toast.error('Error submitting task:');
+        // Handle error (e.g., show a notification or message to the user)
+      }
     }
   };
+  
 
   const toggleDropdown = (id) => {
     setDropdownOpen((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -26,11 +71,11 @@ const TaskList = ({ className }) => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "Pending":
+      case "pending":
         return "bg-warning";  
-      case "Missed":
+      case "missed":
         return "bg-destructive";  
-      case "Submitted":
+      case "submitted":
         return "bg-success";  
       default:
         return "bg-gradient-to-l from-[rgb(251,146,60)] to-white";  
@@ -41,7 +86,7 @@ const TaskList = ({ className }) => {
     <div className={cn("md:p-6 max-md:p-4 bg-white rounded-lg shadow-lg", className)}>
       <h2 className="text-2xl sticky font-bold mb-2">Tasks</h2>
       <ul className="flex flex-col gap-y-4 h-[340px] overflow-y-auto">
-        {tasks.map((task) => (
+        {tasks && tasks?.map((task) => (
           <li key={task.id} className={`p-4 rounded-lg shadow ${getStatusColor(task.status)}`}>
             <div className="flex max-md:flex-col max-md:gap-3 md:justify-between items-start">
               <div className="flex flex-col max-md:gap-2">
@@ -56,13 +101,14 @@ const TaskList = ({ className }) => {
                 <span >{dropdownOpen[task.id] ? "Hide" : "Show"} Details</span>  {dropdownOpen[task.id] ? <FaCaretUp className="max-md:w-8 max-md:h-8" /> : <FaCaretDown  className="max-md:w-8 max-md:h-8"/>} 
                 </button>
                 {!task.submitted ? (
-                  <label className="bg-black text-white rounded-full px-4 py-2 transition cursor-pointer">
-                    <span>Submit</span>
+                  <label className="bg-black md:flex-row flex-col gap-3  w-full flex text-white rounded-full px-6 py-8 transition cursor-pointer">
                     <input
-                      type="file"
-                      onChange={(e) => handleUpload(task.id, e)}
-                      className="hidden"
+                      type="text"
+                      onChange={(e) => setFileUpload(e.target.value)}
+                      className="text-black rounded-md px-2"
+                      placeholder="Paste your drive link here !"
                     />
+                    <Button onClick={()=>handleUpload(task.id)}>Submit</Button>
                   </label>
                 ) : (
                   <p className="text-black font-bold">Submitted</p>

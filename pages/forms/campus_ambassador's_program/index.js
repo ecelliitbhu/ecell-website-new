@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Container, Row } from "react-bootstrap";
 import Footer from "../../../components/Footer";
 import Nav from "../../../components/navbar/NavLayout";
-import Campus_Ambassador_Program from "../../../components/forms/Campus_Ambassador_Program ";
+import Campus_Ambassador_Program from "../../../components/forms/Campus_Ambassador_Program";
 export default function Contacts() {
   return (
     <>

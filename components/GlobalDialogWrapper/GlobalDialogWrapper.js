@@ -1,25 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import * as Dialog from '@radix-ui/react-dialog';
 import { closeDialog } from '@/lib/redux/slices/GlobalDialogWrapperSlice';
+import Login from './login';
 
 
 
-const LoginForm = () => (
-  <div>
-    <input type="email" placeholder="Email" className="input" />
-    <input type="password" placeholder="Password" className="input" />
-    <button className="btn">Login</button>
-  </div>
-);
 
-const SignupForm = () => (
-  <div>
-    <input type="text" placeholder="Name" className="input" />
-    <input type="email" placeholder="Email" className="input" />
-    <input type="password" placeholder="Password" className="input" />
-    <button className="btn">Sign Up</button>
-  </div>
-);
 
 export default function GlobalDialog({children}) {
   const dispatch = useDispatch();
@@ -30,9 +16,7 @@ export default function GlobalDialog({children}) {
   const renderDialogBody = () => {
     switch (dialogType) {
       case 'login':
-        return <LoginForm />;
-      case 'signup':
-        return <SignupForm />;
+        return <Login/>;
       default:
         return <p>Default Content</p>;
     }

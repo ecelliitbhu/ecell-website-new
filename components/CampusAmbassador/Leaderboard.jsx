@@ -1,24 +1,11 @@
 import React, { forwardRef } from "react";
 import cn from "classnames";
+import { updateLeaderboard, updateLeaderboardLoading } from "@/lib/redux/slices/campusAmbassadorSlice";
+import { useSelector } from "react-redux";
 
 const Leaderboard = forwardRef(({ className = "" }, ref) => {
-  const leaderboard = [
-    { name: "Alice", points: 1900 ,college: "IIT-BHU" },
-    { name: "Bob", points: 1400 ,college: "IIT-BHU" },
-    { name: "John Doe", points: 1200 ,college: "IIT-BHU" },
-    { name: "John Doe", points: 1200 ,college: "IIT-B" },
-    { name: "John Doe", points: 1200 ,college: "IIT-B" },
-    { name: "John Doe", points: 1200 ,college: "IIT-D" },
-    { name: "John Doe", points: 1200 ,college: "IIT-D" },
-    { name: "John Doe", points: 1900 ,college: "IIT-D" },
-    { name: "John Doe", points: 1100 ,college: "IIT-K" },
-    { name: "John Doe", points: 1100 ,college: "MIT(Manipal not Massachusetts)" },
-    { name: "John Doe", points: 1100 ,college: "IIT-BHU" },
-    { name: "John Doe", points: 1100 ,college: "IIT-BHU" },
-    { name: "John Doe", points: 1100 ,college: "IIT-BHU" },
-    { name: "John Doe", points: 1100 ,college: "IIT-BHU" },
-  ];
-
+  const leaderboard=useSelector(state=>state.campusAmbassador.leaderboard)
+console.log(leaderboard)
   return (
     <div ref={ref} className={cn("leaderboard-container", className)}>
       <div className="bg-gradient-to-b from-white to-black shadow-lg rounded-lg p-6 mb-6">
@@ -31,8 +18,6 @@ const Leaderboard = forwardRef(({ className = "" }, ref) => {
         </div>
         <div className="divide-y divide-white">
           {leaderboard
-            .sort((a, b) => b.points - a.points)
-            .slice(0, 10)
             .map((leader, index) => (
               <div
                 key={index}
@@ -44,15 +29,15 @@ const Leaderboard = forwardRef(({ className = "" }, ref) => {
                 </div>
                 <div className="sm:col-span-1">
                   <span className="font-bold sm:hidden">Name: </span>
-                  {leader.name}
+                  {leader?.name}
                 </div>
                 <div className="sm:col-span-1">
                   <span className="font-bold sm:hidden">Points: </span>
-                  {leader.points}
+                  {leader?.points}
                 </div>
                 <div className="sm:col-span-1">
                   <span className="font-bold sm:hidden">College: </span>
-                  {leader.college}
+                  {leader?.collegeName}
                 </div>
               </div>
             ))}

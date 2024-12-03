@@ -1,4 +1,6 @@
+import { updateUserLoading,updateUser } from '@/lib/redux/slices/campusAmbassadorSlice';
 import { cn } from '@/lib/utils';
+import { useSession } from 'next-auth/react';
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
@@ -8,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function Profile({className}) {
     const [editing, setEditing] = useState(false);
     const dispatch=useDispatch();
+    const session=useSession()
     const user=useSelector(state=>state.campusAmbassador.user)
     
 
@@ -17,7 +20,7 @@ export default function Profile({className}) {
     );
     const onSubmit = async (data) => {
         try {
-            const response = await fetch('/campusambassador/updateUser', {
+            const response = await fetch('https://cell-backend-8gp3.onrender.com/update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -25,10 +28,12 @@ export default function Profile({className}) {
                 body: JSON.stringify({ id: user.id, ...data }),
             });
             const updatedUser = await response.json();
-            dispatch(updatedUser(updatedUser));
+            dispatch(updateUser({...user, ...updatedUser}));
             reset(updatedUser);
             setEditing(false);
+            toast.success("User updated !");
         } catch (error) {
+            console.log(error)
             toast.error("Error updating user:", error);  
         }
     };
