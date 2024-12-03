@@ -1,39 +1,23 @@
-
 import React from 'react';
+
 
 const Ribbon = () => {
   
   const frames = [
-    {
-      imageSrc: "https://s3.ap-south-1.amazonaws.com/townscript-production/images/ST1722320782225STENDf3691766-15cd-4630-a786-0edfbeba48cd.jpg",
-      
-    },
-    {
-      imageSrc: "https://s3.ap-south-1.amazonaws.com/townscript-production/images/ST1722320782225STENDf3691766-15cd-4630-a786-0edfbeba48cd.jpg",
-    
-    },
-    {
-      imageSrc: "https://s3.ap-south-1.amazonaws.com/townscript-production/images/ST1722320782225STENDf3691766-15cd-4630-a786-0edfbeba48cd.jpg",
-    
-    },
-    {
-      imageSrc: "https://s3.ap-south-1.amazonaws.com/townscript-production/images/ST1722320782225STENDf3691766-15cd-4630-a786-0edfbeba48cd.jpg",
-     
-    },
-    {
-      imageSrc: "https://s3.ap-south-1.amazonaws.com/townscript-production/images/ST1722320782225STENDf3691766-15cd-4630-a786-0edfbeba48cd.jpg",
-    
-    },
-    {
-      imageSrc: "https://s3.ap-south-1.amazonaws.com/townscript-production/images/ST1722320782225STENDf3691766-15cd-4630-a786-0edfbeba48cd.jpg",
-     
-    }
+   
+    { imageSrc: "/startupjunction.jpeg" },
+    { imageSrc: "/startupjunction.jpeg" },
+    { imageSrc: "/startupjunction.jpeg" },
+    { imageSrc: "/startupjunction.jpeg" },
+    { imageSrc: "/startupjunction.jpeg" },
+    { imageSrc: "/startupjunction.jpeg" },
   ];
 
 
   const repeatedFrames = [...frames, ...frames];
 
   return (
+    <a href="/startup_junction/" className="block" style={{ textDecoration: 'none', color: 'inherit' }}>
     <div className="overflow-hidden bg-white shadow-md relative mb-16">
       <style>
         {`
@@ -51,16 +35,20 @@ const Ribbon = () => {
             width: calc(200vw / ${frames.length});  
             white-space: nowrap; 
            
-           
+           justify-content: center;  
+              align-items: center;  
            
             border: none; 
             box-shadow: none;
+            height: 100%; 
          
           }
           .text-container {
             display: flex; 
             align-items: center; 
             flex-wrap:wrap;
+            height: 100%; 
+            
           }
              .text-shadow {
             text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); 
@@ -76,14 +64,13 @@ const Ribbon = () => {
               <img 
                 src={frame.imageSrc} 
                 alt="Event" 
-                className="h-12 sm:h-10 md:h-11 lg:h-12 xl:h-14 mr-2" 
+                className="h-12 mt-2 sm:h-10  md:h-10 lg:h-12  xl:h-14  mr-2" 
               />
               <div className="text-gray-700 justify-center  items-center flex flex-wrap text-shadow" />
               
-              <div className="ml-2 mr-2">20<sup>th</sup></div>
-              <div className="mr-2">TO</div>
-              <div className="mr-2">22<sup>nd</sup></div>
-              <div className="mr-2">SEPT</div>
+              <div className="ml-4 mr-2">20<sup>th</sup></div>
+            
+              <div className="mr-2">DEC</div>
               <div className="mr-2">2024</div>
               
             </div>
@@ -91,6 +78,7 @@ const Ribbon = () => {
         ))}
       </div>
     </div>
+    </a>
   );
 };
 
