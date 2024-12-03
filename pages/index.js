@@ -20,6 +20,7 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
+      
       <NextSeo
         description="Welcome to the vibrant entrepreneurship community of E-cell IIT BHU. Join us as we ideate, iterate, and incubate the innovations that will shape the future of this century. Explore opportunities, events, and resources for aspiring entrepreneurs"
         canonical="https://www.ecelliitbhu.com/"
