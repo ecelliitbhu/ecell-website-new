@@ -1,14 +1,16 @@
 import Form from "react-bootstrap/Form";
 import { Controller, useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 import { firestoreDB } from "@/lib/firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
 
 export default function CampusAmbassadorProgram() {
+  const router=useRouter()
   const {
     register,
     handleSubmit,
@@ -19,6 +21,17 @@ export default function CampusAmbassadorProgram() {
     defaultValues: {
     }
   });
+  const errorShown = useRef(false);
+  
+  const searchParams = useSearchParams();
+  const errorMessage = searchParams.get('error');
+  
+  useEffect(() => {
+    if (errorMessage && !errorShown.current) {
+      toast.error(decodeURIComponent(errorMessage));
+      errorShown.current = true;
+    }
+  }, [errorMessage]);
   const selectedYear = watch("year");
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [otherSelected,setOtherSelected]=useState(false)
@@ -78,6 +91,7 @@ export default function CampusAmbassadorProgram() {
       toast.success('User successfully registered!');
       setLoading(false)
       console.log(result);
+      router.push("/")
     } else {
       setLoading(false)
       toast.error(`Error: ${result.error}`);
@@ -204,7 +218,7 @@ export default function CampusAmbassadorProgram() {
               </Form.Label>
               <Form.Control
                 type="email"
-                placeholder="name@itbhu.ac.in"
+                placeholder="Email will be used for logging in dashboard"
                 {...register("email", { required: true })}
                 className="mb-2"
               />

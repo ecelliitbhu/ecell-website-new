@@ -1,4 +1,6 @@
+import { updateUserLoading } from '@/lib/redux/slices/campusAmbassadorSlice';
 import { cn } from '@/lib/utils';
+import { useSession } from 'next-auth/react';
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
@@ -8,6 +10,22 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function Profile({className}) {
     const [editing, setEditing] = useState(false);
     const dispatch=useDispatch();
+    const session=useSession()
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/user?email='+session?.data?.user?.email);
+                const data = await response.json();
+                dispatch(updateUser(data));
+                dispatch(updateUserLoading(false))
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                dispatch(updateUserLoading(false))
+            }
+        };
+
+       if(session.status="authenticated"){ fetchData();}
+    }, [session.status]);
     const user=useSelector(state=>state.campusAmbassador.user)
     
 

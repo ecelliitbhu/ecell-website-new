@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import { store } from "@/lib/redux/store";
 import GlobalDialog from "@/components/GlobalDialogWrapper/GlobalDialogWrapper";
 import GlobalProvider from "@/components/Providers/GlobalProvider";
+import { SessionProvider } from "next-auth/react";
 
 // import { Player, Controls } from "@lottiefiles/react-lottie-player";
 // const Player = dynamic(
@@ -25,7 +26,7 @@ import GlobalProvider from "@/components/Providers/GlobalProvider";
 //   { ssr: false } // This will load the component only on client side
 // );
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps:{session,...pageProps}, }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     Router.events.on("routeChangeStart", (url, { shallow }) => {
@@ -38,6 +39,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     // <SSRProvider>
+    <SessionProvider session={session}>
 <GlobalProvider>
       <Layout>
         <Head>
@@ -84,7 +86,7 @@ function MyApp({ Component, pageProps }) {
         )}
       </Layout>
 </GlobalProvider>
-    // </SSRProvider>
+</SessionProvider>
   );
 }
 
