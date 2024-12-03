@@ -28,7 +28,7 @@ export default function CampusAmbassadorProgram() {
   
   useEffect(() => {
     if (errorMessage && !errorShown.current) {
-      toast.error(decodeURIComponent(errorMessage));
+      toast.error("You can't sign in !, "+decodeURIComponent(errorMessage));
       errorShown.current = true;
     }
   }, [errorMessage]);

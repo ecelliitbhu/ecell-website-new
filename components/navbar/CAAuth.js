@@ -39,6 +39,7 @@ export default function CAAuth({className}) {
                         <MenuItem onClick={() => {
                             signOut()
                             handleClose()
+                            window.open("/")
                         }}>Logout</MenuItem>
                         <MenuItem onClick={() => {
                             window.open("/campusambassador")
@@ -49,7 +50,7 @@ export default function CAAuth({className}) {
                     <MenuItem onClick={() => {
                         dispatch(openDialog('login'))
                         handleClose()
-                    }}>Login</MenuItem>
+                    }}>Login as CA</MenuItem>
                 )}
             </Menu>
         </>

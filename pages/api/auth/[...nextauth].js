@@ -6,7 +6,7 @@ import GoogleProvider from "next-auth/providers/google";
 async function checkUserExists(email) {
   try {
     console.log("entered here")
-    const response = await fetch(`http://localhost:8000/user?email=${email}`);
+    const response = await fetch(`https://cell-backend-8gp3.onrender.com/user?email=${email}`);
     if (response.status === 404) {
       return false;
     }

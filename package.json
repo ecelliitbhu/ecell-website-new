@@ -59,7 +59,7 @@
     "next-themes": "^0.2.1",
     "prisma": "^5.21.0",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.0.0-beta.6",
+    "react-bootstrap": "^2.10.6",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.2",
