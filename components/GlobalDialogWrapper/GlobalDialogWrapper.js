@@ -7,9 +7,10 @@ import Login from './login';
 
 
 
+
 export default function GlobalDialog({children}) {
   const dispatch = useDispatch();
-  const { isDialogOpen, dialogType } = useSelector((state) => state.GlobalDialog);
+  const { isDialogOpen, dialogType,title } = useSelector((state) => state.GlobalDialog);
 
   const handleClose = () => dispatch(closeDialog());
 
@@ -29,12 +30,8 @@ export default function GlobalDialog({children}) {
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50" />
         <Dialog.Content className="fixed left-1/2 top-1/2 max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white p-6 shadow-lg">
-          <Dialog.Title className="text-lg font-semibold">{'Dialog'}</Dialog.Title>
-          <Dialog.Description className="text-sm text-gray-500">
-            {renderDialogBody()}
-          </Dialog.Description>
-          <div className="mt-4 flex justify-end">
-            <Dialog.Close asChild>
+          <Dialog.Title className="text-lg font-semibold">{title}</Dialog.Title>
+          <Dialog.Close asChild>
               <button
                 onClick={handleClose}
                 className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
@@ -42,6 +39,10 @@ export default function GlobalDialog({children}) {
                 Close
               </button>
             </Dialog.Close>
+          <Dialog.Description className="text-sm text-gray-500">
+            {renderDialogBody()}
+          </Dialog.Description>
+          <div className="mt-4 flex justify-end">
           </div>
         </Dialog.Content>
       </Dialog.Portal>

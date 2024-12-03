@@ -48,7 +48,7 @@ export default function CAAuth({className}) {
                     </>
                 ) : (
                     <MenuItem onClick={() => {
-                        dispatch(openDialog('login'))
+                        dispatch(openDialog({type:'login',title:'Login to CA'}))
                         handleClose()
                     }}>Login as CA</MenuItem>
                 )}
