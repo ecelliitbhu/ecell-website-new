@@ -5,12 +5,12 @@ const Ribbon = () => {
   
   const frames = [
    
-    { imageSrc: "/startupjunction.jpeg" },
-    { imageSrc: "/startupjunction.jpeg" },
-    { imageSrc: "/startupjunction.jpeg" },
-    { imageSrc: "/startupjunction.jpeg" },
-    { imageSrc: "/startupjunction.jpeg" },
-    { imageSrc: "/startupjunction.jpeg" },
+    { imageSrc: "/startupjunction.png" },
+    { imageSrc: "/startupjunction.png" },
+    { imageSrc: "/startupjunction.png" },
+    { imageSrc: "/startupjunction.png" },
+    { imageSrc: "/startupjunction.png" },
+    { imageSrc: "/startupjunction.png" },
   ];
 
 
@@ -68,10 +68,15 @@ const Ribbon = () => {
               />
               <div className="text-gray-700 justify-center  items-center flex flex-wrap text-shadow" />
               
-              <div className="ml-4 mr-2">20<sup>th</sup></div>
+              <div className="ml-4 mr-1">20<sup>th</sup></div>
             
-              <div className="mr-2">DEC</div>
-              <div className="mr-2">2024</div>
+              <div className="mr-1">DEC</div>
+              <div className="mr-1">2024</div>
+              <div className="mr-1">@</div>
+              <div className="mr-1">Pune</div>
+              <div className="mr-1">and</div>
+              <div className="mr-1">Bangalore</div>
+
               
             </div>
           </div>
