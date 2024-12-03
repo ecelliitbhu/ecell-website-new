@@ -313,7 +313,7 @@ export default function CampusAmbassadorProgram() {
                 />
                 <span> Other Skills: </span>
               </div>
-              {otherSelected && (<Form.Control controlId="otherSkills" as="textarea" {...register("otherSkills", { required: true })}
+              {otherSelected && (<Form.Control controlId="otherSkills" as="textarea" {...register("otherSkills", { required: selectedSkills.length==0 })}
                 className="mb-2"
               />)}
             </div>

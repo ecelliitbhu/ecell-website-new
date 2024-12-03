@@ -1,23 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import * as Dialog from '@radix-ui/react-dialog';
 import { closeDialog } from '@/lib/redux/slices/GlobalDialogWrapperSlice';
-
+import {signOut,signIn, useSession} from 'next-auth/react'
 
 
 const LoginForm = () => (
   <div>
-    <input type="email" placeholder="Email" className="input" />
-    <input type="password" placeholder="Password" className="input" />
-    <button className="btn">Login</button>
+    {/* <input type="email" placeholder="Email" className="input" />
+    <input type="password" placeholder="Password" className="input" /> */}
+    <button className="btn" onClick={() => signIn()}>Login</button>
   </div>
 );
 
 const SignupForm = () => (
   <div>
-    <input type="text" placeholder="Name" className="input" />
-    <input type="email" placeholder="Email" className="input" />
-    <input type="password" placeholder="Password" className="input" />
-    <button className="btn">Sign Up</button>
+    {/* Retrieve User with given email address if not form filled then fill form */}
+    <button className="btn" onClick={() => signIn()}>SignUp</button>
   </div>
 );
 
