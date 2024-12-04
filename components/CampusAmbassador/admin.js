@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 
-const BASE_URL = 'https://cell-backend-8gp3.onrender.com';
+const BASE_URL = process.env.BACKEND_URL;
 
 function Admin() {
   const [userData, setUserData] = useState([]);

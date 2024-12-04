@@ -20,7 +20,7 @@ export default function Profile({className}) {
     );
     const onSubmit = async (data) => {
         try {
-            const response = await fetch('https://cell-backend-8gp3.onrender.com/update', {
+            const response = await fetch(process.env.BACKEND_URL+'/update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

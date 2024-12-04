@@ -18,7 +18,7 @@ export default function CampusAmbassador() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await fetch('https://cell-backend-8gp3.onrender.com/user?email='+session?.data?.user?.email);
+                const response = await fetch(process.env.BACKEND_URL+'/user?email='+session?.data?.user?.email);
                 const data = await response.json();
                 console.log(data.id)
                 dispatch(updateUser(data));
@@ -34,7 +34,7 @@ export default function CampusAmbassador() {
         const fetchTasks = async (userId) => {
             try {
                 console.log(userId)
-                const response = await fetch('https://cell-backend-8gp3.onrender.com/getTasks?userId='+userId);
+                const response = await fetch(process.env.BACKEND_URL+'/getTasks?userId='+userId);
                 const data = await response.json();
                 dispatch(updateTask(data));
                 dispatch(updateTaskLoading(false));
@@ -46,7 +46,7 @@ export default function CampusAmbassador() {
 
         const fetchLeaderboard = async () => {
             try {
-                const response = await fetch('https://cell-backend-8gp3.onrender.com/getLeaderboard');
+                const response = await fetch(process.env.BACKEND_URL+'/getLeaderboard');
                 const data = await response.json();
                 dispatch(updateLeaderboard(data));
                 dispatch(updateLeaderboardLoading(false));

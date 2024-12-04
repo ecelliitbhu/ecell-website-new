@@ -25,7 +25,7 @@ const TaskList = ({ className }) => {
   
     if (fileUpload) {
       try {
-        const response = await fetch('https://cell-backend-8gp3.onrender.com/submit', {
+        const response = await fetch(process.env.BACKEND_URL+'/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -60,7 +60,7 @@ export default function CampusAmbassadorProgram() {
 
     // Sending the form data as a POST request
     try {
-      const response = await fetch('https://cell-backend-8gp3.onrender.com/register', {
+      const response = await fetch(process.env.BACKEND_URL+'/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
