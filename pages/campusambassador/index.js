@@ -18,7 +18,7 @@ export default function CampusAmbassador() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await fetch(process.env.BACKEND_URL+'/user?email='+session?.data?.user?.email);
+                const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/user?email='+session?.data?.user?.email);
                 const data = await response.json();
                 console.log(data.id)
                 dispatch(updateUser(data));
@@ -34,7 +34,7 @@ export default function CampusAmbassador() {
         const fetchTasks = async (userId) => {
             try {
                 console.log(userId)
-                const response = await fetch(process.env.BACKEND_URL+'/getTasks?userId='+userId);
+                const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/getTasks?userId='+userId);
                 const data = await response.json();
                 dispatch(updateTask(data));
                 dispatch(updateTaskLoading(false));
@@ -46,7 +46,7 @@ export default function CampusAmbassador() {
 
         const fetchLeaderboard = async () => {
             try {
-                const response = await fetch(process.env.BACKEND_URL+'/getLeaderboard');
+                const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/getLeaderboard');
                 const data = await response.json();
                 dispatch(updateLeaderboard(data));
                 dispatch(updateLeaderboardLoading(false));
@@ -84,8 +84,8 @@ export default function CampusAmbassador() {
                 <div className="flex px-4 mb-4 flex-col gap-6">
                     <h1 className="text-3xl font-bold text-center my-4">Campus Ambassador Dashboard E-Cell IIT BHU</h1>
                     {(taskLoading||userLoading||leaderboardLoading) ?
-                        <Loader className="block mt-12 mx-auto w-16 h-16" />
-                    : (
+                        <Loader rotate="rotate" className="block mt-12 animate-spin mx-auto w-16 h-16" />
+                        : (
                         <div className="grid grid-cols-12 gap-6">
                             <div className="col-span-12 w-fit mx-auto py-2 px-4 rounded-sm border border-green md:flex justify-center items-center gap-4">
                                 {leaderboard && <p className="md:text-xl max-md:text-lg pt-3">

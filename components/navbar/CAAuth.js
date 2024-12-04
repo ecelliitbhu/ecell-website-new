@@ -5,10 +5,12 @@ import React, { useState } from 'react'
 import { FaRegUserCircle } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
 import { Menu, MenuItem } from '@mui/material'
+import { useRouter } from 'next/navigation'
 
 export default function CAAuth({className}) {
     const dispatch = useDispatch()
     const session = useSession()
+    const router=useRouter()
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
 
@@ -39,10 +41,10 @@ export default function CAAuth({className}) {
                         <MenuItem onClick={() => {
                             signOut()
                             handleClose()
-                            window.open("/")
+                            router.push("/")
                         }}>Logout</MenuItem>
                         <MenuItem onClick={() => {
-                            window.open("/campusambassador")
+                            router.push("/campusambassador")
                             handleClose()
                         }}>CA Dashboard</MenuItem>
                     </>

@@ -6,7 +6,7 @@ import GoogleProvider from "next-auth/providers/google";
 async function checkUserExists(email) {
   try {
     console.log("entered here")
-    const response = await fetch(process.env.BACKEND_URL+`/user?email=${email}`);
+    const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+`/user?email=${email}`);
     if (response.status === 404) {
       return false;
     }
@@ -49,9 +49,17 @@ export const authOptions = {
       }
       return token;
     },
+    async redirect({url, baseUrl}) {
+      console.log('url', url);
+      console.log('baseUrl', baseUrl);
+      
+      return baseUrl + '/campusambassador';
+    }
   },
   pages: {
-    error: '/campus-ambassador-form', 
+    error: '/campus-ambassador-form',
+    
+    // signIn: '/campusambassador' 
   }
 };
 

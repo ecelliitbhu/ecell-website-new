@@ -25,7 +25,7 @@ const TaskList = ({ className }) => {
   
     if (fileUpload) {
       try {
-        const response = await fetch(process.env.BACKEND_URL+'/submit', {
+        const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
