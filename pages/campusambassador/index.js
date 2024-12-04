@@ -89,7 +89,7 @@ export default function CampusAmbassador() {
                         <div className="grid grid-cols-12 gap-6">
                             <div className="col-span-12 w-fit mx-auto py-2 px-4 rounded-sm border border-green md:flex justify-center items-center gap-4">
                                 {leaderboard && <p className="md:text-xl max-md:text-lg pt-3">
-                                    <span className="text-orange-400">{leaderboard[0]?.name}</span> from {"IIT BHU"} is
+                                    <span className="text-orange-400">{leaderboard[0]?.name}</span> from {leaderboard[0]?.collegeName} is
                                     leading the points table with <span className="text-green-600">{leaderboard[0]?.points}</span>{" "}
                                     points!
                                 </p>}
