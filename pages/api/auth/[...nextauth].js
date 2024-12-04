@@ -2,11 +2,11 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 
-// process.env.BACKEND_URL+'
+// https://cell-backend-8gp3.onrender.com
 async function checkUserExists(email) {
   try {
     console.log("entered here")
-    const response = await fetch(`process.env.BACKEND_URL+'/user?email=${email}`);
+    const response = await fetch(process.env.BACKEND_URL+`/user?email=${email}`);
     if (response.status === 404) {
       return false;
     }
