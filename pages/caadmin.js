@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tab, Tabs, Box, TextField, Button } from "@mui/material";
 import Admin from "@/components/CampusAmbassador/admin"; // Your Admin component
+import toast from "react-hot-toast";
 
 function CAAdmin() {
   const [value, setValue] = useState(0); // State to manage which tab is active
@@ -29,7 +30,7 @@ function CAAdmin() {
       return;
     }
 
-    const response = await fetch("/api/createTask", {
+    const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+"/api/createTask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,10 +40,10 @@ function CAAdmin() {
 
     const data = await response.json();
     if (response.ok) {
-      alert("Task successfully created!");
+      toast.success("Task successfully created!");
       setFormData({ title: "", description: "", lastDate: "", points: "" });
     } else {
-      alert(`Error: ${data.error || "Something went wrong!"}`);
+      toast.error(`Error: ${data.error || "Something went wrong!"}`);
     }
   };
 
