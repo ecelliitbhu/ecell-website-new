@@ -1,7 +1,7 @@
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
-
+import Image from 'next/image'
 
 
 export default function Login (){
@@ -25,7 +25,25 @@ const handleSignIn = async () => {
 };
 return (
     <div>
-    <button disabled={loading} className="btn" onClick={handleSignIn}>Continue with google</button>
+    <button disabled={loading} className="btn" onClick={handleSignIn}
+    style={{
+          display: 'flex',  
+          alignItems: 'center', 
+          gap: '5px',  
+          padding: '5px 10px', 
+          border: '2px solid #4285F4', 
+          borderRadius: '5px', 
+          cursor: 'pointer',
+          marginTop:'15px',
+          marginRight:'15px',
+        }}>
+    Continue with google <Image 
+            src="/image1.png"
+            alt="Google Logo" 
+            width={45} 
+            height={45} 
+          /></button>
   </div>
 )
-}
+}                              
+

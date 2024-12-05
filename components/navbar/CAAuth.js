@@ -6,7 +6,9 @@ import { FaRegUserCircle } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
 import { Menu, MenuItem } from '@mui/material'
 import { useRouter } from 'next/navigation'
-
+import  LogOutIcon  from '@mui/icons-material/Logout'
+import LoginIcon from '@mui/icons-material/Login';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 export default function CAAuth({className}) {
     const dispatch = useDispatch()
     const session = useSession()
@@ -34,7 +36,7 @@ export default function CAAuth({className}) {
                 onClose={handleClose}
                 MenuListProps={{
                     'aria-labelledby': 'basic-button',
-                }}
+                }} 
             >
                 {session.status === "authenticated" ? (
                     <>
@@ -42,19 +44,37 @@ export default function CAAuth({className}) {
                             signOut()
                             handleClose()
                             router.push("/")
-                        }}>Logout</MenuItem>
+                        }}>
+                         <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
+                        <LogOutIcon fontSize="small" className="mr-2" />
+                        Logout
+                        </div>
+                        </MenuItem>
                         <MenuItem onClick={() => {
                             router.push("/campusambassador")
                             handleClose()
-                        }}>CA Dashboard</MenuItem>
+                        }}>
+                         <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
+                        <DashboardIcon fontSize="small" className="mr-2"  /> 
+                        CA Dashboard
+                        </div>
+                        </MenuItem>
                     </>
                 ) : (
                     <MenuItem onClick={() => {
-                        dispatch(openDialog({type:'login',title:'Login to CA'}))
+                        dispatch(openDialog({type:'login',title:'Login to Campus Ambassador'}))
                         handleClose()
-                    }}>Login as CA</MenuItem>
-                )}
+                    }} 
+                   
+                    > 
+                    <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
+                            <LoginIcon fontSize="small" className="mr-2" />
+                           
+                            Login as Campus Ambassador
+                        </div>
+                        </MenuItem>
+                    )}
             </Menu>
         </>
     )
-}
+} 
