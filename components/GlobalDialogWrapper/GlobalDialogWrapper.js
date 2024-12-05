@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as Dialog from '@radix-ui/react-dialog';
 import { closeDialog } from '@/lib/redux/slices/GlobalDialogWrapperSlice';
 import Login from './login';
-
+import Image from 'next/image'
 
 
 
@@ -29,14 +29,26 @@ export default function GlobalDialog({children}) {
     <Dialog.Root open={isDialogOpen} onOpenChange={(isOpen) => !isOpen && handleClose()}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white p-6 shadow-lg">
+        <Dialog.Content 
+        style={{
+    width: '330px', 
+    maxWidth: '90%', 
+  }}
+        className="fixed left-1/2 top-1/2 max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white p-6 shadow-lg">
           <Dialog.Title className="text-lg font-semibold">{title}</Dialog.Title>
           <Dialog.Close asChild>
               <button
                 onClick={handleClose}
-                className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+                className="absolute top-2 right-2 text-red-500 text-2xl font-bold hover:text-red-700 "
+                style={{ marginLeft: '30px' }}
               >
-                Close
+                <Image 
+            src="/image2.jpeg"
+            alt="Google Logo" 
+            width={35} 
+            height={35} 
+          
+          />
               </button>
             </Dialog.Close>
           <Dialog.Description className="text-sm text-gray-500">
