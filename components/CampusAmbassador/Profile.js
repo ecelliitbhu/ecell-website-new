@@ -91,10 +91,10 @@ export default function Profile({className}) {
                         Edit Profile
                     </button>
                 </div>
-                <p className="text-xl">Points: {user.points}</p>
+            <p className="text-xl">Points: {user.points}</p>
             <p className="text-xl">College: {user.collegeName}</p>
             <p className="text-xl">Graduating Year: {user.collegeYear}</p>
-            <p className="text-xl">Graduating Year: {user.phone}</p>
+            <p className="text-xl">Phone Number: {user.phone}</p>
                 </div>
             )}
         </div>
