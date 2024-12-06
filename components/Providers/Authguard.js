@@ -24,7 +24,7 @@ const AuthGuard = ({ children }) => {
 
   if (protectedRoutes.includes(usePathname())) {
     if(session.status!="authenticated"){
-    dispatch(openDialog({type:'login',title:"Login karle bhai pehle !"}))
+    dispatch(openDialog({type:'login',title:"Proceed to Login"}))
     return null;
     }
      // Prevent rendering the protected content
