@@ -15,6 +15,7 @@ import { store } from "@/lib/redux/store";
 import GlobalDialog from "@/components/GlobalDialogWrapper/GlobalDialogWrapper";
 import GlobalProvider from "@/components/Providers/GlobalProvider";
 import { SessionProvider } from "next-auth/react";
+import 'bootstrap/dist/css/bootstrap.css';
 
 // import { Player, Controls } from "@lottiefiles/react-lottie-player";
 // const Player = dynamic(

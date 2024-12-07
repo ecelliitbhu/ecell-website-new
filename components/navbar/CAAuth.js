@@ -1,4 +1,4 @@
-import { openDialog } from '@/lib/redux/slices/GlobalDialogWrapperSlice'
+import { closeDialog, openDialog } from '@/lib/redux/slices/GlobalDialogWrapperSlice'
 import { cn } from '@/lib/utils'
 import { useSession, signOut } from 'next-auth/react'
 import React, { useState } from 'react'
@@ -40,10 +40,9 @@ export default function CAAuth({className}) {
             >
                 {session.status === "authenticated" ? (
                     <>
-                        <MenuItem onClick={() => {
-                            signOut()
+                         <MenuItem onClick={() => {
                             handleClose()
-                            router.push("/")
+                            signOut({callbackUrl:"/"})
                         }}>
                          <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
                         <LogOutIcon fontSize="small" className="mr-2" />

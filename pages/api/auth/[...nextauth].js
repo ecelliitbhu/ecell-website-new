@@ -42,24 +42,9 @@ export const authOptions = {
       session.user.id = token.id;
       return session;
     },
-
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-      }
-      return token;
-    },
-    async redirect({url, baseUrl}) {
-      console.log('url', url);
-      console.log('baseUrl', baseUrl);
-      
-      return baseUrl + '/campusambassador';
-    }
   },
   pages: {
     error: '/campus-ambassador-form',
-    
-    // signIn: '/campusambassador' 
   }
 };
 
