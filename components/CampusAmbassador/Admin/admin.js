@@ -64,12 +64,14 @@ function Admin() {
   };
 
   return (
-    <Box p={4}>
+    <Box flexDirection={"column"} alignContent={"center"} p={4}>
       <Typography variant="h4" gutterBottom>
         Admin Panel
       </Typography>
       {loading ? (
+        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
         <CircularProgress />
+    </Box>
       ) : (
         <TableContainer component={Paper}>
           <Table>
