@@ -42,14 +42,14 @@ function Admin() {
 
   // Handle point assignment
   const handleAssignPoints = async (userId, taskId) => {
-    if (!points[taskId]) return alert('Please enter points before assigning.');
+    if (!points[userId+taskId]) return alert('Please enter points before assigning.');
 
     setAssigning(true);
     try {
       await axios.post(`${BASE_URL}/admin/tasks`, {
         userId,
         taskId,
-        points: parseInt(points[taskId]),
+        points: parseInt(points[userId+taskId]),
       });
       alert('Points successfully assigned!');
       // Refresh data after assignment
@@ -96,7 +96,7 @@ function Admin() {
                           <b>Title:</b> {task.taskTitle}
                         </Typography>
                         <Typography variant="body2">
-                          <b>Submission:</b> {task.submission || 'Not submitted'}
+                          <b>Submission:</b> {task.submission?<a href={task.submission} target="_blank" >Open submission</a> : 'Not submitted'}
                         </Typography>
                         <Typography variant="body2">
                           <b>Points:</b> {task.taskPoints || 0}
@@ -106,11 +106,11 @@ function Admin() {
                             label="Points"
                             variant="outlined"
                             size="small"
-                            value={points[task.taskId] || ''}
+                            value={points[task.taskId+user.userId] || ''}
                             onChange={(e) =>
                               setPoints({
                                 ...points,
-                                [task.taskId]: e.target.value,
+                                [task.taskId+user?.userId]: e.target.value,
                               })
                             }
                           />

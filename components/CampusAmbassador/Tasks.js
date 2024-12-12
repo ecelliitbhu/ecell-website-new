@@ -71,11 +71,11 @@ const TaskList = ({ className }) => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "pending":
+      case "Pending":
         return "bg-warning";  
-      case "missed":
+      case "Missing":
         return "bg-destructive";  
-      case "submitted":
+      case "Submitted":
         return "bg-success";  
       default:
         return "bg-gradient-to-l from-[rgb(251,146,60)] to-white";  
@@ -91,7 +91,7 @@ const TaskList = ({ className }) => {
             <div className="flex max-md:flex-col max-md:gap-3 md:justify-between items-start">
               <div className="flex flex-col max-md:gap-2">
                 <h3 className="md:font-bold max-md:font-semibold md:text-lg max-md:text-md">{task.title}</h3>
-                <p className="text-sm mb-1">Deadline: 00/00/0000</p>
+                <p className="text-sm mb-1">Deadline: {new Date(task?.lastDate).toLocaleDateString()}</p>
               </div>
               <div className="flex items-center gap-3">
               <button

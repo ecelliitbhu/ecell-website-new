@@ -2,7 +2,7 @@ import Leaderboard from "@/components/CampusAmbassador/Leaderboard";
 import Profile from "@/components/CampusAmbassador/Profile";
 import TaskList from "@/components/CampusAmbassador/Tasks";
 import Nav from "@/components/navbar/NavLayout";
-import { updateLeaderboard, updateLeaderboardLoading, updateTask, updateTaskLoading, updateUser, updateUserLoading } from "@/lib/redux/slices/campusAmbassadorSlice";
+import { addTask, updateLeaderboard, updateLeaderboardLoading, updateTask, updateTaskLoading, updateUser, updateUserLoading } from "@/lib/redux/slices/campusAmbassadorSlice";
 import { Loader } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Head from "next/head";
@@ -36,7 +36,7 @@ export default function CampusAmbassador() {
                 console.log(userId)
                 const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/getTasks?userId='+userId);
                 const data = await response.json();
-                dispatch(updateTask(data));
+                dispatch(addTask(data));
                 dispatch(updateTaskLoading(false));
             } catch (error) {
                 console.error("Error fetching tasks:", error);
