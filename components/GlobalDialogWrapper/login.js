@@ -14,8 +14,8 @@ const handleSignIn = async () => {
     
     if (result?.error) {
       setLoading(false)
-      alert('Please fill the campus ambassador form first');
-      router.push('/campus-ambassador-form');
+      alert('You are not a Campus Ambassador');
+      router.push('/');
     }
   } catch (error) {
     setLoading(false)

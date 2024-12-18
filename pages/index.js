@@ -7,11 +7,23 @@ import Testimonials from "../components/Testimonials";
 import Typewriter from "typewriter-effect";
 import { NextSeo } from "next-seo";
 import "../styles/globals.scss";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Summit from "../public/summit.png";
 import Ribbon from "../components/ribbons"
+import { useSearchParams } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function Home() {
+  const errorShown = useRef(false);
+  const searchParams = useSearchParams();
+  const errorMessage = searchParams.get('error');
+  useEffect(() => {
+    if (errorMessage && !errorShown.current) {
+      console.log("TRIGGER")
+      toast.error("You can't sign in ! "+decodeURIComponent(errorMessage));
+      errorShown.current = true;
+    }
+  }, [errorMessage]);
 
   return (
     <>
