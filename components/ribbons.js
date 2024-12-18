@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 
@@ -17,7 +18,7 @@ const Ribbon = () => {
   const repeatedFrames = [...frames, ...frames];
 
   return (
-    <a href="/startup_junction/" className="block" style={{ textDecoration: 'none', color: 'inherit' }}>
+    <Link href="/startup_junction/" className="block" style={{ textDecoration: 'none', color: 'inherit' }}>
     <div className="overflow-hidden bg-white shadow-md relative mb-16">
       <style>
         {`
@@ -83,7 +84,7 @@ const Ribbon = () => {
         ))}
       </div>
     </div>
-    </a>
+    </Link>
   );
 };
 

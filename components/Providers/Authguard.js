@@ -1,5 +1,4 @@
 "use client"
-// import { useSession } from "next-auth/react";
 import { openDialog } from "@/lib/redux/slices/GlobalDialogWrapperSlice";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/dist/client/components/navigation";
@@ -12,7 +11,7 @@ const AuthGuard = ({ children }) => {
   const dispatch=useDispatch()
   const router = useRouter();
   const session=useSession()
-  
+  const pth=usePathname();
   // Define an array of protected routes
   const protectedRoutes = ["/campusambassador", "/profile"]; // Add more protected routes as needed
 
@@ -22,7 +21,7 @@ const AuthGuard = ({ children }) => {
 
   // Check if the current route is protected and if the user is authenticated
 
-  if (protectedRoutes.includes(usePathname())) {
+  if (protectedRoutes.includes(pth)) {
     if(session.status!="authenticated"){
     dispatch(openDialog({type:'login',title:"Proceed to Login"}))
     return null;
