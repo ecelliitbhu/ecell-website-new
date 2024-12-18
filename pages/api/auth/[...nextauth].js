@@ -32,7 +32,7 @@ export const authOptions = {
       if (!userExists) {
         console.log("entered error")
         // If the user doesn't exist, throw an error to trigger redirection
-        throw new Error('Please fill the campus ambassador form first');
+        throw new Error('Campus Ambassador form closed');
       }
 
       return true; // Allow sign-in if user exists
@@ -44,7 +44,7 @@ export const authOptions = {
     },
   },
   pages: {
-    error: '/campus-ambassador-form',
+    error: '/',
   }
 };
 

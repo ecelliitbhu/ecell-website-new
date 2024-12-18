@@ -3,7 +3,7 @@ import cn from "classnames";
 import { updateLeaderboard, updateLeaderboardLoading } from "@/lib/redux/slices/campusAmbassadorSlice";
 import { useSelector } from "react-redux";
 
-const Leaderboard = forwardRef(({ className = "" }, ref) => {
+const Leaderboard = forwardRef(({ className = "leaderboard" }, ref) => {
   const leaderboard=useSelector(state=>state.campusAmbassador.leaderboard)
 console.log(leaderboard)
   return (
@@ -47,4 +47,5 @@ console.log(leaderboard)
   );
 });
 
+Leaderboard.displayName = 'Leaderboard';
 export default Leaderboard;
