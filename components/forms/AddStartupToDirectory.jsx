@@ -100,7 +100,7 @@ function AddStartupToDirectory() {
   };
 
   const handleSelect = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     let field = e.target.value;
     setIdea_Sec(field);
     if (field == "Others") {

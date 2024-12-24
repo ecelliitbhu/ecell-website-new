@@ -99,7 +99,6 @@ router.post(
 );
 
 router.get("/api/startup", async (request, response) => {
-  console.log("Hello");
   await dbConnect();
   try {
     let finder = await Startup.find();

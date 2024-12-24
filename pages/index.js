@@ -19,7 +19,6 @@ export default function Home() {
   const errorMessage = searchParams.get('error');
   useEffect(() => {
     if (errorMessage && !errorShown.current) {
-      console.log("TRIGGER")
       toast.error("You can't sign in ! "+decodeURIComponent(errorMessage));
       errorShown.current = true;
     }

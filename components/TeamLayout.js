@@ -65,7 +65,7 @@ export default function TeamLayout({ teamData, showheading = true }) {
                     <div className="team-container">
                         {teamData?.presidents.map((president, index) => {
                             const imageUrl = (imageLinks.find(image => image.name == president.image)) || '/path/to/default/image.png';  // Use a default image if URL is not available
-                            console.log(imageUrl)
+                            // console.log(imageUrl)
                             return (
                                 <div className="our-team" key={index}>
                                     <Image
