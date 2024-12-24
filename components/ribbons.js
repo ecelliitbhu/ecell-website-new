@@ -18,7 +18,7 @@ const Ribbon = () => {
   const repeatedFrames = [...frames, ...frames];
 
   return (
-    <Link href="/startup_junction/" className="block" style={{ textDecoration: 'none', color: 'inherit' }}>
+    <Link href="https://esummit.ecelliitbhu.com/" className="block" style={{ textDecoration: 'none', color: 'inherit' }}>
     <div className="overflow-hidden bg-white shadow-md relative mb-16">
       <style>
         {`
