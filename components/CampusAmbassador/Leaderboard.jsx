@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Leaderboard = forwardRef(({ className = "leaderboard" }, ref) => {
   const leaderboard=useSelector(state=>state.campusAmbassador.leaderboard)
-console.log(leaderboard)
+// console.log(leaderboard)
   return (
     <div ref={ref} className={cn("leaderboard-container", className)}>
       <div className="bg-gradient-to-b from-white to-black shadow-lg rounded-lg p-6 mb-6">

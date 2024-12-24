@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as Dialog from '@radix-ui/react-dialog';
 import { closeDialog } from '@/lib/redux/slices/GlobalDialogWrapperSlice';
 import Login from './login';
+import Referral from './referral';
 import Image from 'next/image'
 
 
@@ -11,13 +12,16 @@ import Image from 'next/image'
 export default function GlobalDialog({children}) {
   const dispatch = useDispatch();
   const { isDialogOpen, dialogType,title } = useSelector((state) => state.GlobalDialog);
-
   const handleClose = () => dispatch(closeDialog());
 
   const renderDialogBody = () => {
+    console.log(dialogType);
+
     switch (dialogType) {
       case 'login':
         return <Login/>;
+      case 'campusambassador':
+        return <Referral/>;
       default:
         return <p>Default Content</p>;
     }
@@ -29,12 +33,7 @@ export default function GlobalDialog({children}) {
     <Dialog.Root open={isDialogOpen} onOpenChange={(isOpen) => !isOpen && handleClose()}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50" />
-        <Dialog.Content 
-        style={{
-    width: '330px', 
-    maxWidth: '90%', 
-  }}
-        className="fixed left-1/2 top-1/2 max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white p-6 shadow-lg">
+        <Dialog.Content className="fixed left-1/2 top-1/2 max-w-full w-auto -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white p-6 shadow-lg">
           <Dialog.Title className="text-lg font-semibold">{title}</Dialog.Title>
           <Dialog.Close asChild>
               <button

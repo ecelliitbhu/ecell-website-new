@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+import { openDialog } from '@/lib/redux/slices/GlobalDialogWrapperSlice';
 
 
 export default function Profile({className}) {
@@ -37,6 +38,11 @@ export default function Profile({className}) {
             toast.error("Error updating user:", error);  
         }
     };
+
+    const handleReferralClick = () => {
+        dispatch(openDialog({ type: 'campusambassador', title: '' }));
+    };
+
     return (
         <div className={cn("shadow-lg rounded-lg p-6",className)}>
             <h2 className="text-2xl font-bold mb-4">User Profile</h2>
@@ -95,6 +101,20 @@ export default function Profile({className}) {
             <p className="text-xl">College: {user.collegeName}</p>
             <p className="text-xl">Graduating Year: {user.collegeYear}</p>
             <p className="text-xl">Phone Number: {user.phone}</p>
+            
+            <div className="mt-4">
+                <p className="text-lg font-bold mb-2 text-gray-900 tracking-wide">
+                    Refer a friend to register for E-summit'25 Events!!
+                </p>
+                <button 
+                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 
+                               text-white font-semibold py-2.5 px-6 rounded-lg shadow-md 
+                               transition duration-200 ease-in-out transform hover:-translate-y-0.5"
+                    onClick={handleReferralClick}
+                >
+                    Refer a Friend
+                </button>
+            </div>
                 </div>
             )}
         </div>

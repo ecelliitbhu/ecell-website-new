@@ -90,7 +90,7 @@ export default function CampusAmbassadorProgram() {
       // Successfully registered
       toast.success('User successfully registered!');
       setLoading(false)
-      console.log(result);
+      // console.log(result);
       router.push("/")
     } else {
       setLoading(false)

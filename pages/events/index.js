@@ -20,7 +20,7 @@ const Event = ({
   endDate,
   register,
 }) => {
-  console.log(register)
+  // console.log(register)
   return (
     <Card className="card" style={{ height: "fit-content" }}>
       <Card.Body style={{ padding: "25px 15px" }}>

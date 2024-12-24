@@ -118,7 +118,7 @@ export default function TeamExpansionForm2024() {
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
       const customDocId = data.fullname + data.branch;
       const docRef = doc(firestoreDB, "TeamExpansion_E-Cell_2024", customDocId);

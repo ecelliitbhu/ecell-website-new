@@ -20,7 +20,8 @@ export default function CampusAmbassador() {
             try {
                 const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/user?email='+session?.data?.user?.email);
                 const data = await response.json();
-                console.log(data.id)
+                console.log(data);
+                // console.log(data.id)
                 dispatch(updateUser(data));
                 dispatch(updateUserLoading(false));
                 return data.id;
@@ -33,7 +34,7 @@ export default function CampusAmbassador() {
 
         const fetchTasks = async (userId) => {
             try {
-                console.log(userId)
+                // console.log(userId)
                 const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/getTasks?userId='+userId);
                 const data = await response.json();
                 dispatch(addTask(data));
