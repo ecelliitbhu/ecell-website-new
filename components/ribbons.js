@@ -6,12 +6,12 @@ const Ribbon = () => {
   
   const frames = [
    
-    { imageSrc: "/startupjunction.png" },
-    { imageSrc: "/startupjunction.png" },
-    { imageSrc: "/startupjunction.png" },
-    { imageSrc: "/startupjunction.png" },
-    { imageSrc: "/startupjunction.png" },
-    { imageSrc: "/startupjunction.png" },
+    { imageSrc: "/esummit.png" },
+    { imageSrc: "/esummit.png" },
+    { imageSrc: "/esummit.png" },
+    { imageSrc: "/esummit.png" },
+    { imageSrc: "/esummit.png" },
+    { imageSrc: "/esummit.png" },
   ];
 
 
@@ -65,18 +65,19 @@ const Ribbon = () => {
               <img 
                 src={frame.imageSrc} 
                 alt="Event" 
-                className="h-12 mt-2 sm:h-10  md:h-10 lg:h-12  xl:h-14  mr-2" 
+                className="h-20 sm:h-21 md:h-24 lg:h-25 xl:h-26 mt-2 mr-2" 
               />
               <div className="text-gray-700 justify-center  items-center flex flex-wrap text-shadow" />
               
-              <div className="ml-4 mr-1">20<sup>th</sup></div>
+             
+              <div className="ml-3 mr-1">31<sup>st</sup></div>
             
-              <div className="mr-1">DEC</div>
-              <div className="mr-1">2024</div>
-              <div className="mr-1">@</div>
-              <div className="mr-1">Pune</div>
-              <div className="mr-1">and</div>
-              <div className="mr-1">Bangalore</div>
+              <div className="mr-1 font-bold">JAN</div>
+              <div className="mr-2 font-bold">2025</div>
+              <div className="mr-2">TO</div>
+              <div className="mr-1">2<sup>nd</sup></div>
+              <div className="mr-1">FEB</div>
+              <div className="mr-2">2025</div>
 
               
             </div>
