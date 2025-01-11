@@ -9,7 +9,7 @@ import questionmark from "../public/question.png";
 import img1 from "../public/ncl.png";
 import img2 from "../public/person.png";
 import IncubatorPage from "../pages/IncubatorPage"
-
+import nclLogo from "../public/nclLogo.png"
 const ncl = () => {
 
   const facilities = [
@@ -64,6 +64,7 @@ It provides services like Mentoring, Counselling, Training, Financial Linkages, 
         facilities={facilities}
         selectionCriteria={selectionCriteria}
         title2="What Is "
+        nclLogo={nclLogo}
       />
       
     </>

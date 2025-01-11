@@ -9,7 +9,7 @@ import questionmark from "../public/question.png";
 import img1 from "../public/idapt.png";
 import img2 from "../public/person.png";
 import IncubatorPage from "./IncubatorPage"
-
+import idaptLogo from "../public/idaptLogo.gif";
 const idapthub = () => {
   
   const facilities = [
@@ -66,7 +66,7 @@ Help in further fund raising`,
         buttonText="Click Here for More Info"
         buttonLink="https://www.idapthub.org/"
         title2="Areas Of Focus Of  I-"
-       
+        idaptLogo={idaptLogo}
         preIncubationPrograms={preIncubationPrograms}
         incubationPrograms={incubationPrograms}
         facilities={facilities}

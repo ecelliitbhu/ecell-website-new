@@ -3,7 +3,7 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-
+import nclLogo from "../public/nclLogo.png"
 import questionmark from "../public/question.png";
 import img1 from "../public/rabi.png";
 import IncubatorPage from "./IncubatorPage";
@@ -76,6 +76,7 @@ After successful completion of this 2 months local residency phase, selected sta
         facilities={facilities}
         title2="What Does"
         title3="Do"
+        nclLogo={nclLogo}
         description2="Since May 2018, as a part of a CSR initiative, Cisco Systems along with NASSCOM Foundation has established a Cisco thingQbator at IIT (BHU) Varanasi. This AI and IoT-based makerspace program help to accelerate innovation and entrepreneurship among the student community."
       />
      

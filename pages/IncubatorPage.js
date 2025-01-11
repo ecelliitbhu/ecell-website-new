@@ -22,6 +22,9 @@ const IncubatorPage = ({
   title2,
   title3,
   i3Image,
+  i3Logo,
+  idaptLogo,
+  nclLogo,
 }) => {
   return (
     <div className="body">
@@ -36,11 +39,47 @@ const IncubatorPage = ({
       <div className="para mt-5 ml-2 bg-[#fde2ca] rounded-full p-4 max-w-[400px] sm:max-w-[800px] sm:p-8 mx-auto mb-5 sm:mt-10">
         <p className="text-lg text-[#333] text-center sm:text-xl">{description}</p>
       </div>
-
+     
       <div className="flex flex-col-reverse sm:flex-row items-center">
+      
         <div className="flex justify-center sm:justify-start w-full sm:w-1/2">
+      
           <div className="shadow-md rounded-lg p-4 mt-6 w-full sm:p-8 sm:mt-8 sm:ml-6 sm:w-[95%]">
+          {i3Logo ? (
+            <>
+            <div className="flex  justify-center mb-3 mr-16">
+            <Image src={i3Logo} height={100} width={100} alt={`${title} logo`} />
+            </div>
+           
+            </>
+           )
+           : (
+              <div></div>
+          ) }
+          {idaptLogo ? (
+            <>
+            <div className="flex  justify-center mb-3 mr-16">
+            <Image src={idaptLogo} height={100} width={250} alt={`${title} logo`} />
+            </div>
+           
+            </>
+           )
+           : (
+              <div></div>
+          ) } 
+          {nclLogo ? (
+            <>
+            <div className="flex  justify-center mb-2 mr-16">
+            <Image src={nclLogo} height={100} width={250} alt={`${title} logo`} />
+            </div>
+           
+            </>
+           )
+           : (
+              <div></div>
+          ) }
             <div className="flex items-center mb-3">
+          
               {logoSrc ? (
                 <>
                   <div className="text-2xl font-semibold mr-2 sm:text-[2.5rem]">What is</div>

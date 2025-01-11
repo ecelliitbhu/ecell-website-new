@@ -4,7 +4,7 @@ import Image from "next/legacy/image";
 import img1 from "../public/i3SideImg.png";
 import IncubatorPage from "../pages/IncubatorPage";
 import i3image from "../public/i3.png";
-
+import i3logo from "../public/i3logo.webp"
 
 
 const i3 = () => {
@@ -41,6 +41,7 @@ const i3 = () => {
           facilities={facilities}
           title2="What is"
           i3Image={i3image}
+          i3Logo={i3logo}
         />
 
         
