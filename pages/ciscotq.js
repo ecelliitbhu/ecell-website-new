@@ -10,15 +10,29 @@ import IncubatorPage from "../pages/IncubatorPage";
 import i3image from "../public/i3.png";
 const ciscotq = () => {
   const facilities = [
-    "Makerspace Network",
-    "Cisco Sparkboard",
-    "Sensors & Actuators Components",
-    "Webex Teams",
-  ];
+    {
+      title:"Makerspace Network",
+      image:"/markerspace.jpg",
+  
+    },
+    {
+      title:"Cisco Sparkboard",
+      image:"/ciscospark.png",
+    },
+    {
+      title:"Sensors & Actuators Components",
+      image:"/sensor.jpg",
+    },
+    {
+      title:"Webex Teams",
+      image:"/webex.jpg",
+    },
+    ];
   const programs = [
     {
       title: "Hackathons",
       description: "Hackathons are 24-hr programs (single sprint) in which students and budding entrepreneurs are given a chance to build software/hardware to showcase their competency on a problem statement. Till now, 5 Hackathons have been successfully organized and the winners were awarded.",
+      
     },
     {
       title: "Workshops and Webinars",
@@ -29,7 +43,28 @@ const ciscotq = () => {
       description: "It is a virtual creative learning program where university students engage in problem-solving and building solutions. The Design Thinking Process is applied, and the program is broken into three tracks, based on various stages at which students’ projects are - Learning Track, Project Track, and Startup Track.",
     },
   ];
-
+const currentData=[
+{
+  title:"3815",
+  description:"IDEAS",
+  link:"https://thingqbator.nasscomfoundation.org/",
+},
+{
+  title:"692",
+  description:"PROJECTS",
+  link:"https://thingqbator.nasscomfoundation.org/",
+},
+{
+  title:"369",
+  description:"PROTOTYPES",
+  link:"https://thingqbator.nasscomfoundation.org/",
+},
+{
+  title:"58",
+  description:"STARTUPS",
+  link:"https://thingqbator.nasscomfoundation.org/",
+},
+];
   return (
     <>
    
@@ -55,6 +90,7 @@ const ciscotq = () => {
         facilities={facilities}
         programs={programs}
         title2="What is"  
+        currentData={currentData}
       />
            
      

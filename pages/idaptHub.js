@@ -9,15 +9,50 @@ import questionmark from "../public/question.png";
 import img1 from "../public/idapt.png";
 import img2 from "../public/person.png";
 import IncubatorPage from "./IncubatorPage"
-
+import idaptLogo from "../public/idaptLogo.gif";
 const idapthub = () => {
   
   const facilities = [
-    "Makerspace Network",
-    "Cisco Sparkboard",
-    "Sensors & Actuators Components",
-    "Webex Teams",
-  ];
+    {
+      title:"Makerspace Network",
+      image:"/markerspace.jpg",
+  
+    },
+    {
+      title:"Cisco Sparkboard",
+      image:"/ciscospark.png",
+    },
+    {
+      title:"Sensors & Actuators Components",
+      image:"/sensor.jpg",
+    },
+    {
+      title:"Webex Teams",
+      image:"/webex.jpg",
+    },
+    ];
+  const currentData=[
+    {
+      title:"3815",
+      description:"IDEAS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"692",
+      description:"PROJECTS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"369",
+      description:"PROTOTYPES",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"58",
+      description:"STARTUPS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    ];
   const preIncubationPrograms = [
     {
       title: "Pre Incubation Program",
@@ -66,11 +101,13 @@ Help in further fund raising`,
         buttonText="Click Here for More Info"
         buttonLink="https://www.idapthub.org/"
         title2="Areas Of Focus Of  I-"
-       
+        idaptLogo={idaptLogo}
         preIncubationPrograms={preIncubationPrograms}
         incubationPrograms={incubationPrograms}
         facilities={facilities}
+        currentData={currentData}
         description2="· Telecommunications
+      
 · Power
 · Road transport and Highways
 · Defense R&D

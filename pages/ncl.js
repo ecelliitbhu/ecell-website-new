@@ -9,15 +9,50 @@ import questionmark from "../public/question.png";
 import img1 from "../public/ncl.png";
 import img2 from "../public/person.png";
 import IncubatorPage from "../pages/IncubatorPage"
-
+import nclLogo from "../public/nclLogo.png"
 const ncl = () => {
 
   const facilities = [
-    "Makerspace Network",
-    "Cisco Sparkboard",
-    "Sensors & Actuators Components",
-    "Webex Teams",
-  ];
+    {
+      title:"Makerspace Network",
+      image:"/markerspace.jpg",
+  
+    },
+    {
+      title:"Cisco Sparkboard",
+      image:"/ciscospark.png",
+    },
+    {
+      title:"Sensors & Actuators Components",
+      image:"/sensor.jpg",
+    },
+    {
+      title:"Webex Teams",
+      image:"/webex.jpg",
+    },
+    ];
+  const currentData=[
+    {
+      title:"3815",
+      description:"IDEAS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"692",
+      description:"PROJECTS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"369",
+      description:"PROTOTYPES",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"58",
+      description:"STARTUPS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    ];
   const selectionCriteria = [
     {
       title: "Application",
@@ -64,6 +99,8 @@ It provides services like Mentoring, Counselling, Training, Financial Linkages, 
         facilities={facilities}
         selectionCriteria={selectionCriteria}
         title2="What Is "
+        nclLogo={nclLogo}
+        currentData={currentData}
       />
       
     </>

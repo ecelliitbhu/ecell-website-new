@@ -3,7 +3,7 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-
+import nclLogo from "../public/nclLogo.png"
 import questionmark from "../public/question.png";
 import img1 from "../public/rabi.png";
 import IncubatorPage from "./IncubatorPage";
@@ -24,13 +24,47 @@ After successful completion of this 2 months local residency phase, selected sta
   ];
 
   const facilities = [
-    "Makerspace Network",
-    "Cisco Sparkboard",
-    "Sensors & Actuators Components",
-    "Webex Teams",
+  {
+    title:"Makerspace Network",
+    image:"/markerspace.jpg",
+
+  },
+  {
+    title:"Cisco Sparkboard",
+    image:"/ciscospark.png",
+  },
+  {
+    title:"Sensors & Actuators Components",
+    image:"/sensor.jpg",
+  },
+  {
+    title:"Webex Teams",
+    image:"/webex.jpg",
+  },
   ];
 
-  
+  const currentData=[
+    {
+      title:"3815",
+      description:"IDEAS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"692",
+      description:"PROJECTS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"369",
+      description:"PROTOTYPES",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"58",
+      description:"STARTUPS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    ];
   const selectionProcess = [
     {
       title: "RIC-1",
@@ -76,6 +110,8 @@ After successful completion of this 2 months local residency phase, selected sta
         facilities={facilities}
         title2="What Does"
         title3="Do"
+        nclLogo={nclLogo}
+        currentData={currentData}
         description2="Since May 2018, as a part of a CSR initiative, Cisco Systems along with NASSCOM Foundation has established a Cisco thingQbator at IIT (BHU) Varanasi. This AI and IoT-based makerspace program help to accelerate innovation and entrepreneurship among the student community."
       />
      

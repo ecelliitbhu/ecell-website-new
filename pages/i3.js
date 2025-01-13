@@ -4,17 +4,60 @@ import Image from "next/legacy/image";
 import img1 from "../public/i3SideImg.png";
 import IncubatorPage from "../pages/IncubatorPage";
 import i3image from "../public/i3.png";
-
+import i3logo from "../public/i3logo.webp"
 
 
 const i3 = () => {
   const facilities = [
-    "Makerspace Network",
-    "Cisco Sparkboard",
-    "Sensors & Actuators Components",
-    "Webex Teams",
-  ];
-
+    {
+      title:"Makerspace Network",
+      image:"/markerspace.jpg",
+  
+    },
+    {
+      title:"Cisco Sparkboard",
+      image:"/ciscospark.png",
+    },
+    {
+      title:"Sensors & Actuators Components",
+      image:"/sensor.jpg",
+    },
+    {
+      title:"Webex Teams",
+      image:"/webex.jpg",
+    },
+    ];
+    const services = [
+      "Technical Due-Diligence",
+      "Training Programs",
+      "Mentoring",
+      "Legal Advice",
+      "Ip Creation And Projection",
+      "Funding Support",
+      "Networking Support",
+    ];
+    const currentDatai3=[
+      {
+        title:"130",
+        description:"Trained Start-ups",
+        link:"https://i3f-iitbhu.org/",
+      },
+      {
+        title:"53",
+        description:"Incubated Start-ups",
+        link:"https://i3f-iitbhu.org/",
+      },
+      {
+        title:"230 Lakhs",
+        description:"Fund Supported",
+        link:"https://i3f-iitbhu.org/",
+      },
+      {
+        title:"19",
+        description:"Presentable Technologies",
+        link:"https://i3f-iitbhu.org/",
+      },
+      ];
   return (
     <>
    
@@ -41,6 +84,9 @@ const i3 = () => {
           facilities={facilities}
           title2="What is"
           i3Image={i3image}
+          services={services}
+          i3Logo={i3logo}
+          currentDatai3={currentDatai3}
         />
 
         
