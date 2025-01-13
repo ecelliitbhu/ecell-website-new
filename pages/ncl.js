@@ -18,6 +18,28 @@ const ncl = () => {
     "Sensors & Actuators Components",
     "Webex Teams",
   ];
+  const currentData=[
+    {
+      title:"3815",
+      description:"IDEAS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"692",
+      description:"PROJECTS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"369",
+      description:"PROTOTYPES",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"58",
+      description:"STARTUPS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    ];
   const selectionCriteria = [
     {
       title: "Application",
@@ -65,6 +87,7 @@ It provides services like Mentoring, Counselling, Training, Financial Linkages, 
         selectionCriteria={selectionCriteria}
         title2="What Is "
         nclLogo={nclLogo}
+        currentData={currentData}
       />
       
     </>

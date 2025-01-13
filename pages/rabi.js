@@ -30,7 +30,28 @@ After successful completion of this 2 months local residency phase, selected sta
     "Webex Teams",
   ];
 
-  
+  const currentData=[
+    {
+      title:"3815",
+      description:"IDEAS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"692",
+      description:"PROJECTS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"369",
+      description:"PROTOTYPES",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"58",
+      description:"STARTUPS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    ];
   const selectionProcess = [
     {
       title: "RIC-1",
@@ -77,6 +98,7 @@ After successful completion of this 2 months local residency phase, selected sta
         title2="What Does"
         title3="Do"
         nclLogo={nclLogo}
+        currentData={currentData}
         description2="Since May 2018, as a part of a CSR initiative, Cisco Systems along with NASSCOM Foundation has established a Cisco thingQbator at IIT (BHU) Varanasi. This AI and IoT-based makerspace program help to accelerate innovation and entrepreneurship among the student community."
       />
      

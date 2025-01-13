@@ -18,6 +18,28 @@ const idapthub = () => {
     "Sensors & Actuators Components",
     "Webex Teams",
   ];
+  const currentData=[
+    {
+      title:"3815",
+      description:"IDEAS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"692",
+      description:"PROJECTS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"369",
+      description:"PROTOTYPES",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    {
+      title:"58",
+      description:"STARTUPS",
+      link:"https://thingqbator.nasscomfoundation.org/",
+    },
+    ];
   const preIncubationPrograms = [
     {
       title: "Pre Incubation Program",
@@ -70,7 +92,9 @@ Help in further fund raising`,
         preIncubationPrograms={preIncubationPrograms}
         incubationPrograms={incubationPrograms}
         facilities={facilities}
+        currentData={currentData}
         description2="· Telecommunications
+      
 · Power
 · Road transport and Highways
 · Defense R&D

@@ -25,6 +25,9 @@ const IncubatorPage = ({
   i3Logo,
   idaptLogo,
   nclLogo,
+  currentData=[],
+  services=[],
+  currentDatai3=[],
 }) => {
   return (
     <div className="body">
@@ -141,9 +144,9 @@ const IncubatorPage = ({
             <p className="text-2xl text-[#4F4F52] font-black sm:text-[3rem] ml-3 sm:ml-[90px] m-0">Programs</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10 ">
             {programs.map((program, index) => (
-              <div key={index} className="p-3 bg-white rounded-lg shadow-lg sm:p-4">
+              <div key={index} className="p-3  rounded-lg shadow-lg sm:p-4 bg-orange-100">
                 <h3 className="text-lg font-bold sm:text-xl mb-2">{program.title}</h3>
                 <p className="text-sm text-[#676767] sm:text-base">{program.description}</p>
               </div>
@@ -151,22 +154,107 @@ const IncubatorPage = ({
           </div>
         </>
       )}
-
       {facilities.length > 0 && (
         <>
-          <div className="mt-12 mb-6 text-center">
-            <p className="text-2xl text-[#4F4F52] font-black sm:text-[2.5rem]">Provided Facilities</p>
-          </div>
+          {/* <div className="mt-12 mb-6 text-center "> */}
+            {/* <p className="text-2xl text-[#4F4F52] font-black sm:text-[2.5rem]">Provided Facilities</p> */}
+          {/* </div> */}
+          <div className="bg-[#D9D9D9C4] h-[60px] shadow-md flex items-center mt-8 justify-center sm:h-[90px] mb-2 sm:mb-8">
+      <p className="text-2xl text-[#4F4F52] font-black sm:text-[3rem] ml-3 sm:ml-[90px] m-0">
+      Provided Facilities
+      </p>
+    </div>
 
-          <div className="bg-white h-auto mb-20 pt-4 rounded-lg shadow-md sm:h-[85px] sm:mb-9">
-            <ul className="list-disc p-3 flex flex-col items-center gap-2 text-md sm:flex-row sm:justify-around text-[#505058] sm:text-[1.2rem] font-bold lg:text-2xl md:text-md">
+          <div className=" h-auto mb-20 pt-4 rounded-lg shadow-md sm:h-[85px] sm:mb-9  bg-orange-100 ">
+            <ul className="list-disc p-3 flex flex-col items-center gap-2 text-md sm:flex-row sm:justify-around text-[#505058] sm:text-[1.2rem] font-bold lg:text-2xl md:text-md bg-orange-100">
               {facilities.map((facility, index) => (
                 <li key={index}>{facility}</li>
               ))}
             </ul>
           </div>
         </>
-      )}
+      )} 
+      {currentData.length > 0 && (
+  <>
+    <div className="bg-[#D9D9D9C4] h-[60px] shadow-md flex items-center mt-8 justify-center sm:h-[90px] mb-6 sm:mb-8">
+      <p className="text-2xl text-[#4F4F52] font-black sm:text-[3rem] ml-3 sm:ml-[90px] m-0">
+        Achievements
+      </p>
+    </div>
+
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-10 ">
+      {currentData.map((data, index) => (
+        <div
+          key={index}
+          className="flex flex-col items-center justify-center bg-orange-100 rounded-lg shadow-lg p-4 mb-10"
+        >
+          <div className="text-yellow-500 text-6xl mb-3">
+            {index === 0 && <span >💡</span>}
+            {index === 1 && <span>📄</span>}
+            {index === 2 && <span>🔥</span>}
+            {index === 3 && <span>🚀</span>}
+          </div>
+          <a
+            href={data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-4xl font-bold text-black "
+            style={{ textDecoration: 'none' }}
+          >
+            {data.title}
+          </a>
+          <a
+            href={data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl text-[#676767] mt-2 text-center"
+            style={{ textDecoration: 'none' }}
+          >
+            {data.description}
+          </a>
+        </div>
+      ))}
+    </div>
+  </>
+)}
+
+{currentDatai3.length > 0 && (
+  <>
+    <div className="bg-[#D9D9D9C4] h-[60px] shadow-md flex items-center mt-8 justify-center sm:h-[90px] mb-6 sm:mb-8">
+      <p className="text-2xl text-[#4F4F52] font-black sm:text-[3rem] ml-3 sm:ml-[90px] m-0">
+        Achievements
+      </p>
+    </div>
+
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-10">
+      {currentDatai3.map((data, index) => (
+        <div
+          key={index}
+          className="flex flex-col items-center justify-center  rounded-lg shadow-lg p-4 bg-orange-100 mb-10"
+        >
+          <a 
+            href={data.link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-5xl font-bold text-black hover:underline"
+            style={{ textDecoration: 'none' }}
+          >
+            {data.title}
+          </a>
+          <a 
+            href={data.link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-2xl text-[#676767] mt-2 text-center hover:underline"
+            style={{ textDecoration: 'none' }}
+          >
+            {data.description}
+          </a>
+        </div>
+      ))}
+    </div>
+  </>
+)}
 
       <Footer />
     </div>

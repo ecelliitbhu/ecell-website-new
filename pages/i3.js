@@ -14,7 +14,38 @@ const i3 = () => {
     "Sensors & Actuators Components",
     "Webex Teams",
   ];
-
+  
+    const services = [
+      "Technical Due-Diligence",
+      "Training Programs",
+      "Mentoring",
+      "Legal Advice",
+      "Ip Creation And Projection",
+      "Funding Support",
+      "Networking Support",
+    ];
+    const currentDatai3=[
+      {
+        title:"130",
+        description:"Trained Start-ups",
+        link:"https://i3f-iitbhu.org/",
+      },
+      {
+        title:"53",
+        description:"Incubated Start-ups",
+        link:"https://i3f-iitbhu.org/",
+      },
+      {
+        title:"230 Lakhs",
+        description:"Fund Supported",
+        link:"https://i3f-iitbhu.org/",
+      },
+      {
+        title:"19",
+        description:"Presentable Technologies",
+        link:"https://i3f-iitbhu.org/",
+      },
+      ];
   return (
     <>
    
@@ -41,7 +72,9 @@ const i3 = () => {
           facilities={facilities}
           title2="What is"
           i3Image={i3image}
+          services={services}
           i3Logo={i3logo}
+          currentDatai3={currentDatai3}
         />
 
         
