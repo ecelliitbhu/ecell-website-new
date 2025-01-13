@@ -9,12 +9,24 @@ import i3logo from "../public/i3logo.webp"
 
 const i3 = () => {
   const facilities = [
-    "Makerspace Network",
-    "Cisco Sparkboard",
-    "Sensors & Actuators Components",
-    "Webex Teams",
-  ];
+    {
+      title:"Makerspace Network",
+      image:"/markerspace.jpg",
   
+    },
+    {
+      title:"Cisco Sparkboard",
+      image:"/ciscospark.png",
+    },
+    {
+      title:"Sensors & Actuators Components",
+      image:"/sensor.jpg",
+    },
+    {
+      title:"Webex Teams",
+      image:"/webex.jpg",
+    },
+    ];
     const services = [
       "Technical Due-Diligence",
       "Training Programs",

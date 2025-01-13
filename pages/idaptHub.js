@@ -13,11 +13,24 @@ import idaptLogo from "../public/idaptLogo.gif";
 const idapthub = () => {
   
   const facilities = [
-    "Makerspace Network",
-    "Cisco Sparkboard",
-    "Sensors & Actuators Components",
-    "Webex Teams",
-  ];
+    {
+      title:"Makerspace Network",
+      image:"/markerspace.jpg",
+  
+    },
+    {
+      title:"Cisco Sparkboard",
+      image:"/ciscospark.png",
+    },
+    {
+      title:"Sensors & Actuators Components",
+      image:"/sensor.jpg",
+    },
+    {
+      title:"Webex Teams",
+      image:"/webex.jpg",
+    },
+    ];
   const currentData=[
     {
       title:"3815",

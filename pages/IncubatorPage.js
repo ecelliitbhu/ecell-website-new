@@ -155,25 +155,36 @@ const IncubatorPage = ({
         </>
       )}
       {facilities.length > 0 && (
-        <>
-          {/* <div className="mt-12 mb-6 text-center "> */}
-            {/* <p className="text-2xl text-[#4F4F52] font-black sm:text-[2.5rem]">Provided Facilities</p> */}
-          {/* </div> */}
-          <div className="bg-[#D9D9D9C4] h-[60px] shadow-md flex items-center mt-8 justify-center sm:h-[90px] mb-2 sm:mb-8">
+  <>
+    <div className="bg-[#D9D9D9C4] h-[60px] shadow-md flex items-center mt-8 justify-center sm:h-[90px] mb-6 sm:mb-8">
       <p className="text-2xl text-[#4F4F52] font-black sm:text-[3rem] ml-3 sm:ml-[90px] m-0">
-      Provided Facilities
+        Provided Facilities
       </p>
     </div>
 
-          <div className=" h-auto mb-20 pt-4 rounded-lg shadow-md sm:h-[85px] sm:mb-9  bg-orange-100 ">
-            <ul className="list-disc p-3 flex flex-col items-center gap-2 text-md sm:flex-row sm:justify-around text-[#505058] sm:text-[1.2rem] font-bold lg:text-2xl md:text-md bg-orange-100">
-              {facilities.map((facility, index) => (
-                <li key={index}>{facility}</li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )} 
+    <div className="grid grid-cols-4 gap-2 sm:gap-6 lg:gap-1">
+      {facilities.map((program, index) => (
+        <div 
+          key={index} 
+          className="p-3 rounded-lg shadow-lg bg-orange-100 flex flex-col items-center justify-center"
+          style={{ width: '300px', height: '300px' }} 
+        >
+          {/* Title */}
+          <h3 className="text-2xl font-bold text-center mt-3">{program.title}</h3>
+          
+          {/* Image */}
+          <img 
+            src={program.image} 
+            alt={program.title} 
+            className="w-26 h-26 object-cover rounded-md mb-4 mt-8"
+          />
+        </div>
+      ))}
+    </div>
+  </>
+)}
+
+
       {currentData.length > 0 && (
   <>
     <div className="bg-[#D9D9D9C4] h-[60px] shadow-md flex items-center mt-8 justify-center sm:h-[90px] mb-6 sm:mb-8">

@@ -10,11 +10,24 @@ import IncubatorPage from "../pages/IncubatorPage";
 import i3image from "../public/i3.png";
 const ciscotq = () => {
   const facilities = [
-    "Makerspace Network",
-    "Cisco Sparkboard",
-    "Sensors & Actuators Components",
-    "Webex Teams",
-  ];
+    {
+      title:"Makerspace Network",
+      image:"/markerspace.jpg",
+  
+    },
+    {
+      title:"Cisco Sparkboard",
+      image:"/ciscospark.png",
+    },
+    {
+      title:"Sensors & Actuators Components",
+      image:"/sensor.jpg",
+    },
+    {
+      title:"Webex Teams",
+      image:"/webex.jpg",
+    },
+    ];
   const programs = [
     {
       title: "Hackathons",
