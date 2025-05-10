@@ -1,7 +1,8 @@
 import Image from "next/legacy/image";
 import React, { useState, useCallback } from "react";
-import Gallery from "react-photo-gallery";
-import { Modal, ModalGateway } from "react-images";
+// import Gallery from "react-photo-gallery";
+import { Gallery } from "react-photo-album";
+import { Modal, ModalGateway } from "@haz3l/react-images-viewer";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
