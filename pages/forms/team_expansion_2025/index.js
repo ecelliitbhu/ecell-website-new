@@ -4,9 +4,9 @@ import { useState } from "react";
 import Head from "next/head";
 import Nav from "../../../components/navbar/NavLayout";
 import { firestoreDB } from "../../../lib/firebase";
-import { collection, addDoc ,doc,setDoc} from "firebase/firestore";
+import { doc,setDoc} from "firebase/firestore";
 
-const apply = () => {
+const Apply = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -720,4 +720,4 @@ const apply = () => {
   );
 };
 
-export default apply;
+export default Apply;
