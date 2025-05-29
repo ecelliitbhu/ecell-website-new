@@ -78,7 +78,8 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.2.2",
     "typewriter-effect": "^2.18.2",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "yet-another-react-lightbox": "^3.23.2"
   },
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",
