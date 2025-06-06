@@ -10,7 +10,7 @@ export default function ControlTasks() {
     const fetchTasks = async () => {
         setLoading(true); // Show loader while fetching tasks
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/Tasks");
+            const response = await fetch("/api/ambassador/Tasks");
             const data = await response.json();
             if (response.ok) {
                 setTasks(data);
@@ -30,8 +30,8 @@ export default function ControlTasks() {
 
     const handleDeleteTask = async (taskId) => {
         if (window.confirm("Are you sure you want to delete this task?")) {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tasks/${taskId}`, {
-                method: "DELETE",
+            const response = await fetch(`/api/ambassador/tasks/${taskId}`, {
+              method: "DELETE",
             });
 
             if (response.ok) {
@@ -44,17 +44,20 @@ export default function ControlTasks() {
     };
 
     const handleSaveEdit = async () => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tasks/${editingTask.id}`, {
+        const response = await fetch(
+          `/api/ambassador/tasks/${editingTask.id}`,
+          {
             method: "PUT",
             headers: {
-                "Content-Type": "application/json",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                title: editingTask.title,
-                description: editingTask.description,
-                lastDate: editingTask.lastDate,
+              title: editingTask.title,
+              description: editingTask.description,
+              lastDate: editingTask.lastDate,
             }),
-        });
+          }
+        );
 
         if (response.ok) {
             toast.success("Task updated successfully!");

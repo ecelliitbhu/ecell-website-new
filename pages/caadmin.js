@@ -17,7 +17,7 @@ function CAAdmin() {
 
       const checkAdmin = async () => {
         try {
-          const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/checkAdminEmail", {
+          const response = await fetch("/api/ambassador/checkAdminEmail", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

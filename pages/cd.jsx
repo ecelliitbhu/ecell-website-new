@@ -50,7 +50,7 @@ export default function CampusDirector() {
 
               <Button
                 className="get-started join-cd"
-                href="/campus-ambassador"
+                // href="/campus-ambassador-form"
                 target="_blank"
                 rel="noopener noreferrer"
               >

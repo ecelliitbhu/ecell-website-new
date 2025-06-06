@@ -18,7 +18,10 @@ export default function CampusAmbassador() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/user?email='+session?.data?.user?.email);
+                const response = await fetch(
+                  "/api/ambassador/user?email=" +
+                    session?.data?.user?.email
+                );
                 const data = await response.json();
                 console.log(data);
                 // console.log(data.id)
@@ -35,7 +38,7 @@ export default function CampusAmbassador() {
         const fetchTasks = async (userId) => {
             try {
                 // console.log(userId)
-                const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/getTasks?userId='+userId);
+                const response = await fetch("/api/ambassador/tasks?userId="+userId);
                 const data = await response.json();
                 dispatch(addTask(data));
                 dispatch(updateTaskLoading(false));
@@ -47,7 +50,7 @@ export default function CampusAmbassador() {
 
         const fetchLeaderboard = async () => {
             try {
-                const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/getLeaderboard');
+                const response = await fetch('/api/ambassador/leaderboard');
                 const data = await response.json();
                 dispatch(updateLeaderboard(data));
                 dispatch(updateLeaderboardLoading(false));

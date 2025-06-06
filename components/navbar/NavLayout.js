@@ -38,7 +38,7 @@ const Nav = () => {
               <Team />
               <Startups />
               <Contact />
-              <CAAuth className="max-md:hidden md:flex"/>
+              {/* <CAAuth className="max-md:hidden md:flex"/> */}
             </ul>
           </div>
           <button

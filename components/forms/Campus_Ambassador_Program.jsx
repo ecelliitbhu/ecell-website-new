@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { firestoreDB } from "@/lib/firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { getSession, signOut } from "next-auth/react";
 
 
 export default function CampusAmbassadorProgram() {
@@ -60,7 +61,7 @@ export default function CampusAmbassadorProgram() {
 
     // Sending the form data as a POST request
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/register', {
+      const response = await fetch("/api/ambassador/register", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,14 +87,28 @@ export default function CampusAmbassadorProgram() {
 
       const result = await response.json();
 
+    // if (response.ok) {
+    //   // Successfully registered
+    //   toast.success('User successfully registered!');
+    //   setLoading(false)
+    //   // console.log(result);
+    //   router.push("/")
+    // } 
     if (response.ok) {
-      // Successfully registered
-      toast.success('User successfully registered!');
-      setLoading(false)
-      // console.log(result);
-      router.push("/")
+      toast.success("User successfully registered!");
+      setLoading(false);
+
+      // Check if user is signed in
+      const session = await getSession();
+      if (session?.user) {
+        await signOut({ callbackUrl: "/" }); // or wherever you want to redirect
+        return;
+      }
+
+      // If not signed in, just redirect to homepage
+      router.push("/");
     } else {
-      setLoading(false)
+      setLoading(false);
       toast.error(`Error: ${result.error}`);
     }
   } catch (error) {
