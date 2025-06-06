@@ -9,7 +9,10 @@ export default function Login (){
 const handleSignIn = async () => {
   try {
     setLoading(true)
-    const result = await signIn('google',{callbackUrl:"/campusambassador"});
+    // const result = await signIn('google',{callbackUrl:"/campusambassador"});
+    const result = await signIn("google", {
+      callbackUrl: `/sip/post-login?tab=ambassador`,
+    });
     
     
     if (result?.error) {

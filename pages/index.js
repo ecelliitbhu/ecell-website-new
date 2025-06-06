@@ -9,7 +9,7 @@ import { NextSeo } from "next-seo";
 import "../styles/globals.scss";
 import React, { useRef, useEffect } from "react";
 import Summit from "../public/summit.png";
-import Ribbon from "../components/ribbons"
+// import Ribbon from "../components/ribbons"
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -72,7 +72,7 @@ export default function Home() {
    
       <div>
       <Row>
-  <Ribbon></Ribbon>
+  {/* <Ribbon></Ribbon> */}
 </Row>
  
         <Container fluid className="body">

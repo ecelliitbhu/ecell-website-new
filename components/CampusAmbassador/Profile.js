@@ -21,12 +21,12 @@ export default function Profile({className}) {
     );
     const onSubmit = async (data) => {
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/update', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: user.id, ...data }),
+            const response = await fetch("/api/ambassador/update", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ id: user.id, ...data }),
             });
             const updatedUser = await response.json();
             dispatch(updateUser({...user, ...updatedUser}));

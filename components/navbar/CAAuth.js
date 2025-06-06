@@ -15,8 +15,11 @@ export default function CAAuth({className}) {
     const router=useRouter()
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
+    // const [activeTab, setActiveTab] = useState("student");
 
     const handleClick = (event) => {
+        localStorage.setItem("activeTab", "ambassador");
+        // setActiveTab("ambassador");
         setAnchorEl(event.currentTarget)
     }
 

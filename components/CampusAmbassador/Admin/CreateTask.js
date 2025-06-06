@@ -24,7 +24,7 @@ export default function CreateTask() {
           return;
         }
     
-        const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+"/createTask", {
+        const response = await fetch("/api/ambassador/createTask", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

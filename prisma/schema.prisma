@@ -1,0 +1,156 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id         String      @id @default(uuid())
+  email      String      @unique
+  createdAt  DateTime    @default(now())
+  
+  student   Student?
+  recruiter Recruiter?
+  ambassador CampusAmbassador?
+}
+
+
+model Student {
+  id           String        @id @default(uuid())
+  user         User          @relation(fields: [userId], references: [id])
+  userId       String        @unique
+  name         String
+  rollNo       String        @unique
+  branch       String
+  cpi          Float
+  courseType   String
+  year         Int
+  linkedinUrl  String
+  githubUrl    String
+  resumeUrl    String
+  applications Application[]
+}
+
+model Recruiter {
+  id           String    @id @default(uuid())
+  user         User      @relation(fields: [userId], references: [id])
+  userId       String    @unique
+  companyName  String
+  address      String?
+  websiteUrl   String?
+  posts        Post[]
+}
+
+model Post {
+  id              String        @id @default(uuid())
+  recruiter       Recruiter     @relation(fields: [recruiterId], references: [id])
+  recruiterId     String
+  companyName     String
+  jobTitle        String
+  jobDescription  String?
+  qualification   String?
+  experience      String?
+  stipend         String?
+  requiredSkills  String[]
+  location        String?
+  jobType         JobType
+  createdAt       DateTime      @default(now())
+  applications    Application[]
+}
+
+model Application {
+  id         String             @id @default(uuid())
+  student    Student            @relation(fields: [studentId], references: [userId])
+  studentId  String
+  post       Post               @relation(fields: [postId], references: [id])
+  postId     String
+  appliedAt  DateTime           @default(now())
+  status     ApplicationStatus @default(PENDING)
+}
+
+enum JobType {
+  REMOTE
+  ONSITE
+  HYBRID
+}
+
+enum ApplicationStatus {
+  PENDING
+  REJECTED
+  ACCEPTED
+}
+
+enum UserRoleType {
+  STUDENT
+  RECRUITER
+  AMBASSADOR
+}
+
+model CampusAmbassador {
+  id                Int    @id @default(autoincrement())
+  user    User     @relation(fields: [userId], references: [id])
+  userId  String   @unique
+  name              String
+  collegeName       String
+  collegeYear       String
+  program           String
+  phone             String
+  email             String @unique
+  POR               String
+  reasonToJoin      String
+  roleInStudentBody String
+  skills            String
+  experience        String
+  roleInEcell       String
+  hours             String
+  contribution      String
+  motivation        String
+  points            Int    @default(0)
+  tasks             Task[] @relation("UserTasks")
+  referrals         String @default("{}")
+}
+
+model Task {
+  id          Int          @id @default(autoincrement())
+  title       String
+  lastDate    DateTime
+  description String
+  submitted   Boolean      @default(false)
+  points      Int          @default(100)
+  status      String       @default("pending")
+  submissions Submission[]
+  users       CampusAmbassador[]       @relation("UserTasks")
+}
+
+model Submission {
+  id         Int    @id @default(autoincrement())
+  taskId     Int
+  userEmail  String
+  submission String
+  status     String @default("pending")
+  task       Task   @relation(fields: [taskId], references: [id])
+
+  @@unique([userEmail, taskId])
+}
+
+model Admin {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+}
+
+model MissingEmails {
+  id        Int       @id @default(autoincrement())
+  email     String    @db.VarChar(255)
+  logged_at DateTime? @default(now()) @db.Timestamp(6)
+}

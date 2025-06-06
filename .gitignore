@@ -42,3 +42,4 @@ env
 .vercel
 
 package-lock.json
+/generated/prisma

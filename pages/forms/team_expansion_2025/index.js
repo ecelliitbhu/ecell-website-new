@@ -4,9 +4,9 @@ import { useState } from "react";
 import Head from "next/head";
 import Nav from "../../../components/navbar/NavLayout";
 import { firestoreDB } from "../../../lib/firebase";
-import { doc,setDoc} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
-const Apply = () => {
+const apply = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -261,11 +261,9 @@ const Apply = () => {
         otherPoints: formData.otherPoints,
         submittedAt: new Date().toISOString(),
       };
-      console.log(applicationData);
+
       // Push to Firestore
-      // await addDoc(collection(firestoreDB, "TeamExpansion_2025"), applicationData);
-      const docId = `${formData.fullName}${formData.branch}${formData.phoneNumber}`.replace(/\s+/g, '');
-      await setDoc(doc(firestoreDB, "TeamExpansion_2025", docId), applicationData);
+      await addDoc(collection(firestoreDB, "applications"), applicationData);
 
       alert("Application submitted successfully! We will contact you soon.");
 
@@ -720,4 +718,4 @@ const Apply = () => {
   );
 };
 
-export default Apply;
+export default apply;

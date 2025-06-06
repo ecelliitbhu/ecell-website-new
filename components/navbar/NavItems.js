@@ -130,7 +130,7 @@ export const Initiatives = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="https://ecelliitbhu.notion.site/Startup-Internship-Portal-a0455bf737864af29bdef29ab488fccf"
+              href="/sip"
               target="_blank"
               rel="noopener noreferrer"
             >
