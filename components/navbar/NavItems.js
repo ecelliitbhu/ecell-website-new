@@ -130,7 +130,7 @@ export const Initiatives = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="/sip"
+              // href="/sip"
               target="_blank"
               rel="noopener noreferrer"
             >

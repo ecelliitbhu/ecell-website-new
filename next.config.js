@@ -1,6 +1,6 @@
 const path = require("path");
 const { parsed: localEnv } = require("dotenv").config();
-const webpack = require("webpack");
+// const webpack = require("webpack");
 
 module.exports = {
   sassOptions: {
@@ -26,6 +26,11 @@ module.exports = {
     ],
   },
   reactStrictMode: true,
+
+  output: "standalone",
+  // experimental: {
+  //   outputFileTracingIgnores: ["./generated/client/**/*"],
+  // },
   // target: "serverless",
   // webpack: (config) => {
   //   config.plugins.push(new webpack.DefinePlugin({ "global.GENTLY": false }));
