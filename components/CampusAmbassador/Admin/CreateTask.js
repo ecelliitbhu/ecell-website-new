@@ -10,6 +10,7 @@ export default function CreateTask() {
         lastDate: "",
         points: "",
       }); // State for task creation form data
+      const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
       const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value }); // Handle form input change
@@ -24,7 +25,7 @@ export default function CreateTask() {
           return;
         }
     
-        const response = await fetch("/api/ambassador/createTask", {
+        const response = await fetch(`${BACKEND_URL}/ambassador/createTask`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

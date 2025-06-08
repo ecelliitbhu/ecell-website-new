@@ -26,6 +26,7 @@ export default function CampusAmbassadorProgram() {
   
   const searchParams = useSearchParams();
   const errorMessage = searchParams.get('error');
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
   
   useEffect(() => {
     if (errorMessage && !errorShown.current) {
@@ -37,6 +38,7 @@ export default function CampusAmbassadorProgram() {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [otherSelected,setOtherSelected]=useState(false)
   const [loading,setLoading]=useState(false)
+  
   
   const onSubmit = async (data) => {
     setLoading(true)
@@ -61,10 +63,10 @@ export default function CampusAmbassadorProgram() {
 
     // Sending the form data as a POST request
     try {
-      const response = await fetch("/api/ambassador/register", {
-        method: 'POST',
+      const response = await fetch(`${BACKEND_URL}/ambassador/register`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: data.fullname,

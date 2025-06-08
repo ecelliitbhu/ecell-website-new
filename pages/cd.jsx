@@ -6,6 +6,7 @@ import CdTestimonials from "../components/CdTestimonials";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
 import Image from "next/legacy/image";
 import { useRef } from "react";
+import { toast } from "react-hot-toast";
 
 export default function CampusDirector() {
   const whatWeOfferRef = useRef(null);
@@ -51,8 +52,9 @@ export default function CampusDirector() {
               <Button
                 className="get-started join-cd"
                 // href="/campus-ambassador-form"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => toast.error("Applications closed for now")}
+                // target="_blank"
+                // rel="noopener noreferrer"
               >
                 Register Now!
               </Button>
@@ -226,8 +228,8 @@ export default function CampusDirector() {
               <ul className="ca-responsibilities">
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Ambassador must assist the students with
-                  their total capacity in registering for E-Cell IIT BHU&apos;s
+                  The Campus Ambassador must assist the students with their
+                  total capacity in registering for E-Cell IIT BHU&apos;s
                   competitions.
                 </li>
                 <li>
@@ -244,16 +246,15 @@ export default function CampusDirector() {
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Ambassador must Ideate by engaging in
-                  discussions with the other Campus Interns and E-cell
-                  coordinators to bring new ideas and increase overall reach of
-                  E-Cell IIT BHU
+                  The Campus Ambassador must Ideate by engaging in discussions
+                  with the other Campus Interns and E-cell coordinators to bring
+                  new ideas and increase overall reach of E-Cell IIT BHU
                 </li>
                 <li>
                   <DoneRoundedIcon className="resp-icon" />
-                  The Campus Ambassador may organize events/sessions
-                  promoting entrepreneurship in their respective colleges with
-                  the support of E-Cell IIT BHU.
+                  The Campus Ambassador may organize events/sessions promoting
+                  entrepreneurship in their respective colleges with the support
+                  of E-Cell IIT BHU.
                 </li>
               </ul>
             </Col>

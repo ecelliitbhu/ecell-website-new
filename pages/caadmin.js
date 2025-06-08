@@ -12,12 +12,13 @@ function CAAdmin() {
   const [loading, setLoading] = useState(true); // Loading state for checking admin
   const [email, setEmail] = useState(""); // Email state
   const [openModal, setOpenModal] = useState(true); // Modal open state
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
   const router = useRouter(); // Router for redirection
 
 
       const checkAdmin = async () => {
         try {
-          const response = await fetch("/api/ambassador/checkAdminEmail", {
+          const response = await fetch(`${BACKEND_URL}/ambassador/checkAdminEmail`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

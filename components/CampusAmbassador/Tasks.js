@@ -19,6 +19,7 @@ const TaskList = ({ className }) => {
   const [fileUpload, setFileUpload] = useState(null);
   const session=useSession()
   const dispatch=useDispatch()
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 
 
@@ -26,7 +27,7 @@ const TaskList = ({ className }) => {
   
     if (fileUpload) {
       try {
-        const response = await fetch("/api/ambassador/submit", {
+        const response = await fetch(`${BACKEND_URL}/ambassador/submit`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
