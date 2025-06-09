@@ -15,8 +15,11 @@ export default function CAAuth({className}) {
     const router=useRouter()
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
+    // const [activeTab, setActiveTab] = useState("student");
 
     const handleClick = (event) => {
+        localStorage.setItem("activeTab", "ambassador");
+        // setActiveTab("ambassador");
         setAnchorEl(event.currentTarget)
     }
 
@@ -42,7 +45,7 @@ export default function CAAuth({className}) {
                     <>
                          <MenuItem onClick={() => {
                             handleClose()
-                            signOut({callbackUrl:"/"})
+                           signOut ({callbackUrl:"/"})
                         }}>
                          <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
                         <LogOutIcon fontSize="small" className="mr-2" />

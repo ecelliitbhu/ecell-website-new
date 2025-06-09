@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 export default function Referral() {
     const dispatch = useDispatch();
     const referralCodes = useSelector(state => {
-        console.log(state.campusAmbassador.user);
+        // console.log(state.campusAmbassador.user);
         return state.campusAmbassador.referralCodes;
     });
 

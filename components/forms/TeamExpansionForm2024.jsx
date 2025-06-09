@@ -128,7 +128,7 @@ export default function TeamExpansionForm2024() {
         timestamp: serverTimestamp(),
       });
 
-      console.log("Document written with ID: ", customDocId);
+      // console.log("Document written with ID: ", customDocId);
       toast.success("Form submitted successfully! See you in the E-Cell Team !",{
         duration: 4000});
       reset();
