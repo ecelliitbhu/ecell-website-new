@@ -6,11 +6,12 @@ export default function ControlTasks() {
     const [tasks, setTasks] = useState([]);
     const [loading, setLoading] = useState(true); // State to manage loader
     const [editingTask, setEditingTask] = useState(null);
+    const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     const fetchTasks = async () => {
         setLoading(true); // Show loader while fetching tasks
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/Tasks");
+            const response = await fetch(`${BACKEND_URL}/ambassador/getTasks`);
             const data = await response.json();
             if (response.ok) {
                 setTasks(data);
@@ -30,8 +31,8 @@ export default function ControlTasks() {
 
     const handleDeleteTask = async (taskId) => {
         if (window.confirm("Are you sure you want to delete this task?")) {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tasks/${taskId}`, {
-                method: "DELETE",
+            const response = await fetch(`${BACKEND_URL}/ambassador/getTasks/${taskId}`, {
+              method: "DELETE",
             });
 
             if (response.ok) {
@@ -44,17 +45,20 @@ export default function ControlTasks() {
     };
 
     const handleSaveEdit = async () => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tasks/${editingTask.id}`, {
+        const response = await fetch(
+          `${BACKEND_URL}/ambassador/tasks/${editingTask.id}`,
+          {
             method: "PUT",
             headers: {
-                "Content-Type": "application/json",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                title: editingTask.title,
-                description: editingTask.description,
-                lastDate: editingTask.lastDate,
+              title: editingTask.title,
+              description: editingTask.description,
+              lastDate: editingTask.lastDate,
             }),
-        });
+          }
+        );
 
         if (response.ok) {
             toast.success("Task updated successfully!");

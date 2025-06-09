@@ -12,12 +12,14 @@ function cn(...classes) {
 
 const TaskList = ({ className }) => {
 
-  const tasks=useSelector(state=>state.campusAmbassador.user.tasks)
+  // const tasks=useSelector(state=>state.campusAmbassador.user.tasks)
+  const tasks = useSelector((state) => state.campusAmbassador.user.tasks || []);
   const id=useSelector(state=>state.campusAmbassador.user.id)
   const [dropdownOpen, setDropdownOpen] = useState({});
   const [fileUpload, setFileUpload] = useState(null);
   const session=useSession()
   const dispatch=useDispatch()
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 
 
@@ -25,15 +27,15 @@ const TaskList = ({ className }) => {
   
     if (fileUpload) {
       try {
-        const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/submit', {
-          method: 'POST',
+        const response = await fetch(`${BACKEND_URL}/ambassador/submit`, {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             taskId: taskId,
             submission: fileUpload,
-            email:session?.data?.user?.email // This is the file URL or drive link
+            email: session?.data?.user?.email, // This is the file URL or drive link
           }),
         });
   
@@ -83,45 +85,67 @@ const TaskList = ({ className }) => {
   };
 
   return (
-    <div className={cn("md:p-6 max-md:p-4 bg-white rounded-lg shadow-lg", className)}>
+    <div
+      className={cn(
+        "md:p-6 max-md:p-4 bg-white rounded-lg shadow-lg",
+        className
+      )}
+    >
       <h2 className="text-2xl sticky font-bold mb-2">Tasks</h2>
       <ul className="flex flex-col gap-y-4 h-[340px] overflow-y-auto">
-        {tasks && tasks?.map((task) => (
-          <li key={task.id} className={`p-4 rounded-lg shadow ${getStatusColor(task.status)}`}>
-            <div className="flex max-md:flex-col max-md:gap-3 md:justify-between items-start">
-              <div className="flex flex-col max-md:gap-2">
-                <h3 className="md:font-bold max-md:font-semibold md:text-lg max-md:text-md">{task.title}</h3>
-                <p className="text-sm mb-1">Deadline: {new Date(task?.lastDate).toLocaleDateString()}</p>
+        {Array.isArray(tasks) &&
+          tasks.map((task) => (
+            <li
+              key={task.id}
+              className={`p-4 rounded-lg shadow ${getStatusColor(task.status)}`}
+            >
+              <div className="flex max-md:flex-col max-md:gap-3 md:justify-between items-start">
+                <div className="flex flex-col max-md:gap-2">
+                  <h3 className="md:font-bold max-md:font-semibold md:text-lg max-md:text-md">
+                    {task.title}
+                  </h3>
+                  <p className="text-sm mb-1">
+                    Deadline: {new Date(task?.lastDate).toLocaleDateString()}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <button
+                    className="text-black flex items-center"
+                    onClick={() => toggleDropdown(task.id)}
+                  >
+                    <span>
+                      {dropdownOpen[task.id] ? "Hide" : "Show"} Details
+                    </span>{" "}
+                    {dropdownOpen[task.id] ? (
+                      <FaCaretUp className="max-md:w-8 max-md:h-8" />
+                    ) : (
+                      <FaCaretDown className="max-md:w-8 max-md:h-8" />
+                    )}
+                  </button>
+                  {!task.submitted ? (
+                    <label className="bg-black md:flex-row flex-col gap-3  w-full flex text-white rounded-full px-6 py-8 transition cursor-pointer">
+                      <input
+                        type="text"
+                        onChange={(e) => setFileUpload(e.target.value)}
+                        className="text-black rounded-md px-2"
+                        placeholder="Paste your drive link here !"
+                      />
+                      <Button onClick={() => handleUpload(task.id)}>
+                        Submit
+                      </Button>
+                    </label>
+                  ) : (
+                    <p className="text-black font-bold">Submitted</p>
+                  )}
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-              <button
-                  className="text-black flex items-center"
-                  onClick={() => toggleDropdown(task.id)}
-                >
-                <span >{dropdownOpen[task.id] ? "Hide" : "Show"} Details</span>  {dropdownOpen[task.id] ? <FaCaretUp className="max-md:w-8 max-md:h-8" /> : <FaCaretDown  className="max-md:w-8 max-md:h-8"/>} 
-                </button>
-                {!task.submitted ? (
-                  <label className="bg-black md:flex-row flex-col gap-3  w-full flex text-white rounded-full px-6 py-8 transition cursor-pointer">
-                    <input
-                      type="text"
-                      onChange={(e) => setFileUpload(e.target.value)}
-                      className="text-black rounded-md px-2"
-                      placeholder="Paste your drive link here !"
-                    />
-                    <Button onClick={()=>handleUpload(task.id)}>Submit</Button>
-                  </label>
-                ) : (
-                  <p className="text-black font-bold">Submitted</p>
-                )}
-              </div>
-            </div>
-            {dropdownOpen[task.id] && (
-              <div className="mt-2 p-2 rounded-lg">
-                <p className="text-sm">{task.description}</p>
-              </div>
-            )}
-          </li>
-        ))}
+              {dropdownOpen[task.id] && (
+                <div className="mt-2 p-2 rounded-lg">
+                  <p className="text-sm">{task.description}</p>
+                </div>
+              )}
+            </li>
+          ))}
       </ul>
     </div>
   );

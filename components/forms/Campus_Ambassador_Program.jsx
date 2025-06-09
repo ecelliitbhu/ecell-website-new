@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { firestoreDB } from "@/lib/firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { getSession, signOut } from "next-auth/react";
 
 
 export default function CampusAmbassadorProgram() {
@@ -25,6 +26,7 @@ export default function CampusAmbassadorProgram() {
   
   const searchParams = useSearchParams();
   const errorMessage = searchParams.get('error');
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
   
   useEffect(() => {
     if (errorMessage && !errorShown.current) {
@@ -36,6 +38,7 @@ export default function CampusAmbassadorProgram() {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [otherSelected,setOtherSelected]=useState(false)
   const [loading,setLoading]=useState(false)
+  
   
   const onSubmit = async (data) => {
     setLoading(true)
@@ -60,10 +63,10 @@ export default function CampusAmbassadorProgram() {
 
     // Sending the form data as a POST request
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/register', {
-        method: 'POST',
+      const response = await fetch(`${BACKEND_URL}/ambassador/register`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: data.fullname,
@@ -86,14 +89,28 @@ export default function CampusAmbassadorProgram() {
 
       const result = await response.json();
 
+    // if (response.ok) {
+    //   // Successfully registered
+    //   toast.success('User successfully registered!');
+    //   setLoading(false)
+    //   // console.log(result);
+    //   router.push("/")
+    // } 
     if (response.ok) {
-      // Successfully registered
-      toast.success('User successfully registered!');
-      setLoading(false)
-      // console.log(result);
-      router.push("/")
+      toast.success("User successfully registered!");
+      setLoading(false);
+
+      // Check if user is signed in
+      const session = await getSession();
+      if (session?.user) {
+        await signOut({ callbackUrl: "/" }); // or wherever you want to redirect
+        return;
+      }
+
+      // If not signed in, just redirect to homepage
+      router.push("/");
     } else {
-      setLoading(false)
+      setLoading(false);
       toast.error(`Error: ${result.error}`);
     }
   } catch (error) {

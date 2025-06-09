@@ -13,7 +13,7 @@ export default function Profile({className}) {
     const dispatch=useDispatch();
     const session=useSession()
     const user=useSelector(state=>state.campusAmbassador.user)
-    
+    const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     const { register, handleSubmit, reset } = useForm({
         values:user
@@ -21,12 +21,12 @@ export default function Profile({className}) {
     );
     const onSubmit = async (data) => {
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/update', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: user.id, ...data }),
+            const response = await fetch(`${BACKEND_URL}/ambassador/update`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ id: user.id, ...data }),
             });
             const updatedUser = await response.json();
             dispatch(updateUser({...user, ...updatedUser}));

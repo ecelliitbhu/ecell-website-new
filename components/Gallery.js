@@ -1,9 +1,8 @@
 import Image from "next/legacy/image";
 import React, { useState, useCallback } from "react";
-// import Gallery from "react-photo-gallery";
-import { Gallery } from "react-photo-album";
-import { Modal, ModalGateway } from "@haz3l/react-images-viewer";
-
+import PhotoAlbum from "react-photo-album";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 const founspeak = [
@@ -532,24 +531,47 @@ export const FoundersSpeak = () => {
   const imageRenderer = ({ index, key, photo }) => (
     <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
   );
+  const numRows = 3;
   return (
-    <div>
-      <Gallery photos={founspeak.slice(0, 8)} renderImage={imageRenderer} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={founspeak.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    <Carousel
+      showArrows={true}
+      showThumbs={false}
+      showStatus={false}
+      infiniteLoop={true}
+      showIndicators={false}
+      autoPlay={true} // Enable automatic scrolling
+      interval={9000}
+    >
+      {Array.from({ length: numRows }).map((_, rowIndex) => (
+        <div
+          key={rowIndex}
+          className="row"
+          style={{
+            display: "flex",
+          }}
+        >
+          {founspeak.slice(rowIndex * 3, (rowIndex + 1) * 3).map((photo) => (
+            <div
+              key={photo.id}
+              className="photo"
+              style={{
+                "margin-bottom": "20px",
+                width: "calc(33.33% - 1px)",
+              }}
+            >
+              <img
+                src={photo.src}
+                alt={photo.title}
+                style={{
+                  height: "230px",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      ))}
+    </Carousel>
   );
 };
 export const ESummit = () => {
@@ -680,24 +702,47 @@ export const MentorshipSessions = () => {
   const imageRenderer = ({ index, key, photo }) => (
     <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
   );
+  const numRows = 3;
   return (
-    <div>
-      <Gallery photos={mentorship.slice(0, 8)} renderImage={imageRenderer} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={mentorship.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    <Carousel
+      showArrows={true}
+      showThumbs={false}
+      showStatus={false}
+      infiniteLoop={true}
+      showIndicators={false}
+      autoPlay={true} // Enable automatic scrolling
+      interval={1000}
+    >
+      {Array.from({ length: numRows }).map((_, rowIndex) => (
+        <div
+          key={rowIndex}
+          className="row"
+          style={{
+            display: "flex",
+          }}
+        >
+          {mentorship.slice(rowIndex * 3, (rowIndex + 1) * 3).map((photo) => (
+            <div
+              key={photo.id}
+              className="photo"
+              style={{
+                "margin-bottom": "20px",
+                width: "calc(33.33% - 1px)",
+              }}
+            >
+              <img
+                src={photo.src}
+                alt={photo.title}
+                style={{
+                  height: "230px",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      ))}
+    </Carousel>
   );
 };
 
@@ -749,26 +794,36 @@ export const PitchingEvents = () => {
   const imageRenderer = ({ index, key, photo }) => (
     <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
   );
+  const numRows = 2;
+
   return (
     <div>
-      <Gallery
-        photos={pitchingEvents.slice(0, 8)}
-        renderImage={imageRenderer}
-      />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={pitchingEvents.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+      <Carousel
+        showArrows={true}
+        showThumbs={false}
+        showStatus={false}
+        infiniteLoop={true}
+        showIndicators={false}
+        autoPlay={true} // Enable automatic scrolling
+        interval={3000}
+      >
+        {Array.from({ length: numRows }).map((_, rowIndex) => (
+          <div key={rowIndex} className="row">
+            {pitchingEvents.slice(rowIndex * 2, (rowIndex + 1) * 2).map((photo) => (
+              <div
+                key={photo.id}
+                className="photo"
+                style={{
+                  "margin-bottom": "20px",
+                  width: "calc(50% - 1px)",
+                }}
+              >
+                <img src={photo.src} alt={photo.title} />
+              </div>
+            ))}
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
