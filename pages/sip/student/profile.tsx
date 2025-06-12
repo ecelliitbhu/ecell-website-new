@@ -95,12 +95,12 @@ const ProfilePage = () => {
           rollNumber: "",
           emailId: defaultUser.email,
           cpi: "",
-          branch: "",
+          branch: "Architecture, Planning and Design",
           linkedinLink: "",
           githubLink: "",
           resumeLink: "",
-          year: "",
-          courseType: "",
+          year: "1st Year",
+          courseType: "B.Tech",
         };
         setProfileData(profileData);
         setEditData(profileData);
@@ -136,27 +136,36 @@ const ProfilePage = () => {
         alert("Please log in to update profile");
         return;
       }
-      if (!editData.name || !editData.rollNumber) {
-        toast.error("Name and Roll Number are required.");
+      if (!editData.name) {
+        toast.error("Name is required.");
         return;
-      }      
-      const data = {
-        userId: studentId,
-        name: editData.name,
-        rollNo: editData.rollNumber,
-        branch: editData.branch,
-        cpi: Number.parseFloat(editData.cpi) || 0,
-        courseType: editData.courseType || "",
-        year: parseInt(
-          editData.year.split("st")[0] ||
-            editData.year.split("nd")[0] ||
-            editData.year.split("rd")[0] ||
-            editData.year.split("th")[0]
-        ),
-        linkedinUrl: editData.linkedinLink || "",
-        githubUrl: editData.githubLink || "",
-        resumeUrl: editData.resumeLink || "",
-      };
+      } else if (!editData.rollNumber) {
+        toast.error("Roll Number is required.");
+        return;
+      } else if (!editData.cpi) {
+        toast.error("CPI is required.");
+        return;
+      } else if (!editData.resumeLink) {
+        toast.error("Resume is required.");
+        return;
+      }
+        const data = {
+          userId: studentId,
+          name: editData.name,
+          rollNo: editData.rollNumber,
+          branch: editData.branch,
+          cpi: Number.parseFloat(editData.cpi) || 0,
+          courseType: editData.courseType || "",
+          year: parseInt(
+            editData.year.split("st")[0] ||
+              editData.year.split("nd")[0] ||
+              editData.year.split("rd")[0] ||
+              editData.year.split("th")[0]
+          ),
+          linkedinUrl: editData.linkedinLink || "",
+          githubUrl: editData.githubLink || "",
+          resumeUrl: editData.resumeLink || "",
+        };
       // console.log(data);
       // const response = await fetch(`${BACKEND_URL}/students/${studentId}`);
       const rawUser = await getStoredUser();
@@ -407,23 +416,32 @@ const ProfilePage = () => {
                       }
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent"
                     >
+                      <option value="Architecture, Planning and Design">
+                        Architecture, Planning and Design
+                      </option>
+                      <option value="Biomedical Engineering">
+                        Biomedical Engineering
+                      </option>
+                      <option value="Ceramic Engineering">
+                        Ceramic Engineering
+                      </option>
+                      <option value="Chemical Engineering">
+                        Chemical Engineering
+                      </option>
+                      <option value="Civil Engineering">
+                        Civil Engineering
+                      </option>
                       <option value="Computer Science and Engineering">
                         Computer Science and Engineering
                       </option>
                       <option value="Electrical Engineering">
                         Electrical Engineering
                       </option>
-                      <option value="Mechanical Engineering">
-                        Mechanical Engineering
-                      </option>
-                      <option value="Civil Engineering">
-                        Civil Engineering
-                      </option>
-                      <option value="Chemical Engineering">
-                        Chemical Engineering
-                      </option>
                       <option value="Electronics Engineering">
                         Electronics Engineering
+                      </option>
+                      <option value="Mechanical Engineering">
+                        Mechanical Engineering
                       </option>
                       <option value="Metallurgical Engineering">
                         Metallurgical Engineering
@@ -431,18 +449,25 @@ const ProfilePage = () => {
                       <option value="Mining Engineering">
                         Mining Engineering
                       </option>
-                      <option value="Ceramic Engineering">
-                        Ceramic Engineering
+                      <option value="Pharmaceutical Engineering and Technology">
+                        Pharmaceutical Engineering and Technology
                       </option>
-                      <option value="Biomedical Engineering">
-                        Biomedical Engineering
+                      <option value="Biochemical Engineering">
+                        Biochemical Engineering
                       </option>
-                      <option value="Architecture, Planning and Design">
-                        Architecture, Planning and Design
+                      <option value="Industrial Chemistry">
+                        Industrial Chemistry
                       </option>
-                      <option value="Other">
-                        Other
-                        </option>
+                      <option value="Mathematical Sciences">
+                        Mathematical Sciences
+                      </option>
+                      <option value="Engineering Physics">
+                        Engineering Physics
+                      </option>
+                      <option value="Chemistry">Chemistry</option>
+                      <option value="Material Science and Technology">
+                        Material Science and Technology
+                      </option>
                     </select>
                   ) : (
                     <div className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900">

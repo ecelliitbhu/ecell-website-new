@@ -28,55 +28,47 @@ export default function CAAuth({className}) {
     }
 
     return (
-        <>
-            <FaRegUserCircle 
-                onClick={handleClick}
-                className={cn("w-8 h-8 max-md:ml-auto max-md:mr-[88px] flex md:items-start cursor-pointer text-orange-500 my-auto", className)}
-            />
-            <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                    'aria-labelledby': 'basic-button',
-                }} 
+      <>
+        <FaRegUserCircle
+          onClick={handleClick}
+          className={cn(
+            "w-8 h-8 max-md:ml-auto max-md:mr-[88px] flex md:items-start cursor-pointer text-orange-500 my-auto",
+            className
+          )}
+        />
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+        >
+          <>
+            <MenuItem
+              onClick={() => {
+                handleClose();
+                signOut({ callbackUrl: "/" });
+              }}
             >
-                {session.status === "authenticated" ? (
-                    <>
-                         <MenuItem onClick={() => {
-                            handleClose()
-                           signOut ({callbackUrl:"/"})
-                        }}>
-                         <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
-                        <LogOutIcon fontSize="small" className="mr-2" />
-                        Logout
-                        </div>
-                        </MenuItem>
-                        <MenuItem onClick={() => {
-                            router.push("/campusambassador")
-                            handleClose()
-                        }}>
-                         <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
-                        <DashboardIcon fontSize="small" className="mr-2"  /> 
-                        CA Dashboard
-                        </div>
-                        </MenuItem>
-                    </>
-                ) : (
-                    <MenuItem onClick={() => {
-                        dispatch(openDialog({type:'login',title:'Login to Campus Ambassador'}))
-                        handleClose()
-                    }} 
-                   
-                    > 
-                    <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
-                            <LoginIcon fontSize="small" className="mr-2" />
-                           
-                            Login as Campus Ambassador
-                        </div>
-                        </MenuItem>
-                    )}
-            </Menu>
-        </>
-    )
+              <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
+                <LogOutIcon fontSize="small" className="mr-2" />
+                Logout
+              </div>
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                router.push("/campusambassador");
+                handleClose();
+              }}
+            >
+              <div className="border border-orange-500 rounded-md px-4 py-2 hover:border-orange-600 hover:bg-orange-400 bg-orange-600 text-white">
+                <DashboardIcon fontSize="small" className="mr-2" />
+                CA Dashboard
+              </div>
+            </MenuItem>
+          </>
+        </Menu>
+      </>
+    );
 } 

@@ -7,6 +7,8 @@ import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
 import Image from "next/legacy/image";
 import { useRef } from "react";
 import { toast } from "react-hot-toast";
+import { signIn } from 'next-auth/react';
+
 
 export default function CampusDirector() {
   const whatWeOfferRef = useRef(null);
@@ -16,6 +18,20 @@ export default function CampusDirector() {
       whatWeOfferRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const handleGoogleLogin = async () => {
+      // Save active tab in localStorage to use after redirect
+      // localStorage.setItem("activeTab", activeTab);
+  
+      // Redirect to Google login
+      // await signIn("google", { callbackUrl: "/sip/post-login" });
+      localStorage.setItem("activeTab", "ambassador");
+      console.log("submitting...")
+      await signIn("google", {
+        callbackUrl: `/sip/post-login` 
+      });
+    };
+  
   return (
     <>
       <Head>
@@ -57,6 +73,17 @@ export default function CampusDirector() {
                 // rel="noopener noreferrer"
               >
                 Register Now!
+              </Button>
+              <Button
+                // className="get-started join-cd"
+                className="get-started join-cd !bg-[#f56a38] hover:!bg-red-600 text-white !border !border-[#f56a38]"
+                // href="/campus-ambassador-form"
+                onClick={() => toast.error("Applications closed for now")}
+                // onClick={() => handleGoogleLogin()}
+                // target="_blank"
+                // rel="noopener noreferrer"
+              >
+                Already an Ambassador? Login..
               </Button>
             </Col>
             <Col className="image-section">

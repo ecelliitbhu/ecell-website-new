@@ -11,6 +11,7 @@ import { getStudentId } from "../../../lib/auth";
 import { signOut } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import { Application, Post, Student, JobType } from "../../../lib/types";
+import ReactMarkdown from "react-markdown";
 type ApplicationStatus = "pending" | "accepted" | "rejected";
 type SimplifiedOpportunity = {
   id: string;
@@ -579,22 +580,23 @@ const OpportunitiesPage = () => {
                                     Skills:
                                   </span>
                                   <div className="flex flex-wrap gap-2 mt-2">
-                                    {opportunity.skills?.map(
-                                      (skill, index) => (
-                                        <span
-                                          key={index}
-                                          className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded"
-                                        >
-                                          {skill}
-                                        </span>
-                                      )
-                                    )}
+                                    {opportunity.skills?.map((skill, index) => (
+                                      <span
+                                        key={index}
+                                        className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded"
+                                      >
+                                        {skill}
+                                      </span>
+                                    ))}
                                   </div>
                                 </div>
 
-                                <p className="text-gray-700 text-sm">
+                                {/* <p className="text-gray-700 text-sm">
                                   {opportunity.description}
-                                </p>
+                                </p> */}
+                                <ReactMarkdown>
+                                  {opportunity.description}
+                                </ReactMarkdown>
                               </div>
 
                               <div className="ml-6">
@@ -679,16 +681,14 @@ const OpportunitiesPage = () => {
                                 Skills:
                               </span>
                               <div className="flex flex-wrap gap-2 mt-2">
-                                {opportunity.skills?.map(
-                                  (skill, index) => (
-                                    <span
-                                      key={index}
-                                      className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded"
-                                    >
-                                      {skill}
-                                    </span>
-                                  )
-                                )}
+                                {opportunity.skills?.map((skill, index) => (
+                                  <span
+                                    key={index}
+                                    className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded"
+                                  >
+                                    {skill}
+                                  </span>
+                                ))}
                               </div>
                             </div>
 

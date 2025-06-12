@@ -56,12 +56,14 @@ export interface Post {
   jobType?: JobType;
   createdAt?: string;
   applications?: Application[];
+  applicationCount?:BigInteger;
 }
 
 export interface Application {
   id: string;
   studentId: string;
   postId: string;
+  postingTitle: string;
   appliedAt?: Date;
   status: ApplicationStatus;
   student: Student;

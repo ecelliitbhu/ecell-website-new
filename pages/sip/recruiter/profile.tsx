@@ -106,8 +106,12 @@ const ProfilePage = () => {
         alert("Please log in to update profile");
         return;
       }
-      if (!editData.companyName || !editData.websiteUrl) {
-        toast.error("Name and Roll Number are required.");
+      if (!editData.companyName) {
+        toast.error("Company Name is required.");
+        return;
+      } 
+      else if (!editData.websiteUrl) {
+        toast.error("Website Url is required.");
         return;
       } 
       const data = {

@@ -112,15 +112,18 @@ const RecruiterDashboard = () => {
 
       const formattedPosts = recruiterPosts.map((post: Post) => ({
         id: post.id,
-        title: post.jobTitle,
-        company: post.companyName,
+        jobTitle: post.jobTitle,
+        companyName: post.companyName,
         location: post.location,
-        type: post.jobType,
+        jobType: post.jobType,
         stipend: post.stipend,
-        skills: Array.isArray(post.requiredSkills) ? post.requiredSkills : [],
+        requiredSkills: Array.isArray(post.requiredSkills)
+          ? post.requiredSkills
+          : [],
         applicationCount: post.applications?.length || 0,
-        postedDate: post.createdAt,
-        description: post.jobDescription,
+        applications: post.applications,
+        createdAt: post.createdAt,
+        jobDescription: post.jobDescription,
         qualification: post.qualification,
         experience: post.experience,
       }));
@@ -159,11 +162,11 @@ const RecruiterDashboard = () => {
           return {
             id: app.id,
             postingId: app.postId,
-            postingTitle: app.post?.jobTitle || "Unknown Position",
+            post: app.post,
             student: {
               name: app.student?.name || "Unknown Student",
-              rollNumber: app.student?.rollNo || "N/A",
-              emailId: app.student?.user?.email || "N/A",
+              rollNo: app.student?.rollNo || "N/A",
+              // emailId: app.student?.user?.email || "N/A",
               cpi: app.student?.cpi?.toString() || "N/A",
               branch: app.student?.branch || "N/A",
               year: app.student?.year
@@ -172,12 +175,13 @@ const RecruiterDashboard = () => {
                   )} Year`
                 : "N/A",
               courseType: app.student?.courseType || "N/A",
-              linkedinLink: app.student?.linkedinUrl || null,
-              githubLink: app.student?.githubUrl || null,
-              resumeLink: app.student?.resumeUrl || null,
+              linkedinUrl: app.student?.linkedinUrl || null,
+              githubUrl: app.student?.githubUrl || null,
+              resumeUrl: app.student?.resumeUrl || null,
+              user: app.student.user,
             },
             status: app.status?.toLowerCase() || "pending",
-            appliedDate: app.appliedAt,
+            appliedAt: app.appliedAt,
           };
         }
       );
@@ -221,7 +225,7 @@ const RecruiterDashboard = () => {
           prev.filter((posting) => posting.id !== postingId)
         );
         setApplications((prev) =>
-          prev.filter((app) => app.postId !== postingId)
+          prev.filter((app) => app.post.id !== postingId)
         );
 
         alert("Posting deleted successfully!");
@@ -232,7 +236,7 @@ const RecruiterDashboard = () => {
     }
   };
 
-  const handleViewApplications = (posting: any) => {
+  const handleViewApplications = (posting: Post) => {
     setSelectedPosting(posting);
     setActiveTab("applications");
   };
@@ -249,7 +253,7 @@ const RecruiterDashboard = () => {
 
   const getFilteredApplications = () => {
     if (selectedPosting) {
-      return applications.filter((app) => app.postId === selectedPosting.id);
+      return applications.filter((app) => app.post.id === selectedPosting.id);
     }
     return applications;
   };

@@ -10,8 +10,9 @@ const handleSignIn = async () => {
   try {
     setLoading(true)
     // const result = await signIn('google',{callbackUrl:"/campusambassador"});
+    localStorage.setItem("activeTab", "ambassador");
     const result = await signIn("google", {
-      callbackUrl: `/sip/post-login?tab=ambassador`,
+      callbackUrl: `/sip/post-login`,
     });
     
     
