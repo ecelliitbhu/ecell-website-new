@@ -51,12 +51,12 @@ export default function StartupBundle() {
       <div style={flexContainerStyle} className="FlexContainer">
         <div style={{ marginRight: "7%", border: "3px solid #EBEBE3" }}>
           <Card sx={{ maxWidth: 370 }}>
-            <Link
+            <a
               passHref
               href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
               legacyBehavior>
               <Image src={part1_img} alt="logic"></Image>
-            </Link>
+            </a>
             <div
               style={{
                 display: "flex",
@@ -74,7 +74,7 @@ export default function StartupBundle() {
                   justifyContent: "flex-end",
                 }}
               >
-                <Link
+                <a
                   passHref
                   href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
                   legacyBehavior>
@@ -86,7 +86,7 @@ export default function StartupBundle() {
                       style={{ color: iconColorLeft }}
                     />
                   </div>
-                </Link>
+                </a>
               </div>
             </div>
           </Card>
@@ -94,12 +94,12 @@ export default function StartupBundle() {
 
         <div style={{ marginLeft: "7%", border: "3px solid #EBEBE3" }}>
           <Card sx={{ maxWidth: 370 }}>
-            <Link
+            <a
               passHref
               href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
               legacyBehavior>
               <Image src={part2_img} alt="logic"></Image>
-            </Link>
+            </a>
             <div
               style={{
                 display: "flex",
@@ -117,7 +117,7 @@ export default function StartupBundle() {
                   justifyContent: "flex-end",
                 }}
               >
-                <Link
+                <a
                   passHref
                   href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
                   legacyBehavior>
@@ -129,7 +129,7 @@ export default function StartupBundle() {
                       style={{ color: iconColorRight }}
                     />
                   </div>
-                </Link>
+                </a>
               </div>
             </div>
           </Card>
