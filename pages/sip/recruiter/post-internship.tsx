@@ -10,7 +10,7 @@ import { postsAPI } from "../../../lib/api";
 import { getRecruiterId } from "../../../lib/auth";
 import { signOut } from "next-auth/react";
 import { toast } from "react-hot-toast";
-import { Post, PostErrors } from "../../../lib/types";
+import { PostErrors } from "../../../lib/types";
 
 
 const PostInternshipPage = () => {
@@ -49,11 +49,12 @@ const PostInternshipPage = () => {
         const recruiterId = await getRecruiterId();
         if (!recruiterId) {
           toast.error("Recruiter ID not found");
+          router.push("/sip");
           return;
         }
 
         const response = await fetch(
-          `${BACKEND_URL}/recruiters/${recruiterId}`
+          `${BACKEND_URL}/recruiters/getinfo/${recruiterId}`
         );
         const data = await response.json();
 
@@ -91,7 +92,6 @@ const PostInternshipPage = () => {
     };
 
     const validateForm = () => {
-      // const newErrors = {};
       const newErrors: PostErrors = {};
       if (!formData.companyName.trim())
         newErrors.companyName = "Company name is required";
@@ -152,8 +152,7 @@ const PostInternshipPage = () => {
     };
 
     const handleLogout = () => {
-      console.log("Logging out...");
-      router.push("/sip");
+      signOut({ callbackUrl: "/sip" });
     };
 
   return (

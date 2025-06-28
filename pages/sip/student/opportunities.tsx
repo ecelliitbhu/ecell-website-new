@@ -72,7 +72,9 @@ const OpportunitiesPage = () => {
       try {
         const studentId = await getStudentId();
         if (studentId) {
-          const response = await fetch(`${BACKEND_URL}/students/${studentId}`);
+          const response = await fetch(
+            `${BACKEND_URL}/students/getinfo/${studentId}`
+          );
           const student = await response.json();
           if (!response.ok) {
             if (student.error === "STUDENT_NOT_FOUND") {
@@ -92,6 +94,7 @@ const OpportunitiesPage = () => {
             student?.resumeUrl;
 
           if (!isComplete) {
+            toast.error("Complete profile")
             router.push("/sip/student/profile?edit=true");
             return;
           }
@@ -118,6 +121,7 @@ const OpportunitiesPage = () => {
           appliedPostIds = applications.map((app: Application) => app.postId);
         } catch (error) {
           console.error("Error loading applications:", error);
+          toast.error("Could not load applications")
         }
       }
 
@@ -144,7 +148,7 @@ const OpportunitiesPage = () => {
       );
     } catch (error) {
       console.error("Error loading opportunities:", error);
-      alert("Failed to load opportunities");
+      toast.error("Failed to load opportunities");
     }
   };
 
@@ -244,7 +248,8 @@ const OpportunitiesPage = () => {
     try {
       const studentId = await getStudentId();
       if (!studentId) {
-        alert("Please log in to apply");
+        toast.error("Please log in to apply");
+        router.push("/sip/login")
         return;
       }
 
@@ -290,19 +295,15 @@ const OpportunitiesPage = () => {
         setAppliedOpportunities((prev) => [...prev, newApplication]);
       }
 
-      alert("Application submitted successfully!");
+      toast.success("Application submitted successfully!");
     } catch (error:any) {
       console.error("Error applying to opportunity:", error);
-      alert(error.message || "Failed to submit application");
+      toast.error(error.message || "Failed to submit application");
     }
   };
 
   const handleWithdraw = async (applicationId: any) => {
-    // console.log("Withdrawing application:", applicationId);
     try {
-      // console.log("Withdrawing application:", applicationId);
-
-      // Find the application being withdrawn
       const withdrawnApplication = appliedOpportunities.find(
         (app) => app.id === applicationId
       );
@@ -340,17 +341,15 @@ const OpportunitiesPage = () => {
       }
       
 
-      alert("Application withdrawn successfully!");
+      toast.success("Application withdrawn successfully!");
     } catch (error: any) {
       console.error("Error withdrawing application:", error);
-      alert(error.message || "Failed to withdraw application");
+      toast.error(error.message || "Failed to withdraw application");
     }
   };
 
   const handleLogout = () => {
-    console.log("Logging out...");
-    router.push("/sip");
-    return;
+    signOut({ callbackUrl: "/sip" });
   };
 
   const getStatusBadge = (status: ApplicationStatus) => {

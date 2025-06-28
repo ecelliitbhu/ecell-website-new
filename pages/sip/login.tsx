@@ -11,13 +11,6 @@ import { signIn } from "next-auth/react";
 const LoginPage = () => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("student");
-  const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const role = router.query.role;
@@ -28,11 +21,6 @@ const LoginPage = () => {
   
 
   const handleGoogleLogin = async () => {
-    // Save active tab in localStorage to use after redirect
-    // localStorage.setItem("activeTab", activeTab);
-
-    // Redirect to Google login
-    // await signIn("google", { callbackUrl: "/sip/post-login" });
     localStorage.setItem("activeTab", activeTab);
     console.log("submitting...")
     await signIn("google", {

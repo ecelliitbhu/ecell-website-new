@@ -9,18 +9,14 @@ import { useRouter } from "next/navigation";
 import { postsAPI, applicationsAPI } from "../../../lib/api";
 import { getRecruiterId } from "../../../lib/auth";
 import { signOut } from "next-auth/react";
-// import { toast } from "@/components/ui/use-toast";
 import { toast } from "react-hot-toast";
 import {Recruiter, Post, Application, Student, JobType} from '../../../lib/types';
 
 const RecruiterDashboard = () => {
   const [activeTab, setActiveTab] = useState("postings");
   const [postings, setPostings] = useState<Post[]>([]);
-  // const [applications, setApplications] = useState([]);
   const [applications, setApplications] = useState<Application[]>([]);
   const [selectedPosting, setSelectedPosting] = useState<Post | null>(null);
-  // const [selectedPosting, setSelectedPosting] = useState<Post[]>([]);
-  // const [selectedPosting, setSelectedPosting] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [showStudentModal, setShowStudentModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -59,10 +55,14 @@ const RecruiterDashboard = () => {
       const recruiterId = await getRecruiterId();
       if (!recruiterId) {
         console.error("No recruiter ID found");
+        toast.error("Login to access");
+        router.push("/sip");
         return null;
       }
 
-      const response = await fetch(`${BACKEND_URL}/recruiters/${recruiterId}`);
+      const response = await fetch(
+        `${BACKEND_URL}/recruiters/getinfo/${recruiterId}`
+      );
       const data = await response.json();
 
       if (!response.ok) {
@@ -74,7 +74,6 @@ const RecruiterDashboard = () => {
         }
       }
 
-      // console.log("Recruiter data loaded:", data);
       setCurrentRecruiter(data); // still set it in state for other components
 
       const isComplete = data?.companyName && data?.websiteUrl;
@@ -85,7 +84,7 @@ const RecruiterDashboard = () => {
       return data; // return recruiter object
     } catch (error) {
       console.error("Error loading recruiter data:", error);
-      setError("Failed to load recruiter profile");
+      toast.error("Failed to load recruiter profile");
       return null;
     }
   };
@@ -100,15 +99,8 @@ const RecruiterDashboard = () => {
       console.log("All posts received:", posts.length);
 
       const recruiterPosts = posts.filter((post: Post) => {
-        // console.log(
-        //   `Checking post ${post.id}: recruiterId=${post.recruiterId}, looking for=${recruiter.id}`
-        // );
         return post.recruiterId === recruiter.id;
       });
-
-      console.log(
-        // `Found ${recruiterPosts.length} posts for recruiter ${recruiter.id}`
-      );
 
       const formattedPosts = recruiterPosts.map((post: Post) => ({
         id: post.id,
@@ -140,9 +132,6 @@ const RecruiterDashboard = () => {
           const isRecruiterApp = recruiterPosts.some(
             (post: Post) => post.id === app.postId
           );
-          // console.log(
-          //   `Application ${app.id} for post ${app.postId}: belongs to recruiter = ${isRecruiterApp}`
-          // );
           return isRecruiterApp;
         }
       );
@@ -153,12 +142,6 @@ const RecruiterDashboard = () => {
 
       const formattedApplications = recruiterApplications.map(
         (app: Application) => {
-          // console.log(
-          //   "Formatting application:",
-          //   app.id,
-          //   "Student:",
-          //   app.student?.name
-          // );
           return {
             id: app.id,
             postingId: app.postId,
@@ -166,7 +149,6 @@ const RecruiterDashboard = () => {
             student: {
               name: app.student?.name || "Unknown Student",
               rollNo: app.student?.rollNo || "N/A",
-              // emailId: app.student?.user?.email || "N/A",
               cpi: app.student?.cpi?.toString() || "N/A",
               branch: app.student?.branch || "N/A",
               year: app.student?.year
@@ -198,7 +180,6 @@ const RecruiterDashboard = () => {
 
   const handleApplicationAction = async (applicationId: any, action: any) => {
     try {
-      // console.log(`${action} application:`, applicationId);
       await applicationsAPI.updateStatus(applicationId, action.toUpperCase());
 
       // Update local state
@@ -208,10 +189,10 @@ const RecruiterDashboard = () => {
         )
       );
 
-      alert(`Application ${action} successfully!`);
+      toast.success(`Application ${action} successfully!`);
     } catch (error: any) {
       console.error(`Error ${action}ing application:`, error);
-      alert(error.message || `Failed to ${action} application`);
+      toast.error(error.message || `Failed to ${action} application`);
     }
   };
 
@@ -228,10 +209,10 @@ const RecruiterDashboard = () => {
           prev.filter((app) => app.post.id !== postingId)
         );
 
-        alert("Posting deleted successfully!");
+        toast.success("Posting deleted successfully!");
       } catch (error: any) {
         console.error("Error deleting posting:", error);
-        alert(error.message || "Failed to delete posting");
+        toast.error("Failed to delete posting");
       }
     }
   };
@@ -247,8 +228,7 @@ const RecruiterDashboard = () => {
   };
 
   const handleLogout = () => {
-    console.log("Logging out...");
-    router.push("/sip");
+    signOut({ callbackUrl: "/sip" });
   };
 
   const getFilteredApplications = () => {
@@ -266,9 +246,6 @@ const RecruiterDashboard = () => {
   // Refresh applications when switching to applications tab to show real-time updates
   const handleTabChange = (tab: any) => {
     setActiveTab(tab);
-    // if (tab === "applications") {
-    //   loadDashboardData(); // Refresh to get latest applications
-    // }
   };
 
   function getOrdinalSuffix(day: any) {
@@ -637,13 +614,14 @@ const RecruiterDashboard = () => {
                               </span>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                              {application.status === "PENDING" && (
+                              {application.status?.toUpperCase() ===
+                                "PENDING" && (
                                 <>
                                   <button
                                     onClick={() =>
                                       handleApplicationAction(
                                         application.id,
-                                        "accepted"
+                                        "ACCEPTED"
                                       )
                                     }
                                     className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
@@ -654,7 +632,7 @@ const RecruiterDashboard = () => {
                                     onClick={() =>
                                       handleApplicationAction(
                                         application.id,
-                                        "rejected"
+                                        "REJECTED"
                                       )
                                     }
                                     className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
@@ -869,10 +847,10 @@ const RecruiterDashboard = () => {
                       );
                       setIsEditing(false);
 
-                      alert("Posting updated successfully!");
+                      toast.success("Posting updated successfully!");
                     } catch (error: any) {
                       console.error("Error updating posting:", error);
-                      alert(error.message || "Failed to update posting");
+                      toast.error(error.message || "Failed to update posting");
                     }
                   }}
                   className="space-y-4"
