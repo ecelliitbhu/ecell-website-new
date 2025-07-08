@@ -72,7 +72,9 @@ const OpportunitiesPage = () => {
       try {
         const studentId = await getStudentId();
         if (studentId) {
-          const response = await fetch(`${BACKEND_URL}/students/${studentId}`);
+          const response = await fetch(
+            `${BACKEND_URL}/students/getinfo/${studentId}`
+          );
           const student = await response.json();
           if (!response.ok) {
             if (student.error === "STUDENT_NOT_FOUND") {
@@ -92,7 +94,8 @@ const OpportunitiesPage = () => {
             student?.resumeUrl;
 
           if (!isComplete) {
-            router.push("/sip/student/profile?edit=true");
+            toast.error("Complete profile")
+            router.push("/student-internship-portal/student/profile?edit=true");
             return;
           }
         }
@@ -118,6 +121,7 @@ const OpportunitiesPage = () => {
           appliedPostIds = applications.map((app: Application) => app.postId);
         } catch (error) {
           console.error("Error loading applications:", error);
+          toast.error("Could not load applications")
         }
       }
 
@@ -144,7 +148,7 @@ const OpportunitiesPage = () => {
       );
     } catch (error) {
       console.error("Error loading opportunities:", error);
-      alert("Failed to load opportunities");
+      toast.error("Failed to load opportunities");
     }
   };
 
@@ -244,7 +248,8 @@ const OpportunitiesPage = () => {
     try {
       const studentId = await getStudentId();
       if (!studentId) {
-        alert("Please log in to apply");
+        toast.error("Please log in to apply");
+        router.push("/student-internship-portal/login");
         return;
       }
 
@@ -290,24 +295,28 @@ const OpportunitiesPage = () => {
         setAppliedOpportunities((prev) => [...prev, newApplication]);
       }
 
-      alert("Application submitted successfully!");
+      toast.success("Application submitted successfully!");
     } catch (error:any) {
       console.error("Error applying to opportunity:", error);
-      alert(error.message || "Failed to submit application");
+      toast.error(error.message || "Failed to submit application");
     }
   };
 
   const handleWithdraw = async (applicationId: any) => {
-    // console.log("Withdrawing application:", applicationId);
     try {
-      // console.log("Withdrawing application:", applicationId);
-
-      // Find the application being withdrawn
       const withdrawnApplication = appliedOpportunities.find(
         (app) => app.id === applicationId
       );
 
-      await applicationsAPI.withdraw(applicationId);
+      const res = await applicationsAPI.withdraw(applicationId);
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        toast.error(errorData.message || "Failed to withdraw application");
+        return;
+      }
+
+      toast.success("Application withdrawn successfully!");
 
       // Remove from applied opportunities list
       setAppliedOpportunities((prev) =>
@@ -340,17 +349,15 @@ const OpportunitiesPage = () => {
       }
       
 
-      alert("Application withdrawn successfully!");
+      // toast.success("Application withdrawn successfully!");
     } catch (error: any) {
       console.error("Error withdrawing application:", error);
-      alert(error.message || "Failed to withdraw application");
+      toast.error(error.message || "Failed to withdraw application");
     }
   };
 
   const handleLogout = () => {
-    console.log("Logging out...");
-    router.push("/sip");
-    return;
+    signOut({ callbackUrl: "/student-internship-portal" });
   };
 
   const getStatusBadge = (status: ApplicationStatus) => {
@@ -413,7 +420,7 @@ const OpportunitiesPage = () => {
                   Opportunities
                 </button>
                 <Link
-                  href="/sip/student/profile"
+                  href="/student-internship-portal/student/profile"
                   className="px-4 py-2 text-black hover:bg-[#f56a38] hover:text-white rounded transition-colors"
                 >
                   My Profile
@@ -703,13 +710,16 @@ const OpportunitiesPage = () => {
                                 opportunity.status?.toLowerCase() as ApplicationStatus
                               )}
                             </div>
-                            <button
-                              onClick={() => handleWithdraw(opportunity.id)}
-                              className="flex items-center px-4 py-2 text-red-600 border border-red-300 rounded-lg hover:bg-red-50 transition-colors"
-                            >
-                              <X className="w-4 h-4 mr-2" />
-                              Withdraw
-                            </button>
+                            {opportunity.status?.toLowerCase() !==
+                              "rejected" && (
+                              <button
+                                onClick={() => handleWithdraw(opportunity.id)}
+                                className="flex items-center px-4 py-2 text-red-600 border border-red-300 rounded-lg hover:bg-red-50 transition-colors"
+                              >
+                                <X className="w-4 h-4 mr-2" />
+                                Withdraw
+                              </button>
+                            )}
                           </div>
                         </div>
                       </div>

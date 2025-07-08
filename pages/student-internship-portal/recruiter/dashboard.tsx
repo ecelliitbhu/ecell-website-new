@@ -9,18 +9,14 @@ import { useRouter } from "next/navigation";
 import { postsAPI, applicationsAPI } from "../../../lib/api";
 import { getRecruiterId } from "../../../lib/auth";
 import { signOut } from "next-auth/react";
-// import { toast } from "@/components/ui/use-toast";
 import { toast } from "react-hot-toast";
 import {Recruiter, Post, Application, Student, JobType} from '../../../lib/types';
 
 const RecruiterDashboard = () => {
   const [activeTab, setActiveTab] = useState("postings");
   const [postings, setPostings] = useState<Post[]>([]);
-  // const [applications, setApplications] = useState([]);
   const [applications, setApplications] = useState<Application[]>([]);
   const [selectedPosting, setSelectedPosting] = useState<Post | null>(null);
-  // const [selectedPosting, setSelectedPosting] = useState<Post[]>([]);
-  // const [selectedPosting, setSelectedPosting] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [showStudentModal, setShowStudentModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -37,6 +33,7 @@ const RecruiterDashboard = () => {
     requiredSkills: "",
     location: "",
     jobType: "REMOTE",
+    verified: false,
   });
   const [error, setError] = useState<string | null>(null);
 
@@ -59,10 +56,14 @@ const RecruiterDashboard = () => {
       const recruiterId = await getRecruiterId();
       if (!recruiterId) {
         console.error("No recruiter ID found");
+        toast.error("Login to access");
+        router.push("/student-internship-portal");
         return null;
       }
 
-      const response = await fetch(`${BACKEND_URL}/recruiters/${recruiterId}`);
+      const response = await fetch(
+        `${BACKEND_URL}/recruiters/getinfo/${recruiterId}`
+      );
       const data = await response.json();
 
       if (!response.ok) {
@@ -74,18 +75,18 @@ const RecruiterDashboard = () => {
         }
       }
 
-      // console.log("Recruiter data loaded:", data);
       setCurrentRecruiter(data); // still set it in state for other components
+      // console.log(data);
 
       const isComplete = data?.companyName && data?.websiteUrl;
       if (!isComplete) {
-        router.push("/sip/recruiter/profile?edit=true");
+        router.push("/student-internship-portal/recruiter/profile?edit=true");
       }
 
       return data; // return recruiter object
     } catch (error) {
       console.error("Error loading recruiter data:", error);
-      setError("Failed to load recruiter profile");
+      toast.error("Failed to load recruiter profile");
       return null;
     }
   };
@@ -100,15 +101,8 @@ const RecruiterDashboard = () => {
       console.log("All posts received:", posts.length);
 
       const recruiterPosts = posts.filter((post: Post) => {
-        // console.log(
-        //   `Checking post ${post.id}: recruiterId=${post.recruiterId}, looking for=${recruiter.id}`
-        // );
         return post.recruiterId === recruiter.id;
       });
-
-      console.log(
-        // `Found ${recruiterPosts.length} posts for recruiter ${recruiter.id}`
-      );
 
       const formattedPosts = recruiterPosts.map((post: Post) => ({
         id: post.id,
@@ -140,9 +134,6 @@ const RecruiterDashboard = () => {
           const isRecruiterApp = recruiterPosts.some(
             (post: Post) => post.id === app.postId
           );
-          // console.log(
-          //   `Application ${app.id} for post ${app.postId}: belongs to recruiter = ${isRecruiterApp}`
-          // );
           return isRecruiterApp;
         }
       );
@@ -153,12 +144,6 @@ const RecruiterDashboard = () => {
 
       const formattedApplications = recruiterApplications.map(
         (app: Application) => {
-          // console.log(
-          //   "Formatting application:",
-          //   app.id,
-          //   "Student:",
-          //   app.student?.name
-          // );
           return {
             id: app.id,
             postingId: app.postId,
@@ -166,7 +151,6 @@ const RecruiterDashboard = () => {
             student: {
               name: app.student?.name || "Unknown Student",
               rollNo: app.student?.rollNo || "N/A",
-              // emailId: app.student?.user?.email || "N/A",
               cpi: app.student?.cpi?.toString() || "N/A",
               branch: app.student?.branch || "N/A",
               year: app.student?.year
@@ -198,7 +182,6 @@ const RecruiterDashboard = () => {
 
   const handleApplicationAction = async (applicationId: any, action: any) => {
     try {
-      // console.log(`${action} application:`, applicationId);
       await applicationsAPI.updateStatus(applicationId, action.toUpperCase());
 
       // Update local state
@@ -208,10 +191,10 @@ const RecruiterDashboard = () => {
         )
       );
 
-      alert(`Application ${action} successfully!`);
+      toast.success(`Application ${action} successfully!`);
     } catch (error: any) {
       console.error(`Error ${action}ing application:`, error);
-      alert(error.message || `Failed to ${action} application`);
+      toast.error(error.message || `Failed to ${action} application`);
     }
   };
 
@@ -228,10 +211,10 @@ const RecruiterDashboard = () => {
           prev.filter((app) => app.post.id !== postingId)
         );
 
-        alert("Posting deleted successfully!");
+        toast.success("Posting deleted successfully!");
       } catch (error: any) {
         console.error("Error deleting posting:", error);
-        alert(error.message || "Failed to delete posting");
+        toast.error("Failed to delete posting");
       }
     }
   };
@@ -247,8 +230,7 @@ const RecruiterDashboard = () => {
   };
 
   const handleLogout = () => {
-    console.log("Logging out...");
-    router.push("/sip");
+    signOut({ callbackUrl: "/student-internship-portal" });
   };
 
   const getFilteredApplications = () => {
@@ -266,9 +248,6 @@ const RecruiterDashboard = () => {
   // Refresh applications when switching to applications tab to show real-time updates
   const handleTabChange = (tab: any) => {
     setActiveTab(tab);
-    // if (tab === "applications") {
-    //   loadDashboardData(); // Refresh to get latest applications
-    // }
   };
 
   function getOrdinalSuffix(day: any) {
@@ -297,6 +276,88 @@ const RecruiterDashboard = () => {
       </div>
     );
   }
+
+  // console.log("verification: ",currentRecruiter?.verified);
+  // console.log("recruiter: ", currentRecruiter);
+  if (!currentRecruiter?.verified) {
+    // if (false) {
+      return (
+        <>
+          <Head>
+            <title>Recruiter Dashboard - IIT BHU Portal</title>
+            <meta
+              name="description"
+              content="Manage internship postings and applications"
+            />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+              rel="stylesheet"
+            />
+          </Head>
+
+          <div className="min-h-screen bg-white font-poppins">
+            {/* Header */}
+            <header className="bg-[#f8f9fa] text-black">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center py-4">
+                  <div className="flex items-center">
+                    <NavLogo />
+                    <h1 className="text-xl font-bold ml-4">
+                      IIT BHU Internship Portal
+                    </h1>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <span className="text-sm">
+                      Welcome, {currentRecruiter?.companyName || "Recruiter"}
+                    </span>
+                    <Link
+                      href="/student-internship-portal/recruiter/dashboard"
+                      className="px-4 py-2 bg-white text-black rounded font-medium hover:bg-gray-100 transition-colors"
+                    >
+                      Dashboard
+                    </Link>
+                    <Link
+                      href="/student-internship-portal/recruiter/profile"
+                      className="px-4 py-2 text-black hover:bg-[#f56a38] hover:text-white rounded transition-colors"
+                    >
+                      Profile
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center px-4 py-2 text-black hover:bg-[#f56a38] hover:text-white rounded transition-colors"
+                    >
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            {/* Main Content */}
+            <main className="flex items-center justify-center py-20 px-4 text-center">
+              <div className="max-w-md">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Verification Pending
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Wait till we verify your registration. If it is taking more
+                  than 2 business days, please contact{" "}
+                  <a
+                    href="mailto:ecell@itbhu.ac.in"
+                    className="text-[#f56a38] underline"
+                  >
+                    ecell@itbhu.ac.in
+                  </a>
+                  .
+                </p>
+              </div>
+            </main>
+          </div>
+        </>
+      );
+    }
+  
 
   if (error) {
     return (
@@ -360,13 +421,13 @@ const RecruiterDashboard = () => {
                   Welcome, {currentRecruiter?.companyName || "Recruiter"}
                 </span>
                 <Link
-                  href="/sip/recruiter/dashboard"
+                  href="/student-internship-portal/recruiter/dashboard"
                   className="px-4 py-2 bg-white text-black rounded font-medium hover:bg-gray-100 transition-colors"
                 >
                   Dashboard
                 </Link>
                 <Link
-                  href="/sip/recruiter/profile"
+                  href="/student-internship-portal/recruiter/profile"
                   className="px-4 py-2 text-black hover:bg-[#f56a38] hover:text-white rounded transition-colors"
                 >
                   Profile
@@ -392,7 +453,7 @@ const RecruiterDashboard = () => {
                 Recruiter Dashboard
               </h2>
               <Link
-                href="/sip/recruiter/post-internship"
+                href="/student-internship-portal/recruiter/post-internship"
                 className="inline-flex items-center px-6 py-3 bg-[#f56a38] text-white rounded-lg hover:bg-[#e55a32] focus:outline-none focus:ring-2 focus:ring-[#f56a38] focus:ring-offset-2 transition-colors"
               >
                 <Plus className="w-5 h-5 mr-2" />
@@ -439,7 +500,7 @@ const RecruiterDashboard = () => {
                       Create your first internship posting to get started.
                     </p>
                     <Link
-                      href="/sip/recruiter/post-internship"
+                      href="/student-internship-portal/recruiter/post-internship"
                       className="inline-flex items-center px-6 py-3 bg-[#f56a38] text-white rounded-lg hover:bg-[#e55a32] transition-colors"
                     >
                       <Plus className="w-5 h-5 mr-2" />
@@ -637,13 +698,14 @@ const RecruiterDashboard = () => {
                               </span>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                              {application.status === "PENDING" && (
+                              {application.status?.toUpperCase() ===
+                                "PENDING" && (
                                 <>
                                   <button
                                     onClick={() =>
                                       handleApplicationAction(
                                         application.id,
-                                        "accepted"
+                                        "ACCEPTED"
                                       )
                                     }
                                     className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
@@ -654,7 +716,7 @@ const RecruiterDashboard = () => {
                                     onClick={() =>
                                       handleApplicationAction(
                                         application.id,
-                                        "rejected"
+                                        "REJECTED"
                                       )
                                     }
                                     className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
@@ -869,10 +931,10 @@ const RecruiterDashboard = () => {
                       );
                       setIsEditing(false);
 
-                      alert("Posting updated successfully!");
+                      toast.success("Posting updated successfully!");
                     } catch (error: any) {
                       console.error("Error updating posting:", error);
-                      alert(error.message || "Failed to update posting");
+                      toast.error(error.message || "Failed to update posting");
                     }
                   }}
                   className="space-y-4"

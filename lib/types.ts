@@ -40,6 +40,7 @@ export interface Recruiter {
   companyName?: string;
   address?: string;
   websiteUrl?: string;
+  verified?: boolean;
 }
 
 export interface Post {

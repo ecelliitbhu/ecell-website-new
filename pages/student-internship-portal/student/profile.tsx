@@ -5,15 +5,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { LogOut, Save, Edit, X } from "lucide-react";
 import { NavLogo } from "../../../components/navbar/NavLogo";
-// import { useRouter } from "next/navigation";
 import { useRouter } from "next/router";
 import { studentsAPI } from "../../../lib/api";
 import { getStudentId, getStoredUser } from "../../../lib/auth";
-import { signOut } from "next-auth/react";
-// import { toast } from "@/components/ui/use-toast";
 import { toast } from "react-hot-toast";
 import {UserWithRoles} from "../../../lib/types"
 import { getSession, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 
 const ProfilePage = () => {
@@ -47,23 +45,20 @@ const ProfilePage = () => {
     }
   }, [edit]);
 
-  // useEffect(() => {
-  //   loadProfile();
-  // }, []);
-
   const loadProfile = async () => {
     try {
       setIsLoading(true);
       const rawUser = (await getStoredUser());
       if (!rawUser) {
-        router.push("/sip/login");
+        router.push("/student-internship-portal/login");
         return;
       }
       const user = rawUser as UserWithRoles;
       const roles = user.roles || [];
-      // console.log("in load: ", roles);
       if (roles.includes("STUDENT")){
-        const response = await fetch(`${BACKEND_URL}/students/${user.id}`);
+        const response = await fetch(
+          `${BACKEND_URL}/students/getinfo/${user.id}`
+        );
         const student = await response.json();
         const profileData = {
           name: student.name,
@@ -77,18 +72,17 @@ const ProfilePage = () => {
           year: `${student.year}${getOrdinalSuffix(student.year)} Year`,
           courseType: student.courseType,
         };
-        // console.log("profile: ", profileData);
         setProfileData(profileData);
         setEditData(profileData);
       }
       else{
         const rawUser = await getStoredUser();
         if (!rawUser) {
-          router.push("/sip/login");
+          router.push("/student-internship-portal/login");
           return;
         }
         const user = rawUser as UserWithRoles;
-        const response = await fetch(`${BACKEND_URL}/users/${user.id}`);
+        const response = await fetch(`${BACKEND_URL}/users/getid/${user.id}`);
         const defaultUser = await response.json();
         const profileData = {
           name: "",
@@ -108,7 +102,7 @@ const ProfilePage = () => {
     } 
     catch (error) {
       console.error("Error loading profile:", error);
-      alert("Failed to load profile");
+      toast.error("Failed to load profile");
     } 
     finally {
       setIsLoading(false);
@@ -133,7 +127,7 @@ const ProfilePage = () => {
       console.log("saving..");
       const studentId = await getStudentId();
       if (!studentId) {
-        alert("Please log in to update profile");
+        toast.error("Please log in to update profile");
         return;
       }
       if (!editData.name) {
@@ -166,18 +160,17 @@ const ProfilePage = () => {
           githubUrl: editData.githubLink || "",
           resumeUrl: editData.resumeLink || "",
         };
-      // console.log(data);
-      // const response = await fetch(`${BACKEND_URL}/students/${studentId}`);
+
       const rawUser = await getStoredUser();
       if (!rawUser) {
-        router.push("/sip/login");
+        router.push("/student-internship-portal/login");
         return;
       }
       const user = rawUser as UserWithRoles;
       const roles=user.roles
       if (!roles?.includes("STUDENT")) {
         try {
-          const res = await fetch(`${BACKEND_URL}/students`, {
+          const res = await fetch(`${BACKEND_URL}/students/register`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -192,16 +185,10 @@ const ProfilePage = () => {
             // Handle error UI or rethrow if needed
             throw new Error(error.message || "Failed to create student");
           }
-          // const { data: session, update } = useSession();
-
-          // const newRoles = Array.from(new Set([...roles, "STUDENT"])); // Avoid duplicates
-          // roles?.push("STUDENT");
           const updatedRoles = Array.from(
             new Set([...(roles || []), "STUDENT"])
           );
 
-
-          // console.log("Before update:", session?.user?.roles);
           if (session?.user) {
             await update({
               user: {
@@ -211,8 +198,6 @@ const ProfilePage = () => {
             });
           }
           const newSession = await getSession();
-          // console.log("Updated session:", newSession);
-          // console.log("After update (in memory only):", session?.user?.roles);
         } catch (error) {
           console.error("Error creating student:", error);
         }
@@ -224,10 +209,10 @@ const ProfilePage = () => {
       // setProfileData({ ...editData });
       await loadProfile();
       setIsEditing(false);
-      alert("Profile updated successfully!");
+      toast.success("Profile updated successfully!");
     } catch (error:any) {
       console.error("Error updating profile:", error);
-      alert(error.message || "Failed to update profile");
+      toast.error(error.message || "Failed to update profile");
     }
   };
 
@@ -237,8 +222,7 @@ const ProfilePage = () => {
   };
 
   const handleLogout = () => {
-    console.log("Logging out...");
-    router.push("/sip");
+    signOut({ callbackUrl: "/student-internship-portal" });
   };
 
   if (isLoading) {
@@ -281,13 +265,13 @@ const ProfilePage = () => {
               <div className="flex items-center space-x-4">
                 <span className="text-sm">Welcome, {profileData.name}</span>
                 <Link
-                  href="/sip/student/opportunities"
+                  href="/student-internship-portal/student/opportunities"
                   className="px-4 py-2 text-black hover:bg-[#f56a38] hover:text-white rounded transition-colors"
                 >
                   Opportunities
                 </Link>
                 <Link
-                  href="/sip/student/profile"
+                  href="/student-internship-portal/student/profile"
                   className="px-4 py-2 bg-white text-black rounded font-medium hover:bg-gray-100 transition-colors"
                 >
                   My Profile

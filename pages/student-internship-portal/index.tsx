@@ -3,8 +3,27 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../../components/navbar/NavLayout";
 import Footer from "../../components/Footer";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
+
+
+
 
 const SipLanding = () => {
+  console.log("insti-out");
+  const router = useRouter();
+  
+  // console.log(props);
+  console.log(router.query);
+  if (router.query) {
+    useEffect(() => {
+      console.log("insti");
+      if (router.query.error) {
+        toast.error(router.query.error.toString());
+      }
+    }, [router.query]);
+  }
   return (
     <>
       <Head>
@@ -44,7 +63,7 @@ const SipLanding = () => {
             </p>
 
             <Link
-              href="/sip/login"
+              href="/student-internship-portal/login"
               className="inline-block px-8 py-3 bg-[#F15A22] text-white font-medium rounded-lg hover:bg-[#F15A22] transition-colors mb-16"
             >
               Login
@@ -64,7 +83,7 @@ const SipLanding = () => {
                   apply directly to companies.
                 </p>
                 <Link
-                  href="/sip/login?role=student"
+                  href="/student-internship-portal/login?role=student"
                   className="inline-block w-full px-6 py-3 bg-[#F15A22] border border-gray-300 text-white font-medium rounded-lg hover:bg-[#ee7448] transition-colors"
                 >
                   Student Login
@@ -81,7 +100,7 @@ const SipLanding = () => {
                   the perfect candidates.
                 </p>
                 <Link
-                  href="/sip/login?role=recruiter"
+                  href="/student-internship-portal/login?role=recruiter"
                   className="inline-block w-full px-6 py-3 bg-[#F15A22] border border-gray-300 text-white font-medium rounded-lg hover:bg-[#ee7448] transition-colors"
                 >
                   Recruiter Login

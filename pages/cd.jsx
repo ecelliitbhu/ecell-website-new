@@ -20,17 +20,17 @@ export default function CampusDirector() {
   };
 
   const handleGoogleLogin = async () => {
-      // Save active tab in localStorage to use after redirect
-      // localStorage.setItem("activeTab", activeTab);
-  
-      // Redirect to Google login
-      // await signIn("google", { callbackUrl: "/sip/post-login" });
-      localStorage.setItem("activeTab", "ambassador");
-      console.log("submitting...")
-      await signIn("google", {
-        callbackUrl: `/sip/post-login` 
-      });
-    };
+    // Save active tab in localStorage to use after redirect
+    // localStorage.setItem("activeTab", activeTab);
+
+    // Redirect to Google login
+    // await signIn("google", { callbackUrl: "/student-internship-portal/post-login" });
+    localStorage.setItem("activeTab", "ambassador");
+    console.log("submitting...");
+    await signIn("google", {
+      callbackUrl: `/student-internship-portal/post-login`,
+    });
+  };
   
   return (
     <>

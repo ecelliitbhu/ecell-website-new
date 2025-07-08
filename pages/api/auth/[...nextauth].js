@@ -17,98 +17,33 @@ export default async function auth(req, res) {
     callbacks: {
       // Modify signIn to accept 'req' as the first argument using advanced initialization
       async signIn({ user, account }) {
-        // const urlObject = new URL(req.cookies["next-auth.callback-url"]); // Use req.url to get the full URL from the request
-        // const tab = urlObject.searchParams.get("tab");
-        // const tab = localStorage.getItem("activeTab");
         const backend = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-        // console.log("User:", user);
-        // console.log("Account:", account);
-        // console.log("Active tab from client-passed URL:", tab); // Now 'tab' should be correct
+        const findCreateRes = await fetch(`${backend}/users/create`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: user.email }),
+        });
 
-        const findRes = await fetch(
-          `${backend}/users/find?email=${encodeURIComponent(user.email)}`
-        );
-        let foundUser;
-
-        // let foundUser = await prisma.user.findUnique({
-        //   where: { email: user.email },
-        //   include: {
-        //     student: true,
-        //     recruiter: true,
-        //     ambassador: true,
-        //   },
-        // });
-
-        // If user doesn't exist, create user
-        // if (!foundUser) {
-        //   console.log("Creating new user:", user.email);
-        //   foundUser = await prisma.user.create({
-        //     data: { email: user.email },
-        //   });
-        // }
-
-        // foundUser = await prisma.user.findUnique({
-        //   where: { email: user.email },
-        //   include: {
-        //     student: true,
-        //     recruiter: true,
-        //     ambassador: true,
-        //   },
-        // });
-
-        if (findRes.status === 200) {
-          foundUser = await findRes.json();
-        } else if (findRes.status === 404) {
-          // 2. Create new user
-          const createRes = await fetch(`${backend}/users/create`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: user.email }),
-          });
-          foundUser = await createRes.json();
-        } else {
-          console.error("Failed to fetch/create user:", await findRes.text());
+        if (!findCreateRes.ok) {
+          console.error("Failed");
           return false;
         }
 
-        // const { id, student, recruiter, ambassador } = foundUser;
-
-        // Logic to create associated role data if it doesn't exist and 'tab' matches
-        // if (tab === "student" && !student) {
-        //   console.log("in student tab")
-        //   await fetch(`${backend}/students`, {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({ userId: id }),
-        //   });
-        // } else if (tab === "recruiter" && !recruiter) {
-        //   await fetch(`${backend}/recruiters`, {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({ userId: id }),
-        //   });
-        // } else if (tab === "ambassador" && !ambassador) {
-        //   console.log("No ambassador profile for user:", id);
-        // }
-
-        // 4. Re-fetch user to get updated roles
-        const updatedUserRes = await fetch(
-          `${backend}/users/find?email=${encodeURIComponent(user.email)}`
-        );
-        const updatedUser = await updatedUserRes.json();
+        const foundUser = await findCreateRes.json();
+        // console.log(foundUser)
 
         const roles = [];
-        if (updatedUser.student) roles.push("STUDENT");
-        if (updatedUser.recruiter) roles.push("RECRUITER");
-        if (updatedUser.ambassador) roles.push("AMBASSADOR");
+        if (foundUser.student) roles.push("STUDENT");
+        if (foundUser.recruiter) roles.push("RECRUITER");
+        if (foundUser.ambassador) roles.push("AMBASSADOR");
 
-        user.id = updatedUser.id;
+        user.id = foundUser.id;
         user.roles = roles;
         user.roleData = {
-          student: updatedUser.student || null,
-          recruiter: updatedUser.recruiter || null,
-          ambassador: updatedUser.ambassador || null,
+          student: foundUser.student || null,
+          recruiter: foundUser.recruiter || null,
+          ambassador: foundUser.ambassador || null,
         };
 
         // console.log("User object after role assignment:", user);
@@ -116,8 +51,6 @@ export default async function auth(req, res) {
         return true; // Always allow sign-in, or return false to deny
       },
       async jwt({ token, user, trigger, session }) {
-        // 'user' object here will contain the 'id', 'roles', and 'roleData'
-        // that we attached in the signIn callback.
         if (user) {
           token.id = user.id;
           token.roles = user.roles;
@@ -137,7 +70,7 @@ export default async function auth(req, res) {
       },
     },
     pages: {
-      error: "/sip", // Send back to the login page if error
+      error: "/student-internship-portal", // Send back to the login page if error
     },
   });
 }

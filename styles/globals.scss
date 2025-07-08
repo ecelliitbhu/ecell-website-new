@@ -876,17 +876,18 @@ ul {
   color: grey;
 }
 .get-started {
-  height: 76px;
-  width: 333px;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: #505058;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  margin: 10px 0px;
+  height: 76px !important;
+  width: 333px !important;
+  font-size: 1.5rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  color: white !important;
+  background-color: #505058 !important;
+  border-radius: 0.5rem !important;
+  border: #505058 !important;
+  font-weight: bold !important;
+  margin: 10px 0px !important;
 }
 
 .get-started:hover {

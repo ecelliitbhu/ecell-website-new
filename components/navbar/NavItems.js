@@ -130,7 +130,7 @@ export const Initiatives = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="/sip"
+              href="/student-internship-portal"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -175,9 +175,7 @@ export const Initiatives = () => {
             <Link href="/mentorship_pool" passHref className="dropdown-item">
               <FcApproval fontSize="2rem"></FcApproval>
               <div>
-                <h4>
-                  Startup Mentor Pool
-                </h4>
+                <h4>Startup Mentor Pool</h4>
                 <p>
                   {`Elevate Your Journey:`}
                   <br /> {`Join Our Startup Mentor Pool for Guided Success!`}

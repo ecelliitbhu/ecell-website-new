@@ -10,7 +10,7 @@ import { postsAPI } from "../../../lib/api";
 import { getRecruiterId } from "../../../lib/auth";
 import { signOut } from "next-auth/react";
 import { toast } from "react-hot-toast";
-import { Post, PostErrors } from "../../../lib/types";
+import { PostErrors } from "../../../lib/types";
 
 
 const PostInternshipPage = () => {
@@ -49,11 +49,12 @@ const PostInternshipPage = () => {
         const recruiterId = await getRecruiterId();
         if (!recruiterId) {
           toast.error("Recruiter ID not found");
+          router.push("/student-internship-portal");
           return;
         }
 
         const response = await fetch(
-          `${BACKEND_URL}/recruiters/${recruiterId}`
+          `${BACKEND_URL}/recruiters/getinfo/${recruiterId}`
         );
         const data = await response.json();
 
@@ -61,11 +62,18 @@ const PostInternshipPage = () => {
           if (data.error === "RECRUITER_NOT_FOUND") {
             toast.error(data.message);
             await signOut({ redirect: false });
-            router.push(data.redirectTo || "/sip/login?tab=recruiter");
+            router.push(
+              data.redirectTo ||
+                "/student-internship-portal/login?tab=recruiter"
+            );
             return;
           } else {
             throw new Error(data.message || "Error loading recruiter");
           }
+        }
+
+        if (!data?.verified) {
+          router.push("/student-internship-portal/recruiter/profile");
         }
 
         setCurrentRecruiter(data);
@@ -91,7 +99,6 @@ const PostInternshipPage = () => {
     };
 
     const validateForm = () => {
-      // const newErrors = {};
       const newErrors: PostErrors = {};
       if (!formData.companyName.trim())
         newErrors.companyName = "Company name is required";
@@ -138,7 +145,7 @@ const PostInternshipPage = () => {
         });
 
         toast.success("Internship posted successfully!");
-        router.push("/sip/recruiter/dashboard");
+        router.push("/student-internship-portal/recruiter/dashboard");
       } catch (error) {
         console.error("Error posting internship:", error);
         toast.error("Error posting internship. Please try again.");
@@ -148,12 +155,11 @@ const PostInternshipPage = () => {
     };
 
     const handleCancel = () => {
-      router.push("/sip/recruiter/dashboard");
+      router.push("/student-internship-portal/recruiter/dashboard");
     };
 
     const handleLogout = () => {
-      console.log("Logging out...");
-      router.push("/sip");
+      signOut({ callbackUrl: "/student-internship-portal" });
     };
 
   return (
@@ -187,13 +193,13 @@ const PostInternshipPage = () => {
                   Welcome, {currentRecruiter?.companyName || "Company"}
                 </span>
                 <Link
-                  href="/sip/recruiter/dashboard"
+                  href="/student-internship-portal/recruiter/dashboard"
                   className="px-4 py-2 text-black hover:bg-[#f56a38] hover:text-white rounded transition-colors"
                 >
                   Dashboard
                 </Link>
                 <Link
-                  href="/sip/recruiter/profile"
+                  href="/student-internship-portal/recruiter/profile"
                   className="px-4 py-2 bg-white text-black rounded font-medium hover:bg-gray-100 transition-colors"
                 >
                   Profile
