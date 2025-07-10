@@ -3,7 +3,7 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-import prof from "../public/rajnesh_tyagi.png";
+// import prof from "../public/rajnesh_tyagi.png";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionSummary } from "@mui/material";
 import TeamLayout from "@/components/TeamLayout";
@@ -14,13 +14,15 @@ import { team2024 } from "@/staticdata/TeamsData/Team2024";
 import Link from 'next/link';
 import { orange } from "@mui/material/colors";
 
+const prof = "https://ik.imagekit.io/ecelliitbhu/website/rajnesh_tyagi.png?tr=w-300,h-360";
+
 const Team = () => {
   return (
     <>
       <Head>
         <title>Team</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
       </Head>
       <Nav />
       <div
@@ -63,7 +65,7 @@ const Team = () => {
             UNDER THE GUIDANCE OF
           </h2>
           <div className="our-team" style={{ margin: "auto" }}>
-            <Image src={prof} className="img-responsive" alt="team member" />
+            <Image src={prof}  width={300} height={360} className="img-responsive" alt="team member" />
             <div className="team-content">
               <h3 className="name">PROF. RAJNESH TYAGI</h3>
               <span className="post">PROF. INCHARGE, E-CELL</span>

@@ -8,7 +8,7 @@ const Error = () => {
     <>
       <Head>
         <title>Page Not Found</title>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
       </Head>
       <Nav />
       <div>

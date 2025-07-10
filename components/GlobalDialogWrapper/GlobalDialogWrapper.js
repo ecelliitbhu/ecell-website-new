@@ -42,7 +42,7 @@ export default function GlobalDialog({children}) {
                 style={{ marginLeft: '30px' }}
               >
                 <Image 
-            src="/image2.jpeg"
+            src="https://ik.imagekit.io/ecelliitbhu/website/image2.jpeg"
             alt="Google Logo" 
             width={35} 
             height={35} 

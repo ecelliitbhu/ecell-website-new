@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/legacy/image";
 import Link from "next/link";
-import logo from "../../public/Ecell-logo.png";
+// import logo from "../../public/Ecell-logo.png";
+const logo = "https://ik.imagekit.io/ecelliitbhu/website/Ecell-logo.png?tr=w-120,h-50";
 export const NavLogo = () => {
   return (
     <div className="navbar-brand">

@@ -3,29 +3,35 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-import questionmark from "../public/question.png";
-import img1 from "../public/ciscotqimg.png";
-import thingqbator from "../public/thingqbator.png"
+// import questionmark from "../public/question.png";
+// import img1 from "../public/ciscotqimg.png";
+// import thingqbator from "../public/thingqbator.png"
 import IncubatorPage from "../pages/IncubatorPage";
-import i3image from "../public/i3.png";
+// import i3image from "../public/i3.png";
+
+const questionmark = "https://ik.imagekit.io/ecelliitbhu/website/question.png";
+const img1 = "https://ik.imagekit.io/ecelliitbhu/website/ciscotqimg.png";
+const thingqbator = "https://ik.imagekit.io/ecelliitbhu/website/thingqbator.png";
+const i3image = "https://ik.imagekit.io/ecelliitbhu/website/i3.png";
+
 const ciscotq = () => {
   const facilities = [
     {
       title:"Makerspace Network",
-      image:"/markerspace.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/markerspace.jpg",
   
     },
     {
       title:"Cisco Sparkboard",
-      image:"/ciscospark.png",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/ciscospark.png",
     },
     {
       title:"Sensors & Actuators Components",
-      image:"/sensor.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/sensor.jpg",
     },
     {
       title:"Webex Teams",
-      image:"/webex.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/webex.jpg",
     },
     ];
   const programs = [
@@ -71,7 +77,7 @@ const currentData=[
       <Head>
         <title>Cisco ThingQbator</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <style>{`font-family:'Poppins',sans-serif;`}</style>
       </Head>

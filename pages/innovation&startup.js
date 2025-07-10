@@ -4,11 +4,15 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-import thingqbator from "../public/thingqbator.png";
-import questionmark from "../public/question.png";
-import img1 from "../public/ciscotqimg.png";
-import img2 from "../public/person.png";
+// import thingqbator from "../public/thingqbator.png";
+// import questionmark from "../public/question.png";
+// import img1 from "../public/ciscotqimg.png";
+// import img2 from "../public/person.png";
 import IncubatorPage from "../pages/IncubatorPage"
+const thingqbator = "https://ik.imagekit.io/ecelliitbhu/website/thingqbator.png";
+const questionmark = "https://ik.imagekit.io/ecelliitbhu/website/question.png";
+const img1 = "https://ik.imagekit.io/ecelliitbhu/website/ciscotqimg.png";
+const img2 = "https://ik.imagekit.io/ecelliitbhu/website/person.png";
 
 const Ciscotq = () => {
   const programs = [
@@ -38,7 +42,7 @@ const Ciscotq = () => {
       <Head>
         <title>Cisco ThingQbator</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <style>
           {`font-family:'Poppins',sans-serif;`}

@@ -82,7 +82,7 @@ export default function CampusAmbassador() {
             <Head>
                 <title>Campus Ambassador</title>
                 <meta name="robots" content="index, follow" />
-                <link rel="shortcut icon" href="/favicon.ico" />
+                <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
             </Head>
             <div>
                 <Nav />

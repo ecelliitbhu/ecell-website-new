@@ -1,30 +1,34 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/legacy/image";
-import img1 from "../public/i3SideImg.png";
+// import img1 from "../public/i3SideImg.png";
 import IncubatorPage from "../pages/IncubatorPage";
-import i3image from "../public/i3.png";
-import i3logo from "../public/i3logo.webp"
+// import i3image from "../public/i3.png";
+// import i3logo from "../public/i3logo.webp";
+const img1 = "https://ik.imagekit.io/ecelliitbhu/website/i3SideImg.png";
+const i3image = "https://ik.imagekit.io/ecelliitbhu/website/i3.png";
+const i3logo = "https://ik.imagekit.io/ecelliitbhu/website/i3logo.webp";
+
 
 
 const i3 = () => {
   const facilities = [
     {
       title:"Makerspace Network",
-      image:"/markerspace.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/markerspace.jpg",
   
     },
     {
       title:"Cisco Sparkboard",
-      image:"/ciscospark.png",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/ciscospark.png",
     },
     {
       title:"Sensors & Actuators Components",
-      image:"/sensor.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/sensor.jpg",
     },
     {
       title:"Webex Teams",
-      image:"/webex.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/webex.jpg",
     },
     ];
     const services = [
@@ -64,7 +68,7 @@ const i3 = () => {
     <Head >
         <title>I3F [Ideation, Innovation and Incubation Foundation]</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"

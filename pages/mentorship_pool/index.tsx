@@ -7,7 +7,9 @@ import styles from "./mentorship_pool.module.css";
 import Link from "next/link";
 import Head from "next/head";
 import Mentors from "./components/mentors";
-import img from "../../public/mentorship_pool/heroimg-removebg-preview.png"
+// import img from "../../public/mentorship_pool/heroimg-removebg-preview.png"
+
+const img = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/heroimg-removebg-preview.png";
 
 interface OwnProps {}
 
@@ -19,7 +21,7 @@ const MentorshipPool: FunctionComponent<Props> = () => {
       <Head>
         <title>Mentor Pool</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
       </Head>
       <div>
         <Nav />
@@ -52,7 +54,7 @@ Specially curated programs where mentors across various industries share their e
  
   <Col className="image-section">
   <img
-    src={img.src}
+    src={img}
     className="img-fluid"
     style={{ justifyContent: 'center', marginTop: '40px' }}
     alt="Responsive"

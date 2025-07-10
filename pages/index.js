@@ -8,10 +8,12 @@ import Typewriter from "typewriter-effect";
 import { NextSeo } from "next-seo";
 import "../styles/globals.scss";
 import React, { useRef, useEffect } from "react";
-import Summit from "../public/summit.png";
+// import Summit from "../public/summit.png";
 // import Ribbon from "../components/ribbons"
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+
+const Summit =  "https://ik.imagekit.io/ecelliitbhu/website/summit.png";
 
 export default function Home() {
   const errorShown = useRef(false);
@@ -29,7 +31,7 @@ export default function Home() {
       <Head>
         <title>E-Cell IIT BHU</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
       </Head>
       
       <NextSeo
@@ -142,7 +144,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/cohort.png"
+                src="https://ik.imagekit.io/ecelliitbhu/website/cohort.png"
                 height={703}
                 width={1080}
                 alt="Team Expansion"

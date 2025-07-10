@@ -10,7 +10,7 @@ function build_with_us() {
     <>
       <Head>
         <title>Mentorship Programme 2022-23</title>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
       </Head>
       <Nav />
       <div>
@@ -21,7 +21,7 @@ function build_with_us() {
           >
             {/* <div style={{ margin: "50px auto 0px auto" }}>
               <Image
-                src="/bulid_with_us.jpeg"
+                src="https://ik.imagekit.io/ecelliitbhu/website/bulid_with_us.jpeg"
                 alt="build_with_us"
                 height={500}
                 width={2000}

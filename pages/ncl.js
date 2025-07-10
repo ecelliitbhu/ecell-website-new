@@ -4,31 +4,37 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-import thingqbator from "../public/thingqbator.png";
-import questionmark from "../public/question.png";
-import img1 from "../public/ncl.png";
-import img2 from "../public/person.png";
+// import thingqbator from "../public/thingqbator.png";
+// import questionmark from "../public/question.png";
+// // import img1 from "../public/ncl.png";
+// import img2 from "../public/person.png";
 import IncubatorPage from "../pages/IncubatorPage"
-import nclLogo from "../public/nclLogo.png"
+// import nclLogo from "../public/nclLogo.png"
+
+const img1 = "https://ik.imagekit.io/ecelliitbhu/website/ncl.png";
+const questionmark = "https://ik.imagekit.io/ecelliitbhu/website/question.png";
+const thingqbator = "https://ik.imagekit.io/ecelliitbhu/website/thingqbator.png";
+const img2 = "https://ik.imagekit.io/ecelliitbhu/website/person.png";
+const nclLogo = "https://ik.imagekit.io/ecelliitbhu/website/nclLogo.png";
 const ncl = () => {
 
   const facilities = [
     {
       title:"Makerspace Network",
-      image:"/markerspace.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/markerspace.jpg",
   
     },
     {
       title:"Cisco Sparkboard",
-      image:"/ciscospark.png",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/ciscospark.png",
     },
     {
       title:"Sensors & Actuators Components",
-      image:"/sensor.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/sensor.jpg",
     },
     {
       title:"Webex Teams",
-      image:"/webex.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/webex.jpg",
     },
     ];
   const currentData=[
@@ -79,7 +85,7 @@ This document typically sets the groundwork for how the incubator will support t
       <Head>
         <title>NCL-IIT (BHU) INCUBATION CENTRE (NIIC)</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <style>
           {`font-family:'Poppins',sans-serif;`}

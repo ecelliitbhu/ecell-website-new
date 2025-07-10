@@ -7,130 +7,130 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 const founspeak = [
   {
-    src: "/foundersSpeak/_DSC0008-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/foundersSpeak/_DSC0008-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/foundersSpeak/_DSC0040-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/foundersSpeak/_DSC0040-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/foundersSpeak/_DSC0055-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/foundersSpeak/_DSC0055-min.jpg",
     width: 3,
     height: 2,
   },
 ];
 const pitchingEvents = [
   {
-    src: "/pitching_events/DSC04981-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/pitching_events/DSC04981-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/pitching_events/DSC05081-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/pitching_events/DSC05081-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/pitching_events/DSC_0092-2-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/pitching_events/DSC_0092-2-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/pitching_events/hult1-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/pitching_events/hult1-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/pitching_events/DSC05026-min.jpg",
-    width: 3,
-    height: 2,
-  },
-
-  {
-    src: "/pitching_events/DSC_0071-3-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/pitching_events/DSC05026-min.jpg",
     width: 3,
     height: 2,
   },
 
   {
-    src: "/pitching_events/gsw-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/pitching_events/DSC_0071-3-min.jpg",
+    width: 3,
+    height: 2,
+  },
+
+  {
+    src: "https://ik.imagekit.io/ecelliitbhu/website/pitching_events/gsw-min.jpg",
     width: 3,
     height: 2,
   },
 ];
 const mentorship = [
   {
-    src: "/mentorship-Sessions/DSC04819-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/mentorship-Sessions/DSC04819-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/mentorship-Sessions/DSC_0094-3-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/mentorship-Sessions/DSC_0094-3-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/mentorship-Sessions/slide6-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/mentorship-Sessions/slide6-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/mentorship-Sessions/DSC_006_mono-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/mentorship-Sessions/DSC_006_mono-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/mentorship-Sessions/slide5-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/mentorship-Sessions/slide5-min.jpg",
     width: 1.75,
     height: 1,
   },
 ];
 const incu = [
   {
-    src: "/incubators/mciie2.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/mciie2.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/incubators/rkvy1.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/rkvy1.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/incubators/rkvy12.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/rkvy12.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/incubators/slide7.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/slide7.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/incubators/thinq2.PNG",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/thinq2.PNG",
     width: 1101,
     height: 584,
   },
   {
-    src: "/incubators/mciie3.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/mciie3.jpg",
     width: 1851,
     height: 989,
   },
   {
-    src: "/incubators/rkvy11.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/rkvy11.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/incubators/rkvy4.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/rkvy4.jpg",
     width: 2,
     height: 1,
   },
   {
-    src: "/incubators/thinq1.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/incubators/thinq1.jpg",
     width: 1.56,
     height: 1,
   },
@@ -138,221 +138,221 @@ const incu = [
 
 const electures = [
   {
-    src: "/e-lectures/6-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/6-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/7-min.jpg ",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/7-min.jpg ",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC04914-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC04914-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC04931-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC04931-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC04938-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC04938-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC05063-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC05063-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC05145-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC05145-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC05459-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC05459-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC05467-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC05467-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC_0139-3-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC_0139-3-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/DSC_0142-5-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/DSC_0142-5-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/_DSC0082-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/_DSC0082-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/biz1 (3)-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/biz1%20(3)-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/gsw2-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/gsw2-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/slide4-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/slide4-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
   ////
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
 
   {
-    src: "/e-lectures/stock-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-lectures/stock-min.jpg",
     width: 4,
     height: 3,
   },
 ];
 const esummit = [
   {
-    src: "/e-summit/2-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/2-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/8-min.jpg ",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/8-min.jpg ",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/9-min.jpg ",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/9-min.jpg ",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC04546-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC04546-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC05331-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC05331-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC05337-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC05337-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC05339-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC05339-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC_0018.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC_0018.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC_0026-5.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC_0026-5.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC_0044-6-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC_0044-6-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC_0071-7 (1).jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC_0071-7%20(1).jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC_009-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC_009-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC_0099-8-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC_0099-8-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/DSC_0151-2-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/DSC_0151-2-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/IMG-20200203-WA0147-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/IMG-20200203-WA0147-min.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/_DSC0128 (1).jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/_DSC0128%20(1).jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/_DSC0310.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/_DSC0310.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/_DSC0311.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/_DSC0311.jpg",
     width: 4,
     height: 3,
   },
   {
-    src: "/e-summit/mbg-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/e-summit/mbg-min.jpg",
     width: 4,
     height: 3,
   },
@@ -360,22 +360,22 @@ const esummit = [
 
 const AlumniMeet = [
   {
-    src: "/alumni_meet/5-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/alumni_meet/5-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/alumni_meet/DSC_0074-5-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/alumni_meet/DSC_0074-5-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/alumni_meet/DSC_0534-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/alumni_meet/DSC_0534-min.jpg",
     width: 3,
     height: 2,
   },
   {
-    src: "/alumni_meet/DSC_0549-min.jpg",
+    src: "https://ik.imagekit.io/ecelliitbhu/website/alumni_meet/DSC_0549-min.jpg",
     width: 3,
     height: 2,
   },

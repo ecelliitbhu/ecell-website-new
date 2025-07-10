@@ -37,7 +37,7 @@ export default function TeamLayout({ teamData, showheading = true }) {
 
             <img
                 className="block mx-auto"
-                src="/loading.gif"
+                src="https://ik.imagekit.io/ecelliitbhu/website/loading.gif"
                 width="300"
                 alt="Loading..."
                 height="300"
