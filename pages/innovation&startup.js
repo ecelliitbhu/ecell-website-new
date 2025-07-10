@@ -9,7 +9,7 @@ import Image from "next/legacy/image";
 // import img1 from "../public/ciscotqimg.png";
 // import img2 from "../public/person.png";
 import IncubatorPage from "../pages/IncubatorPage"
-const thingQbator = "https://ik.imagekit.io/ecelliitbhu/website/thingqbator.png";
+const thingqbator = "https://ik.imagekit.io/ecelliitbhu/website/thingqbator.png";
 const questionmark = "https://ik.imagekit.io/ecelliitbhu/website/question.png";
 const img1 = "https://ik.imagekit.io/ecelliitbhu/website/ciscotqimg.png";
 const img2 = "https://ik.imagekit.io/ecelliitbhu/website/person.png";
