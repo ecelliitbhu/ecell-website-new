@@ -4,18 +4,23 @@ import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import { Row, Button, Container, Col, Card } from "react-bootstrap";
 import Image from "next/legacy/image";
-import logicalThinking from "../public/logical-thinking.png";
-import spaceShip from "../public/spaceship.png";
-import networking from "../public/networking.png";
-import aboutNew from "../public/who-we-are.png";
+// import logicalThinking from "../public/logical-thinking.png";
+// import spaceShip from "../public/spaceship.png";
+// import networking from "../public/networking.png";
+// import aboutNew from "../public/who-we-are.png";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+const logicalThinking = "https://ik.imagekit.io/ecelliitbhu/website/logical-thinking.png";
+const spaceShip       = "https://ik.imagekit.io/ecelliitbhu/website/spaceship.png";
+const networking      = "https://ik.imagekit.io/ecelliitbhu/website/networking.png";
+const aboutNew        = "https://ik.imagekit.io/ecelliitbhu/website/who-we-are.png";
+
 const WhoWeAre = () => {
   return (
     <>
       <Head>
         <title>Who We Are?</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
       </Head>
       <Nav />
       <div>

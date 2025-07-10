@@ -3,7 +3,7 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-import prof from "../public/rajnesh_tyagi.png";
+// import prof from "../public/rajnesh_tyagi.png";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionSummary } from "@mui/material";
 import TeamLayout from "@/components/TeamLayout";
@@ -12,8 +12,7 @@ import { team2022 } from "@/staticdata/TeamsData/Team2022";
 import { team2023 } from "@/staticdata/TeamsData/Team2023";
 import { team2024 } from "@/staticdata/TeamsData/Team2024";
 import Link from 'next/link';
-
-
+const prof = "https://ik.imagekit.io/ecelliitbhu/website/rajnesh_tyagi.png?tr=w-300,h-360";
 const Team2021 = () => {
     return <div>
       <Nav />

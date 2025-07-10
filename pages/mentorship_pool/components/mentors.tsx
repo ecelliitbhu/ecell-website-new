@@ -1,22 +1,41 @@
 import React from "react";
 import Image from "next/legacy/image";
 import { FaLinkedin } from "react-icons/fa";
-import sharad from "../../../public/mentorship_pool/Sharad_seth.jpeg"
-import anshu from "../../../public/mentorship_pool/Anshu.jpeg"
-import saikat from "../../../public/mentorship_pool/saikat.jpeg"
-import manish from "../../../public/mentorship_pool/manish.jpeg"
-import amit from "../../../public/mentorship_pool/amit.jpeg"
-import anshul from "../../../public/mentorship_pool/anshul.jpeg"
-import ekansh from "../../../public/mentorship_pool/ekansh.jpeg"
-import rajesh from "../../../public/mentorship_pool/rajesh.jpeg"
-import cyril from "../../../public/mentorship_pool/cyril.jpeg"
-import kaustubh from "../../../public/mentorship_pool/kaustubh.jpeg"
-import ankit from "../../../public/mentorship_pool/ankit.jpeg"
-import sunil from "../../../public/mentorship_pool/sunil.jpeg"
-import vinaytosh from "../../../public/mentorship_pool/vinaytosh.jpeg"
-import rishi from "../../../public/mentorship_pool/rishi.jpeg"
-import nitin from "../../../public/mentorship_pool/nitin.jpg"
-import binod from "../../../public/mentorship_pool/BINOD.jpg"
+// import sharad from "../../../public/mentorship_pool/Sharad_seth.jpeg"
+// import anshu from "../../../public/mentorship_pool/Anshu.jpeg"
+// import saikat from "../../../public/mentorship_pool/saikat.jpeg"
+// import manish from "../../../public/mentorship_pool/manish.jpeg"
+// import amit from "../../../public/mentorship_pool/amit.jpeg"
+// import anshul from "../../../public/mentorship_pool/anshul.jpeg"
+// import ekansh from "../../../public/mentorship_pool/ekansh.jpeg"
+// import rajesh from "../../../public/mentorship_pool/rajesh.jpeg"
+// import cyril from "../../../public/mentorship_pool/cyril.jpeg"
+// import kaustubh from "../../../public/mentorship_pool/kaustubh.jpeg"
+// import ankit from "../../../public/mentorship_pool/ankit.jpeg"
+// import sunil from "../../../public/mentorship_pool/sunil.jpeg"
+// import vinaytosh from "../../../public/mentorship_pool/vinaytosh.jpeg"
+// import rishi from "../../../public/mentorship_pool/rishi.jpeg"
+// import nitin from "../../../public/mentorship_pool/nitin.jpg"
+// import binod from "../../../public/mentorship_pool/BINOD.jpg"
+
+
+const sharad    = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/Sharad_seth.jpeg";
+const anshu     = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/Anshu.jpeg";
+const saikat    = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/saikat.jpeg";
+const manish    = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/manish.jpeg";
+const amit      = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/amit.jpeg";
+const anshul    = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/anshul.jpeg";
+const ekansh    = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/ekansh.jpeg";
+const rajesh    = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/rajesh.jpeg";
+const cyril     = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/cyril.jpeg";
+const kaustubh  = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/kaustubh.jpeg";
+const ankit     = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/ankit.jpeg";
+const sunil     = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/sunil.jpeg";
+const vinaytosh = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/vinaytosh.jpeg";
+const rishi     = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/rishi.jpeg";
+const nitin     = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/nitin.jpg";
+const binod     = "https://ik.imagekit.io/ecelliitbhu/website/mentorship_pool/BINOD.jpg";
+
 
 const verticalHeads = [
   {

@@ -1,12 +1,17 @@
 import Image from "next/legacy/image";
 import Card from "@mui/material/Card";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
-import part1_img from "../public/startup_help_book/part1.jpg";
-import part2_img from "../public/startup_help_book/part2.jpg";
 import React, { useState } from "react";
 import Link from "next/link";
 import Nav from "../components/navbar/NavLayout";
 import Footer from "../components/Footer";
+
+const part1_img =
+"https://ik.imagekit.io/ecelliitbhu/website/startup_help_book/part1.jpg?tr=w-370,h-524";
+
+const part2_img =
+"https://ik.imagekit.io/ecelliitbhu/website/startup_help_book/part2.jpg?tr=w-370,h-524";
+
 
 const flexContainerStyle = {
   display: "flex",
@@ -22,18 +27,22 @@ export default function StartupBundle() {
   const [iconColorRight, setIconColorRight] = useState("#1976d2");
 
   const handleIconHoverLeft = () => {
-    setIconColorLeft("#4a90e2"); // Change color to dull on hover
+    setIconColorLeft("#4a90e2"); 
   };
   const handleIconLeaveLeft = () => {
-    setIconColorLeft("#1976d2"); // Restore the original color
+    setIconColorLeft("#1976d2"); 
   };
 
   const handleIconHoverRight = () => {
-    setIconColorRight("#4a90e2"); // Change color to dull on hover
+    setIconColorRight("#4a90e2");
   };
   const handleIconLeaveRight = () => {
-    setIconColorRight("#1976d2"); // Restore the original color
+    setIconColorRight("#1976d2");
   };
+
+  const coverWidth  = 370;
+  const coverHeight = 524;
+
   return (
     <div>
       <Nav />
@@ -52,10 +61,13 @@ export default function StartupBundle() {
         <div style={{ marginRight: "7%", border: "3px solid #EBEBE3" }}>
           <Card sx={{ maxWidth: 370 }}>
             <a
-              passHref
               href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
-              legacyBehavior>
-              <Image src={part1_img} alt="logic"></Image>
+              target="_blank"
+              rel="noopener noreferrer">
+              <Image src={part1_img} alt="Startup HelpBook Part 1" width={coverWidth}
+                height={coverHeight}
+                priority
+                sizes="(max-width: 600px) 80vw, 370px"></Image>
             </a>
             <div
               style={{
@@ -75,9 +87,9 @@ export default function StartupBundle() {
                 }}
               >
                 <a
-                  passHref
                   href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
-                  legacyBehavior>
+                  target="_blank"
+                  rel="noopener noreferrer" >
                   <div>
                     <DownloadForOfflineIcon
                       onMouseEnter={handleIconHoverLeft}
@@ -95,10 +107,13 @@ export default function StartupBundle() {
         <div style={{ marginLeft: "7%", border: "3px solid #EBEBE3" }}>
           <Card sx={{ maxWidth: 370 }}>
             <a
-              passHref
               href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
-              legacyBehavior>
-              <Image src={part2_img} alt="logic"></Image>
+              target="_blank"
+              rel="noopener noreferrer" >
+              <Image src={part2_img} alt="Startup HelpBook Part 2" width={coverWidth}
+                height={coverHeight}
+                priority
+                sizes="(max-width: 600px) 80vw, 370px"></Image>
             </a>
             <div
               style={{
@@ -118,9 +133,9 @@ export default function StartupBundle() {
                 }}
               >
                 <a
-                  passHref
                   href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
-                  legacyBehavior>
+                  target="_blank"
+                  rel="noopener noreferrer" >
                   <div>
                     <DownloadForOfflineIcon
                       onMouseEnter={handleIconHoverRight}

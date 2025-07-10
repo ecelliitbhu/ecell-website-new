@@ -101,7 +101,7 @@ export default function Events() {
       <Head>
         <title>Events</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
       </Head>
       <Nav />
       <div>
@@ -113,7 +113,7 @@ export default function Events() {
             {isLoading ? (
               <div style={{ margin: "auto", width: "fit-content" }}>
                 <Image
-                  src="/loading.gif"
+                  src="https://ik.imagekit.io/ecelliitbhu/website/loading.gif"
                   width="300"
                   alt="Loading..."
                   height="300"

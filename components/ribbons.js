@@ -6,12 +6,12 @@ const Ribbon = () => {
   
   const frames = [
    
-    { imageSrc: "/esummit.png" },
-    { imageSrc: "/esummit.png" },
-    { imageSrc: "/esummit.png" },
-    { imageSrc: "/esummit.png" },
-    { imageSrc: "/esummit.png" },
-    { imageSrc: "/esummit.png" },
+    { imageSrc: "https://ik.imagekit.io/ecelliitbhu/website/esummit.png" },
+    { imageSrc: "https://ik.imagekit.io/ecelliitbhu/website/esummit.png" },
+    { imageSrc: "https://ik.imagekit.io/ecelliitbhu/website/esummit.png" },
+    { imageSrc: "https://ik.imagekit.io/ecelliitbhu/website/esummit.png" },
+    { imageSrc: "https://ik.imagekit.io/ecelliitbhu/website/esummit.png" },
+    { imageSrc: "https://ik.imagekit.io/ecelliitbhu/website/esummit.png" },
   ];
 
 

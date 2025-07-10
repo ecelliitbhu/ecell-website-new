@@ -41,7 +41,7 @@ export default function Referral() {
                                 {code}
                                 <span className="ml-3 text-gray-500">
                                 <img 
-                                    src="/copy.png" 
+                                    src="https://ik.imagekit.io/ecelliitbhu/website/copy.png" 
                                     alt="Copy" 
                                     className="ml-3 w-5 h-5 sm:w-3 sm:h-3" 
                                 />

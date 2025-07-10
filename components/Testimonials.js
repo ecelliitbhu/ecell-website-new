@@ -8,7 +8,7 @@ const Testimonials = () => {
       <Carousel.Item interval={3000}>
         <div className="test-item">
           <Avatar
-            src="/past_speakers/jagadeesh.jpeg"
+            src="https://ik.imagekit.io/ecelliitbhu/website/past_speakers/jagadeesh.jpeg"
             sx={{ width: 100, height: 100 }}
           />
           <h1>BV Jagadeesh</h1>
@@ -29,7 +29,7 @@ const Testimonials = () => {
       <Carousel.Item interval={3000}>
         <div className="test-item">
           <Avatar
-            src="/past_speakers/manishgupta.jpeg"
+            src="https://ik.imagekit.io/ecelliitbhu/website/past_speakers/manishgupta.jpeg"
             sx={{ width: 100, height: 100 }}
           />
           <h1>Manish Gupta</h1>
@@ -42,7 +42,7 @@ const Testimonials = () => {
       <Carousel.Item interval={3000}>
         <div className="test-item">
           <Avatar
-            src="/past_speakers/vishwanathaniyer.jpeg"
+            src="https://ik.imagekit.io/ecelliitbhu/website/past_speakers/vishwanathaniyer.jpeg"
             sx={{ width: 100, height: 100 }}
           />
           <h1>Vishwanathan Iyer</h1>

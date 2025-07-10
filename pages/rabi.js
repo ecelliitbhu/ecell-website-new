@@ -3,10 +3,14 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-import nclLogo from "../public/nclLogo.png"
-import questionmark from "../public/question.png";
-import img1 from "../public/rabi.png";
+// import nclLogo from "../public/nclLogo.png"
+// import questionmark from "../public/question.png";
+// import img1 from "../public/rabi.png";
 import IncubatorPage from "./IncubatorPage";
+
+const nclLogo = "https://ik.imagekit.io/ecelliitbhu/website/nclLogo.png";
+const questionmark = "https://ik.imagekit.io/ecelliitbhu/website/question.png";
+const img1 = "https://ik.imagekit.io/ecelliitbhu/website/rabi.png";
 
 const rabi = () => {
   const programs = [
@@ -26,20 +30,20 @@ After successful completion of this 2 months local residency phase, selected sta
   const facilities = [
   {
     title:"Makerspace Network",
-    image:"/markerspace.jpg",
+    image:"https://ik.imagekit.io/ecelliitbhu/website/markerspace.jpg",
 
   },
   {
     title:"Cisco Sparkboard",
-    image:"/ciscospark.png",
+    image:"https://ik.imagekit.io/ecelliitbhu/website/ciscospark.png",
   },
   {
     title:"Sensors & Actuators Components",
-    image:"/sensor.jpg",
+    image:"https://ik.imagekit.io/ecelliitbhu/website/sensor.jpg",
   },
   {
     title:"Webex Teams",
-    image:"/webex.jpg",
+    image:"https://ik.imagekit.io/ecelliitbhu/website/webex.jpg",
   },
   ];
 
@@ -88,7 +92,7 @@ After successful completion of this 2 months local residency phase, selected sta
       <Head>
         <title>RKVY-RAFTAAR Agri Business Incubator (R-ABI)</title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"

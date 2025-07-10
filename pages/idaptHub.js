@@ -4,31 +4,36 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Image from "next/legacy/image";
-import thingqbator from "../public/thingqbator.png";
-import questionmark from "../public/question.png";
-import img1 from "../public/idapt.png";
-import img2 from "../public/person.png";
+// import thingqbator from "../public/thingqbator.png";
+// import questionmark from "../public/question.png";
+// import img1 from "../public/idapt.png";
+// import img2 from "../public/person.png";
 import IncubatorPage from "./IncubatorPage"
-import idaptLogo from "../public/idaptLogo.gif";
+// import idaptLogo from "../public/idaptLogo.gif";
+const thingqbator = "https://ik.imagekit.io/ecelliitbhu/website/thingqbator.png"
+const questionmark ="https://ik.imagekit.io/ecelliitbhu/website/question.png";
+const img1 = "https://ik.imagekit.io/ecelliitbhu/website/idapt.png";
+const img2 = "https://ik.imagekit.io/ecelliitbhu/website/person.png";
+const idaptLogo = "https://ik.imagekit.io/ecelliitbhu/website/idaptLogo.gif";
 const idapthub = () => {
   
   const facilities = [
     {
       title:"Makerspace Network",
-      image:"/markerspace.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/markerspace.jpg",
   
     },
     {
       title:"Cisco Sparkboard",
-      image:"/ciscospark.png",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/ciscospark.png",
     },
     {
       title:"Sensors & Actuators Components",
-      image:"/sensor.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/sensor.jpg",
     },
     {
       title:"Webex Teams",
-      image:"/webex.jpg",
+      image:"https://ik.imagekit.io/ecelliitbhu/website/webex.jpg",
     },
     ];
   const currentData=[
@@ -84,7 +89,7 @@ Help in further fund raising`,
       <Head>
         <title>I-DAPT   </title>
         <meta name="robots" content="index, follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <style>
           {`font-family:'Poppins',sans-serif;`}

@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps:{session,...pageProps}, }) {
 <GlobalProvider>
       <Layout>
         <Head>
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
