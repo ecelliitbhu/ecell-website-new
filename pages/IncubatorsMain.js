@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from 'next/router';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Lightbulb, Zap, Rocket, Cpu, BarChart3, Sprout, ArrowRight, Star, Users, Target, TrendingUp } from 'lucide-react';
+import { ExternalLink, Lightbulb, Zap, Rocket, Cpu, BarChart3, Sprout, ArrowRight, Star, Users, Target, TrendingUp, FileText, BookOpen } from 'lucide-react';
 
 const incubators = [
   {
@@ -63,19 +63,19 @@ const incubators = [
     website: "/idaptHub",
     color: "from-red-100 to-rose-100",
     features: ["Data Analytics", "Predictive Tech", "AI/ML Support"]
-  },
-  {
-    id: 6,
-    title: "Innovation & Start-up Policy IIT BHU",
-    shortTitle: "Startup Policy",
-    description: "Official Startup Policy of IIT BHU providing framework and guidelines for entrepreneurial activities within the institute.",
-    logo: <Rocket className="w-10 h-10 text-indigo-500" />,
-    category: "Policy Framework",
-    website: "https://www.iitbhu.ac.in/contents/institute/cf/misc/doc/innovation_start_up_policy.pdf",
-    color: "from-indigo-100 to-purple-100",
-    features: ["Policy Framework", "Guidelines", "Institutional Support"]
   }
 ];
+
+const policyInfo = {
+  title: "Innovation & Start-up Policy IIT BHU",
+  shortTitle: "Startup Policy",
+  description: "Official Startup Policy of IIT BHU providing framework and guidelines for entrepreneurial activities within the institute.",
+  logo: <Rocket className="w-10 h-10 text-indigo-500" />,
+  category: "Policy Framework",
+  website: "https://www.iitbhu.ac.in/contents/institute/cf/misc/doc/innovation_start_up_policy.pdf",
+  color: "from-indigo-100 to-purple-100",
+  features: ["Policy Framework", "Guidelines", "Institutional Support"]
+};
 
 const IncubatorsMain = ({
   title,
@@ -170,7 +170,7 @@ const IncubatorsMain = ({
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div className="text-center group">
             <div className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">6+</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
               <div className="text-gray-600 font-medium text-sm">Active Incubators</div>
               <div className="w-10 h-1 bg-orange-300 rounded-full mx-auto mt-2"></div>
             </div>
@@ -276,6 +276,88 @@ const IncubatorsMain = ({
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Policy Framework Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+              Policy <span className="text-orange-600">Framework</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Comprehensive guidelines and frameworks supporting entrepreneurial activities at IIT BHU
+            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full mx-auto mt-4"></div>
+          </div>
+
+          {/* Policy Card */}
+          <div className="max-w-4xl mx-auto">
+            <Card 
+              className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-br ${policyInfo.color} border-0 overflow-hidden relative`}
+              onClick={() => handleCardClick(policyInfo.website)}
+            >
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-yellow-500/0 group-hover:from-orange-500/10 group-hover:to-yellow-500/10 transition-all duration-500 z-10"></div>
+              
+              <CardHeader className="pb-3 relative z-20">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="relative">
+                    <div className="p-3 rounded-xl bg-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                      {policyInfo.logo}
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <FileText className="w-5 h-5 text-gray-500 group-hover:text-orange-600 transition-colors duration-300" />
+                    <ExternalLink className="w-5 h-5 text-gray-500 group-hover:text-orange-600 transition-colors duration-300" />
+                  </div>
+                </div>
+                
+                <CardTitle className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-700 transition-colors duration-300 leading-tight">
+                  {policyInfo.title}
+                </CardTitle>
+                
+                <div className="flex items-center justify-between mb-3">
+                  <Badge variant="secondary" className="bg-white/80 text-gray-700 font-medium px-2 py-1 text-xs">
+                    {policyInfo.category}
+                  </Badge>
+                </div>
+              </CardHeader>
+              
+              <CardContent className="pt-0 relative z-20">
+                <CardDescription className="text-gray-700 mb-4 leading-relaxed text-base">
+                  {policyInfo.description}
+                </CardDescription>
+                
+                <div className="space-y-3">
+                  <div className="text-sm font-semibold text-gray-800 mb-2 flex items-center">
+                    <BookOpen className="w-4 h-4 mr-1 text-orange-600" />
+                    Key Areas:
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {policyInfo.features.map((feature, index) => (
+                      <Badge 
+                        key={index} 
+                        variant="outline" 
+                        className="text-sm bg-white/60 border-gray-300 text-gray-700 hover:bg-white/80 transition-colors duration-200 px-3 py-1"
+                      >
+                        {feature}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="mt-6 pt-4 border-t border-white/60">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-medium text-gray-700">Click to view policy document</span>
+                    <div className="flex items-center space-x-1 text-orange-600 group-hover:translate-x-2 transition-transform duration-300">
+                      <span className="font-medium">View PDF</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Enhanced CTA Section */}
