@@ -63,7 +63,7 @@ const incubators = [
     website: "/idaptHub",
     color: "from-red-100 to-rose-100",
     features: ["Data Analytics", "Predictive Tech", "AI/ML Support"]
-  }
+  },
 ];
 
 const policyInfo = {
@@ -115,6 +115,124 @@ const IncubatorsMain = ({
       window.open(website, '_blank', 'noopener,noreferrer');
     }
   };
+
+  // Dynamic grid layout function
+  const renderIncubatorGrid = () => {
+    const itemsPerRow = 3; // Desktop: 3 items per row
+    const totalItems = incubators.length;
+    const completeRows = Math.floor(totalItems / itemsPerRow);
+    const remainingItems = totalItems % itemsPerRow;
+    
+    const rows = [];
+    
+    // Render complete rows
+    for (let row = 0; row < completeRows; row++) {
+      const startIndex = row * itemsPerRow;
+      const endIndex = startIndex + itemsPerRow;
+      const rowItems = incubators.slice(startIndex, endIndex);
+      
+      rows.push(
+        <div key={`row-${row}`} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mb-8">
+          {rowItems.map((incubator) => renderIncubatorCard(incubator))}
+        </div>
+      );
+    }
+    
+    // Render incomplete row (centered)
+    if (remainingItems > 0) {
+      const startIndex = completeRows * itemsPerRow;
+      const rowItems = incubators.slice(startIndex);
+      
+      // Dynamic grid classes based on remaining items
+      let gridClass = '';
+      let containerClass = '';
+      
+      if (remainingItems === 1) {
+        gridClass = 'grid grid-cols-1 gap-8';
+        containerClass = 'max-w-sm mx-auto';
+      } else if (remainingItems === 2) {
+        gridClass = 'grid grid-cols-1 md:grid-cols-2 gap-8';
+        containerClass = 'max-w-3xl mx-auto';
+      }
+      
+      rows.push(
+        <div key={`row-incomplete`} className={`${containerClass} w-full`}>
+          <div className={gridClass}>
+            {rowItems.map((incubator) => renderIncubatorCard(incubator))}
+          </div>
+        </div>
+      );
+    }
+    
+    return rows;
+  };
+
+  // Render individual incubator card
+  const renderIncubatorCard = (incubator) => (
+    <Card 
+      key={incubator.id}
+      className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-br ${incubator.color} border-0 overflow-hidden relative h-full flex flex-col w-full`}
+      onClick={() => handleCardClick(incubator.website)}
+    >
+      {/* Hover Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-yellow-500/0 group-hover:from-orange-500/10 group-hover:to-yellow-500/10 transition-all duration-500 z-10"></div>
+      
+      <CardHeader className="pb-3 relative z-20">
+        <div className="flex items-start justify-between mb-4">
+          <div className="relative">
+            <div className="p-3 rounded-xl bg-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+              {incubator.logo}
+            </div>
+          </div>
+          <ExternalLink className="w-5 h-5 text-gray-500 group-hover:text-orange-600 transition-colors duration-300" />
+        </div>
+        
+        <CardTitle className="text-lg font-bold text-gray-800 mb-2 group-hover:text-orange-700 transition-colors duration-300 leading-tight">
+          {incubator.title}
+        </CardTitle>
+        
+        <div className="flex items-center justify-between mb-3">
+          <Badge variant="secondary" className="bg-white/80 text-gray-700 font-medium px-2 py-1 text-xs">
+            {incubator.category}
+          </Badge>
+        </div>
+      </CardHeader>
+      
+      <CardContent className="pt-0 relative z-20 flex-1 flex flex-col">
+        <CardDescription className="text-gray-700 mb-4 leading-relaxed text-sm flex-1">
+          {incubator.description}
+        </CardDescription>
+        
+        <div className="space-y-3 mb-6">
+          <div className="text-xs font-semibold text-gray-800 mb-2 flex items-center">
+            <TrendingUp className="w-3 h-3 mr-1 text-orange-600" />
+            Key Features:
+          </div>
+          <div className="flex flex-wrap gap-1">
+            {incubator.features.map((feature, index) => (
+              <Badge 
+                key={index} 
+                variant="outline" 
+                className="text-xs bg-white/60 border-gray-300 text-gray-700 hover:bg-white/80 transition-colors duration-200 px-2 py-0.5"
+              >
+                {feature}
+              </Badge>
+            ))}
+          </div>
+        </div>
+        
+        <div className="mt-auto pt-4 border-t border-white/60">
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-medium text-gray-700">Click to explore</span>
+            <div className="flex items-center space-x-1 text-orange-600 group-hover:translate-x-2 transition-transform duration-300">
+              <span className="font-medium">Learn More</span>
+              <ArrowRight className="w-3 h-3" />
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
 
   // Define the background pattern style
   const backgroundPatternStyle = {
@@ -209,73 +327,9 @@ const IncubatorsMain = ({
           <div className="w-20 h-1 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full mx-auto mt-4"></div>
         </div>
 
-        {/* Enhanced Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {incubators.map((incubator) => (
-            <Card 
-              key={incubator.id}
-              className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-br ${incubator.color} border-0 overflow-hidden relative`}
-              onClick={() => handleCardClick(incubator.website)}
-            >
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-yellow-500/0 group-hover:from-orange-500/10 group-hover:to-yellow-500/10 transition-all duration-500 z-10"></div>
-              
-              <CardHeader className="pb-3 relative z-20">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="relative">
-                    <div className="p-3 rounded-xl bg-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                      {incubator.logo}
-                    </div>
-                  </div>
-                  <ExternalLink className="w-5 h-5 text-gray-500 group-hover:text-orange-600 transition-colors duration-300" />
-                </div>
-                
-                <CardTitle className="text-lg font-bold text-gray-800 mb-2 group-hover:text-orange-700 transition-colors duration-300 leading-tight">
-                  {incubator.title}
-                </CardTitle>
-                
-                <div className="flex items-center justify-between mb-3">
-                  <Badge variant="secondary" className="bg-white/80 text-gray-700 font-medium px-2 py-1 text-xs">
-                    {incubator.category}
-                  </Badge>
-                </div>
-              </CardHeader>
-              
-              <CardContent className="pt-0 relative z-20">
-                <CardDescription className="text-gray-700 mb-4 leading-relaxed text-sm">
-                  {incubator.description}
-                </CardDescription>
-                
-                <div className="space-y-3">
-                  <div className="text-xs font-semibold text-gray-800 mb-2 flex items-center">
-                    <TrendingUp className="w-3 h-3 mr-1 text-orange-600" />
-                    Key Features:
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    {incubator.features.map((feature, index) => (
-                      <Badge 
-                        key={index} 
-                        variant="outline" 
-                        className="text-xs bg-white/60 border-gray-300 text-gray-700 hover:bg-white/80 transition-colors duration-200 px-2 py-0.5"
-                      >
-                        {feature}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="mt-6 pt-4 border-t border-white/60">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-medium text-gray-700">Click to explore</span>
-                    <div className="flex items-center space-x-1 text-orange-600 group-hover:translate-x-2 transition-transform duration-300">
-                      <span className="font-medium">Learn More</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Dynamic Incubator Grid */}
+        <div className="flex flex-col items-center">
+          {renderIncubatorGrid()}
         </div>
 
         {/* Policy Framework Section */}
@@ -293,7 +347,7 @@ const IncubatorsMain = ({
           {/* Policy Card */}
           <div className="max-w-4xl mx-auto">
             <Card 
-              className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-br ${policyInfo.color} border-0 overflow-hidden relative`}
+              className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-br ${policyInfo.color} border-0 overflow-hidden relative h-full flex flex-col`}
               onClick={() => handleCardClick(policyInfo.website)}
             >
               {/* Hover Overlay */}
@@ -323,12 +377,12 @@ const IncubatorsMain = ({
                 </div>
               </CardHeader>
               
-              <CardContent className="pt-0 relative z-20">
-                <CardDescription className="text-gray-700 mb-4 leading-relaxed text-base">
+              <CardContent className="pt-0 relative z-20 flex-1 flex flex-col">
+                <CardDescription className="text-gray-700 mb-4 leading-relaxed text-base flex-1">
                   {policyInfo.description}
                 </CardDescription>
                 
-                <div className="space-y-3">
+                <div className="space-y-3 mb-6">
                   <div className="text-sm font-semibold text-gray-800 mb-2 flex items-center">
                     <BookOpen className="w-4 h-4 mr-1 text-orange-600" />
                     Key Areas:
@@ -346,7 +400,7 @@ const IncubatorsMain = ({
                   </div>
                 </div>
                 
-                <div className="mt-6 pt-4 border-t border-white/60">
+                <div className="mt-auto pt-4 border-t border-white/60">
                   <div className="flex items-center justify-between text-sm">
                     <span className="font-medium text-gray-700">Click to view policy document</span>
                     <div className="flex items-center space-x-1 text-orange-600 group-hover:translate-x-2 transition-transform duration-300">
