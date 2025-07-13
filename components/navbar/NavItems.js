@@ -130,7 +130,7 @@ export const Initiatives = () => {
           <li className="dropdown-subcontainer">
             <a
               className="dropdown-item"
-              href="/student-internship-portal"
+              href="/sip"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -175,7 +175,9 @@ export const Initiatives = () => {
             <Link href="/mentorship_pool" passHref className="dropdown-item">
               <FcApproval fontSize="2rem"></FcApproval>
               <div>
-                <h4>Startup Mentor Pool</h4>
+                <h4>
+                  Startup Mentor Pool
+                </h4>
                 <p>
                   {`Elevate Your Journey:`}
                   <br /> {`Join Our Startup Mentor Pool for Guided Success!`}
@@ -213,145 +215,17 @@ export const Initiatives = () => {
     </li>
   );
 };
+
 export const Incubators = () => {
-  const [isHover, setIsHover] = useState(false);
   return (
-    <li
-      className="nav-item dropdown incubate"
-      onMouseOver={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-    >
-      <a
-        className="nav-link "
-        href="#"
-        id="navbarDropdown"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
+    <li className="nav-item dropdown contact-nav">
+      <Link href="/IncubatorsMain" passHref className="nav-link">
         <h3>Incubators</h3>
-        <RiArrowDropDownLine fontSize="2rem"></RiArrowDropDownLine>
-      </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-        <ul className="dropdown-container">
-          <li className="dropdown-subcontainer">
-            {/* <Link href="https://tiiciitbhu.org"> */}
-            {/*<a
-              className="dropdown-item"
-              href="https://i3f-iitbhu.org/"
-              rel="noreferrer"
-              target="_blank"
-            >*/}
-            <Link href="/i3" passHref className="dropdown-item">
-              <FcIdea fontSize="2rem"></FcIdea>
-              <div>
-                <h4>
-                  {"Ideation Innovation"} <br />
-                  {"& Incubation Foundation"}
-                </h4>
-                <p>
-                  Umbrella organization at IIT BHU for
-                  <br />
-                  nurturing start-ups
-                </p>
-              </div>
-            </Link>
-            {/* </Link> */}
-
-          {/* <a
-              className="dropdown-item"
-              href="https://thingqbator.nasscomfoundation.org/"
-              rel="noreferrer"
-              target="_blank"
-            > */}
-            <Link href="/ciscotq" passHref className="dropdown-item">
-              <FcIdea fontSize="2rem"></FcIdea>
-              <div>
-                <h4>Cisco thingQbator</h4>
-                <p>
-                  An internal makerspace “Internet of Things” <br />- focused
-                  incubator
-                </p>
-              </div>
-            </Link>
-          </li>
-          <li className="dropdown-subcontainer">
-            {/*<a
-              className="dropdown-item"
-              href="https://i3f-iitbhu.org/"
-              rel="noreferrer"
-              target="_blank"
-            >*/}
-            <Link href="/ncl" passHref className="dropdown-item">
-              <FcIdea fontSize="2rem"></FcIdea>
-              <div>
-                <h4>
-                  NCL-IIT BHU <br /> Incubation Centre
-                </h4>
-                <p>
-                  A Northern Coalfields Limited (NCL) <br /> CSR initiative
-                  funded incubator
-                </p>
-              </div>
-            </Link>
-
-           {/* <a
-              className="dropdown-item"
-              href="https://www.idapthub.org/"
-              rel="noreferrer"
-              target="_blank"
-            > */}
-              <Link href="/idaptHub" passHref className="dropdown-item">
-              <FcIdea fontSize="2rem"></FcIdea>
-              <div>
-                <h4>IDAPT-Hub Foundation</h4>
-                <p>
-                  Technology Innovation Hub for “Data Analytics
-                  <br /> and Predictive Technologies”
-                </p>
-              </div>
-              </Link>
-          </li>
-          <li className="dropdown-subcontainer">
-           { /*<a
-              className="dropdown-item"
-              href="https://i3f-iitbhu.org/"
-              rel="noreferrer"
-              target="_blank"
-            >*/ }
-            <Link href="/rabi" passHref className="dropdown-item">
-              <FcIdea fontSize="2rem"></FcIdea>
-              <div>
-                <h4>R-ABI, IIT BHU</h4>
-                <p>
-                  An Agribusiness and Agri-preneurship <br /> focused incubator
-                  @ IIT BHU
-                </p>
-              </div>
-            </Link>
-
-            <a
-              className="dropdown-item"
-              href="https://www.iitbhu.ac.in/contents/institute/cf/misc/doc/innovation_start_up_policy.pdf"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <FcIdea fontSize="2rem"></FcIdea>
-              <div>
-                <h4>
-                  {"Innovation"}
-                  <br />
-                  {"& Start-up Policy IIT BHU"}
-                </h4>
-                <p>Official Startup Policy of IIT BHU</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
+      </Link>
     </li>
   );
 };
+
 export const Connect = () => {
   const [isHover, setIsHover] = useState(false);
   return (
