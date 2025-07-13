@@ -71,7 +71,7 @@ const incubators = [
     description : "Collaboration between IIT (BHU) Varanasi and Union Bank of India to promote entrepreneurship and innovation, Supported by the I-3 Foundation ",
     logo : <Star className="w-10 h-10 text-amber-500" />,
     category : "Mentorship Infrastructure",
-    website : "/jic",
+    website : "/JIC",
     color : "from-amber-100 to-yellow-100",
     features : ["Collaboration", "Entrepreneurship", "Innovation Support"]
   }
