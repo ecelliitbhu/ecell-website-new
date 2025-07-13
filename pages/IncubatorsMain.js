@@ -241,6 +241,8 @@ const IncubatorsMain = ({
   };
 
   return (
+   <>
+   <Nav/>
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100">
       
       {/* Enhanced Hero Section */}
@@ -459,6 +461,7 @@ const IncubatorsMain = ({
         </div>
       </div>
     </div>
+    </>
   );
 };
 
