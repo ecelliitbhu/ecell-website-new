@@ -6,7 +6,7 @@ import IncubatorPage from "../pages/IncubatorPage";
 // import i3image from "../public/i3.png";
 // import i3logo from "../public/i3logo.webp";
 const img1 = "https://ik.imagekit.io/ecelliitbhu/website/i3SideImg.png";
-const i3image = "https://ik.imagekit.io/ecelliitbhu/website/i3.png";
+const i3image = "https://ik.imagekit.io/ecelliitbhu/website/i3.p";
 const i3logo = "https://ik.imagekit.io/ecelliitbhu/website/i3logo.webp";
 
 
@@ -87,7 +87,7 @@ const i3 = () => {
           description2="Ideation, Innovation and Incubation Foundation (I-3F), earlier known as Technology Innovation and Incubation Center (TIIC), is an umbrella organization at IIT (BHU) Varanasi for fostering an entrepreneurial ecosystem and nurturing startups in the East UP region. It administers various units that provide ‘Start to Scale’ support for entrepreneurship and facilitates research activities to convert into commercial ventures."
           facilities={facilities}
           title2="What is"
-          i3Image={i3image}
+          
           services={services}
           i3Logo={i3logo}
           currentDatai3={currentDatai3}
