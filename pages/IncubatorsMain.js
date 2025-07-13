@@ -64,6 +64,17 @@ const incubators = [
     color: "from-red-100 to-rose-100",
     features: ["Data Analytics", "Predictive Tech", "AI/ML Support"]
   },
+  {
+    id : 6,
+    title : "Joint Incubation Centre - IIT BHU",
+    shortTitle : "JIC-IIT BHU",
+    description : "Collaboration between IIT (BHU) Varanasi and Union Bank of India to promote entrepreneurship and innovation, Supported by the I-3 Foundation ",
+    logo : <Star className="w-10 h-10 text-amber-500" />,
+    category : "Mentorship Infrastructure",
+    website : "/jic",
+    color : "from-amber-100 to-yellow-100",
+    features : ["Collaboration", "Entrepreneurship", "Innovation Support"]
+  }
 ];
 
 const policyInfo = {
