@@ -222,23 +222,11 @@ export default function Home() {
 </section> */}
 
 
-          <Row className="header" >
+          <Row className="header align-items-center" >
 
-            <Col className="info">
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+             <Col xs={12} md={6} className=" d-flex flex-column justify-content-center align-items-start text-md-start text-center">
+         
+            <div className="info-wrapper">
               <h1>E-Cell IIT BHU</h1>
               <h2>
                 {"Accelerate Your"}
@@ -278,17 +266,27 @@ export default function Home() {
               >
                 Get Started !
               </Button>
+              </div>
             </Col>
-            <Col className="image-section">
+
+
+             <Col xs={12} md={6} className="image-section d-flex justify-content-center align-items-center text-center">
+              <div className="image-wrapper">
               <lottie-player
+              
                 src="https://assets4.lottiefiles.com/packages/lf20_3nvhl4jz.json"
                 speed="1"
                 loop
                 autoplay
+        
               ></lottie-player>
+              </div>
             </Col>
             <div id="who-are-we"></div>
           </Row>
+
+
+          
           <Row className="who-are-we">
             <Col className="info waw">
               <h1>Who are we?</h1>
