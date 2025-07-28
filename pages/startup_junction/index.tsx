@@ -77,6 +77,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction/startup-junction.png"
                   alt="Startup Junction"
                   className="hero-Image"
+                  unoptimized
                 />
               </div>
             </div>
@@ -91,6 +92,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/IvyCamp.jpeg"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link href="https://www.fortytwo.vc/" target="_blank">
@@ -100,6 +102,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/FortyTwo.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link href="https://ipventures.in/" target="_blank">
@@ -109,6 +112,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/ip.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link href="https://soonicornventures.com/" target="_blank">
@@ -118,6 +122,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/sv.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link href="https://xscaleglobal.com/" target="_blank">
@@ -127,6 +132,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/xscale.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link href="https://www.91springboard.com/" target="_blank">
@@ -136,6 +142,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/s19.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link href="https://www.faad.in" target="_blank">
@@ -145,6 +152,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/fadd.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link href="https://fluidvc.in/" target="_blank">
@@ -154,6 +162,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/fluid.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link
@@ -166,6 +175,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/nas.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link
@@ -178,6 +188,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/launchx.png"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link
@@ -190,6 +201,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/letsVenture.jpg"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link
@@ -202,6 +214,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/fibonacci.jpg"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
               <Link
@@ -214,6 +227,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/startupnews.jpg"
                   alt="Woman enjoying food, meals in storage container, and food bowls on a table"
                   className={styles.vcimg}
+                  unoptimized
                 />
               </Link>
             </div>

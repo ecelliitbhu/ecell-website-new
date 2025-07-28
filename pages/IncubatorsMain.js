@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import Link from "next/link";

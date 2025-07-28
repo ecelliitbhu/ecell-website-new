@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 // import img1 from "../public/i3SideImg.png";
 import IncubatorPage from "../pages/IncubatorPage";
 // import i3image from "../public/i3.png";

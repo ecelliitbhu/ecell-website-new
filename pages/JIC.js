@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import Image from "next/legacy/image";
+import Image from "next/image";
 // import and add jic logo and questionmark and img1
 // from image kit website 
 import IncubatorPage from "./IncubatorPage";

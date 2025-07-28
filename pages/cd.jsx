@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import CdTestimonials from "../components/CdTestimonials";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRef } from "react";
 import { toast } from "react-hot-toast";
 import { signIn } from 'next-auth/react';
@@ -157,14 +157,14 @@ export default function CampusDirector() {
             <div className="perks-container">
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/1.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/1.png" alt="" height="512" width="512" unoptimized />
                 </div>
 
                 <p>Free E-Summit 2025 Passes</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/2.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/2.png" alt="" height="512" width="512" unoptimized />
                 </div>
 
                 <p>
@@ -173,14 +173,14 @@ export default function CampusDirector() {
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/3.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/3.png" alt="" height="512" width="512" unoptimized/>
                 </div>
 
                 <p>One-to-one mentorship by startup founders</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/4.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/4.png" alt="" height="512" width="512" unoptimized />
                 </div>
                 <p>
                   Top performers will be featured on the social media handles of
@@ -189,13 +189,13 @@ export default function CampusDirector() {
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/5.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/5.png" alt="" height="512" width="512" unoptimized/>
                 </div>
                 <p>Access to the Entrepreneurship Masterclass</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/8.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/8.png" alt="" height="512" width="512" unoptimized/>
                 </div>
                 <p>
                   Opportunity to enter BWU Cohort and start your
@@ -204,13 +204,13 @@ export default function CampusDirector() {
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/7.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/7.png" alt="" height="512" width="512" unoptimized/>
                 </div>
                 <p>Access to Curated Startup Helpbook of E-Cell IIT BHU</p>
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/6.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/6.png" alt="" height="512" width="512" unoptimized/>
                 </div>
                 <p>
                   {`Top Campus Ambassadors to be featured in the E-Cell IIT BHU's Weekly Newsletter`}
@@ -218,19 +218,19 @@ export default function CampusDirector() {
               </div>
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/9.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/9.png" alt="" height="512" width="512" unoptimized/>
                 </div>
                 <p>Certificate of Internship verified by E-Cell IIT BHU</p>
               </div>
               {/*<div className="perk">*/}
               {/*  <div className="perk-image">*/}
-              {/*    <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/10.png" alt="" height="512" width="512" />*/}
+              {/*    <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/10.png" alt="" height="512" width="512" unoptimized/>*/}
               {/*  </div>*/}
               {/*  <p>Free E-Summit 2024 Merch to the (Top 5 Performers)</p>*/}
               {/*</div>*/}
               <div className="perk">
                 <div className="perk-image">
-                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/10.png" alt="" height="512" width="512" />
+                  <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/10.png" alt="" height="512" width="512" unoptimized/>
                 </div>
                 <p>
                   Goodies, merchandise and learning resources from our sponsors

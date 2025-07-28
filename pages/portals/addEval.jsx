@@ -1,5 +1,5 @@
 import { Card, Button } from "react-bootstrap";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { firebaseDB as db } from "../../lib/firebase";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
@@ -48,7 +48,7 @@ const Evaluation = ({
       }}
     >
       <div style={{ height: "70px", width: "70px" }}>
-        <Image src={poster} alt="" height={1000} width={1000} />
+        <Image src={poster} alt="" height={1000} width={1000} unoptimized />
       </div>
       <span>{`Name: ${title}`}</span>
       <span>{`LinkedIn link: ${knowMoreLink}`}</span>
@@ -253,6 +253,7 @@ const AddEvaluation = () => {
                       alt=""
                       height="1000"
                       width="1000"
+                      unoptimized
                     />
                   )}
                 </div>

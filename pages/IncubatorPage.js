@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import Nav from "../components/navbar/NavLayout";
 
@@ -48,17 +48,17 @@ const IncubatorPage = ({
           <div className="shadow-md hover:shadow-xl transition duration-300 rounded-xl p-4 mt-6 w-full sm:p-8 sm:mt-8 sm:ml-6 sm:w-[95%] bg-white">
             {i3Logo && (
               <div className="flex justify-center mb-3 mr-16">
-                <Image src={i3Logo} height={100} width={100} alt="i3 logo" />
+                <Image src={i3Logo} height={100} width={100} alt="i3 logo" unoptimized/>
               </div>
             )}
             {idaptLogo && (
               <div className="flex justify-center mb-3 mr-16">
-                <Image src={idaptLogo} height={100} width={250} alt="idapt logo" />
+                <Image src={idaptLogo} height={100} width={250} alt="idapt logo" unoptimized/>
               </div>
             )}
             {nclLogo && (
               <div className="flex justify-center mb-2 mr-16">
-                <Image src={nclLogo} height={100} width={250} alt="ncl logo" />
+                <Image src={nclLogo} height={100} width={250} alt="ncl logo" unoptimized/>
               </div>
             )}
 
@@ -66,7 +66,7 @@ const IncubatorPage = ({
               {logoSrc ? (
                 <>
                   <div className="text-2xl font-semibold mr-2 sm:text-[2.5rem]">What is</div>
-                  <Image src={logoSrc} height={48} width={243} alt={`${title} logo`} />
+                  <Image src={logoSrc} height={48} width={243} unoptimized alt={`${title} logo`} />
                 </>
               ) : (
                 <div className="text-2xl font-semibold sm:text-[2.5rem] mr-2">
@@ -74,7 +74,7 @@ const IncubatorPage = ({
                   {title3 && <span className="ml-2 text-[#4F4F52]">{title3}</span>}
                 </div>
               )}
-              {questionMarkSrc && <Image src={questionMarkSrc} height={30} width={20} alt="?" />}
+              {questionMarkSrc && <Image src={questionMarkSrc} height={30} width={20} alt="?" unoptimized/>}
             </div>
 
             <p className="text-base sm:text-[1.2rem] text-[#676767]">{description2}</p>
@@ -90,7 +90,7 @@ const IncubatorPage = ({
 
         <div className="flex justify-center w-full sm:w-1/2">
           <div className="w-[90%] sm:w-full">
-            <Image src={mainImage} alt="main" layout="responsive" width={640} height={426} />
+            <Image src={mainImage} alt="main" layout="responsive" width={640} height={426} unoptimized />
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ const IncubatorPage = ({
       {i3Image && (
         <div className="flex justify-center items-center mt-10 md:mt-12 lg:mt-16">
           <div className="w-full max-w-[700px] h-auto">
-            <Image src={i3Image} alt="I3 Foundation" layout="responsive" width={700} height={700} />
+            <Image src={i3Image} alt="I3 Foundation" layout="responsive" width={700} height={700} unoptimized/>
           </div>
         </div>
       )}

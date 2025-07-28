@@ -1,5 +1,5 @@
-import "../styles/globals.scss";
 import React, { useEffect, useState } from "react";
+import "../styles/globals.scss";
 import Router from "next/router";
 import dynamic from "next/dynamic";
 // import SSRProvider from "react-bootstrap/SSRProvider";
