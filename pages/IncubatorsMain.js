@@ -7,6 +7,8 @@ import { useRouter } from 'next/router';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Lightbulb, Zap, Rocket, Cpu, BarChart3, Sprout, ArrowRight, Star, Users, Target, TrendingUp, FileText, BookOpen } from 'lucide-react';
+import EtaSection from "@/components/EtaSection";
+
 
 const incubators = [
   {
@@ -415,50 +417,10 @@ const IncubatorsMain = ({
             </Card>
           </div>
         </div>
-
-        {/* Enhanced CTA Section */}
-        <div className="mt-20 relative">
-          <div className="bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-600 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div 
-                className="absolute top-0 left-0 w-full h-full" 
-                style={backgroundPatternStyle}
-              ></div>
-            </div>
-            
-            <div className="relative z-10 text-center">
-              <div className="mb-4 inline-flex items-center px-3 py-1 bg-white/20 rounded-full backdrop-blur-sm">
-                <Rocket className="w-4 h-4 mr-2" />
-                <span className="text-sm font-medium">Start Your Journey</span>
-              </div>
-              
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Ideas?</h2>
-              <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
-                Join our thriving ecosystem of innovators and entrepreneurs. Get access to world-class mentorship, funding opportunities, and cutting-edge resources.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/who_we_are">
-                <button className="group bg-white text-orange-600 px-8 py-3 rounded-full font-bold text-base hover:bg-gray-100 transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-xl">
-                  <span className="flex items-center justify-center">
-                    Apply Now
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                </button>
-                </Link>
-                <Link href="/contacts">
-                <button className="group border-2 border-white text-white px-8 py-3 rounded-full font-bold text-base hover:bg-red-500 hover:text-red-500 transition-all duration-300 hover:scale-105 transform">
-                  <span className="flex items-center justify-center">
-                    Contact Us
-                    <ExternalLink className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                  </span>
-                </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+       <div className="mt-[3vh]">
+        <EtaSection/>
+       </div>
+       
       </div>
     </div>
     </>
