@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import Image from "next/legacy/image";
+import Image from "next/image";
 // import prof from "../public/rajnesh_tyagi.png";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionSummary } from "@mui/material";
@@ -65,7 +65,7 @@ const Team = () => {
             UNDER THE GUIDANCE OF
           </h2>
           <div className="our-team" style={{ margin: "auto" }}>
-            <Image src={prof}  width={300} height={360} className="img-responsive" alt="team member" />
+            <Image src={prof}  width={300} height={360} className="img-responsive" alt="team member" unoptimized/>
             <div className="team-content">
               <h3 className="name">PROF. RAJNESH TYAGI</h3>
               <span className="post">PROF. INCHARGE, E-CELL</span>

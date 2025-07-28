@@ -1,5 +1,5 @@
 import { Card, Button } from "react-bootstrap";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { firebaseDB as db } from "../../lib/firebase";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { firebaseconfig } from "../../lib/firebase"
@@ -53,7 +53,7 @@ const Event = ({
       }}
     >
       <div style={{ height: "70px", width: "70px" }}>
-        <Image src={poster} alt="" height={1000} width={1000} />
+        <Image src={poster} alt="" height={1000} width={1000} unoptimized/>
       </div>
       <span >{`Title: ${title}`}</span>
       <p>{`Description: ${description}`}</p>
@@ -320,6 +320,7 @@ const AddEvent = () => {
                       alt=""
                       height="1000"
                       width="1000"
+                      unoptimized
                     />
                   )}
                 </div>

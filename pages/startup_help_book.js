@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Card from "@mui/material/Card";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 import React, { useState } from "react";
@@ -67,7 +67,7 @@ export default function StartupBundle() {
               <Image src={part1_img} alt="Startup HelpBook Part 1" width={coverWidth}
                 height={coverHeight}
                 priority
-                sizes="(max-width: 600px) 80vw, 370px"></Image>
+                sizes="(max-width: 600px) 80vw, 370px" unoptimized></Image>
             </a>
             <div
               style={{
@@ -113,7 +113,7 @@ export default function StartupBundle() {
               <Image src={part2_img} alt="Startup HelpBook Part 2" width={coverWidth}
                 height={coverHeight}
                 priority
-                sizes="(max-width: 600px) 80vw, 370px"></Image>
+                sizes="(max-width: 600px) 80vw, 370px" unoptimized></Image>
             </a>
             <div
               style={{

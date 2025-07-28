@@ -3,7 +3,7 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
 import { Row, Button, Container, Col, Card } from "react-bootstrap";
-import Image from "next/legacy/image";
+import Image from "next/image";
 // import logicalThinking from "../public/logical-thinking.png";
 // import spaceShip from "../public/spaceship.png";
 // import networking from "../public/networking.png";
@@ -91,6 +91,7 @@ const WhoWeAre = () => {
                   height="80"
                   width="80"
                   alt="logic"
+                  unoptimized
                 ></Image>
               </div>
 
@@ -111,6 +112,7 @@ const WhoWeAre = () => {
                   height="80"
                   width="80"
                   alt="logic"
+                  unoptimized
                 ></Image>
               </div>
               <Card.Body>
@@ -130,6 +132,7 @@ const WhoWeAre = () => {
                   height="80"
                   width="80"
                   alt="logic"
+                  unoptimized
                 ></Image>
               </div>
               <Card.Body>

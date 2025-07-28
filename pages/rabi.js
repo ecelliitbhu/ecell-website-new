@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import Image from "next/legacy/image";
+import Image from "next/image";
 // import nclLogo from "../public/nclLogo.png"
 // import questionmark from "../public/question.png";
 // import img1 from "../public/rabi.png";
