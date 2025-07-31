@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Container, Row, Button, Card } from "react-bootstrap";
 import Footer from "../../components/Footer";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { firebaseDB as db } from "../../lib/firebase";
 import { ref, onValue } from "firebase/database";
 import { useEffect, useState } from "react";
@@ -24,7 +24,7 @@ const Event = ({
   return (
     <Card className="card" style={{ height: "fit-content" }}>
       <Card.Body style={{ padding: "25px 15px" }}>
-        <Image src={poster} alt={title} height={250} width={250}></Image>
+        <Image src={poster} alt={title} height={250} width={250} unoptimized></Image>
         <Card.Title style={{ margin: "20px auto 10px" }}>{title}</Card.Title>
         <div
           style={{
@@ -117,6 +117,7 @@ export default function Events() {
                   width="300"
                   alt="Loading..."
                   height="300"
+                  unoptimized
                 />
               </div>
             ) : (
