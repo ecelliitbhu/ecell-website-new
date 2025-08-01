@@ -11,6 +11,8 @@ import { team2021 } from "@/staticdata/TeamsData/Team2021";
 import { team2022 } from "@/staticdata/TeamsData/Team2022";
 import { team2023 } from "@/staticdata/TeamsData/Team2023";
 import { team2024 } from "@/staticdata/TeamsData/Team2024";
+import { team2025 } from "@/staticdata/TeamsData/Team2025";
+
 import Link from 'next/link';
 const prof = "https://ik.imagekit.io/ecelliitbhu/website/rajnesh_tyagi.png?tr=w-300,h-360";
 const Team2021 = () => {

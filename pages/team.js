@@ -11,6 +11,8 @@ import { team2021 } from "@/staticdata/TeamsData/Team2021";
 import { team2022 } from "@/staticdata/TeamsData/Team2022";
 import { team2023 } from "@/staticdata/TeamsData/Team2023";
 import { team2024 } from "@/staticdata/TeamsData/Team2024";
+import { team2025 } from "@/staticdata/TeamsData/Team2025";
+
 import Link from 'next/link';
 import { orange } from "@mui/material/colors";
 
@@ -85,9 +87,26 @@ const Team = () => {
           >
             CORE TEAM MEMBERS
           </h2>
-          <TeamLayout teamData={team2024}/>
+           <TeamLayout teamData={team2025}/> 
           
           <div className="sm:flex justify-center">
+
+        <div className="m-4">
+              <Link href="/team2024-25">
+                <h2 style={{
+                  fontSize: "1.5rem",
+                  textAlign: "center",
+                  width: "100%",
+                  backgroundColor: "#fa8231",
+                  color: "white",
+                  padding: "0.6rem",
+                  borderRadius: "0.6rem"
+                }}>
+                  TEAM OF {team2024.session}
+                </h2>
+              </Link>
+            </div>
+    
         <div className="m-4">
           <Link href="/team2023-24">
               <h2
