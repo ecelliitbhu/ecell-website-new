@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import Image from "next/legacy/image";
+import Image from "next/image";
 // import teslaSpeaker from "../public/past_speakers/tesla_speaker.jpg";
 // import sanjaysethi from "../public/past_speakers/sanjaysethi.jpeg";
 // import amisaha from "../public/past_speakers/amitavasaha.jpeg";
@@ -78,6 +78,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Guru Sankararaman</h3>
@@ -91,6 +92,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Sanjay Sethi</h3>
@@ -104,6 +106,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Amitava Saha</h3>
@@ -118,6 +121,7 @@ const PastSpeakers = () => {
                 height={300} 
                 className="img-responsive"
                 alt="team member" 
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Piyush Agrawal</h3>
@@ -130,6 +134,7 @@ const PastSpeakers = () => {
                height={300} 
                className="img-responsive" 
                alt="team member" 
+               unoptimized
                />
               <div className="team-content">
                 <h3 className="name">Vishal Jindal</h3>
@@ -143,6 +148,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Dharamveer Singh Chouhan</h3>
@@ -156,6 +162,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Manish Gupta</h3>
@@ -169,6 +176,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Priya Sharma</h3>
@@ -182,6 +190,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Gunjan Shukla</h3>
@@ -195,6 +204,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Vishwanathan Iyer</h3>
@@ -208,6 +218,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">BV Jagadeesh</h3>
@@ -221,6 +232,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Sandeep Jain</h3>
@@ -234,6 +246,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Krishna Vedati</h3>
@@ -247,6 +260,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Vinamra Pandya</h3>
@@ -262,6 +276,7 @@ const PastSpeakers = () => {
                 height={300}
                 className="img-responsive"
                 alt="team member"
+                unoptimized
               />
               <div className="team-content">
                 <h3 className="name">Kaustuv Mukherjee</h3>

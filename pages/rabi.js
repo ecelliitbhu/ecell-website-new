@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/navbar/NavLayout";
-import Image from "next/legacy/image";
+import Image from "next/image";
 // import nclLogo from "../public/nclLogo.png"
 // import questionmark from "../public/question.png";
 // import img1 from "../public/rabi.png";
@@ -25,6 +25,10 @@ After training completion, selected start-ups will be provided grant-in-aid supp
       description: `Start-ups with Minimum Viable Product {MVP) can apply for the program.
 After successful completion of this 2 months local residency phase, selected start-ups will be provided grant-in-aid support (85% of the project cost, maximum up to Rs. 25 lakhs) to scale up the operations.`,
     },
+    {
+      title : "Student Entrepreneurship Programme",
+      description : "The agri-business ideas/innovation and entrepreneurship related activities in agriculture and allied sectors of students will be supported to transform the idea into a real business, products and technologies."
+    }
   ];
 
   const facilities = [

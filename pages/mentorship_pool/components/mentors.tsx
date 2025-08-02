@@ -1,5 +1,7 @@
 import React from "react";
-import Image from "next/legacy/image";
+// import Image from "next/legacy/image";
+import Image from "next/image";
+
 import { FaLinkedin } from "react-icons/fa";
 // import sharad from "../../../public/mentorship_pool/Sharad_seth.jpeg"
 // import anshu from "../../../public/mentorship_pool/Anshu.jpeg"
@@ -175,6 +177,7 @@ export default function Mentors() {
               src={head.image}
               height={1600}
               width={1600}
+              unoptimized 
               className="img-responsive img-contain"
               alt="team member"
             />
