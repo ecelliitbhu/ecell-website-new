@@ -280,7 +280,6 @@ export default function Home() {
                 Get Started !
               </Button>
               </div>
-
             </Col>
             <Col className="image-section">
               <lottie-player
