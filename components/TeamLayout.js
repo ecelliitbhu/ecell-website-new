@@ -64,12 +64,21 @@ export default function TeamLayout({ teamData, showheading = true }) {
                 <div className={"row"}>
                     <div className="team-container">
                         {teamData?.presidents.map((president, index) => {
-                            const imageUrl = (imageLinks.find(image => image.name == president.image)) || '/path/to/default/image.png';  // Use a default image if URL is not available
-                            // console.log(imageUrl)
+                            // const imageUrl = (imageLinks.find(image => image.name == president.image)) || '/path/to/default/image.png';  // Use a default image if URL is not available
+                            // // console.log(imageUrl)
+                            const imageUrl =
+                            //  president.image?.startsWith("http")
+                            president.image && president.image.startsWith("http")
+
+                            ? president.image
+                            : imageLinks.find(image => image.name === president.image)?.url || "/path/to/default/image.jpg";
+                            console.log("Image URL for", president.name, ":", imageUrl);
+
+
                             return (
                                 <div className="our-team" key={index}>
                                     <Image
-                                        src={imageUrl.url}
+                                        src={imageUrl}
                                         height={1600}
                                         width={1600}
                                         className="img-responsive img-contain"
@@ -111,11 +120,18 @@ export default function TeamLayout({ teamData, showheading = true }) {
                     </div>
                     <div className="team-container-1">
                         {teamData.verticalHeads.map((head, index) => {
-                            const imageUrl = (imageLinks.find(image => image.name == head.image)) || '/path/to/default/image.png';  // Use a default image if URL is not available
+                            // const imageUrl = (imageLinks.find(image => image.name == head.image)) || '/path/to/default/image.';  // Use a default image if URL is not available
+                            const imageUrl =
+                            head.image && head.image.startsWith("http")
+                            ? head.image
+                            : imageLinks.find(image => image.name === head.image)?.url || "/path/to/default/image.jpg";
+                            console.log("Image URL for", head.name, ":", imageUrl);
+
+
                             return (
                                 <div className="our-team" key={index}>
                                     <Image
-                                        src={imageUrl.url}
+                                        src={imageUrl}
                                         height={1600}
                                         width={1600}
                                         className="img-responsive img-contain"
