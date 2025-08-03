@@ -265,7 +265,7 @@ export default function Home() {
         </Button>
       </div>
     </div>
-  </Col> {/* ✅ This was missing */}
+  </Col> {/*  This was missing */}
 
   <Col
     xs={12}
@@ -281,7 +281,7 @@ export default function Home() {
       ></lottie-player>
     </div>
   </Col>
-</Row> {/* ✅ This Row block now properly closed */}
+</Row> 
 
           <Row className="who-are-we align-items-center py-5">
   <Col
