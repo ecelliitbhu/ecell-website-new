@@ -9,7 +9,6 @@ import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Lightbulb, Zap, Rocket, Cpu, BarChart3, Sprout, ArrowRight, Star, Users, Target, TrendingUp, FileText, BookOpen } from 'lucide-react';
 import EtaSection from "@/components/EtaSection";
 
-
 const incubators = [
   {
     id: 1,
@@ -118,61 +117,26 @@ const IncubatorsMain = ({
     }
   };
 
-  // Dynamic grid layout function
-  const renderIncubatorGrid = () => {
-    const itemsPerRow = 3; // Desktop: 3 items per row
-    const totalItems = incubators.length;
-    const completeRows = Math.floor(totalItems / itemsPerRow);
-    const remainingItems = totalItems % itemsPerRow;
-    
-    const rows = [];
-    
-    // Render complete rows
-    for (let row = 0; row < completeRows; row++) {
-      const startIndex = row * itemsPerRow;
-      const endIndex = startIndex + itemsPerRow;
-      const rowItems = incubators.slice(startIndex, endIndex);
-      
-      rows.push(
-        <div key={`row-${row}`} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mb-8">
-          {rowItems.map((incubator) => renderIncubatorCard(incubator))}
-        </div>
-      );
-    }
-    
-    // Render incomplete row (centered)
-    if (remainingItems > 0) {
-      const startIndex = completeRows * itemsPerRow;
-      const rowItems = incubators.slice(startIndex);
-      
-      // Dynamic grid classes based on remaining items
-      let gridClass = '';
-      let containerClass = '';
-      
-      if (remainingItems === 1) {
-        gridClass = 'grid grid-cols-1 gap-8';
-        containerClass = 'max-w-sm mx-auto';
-      } else if (remainingItems === 2) {
-        gridClass = 'grid grid-cols-1 md:grid-cols-2 gap-8';
-        containerClass = 'max-w-3xl mx-auto';
-      }
-      
-      rows.push(
-        <div key={`row-incomplete`} className={`${containerClass} w-full`}>
-          <div className={gridClass}>
-            {rowItems.map((incubator) => renderIncubatorCard(incubator))}
+// Simplified grid layout function
+const renderIncubatorGrid = () => {
+  return (
+    <div className="w-full max-w-7xl mx-auto">
+      {/* Use flexbox with wrap for better control */}
+      <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+        {incubators.map((incubator) => (
+          <div key={incubator.id} className="w-full sm:w-[calc(50%-16px)] md:w-[calc(50%-px)] lg:w-[calc(33.333%-px)] sm:max-w-md md:max-w-lg lg:max-w-sm">
+            {renderIncubatorCard(incubator)}
           </div>
-        </div>
-      );
-    }
-    
-    return rows;
-  };
+        ))}
+      </div>
+    </div>
+  );
+};
+
 
   // Render individual incubator card
   const renderIncubatorCard = (incubator) => (
     <Card 
-      key={incubator.id}
       className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-br ${incubator.color} border-0 overflow-hidden relative h-full flex flex-col w-full`}
       onClick={() => handleCardClick(incubator.website)}
     >
@@ -257,24 +221,24 @@ const IncubatorsMain = ({
           <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-yellow-400 rounded-full opacity-10 animate-pulse"></div>
         </div>
         
-        <div className="relative container mx-auto px-4 py-16 text-center">
+        <div className="relative container mx-auto px-4 md:px-6 py-12 md:py-16 text-center">
           <div className="mb-6 inline-flex items-center px-3 py-1 bg-white/20 rounded-full backdrop-blur-sm">
             <Lightbulb className="w-4 h-4 mr-2 " />
             <span className="text-sm font-medium">Innovation Ecosystem</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in leading-tight">
             Innovation <span className="text-yellow-200 relative">
               Incubators
               <div className="absolute -bottom-2 left-0 w-full h-1 bg-yellow-300 rounded-full"></div>
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed">
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed px-4">
             Discover our comprehensive ecosystem of incubators fostering innovation, entrepreneurship, and technological advancement at IIT BHU
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-6 text-base">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-6 text-base px-4">
             <div className="flex items-center space-x-2">
               <Lightbulb className="w-5 h-5 " />
               <span>Nurturing Ideas Into Reality</span>
@@ -287,45 +251,45 @@ const IncubatorsMain = ({
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 md:px-6 py-12">
         {/* Enhanced Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
           <div className="text-center group">
-            <div className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
-              <div className="text-gray-600 font-medium text-sm">Active Incubators</div>
+            <div className="bg-white rounded-xl h-full p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
+              <div className="text-gray-600 font-medium text-xs md:text-sm">Active Incubators</div>
               <div className="w-10 h-1 bg-orange-300 rounded-full mx-auto mt-2"></div>
             </div>
           </div>
           <div className="text-center group">
-            <div className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">100+</div>
-              <div className="text-gray-600 font-medium text-sm">Startups Supported</div>
+            <div className="bg-white rounded-xl h-full p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">100+</div>
+              <div className="text-gray-600 font-medium text-xs md:text-sm">Startups Supported</div>
               <div className="w-10 h-1 bg-orange-300 rounded-full mx-auto mt-2"></div>
             </div>
           </div>
           <div className="text-center group">
-            <div className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">50+</div>
-              <div className="text-gray-600 font-medium text-sm">Expert Mentors</div>
+            <div className="bg-white rounded-xl h-full p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">50+</div>
+              <div className="text-gray-600 font-medium text-xs md:text-sm">Our Expert Mentors</div>
               <div className="w-10 h-1 bg-orange-300 rounded-full mx-auto mt-2"></div>
             </div>
           </div>
           <div className="text-center group">
-            <div className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">₹10Cr+</div>
-              <div className="text-gray-600 font-medium text-sm">Funding Facilitated</div>
+            <div className="bg-white h-full rounded-xl p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">₹10Cr+</div>
+              <div className="text-gray-600 font-medium text-xs md:text-sm">Funding Facilitated</div>
               <div className="w-10 h-1 bg-orange-300 rounded-full mx-auto mt-2"></div>
             </div>
           </div>
         </div>
 
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3">
             Our <span className="text-orange-600">Incubator Network</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Explore our diverse range of specialized incubators, each designed to nurture innovation in specific domains
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full mx-auto mt-4"></div>
@@ -337,19 +301,19 @@ const IncubatorsMain = ({
         </div>
 
         {/* Policy Framework Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+        <div className="mt-16 md:mt-20">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3">
               Policy <span className="text-orange-600">Framework</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               Comprehensive guidelines and frameworks supporting entrepreneurial activities at IIT BHU
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full mx-auto mt-4"></div>
           </div>
 
           {/* Policy Card */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto px-4 md:px-0">
             <Card 
               className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-br ${policyInfo.color} border-0 overflow-hidden relative h-full flex flex-col`}
               onClick={() => handleCardClick(policyInfo.website)}
@@ -370,7 +334,7 @@ const IncubatorsMain = ({
                   </div>
                 </div>
                 
-                <CardTitle className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-700 transition-colors duration-300 leading-tight">
+                <CardTitle className="text-lg md:text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-700 transition-colors duration-300 leading-tight">
                   {policyInfo.title}
                 </CardTitle>
                 
@@ -382,12 +346,12 @@ const IncubatorsMain = ({
               </CardHeader>
               
               <CardContent className="pt-0 relative z-20 flex-1 flex flex-col">
-                <CardDescription className="text-gray-700 mb-4 leading-relaxed text-base flex-1">
+                <CardDescription className="text-gray-700 mb-4 leading-relaxed text-sm md:text-base flex-1">
                   {policyInfo.description}
                 </CardDescription>
                 
                 <div className="space-y-3 mb-6">
-                  <div className="text-sm font-semibold text-gray-800 mb-2 flex items-center">
+                  <div className="text-xs md:text-sm font-semibold text-gray-800 mb-2 flex items-center">
                     <BookOpen className="w-4 h-4 mr-1 text-orange-600" />
                     Key Areas:
                   </div>
@@ -396,7 +360,7 @@ const IncubatorsMain = ({
                       <Badge 
                         key={index} 
                         variant="outline" 
-                        className="text-sm bg-white/60 border-gray-300 text-gray-700 hover:bg-white/80 transition-colors duration-200 px-3 py-1"
+                        className="text-xs md:text-sm bg-white/60 border-gray-300 text-gray-700 hover:bg-white/80 transition-colors duration-200 px-2 md:px-3 py-1"
                       >
                         {feature}
                       </Badge>
@@ -405,11 +369,11 @@ const IncubatorsMain = ({
                 </div>
                 
                 <div className="mt-auto pt-4 border-t border-white/60">
-                  <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center justify-between text-xs md:text-sm">
                     <span className="font-medium text-gray-700">Click to view policy document</span>
                     <div className="flex items-center space-x-1 text-orange-600 group-hover:translate-x-2 transition-transform duration-300">
                       <span className="font-medium">View PDF</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-3 md:w-4 h-3 md:h-4" />
                     </div>
                   </div>
                 </div>
