@@ -857,7 +857,7 @@ ul {
   margin:auto;
 
   @media (max-width: 768px) {
-    padding: 20px 10px;
+    margin-right:0px;
   }
 
   .info-wrapper {
@@ -1048,11 +1048,13 @@ ul {
 
 .who-are-we {
   margin-top: 100px;
+  @media (max-width: 768px) {
+    padding:10px;
+  }
+
 }
 
-.who-are-we .info {
-  padding-left: 70px;
-}
+
 .learn-more {
   height: 8%;
   width: 300px;
@@ -1064,9 +1066,7 @@ ul {
 .learn-more:hover {
   background-color: rgb(77, 76, 76);
 }
-.waw {
-  padding-left: 0px;
-}
+
 .reach-num {
   display: flex;
   color: #23caf1;
@@ -1080,7 +1080,7 @@ ul {
   
 }
 .reach {
-  margin: 70px 0px;
+  margin: 40px 0px;
 }
 .reach-info {
   font-size: 1rem !important;
@@ -1090,10 +1090,10 @@ ul {
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 50;
+    width:10vw;
   }
   .who-are-we > .info {
     grid-row: 1;
-    padding-left: 0px;
   }
   .who-are-we > .image-section {
     grid-row: 2;
@@ -1106,6 +1106,7 @@ ul {
   .reach {
     width: 80%;
     margin: auto;
+    margin-left:12px;
   }
   .reach-num {
     font-size: 3rem;
@@ -1118,6 +1119,10 @@ ul {
   }
   #count1 {
     text-align: left;
+  }
+  .waw {
+    width: 90vw;
+    margin-left:0px;
   }
 
   #count2 {
@@ -2237,3 +2242,31 @@ ul {
 .row {
   --bs-gutter-x: 0.3rem;
 }
+// .....................................................................
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.body,
+.header {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.navbar-brand {
+  width: 120px !important;
+
+  @media (max-width: 991px) {
+    width: 100px !important;
+  }
+}
+
+.container-fluid {
+  @media (max-width: 991px) {
+    position: static !important;
+  }
+}
+
+

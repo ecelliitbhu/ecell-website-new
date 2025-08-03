@@ -222,111 +222,120 @@ export default function Home() {
 </section> */}
 
 
-          <Row className="header align-items-center" >
+          <Row className="header align-items-center">
+  <Col
+    xs={12}
+    md={6}
+    className=" d-flex flex-column justify-content-center align-items-start text-md-start text-center"
+  >
+    <div className="info-wrapper">
+      <h1>E-Cell IIT BHU</h1>
+      <h2>
+        {"Accelerate Your"}
+        <br />
+        <Typewriter
+          options={{
+            autoStart: true,
+            loop: true,
+          }}
+          onInit={(typewriter) => {
+            typewriter
+              .typeString("Ideation")
+              .pauseFor(1000)
+              .deleteAll()
+              .typeString("Iteration")
+              .pauseFor(1000)
+              .deleteAll()
+              .typeString("Incubation")
+              .pauseFor(1000)
+              .deleteAll()
+              .start();
+          }}
+        />
+        {"Journey!"}
+      </h2>
 
-             <Col xs={12} md={6} className=" d-flex flex-column justify-content-center align-items-start text-md-start text-center">
-         
-            <div className="info-wrapper">
-              <h1>E-Cell IIT BHU</h1>
-              <h2>
-                {"Accelerate Your"}
-                <br />
-                <Typewriter
-                  options={{
-                    autoStart: true,
-                    loop: true,
-                  }}
-                  onInit={(typewriter) => {
-                    typewriter
-                      .typeString("Ideation")
-                      .pauseFor(1000)
-                      .deleteAll()
-                      .typeString("Iteration")
-                      .pauseFor(1000)
-                      .deleteAll()
-                      .typeString("Incubation")
-                      .pauseFor(1000)
-                      .deleteAll()
-                      .start();
-                  }}
-                />
-                {/* <br /> */}
-                {"Journey!"}
-              </h2>
+      <p>
+        Welcome to the entrepreneurship community of IIT BHU where we ideate,
+        iterate and incubate the future innovations of the century!
+      </p>
+      <div className="w-full flex justify-start md:justify-center mt-3">
+        <Button variant="info" className="get-started" href="/#who-are-we">
+          Get Started !
+        </Button>
+      </div>
+    </div>
+  </Col> {/* ✅ This was missing */}
 
-              <p>
-                Welcome to the entrepreneurship community of IIT BHU where we
-                ideate, iterate and incubate the future innovations of the
-                century!
-              </p>
-              <div className="w-full flex justify-start md:justify-center mt-3">
-              <Button
-                variant="info"
-                className="get-started"
-                href="/#who-are-we"
-              >
-                Get Started !
-              </Button>
-              </div>
-            </Col>
+  <Col
+    xs={12}
+    md={6}
+    className="image-section d-flex justify-content-center align-items-center text-center"
+  >
+    <div className="image-wrapper">
+      <lottie-player
+        src="https://assets4.lottiefiles.com/packages/lf20_3nvhl4jz.json"
+        speed="1"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
+  </Col>
+</Row> {/* ✅ This Row block now properly closed */}
 
+          <Row className="who-are-we align-items-center py-5">
+  <Col
+    xs={12}
+    md={6}
+    className="info waw"
+    >
+    <h1 >Who are we?</h1>
+    <p>
+      E-Cell IIT BHU is an institute body run by the students of IIT
+      (BHU) Varanasi devoted to acting as a symbiotic link between the
+      entrepreneurs of E-Cell and the existing startup ecosystem as
+      well as acting as a hub where all the startups can meet,
+      collaborate and innovate!
+    </p>
 
-             <Col xs={12} md={6} className="image-section d-flex justify-content-center align-items-center text-center">
-              <div className="image-wrapper">
-              <lottie-player
-              
-                src="https://assets4.lottiefiles.com/packages/lf20_3nvhl4jz.json"
-                speed="1"
-                loop
-                autoplay
-        
-              ></lottie-player>
-              </div>
-            </Col>
-            <div id="who-are-we"></div>
-          </Row>
+    <Button
+      variant="dark"
+      className="learn-more my-3"
+      href="/who_we_are"
+    >
+      Learn more about E-Cell &rarr;
+    </Button>
 
+    <Row className="reach w-100 mt-3">
+  <Col xs={12} md={6} ml={3} className="text-center mb-3">
+    <h3 className="reach-num" id="count1">50000+</h3>
+    <p className="reach-info">overall social reach!</p>
+  </Col>
+  <Col xs={12} md={6} className="text-center mb-3">
+    <h3 className="reach-num" id="count2">108</h3>
+    <p className="reach-info">startups supported till date!</p>
+  </Col>
+</Row>
+  </Col>
 
-          
-          <Row className="who-are-we">
-            <Col className="info waw">
-              <h1>Who are we?</h1>
-              <p>
-                E-Cell IIT BHU is an institute body run by the students of IIT
-                (BHU) Varanasi devoted to acting as a symbiotic link between the
-                entrepreneurs of E-Cell and the existing startup ecosystem as
-                well as acting as a hub where all the startups can meet
-                ,collaborate and innovate!
-              </p>
-              <Button variant="dark" className="learn-more" href="/who_we_are">
-                Learn more about E-Cell &rarr;
-              </Button>
-              <Row className="reach">
-                <Col>
-                  <h3 className="reach-num" id="count1">
-                    50000+
-                  </h3>
-                  <p className="reach-info">overall social reach!</p>
-                </Col>
-                <Col>
-                  <h3 className="reach-num" id="count2">
-                    108
-                  </h3>
-                  <p className="reach-info">startups supported till date!</p>
-                </Col>
-              </Row>
-            </Col>
-            <Col className="image-section">
-              <lottie-player
-                src="https://assets8.lottiefiles.com/packages/lf20_sig6wqne.json"
-                background="transparent"
-                speed="1"
-                loop
-                autoplay
-              ></lottie-player>
-            </Col>
-          </Row>
-          <Row></Row>
+  <Col
+    xs={12}
+    md={6}
+    className="d-flex justify-content-center align-items-center image-section"
+  >
+    <div className="image-wrapper w-100">
+      <lottie-player
+        src="https://assets8.lottiefiles.com/packages/lf20_sig6wqne.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+        style={{ width: "100%", maxWidth: "500px" }}
+      ></lottie-player>
+    </div>
+  </Col>
+</Row>
+
           <Row className="what-we-do info">
             <h1>What we do?</h1>
             <p>
