@@ -11,7 +11,7 @@ export const Collage = () => {
       <h1 className="my-[20px]">
         Successful Ventures From IIT BHU Alumni
       </h1>
-      <div className="ml-28"> {/* margin targeting img */}
+      <div className="ml-10"> {/* margin targeting img */}
         <Image
           src={startups}
           alt="startups"
