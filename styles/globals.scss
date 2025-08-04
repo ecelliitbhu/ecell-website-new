@@ -1200,6 +1200,8 @@ ul {
   font-size: 3.5rem;
   color: black;
   font-weight: bold;
+  align-items: center;
+  // border:2px solid blue;
 }
 .collage-mobile {
   display: none !important;
@@ -1358,10 +1360,11 @@ ul {
 .footer {
   max-width: 1380px;
   margin: auto;
-  border-top: 1px solid rgb(182, 182, 182);
+  border-top: 1px solid rgb(180, 180, 180);
   height: 100%;
 }
 .contact-us {
+  // border:2px solid black; //```````````````````````
   p,
   h2 {
     margin: 0px;
@@ -1379,6 +1382,7 @@ ul {
   align-items: center;
 }
 .footer-items {
+  // border:2px solid green;//~~~~~~~~~~~~~~~~~~~
   margin: auto;
   width: 100%;
   height: 200px;
@@ -1402,8 +1406,8 @@ ul {
 .social {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  width: 360px;
-  margin: 40px auto;
+  width: 70vw;
+  margin:40px auto;
   a {
     display: flex;
     justify-content: center;
@@ -1432,6 +1436,8 @@ ul {
 .mail-us {
   text-decoration: none;
   color: grey !important;
+  // border:2px solid #23caf1;
+
 }
 .newsletter {
   margin: auto;
@@ -1453,6 +1459,7 @@ ul {
     justify-content: center;
     align-items: center;
     margin: 20px 0;
+    padding:0px;
   }
   .footer-items h5 {
     font-size: 1.5rem;
@@ -1772,6 +1779,7 @@ ul {
 .col {
   justify-content: space-around;
 }
+
 
 .select {
   background-color: #1c1f1f;
@@ -2270,3 +2278,10 @@ body {
 }
 
 
+.col {
+  justify-content: space-around;
+
+  @media screen and (max-width: 460px) {
+    padding: 0px;
+  }
+}

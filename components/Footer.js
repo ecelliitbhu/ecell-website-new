@@ -48,7 +48,7 @@ const Footer = () => {
                 {/* </div> */}
               </div>
 
-              <div>
+              <div className="darling">
                 <AiTwotoneMail className="contact-icons" />
                 <a href="mailto:ecell@iitbhu.ac.in" className="mail-us">
                   ecell@iitbhu.ac.in

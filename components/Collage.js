@@ -7,17 +7,22 @@ const startups =  "https://ik.imagekit.io/ecelliitbhu/website/startups.png?tr=w-
 const startups_mobile = "https://ik.imagekit.io/ecelliitbhu/website/startups_mobile.png?tr=w-1300";
 export const Collage = () => {
   return (
-    <Row
-      className="collage-container collage-normal"
-      style={{ margin: "70px 0px" }}
-    >
-      <h1 style={{ margin: "20px 0px" }}>
+    <Row className="collage-container collage-normal my-[70px]">
+      <h1 className="my-[20px]">
         Successful Ventures From IIT BHU Alumni
       </h1>
-      { <Image src={startups}  alt="startups" width={1300} height={600}></Image> }
+      <div className="ml-28"> {/* margin targeting img */}
+        <Image
+          src={startups}
+          alt="startups"
+          width={1300}
+          height={600}
+        />
+      </div>
     </Row>
   );
 };
+
 export const CollagePhone = () => {
   return (
     <Row
