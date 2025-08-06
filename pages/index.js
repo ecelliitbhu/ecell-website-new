@@ -223,64 +223,58 @@ export default function Home() {
 
 
           <Row className="header align-items-center" >
-
-             <Col xs={12} md={6} className=" d-flex flex-column justify-content-center align-items-start text-md-start text-center">
-         
-            <div className="info-wrapper">
-              <h1>E-Cell IIT BHU</h1>
-              <h2>
-                {"Accelerate Your"}
-                <br />
-                <Typewriter
-                  options={{
-                    autoStart: true,
-                    loop: true,
-                  }}
-                  onInit={(typewriter) => {
-                    typewriter
-                      .typeString("Ideation")
-                      .pauseFor(1000)
-                      .deleteAll()
-                      .typeString("Iteration")
-                      .pauseFor(1000)
-                      .deleteAll()
-                      .typeString("Incubation")
-                      .pauseFor(1000)
-                      .deleteAll()
-                      .start();
-                  }}
-                />
-                {/* <br /> */}
-                {"Journey!"}
-              </h2>
-
-              <p>
-                Welcome to the entrepreneurship community of IIT BHU where we
-                ideate, iterate and incubate the future innovations of the
-                century!
-              </p>
-              <div className="w-full flex justify-start md:justify-center mt-3">
-              <Button
-                variant="info"
-                className="get-started"
-                href="/#who-are-we"
-              >
-                Get Started !
-              </Button>
+            <Col xs={12} md={6} className=" d-flex flex-column justify-content-center align-items-start text-md-start text-center">
+              <div className="info-wrapper">
+                <h1>E-Cell IIT BHU</h1>
+                <h2>
+                  {"Accelerate Your"}
+                  <br />
+                  <Typewriter
+                    options={{
+                      autoStart: true,
+                      loop: true,
+                    }}
+                    onInit={(typewriter) => {
+                      typewriter
+                        .typeString("Ideation")
+                        .pauseFor(1000)
+                        .deleteAll()
+                        .typeString("Iteration")
+                        .pauseFor(1000)
+                        .deleteAll()
+                        .typeString("Incubation")
+                        .pauseFor(1000)
+                        .deleteAll()
+                        .start();
+                    }}
+                  />
+                  {/* <br /> */}
+                  {"Journey!"}
+                </h2>
+                <p>
+                  Welcome to the entrepreneurship community of IIT BHU where we
+                  ideate, iterate and incubate the future innovations of the
+                  century!
+                </p>
+                <div className="w-full flex justify-start md:justify-center mt-3">
+                  <Button
+                    variant="info"
+                    className="get-started"
+                    href="/#who-are-we"
+                  >
+                    Get Started !
+                  </Button>
+                </div>
               </div>
             </Col>
-
-
-             <Col xs={12} md={6} className="image-section d-flex justify-content-center align-items-center text-center">
+            <Col xs={12} md={6} className="image-section d-flex justify-content-center align-items-center text-center">
               <div className="image-wrapper">
-              <lottie-player
-              
-                src="https://assets4.lottiefiles.com/packages/lf20_3nvhl4jz.json"
-                speed="1"
-                loop
-                autoplay
-        
-              ></lottie-player>
+                <lottie-player
+                  src="https://assets4.lottiefiles.com/packages/lf20_3nvhl4jz.json"
+                  speed="1"
+                  loop
+                  autoplay
+                ></lottie-player>
               </div>
             </Col>
             <div id="who-are-we"></div>
