@@ -48,22 +48,24 @@ const Footer = () => {
                 {/* </div> */}
               </div>
 
-              <div>
+              {/* <div>
+                <AiTwotoneMail className="contact-icons" />
+                <a href="mailto:ecell@iitbhu.ac.in" className="mail-us">
+                  ecell@iitbhu.ac.in
+                </a>
+              </div> */}
+              <div className="contact-row">
                 <AiTwotoneMail className="contact-icons" />
                 <a href="mailto:ecell@iitbhu.ac.in" className="mail-us">
                   ecell@iitbhu.ac.in
                 </a>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
+
+              <div className="contact-row">
                 <BsFillTelephoneOutboundFill className="contact-icons" />
                 <p>+91 9120787959</p>
               </div>
+
             </div>
           </Col>
           <Col className="footer-items important-footer">
@@ -182,59 +184,59 @@ const Footer = () => {
             <FaDiscord className="social-icons"></FaDiscord>
           </a>
         </Row> */}
-<div
-  className="social"
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    gap: "18px",
-    flexWrap: "wrap",
-    marginTop: "10px",
-  }}
->
-  <a
-    href="https://www.instagram.com/ecelliitbhu/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <FaInstagram className="social-icons" />
-  </a>
-  <a
-    href="https://www.facebook.com/ecelliitvaranasi"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <FaFacebook className="social-icons" />
-  </a>
-  <a
-    href="https://www.linkedin.com/company/ecelliitbhu/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <FaLinkedin className="social-icons" />
-  </a>
-  <a
-    href="https://twitter.com/ecelliitbhu"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <FaTwitter className="social-icons" />
-  </a>
-  <a
-    href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <FaYoutube className="social-icons" />
-  </a>
-  <a
-    href="https://discord.com/invite/EPm5mfbCKP"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <FaDiscord className="social-icons" />
-  </a>
-</div>
+        <div
+          className="social"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "18px",
+            flexWrap: "wrap",
+            marginTop: "10px",
+          }}
+        >
+          <a
+            href="https://www.instagram.com/ecelliitbhu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram className="social-icons" />
+          </a>
+          <a
+            href="https://www.facebook.com/ecelliitvaranasi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook className="social-icons" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/ecelliitbhu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin className="social-icons" />
+          </a>
+          <a
+            href="https://twitter.com/ecelliitbhu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTwitter className="social-icons" />
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube className="social-icons" />
+          </a>
+          <a
+            href="https://discord.com/invite/EPm5mfbCKP"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaDiscord className="social-icons" />
+          </a>
+        </div>
 
 
       </footer>
