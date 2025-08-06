@@ -30,20 +30,20 @@ const IncubatorPage = ({
   currentDatai3 = [],
 }) => {
   return (
-    <div className="body bg-[#fffefb] text-[#333] font-inter">
+    <div className="body bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-800 font-inter min-h-screen">
       <Nav />
 
       <div className="heading mt-[40px] text-center sm:mt-[60px]">
-        <h1 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl bg-gradient-to-r from-[#DD6D23] to-[#FFAA00] bg-clip-text text-transparent">
-          {title} <span className="text-[#DD6D23]">{highlightedTitle}</span>
+        <h1 className="text-3xl font-bold sm:text-4xl lg:text-6xl bg-gradient-to-r from-orange-500 via-orange-400 to-amber-400 bg-clip-text text-transparent drop-shadow-sm">
+          {title} <span className="text-gray-900 font-extrabold">{highlightedTitle}</span>
         </h1>
       </div>
 
-      <div className="para mt-5 ml-2 bg-gradient-to-r from-[#ffe4c4] to-[#fff0e0] border border-[#f5c796] rounded-full p-4 max-w-[400px] sm:max-w-[800px] sm:p-8 mx-auto mb-5 sm:mt-10 shadow-md">
-        <p className="text-lg text-center sm:text-xl">{description}</p>
+      <div className="para mt-6 ml-2 bg-white border border-orange-200 rounded-2xl p-6 max-w-[400px] sm:max-w-[800px] sm:p-8 mx-auto mb-8 sm:mt-12 shadow-lg backdrop-blur-sm">
+        <p className="text-lg text-center sm:text-xl text-gray-700 leading-relaxed">{description}</p>
       </div>
 
-      <div className="flex flex-col-reverse sm:flex-row items-center">
+  <div className="flex flex-col-reverse sm:flex-row items-center">
         <div className="flex justify-center sm:justify-start w-full sm:w-1/2">
           <div className="shadow-md hover:shadow-xl transition duration-300 rounded-xl p-4 mt-6 w-full sm:p-8 sm:mt-8 sm:ml-6 sm:w-[95%] bg-white">
             {i3Logo && (
@@ -90,7 +90,7 @@ const IncubatorPage = ({
 
         <div className="flex justify-center w-full sm:w-1/2">
           <div className="w-[90%] sm:w-full">
-            <Image src={mainImage} alt="main" layout="responsive" width={640} height={426} unoptimized />
+            <Image src={mainImage} alt="main" layout="responsive" width={640} height={426} unoptimized className="hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ const IncubatorPage = ({
       {i3Image && (
         <div className="flex justify-center items-center mt-10 md:mt-12 lg:mt-16">
           <div className="w-full max-w-[700px] h-auto">
-            <Image src={i3Image} alt="I3 Foundation" layout="responsive" width={700} height={700} unoptimized/>
+            <Image src={i3Image} alt="I3 Foundation" layout="responsive" width={700} height={700} unoptimized className="hover:scale-105 transition-transform duration-500"/>
           </div>
         </div>
       )}
@@ -121,18 +121,21 @@ const IncubatorPage = ({
       {facilities.length > 0 && (
         <>
           <SectionTitle title="Provided Facilities" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
             {facilities.map((facility, index) => (
               <div
                 key={index}
-                className="p-4 rounded-xl shadow-md bg-orange-100 flex flex-col items-center justify-center w-full h-[300px] hover:shadow-xl transition duration-300"
+                className="p-6 rounded-2xl shadow-lg bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 flex flex-col items-center justify-center w-full h-[320px] hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
               >
-                <h3 className="text-2xl font-bold text-center mt-3 text-[#DD6D23]">{facility.title}</h3>
+                <div className="w-32 h-32 bg-white rounded-xl mb-6 shadow-md flex items-center justify-center">
                 <img
                   src={facility.image}
                   alt={facility.title}
-                  className="w-28 h-28 object-cover rounded-md mb-4 mt-8"
-                />
+                  className="max-w-full max-h-full object-contain transition-transform duration-300 "/>
+                </div>
+             
+
+                <h3 className="text-xl font-bold text-center text-gray-900 group-hover:text-orange-600 transition-colors duration-300">{facility.title}</h3>
               </div>
             ))}
           </div>
@@ -162,23 +165,29 @@ export default IncubatorPage;
 
 // Section Header
 const SectionTitle = ({ title }) => (
-  <div className="bg-gradient-to-r from-[#ffe0c0] to-[#fff2e1] h-[60px] shadow-md flex items-center mt-10 justify-center sm:h-[90px] mb-6 sm:mb-8">
-    <p className="text-2xl text-[#4F4F52] font-black sm:text-[3rem]">{title}</p>
+  <div className="text-center mt-16 mb-12">
+    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
+      {title}
+    </h2>
+    <div className="mt-3 h-1 w-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full mx-auto"></div>
   </div>
 );
 
+
 // Reusable Grid for Programs / Selection
 const CardGrid = ({ data, colored = false }) => (
-  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10 px-4">
+  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10 px-6 mb-12">
     {data.map((item, index) => (
       <div
         key={index}
-        className={`p-4 rounded-xl shadow-md ${
-          colored ? "bg-orange-100" : "bg-white"
-        } hover:shadow-xl transition duration-300`}
+        className={`p-6 rounded-2xl shadow-lg border transition-all duration-300 hover:shadow-2xl hover:scale-105 ${
+          colored 
+            ? "bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 hover:border-orange-300" 
+            : "bg-white border-gray-200 hover:border-orange-200"
+        }`}
       >
-        <h3 className="text-lg font-bold sm:text-xl mb-2 text-[#DD6D23]">{item.title}</h3>
-        <p className="text-sm text-[#676767] sm:text-base">{item.description}</p>
+        <h3 className="text-lg font-bold sm:text-xl mb-3 text-gray-900 hover:text-orange-600 transition-colors duration-300">{item.title}</h3>
+        <p className="text-sm text-gray-600 sm:text-base leading-relaxed">{item.description}</p>
       </div>
     ))}
   </div>
@@ -186,22 +195,22 @@ const CardGrid = ({ data, colored = false }) => (
 
 // Achievements Grid
 const AchievementGrid = ({ data, isCompact = false }) => (
-  <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-10 px-4">
+  <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-10 px-6 mb-16">
     {data.map((item, index) => (
       <div
         key={index}
-        className="flex flex-col items-center justify-center bg-orange-100 rounded-xl shadow-md p-4 mb-10 hover:shadow-xl transition duration-300"
+        className="flex flex-col items-center justify-center bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-2xl shadow-lg p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
       >
         {!isCompact && (
-          <div className="text-yellow-500 text-6xl mb-3">
-            {["💡", "📄", "🔥", "🚀"][index % 4]}
+          <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
+          {["💡", "📄", "🔥", "🚀"][index % 4]}
           </div>
         )}
         <a
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-4xl font-bold text-black hover:underline text-center"
+          className="text-3xl font-bold text-gray-900 hover:text-orange-600 text-center transition-colors duration-300 group-hover:scale-105"
         >
           {item.title}
         </a>
@@ -209,7 +218,7 @@ const AchievementGrid = ({ data, isCompact = false }) => (
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-2xl text-[#676767] mt-2 text-center hover:underline"
+          className="text-lg text-gray-600 mt-3 text-center hover:text-orange-500 transition-colors duration-300"
         >
           {item.description}
         </a>
@@ -217,4 +226,3 @@ const AchievementGrid = ({ data, isCompact = false }) => (
     ))}
   </div>
 );
-
