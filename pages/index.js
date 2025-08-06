@@ -296,12 +296,14 @@ export default function Home() {
                 Learn more about E-Cell &rarr;
               </Button>
               <Row className="reach">
+                {/* <div> */}
                 <Col>
                   <h3 className="reach-num" id="count1">
                     50000+
                   </h3>
                   <p className="reach-info">overall social reach!</p>
                 </Col>
+                {/* </div> */}
                 <Col>
                   <h3 className="reach-num" id="count2">
                     108

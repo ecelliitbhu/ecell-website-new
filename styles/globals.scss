@@ -842,6 +842,7 @@ ul {
 .body {
   max-width: 1390px;
   margin: auto;
+  overflow-x:hidden;
  
  
 }
@@ -1048,6 +1049,7 @@ ul {
 
 .who-are-we {
   margin-top: 100px;
+
 }
 
 .who-are-we .info {
@@ -1065,7 +1067,14 @@ ul {
   background-color: rgb(77, 76, 76);
 }
 .waw {
-  padding-left: 0px;
+  padding:0px;
+  // border:2px solid green;
+}
+
+@media (max-width: 768px) {
+  .waw {
+    padding: 50px 20px; /* Less padding for mobile screens */
+  }
 }
 .reach-num {
   display: flex;
@@ -1081,6 +1090,10 @@ ul {
 }
 .reach {
   margin: 70px 0px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+}
 }
 .reach-info {
   font-size: 1rem !important;
@@ -1094,6 +1107,7 @@ ul {
   .who-are-we > .info {
     grid-row: 1;
     padding-left: 0px;
+    justify-content: center;
   }
   .who-are-we > .image-section {
     grid-row: 2;
@@ -1112,16 +1126,21 @@ ul {
     // margin: auto;
   }
   .reach-info {
-    margin-left: 0px !important;
-    text-align: left !important;
+    // margin-left: 0px !important;
+    // text-align: left !important;
     font-size: 0.8rem !important;
   }
   #count1 {
     text-align: left;
+    justify-content:center;
+    margin:0px;
+    // margin-right:25px;
   }
-
+  
   #count2 {
+    justify-content:center;
     text-align: right;
+    margin:0px;
   }
 }
 
@@ -1366,6 +1385,18 @@ ul {
     color: grey;
   }
 }
+.contact-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .contact-row {
+    justify-content: center;
+  }
+}
+
 .footer-container {
   width: 80%;
   margin: 40px auto;
@@ -1397,7 +1428,7 @@ ul {
 .social {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  width: 360px;
+  width:auto;
   margin: 40px auto;
   a {
     display: flex;
@@ -1457,7 +1488,7 @@ ul {
   }
   .social {
     grid-template-columns: 1fr 1fr 1fr;
-    width: 280px;
+    width: auto;
     margin: 40px auto;
     row-gap: 30px;
   }
@@ -1766,6 +1797,10 @@ ul {
 
 .col {
   justify-content: space-around;
+  @media (max-width: 768px) {
+    padding:0px;
+  }
+  
 }
 
 .select {
