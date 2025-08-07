@@ -43,10 +43,10 @@ Specially curated programs where mentors across various industries share their e
 
     </p>
     <div className={styles.button}>
-      <a href="https://forms.gle/xQsffLTWAnuZLKuw6">
+      <a href="https://tally.so/r/wz6LJg">
         <button type="button" className="btn btn-dark btn-lg btn-block">Startup Application→</button>
       </a>
-      <a href="https://tally.so/r/nPZ2EB">
+      <a href="https://tally.so/r/wapz1q">
         <button type="button" className="btn btn-lg btn-block" style={{backgroundColor: "#e67e22", color:"white"}}>Mentor Application→</button>
       </a>
     </div>
@@ -134,4 +134,5 @@ Specially curated programs where mentors across various industries share their e
 };
 
 export default MentorshipPool;
+
 
