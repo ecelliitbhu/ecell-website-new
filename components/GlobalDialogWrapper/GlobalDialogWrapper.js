@@ -46,6 +46,7 @@ export default function GlobalDialog({children}) {
             alt="Google Logo" 
             width={35} 
             height={35} 
+            unoptimized
           
           />
               </button>

@@ -14,7 +14,7 @@ export const Collage = () => {
       <h1 style={{ margin: "20px 0px" }}>
         Successful Ventures From IIT BHU Alumni
       </h1>
-      { <Image src={startups}  alt="startups" width={1300} height={600}></Image> }
+      { <Image src={startups}  alt="startups" width={1300} height={600} unoptimized></Image> }
     </Row>
   );
 };
@@ -27,7 +27,7 @@ export const CollagePhone = () => {
       <h1 style={{ fontSize: "1.8rem", margin: "20px 0px" }}>
         Startups From IIT BHU
       </h1>
-      <Image src={startups_mobile}  alt="startups" width={1300} height={600}></Image>
+      <Image src={startups_mobile}  alt="startups" width={1300} height={600} unoptimized></Image>
     </Row>
   );
 };

@@ -43,6 +43,7 @@ function MyVerticallyCenteredModal(props) {
               alt={details.name}
               height="1000"
               width="1000"
+              unoptimized
             />
           </div>
         </div>
@@ -112,6 +113,7 @@ const Startup = (props) => {
           alt={props.details.name}
           height="1000"
           width="1000"
+          unoptimized
         />
       </div>
       <MyVerticallyCenteredModal

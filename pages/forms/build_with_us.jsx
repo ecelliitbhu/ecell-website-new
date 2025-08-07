@@ -26,6 +26,7 @@ function build_with_us() {
                 alt="build_with_us"
                 height={500}
                 width={2000}
+                unoptimized
                 layout="responsive"
               ></Image>
             </div>
