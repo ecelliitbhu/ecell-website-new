@@ -410,6 +410,7 @@ export const AlumniMeetups = () => {
           style={{ ...imgStyle }}
           {...photo}
           onClick={handleOnClick}
+          unoptimized
         />
       </div>
     );
@@ -513,6 +514,7 @@ export const FoundersSpeak = () => {
           style={{ ...imgStyle }}
           {...photo}
           onClick={handleOnClick}
+          unoptimized
         />
       </div>
     );
@@ -604,6 +606,7 @@ export const ESummit = () => {
           style={{ ...imgStyle }}
           {...photo}
           onClick={handleOnClick}
+          unoptimized
         />
       </div>
     );
@@ -684,6 +687,7 @@ export const MentorshipSessions = () => {
           style={{ ...imgStyle }}
           {...photo}
           onClick={handleOnClick}
+          unoptimized
         />
       </div>
     );
@@ -776,6 +780,7 @@ export const PitchingEvents = () => {
           style={{ ...imgStyle }}
           {...photo}
           onClick={handleOnClick}
+          unoptimized
         />
       </div>
     );
@@ -858,6 +863,7 @@ export const Incubators = () => {
           style={{ ...imgStyle }}
           {...photo}
           onClick={handleOnClick}
+          unoptimized
         />
       </div>
     );
@@ -951,6 +957,7 @@ export const ELectures = () => {
           style={{ ...imgStyle }}
           {...photo}
           onClick={handleOnClick}
+          unoptimized
         />
       </div>
     );

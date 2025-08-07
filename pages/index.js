@@ -117,6 +117,7 @@ export default function Home() {
                   height={300}
                   src={Summit}
                   alt="E-Summit"
+                  unoptimized
                   className="hero-Image"
                 />
               </div>
@@ -147,6 +148,7 @@ export default function Home() {
                 src="https://ik.imagekit.io/ecelliitbhu/website/cohort.png"
                 height={703}
                 width={1080}
+                unoptimized
                 alt="Team Expansion"
               ></Image>
             </Col>
@@ -195,6 +197,7 @@ export default function Home() {
       width={1000}
       height={400}
       src={Summit}
+      unoptimized
       alt="E-Summit"
       className="hero-Image"
       style={{ margin: 'auto' }} // Center the image within its container

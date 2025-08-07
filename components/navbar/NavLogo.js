@@ -12,6 +12,7 @@ export const NavLogo = () => {
           height="50"
           width="120"
           className="lf-logo lf-logo-dark -mt-1"
+          unoptimized
           alt="Ecell IIT BHU"
         ></Image>
       </Link>

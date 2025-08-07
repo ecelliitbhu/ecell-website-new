@@ -135,6 +135,7 @@ export default function TeamLayout({ teamData, showheading = true }) {
                                         height={1600}
                                         width={1600}
                                         className="img-responsive img-contain"
+                                        unoptimized
                                         alt={head.name}
                                     />
                                     <div className="team-content">
