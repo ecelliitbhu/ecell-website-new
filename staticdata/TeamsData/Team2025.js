@@ -26,7 +26,7 @@ export const team2025 = {
       linkedin: "https://www.linkedin.com/in/gouravrpandey",
     },
     {
-      name: "OPPLIAN INIYAN",
+      name: "OPPILAN INIYAN",
       image: "https://ik.imagekit.io/ecelliitbhu/website/ecell-team/saphead2.jpg",
       position: "STARTUP ASSISTANCE PROGRAM HEAD",
       email: "mailto:oppilan.iniyan.bme23@itbhu.ac.in",
