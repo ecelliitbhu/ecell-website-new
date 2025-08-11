@@ -19,6 +19,7 @@ const ProfilePage = () => {
         emailId: "",
         address: "",
         websiteUrl: "",
+        phoneNumber: "",
     });
 
     const [isEditing, setIsEditing] = useState(false);
@@ -57,6 +58,7 @@ const ProfilePage = () => {
                     emailId: recruiter.user.email,
                     address: recruiter.address || "",
                     websiteUrl: recruiter.websiteUrl || "",
+                    phoneNumber: recruiter.phoneNumber||"",
                 };
                 setProfileData(profileData);
                 setEditData(profileData);
@@ -75,6 +77,7 @@ const ProfilePage = () => {
                     emailId: defaultUser.email,
                     address: "",
                     websiteUrl: "",
+                    phoneNumber: "",
                 };
                 setProfileData(profileData);
                 setEditData(profileData);
@@ -107,12 +110,24 @@ const ProfilePage = () => {
             } else if (!editData.websiteUrl) {
                 toast.error("Website Url is required.");
                 return;
+            } else if (!editData.phoneNumber){
+                toast.error("Phone Number is required.");
+                return;
+            }
+            // Phone number validation (digits only)
+            if (editData.phoneNumber) {
+                const digitsOnly = editData.phoneNumber.replace(/\D/g, "");
+                if (digitsOnly.length < 10) {
+                    toast.error("Phone number must be at least 10 digits.");
+                    return;
+                }
             }
             const data = {
                 userId: recruiterId,
                 companyName: editData.companyName || "",
                 address: editData.address || "",
                 websiteUrl: editData.websiteUrl || "",
+                phoneNumber: editData.phoneNumber || "",
             };
 
             const rawUser = await getStoredUser();
@@ -157,6 +172,7 @@ const ProfilePage = () => {
                     companyName: editData.companyName || "",
                     address: editData.address || "",
                     websiteUrl: editData.websiteUrl || "",
+                    phoneNumber: editData.phoneNumber || "",
                 });
             }
             await loadProfile();
@@ -276,6 +292,9 @@ const ProfilePage = () => {
                                             <div className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg">{profileData.address}</div>
                                         )}
                                     </div>
+                                </div>
+                                <div className="mt-8">
+                                <div className="grid md:grid-cols-2 gap-6">
 
                                     {/* Website URL */}
                                     <div>
@@ -291,7 +310,12 @@ const ProfilePage = () => {
                                         ) : (
                                             <div className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg">
                                                 {profileData.websiteUrl ? (
-                                                    <a href={profileData.websiteUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+                                                    <a
+                                                        href={profileData.websiteUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-blue-600 hover:text-blue-800"
+                                                    >
                                                         {profileData.websiteUrl}
                                                     </a>
                                                 ) : (
@@ -300,7 +324,37 @@ const ProfilePage = () => {
                                             </div>
                                         )}
                                     </div>
+
+                                    {/* Phone Number */}
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                        {isEditing ? (
+                                            <input
+                                                type="tel"
+                                                value={editData.phoneNumber}
+                                                onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent"
+                                                placeholder="1234567890"
+                                            />
+                                        ) : (
+                                            <div className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg">
+                                                {profileData.phoneNumber ? (
+                                                    <a
+                                                        href={`tel:${profileData.phoneNumber}`}
+                                                        className="text-blue-600 hover:text-blue-800"
+                                                    >
+                                                        {profileData.phoneNumber}
+                                                    </a>
+                                                ) : (
+                                                    <span className="text-gray-500">Not provided</span>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
+
                                 </div>
+                                </div>
+
                             </div>
 
                             {/* Action Buttons */}
