@@ -60,6 +60,7 @@ const ProfilePage = () => {
                     websiteUrl: recruiter.websiteUrl || "",
                     phoneNumber: recruiter.phoneNumber||"",
                 };
+                // console.log(profileData);
                 setProfileData(profileData);
                 setEditData(profileData);
             } else {
@@ -154,6 +155,13 @@ const ProfilePage = () => {
                         throw new Error(error.message || "Failed to create recruiter");
                     }
                     const updatedRoles = Array.from(new Set([...(roles || []), "RECRUITER"]));
+                    const profileData = {
+                        companyName: editData.companyName || "",
+                        emailId: editData.emailId || "",  // Email from editData
+                        address: editData.address || "",
+                        websiteUrl: editData.websiteUrl || "",
+                        phoneNumber: editData.phoneNumber || "",
+                    };
 
                     if (session?.user) {
                         await update({
