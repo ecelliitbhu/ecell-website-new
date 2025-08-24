@@ -19,7 +19,22 @@ import Image from "next/image";
 // import vinamra from "../public/past_speakers/vinamra.jpeg";
 // import kaustuv from "../public/past_speakers/kaustuv.jpeg";
 
-
+const anirban        = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/anirban.jpg?tr=w-300,h-300";
+const ankurwarikoo   = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/ankurwarikoo.jpg?tr=w-300,h-300";
+const chinmayasharma = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/chinmayasharma.jpg?tr=w-300,h-300";
+const christopher    = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/christopher.jpg?tr=w-300,h-300";
+const dhruvagarwala  = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/dhruvagarwala.jpg?tr=w-300,h-300";
+const Gautamravi     = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/Gautamravi.jpg?tr=w-300,h-300";
+const girishshivani  = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/girishshivani.jpg?tr=w-300,h-300";
+const gunit          = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/gunit.jpg?tr=w-300,h-300";
+const kataria        = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/kataria.jpg?tr=w-300,h-300";
+const kshitiz        = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/kshitiz.jpg?tr=w-300,h-300";
+const Kumarbagrodia  = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/Kumarbagrodia.jpg?tr=w-300,h-300";
+const manan          = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/manan.jpg?tr=w-300,h-300";
+const manananand     = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/manananand.jpg?tr=w-300,h-300";
+const saurabh        = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/saurabh.jpg?tr=w-300,h-300";
+const Shaileshkumar  = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/Shaileshkumar.jpg?tr=w-300,h-300,cm-pad_resize";
+const vishwas        = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/vishwas.jpg";
 const teslaSpeaker  = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/tesla_speaker.jpg?tr=w-300,h-300";
 const sanjaysethi   = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/sanjaysethi.jpeg?tr=w-300,h-300";
 const amisaha       = "https://ik.imagekit.io/ecelliitbhu/website/past_speakers/amitavasaha.jpeg?tr=w-300,h-300";
@@ -83,6 +98,230 @@ const PastSpeakers = () => {
               <div className="team-content">
                 <h3 className="name">Guru Sankararaman</h3>
                 <span className="post">ex-Vice President IT @Tesla</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={anirban}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Anirban Ghosh</h3>
+                <span className="post">Ex-AVP @Sugar</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={ankurwarikoo}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Ankur Warikoo</h3>
+                <span className="post">Founder @WebVeda</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={chinmayasharma}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Chinmaya Sharma</h3>
+                <span className="post">Infoedge Ventures</span>
+              </div>
+            </div>
+                         <div className="our-team past-speaker">
+              <Image
+                src={christopher}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Christopher Turillo</h3>
+                <span className="post">Co-Founder @Medha</span>
+              </div>
+            </div> 
+                        <div className="our-team past-speaker">
+              <Image
+                src={dhruvagarwala}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Dhruv Agarwal</h3>
+                <span className="post">Co-Founder proptiger.com, CEO housing.com</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={Gautamravi}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Gautam Ravi</h3>
+                <span className="post">WEH Ventures</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={girishshivani}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Girish Shivani</h3>
+                <span className="post">Executive Director,Fund Manager at YourNest Venture Capital</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={gunit}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Gunit Dhingra</h3>
+                <span className="post">Product Manager @Google,Lead product managet at make my trip</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={kataria}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Amit Kataria</h3>
+                <span className="post">Co-Founder,COO @Saras AI</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={kshitiz}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Kshitiz Aggarwal</h3>
+                <span className="post">Asia Data,AI @Microsoft</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={Kumarbagrodia}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Kumaar Bagrodia</h3>
+                <span className="post">Founder,neuro-scientist @NeuroLeap</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={manan}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Manan Singhal</h3>
+                <span className="post">Director Strategy @Zepto</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={manananand}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Manan Anand</h3>
+                <span className="post">Investor @growX ventures</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={saurabh}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Saurabh Singh</h3>
+                <span className="post">Partner @Trifecta Capital</span>
+              </div>
+            </div>
+                        <div className="our-team past-speaker">
+              <Image
+                src={Shaileshkumar}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Shailesh Kumar</h3>
+                <span className="post">Chief Success Officer @Saras AI Institute</span>
+              </div>
+            </div>
+            <div className="our-team past-speaker">
+              <Image
+                src={vishwas}
+                width={300}
+                height={300}
+                className="img-responsive"
+                alt="team member"
+                unoptimized
+              />
+              <div className="team-content">
+                <h3 className="name">Vishwas Jain</h3>
+                <span className="post">Manager Data Scientist @MasterCard</span>
               </div>
             </div>
             <div className="our-team past-speaker">
