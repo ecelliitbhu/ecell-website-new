@@ -33,6 +33,13 @@ export const team2025 = {
       linkedin: "https://www.linkedin.com/in/oppilan-iniyan-0bb73019a",
     },
     {
+      name: "GEETHANSH RATHORE",
+      image: "https://ik.imagekit.io/ecelliitbhu/website/ecell-team/relationshead2.png?tr=w-300,h-300,cm-pad_resize",
+      position: "STRATEGIC RELATIONS HEAD",
+      email: "mailto:geethansh.rathore.phe23@itbhu.ac.in",
+      linkedin: "https://www.linkedin.com/in/geethanshr",
+    },
+    {
       name: "ANWESH MOHANTY",
       image: "https://ik.imagekit.io/ecelliitbhu/website/ecell-team/brandinghead1.jpg",
       position: "BRANDING HEAD",
@@ -95,13 +102,7 @@ export const team2025 = {
       email: "mailto:parth.purwar.ece23@itbhu.ac.in",
       linkedin: "https://www.linkedin.com/in/parth-purwar-32b315282",
     },
-    {
-      name: "GEETHANSH RATHORE",
-      image: "https://ik.imagekit.io/ecelliitbhu/website/ecell-team/relationshead2.png?tr=w-300,h-300,cm-pad_resize",
-      position: "STRATEGIC RELATIONS HEAD",
-      email: "mailto:geethansh.rathore.phe23@itbhu.ac.in",
-      linkedin: "https://www.linkedin.com/in/geethanshr",
-    },
+    
     {
       name: "AASTHIK RAO",
       image: "https://ik.imagekit.io/ecelliitbhu/website/ecell-team/relationshead3.jpg?tr=w-300,h-300,cm-pad_resize",
