@@ -73,11 +73,11 @@ export default function CampusDirector() {
                             <Button
                                 // className="get-started join-cd"
                                 className="get-started join-cd !bg-[#f56a38] hover:!bg-red-600 text-white !border !border-[#f56a38]"
-                                href="/campus-ambassador-form"
+                                // href="/campus-ambassador-form"
                                 // onClick={() => toast.error("Applications closed for now")}
                                 onClick={() => handleGoogleLogin()}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                // target="_blank"
+                                // rel="noopener noreferrer"
                             >
                                 Already an Ambassador? Login..
                             </Button>
