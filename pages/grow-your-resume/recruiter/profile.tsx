@@ -163,6 +163,8 @@ const ProfilePage = () => {
                         phoneNumber: editData.phoneNumber || "",
                     };
 
+                    setProfileData(profileData);
+
                     if (session?.user) {
                         await update({
                             user: {
