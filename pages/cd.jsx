@@ -62,25 +62,25 @@ export default function CampusDirector() {
                             <p>Become the Student Lead of enhancing and expanding the entrepreneurial opportunities in your college!</p>
 
                             <Button
-                                className="get-started join-cd"
-                                href="/campus-ambassador-form"
-                                // onClick={() => toast.error("Applications closed for now")}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Register Now!
-                            </Button>
-                            <Button
-                                // className="get-started join-cd"
-                                className="get-started join-cd !bg-[#f56a38] hover:!bg-red-600 text-white !border !border-[#f56a38]"
-                                // href="/campus-ambassador-form"
-                                // onClick={() => toast.error("Applications closed for now")}
-                                onClick={() => handleGoogleLogin()}
-                                // target="_blank"
-                                // rel="noopener noreferrer"
-                            >
-                                Already an Ambassador? Login..
-                            </Button>
+                            className="get-started join-cd"
+                            href="/campus-ambassador-form"
+                            // onClick={() => toast.error("Applications closed for now")}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Register Now!
+                        </Button>
+                        <Button
+                            // className="get-started join-cd"
+                            className="get-started join-cd !bg-[#f56a38] hover:!bg-red-600 text-white !border !border-[#f56a38] mt-2 md:mt-0 md:ms-3"
+                            // href="/campus-ambassador-form"
+                            // onClick={() => toast.error("Applications closed for now")}
+                            onClick={() => handleGoogleLogin()}
+                            // target="_blank"
+                            // rel="noopener noreferrer"
+                        >
+                            Already an Ambassador? Login..
+                        </Button>
                         </Col>
                         <Col className="image-section">
                             <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_djmhnml5.json" speed="1" loop autoplay></lottie-player>
