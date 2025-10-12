@@ -44,77 +44,117 @@ export default function Profile({className}) {
     };
 
     return (
-        <div className={cn("shadow-lg rounded-lg p-6",className)}>
-            <h2 className="text-2xl font-bold mb-4">User Profile</h2>
-            {editing ? (
-                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-                    <input
-                        type="text"
-                        className="border p-2 rounded"
-                        placeholder="Name"
-                        {...register("name")}
-                    />
-                    <input
-                        type="text"
-                        className="border p-2 rounded"
-                        placeholder="College Name"
-                        {...register("collegeName")}
-                    />
-                    <input
-                        type="text"
-                        className="border p-2 rounded"
-                        placeholder="College Year"
-                        {...register("collegeYear")}
-                    />
-                    <input
-                        type="tel"
-                        className="border p-2 rounded"
-                        placeholder="Phone Number"
-                        {...register("phone")}
-                    />
+        <div className={cn("bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300",className)}>
+            <div className="flex items-center justify-between mb-5 pb-4 border-b-2 border-orange-200 pt-3">
+               
+                 <h2 className="text-3xl font-bold text-gray-800">
+                            User Profile
+                 </h2>
+                {!editing && (
                     <button
-                        type="submit"
-                        className="btn btn-primary"
-                    >
-                        Save
-                    </button>
-                    <button
-                    onClick={()=>setEditing(false)}
-                        type="submit"
-                        className="btn btn-danger"
-                    >
-                        Cancel
-                    </button>
-                </form>
-            ) : (
-                <div className='flex flex-col gap-4'>
-                <div className="flex items-center justify-between">
-                    <h3 className="text-xl">Name: {user.name}</h3>
-                    <button
-                        className="btn btn-outline-primary"
+                        className="px-4 py-2 text-sm font-medium text-[#FF8C42] border-2 border-[#FF8C42] rounded-lg hover:bg-[#FF8C42] hover:text-white transition-all duration-200"
                         onClick={() => setEditing(true)}
                     >
                         Edit Profile
                     </button>
-                </div>
-            <p className="text-xl">Points: {user.points}</p>
-            <p className="text-xl">College: {user.collegeName}</p>
-            <p className="text-xl">Graduating Year: {user.collegeYear}</p>
-            <p className="text-xl">Phone Number: {user.phone}</p>
-            
-            <div className="mt-4">
-                <p className="text-lg font-bold mb-2 text-gray-900 tracking-wide">
-                    Refer a friend to register for E-summit'25 Events!!
-                </p>
-                <button 
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 
-                               text-white font-semibold py-2.5 px-6 rounded-lg shadow-md 
-                               transition duration-200 ease-in-out transform hover:-translate-y-0.5"
-                    onClick={handleReferralClick}
-                >
-                    Refer a Friend
-                </button>
+                )}
             </div>
+            {editing ? (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Name</label>
+                        <input
+                            type="text"
+                            className="w-full border border-gray-300 px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-[#FF8C42] focus:border-transparent outline-none transition-all"
+                            placeholder="Enter your name"
+                            {...register("name")}
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">College Name</label>
+                        <input
+                            type="text"
+                            className="w-full border border-gray-300 px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-[#FF8C42] focus:border-transparent outline-none transition-all"
+                            placeholder="Enter your college name"
+                            {...register("collegeName")}
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">College Year</label>
+                        <input
+                            type="text"
+                            className="w-full border border-gray-300 px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-[#FF8C42] focus:border-transparent outline-none transition-all"
+                            placeholder="Enter your year"
+                            {...register("collegeYear")}
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label>
+                        <input
+                            type="tel"
+                            className="w-full border border-gray-300 px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-[#FF8C42] focus:border-transparent outline-none transition-all"
+                            placeholder="Enter your phone number"
+                            {...register("phone")}
+                        />
+                    </div>
+                    <div className="flex gap-3 pt-2">
+                        <button
+                            type="submit"
+                            className="flex-1 bg-[#FF8C42] hover:bg-[#FF7A2E] text-white font-semibold py-2.5 px-6 rounded-lg shadow-sm transition-all duration-200"
+                        >
+                            Save Changes
+                        </button>
+                        <button
+                            onClick={()=>setEditing(false)}
+                            type="button"
+                            className="flex-1 bg-white border-2 border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold py-2.5 px-6 rounded-lg transition-all duration-200"
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            ) : (
+                <div className='space-y-3'>
+                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                        <span className="text-sm font-medium text-gray-600">Name</span>
+                        <span className="text-base font-semibold text-gray-900">{user.name}</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                        <span className="text-sm font-medium text-gray-600">Points</span>
+                        <span className="text-base font-semibold text-gray-900">{user.points}</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                        <span className="text-sm font-medium text-gray-600">College</span>
+                        <span className="text-base font-semibold text-gray-900">{user.collegeName}</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                        <span className="text-sm font-medium text-gray-600">Graduating Year</span>
+                        <span className="text-base font-semibold text-gray-900">{user.collegeYear}</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                        <span className="text-sm font-medium text-gray-600">Phone Number</span>
+                        <span className="text-base font-semibold text-gray-900">{user.phone}</span>
+                    </div>
+            
+                    <div className="pt-3 mt-1">
+                        <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg p-3 border border-[#FF8C42]/20">
+                            <p className="text-xs font-semibold mb-2 text-gray-900">
+                                Refer a friend to register for E-summit'25 Events!!
+                            </p>
+                            <button 
+                                className="w-full bg-gradient-to-r from-[#FF8C42] to-[#FF7A2E] hover:from-[#FF7A2E] hover:to-[#FF6B1B] 
+                                           text-white font-semibold py-2 px-4 rounded-lg shadow-sm hover:shadow-md
+                                           transition-all duration-200 text-sm"
+                                onClick={handleReferralClick}
+                            >
+                                Refer a Friend
+                            </button>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

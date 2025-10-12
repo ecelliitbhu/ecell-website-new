@@ -91,26 +91,35 @@ export default function CampusAmbassador() {
                     {(taskLoading||userLoading||leaderboardLoading) ?
                         <Loader rotate="rotate" className="block mt-12 animate-spin mx-auto w-16 h-16" />
                         : (
+                        
                         <div className="grid grid-cols-12 gap-6">
-                            <div className="col-span-12 w-fit mx-auto py-2 px-4 rounded-sm border border-green md:flex justify-center items-center gap-4">
-                                {leaderboard && <p className="md:text-xl max-md:text-lg pt-3">
-                                    <span className="text-orange-400">{leaderboard[0]?.name}</span> from {leaderboard[0]?.collegeName} is
-                                    leading the points table with <span className="text-green-600">{leaderboard[0]?.points}</span>{" "}
-                                    points!
-                                </p>}
-                                <div className="flex justify-end"><button
-                                    onClick={scrollToLeaderboard}
-                                     className="btn btn-outline-primary px-4 py-2  "
-                                >
-                                    View
-                                </button></div>
-                            </div>
-                             <Profile className={"md:col-span-4 max-md:col-span-12"} />
-                            <TaskList className={"md:col-span-8 max-md:col-span-12 h-[434px] overflow-y-auto"} />
-                           
-                            <Leaderboard ref={leaderboardRef} className="col-span-12" /> 
-                        </div>
-                    )}
+                        <div className="col-span-12 w-fit mx-auto py-2 px-4 rounded-sm border border-green md:flex justify-center items-center gap-4">
+                            {leaderboard && (
+                                <p className="md:text-xl max-md:text-lg pt-3">
+                               <span className="text-orange-400">{leaderboard[0]?.name}</span> from{" "}
+                              {leaderboard[0]?.collegeName} is leading the points table with{" "}
+                                <span className="text-green-600">{leaderboard[0]?.points}</span> points!
+                                </p>
+                             )}
+                        <div className="flex justify-end">
+                             <button onClick={scrollToLeaderboard} className="btn btn-outline-primary px-4 py-2">
+                             View
+                             </button>
+                         </div>
+                         </div>
+
+                          <div className="col-span-12 flex flex-col md:flex-row gap-6 items-stretch">
+                          <div className="md:w-1/3 w-full">
+                              <Profile className="h-full" />
+                          </div>
+                          <div className="md:w-2/3 w-full">
+                              <TaskList className="h-full overflow-y-auto" />
+                          </div>
+                          </div>
+
+                            <Leaderboard ref={leaderboardRef} className="col-span-12" />
+                           </div>    
+                          )}
                 </div>
             </div>
         </>
