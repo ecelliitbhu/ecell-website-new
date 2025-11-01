@@ -11,7 +11,7 @@ export default function ControlTasks() {
     const fetchTasks = async () => {
         setLoading(true); // Show loader while fetching tasks
         try {
-            const response = await fetch(`${BACKEND_URL}/ambassador/getTasks`);
+            const response = await fetch(`${BACKEND_URL}/ambassador/getAllTasks`);
             const data = await response.json();
             if (response.ok) {
                 setTasks(data);
@@ -31,7 +31,7 @@ export default function ControlTasks() {
 
     const handleDeleteTask = async (taskId) => {
         if (window.confirm("Are you sure you want to delete this task?")) {
-            const response = await fetch(`${BACKEND_URL}/ambassador/getTasks/${taskId}`, {
+            const response = await fetch(`${BACKEND_URL}/ambassador/tasks/${taskId}`, {
               method: "DELETE",
             });
 
