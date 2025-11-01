@@ -28,8 +28,9 @@ function Admin() {
     const fetchUserData = async () => {
       setLoading(true);
       try {
-        const response = await axios.post(`${BASE_URL}/admin/tasks`);
+        const response = await axios.get(`${BASE_URL}/ambassador/admin/tasks`);
         setUserData(response.data);
+
       } catch (error) {
         console.error('Error fetching user data:', error);
       } finally {
@@ -41,20 +42,20 @@ function Admin() {
   }, []);
 
   // Handle point assignment
-  const handleAssignPoints = async (userId, taskId) => {
-    if (!points[userId+taskId]) return alert('Please enter points before assigning.');
-
+  const handleAssignPoints = async (userId, taskId, points, action) => {
     setAssigning(true);
     try {
-      await axios.post(`${BASE_URL}/admin/tasks`, {
+      await axios.post(`${BASE_URL}/ambassador/admin/tasks`, {
         userId,
         taskId,
-        points: parseInt(points[userId+taskId]),
+        points,
+        action,
       });
+      
       alert('Points successfully assigned!');
       // Refresh data after assignment
-      const response = await axios.post(`${BASE_URL}/admin/tasks`);
-      setUserData(response.data);
+      const response = await axios.get(`${BASE_URL}/ambassador/admin/tasks`);
+        setUserData(response.data);
     } catch (error) {
       console.error('Error assigning points:', error);
       alert('Failed to assign points.');
@@ -78,56 +79,68 @@ function Admin() {
             <TableHead>
               <TableRow>
                 <TableCell>User Name</TableCell>
-                <TableCell>College Name</TableCell>
+                <TableCell>User Email</TableCell>
                 <TableCell>Total Points</TableCell>
-                <TableCell>Tasks</TableCell>
+                <TableCell>Link</TableCell>
+                <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {userData.map((user) => (
-                <TableRow key={user.userId}>
-                  <TableCell>{user.userName}</TableCell>
-                  <TableCell>{user.collegeName}</TableCell>
-                  <TableCell>{user.totalPoints}</TableCell>
+                user.ambassador && <TableRow key={user.userId}>
+                  <TableCell>{user.ambassador.name}</TableCell>
+                  <TableCell>{user.ambassador.email}</TableCell>
+                  <TableCell>{user.ambassador.points}</TableCell>
                   <TableCell>
-                    {user.tasks.map((task) => (
-                      <Box key={task.taskId} mb={2}>
+                    <Typography variant="body2">
+                      <b>Submission:</b> {user.submission?<a href={user.submission} target="_blank" >Open submission</a> : 'Not submitted'}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                      {user.status === "pending" && <Box mb={2}>
                         <Typography variant="subtitle1">
-                          <b>Title:</b> {task.taskTitle}
+                          <b>Title:</b> {user.task.taskTitle}
                         </Typography>
                         <Typography variant="body2">
-                          <b>Submission:</b> {task.submission?<a href={task.submission} target="_blank" >Open submission</a> : 'Not submitted'}
-                        </Typography>
-                        <Typography variant="body2">
-                          <b>Points:</b> {task.taskPoints || 0}
+                          <b>Points:</b> {user.task.points || 0}
                         </Typography>
                         <Box display="flex" gap={2} mt={1}>
-                          <TextField
-                            label="Points"
-                            variant="outlined"
-                            size="small"
-                            value={points[task.taskId+user.userId] || ''}
-                            onChange={(e) =>
-                              setPoints({
-                                ...points,
-                                [task.taskId+user?.userId]: e.target.value,
-                              })
-                            }
-                          />
                           <Button
                             variant="contained"
                             color="primary"
                             size="small"
-                            disabled={assigning||!(task.submission)}
-                            onClick={() =>
-                              handleAssignPoints(user.userId, task.taskId)
+                            // disabled={assigning||!(user.submission)}
+                            onClick={async () =>
+                              await handleAssignPoints(user.ambassador.id, user.task.id, parseInt(user.task.points), "approve")
                             }
                           >
-                            Assign
+                            Approve
+                          </Button>
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            size="small"
+                            // disabled={assigning||!(user.submission)}
+                            onClick={async () =>
+                              await handleAssignPoints(user.ambassador.id, user.task.id, parseInt(user.task.points), "reject")
+                            }
+                          >
+                            Reject
                           </Button>
                         </Box>
-                      </Box>
-                    ))}
+                      </Box>}
+                      {
+                        user.status === "approved" && <Typography variant="body2">
+                          <b>Approve:</b> {user.task.points || 0}
+                        </Typography>
+                      }
+
+                       {
+                        user.status === "rejected" && <Typography variant="body2">
+                          <b>Reject:</b> {0}
+                        </Typography>
+                      }
+                     
                   </TableCell>
                 </TableRow>
               ))}

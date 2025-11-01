@@ -7,7 +7,7 @@ import { useRouter } from "next/router"; // For redirecting if not admin
 import toast from "react-hot-toast";
 
 function CAAdmin() {
-  const [value, setValue] = useState(0); // State to manage which tab is active
+  const [value, setValue] = useState(1); // State to manage which tab is active
   const [isAdmin, setIsAdmin] = useState(false); // Admin check status
   const [loading, setLoading] = useState(true); // Loading state for checking admin
   const [email, setEmail] = useState(""); // Email state
@@ -58,29 +58,29 @@ function CAAdmin() {
   };
 
   if (loading) return( <Dialog open={openModal} onClose={() => setOpenModal(false)}>
-  <DialogTitle>Enter Your Email</DialogTitle>
-  <DialogContent>
-    <TextField
-      autoFocus
-      margin="dense"
-      label="Email Address"
-      type="email"
-      fullWidth
-      variant="outlined"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-    />
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={() => setOpenModal(false)} color="primary">
-      Cancel
-    </Button>
-    <Button onClick={handleEmailSubmit} color="primary">
-      Submit
-    </Button>
-  </DialogActions>
-</Dialog>
-)// Show loading until check is complete
+    <DialogTitle>Enter Your Email</DialogTitle>
+    <DialogContent>
+      <TextField
+        autoFocus
+        margin="dense"
+        label="Email Address"
+        type="email"
+        fullWidth
+        variant="outlined"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={() => setOpenModal(false)} color="primary">
+        Cancel
+      </Button>
+      <Button onClick={handleEmailSubmit} color="primary">
+        Submit
+      </Button>
+    </DialogActions>
+  </Dialog>
+  )// Show loading until check is complete
 
   return (
     <Box sx={{ width: "100%" }}>
