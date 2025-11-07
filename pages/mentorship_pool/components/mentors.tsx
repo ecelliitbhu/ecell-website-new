@@ -36,7 +36,7 @@ const bhashwanth     = "https://ik.imagekit.io/tc4boofhd/ecell/bhashwanth_sxverP
 const anjali = "https://ik.imagekit.io/tc4boofhd/ecell/18.jpg_id=zrZ4j1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpyWjRqMSIsImZvcm1JZCI6IndhcHoxcSIsImlhdCI6MTc1NzI3MDQ5MH0.Z8qCLtMfA2euEMSRsaS6pwPhNc0yJEJcDnZP-dC0JgE&signature=3d10e4e629b56826ee766b165eac3e5f3d0d9bccfb9beabfb9f9fbc94429c6d6?updatedAt=1757698338165";
 const satyam_srivastav = "https://ik.imagekit.io/tc4boofhd/ecell/satyamsriv.png?updatedAt=1761570282360";
 const govindsharma = "https://ik.imagekit.io/tc4boofhd/ecell/govindsharma.png?updatedAt=1761571054702";
-const pavithra = "https://ik.imagekit.io/tc4boofhd/ecell/prathvi.png?updatedAt=1761571427738";
+//const pavithra = "https://ik.imagekit.io/tc4boofhd/ecell/prathvi.png?updatedAt=1761571427738";
 const shashwatghosh = "https://ik.imagekit.io/tc4boofhd/ecell/shashwat_ghosh.png?updatedAt=1761571576549";
 
 
@@ -148,13 +148,13 @@ const verticalHeads = [
     image: govindsharma,
     linkedin: "https://www.linkedin.com/in/govind-sharma-5385a816",
   },
-  {
-    name: "PAVITHRA ADDANKI",
-    position: "Founder @ MXC Ignite",
-    institute:"",
-    image: pavithra,
-    linkedin: "https://www.linkedin.com/in/pavithra-addanki/",
-  },
+  // {
+  //   name: "PAVITHRA ADDANKI",
+  //   position: "Founder @ MXC Ignite",
+  //   institute:"",
+  //   image: pavithra,
+  //   linkedin: "https://www.linkedin.com/in/pavithra-addanki/",
+  // },
   {
     name: "Shashwat Ghosh",
     position: "Enterpreneur @ Helix Consulting",
