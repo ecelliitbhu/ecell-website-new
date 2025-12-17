@@ -123,7 +123,7 @@ const StartupDirectory = () => {
       <Container fluid className="body">
         <Row
           className="header"
-          style={{ height: "fit-content", marginBottom: "50px" }}
+          // style={{ height: "fit-content", marginBottom: "10px" }}
         >
           <h1
             style={{
