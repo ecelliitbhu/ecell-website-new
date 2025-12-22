@@ -71,7 +71,7 @@ export default function CampusAmbassadorProgram() {
         body: JSON.stringify({
           name: data.fullname,
           collegeName: data.collegename,
-          collegeYear: data.year,
+          collegeYear: data.year === "other" ? data.otherYear : data.year, // Updated this line
           program: data.degreename,
           phone: data.mobileNumber,
           email: data.email,
@@ -211,10 +211,15 @@ export default function CampusAmbassadorProgram() {
                           type="text"
                           placeholder="Your answer"
                           {...register("otherYear", {
-                            required: selectedSkills.length == 0,
+                            required: selectedYear === "other",
                           })}
                           className="mb-2"
                         />
+                         {errors.otherYear && (
+                           <span style={{ color: "red" }}>
+                             Please provide your year
+                           </span>
+                         )}
                       </>
                     )}
                   </Form.Group>
@@ -244,12 +249,15 @@ export default function CampusAmbassadorProgram() {
                   <Form.Control
                     type="number"
                     placeholder="9999888877"
-                    {...register("mobileNumber", { required: true })}
+                    {...register("mobileNumber", {
+                      required: true,
+                      pattern: /^[0-9]{10}$/
+                    })}
                     className="mb-2"
                   />
                   {errors.mobileNumber && (
                     <span style={{ color: "red" }}>
-                      Please provide your mobile number
+                      Please provide a valid 10-digit mobile number
                     </span>
                   )}
                 </Form.Group>
@@ -384,7 +392,7 @@ export default function CampusAmbassadorProgram() {
                           controlId="otherSkills"
                           as="textarea"
                           {...register("otherSkills", {
-                            required: selectedSkills.length == 0,
+                            required: otherSelected,
                           })}
                           className="mb-2"
                         />
@@ -444,7 +452,7 @@ export default function CampusAmbassadorProgram() {
                       aria-label="Default select example"
                       {...register("commitment", { required: true })}
                     >
-                      <option>Open this select menu </option>
+                      <option value="">Open this select menu </option>
                       <option value="5">1-5</option>
                       <option value="10">5-10</option>
                       <option value="15">10-15</option>
