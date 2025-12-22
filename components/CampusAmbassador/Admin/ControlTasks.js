@@ -1,17 +1,16 @@
 import { Box, Button, Modal, TextField, CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-
 export default function ControlTasks() {
     const [tasks, setTasks] = useState([]);
     const [loading, setLoading] = useState(true); // State to manage loader
     const [editingTask, setEditingTask] = useState(null);
     const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-
     const fetchTasks = async () => {
         setLoading(true); // Show loader while fetching tasks
         try {
-            const response = await fetch(`${BACKEND_URL}/ambassador/getTasks`);
+            // const response = await fetch(`${BACKEND_URL}/ambassador/getAllTasks`);
+            const response = await fetch(`${BACKEND_URL}/ambassador/admin/tasks`);
             const data = await response.json();
             if (response.ok) {
                 setTasks(data);
@@ -24,14 +23,12 @@ export default function ControlTasks() {
             setLoading(false); // Hide loader after fetching
         }
     };
-
     const handleEditTask = (task) => {
         setEditingTask(task);
     };
-
     const handleDeleteTask = async (taskId) => {
         if (window.confirm("Are you sure you want to delete this task?")) {
-            const response = await fetch(`${BACKEND_URL}/ambassador/getTasks/${taskId}`, {
+            const response = await fetch(`${BACKEND_URL}/ambassador/tasks/${taskId}`, {
               method: "DELETE",
             });
 
@@ -43,7 +40,6 @@ export default function ControlTasks() {
             }
         }
     };
-
     const handleSaveEdit = async () => {
         const response = await fetch(
           `${BACKEND_URL}/ambassador/tasks/${editingTask.id}`,
@@ -59,7 +55,6 @@ export default function ControlTasks() {
             }),
           }
         );
-
         if (response.ok) {
             toast.success("Task updated successfully!");
             fetchTasks();
@@ -68,11 +63,9 @@ export default function ControlTasks() {
             toast.error("Error updating task");
         }
     };
-
     useEffect(() => {
         fetchTasks();
     }, []);
-
     return (
         <Box sx={{ p: 2 }}>
             <h3>All Tasks</h3>

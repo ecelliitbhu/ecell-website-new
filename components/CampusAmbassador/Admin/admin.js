@@ -1,142 +1,152 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Box,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  TextField,
   Button,
   CircularProgress,
-} from '@mui/material';
-import axios from 'axios';
-
-const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-
-function Admin() {
-  const [userData, setUserData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [assigning, setAssigning] = useState(false);
-  const [points, setPoints] = useState({});
-  
-  // Fetch user data
-  useEffect(() => {
-    const fetchUserData = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.post(`${BASE_URL}/admin/tasks`);
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserData();
-  }, []);
-
-  // Handle point assignment
-  const handleAssignPoints = async (userId, taskId) => {
-    if (!points[userId+taskId]) return alert('Please enter points before assigning.');
-
-    setAssigning(true);
+  Chip,
+  Stack,
+  Typography,
+  Paper,
+} from "@mui/material";
+import toast from "react-hot-toast";
+export default function Type1Submissions() {
+  const [submissions, setSubmissions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const fetchSubmissions = async () => {
+    setLoading(true);
     try {
-      await axios.post(`${BASE_URL}/admin/tasks`, {
-        userId,
-        taskId,
-        points: parseInt(points[userId+taskId]),
-      });
-      alert('Points successfully assigned!');
-      // Refresh data after assignment
-      const response = await axios.post(`${BASE_URL}/admin/tasks`);
-      setUserData(response.data);
-    } catch (error) {
-      console.error('Error assigning points:', error);
-      alert('Failed to assign points.');
+      const res = await fetch(
+        `${BACKEND_URL}/ambassador/type1-submissions`
+      );
+      const data = await res.json();
+      if (res.ok) setSubmissions(data);
+      else toast.error("Failed to fetch submissions");
+    } catch {
+      toast.error("Server error");
     } finally {
-      setAssigning(false);
+      setLoading(false);
+    }
+  };
+  const updateStatus = async (id, status) => {
+    try {
+      const res = await fetch(
+        `${BACKEND_URL}/ambassador/type1-submissions/${id}/status`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status }),
+        }
+      );
+      if (!res.ok) throw new Error();
+      setSubmissions((prev) => {
+        const updated = prev.map((s) =>
+          s.id === id ? { ...s, status } : s
+        );
+        // pending top pe rahege baki sab niche ( accpet ya reject )
+        return [
+          ...updated.filter((s) => s.status === "pending"),
+          ...updated.filter((s) => s.status !== "pending"),
+        ];
+      });
+
+      toast.success(`Submission ${status}`);
+    } catch {
+      toast.error("Failed to update status");
     }
   };
 
-  return (
-    <Box flexDirection={"column"} alignContent={"center"} p={4}>
-      <Typography variant="h4" gutterBottom>
-        Admin Panel
-      </Typography>
-      {loading ? (
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
+  useEffect(() => {
+    fetchSubmissions();
+  }, []);
+
+  const getBgColor = (status) => {
+    if (status === "accepted") return "#e8f5e9";
+    if (status === "rejected") return "#fdecea";
+    return "#f9f9f9";
+  };
+
+  if (loading) {
+    return (
+      <Box sx={{ height: "60vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
         <CircularProgress />
-    </Box>
-      ) : (
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>User Name</TableCell>
-                <TableCell>College Name</TableCell>
-                <TableCell>Total Points</TableCell>
-                <TableCell>Tasks</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {userData.map((user) => (
-                <TableRow key={user.userId}>
-                  <TableCell>{user.userName}</TableCell>
-                  <TableCell>{user.collegeName}</TableCell>
-                  <TableCell>{user.totalPoints}</TableCell>
-                  <TableCell>
-                    {user.tasks.map((task) => (
-                      <Box key={task.taskId} mb={2}>
-                        <Typography variant="subtitle1">
-                          <b>Title:</b> {task.taskTitle}
-                        </Typography>
-                        <Typography variant="body2">
-                          <b>Submission:</b> {task.submission?<a href={task.submission} target="_blank" >Open submission</a> : 'Not submitted'}
-                        </Typography>
-                        <Typography variant="body2">
-                          <b>Points:</b> {task.taskPoints || 0}
-                        </Typography>
-                        <Box display="flex" gap={2} mt={1}>
-                          <TextField
-                            label="Points"
-                            variant="outlined"
-                            size="small"
-                            value={points[task.taskId+user.userId] || ''}
-                            onChange={(e) =>
-                              setPoints({
-                                ...points,
-                                [task.taskId+user?.userId]: e.target.value,
-                              })
-                            }
-                          />
-                          <Button
-                            variant="contained"
-                            color="primary"
-                            size="small"
-                            disabled={assigning||!(task.submission)}
-                            onClick={() =>
-                              handleAssignPoints(user.userId, task.taskId)
-                            }
-                          >
-                            Assign
-                          </Button>
-                        </Box>
-                      </Box>
-                    ))}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      )}
+      </Box>
+    );
+  }
+
+  return (
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h5" mb={3}>
+        Task Submissions (Drive Link)
+      </Typography>
+
+      {submissions.map((s) => (
+        <Paper
+          key={s.id}
+          sx={{
+            p: 3,
+            mb: 2,
+            borderRadius: 2,
+            backgroundColor: getBgColor(s.status),
+          }}
+          elevation={3}
+        >
+          <Stack spacing={1}>
+            <Typography fontWeight={600}>
+              {s.taskTitle}
+            </Typography>
+
+            <Typography variant="body2">
+              Student: <strong>{s.studentName || "N/A"}</strong>
+            </Typography>
+
+            <Typography variant="body2">
+              Submitted Link:{" "}
+              <a
+                href={s.driveLink}
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: "#1976d2" }}
+              >
+                Open Drive Link
+              </a>
+            </Typography>
+
+            <Chip
+              label={s.status.toUpperCase()}
+              color={
+                s.status === "accepted"
+                  ? "success"
+                  : s.status === "rejected"
+                  ? "error"
+                  : "warning"
+              }
+              sx={{ width: "fit-content" }}
+            />
+
+            <Stack direction="row" spacing={2} mt={1}>
+              <Button
+                variant="contained"
+                color="success"
+                disabled={s.status === "accepted"}
+                onClick={() => updateStatus(s.id, "accepted")}
+              >
+                Accept
+              </Button>
+
+              <Button
+                variant="contained"
+                color="error"
+                disabled={s.status === "rejected"}
+                onClick={() => updateStatus(s.id, "rejected")}
+              >
+                Reject
+              </Button>
+              
+            </Stack>
+          </Stack>
+        </Paper>
+      ))}
     </Box>
   );
 }
-
-export default Admin;
