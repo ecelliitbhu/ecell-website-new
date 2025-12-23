@@ -17,21 +17,21 @@ const incubators = [
     description: "Umbrella organization at IIT BHU for nurturing start-ups with comprehensive support and mentorship programs.",
     logo: <Lightbulb className="w-10 h-10 text-yellow-500" />,
     category: "Innovation Hub",
-    website: "/i3",
+    website: "https://i3f-iitbhu.org/",
     color: "from-yellow-100 to-orange-100",
     features: ["Startup Mentorship", "Funding Support", "Networking Events"]
   },
-  {
-    id: 2,
-    title: "NCL-IIT BHU Incubation Centre",
-    shortTitle: "NCL-IIT BHU",
-    description: "A Northern Coalfields Limited (NCL) CSR initiative funded incubator focusing on sustainable and impactful innovations.",
-    logo: <Zap className="w-10 h-10 text-blue-500" />,
-    category: "CSR Initiative",
-    website: "/ncl",
-    color: "from-blue-100 to-indigo-100",
-    features: ["CSR Funding", "Sustainable Tech", "Industry Partnership"]
-  },
+  // {
+  //   id: 2,
+  //   title: "NCL-IIT BHU Incubation Centre",
+  //   shortTitle: "NCL-IIT BHU",
+  //   description: "A Northern Coalfields Limited (NCL) CSR initiative funded incubator focusing on sustainable and impactful innovations.",
+  //   logo: <Zap className="w-10 h-10 text-blue-500" />,
+  //   category: "CSR Initiative",
+  //   website: "/ncl",
+  //   color: "from-blue-100 to-indigo-100",
+  //   features: ["CSR Funding", "Sustainable Tech", "Industry Partnership"]
+  // },
   {
     id: 3,
     title: "R-ABI, IIT BHU",
@@ -39,7 +39,7 @@ const incubators = [
     description: "An Agribusiness and Agri-preneurship focused incubator at IIT BHU promoting agricultural innovation and rural development.",
     logo: <Sprout className="w-10 h-10 text-green-500" />,
     category: "Agribusiness",
-    website: "/rabi",
+    website: "http://rkvy-raftaariitbhu.org/",
     color: "from-green-100 to-emerald-100",
     features: ["Agricultural Innovation", "Rural Development", "Agri-preneurship"]
   },
@@ -50,7 +50,7 @@ const incubators = [
     description: "An internal makerspace 'Internet of Things' - focused incubator fostering IoT innovation and connected device development.",
     logo: <Cpu className="w-10 h-10 text-purple-500" />,
     category: "IoT Focus",
-    website: "/ciscotq",
+    website: "https://thingqbator.nasscomfoundation.org/",
     color: "from-purple-100 to-pink-100",
     features: ["IoT Development", "Connected Devices", "Hardware Support"]
   },
@@ -61,7 +61,7 @@ const incubators = [
     description: "Technology Innovation Hub for 'Data Analytics and Predictive Technologies' driving data-driven innovation solutions.",
     logo: <BarChart3 className="w-10 h-10 text-red-500" />,
     category: "Data Analytics",
-    website: "/idaptHub",
+    website: "https://idapthub.org/",
     color: "from-red-100 to-rose-100",
     features: ["Data Analytics", "Predictive Tech", "AI/ML Support"]
   },

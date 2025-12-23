@@ -12,15 +12,20 @@ const part1_img =
 const part2_img =
 "https://ik.imagekit.io/ecelliitbhu/website/startup_help_book/part2.jpg?tr=w-370,h-524";
 
+const part3_img = 
+"/startuphelpbook3.jpeg"
+
 
 const flexContainerStyle = {
   display: "flex",
-  flexWrap: "nowrap",
   justifyContent: "center",
   width: "100%",
-  overflow: "auto",
+  overflowX: "auto",
   flexDirection: "row",
+  gap: "3rem",          
+  padding: "0 1rem",    
 };
+
 
 export default function StartupBundle() {
   const [iconColorLeft, setIconColorLeft] = useState("#1976d2");
@@ -58,7 +63,7 @@ export default function StartupBundle() {
       </h2>
 
       <div style={flexContainerStyle} className="FlexContainer">
-        <div style={{ marginRight: "7%", border: "3px solid #EBEBE3" }}>
+        <div style={{ border: "3px solid #EBEBE3" }}>
           <Card sx={{ maxWidth: 370 }}>
             <a
               href="https://drive.google.com/file/d/1v2y7U62XWt_JeFjRBwHKQeMR28C2ZBqM/view"
@@ -104,7 +109,7 @@ export default function StartupBundle() {
           </Card>
         </div>
 
-        <div style={{ marginLeft: "7%", border: "3px solid #EBEBE3" }}>
+        <div style={{ border: "3px solid #EBEBE3" }}>
           <Card sx={{ maxWidth: 370 }}>
             <a
               href="https://drive.google.com/file/d/12VZa4pBivtHm8ifY-tLeA7UIcnGvn1I2/view"
@@ -149,7 +154,56 @@ export default function StartupBundle() {
             </div>
           </Card>
         </div>
+
+        <div style={{ border: "3px solid #EBEBE3" }}>
+          <Card sx={{ maxWidth: 370 }}>
+            <a
+              href="/coming_soon"
+              target="_blank"
+              rel="noopener noreferrer" >
+              <Image src={part3_img} alt="Startup HelpBook Part 2" width={coverWidth}
+                height={coverHeight}
+                priority
+                sizes="(max-width: 600px) 80vw, 370px" unoptimized></Image>
+            </a>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                padding: "0.7rem 1rem",
+              }}
+            >
+              <div style={{ flex: "80%", fontSize: "22px" }}>
+                Startup HelpBook Part-3
+              </div>
+              <div
+                style={{
+                  flex: "20%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <a
+                  href="/coming_soon"
+                  target="_blank"
+                  rel="noopener noreferrer" >
+                  <div>
+                    <DownloadForOfflineIcon
+                      onMouseEnter={handleIconHoverRight}
+                      onMouseLeave={handleIconLeaveRight}
+                      fontSize="large"
+                      style={{ color: iconColorRight }}
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </Card>
+        </div>
+
       </div>
+
+      
       <h6
         style={{
           display: "flex",
