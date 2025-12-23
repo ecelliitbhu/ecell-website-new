@@ -66,7 +66,7 @@ export const Discover = () => {
                                 </p>
                             </div>
                         </Link>
-                        <a className="dropdown-item" href="https://esummit.ecelliitbhu.com/sponsors/index.html" target="_blank" rel="noopener noreferrer">
+                        <a className="dropdown-item" href="https://esummit.ecelliitbhu.com/partners" target="_blank" rel="noopener noreferrer">
                             <FcFinePrint fontSize="2rem"></FcFinePrint>
                             <div>
                                 <h4>Sponsors and Associates</h4>
@@ -305,7 +305,7 @@ export const Learn = () => {
                                 </p>
                             </div>
                         </Link>
-                        <Link className="dropdown-item" href="https://issuu.com/ecelliitbhu" target="_blank" rel="noopener noreferrer">
+                        <Link className="dropdown-item" href="/coming_soon" target="_blank" rel="noopener noreferrer">
                             <FcNews fontSize="2rem"></FcNews>
                             <div>
                                 <h4>E-Digest Magazine</h4>
