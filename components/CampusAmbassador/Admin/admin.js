@@ -1,155 +1,152 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Box,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  TextField,
   Button,
   CircularProgress,
-} from '@mui/material';
-import axios from 'axios';
-
-const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-
-function Admin() {
-  const [userData, setUserData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [assigning, setAssigning] = useState(false);
-  const [points, setPoints] = useState({});
-  
-  // Fetch user data
-  useEffect(() => {
-    const fetchUserData = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(`${BASE_URL}/ambassador/admin/tasks`);
-        setUserData(response.data);
-
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserData();
-  }, []);
-
-  // Handle point assignment
-  const handleAssignPoints = async (userId, taskId, points, action) => {
-    setAssigning(true);
+  Chip,
+  Stack,
+  Typography,
+  Paper,
+} from "@mui/material";
+import toast from "react-hot-toast";
+export default function Type1Submissions() {
+  const [submissions, setSubmissions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const fetchSubmissions = async () => {
+    setLoading(true);
     try {
-      await axios.post(`${BASE_URL}/ambassador/admin/tasks`, {
-        userId,
-        taskId,
-        points,
-        action,
-      });
-      
-      alert('Points successfully assigned!');
-      // Refresh data after assignment
-      const response = await axios.get(`${BASE_URL}/ambassador/admin/tasks`);
-        setUserData(response.data);
-    } catch (error) {
-      console.error('Error assigning points:', error);
-      alert('Failed to assign points.');
+      const res = await fetch(
+        `${BACKEND_URL}/ambassador/type1-submissions`
+      );
+      const data = await res.json();
+      if (res.ok) setSubmissions(data);
+      else toast.error("Failed to fetch submissions");
+    } catch {
+      toast.error("Server error");
     } finally {
-      setAssigning(false);
+      setLoading(false);
+    }
+  };
+  const updateStatus = async (id, status) => {
+    try {
+      const res = await fetch(
+        `${BACKEND_URL}/ambassador/type1-submissions/${id}/status`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status }),
+        }
+      );
+      if (!res.ok) throw new Error();
+      setSubmissions((prev) => {
+        const updated = prev.map((s) =>
+          s.id === id ? { ...s, status } : s
+        );
+        // pending top pe rahege baki sab niche ( accpet ya reject )
+        return [
+          ...updated.filter((s) => s.status === "pending"),
+          ...updated.filter((s) => s.status !== "pending"),
+        ];
+      });
+
+      toast.success(`Submission ${status}`);
+    } catch {
+      toast.error("Failed to update status");
     }
   };
 
-  return (
-    <Box flexDirection={"column"} alignContent={"center"} p={4}>
-      <Typography variant="h4" gutterBottom>
-        Admin Panel
-      </Typography>
-      {loading ? (
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
-        <CircularProgress />
-    </Box>
-      ) : (
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>User Name</TableCell>
-                <TableCell>User Email</TableCell>
-                <TableCell>Total Points</TableCell>
-                <TableCell>Link</TableCell>
-                <TableCell>Action</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {userData.map((user) => (
-                user.ambassador && <TableRow key={user.userId}>
-                  <TableCell>{user.ambassador.name}</TableCell>
-                  <TableCell>{user.ambassador.email}</TableCell>
-                  <TableCell>{user.ambassador.points}</TableCell>
-                  <TableCell>
-                    <Typography variant="body2">
-                      <b>Submission:</b> {user.submission?<a href={user.submission} target="_blank" >Open submission</a> : 'Not submitted'}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
-                      {user.status === "pending" && <Box mb={2}>
-                        <Typography variant="subtitle1">
-                          <b>Title:</b> {user.task.taskTitle}
-                        </Typography>
-                        <Typography variant="body2">
-                          <b>Points:</b> {user.task.points || 0}
-                        </Typography>
-                        <Box display="flex" gap={2} mt={1}>
-                          <Button
-                            variant="contained"
-                            color="primary"
-                            size="small"
-                            // disabled={assigning||!(user.submission)}
-                            onClick={async () =>
-                              await handleAssignPoints(user.ambassador.id, user.task.id, parseInt(user.task.points), "approve")
-                            }
-                          >
-                            Approve
-                          </Button>
-                          <Button
-                            variant="contained"
-                            color="primary"
-                            size="small"
-                            // disabled={assigning||!(user.submission)}
-                            onClick={async () =>
-                              await handleAssignPoints(user.ambassador.id, user.task.id, parseInt(user.task.points), "reject")
-                            }
-                          >
-                            Reject
-                          </Button>
-                        </Box>
-                      </Box>}
-                      {
-                        user.status === "approved" && <Typography variant="body2">
-                          <b>Approve:</b> {user.task.points || 0}
-                        </Typography>
-                      }
+  useEffect(() => {
+    fetchSubmissions();
+  }, []);
 
-                       {
-                        user.status === "rejected" && <Typography variant="body2">
-                          <b>Reject:</b> {0}
-                        </Typography>
-                      }
-                     
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      )}
+  const getBgColor = (status) => {
+    if (status === "accepted") return "#e8f5e9";
+    if (status === "rejected") return "#fdecea";
+    return "#f9f9f9";
+  };
+
+  if (loading) {
+    return (
+      <Box sx={{ height: "60vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  return (
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h5" mb={3}>
+        Task Submissions (Drive Link)
+      </Typography>
+
+      {submissions.map((s) => (
+        <Paper
+          key={s.id}
+          sx={{
+            p: 3,
+            mb: 2,
+            borderRadius: 2,
+            backgroundColor: getBgColor(s.status),
+          }}
+          elevation={3}
+        >
+          <Stack spacing={1}>
+            <Typography fontWeight={600}>
+              {s.taskTitle}
+            </Typography>
+
+            <Typography variant="body2">
+              Student: <strong>{s.studentName || "N/A"}</strong>
+            </Typography>
+
+            <Typography variant="body2">
+              Submitted Link:{" "}
+              <a
+                href={s.driveLink}
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: "#1976d2" }}
+              >
+                Open Drive Link
+              </a>
+            </Typography>
+
+            <Chip
+              label={s.status.toUpperCase()}
+              color={
+                s.status === "accepted"
+                  ? "success"
+                  : s.status === "rejected"
+                  ? "error"
+                  : "warning"
+              }
+              sx={{ width: "fit-content" }}
+            />
+
+            <Stack direction="row" spacing={2} mt={1}>
+              <Button
+                variant="contained"
+                color="success"
+                disabled={s.status === "accepted"}
+                onClick={() => updateStatus(s.id, "accepted")}
+              >
+                Accept
+              </Button>
+
+              <Button
+                variant="contained"
+                color="error"
+                disabled={s.status === "rejected"}
+                onClick={() => updateStatus(s.id, "rejected")}
+              >
+                Reject
+              </Button>
+              
+            </Stack>
+          </Stack>
+        </Paper>
+      ))}
     </Box>
   );
 }
-
-export default Admin;
