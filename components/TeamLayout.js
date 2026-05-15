@@ -32,6 +32,56 @@ export default function TeamLayout({ teamData, showheading = true }) {
         fetchImageLinks();
     }, []);
 
+    const renderHeadCard = (head, index) => {
+        const imageUrl =
+            head.image && head.image.startsWith("http")
+                ? head.image
+                : imageLinks.find(image => image.name === head.image)?.url || "/path/to/default/image.jpg";
+        console.log("Image URL for", head.name, ":", imageUrl);
+
+        return (
+            <div className="our-team" key={index}>
+                <Image
+                    src={imageUrl}
+                    height={1600}
+                    width={1600}
+                    className="img-responsive img-contain"
+                    unoptimized
+                    alt={head.name}
+                />
+                <div className="team-content">
+                    <h3 className="name">{head.name.toUpperCase()}</h3>
+                    <span className="post">{head.position}</span>
+                    <div className="team-social">
+                        <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${head.email?.replace('mailto:', '')}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <GrMail className="social-icons" />
+                        </a>
+                        <a
+                            href={head.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <FaLinkedin className="social-icons" />
+                        </a>
+                        {head.twitter && (
+                            <a
+                                href={head.twitter}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FaTwitter className="social-icons" />
+                            </a>
+                        )}
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
     return (
         isLoading ?
 
@@ -90,7 +140,7 @@ export default function TeamLayout({ teamData, showheading = true }) {
                                         <span className="post">{president.post}</span>
                                         <div className="team-social">
                                             <a
-                                                href={president.email}
+                                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${president.email?.replace('mailto:', '')}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
@@ -118,59 +168,20 @@ export default function TeamLayout({ teamData, showheading = true }) {
                             );
                         })}
                     </div>
-                    <div className="team-container-1">
-                        {teamData.verticalHeads.map((head, index) => {
-                            // const imageUrl = (imageLinks.find(image => image.name == head.image)) || '/path/to/default/image.';  // Use a default image if URL is not available
-                            const imageUrl =
-                            head.image && head.image.startsWith("http")
-                            ? head.image
-                            : imageLinks.find(image => image.name === head.image)?.url || "/path/to/default/image.jpg";
-                            console.log("Image URL for", head.name, ":", imageUrl);
-
-
-                            return (
-                                <div className="our-team" key={index}>
-                                    <Image
-                                        src={imageUrl}
-                                        height={1600}
-                                        width={1600}
-                                        className="img-responsive img-contain"
-                                        unoptimized
-                                        alt={head.name}
-                                    />
-                                    <div className="team-content">
-                                        <h3 className="name">{head.name.toUpperCase()}</h3>
-                                        <span className="post">{head.position}</span>
-                                        <div className="team-social">
-                                            <a
-                                                href={head.email}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <GrMail className="social-icons" />
-                                            </a>
-                                            <a
-                                                href={head.linkedin}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <FaLinkedin className="social-icons" />
-                                            </a>
-                                            {head.twitter && (
-                                                <a
-                                                    href={head.twitter}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    <FaTwitter className="social-icons" />
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
+                    {teamData.verticalHeads?.length === 16 ? (
+                        <>
+                            <div className="team-container-1">
+                                {teamData.verticalHeads.slice(0, 12).map((head, index) => renderHeadCard(head, index))}
+                            </div>
+                            <div className="team-container-1" style={{ gridTemplateColumns: "1fr 1fr" }}>
+                                {teamData.verticalHeads.slice(12).map((head, index) => renderHeadCard(head, index + 12))}
+                            </div>
+                        </>
+                    ) : (
+                        <div className="team-container-1">
+                            {teamData.verticalHeads.map((head, index) => renderHeadCard(head, index))}
+                        </div>
+                    )}
                 </div>
             </div>
     );
