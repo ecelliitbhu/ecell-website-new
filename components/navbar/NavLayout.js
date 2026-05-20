@@ -7,6 +7,7 @@ import {
   Incubators,
   Contact,
   Startups,
+  ApplyNow,
 } from "./NavItems";
 import { NavLogo } from "./NavLogo";
 import Link from "next/link";
@@ -42,6 +43,7 @@ const Nav = () => {
               <Team />
               <Startups />
               <Contact />
+              <ApplyNow />
               {/* <CAAuth className="max-md:hidden md:flex"/> */}
               {session?.user?.roles?.includes("AMBASSADOR") && (
                 <CAAuth className="max-md:hidden md:flex" />
