@@ -369,3 +369,13 @@ export const Startups = () => {
         </li>
     );
 };
+
+export const ApplyNow = () => {
+    return (
+        <li className="nav-item dropdown contact-nav">
+            <Link href="/forms/team_expansion_2026" passHref className="nav-link">
+                <h3 className="text-orange-500 font-bold">Apply Now</h3>
+            </Link>
+        </li>
+    );
+};
