@@ -16,8 +16,8 @@ const personalFirebaseConfig = {
 };
 
 // Initialize a secondary Firebase app to avoid conflicting with the main website's Firebase
-const personalApp = !getApps().find(app => app.name === 'personal') 
-  ? initializeApp(personalFirebaseConfig, 'personal') 
+const personalApp = !getApps().find(app => app.name === 'personal')
+  ? initializeApp(personalFirebaseConfig, 'personal')
   : getApp('personal');
 
 const firestoreDB = getFirestore(personalApp);
@@ -30,7 +30,7 @@ const Apply = () => {
     year: "",
     course: "",
     branch: "",
-    selectedTeams: [], 
+    selectedTeams: [],
     commitmentHours: "",
     whyJoin: "",
     previousExperience: "",
@@ -75,9 +75,9 @@ const Apply = () => {
     },
     {
       id: "sap",
-      name: "SAP Team",
+      name: "Startup Assistance Program (SAP) team",
       description:
-        "The Student Assistance Program (SAP) team of E-Cell IIT BHU supports student startups by providing essential resources, connections, and guidance to help turn their ideas into reality.",
+        "The Startup Assistance Program (SAP) team of E-Cell IIT BHU acts as a catalyst for innovation by not only helping students build startups, but also guiding them at every stage of their journey with the right mentorship, network, opportunities, and VC connections, driving the entire startup ecosystem on campus.",
     },
     {
       id: "tech",
@@ -107,7 +107,7 @@ const Apply = () => {
       id: "innovation",
       name: "Innovation and Incubation Team",
       description:
-        "The INI Vertical ensures seamless coordination between IIT BHU Incubators and E-Cell by handling all the official tasks. We are also responsible for coordinating with PG students facilitating commercialisation of their researches.",
+        "The INI Vertical ensures seamless coordination between Incubators and E-Cell by handling all the official tasks. We are also responsible for coordinating with PG students facilitating commercialisation of their researches.",
     },
     {
       id: "events",
@@ -293,8 +293,8 @@ const Apply = () => {
 
       // --- Google Sheets Integration via Apps Script ---
       try {
-        const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL; 
-        
+        const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL;
+
         if (scriptUrl) {
           // Format selectedTeams array into a readable string for the spreadsheet cell
           const formattedTeams = applicationData.selectedTeams
@@ -305,7 +305,7 @@ const Apply = () => {
             ...applicationData,
             selectedTeams: formattedTeams
           };
-          
+
           await fetch(scriptUrl, {
             method: "POST",
             mode: "no-cors", // Bypasses CORS issues with Google Scripts
@@ -419,8 +419,8 @@ const Apply = () => {
                     value={formData.phoneNumber}
                     onChange={(e) => {
                       const val = e.target.value.replace(/\D/g, '').slice(0, 10);
-                      setFormData(prev => ({...prev, phoneNumber: val}));
-                      if (errors.phoneNumber) setErrors(prev => ({...prev, phoneNumber: ""}));
+                      setFormData(prev => ({ ...prev, phoneNumber: val }));
+                      if (errors.phoneNumber) setErrors(prev => ({ ...prev, phoneNumber: "" }));
                     }}
                     maxLength={10}
                     className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none transition-colors ${errors.phoneNumber ? 'border-red-500' : 'border-gray-300'}`}
@@ -483,16 +483,16 @@ const Apply = () => {
                 <div className="mt-8">
                   <label className="block text-lg font-bold text-gray-900 mb-2">Select Teams (Max 3) *</label>
                   <p className="text-sm text-gray-500 mb-4">Select the teams you are interested in joining according to your preference.</p>
-                  
+
                   <div className="space-y-4">
                     {teams.map((team) => {
                       const isSelected = formData.selectedTeams.some(t => t.teamId === team.id);
                       const preference = getTeamPreference(team.id);
-                      
-                      const selectedStyle = preference === 1 
-                        ? 'border-orange-500 bg-orange-100' 
-                        : preference === 2 
-                          ? 'border-orange-400 bg-orange-50' 
+
+                      const selectedStyle = preference === 1
+                        ? 'border-orange-500 bg-orange-100'
+                        : preference === 2
+                          ? 'border-orange-400 bg-orange-50'
                           : 'border-orange-300 bg-yellow-50';
 
                       return (
