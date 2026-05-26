@@ -259,7 +259,7 @@ export default function Home() {
                   ideate, iterate and incubate the future innovations of the
                   century!
                 </p>
-                <div className="w-full flex justify-start md:justify-center mt-3">
+                <div className="w-full flex justify-center md:justify-start mt-3">
                   <Button
                     variant="info"
                     className="get-started"
