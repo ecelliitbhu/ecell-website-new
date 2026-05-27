@@ -42,7 +42,7 @@ const Apply = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [preferenceCounter, setPreferenceCounter] = useState(0);
 
-  const years = ["2nd Year", "3rd Year", "4th Year"];
+  const years = ["2nd Year", "3rd Year"];
   const courses = ["BTech", "BArch"];
 
   const branches = [
@@ -296,15 +296,18 @@ const Apply = () => {
         const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL;
 
         if (scriptUrl) {
-          // Format selectedTeams array into a readable string for the spreadsheet cell
-          const formattedTeams = applicationData.selectedTeams
-            .map(t => `${t.teamId} (Pref ${t.preference})`)
-            .join(', ');
+          // Extract individual preferences for Google Sheets columns
+          const pref1 = applicationData.selectedTeams.find(t => t.preference === 1)?.teamId || "";
+          const pref2 = applicationData.selectedTeams.find(t => t.preference === 2)?.teamId || "";
+          const pref3 = applicationData.selectedTeams.find(t => t.preference === 3)?.teamId || "";
 
           const sheetData = {
             ...applicationData,
-            selectedTeams: formattedTeams
+            preference1: pref1,
+            preference2: pref2,
+            preference3: pref3
           };
+          delete sheetData.selectedTeams; // Remove the raw array
 
           await fetch(scriptUrl, {
             method: "POST",
