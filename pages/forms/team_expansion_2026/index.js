@@ -43,7 +43,7 @@ const Apply = () => {
   const [preferenceCounter, setPreferenceCounter] = useState(0);
 
   const years = ["2nd Year", "3rd Year"];
-  const courses = ["BTech", "BArch"];
+  const courses = ["BTech", "BArch", "IDD"];
 
   const branches = [
     "Architecture, Planning and Design",
@@ -62,7 +62,6 @@ const Apply = () => {
     "Industrial Chemistry",
     "Mathematical Sciences",
     "Engineering Physics",
-    "Chemistry",
     "Material Science and Technology",
   ];
 
@@ -98,13 +97,13 @@ const Apply = () => {
         "Relations Team at E-Cell cultivates partnerships with industry leaders, investors, and VCs, fostering innovation, growth, and enriching the events with sponsors and esteemed speakers.",
     },
     {
-      id: "strategy",
+      id: "sno",
       name: "Strategy and Outreach",
       description:
         "The Strategy and Outreach Team of E-Cell drives entrepreneurial growth through robust partnerships with like minded institutions and organisations. We also develop and implement strategies to amplify E-Cell's online presence and engage with the broader community to raise awareness about E-Cell and its initiatives.",
     },
     {
-      id: "innovation",
+      id: "ini",
       name: "Innovation and Incubation Team",
       description:
         "The INI Vertical ensures seamless coordination between Incubators and E-Cell by handling all the official tasks. We are also responsible for coordinating with PG students facilitating commercialisation of their researches.",
