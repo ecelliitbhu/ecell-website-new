@@ -184,23 +184,20 @@ const WhoWeAre = () => {
                   <Card.Text>
                     <ul>
                       <li>
-                        {" "}
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        {`Assistance & Mentor Support to young entrepreneurs of IIT BHU (brainstorming/ ideation/ incubation etc.)`}
+                        Supporting and mentoring students through E-Mentorship for startup ideation and exploration.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        {`Maintenance and development of "Entrepreneurship Resource Library", "Startup Ultimate Guidebook", "Learn from the entrepreneurs " & "FAQ Repository".`}
+                        Conducting innovation challenges and hackathons like Google Startup Weekend (GSW) to encourage entrepreneurial spirit.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Helping startups in pitch-deck improvement, idea
-                        validations, proof-of-concept, MVP planning and
-                        development, Growth strategy etc.
+                        Assisting startups through Build with Us Cohort in MVP development, user testing, funding readiness, and growth.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        {`Organizing initiatives like "Build With Us", "Learn Together", "Entrepreneurship 101",& "Define Your Ideas".`}
+                        Connecting startups with VC partners through VC Scout & Startup Junction, while preparing showcase-ready MVPs for Startup Expo and Demo Days.
                       </li>
                     </ul>
                   </Card.Text>
