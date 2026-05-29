@@ -215,23 +215,20 @@ const WhoWeAre = () => {
                   <Card.Text>
                     <ul>
                       <li>
-                        {" "}
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        {`Primarily focuses on enhancing the brand value of E-Cell IIT BHU by managing it's official social media accounts.`}
+                        Shape and strengthen the brand identity of the cell across digital and offline platforms.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Conducting design and content curation events.
+                        Conceptualize and execute creative design initiatives, promotional campaigns, and content-driven projects.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Marketing of various inter and intra college events and
-                        talks that are organized within the cell.
+                        Promote flagship events, workshops, and competitions while maximizing their reach and visibility.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Publicity of various achievements of alums in the field
-                        of entrepreneurship.
+                        Highlight achievements of student founders, alumni entrepreneurs, and the broader entrepreneurial ecosystem.
                       </li>
                     </ul>
                   </Card.Text>
@@ -250,24 +247,19 @@ const WhoWeAre = () => {
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Provide an interactive platform for students to get
-                        connected with people of our own college through our
-                        official website
+                        Providing and maintaining the official E-Cell website to enable engagement within IIT BHU and the wider startup ecosystem.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Maintaining the Startup Directory for start-ups founded
-                        by the Alumnis of IIT BHU.
+                        Managing the Startup Directory, showcasing startups founded by IIT BHU alumni and their achievements.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Development and maintenance of portals for Campus
-                        Director Program, Internships, Startup Services etc.
+                        Developing and maintaining web platforms for flagship programs and events, including GSW, VC Scout, Campus Ambassador Program, and E-Summit.
                       </li>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Responsible for building and handling of the TIIC
-                        website
+                        Ensuring smooth technical operations through efficient management of registrations, ticketing, payments, and event infrastructure.
                       </li>
                     </ul>
                   </Card.Text>
