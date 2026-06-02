@@ -47,6 +47,7 @@ const Apply = () => {
 
   const branches = [
     "Architecture, Planning and Design",
+    "Biochemical Engineering",
     "Biomedical Engineering",
     "Ceramic Engineering",
     "Chemical Engineering",
@@ -54,15 +55,14 @@ const Apply = () => {
     "Computer Science and Engineering",
     "Electrical Engineering",
     "Electronics Engineering",
+    "Engineering Physics",
+    "Industrial Chemistry",
+    "Material Science and Technology",
+    "Mathematical Sciences",
     "Mechanical Engineering",
     "Metallurgical Engineering",
     "Mining Engineering",
     "Pharmaceutical Engineering and Technology",
-    "Biochemical Engineering",
-    "Industrial Chemistry",
-    "Mathematical Sciences",
-    "Engineering Physics",
-    "Material Science and Technology",
   ];
 
   const teams = [
@@ -82,7 +82,7 @@ const Apply = () => {
       id: "tech",
       name: "Tech Team",
       description:
-        "The tech team of E-Cell IIT(BHU) manages the digital infrastructure, including website development, website maintenance, and technical support for all events and initiatives.",
+        "The Tech team of E-Cell IIT(BHU) manages the digital infrastructure, including website development, website maintenance, and technical support for all events and initiatives.",
     },
     {
       id: "branding",
@@ -112,7 +112,7 @@ const Apply = () => {
       id: "events",
       name: "Events Team",
       description:
-        "Events Team is responsible for handling and organizing all the events, webinars, and workshops, conducted by E-Cell during the course of the session.",
+        "The Events Team oversees the end-to-end management of all events, webinars, and workshops organized by E-Cell, ensuring their smooth planning, coordination, and execution throughout the session.",
     },
     {
       id: "video",
@@ -466,17 +466,15 @@ const Apply = () => {
                   {/* Branch */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Branch *</label>
-                    <input
-                      list="branch-options"
+                    <select
                       name="branch"
                       value={formData.branch}
                       onChange={handleInputChange}
-                      placeholder="Type or select branch"
                       className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none transition-colors ${errors.branch ? 'border-red-500' : 'border-gray-300'}`}
-                    />
-                    <datalist id="branch-options">
-                      {branches.map(b => <option key={b} value={b} />)}
-                    </datalist>
+                    >
+                      <option value="">Select Branch</option>
+                      {branches.map(b => <option key={b} value={b}>{b}</option>)}
+                    </select>
                     {errors.branch && <p className="mt-1 text-sm text-red-500">{errors.branch}</p>}
                   </div>
                 </div>
