@@ -43,7 +43,7 @@ const Nav = () => {
               <Team />
               <Startups />
               <Contact />
-              <ApplyNow />
+              {/* <ApplyNow /> */}
               {/* <CAAuth className="max-md:hidden md:flex"/> */}
               {session?.user?.roles?.includes("AMBASSADOR") && (
                 <CAAuth className="max-md:hidden md:flex" />
