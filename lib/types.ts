@@ -56,6 +56,8 @@ export interface Post {
   location?: string;
   jobType?: JobType;
   createdAt?: string;
+  applicationMethod?: string;
+  applicationLink?: string;
   applications?: Application[];
   applicationCount?:BigInteger;
 }
@@ -81,6 +83,8 @@ export type PostErrors = {
   requiredSkills?: string;
   location?: string;
   jobType?: string;
+  applicationMethod?: string;
+  applicationLink?: string;
 };
 
 

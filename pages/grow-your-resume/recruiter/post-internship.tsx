@@ -24,6 +24,8 @@ const PostInternshipPage = () => {
         requiredSkills: "",
         location: "",
         jobType: "REMOTE",
+        applicationMethod: "NATIVE",
+        applicationLink: "",
     });
     const [errors, setErrors] = useState<PostErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -103,6 +105,9 @@ const PostInternshipPage = () => {
         if (!formData.requiredSkills.trim()) newErrors.requiredSkills = "Required skills are required";
         if (!formData.location.trim()) newErrors.location = "Location is required";
         if (!formData.jobType) newErrors.jobType = "Job type is required";
+        if (formData.applicationMethod !== "NATIVE" && !formData.applicationLink.trim()) {
+            newErrors.applicationLink = formData.applicationMethod === "MAILTO" ? "Email address is required" : "Website URL is required";
+        }
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -126,6 +131,8 @@ const PostInternshipPage = () => {
                 requiredSkills: formData.requiredSkills.split(",").map((s) => s.trim()),
                 location: formData.location,
                 jobType: formData.jobType,
+                applicationMethod: formData.applicationMethod,
+                applicationLink: formData.applicationLink,
             });
 
             toast.success("Internship posted successfully!");
@@ -309,16 +316,46 @@ const PostInternshipPage = () => {
                                     {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
                                 </div>
 
-                                {/* Job Type */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Job Type *</label>
-                                    <select name="jobType" value={formData.jobType} onChange={handleInputChange} className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.jobType ? "border-red-500" : "border-gray-300"}`}>
-                                        <option value="REMOTE">Remote</option>
-                                        <option value="ONSITE">On-site</option>
-                                        <option value="HYBRID">Hybrid</option>
-                                    </select>
-                                    {errors.jobType && <p className="text-red-500 text-sm mt-1">{errors.jobType}</p>}
+                                {/* Job Type and Application Method */}
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Job Type *</label>
+                                        <select name="jobType" value={formData.jobType} onChange={handleInputChange} className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.jobType ? "border-red-500" : "border-gray-300"}`}>
+                                            <option value="REMOTE">Remote</option>
+                                            <option value="ONSITE">On-site</option>
+                                            <option value="HYBRID">Hybrid</option>
+                                        </select>
+                                        {errors.jobType && <p className="text-red-500 text-sm mt-1">{errors.jobType}</p>}
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Application Method *</label>
+                                        <select name="applicationMethod" value={formData.applicationMethod} onChange={handleInputChange} className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.applicationMethod ? "border-red-500" : "border-gray-300"}`}>
+                                            <option value="NATIVE">E-Cell Portal</option>
+                                            <option value="MAILTO">Via Email</option>
+                                            <option value="EXTERNAL">External Website</option>
+                                        </select>
+                                        {errors.applicationMethod && <p className="text-red-500 text-sm mt-1">{errors.applicationMethod}</p>}
+                                    </div>
                                 </div>
+
+                                {/* Application Link */}
+                                {formData.applicationMethod !== "NATIVE" && (
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            {formData.applicationMethod === "MAILTO" ? "Email Address *" : "Website URL *"}
+                                        </label>
+                                        <input
+                                            type={formData.applicationMethod === "MAILTO" ? "email" : "url"}
+                                            name="applicationLink"
+                                            value={formData.applicationLink}
+                                            onChange={handleInputChange}
+                                            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.applicationLink ? "border-red-500" : "border-gray-300"}`}
+                                            placeholder={formData.applicationMethod === "MAILTO" ? "hr@company.com" : "https://company.com/careers"}
+                                        />
+                                        {errors.applicationLink && <p className="text-red-500 text-sm mt-1">{errors.applicationLink}</p>}
+                                    </div>
+                                )}
 
                                 {/* Submit Buttons */}
                                 <div className="flex justify-end space-x-4 pt-6">
