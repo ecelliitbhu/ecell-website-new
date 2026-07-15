@@ -45,6 +45,9 @@ const PostInternshipPage = () => {
     const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     useEffect(() => {
+        setLoading(false);
+        return;
+
         const loadRecruiterData = async () => {
             try {
                 const recruiterId = await getRecruiterId();
@@ -332,7 +335,7 @@ const PostInternshipPage = () => {
                                         <label className="block text-sm font-medium text-gray-700 mb-2">Application Method *</label>
                                         <select name="applicationMethod" value={formData.applicationMethod} onChange={handleInputChange} className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.applicationMethod ? "border-red-500" : "border-gray-300"}`}>
                                             <option value="NATIVE">E-Cell Portal</option>
-                                            <option value="MAILTO">Via Email</option>
+                                            <option value="MAILTO">Email</option>
                                             <option value="EXTERNAL">External Website</option>
                                         </select>
                                         {errors.applicationMethod && <p className="text-red-500 text-sm mt-1">{errors.applicationMethod}</p>}
