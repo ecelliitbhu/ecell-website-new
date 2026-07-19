@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import { Collage, CollagePhone } from "../components/Collage";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Footer from "../components/Footer";
@@ -418,18 +419,14 @@ export default function Home() {
           <Footer />
         </Container>
       </div>
-      <script
-        async
+      <Script
         src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-      ></script>
-      <script
-        async
+        strategy="lazyOnload"
+      />
+      <Script
         src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"
-      ></script>
-      <script
-        async
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-      ></script>
+        strategy="lazyOnload"
+      />
     </>
   );
 }
