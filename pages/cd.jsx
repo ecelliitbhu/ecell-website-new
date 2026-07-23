@@ -85,9 +85,8 @@ export default function CampusDirector() {
                         <Col className="image-section">
                             <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_djmhnml5.json" speed="1" loop autoplay></lottie-player>
                         </Col>
-                        <div id="who-are-we"></div>
                     </Row>
-                    <Row className="who-are-we">
+                    <Row className="who-are-we" id="who-are-we">
                         <Col className="info waw">
                             <h1 className="mb-2">Why Campus Ambassador's Program?</h1>
                             <p>

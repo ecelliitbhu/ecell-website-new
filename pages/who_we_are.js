@@ -181,7 +181,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Startup Assistance Program</Card.Title>
-                  <Card.Text>
+                  <div className="card-text">
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -200,7 +200,7 @@ const WhoWeAre = () => {
                         Connecting startups with VC partners through VC Scout & Startup Junction, while preparing showcase-ready MVPs for Startup Expo and Demo Days.
                       </li>
                     </ul>
-                  </Card.Text>
+                  </div>
                 </Card.Body>
               </Card>
               <Card className="card">
@@ -212,7 +212,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Branding Team</Card.Title>
-                  <Card.Text>
+                  <div className="card-text">
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -231,7 +231,7 @@ const WhoWeAre = () => {
                         Highlight achievements of student founders, alumni entrepreneurs, and the broader entrepreneurial ecosystem.
                       </li>
                     </ul>
-                  </Card.Text>
+                  </div>
                 </Card.Body>
               </Card>
               <Card className="card">
@@ -243,7 +243,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Technical Team</Card.Title>
-                  <Card.Text>
+                  <div className="card-text">
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -262,7 +262,7 @@ const WhoWeAre = () => {
                         Ensuring smooth technical operations through efficient management of registrations, ticketing, payments, and event infrastructure.
                       </li>
                     </ul>
-                  </Card.Text>
+                  </div>
                 </Card.Body>
               </Card>
               <Card className="card">
@@ -274,7 +274,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Events Team</Card.Title>
-                  <Card.Text>
+                  <div className="card-text">
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -302,7 +302,7 @@ const WhoWeAre = () => {
                         and hospitality of all the events.
                       </li>
                     </ul>
-                  </Card.Text>
+                  </div>
                 </Card.Body>
               </Card>
               <Card className="card">
@@ -314,7 +314,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Relations Team</Card.Title>
-                  <Card.Text>
+                  <div className="card-text">
                     <ul>
                       <li>
                         {" "}
@@ -342,7 +342,7 @@ const WhoWeAre = () => {
                         better flow of information between students and alumni.
                       </li>
                     </ul>
-                  </Card.Text>
+                  </div>
                 </Card.Body>
               </Card>
               <Card className="card">
@@ -354,7 +354,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Strategy and Outreach Team</Card.Title>
-                  <Card.Text>
+                  <div className="card-text">
                     <ul>
                       <li>
                         {" "}
@@ -378,7 +378,7 @@ const WhoWeAre = () => {
                         trend monitoring, and innovative thinking
                       </li>
                     </ul>
-                  </Card.Text>
+                  </div>
                 </Card.Body>
               </Card>
               <Card className="card">
@@ -390,7 +390,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Innovations and Incubation Team</Card.Title>
-                  <Card.Text>
+                  <div className="card-text">
                     <ul>
                       <li>
                         {" "}
@@ -420,7 +420,7 @@ const WhoWeAre = () => {
                         entrepreneurship in IIT BHU.
                       </li>
                     </ul>
-                  </Card.Text>
+                  </div>
                 </Card.Body>
               </Card>
             </Row>

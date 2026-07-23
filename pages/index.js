@@ -280,12 +280,8 @@ export default function Home() {
                 ></lottie-player>
               </div>
             </Col>
-            <div id="who-are-we"></div>
           </Row>
-
-
-          
-          <Row className="who-are-we">
+          <Row className="who-are-we" id="who-are-we">
             <Col className="info waw">
               <h1>Who are we?</h1>
               <p>

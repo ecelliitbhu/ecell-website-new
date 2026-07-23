@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import nc from "next-connect";
 import dbConnect from "../../lib/dbConnect.js";
 import SuperAdmin from "../../models/SuperAdmin.js";
+import bcrypt from "bcrypt";
 
 const router = nc();
 dotenv.config();
@@ -16,7 +17,8 @@ router.post("/api/adminLogin", async (request, response) => {
   });
 
   for (let i = 0; i < finder.length; i++) {
-    if (request.body.password===finder[i].password) {
+    const isMatch = await bcrypt.compare(request.body.password, finder[i].password);
+    if (isMatch) {
       isLoggedIn = true;
       break;
     }
