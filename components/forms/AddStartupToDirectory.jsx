@@ -472,7 +472,7 @@ function AddStartupToDirectory() {
             id="idea_Sec"
             cols="5"
             rows="8"
-            className="Text_Area"
+            className="text-area"
             style={text ? { display: "block" } : { display: "none" }}
             onChange={handleText}
           ></textarea>

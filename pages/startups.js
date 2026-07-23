@@ -203,7 +203,7 @@ const StartupDirectory = () => {
               {!isLoading && unavailableStartup()}
             </div> */}
             {isLoading ? (
-              <div className="loadingGif">
+              <div className="loading-gif">
                 <Image
                   src="https://ik.imagekit.io/ecelliitbhu/website/loading.gif"
                   width="300"

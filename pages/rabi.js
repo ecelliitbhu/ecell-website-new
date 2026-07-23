@@ -97,11 +97,7 @@ After successful completion of this 2 months local residency phase, selected sta
         <title>RKVY-RAFTAAR Agri Business Incubator (R-ABI)</title>
         <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        <style>{`font-family:'Poppins',sans-serif;`}</style>
+
       </Head>
      
       <IncubatorPage

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 
 const AuthGuard = ({ children }) => {
-  // const { data: session, status } = useSession();
+
   const dispatch=useDispatch()
   const router = useRouter();
   const session=useSession()
@@ -29,9 +29,7 @@ const AuthGuard = ({ children }) => {
      // Prevent rendering the protected content
   }
 
-  // if(!(session?.user?.formFilled)){
-  //   dispatch(openDialog("login"))
-  // }
+
 
   // If the user is authenticated or the route is not protected, render the content
   return <>{children}</>;
