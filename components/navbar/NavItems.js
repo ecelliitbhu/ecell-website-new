@@ -371,8 +371,13 @@ export const Startups = () => {
 };
 
 export const ApplyNow = () => {
+    // To remove the form or Apply now from the website, uncomment the line below:
+    return null; 
+
     return (
         <li className="nav-item dropdown contact-nav">
+            {/* change "/forms/team_expansion_2026" to "/forms/team_expansion_new" to point to team_expansion_new/index.js */}
+            {/* Currently pointing to the live 2026 form */}
             <Link href="/forms/team_expansion_2026" passHref className="nav-link">
                 <h3 className="text-orange-500 font-bold">Apply Now</h3>
             </Link>
