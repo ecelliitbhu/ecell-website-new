@@ -30,41 +30,26 @@ const AddStartup = () => {
   const [domain, setDomain] = useState("");
   const [year, setYear] = useState("");
   const [description, setDescription] = useState("");
-  const [founder1, setFounder1] = useState("");
-  const [founder2, setFounder2] = useState("");
-  const [founder3, setFounder3] = useState("");
-  const [founder4, setFounder4] = useState("");
-  const [founder5, setFounder5] = useState("");
-  const [founders, setFounders] = useState([]);
-  const [linkedin1, setLinkedin1] = useState("");
-  const [linkedin2, setLinkedin2] = useState("");
-  const [linkedin3, setLinkedin3] = useState("");
-  const [linkedin4, setLinkedin4] = useState("");
-  const [linkedin5, setLinkedin5] = useState("");
   const [website, setWebsite] = useState("");
+  const [founders, setFounders] = useState([{ founder: "", linkedin: "" }]);
+  const handleFounderChange = (index, field, value) => {
+    const updatedFounders = [...founders];
+    updatedFounders[index][field] = value;
+    setFounders(updatedFounders);
+  };
+
+  const addFounderInput = () => {
+    if (founders.length < 5) {
+      setFounders([...founders, { founder: "", linkedin: "" }]);
+    }
+  };
   const [files, setFiles] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   // console.log(files);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    var foundersArray = [];
-    founder1 &&
-      linkedin1 &&
-      foundersArray.push({ founder: founder1, linkedin: linkedin1 });
-    founder2 &&
-      linkedin2 &&
-      foundersArray.push({ founder: founder2, linkedin: linkedin2 });
-    founder3 &&
-      linkedin3 &&
-      foundersArray.push({ founder: founder3, linkedin: linkedin3 });
-    founder4 &&
-      linkedin4 &&
-      foundersArray.push({ founder: founder4, linkedin: linkedin4 });
-    founder5 &&
-      linkedin5 &&
-      foundersArray.push({ founder: founder5, linkedin: linkedin5 });
-    // setFounders(foundersArray);
+    const validFounders = founders.filter(f => f.founder.trim() !== "");
     const storage = getStorage();
     const db = firebaseDB;
     const imageName = name + year + uuidv4();
@@ -84,7 +69,7 @@ const AddStartup = () => {
             domain: domain,
             year: year,
             website: website,
-            founders: foundersArray,
+            founders: validFounders,
             avatar: url,
           })
             .then(() => {
@@ -93,16 +78,7 @@ const AddStartup = () => {
               setDescription("");
               setYear("");
               setWebsite("");
-              setFounder1("");
-              setFounder2("");
-              setFounder3("");
-              setFounder4("");
-              setFounder5("");
-              setLinkedin1("");
-              setLinkedin2("");
-              setLinkedin3("");
-              setLinkedin4("");
-              setLinkedin5("");
+              setFounders([{ founder: "", linkedin: "" }]);
               setFiles("");
               setIsLoading(false);
               alert("Form submitted successfully");
@@ -242,130 +218,45 @@ const AddStartup = () => {
                   required
                 ></textarea>
               </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>
-                    Enter Founder 1 <span style={{ color: "red" }}>*</span>
-                  </h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Founder 1"
-                  value={founder1}
-                  onChange={(e) => setFounder1(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                  required
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Linkedin of Founder 1</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Linkedin of Founder 1"
-                  value={linkedin1}
-                  onChange={(e) => setLinkedin1(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Enter Founder 2</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Founder 2"
-                  value={founder2}
-                  onChange={(e) => setFounder2(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                  required
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Linkedin of Founder 2</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Linkedin of Founder 2"
-                  value={linkedin2}
-                  onChange={(e) => setLinkedin2(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Enter Founder 3</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Founder 3"
-                  value={founder3}
-                  onChange={(e) => setFounder3(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Linkedin of Founder 3</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Linkedin of Founder 3"
-                  value={linkedin3}
-                  onChange={(e) => setLinkedin3(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Enter Founder 4</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Founder 4"
-                  value={founder4}
-                  onChange={(e) => setFounder4(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Linkedin of Founder 4</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Linkedin of Founder 4"
-                  value={linkedin4}
-                  onChange={(e) => setLinkedin4(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Enter Founder 5</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Founder 5"
-                  value={founder5}
-                  onChange={(e) => setFounder5(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                />
-              </Row>
-              <Row className="form-item">
-                <label>
-                  <h5>Linkedin of Founder 5</h5>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Linkedin of Founder 5"
-                  value={linkedin5}
-                  onChange={(e) => setLinkedin5(e.target.value)}
-                  style={{ borderBottom: "2px solid grey" }}
-                />
-              </Row>
+              {founders.map((item, index) => (
+                <div key={index}>
+                  <Row className="form-item">
+                    <label>
+                      <h5>
+                        Enter Founder {index + 1} {index === 0 && <span style={{ color: "red" }}>*</span>}
+                      </h5>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder={`Enter Founder ${index + 1}`}
+                      value={item.founder}
+                      onChange={(e) => handleFounderChange(index, "founder", e.target.value)}
+                      style={{ borderBottom: "2px solid grey" }}
+                      required={index === 0}
+                    />
+                  </Row>
+                  <Row className="form-item">
+                    <label>
+                      <h5>Linkedin of Founder {index + 1}</h5>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder={`Linkedin of Founder ${index + 1}`}
+                      value={item.linkedin}
+                      onChange={(e) => handleFounderChange(index, "linkedin", e.target.value)}
+                      style={{ borderBottom: "2px solid grey" }}
+                    />
+                  </Row>
+                </div>
+              ))}
+
+              {founders.length < 5 && (
+                <Row className="form-item" style={{ marginTop: "10px", marginBottom: "20px" }}>
+                  <Button variant="secondary" onClick={addFounderInput} style={{ width: "fit-content", margin: "0 auto" }}>
+                    + Add Another Founder
+                  </Button>
+                </Row>
+              )}
               <Row className="form-item">
                 <label>
                   <h5>Startup Website</h5>
