@@ -29,6 +29,8 @@ type SimplifiedOpportunity = {
     postedDate: string | Date;
     appliedAt: string | Date;
     status?: ApplicationStatus;
+    applicationMethod?: string;
+    applicationLink?: string;
 };
 
 const OpportunitiesPage = () => {
@@ -126,6 +128,8 @@ const OpportunitiesPage = () => {
                     description: post.jobDescription,
                     applied: false,
                     postedDate: post.createdAt,
+                    applicationMethod: post.applicationMethod || "NATIVE",
+                    applicationLink: post.applicationLink,
                 }))
             );
         } catch (error) {
@@ -160,6 +164,8 @@ const OpportunitiesPage = () => {
                     applied: true,
                     appliedDate: app.appliedAt,
                     status: app.status.toLowerCase(),
+                    applicationMethod: app.post?.applicationMethod || "NATIVE",
+                    applicationLink: app.post?.applicationLink,
                 }))
             );
         } catch (error) {
@@ -217,14 +223,24 @@ const OpportunitiesPage = () => {
                 return;
             }
 
-            // console.log("Applying to opportunity:", opportunityId);
+            // Find the applied opportunity
+            const appliedOpportunity = opportunities.find((opp) => opp.id === opportunityId);
+            let method = "NATIVE";
+
+            if (appliedOpportunity) {
+                method = appliedOpportunity.applicationMethod || "NATIVE";
+                if (method === "MAILTO" && appliedOpportunity.applicationLink) {
+                    window.location.href = 'mailto:' + appliedOpportunity.applicationLink;
+                } else if (method === "EXTERNAL" && appliedOpportunity.applicationLink) {
+                    window.open(appliedOpportunity.applicationLink, '_blank');
+                }
+            }
+
+            // Optionally log clicks via API
             await applicationsAPI.create({
                 studentId,
                 postId: opportunityId,
             });
-
-            // Find the applied opportunity
-            const appliedOpportunity = opportunities.find((opp) => opp.id === opportunityId);
 
             if (appliedOpportunity) {
                 // Remove from opportunities list
@@ -248,12 +264,14 @@ const OpportunitiesPage = () => {
                     postedDate: appliedOpportunity.postedDate ?? new Date().toISOString(),
                     appliedAt: new Date().toISOString(),
                     status: "pending",
+                    applicationMethod: appliedOpportunity.applicationMethod,
+                    applicationLink: appliedOpportunity.applicationLink,
                 };
 
                 setAppliedOpportunities((prev) => [...prev, newApplication]);
             }
 
-            toast.success("Application submitted successfully!");
+            toast.success(method === "NATIVE" ? "Application submitted successfully!" : "Redirected to application!");
         } catch (error: any) {
             console.error("Error applying to opportunity:", error);
             toast.error(error.message || "Failed to submit application");
@@ -295,6 +313,8 @@ const OpportunitiesPage = () => {
                     postedDate: withdrawnApplication.appliedAt ? new Date(withdrawnApplication.appliedAt).toISOString() : new Date().toISOString(),
                     appliedAt: withdrawnApplication.appliedAt ?? new Date().toISOString(),
                     status: withdrawnApplication.status ?? "pending", // optional but good for consistency
+                    applicationMethod: withdrawnApplication.applicationMethod || "NATIVE",
+                    applicationLink: withdrawnApplication.applicationLink,
                 };
 
                 setOpportunities((prev) => [...prev, opportunityToRestore]);

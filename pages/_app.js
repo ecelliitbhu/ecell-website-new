@@ -9,23 +9,9 @@ import Head from "next/head";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
-import { ToastContainer } from "react-toastify";
-import { Provider } from 'react-redux';
-import { store } from "@/lib/redux/store";
-import GlobalDialog from "@/components/GlobalDialogWrapper/GlobalDialogWrapper";
+
 import GlobalProvider from "@/components/Providers/GlobalProvider";
 import { SessionProvider } from "next-auth/react";
-
-// import { Player, Controls } from "@lottiefiles/react-lottie-player";
-// const Player = dynamic(
-//   () => import("@lottiefiles/react-lottie-player"),
-//   { ssr: false } // This will load the component only on client side
-// );
-// const Controls = dynamic(
-//   () => import("@lottiefiles/react-lottie-player"),
-//   { ssr: false } // This will load the component only on client side
-// );
-
 function MyApp({ Component, pageProps:{session,...pageProps}, }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -52,14 +38,6 @@ function MyApp({ Component, pageProps:{session,...pageProps}, }) {
           <meta name="robots" content="index, follow" />
         </Head>
         {loading ? (
-          // <Player
-          //   autoplay
-          //   loop
-          //   src="https://assets8.lottiefiles.com/packages/lf20_b0firirj.json"
-          //   style={{ height: "300px", width: "300px" }}
-          // >
-          //   <Controls visible={false} />
-          // </Player>
           <p>Loading...</p>
         ) : (
           <>
@@ -87,7 +65,7 @@ function MyApp({ Component, pageProps:{session,...pageProps}, }) {
 
             
             <Component {...pageProps} />
-            <ToastContainer position="top-center" />
+
             <Analytics />
             <div>
               <Toaster position={"top-center"} />

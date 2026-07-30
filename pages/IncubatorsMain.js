@@ -124,7 +124,7 @@ const renderIncubatorGrid = () => {
       {/* Use flexbox with wrap for better control */}
       <div className="flex flex-wrap justify-center gap-6 md:gap-8">
         {incubators.map((incubator) => (
-          <div key={incubator.id} className="w-full sm:w-[calc(50%-16px)] md:w-[calc(50%-px)] lg:w-[calc(33.333%-px)] sm:max-w-md md:max-w-lg lg:max-w-sm">
+          <div key={incubator.id} className="w-full sm:w-[calc(50%-16px)] md:w-[calc(50%-16px)] lg:w-[calc(33.333%-16px)] sm:max-w-md md:max-w-lg lg:max-w-sm">
             {renderIncubatorCard(incubator)}
           </div>
         ))}

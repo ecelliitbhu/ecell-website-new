@@ -52,28 +52,9 @@ function build_with_us() {
               A program to catalyse the journey of starting up a successful
               venture for budding entrepreneurs who just have an idea.
             </p>
-            {/* <Row className='cf'>
-                            <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}>Have An Idea ?</Col>
-                            <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}><span>&#11044;</span> Build With Us<span>&#11044;</span></Col>
-                            <Col style={{fontWeight: "bold", fontSize: "1.2rem",width:"max-content",padding:"0"}}> Launch With US</Col>
-                        </Row> */}
+
             <div className="veer">
-              {/*<p>To know more details about Cohort visit:</p>
-              <p
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                }}
-              >
-                <a
-                  href="https://www.instagram.com/p/CiDdL8xBI80/?utm_source=ig_web_copy_link"
-                  target={"_blank"}
-                  rel={"noreferrer"}
-                >
-                  events.ecelliitbhu.com/info-cohort
-                </a>
-              </p>*/}
+
               <p>
                 Have an idea?<span style={{ margin: "0 1%" }}>&#11044;</span>
                 Build With Us<span style={{ margin: "0 1%" }}>&#11044;</span>

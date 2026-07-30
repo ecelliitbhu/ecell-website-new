@@ -97,7 +97,7 @@ const WhoWeAre = () => {
 
               <Card.Body>
                 <Card.Title>Foster Entrepreneurial Mindset</Card.Title>
-                <Card.Text>
+                <Card.Text as="div">
                   Start your Entrepreneurial journey and learn through our
                   programmes like <i>Founder&apos;s Talk</i>, <i>AMA Session</i>{" "}
                   and
@@ -117,7 +117,7 @@ const WhoWeAre = () => {
               </div>
               <Card.Body>
                 <Card.Title>Improved Interpersonal Skills</Card.Title>
-                <Card.Text>
+                <Card.Text as="div">
                   Enhance your skills of <em>Leadership</em>,{" "}
                   <em>Communication </em> and
                   <em> Collaboration </em> by working in teams and engaging with
@@ -137,7 +137,7 @@ const WhoWeAre = () => {
               </div>
               <Card.Body>
                 <Card.Title>Network With Startup Ecosystem</Card.Title>
-                <Card.Text>
+                <Card.Text as="div">
                   {`Expand your network and connect with like minded individuals like fellow entrepreneurs, alumni founderrs and industry experts`}
                 </Card.Text>
               </Card.Body>
@@ -181,7 +181,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Startup Assistance Program</Card.Title>
-                  <Card.Text>
+                  <Card.Text as="div">
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -212,7 +212,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Branding Team</Card.Title>
-                  <Card.Text>
+                  <Card.Text as="div">
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -243,7 +243,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Technical Team</Card.Title>
-                  <Card.Text>
+                  <Card.Text as="div">
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -274,7 +274,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Events Team</Card.Title>
-                  <Card.Text>
+                  <Card.Text as="div">
                     <ul>
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
@@ -314,7 +314,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Relations Team</Card.Title>
-                  <Card.Text>
+                  <Card.Text as="div">
                     <ul>
                       <li>
                         {" "}
@@ -354,7 +354,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Strategy and Outreach Team</Card.Title>
-                  <Card.Text>
+                  <Card.Text as="div">
                     <ul>
                       <li>
                         {" "}
@@ -390,7 +390,7 @@ const WhoWeAre = () => {
                     autoplay
                   ></lottie-player>
                   <Card.Title>Innovations and Incubation Team</Card.Title>
-                  <Card.Text>
+                  <Card.Text as="div">
                     <ul>
                       <li>
                         {" "}

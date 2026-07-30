@@ -90,7 +90,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={350}
                   height={150}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/IvyCamp.jpeg"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -100,7 +100,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={150}
                   height={100}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/FortyTwo.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -110,7 +110,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={150}
                   height={100}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/ip.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -120,7 +120,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={100}
                   height={100}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/sv.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -130,7 +130,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={150}
                   height={100}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/xscale.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -140,7 +140,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={100}
                   height={100}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/s19.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -150,7 +150,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={120}
                   height={120}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/fadd.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -160,7 +160,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={100}
                   height={30}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/fluid.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -173,7 +173,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={120}
                   height={120}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/nas.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -186,7 +186,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={140}
                   height={90}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/launchx.png"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -199,7 +199,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={170}
                   height={73}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/letsVenture.jpg"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -212,7 +212,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={170}
                   height={73}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/fibonacci.jpg"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />
@@ -225,7 +225,7 @@ const StartupJunction: FunctionComponent<Props> = () => {
                   width={170}
                   height={73}
                   src="https://ik.imagekit.io/ecelliitbhu/website/startup_junction_vcs/startupnews.jpg"
-                  alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                  alt="VC Logo"
                   className={styles.vcimg}
                   unoptimized
                 />

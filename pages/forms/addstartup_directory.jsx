@@ -29,26 +29,7 @@ export default function AddStartupForm() {
               Add Startup
             </h1>
           </Row>
-          {/* <Row
-            className="who-are-we"
-            style={{ height: "fit-content", margin: "20px 0" }}
-          >
-            <p
-              style={{
-                margin: "auto",
-                textAlign: "center",
-                fontSize: "1rem",
-                color: "black",
-                width: "90%",
-              }}
-            >
-              {`To attend any of the future Founders speak, AMAs sessions, Guest
-              Speaker Seminars, or to be part of E-Community, Ideation Startups
-              Founders Community, Idea Generation Meetings and Brainstorming
-              Sessions, fill out this form. You will contacted soon after we
-              receive your response.`}
-            </p>
-          </Row> */}
+
           <Row>
             <ContactAttendee />
           </Row>
