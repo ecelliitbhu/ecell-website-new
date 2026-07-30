@@ -235,6 +235,7 @@ export default function Home() {
                   <br />
                   <Typewriter
                     options={{
+                      wrapperClassName: "typewriter",
                       autoStart: true,
                       loop: true,
                     }}

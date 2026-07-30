@@ -45,7 +45,6 @@ const PostInternshipPage = () => {
     const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     useEffect(() => {
-
         const loadRecruiterData = async () => {
             try {
                 const recruiterId = await getRecruiterId();

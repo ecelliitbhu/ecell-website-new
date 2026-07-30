@@ -25,7 +25,7 @@ function MyVerticallyCenteredModal(props) {
         <div
           className="startup-modal-image"
           style={{
-            height: "1005",
+            height: "100%",
             width: "100%",
           }}
         >

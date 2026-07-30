@@ -1,7 +1,7 @@
 // import express, { request } from 'express';
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import encrypt from "../../../encryption/encryt.js";
+import encrypt from "../../../encryption/encrypt.js";
 import dotenv from "dotenv";
 import nc from "next-connect";
 import dbConnect from "../../../lib/dbConnect.js";

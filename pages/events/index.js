@@ -38,7 +38,7 @@ const Event = ({
               <Button
                 style={{
                   backgroundColor: "#2AB574",
-                  border: "#2AB574",
+                  borderColor: "#2AB574",
                   margin: "4px",
                   fontSize: "0.9rem",
                   height: "fit-content",
@@ -55,7 +55,7 @@ const Event = ({
               variant="danger"
               style={{
                 backgroundColor: "#FA8231",
-                border: "#FA8231",
+                borderColor: "#FA8231",
                 margin: "4px",
                 fontSize: "0.9rem",
                 height: "fit-content",
@@ -138,20 +138,7 @@ export default function Events() {
               </Row>
             )}
           </Row>
-          {/* <Row style={{ margin: "100px auto" }} className="calender-component">
-            <h1
-              style={{
-                margin: "auto",
-                textAlign: "center",
-                fontSize: "4rem",
-                fontWeight: "bold",
-              }}
-            >
-              Calender
-            </h1>
-            <Calender />
-          </Row>
-          <div id="instafeed-container"></div> */}
+
           <Footer />
         </Container>
       </div>

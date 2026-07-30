@@ -6,21 +6,26 @@ import Nav from "../../../components/navbar/NavLayout";
 import { initializeApp, getApp, getApps } from "firebase/app";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 
-const personalFirebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_PERSONAL_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_PERSONAL_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_PERSONAL_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_PERSONAL_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_PERSONAL_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_PERSONAL_FIREBASE_APP_ID
+// Initialize a secondary Firebase app to avoid conflicting with the main website's Firebase
+const teamFormFirebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_TEAM_FORM_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_TEAM_FORM_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_TEAM_FORM_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_TEAM_FORM_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_TEAM_FORM_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_TEAM_FORM_FIREBASE_APP_ID
 };
 
-// Initialize a secondary Firebase app to avoid conflicting with the main website's Firebase
-const personalApp = !getApps().find(app => app.name === 'personal')
-  ? initializeApp(personalFirebaseConfig, 'personal')
-  : getApp('personal');
+const teamFormApp = !getApps().find(app => app.name === 'teamExpansionForm')
+  ? initializeApp(teamFormFirebaseConfig, 'teamExpansionForm')
+  : getApp('teamExpansionForm');
 
-const firestoreDB = getFirestore(personalApp);
+const firestoreDB = getFirestore(teamFormApp);
+
+// Configuration from environment
+const COLLECTION_NAME = process.env.NEXT_PUBLIC_TEAM_FORM_COLLECTION || "applications";
+const IS_FORM_OPEN = process.env.NEXT_PUBLIC_TEAM_FORM_IS_OPEN === "true";
+const CURRENT_YEAR = process.env.NEXT_PUBLIC_TEAM_FORM_YEAR || new Date().getFullYear().toString();
 
 const Apply = () => {
   const [formData, setFormData] = useState({
@@ -288,7 +293,7 @@ const Apply = () => {
       };
 
       // Push to Firestore
-      await addDoc(collection(firestoreDB, "applications_2026"), applicationData);
+      await addDoc(collection(firestoreDB, COLLECTION_NAME), applicationData);
 
       // --- Google Sheets Integration via Apps Script ---
       try {
@@ -378,19 +383,18 @@ const Apply = () => {
             {/* Application Form */}
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">E-Cell Team Expansion 2026</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">E-Cell Team Expansion {CURRENT_YEAR}</h2>
                 <p className="text-gray-600">Fill out the form below to apply for the E-Cell team.</p>
               </div>
 
-              {/* To disable the form, change 'false' to 'true' in the block below, and change 'true' to 'false' in the form block */}
-              {true && (
+              {!IS_FORM_OPEN && (
               <div className="text-center py-8 bg-gray-50 rounded-xl border border-gray-200">
                 <h3 className="text-2xl font-bold text-orange-600 mb-2">Registrations Closed</h3>
                 <p className="text-gray-600">Thank you for your interest. The registration for E-Cell Team Expansion has ended.</p>
               </div>
               )}
 
-              {false && (
+              {IS_FORM_OPEN && (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Full Name */}
                 <div>
