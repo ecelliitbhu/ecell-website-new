@@ -13,14 +13,12 @@ const SipLanding = () => {
 
     // console.log(props);
     console.log(router.query);
-    if (router.query) {
-        useEffect(() => {
-            console.log("insti");
-            if (router.query.error) {
-                toast.error(router.query.error.toString());
-            }
-        }, [router.query]);
-    }
+    useEffect(() => {
+        console.log("insti");
+        if (router.query?.error) {
+            toast.error(router.query.error.toString());
+        }
+    }, [router.query]);
     return (
         <>
             <Head>

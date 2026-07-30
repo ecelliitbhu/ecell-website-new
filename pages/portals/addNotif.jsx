@@ -47,7 +47,7 @@ const Notifi = ({
       }}
     >
       <div style={{ height: "70px", width: "70px" }}>
-        {/* <Image src={poster} alt="" height={1000} width={1000} unoptimized/> */}
+
       </div>
       <span>{`Title: ${title}`}</span>
       <span>{`BeginDate: ${beginDate}`}</span>
@@ -68,10 +68,7 @@ const AddNotif = () => {
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
 
-  function logout(e) {
-    e.preventDefault();
-    // logoutSuperAdmin();
-  }
+
   const initialNotifState = {
     title: "",
     beginDate: "",

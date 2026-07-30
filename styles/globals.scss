@@ -59,8 +59,24 @@
   * {
     @apply border-border;
   }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: "averta", sans-serif;
+    background-color: #f8f9fa;
+  }
+  a {
+    text-decoration: none;
+  }
+  ::selection {
+    background: #ffc26c;
   }
 }
 .form-card {
@@ -138,26 +154,7 @@
   opacity: 0;
 }
 
-* {
-  margin: 0px;
-  padding: 0px;
-  font-family: averta;
-  /* color: grey; */
-  box-sizing: border-box;
-  /* background-color: #f8f9fa; */
-}
 
-a {
-  text-decoration: none;
-}
-
-::selection {
-  background: #ffc26c;
-}
-
-body {
-  background-color: #f8f9fa;
-}
 
 /* NAVBAR */
 
@@ -294,18 +291,15 @@ ul {
 
 .dropdown-item div {
   margin: 0px 15px;
-  background-color: white;
 }
 
 .dropdown-item div h4 {
   font-size: 1.25rem;
   font-weight: bold;
-  background-color: white;
 }
 
 .dropdown-item div p {
   font-size: 0.8rem;
-  background-color: white;
   color: grey;
 }
 
@@ -334,7 +328,7 @@ ul {
 }
 
 .discover:hover {
-  // border-bottom: 4px solid rgb(4, 125, 238);
+
   box-shadow: inset 0px -4px rgb(4, 125, 238);
 }
 
@@ -342,34 +336,34 @@ ul {
   color: rgb(4, 125, 238);
 }
 
-.discover .right-nav-column div li a:hover {
+.discover a:hover {
   color: rgb(4, 125, 238);
 }
 
 .design:hover {
   box-shadow: inset 0px -4px #28c7a0;
-  // border-bottom: 4px solid #28c7a0;
+
 }
 
 .design div h4 {
   color: #28c7a0;
 }
 
-.design .right-nav-column div li a:hover {
+.design a:hover {
   color: #28c7a0;
 }
 
 .code:hover {
   box-shadow: inset 0px -4px rgb(4, 125, 238);
-  // border-bottom: 4px solid #cd57ff;
+
 }
 .startups-nav:hover {
   box-shadow: inset 0px -4px #fdb902;
-  // border-bottom: 4px solid #cd57ff;
+
 }
 .contact-nav:hover {
   box-shadow: inset 0px -4px #00d9ff;
-  // border-bottom: 4px solid #cd57ff;
+
 }
 
 .code div h4 {
@@ -377,7 +371,7 @@ ul {
 }
 .connect:hover {
   box-shadow: inset 0px -4px rgb(4, 125, 238);
-  // border-bottom: 4px solid #cd57ff;
+
 }
 
 .connect div h4 {
@@ -386,11 +380,11 @@ ul {
 
 .esummit:hover {
   box-shadow: inset 0px -4px rgb(4, 125, 238);
-  // border-bottom: 4px solid #cd57ff;
+
 }
 .incubate:hover {
   box-shadow: inset 0px -4px #505058;
-  // border-bottom: 4px solid #cd57ff;
+
 }
 
 .incubate div h4 {
@@ -399,7 +393,7 @@ ul {
 
 .learn:hover {
   box-shadow: inset 0px -4px #fd9301;
-  // border-bottom: 4px solid #fd9301;
+
 }
 
 .learn div h4 {
@@ -409,9 +403,6 @@ ul {
 #sign-up {
   color: white;
   background-color: #fd9301;
-}
-.btn {
-  border: none;
 }
 .btn {
   border: none;
@@ -747,7 +738,7 @@ ul {
   .discover div h4 {
     color: rgb(4, 125, 238);
   }
-  .discover .right-nav-column div li a:hover {
+  .discover a:hover {
     color: rgb(4, 125, 238);
   }
   .design:hover {
@@ -756,7 +747,7 @@ ul {
   .design div h4 {
     color: #28c7a0;
   }
-  .design .right-nav-column div li a:hover {
+  .design a:hover {
     color: #28c7a0;
   }
   .code:hover {
@@ -846,15 +837,11 @@ ul {
  
  
 }
-// .header {
-//   /* max-width: 1480px; */
-//   margin: auto;
-//   height: 620px;
-// }
+
 
 .header {
   min-height: 15vh;
-  // padding: 0px 20px;
+
   margin:auto;
 
   @media (max-width: 768px) {
@@ -961,7 +948,7 @@ ul {
   font-size: 2.6rem;
   color: grey;
 }
-.Typewriter {
+.typewriter {
   color: #f5a422;
 }
 .info p {
@@ -969,20 +956,6 @@ ul {
   width: 80%;
   color: grey;
 }
-// .get-started {
-//   height: 76px !important;
-//   width: 333px !important;
-//   font-size: 1.5rem !important;
-//   display: flex !important;
-//   justify-content: center !important;
-//   align-items: center !important;
-//   color: white !important;
-//   background-color: #505058 !important;
-//   border-radius: 0.5rem !important;
-//   border: #505058 !important;
-//   font-weight: bold !important;
-//   margin: 10px 0px !important;
-// }
 
 .get-started:hover {
   color: white;
@@ -1852,7 +1825,7 @@ ul {
   clear: both;
 }
 
-.Text_Area {
+.text-area {
   border-bottom: 2px solid grey;
   background-color: #dce8eb;
 }
@@ -1960,15 +1933,6 @@ ul {
       .startup-item {
         height: 180px;
         width: 180px;
-      }
-    }
-  }
-  @media (max-width: 755px) {
-    .startups-list {
-      grid-template-columns: 1fr 1fr;
-      .startup-item {
-        height: 240px;
-        width: 240px;
       }
     }
   }
@@ -2254,7 +2218,7 @@ ul {
   }
 }
 
-.loadingGif {
+.loading-gif {
   margin: auto;
 }
 

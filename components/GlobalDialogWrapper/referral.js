@@ -51,12 +51,7 @@ export default function Referral() {
                     </div>
                 ))}
             </div>
-            {/* <button  */}
-                {/* onClick={() => dispatch(closeDialog())}  */}
-                {/* className="mt-8 w-full px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow hover:bg-blue-700 transition-colors" */}
-            {/* > */}
-                {/* Close */}
-            {/* </button> */}
+
         </div>
     );
 }
