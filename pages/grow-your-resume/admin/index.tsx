@@ -15,7 +15,7 @@ export default function AdminVerificationPanel() {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        if (username === "gyr_admin" && password === "gyr@cell_admin26") {
+        if (username === process.env.NEXT_PUBLIC_ADMIN_USERNAME && password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
             setIsAuthenticated(true);
             fetchPending();
         } else {
