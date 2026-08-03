@@ -559,7 +559,7 @@ const OpportunitiesPage = () => {
                                     {appliedOpportunities.length === 0 ? (
                                         <div className="bg-white border border-gray-200 rounded-lg p-12 text-center">
                                             <h3 className="text-xl font-semibold text-gray-900 mb-2">No applications yet</h3>
-                                            <p className="text-gray-600">You haven't applied to any opportunities yet.</p>
+                                            <p className="text-gray-600">You haven&apos;t applied to any opportunities yet.</p>
                                         </div>
                                     ) : (
                                         appliedOpportunities.map((opportunity) => (

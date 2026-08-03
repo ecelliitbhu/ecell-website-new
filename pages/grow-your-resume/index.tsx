@@ -70,7 +70,7 @@ const SipLanding = () => {
                             {/* About IIT BHU */}
                             <div className="bg-white border border-gray-200 rounded-lg p-8 text-center shadow-sm">
                                 <h3 className="text-xl font-bold text-gray-900 mb-4">About IIT BHU</h3>
-                                <p className="text-gray-600 mb-8 leading-relaxed">IIT BHU produces some of India's brightest engineering and technical talents.</p>
+                                <p className="text-gray-600 mb-8 leading-relaxed">IIT BHU produces some of India&apos;s brightest engineering and technical talents.</p>
                                 <a href="https://iitbhu.ac.in" target="_blank" rel="noopener noreferrer" className="inline-block w-full px-6 py-3 bg-[#F15A22] border border-gray-300 text-white font-medium rounded-lg hover:bg-[#ee7448] transition-colors">
                                     Visit IIT BHU Website
                                 </a>
