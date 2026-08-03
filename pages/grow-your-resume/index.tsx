@@ -3,19 +3,17 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../../components/navbar/NavLayout";
 import Footer from "../../components/Footer";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 
 const SipLanding = () => {
-    console.log("insti-out");
     const router = useRouter();
+    const toastShown = useRef(false);
 
-    // console.log(props);
-    console.log(router.query);
     useEffect(() => {
-        console.log("insti");
-        if (router.query?.error) {
+        if (router.query?.error && !toastShown.current) {
+            toastShown.current = true;
             toast.error(router.query.error.toString());
         }
     }, [router.query]);

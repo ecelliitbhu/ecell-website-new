@@ -45,17 +45,8 @@ export default function PostLogin() {
 
             if (tabParam === "student") {
                 if (roles.includes("STUDENT")) {
-                    try {
-                        const res = await fetch(`${BACKEND_URL}/students/getinfo/${user.id}`);
-                        const profile = await res.json();
-
-                        const isComplete = profile?.name && profile?.rollNo && profile?.branch && profile?.year && profile?.courseType && profile?.cpi && profile?.resumeUrl;
-
-                        router.push(isComplete ? "/grow-your-resume/student/opportunities" : "/grow-your-resume/student/profile?edit=true");
-                    } catch (err) {
-                        console.error("Profile check failed:", err);
-                        router.push("/grow-your-resume/student/profile");
-                    }
+                    // Skip profile-check fetch here — opportunities page handles it
+                    router.push("/grow-your-resume/student/opportunities");
                 } else {
                     router.push("/grow-your-resume/student/profile?edit=true");
                 }
