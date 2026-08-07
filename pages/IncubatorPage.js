@@ -43,22 +43,22 @@ const IncubatorPage = ({
         <p className="text-lg text-center sm:text-xl text-gray-700 leading-relaxed">{description}</p>
       </div>
 
-  <div className="flex flex-col-reverse sm:flex-row items-center">
+      <div className="flex flex-col-reverse sm:flex-row items-center">
         <div className="flex justify-center sm:justify-start w-full sm:w-1/2">
           <div className="shadow-md hover:shadow-xl transition duration-300 rounded-xl p-4 mt-6 w-full sm:p-8 sm:mt-8 sm:ml-6 sm:w-[95%] bg-white">
             {i3Logo && (
               <div className="flex justify-center mb-3 mr-16">
-                <Image src={i3Logo} height={100} width={100} alt="i3 logo" unoptimized/>
+                <Image src={i3Logo} height={100} width={100} alt="i3 logo" unoptimized />
               </div>
             )}
             {idaptLogo && (
               <div className="flex justify-center mb-3 mr-16">
-                <Image src={idaptLogo} height={100} width={250} alt="idapt logo" unoptimized/>
+                <Image src={idaptLogo} height={100} width={250} alt="idapt logo" unoptimized />
               </div>
             )}
             {nclLogo && (
               <div className="flex justify-center mb-2 mr-16">
-                <Image src={nclLogo} height={100} width={250} alt="ncl logo" unoptimized/>
+                <Image src={nclLogo} height={100} width={250} alt="ncl logo" unoptimized />
               </div>
             )}
 
@@ -74,7 +74,7 @@ const IncubatorPage = ({
                   {title3 && <span className="ml-2 text-[#4F4F52]">{title3}</span>}
                 </div>
               )}
-              {questionMarkSrc && <Image src={questionMarkSrc} height={30} width={20} alt="?" unoptimized/>}
+              {questionMarkSrc && <Image src={questionMarkSrc} height={30} width={20} alt="?" unoptimized />}
             </div>
 
             <p className="text-base sm:text-[1.2rem] text-[#676767]">{description2}</p>
@@ -98,7 +98,7 @@ const IncubatorPage = ({
       {i3Image && (
         <div className="flex justify-center items-center mt-10 md:mt-12 lg:mt-16">
           <div className="w-full max-w-[700px] h-auto">
-            <Image src={i3Image} alt="I3 Foundation" layout="responsive" width={700} height={700} unoptimized className="hover:scale-105 transition-transform duration-500"/>
+            <Image src={i3Image} alt="I3 Foundation" layout="responsive" width={700} height={700} unoptimized className="hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
       )}
@@ -128,12 +128,13 @@ const IncubatorPage = ({
                 className="p-6 rounded-2xl shadow-lg bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 flex flex-col items-center justify-center w-full h-[320px] hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
               >
                 <div className="w-32 h-32 bg-white rounded-xl mb-6 shadow-md flex items-center justify-center">
-                <img
-                  src={facility.image}
-                  alt={facility.title}
-                  className="max-w-full max-h-full object-contain transition-transform duration-300 "/>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={facility.image}
+                    alt={facility.title}
+                    className="max-w-full max-h-full object-contain transition-transform duration-300 " />
                 </div>
-             
+
 
                 <h3 className="text-xl font-bold text-center text-gray-900 group-hover:text-orange-600 transition-colors duration-300">{facility.title}</h3>
               </div>
@@ -180,11 +181,10 @@ const CardGrid = ({ data, colored = false }) => (
     {data.map((item, index) => (
       <div
         key={index}
-        className={`p-6 rounded-2xl shadow-lg border transition-all duration-300 hover:shadow-2xl hover:scale-105 ${
-          colored 
-            ? "bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 hover:border-orange-300" 
+        className={`p-6 rounded-2xl shadow-lg border transition-all duration-300 hover:shadow-2xl hover:scale-105 ${colored
+            ? "bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 hover:border-orange-300"
             : "bg-white border-gray-200 hover:border-orange-200"
-        }`}
+          }`}
       >
         <h3 className="text-lg font-bold sm:text-xl mb-3 text-gray-900 hover:text-orange-600 transition-colors duration-300">{item.title}</h3>
         <p className="text-sm text-gray-600 sm:text-base leading-relaxed">{item.description}</p>
@@ -203,7 +203,7 @@ const AchievementGrid = ({ data, isCompact = false }) => (
       >
         {!isCompact && (
           <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
-          {["💡", "📄", "🔥", "🚀"][index % 4]}
+            {["💡", "📄", "🔥", "🚀"][index % 4]}
           </div>
         )}
         <a
