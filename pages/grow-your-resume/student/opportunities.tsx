@@ -33,6 +33,7 @@ type SimplifiedOpportunity = {
     status?: ApplicationStatus;
     applicationMethod?: string;
     applicationLink?: string;
+    isVerified?: boolean;
 };
 
 const CARDS_PER_PAGE = 6;
