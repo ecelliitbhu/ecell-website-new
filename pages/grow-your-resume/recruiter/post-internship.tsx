@@ -120,7 +120,7 @@ const PostInternshipPage = () => {
 
         setIsSubmitting(true);
         try {
-            await postsAPI.create({
+            const response = await postsAPI.create({
                 recruiterId: currentRecruiter.id,
                 companyName: formData.companyName,
                 jobTitle: formData.jobTitle,
@@ -134,6 +134,11 @@ const PostInternshipPage = () => {
                 applicationMethod: formData.applicationMethod,
                 applicationLink: formData.applicationLink,
             });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || "Failed to post internship");
+            }
 
             toast.success("Internship posted successfully!");
             router.push("/grow-your-resume/recruiter/dashboard");
