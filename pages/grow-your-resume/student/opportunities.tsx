@@ -44,6 +44,7 @@ const OpportunitiesPage = () => {
     const [filteredOpportunities, setFilteredOpportunities] = useState<SimplifiedOpportunity[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(CARDS_PER_PAGE);
+    const [hasError, setHasError] = useState(false);
 
     const [filters, setFilters] = useState({
         search: "",
@@ -154,6 +155,7 @@ const OpportunitiesPage = () => {
         } catch (error) {
             console.error("Error loading opportunities:", error);
             toast.error("Failed to load opportunities");
+            setHasError(true);
         }
     };
 
@@ -190,6 +192,7 @@ const OpportunitiesPage = () => {
             );
         } catch (error) {
             console.error("Error loading applied opportunities:", error);
+            setHasError(true);
         }
     };
 
@@ -462,7 +465,19 @@ const OpportunitiesPage = () => {
                                     {/* Opportunities List */}
                                     <div className="flex-1">
                                         <div className="space-y-6">
-                                            {isLoading ? (
+                                            {hasError ? (
+                                                <div className="bg-white border border-red-200 rounded-lg p-12 text-center flex flex-col items-center">
+                                                    <XCircle className="w-16 h-16 text-red-400 mb-4" />
+                                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Failed to load opportunities</h3>
+                                                    <p className="text-gray-600 mb-6">There was an error communicating with the server.</p>
+                                                    <button 
+                                                        onClick={() => window.location.reload()}
+                                                        className="px-6 py-2 bg-red-50 text-red-600 border border-red-200 text-[14px] font-medium rounded-lg hover:bg-red-100 transition-colors"
+                                                    >
+                                                        Retry
+                                                    </button>
+                                                </div>
+                                            ) : isLoading ? (
                                                 // Show skeleton cards while loading
                                                 [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
                                             ) : filteredOpportunities.length === 0 ? (
@@ -510,7 +525,19 @@ const OpportunitiesPage = () => {
                                 </div>
 
                                 <div className="space-y-6">
-                                    {appliedOpportunities.length === 0 ? (
+                                    {hasError ? (
+                                        <div className="bg-white border border-red-200 rounded-lg p-12 text-center flex flex-col items-center">
+                                            <XCircle className="w-16 h-16 text-red-400 mb-4" />
+                                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Failed to load opportunities</h3>
+                                            <p className="text-gray-600 mb-6">There was an error communicating with the server.</p>
+                                            <button 
+                                                onClick={() => window.location.reload()}
+                                                className="px-6 py-2 bg-red-50 text-red-600 border border-red-200 text-[14px] font-medium rounded-lg hover:bg-red-100 transition-colors"
+                                            >
+                                                Retry
+                                            </button>
+                                        </div>
+                                    ) : appliedOpportunities.length === 0 ? (
                                         <div className="bg-white border border-gray-200 rounded-lg p-12 text-center flex flex-col items-center">
                                             <h3 className="text-xl font-semibold text-gray-900 mb-2">No applications yet</h3>
                                             <p className="text-gray-600 mb-6 max-w-md">You haven't applied to any opportunities yet. Head over to the Opportunities tab to get started!</p>
