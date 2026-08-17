@@ -7,7 +7,7 @@ import { LogOut, Edit, Plus, Trash2, Eye, X, ExternalLink } from "lucide-react";
 import useSWR from "swr";
 import { NavLogo } from "../../../components/navbar/NavLogo";
 import { useRouter } from "next/navigation";
-import { postsAPI, applicationsAPI } from "../../../lib/api";
+import { postsAPI, applicationsAPI, recruitersAPI } from "../../../lib/api";
 import { getRecruiterId } from "../../../lib/auth";
 import { signOut } from "next-auth/react";
 import { toast } from "react-hot-toast";
@@ -47,7 +47,7 @@ const RecruiterDashboard = () => {
 
     const { data: appsResponse, isLoading: isAppsLoading, mutate: mutateApps, error: appsError } = useSWR(
         selectedPosting ? `/applications/post/${selectedPosting.id}` : null,
-        () => applicationsAPI.getForPost(selectedPosting.id)
+        () => applicationsAPI.getForPost(selectedPosting?.id)
     );
     const applications = appsResponse?.data || appsResponse || [];
 
@@ -65,17 +65,7 @@ const RecruiterDashboard = () => {
                 return null;
             }
 
-            const response = await fetch(`${BACKEND_URL}/recruiters/getinfo/${recruiterId}`);
-            const data = await response.json();
-
-            if (!response.ok) {
-                if (data.error === "RECRUITER_NOT_FOUND") {
-                    toast.error(data.message);
-                    await signOut({ redirect: false });
-                    router.push(data.redirectTo);
-                    return null;
-                }
-            }
+            const data = await recruitersAPI.getProfile(recruiterId);
 
             setCurrentRecruiter(data); // still set it in state for other components
             // console.log(data);
@@ -172,7 +162,7 @@ const RecruiterDashboard = () => {
         }
     }
 
-    if (isLoading) {
+    if (isPostsLoading) {
         return (
             <div className="min-h-screen bg-white flex items-center justify-center">
                 <div className="text-center">
@@ -239,7 +229,7 @@ const RecruiterDashboard = () => {
         );
     }
 
-    if (error) {
+    if (postsError) {
         return (
             <div className="min-h-screen bg-white flex items-center justify-center">
                 <div className="text-center">
@@ -247,15 +237,9 @@ const RecruiterDashboard = () => {
                         <X className="w-16 h-16 mx-auto" />
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Error Loading Dashboard</h3>
-                    <p className="text-gray-600 mb-4">{error}</p>
+                    <p className="text-gray-600 mb-4">{postsError?.message || "Failed to load"}</p>
                     <button
-                        onClick={async () => {
-                            setError(null);
-                            const recruiter = await loadRecruiterData();
-                            if (recruiter) {
-                                await loadDashboardData(recruiter);
-                            }
-                        }}
+                        onClick={() => mutatePosts()}
                         className="px-4 py-2 bg-[#f56a38] text-white rounded-lg hover:bg-[#e55a32] transition-colors"
                     >
                         Try Again
@@ -613,7 +597,7 @@ const RecruiterDashboard = () => {
                                             });
 
                                             // Update local state
-                                            setPostings((prev) => prev.map((p) => (p.id === editingPosting.id ? editingPosting : p)));
+                                            await mutatePosts();
                                             setIsEditing(false);
 
                                             toast.success("Posting updated successfully!");
