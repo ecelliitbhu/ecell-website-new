@@ -325,7 +325,7 @@ const RecruiterDashboard = () => {
                                         </Link>
                                     </div>
                                 ) : (
-                                    postings.map((posting) => (
+                                    postings.map((posting: Post) => (
                                         <div key={posting.id} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                                             <div className="flex justify-between items-start">
                                                 <div className="flex-1">
@@ -357,7 +357,7 @@ const RecruiterDashboard = () => {
                                                     <div className="mb-4">
                                                         <span className="font-medium text-sm text-gray-700">Skills:</span>
                                                         <div className="flex flex-wrap gap-2 mt-2">
-                                                            {posting.requiredSkills?.map((skill, index) => (
+                                                            {posting.requiredSkills?.map((skill: string, index: number) => (
                                                                 <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
                                                                     {skill}
                                                                 </span>
