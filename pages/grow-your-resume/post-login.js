@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { getSession, signOut } from "next-auth/react";
 import { getStoredUser } from "../../lib/auth";
+import { recruitersAPI } from "../../lib/api";
 import { toast } from "react-hot-toast";
 import { query } from "firebase/database";
 
@@ -53,8 +54,7 @@ export default function PostLogin() {
             } else if (tabParam === "recruiter") {
                 if (roles.includes("RECRUITER")) {
                     try {
-                        const res = await fetch(`${BACKEND_URL}/recruiters/getinfo/${user.id}`);
-                        const profile = await res.json();
+                        const profile = await recruitersAPI.getProfile(user.id);
 
                         const isComplete = profile?.companyName && profile?.websiteUrl;
 

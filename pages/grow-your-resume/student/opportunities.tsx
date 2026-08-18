@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Search, LogOut, CheckCircle, Clock, X, XCircle } from "lucide-react";
 import { NavLogo } from "../../../components/navbar/NavLogo";
 import { useRouter } from "next/navigation";
-import { postsAPI, applicationsAPI } from "../../../lib/api";
+import { postsAPI, applicationsAPI, studentsAPI } from "../../../lib/api";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import { Application, Post, Student, JobType } from "../../../lib/types";
@@ -80,16 +80,7 @@ const OpportunitiesPage = () => {
             const loadStudentData = async () => {
                 try {
                     if (studentId) {
-                        const response = await fetch(`${BACKEND_URL}/students/getinfo/${studentId}`);
-                        const student = await response.json();
-                        if (!response.ok) {
-                            if (student.error === "STUDENT_NOT_FOUND") {
-                                toast.error(student.message);
-                                await signOut({ redirect: false });
-                                router.push(student.redirectTo);
-                                return;
-                            }
-                        }
+                        const student = await studentsAPI.getProfile(studentId);
                         setCurrentStudent(student);
                         const isComplete = student?.rollNo && student?.branch && student?.year && student?.courseType && student?.cpi && student?.resumeUrl;
                         if (!isComplete) {
@@ -98,8 +89,13 @@ const OpportunitiesPage = () => {
                             return;
                         }
                     }
-                } catch (error) {
+                } catch (error: any) {
                     console.error("Error loading student data:", error);
+                    if (error.response?.data?.error === "STUDENT_NOT_FOUND") {
+                        toast.error(error.response.data.message);
+                        await signOut({ redirect: false });
+                        router.push(error.response.data.redirectTo);
+                    }
                 }
             };
 
@@ -123,7 +119,8 @@ const OpportunitiesPage = () => {
             let appliedPostIds: string[] = [];
             if (sid) {
                 try {
-                    const applications = await applicationsAPI.getAll({ studentId: sid });
+                    const appsRes = await applicationsAPI.getAll({ studentId: sid });
+                    const applications = appsRes.data ? appsRes.data : appsRes;
                     appliedPostIds = applications.map((app: Application) => app.postId);
                 } catch (error) {
                     console.error("Error loading applications:", error);
@@ -131,8 +128,10 @@ const OpportunitiesPage = () => {
                 }
             }
 
+            const postsData = posts.data ? posts.data : posts;
+
             // Filter out already applied opportunities
-            const availablePosts = posts.filter((post: Post) => !appliedPostIds.includes(post.id));
+            const availablePosts = postsData.filter((post: Post) => !appliedPostIds.includes(post.id));
 
             setOpportunities(
                 availablePosts.map((post: Post) => ({
@@ -168,7 +167,8 @@ const OpportunitiesPage = () => {
                 return;
             }
 
-            const applications = await applicationsAPI.getAll({ studentId: sid });
+            const applicationsRes = await applicationsAPI.getAll({ studentId: sid });
+            const applications = applicationsRes.data ? applicationsRes.data : applicationsRes;
             // console.log("applications: ",applications)
             setAppliedOpportunities(
                 applications.map((app: Application) => ({
