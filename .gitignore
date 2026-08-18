@@ -45,3 +45,4 @@ env
 package-lock.json
 yarn.lock
 /generated/prisma
+.env*
