@@ -63,15 +63,7 @@ const Evaluation = ({
 };
 
 const AddEvaluation = () => {
-  // const { superAdminUserName, superAdminToken, logoutSuperAdmin } = useAuth();
-  // console.log(superAdminToken)
-  // useEffect(() => {
-  //   if (!superAdminToken) Router.replace("/adminlogin");
-  // });
-  function logout(e) {
-    e.preventDefault();
-    // logoutSuperAdmin();
-  }
+
   const initialEventState = {
     title: "",
     poster: "",

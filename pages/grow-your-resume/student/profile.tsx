@@ -454,6 +454,9 @@ const ProfilePage = () => {
                                             </div>
                                         )}
                                         <p className="text-sm text-gray-500 mt-1">Link to your resume (Google Drive, Dropbox, etc.)</p>
+                                        <p className="text-sm text-red-500 font-medium mt-2">
+                                            Note: Please ensure your Drive link access is set to &apos;Anyone with the link can view&apos;. Startups will reject your application if they cannot open your resume.
+                                        </p>
                                     </div>
                                 </div>
                             </div>

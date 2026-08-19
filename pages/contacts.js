@@ -137,8 +137,6 @@ export default function Contacts() {
               style={{
                 margin: "0px auto",
                 gap: "0px",
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
                 width: "280px",
               }}
             >
