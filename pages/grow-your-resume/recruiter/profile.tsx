@@ -140,20 +140,7 @@ const ProfilePage = () => {
             const roles = user.roles;
             if (!roles?.includes("RECRUITER")) {
                 try {
-                    const res = await fetch(`${BACKEND_URL}/recruiters/register`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
-                    });
-
-                    if (!res.ok) {
-                        const error = await res.json();
-                        console.error("Failed to create recruiter:", error);
-                        // Handle error UI or rethrow if needed
-                        throw new Error(error.message || "Failed to create recruiter");
-                    }
+                    await recruitersAPI.register(data);
                     const updatedRoles = Array.from(new Set([...(roles || []), "RECRUITER"]));
                     const profileData = {
                         companyName: editData.companyName || "",
