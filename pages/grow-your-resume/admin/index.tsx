@@ -5,17 +5,30 @@ import Head from "next/head";
 import { recruitersAPI } from "../../../lib/api";
 import { toast } from "react-hot-toast";
 import { NavLogo } from "../../../components/navbar/NavLogo";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function AdminVerificationPanel() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [pendingRecruiters, setPendingRecruiters] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        if (username === process.env.NEXT_PUBLIC_ADMIN_USERNAME && password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+        
+        // Debugging to see what env values actually are
+        console.log("Expected Username:", process.env.NEXT_PUBLIC_ADMIN_USERNAME);
+        console.log("Expected Password:", process.env.NEXT_PUBLIC_ADMIN_PASSWORD);
+        console.log("Typed Username:", username);
+        console.log("Typed Password:", password);
+
+        // Strip quotes if they were accidentally preserved
+        const expectedUser = process.env.NEXT_PUBLIC_ADMIN_USERNAME?.replace(/"/g, '');
+        const expectedPass = process.env.NEXT_PUBLIC_ADMIN_PASSWORD?.replace(/"/g, '');
+
+        if (username === expectedUser && password === expectedPass) {
             setIsAuthenticated(true);
             fetchPending();
         } else {
@@ -48,6 +61,13 @@ export default function AdminVerificationPanel() {
         }
     };
 
+    const handleLogout = () => {
+        setIsAuthenticated(false);
+        setUsername("");
+        setPassword("");
+        setShowPassword(false);
+    };
+
     if (!isAuthenticated) {
         return (
             <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -75,8 +95,11 @@ export default function AdminVerificationPanel() {
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">Password</label>
-                                <div className="mt-1">
-                                    <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#f56a38] focus:border-[#f56a38] sm:text-sm" />
+                                <div className="mt-1 relative rounded-md shadow-sm">
+                                    <input type={showPassword ? "text" : "password"} required value={password} onChange={e => setPassword(e.target.value)} className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#f56a38] focus:border-[#f56a38] sm:text-sm pr-10" />
+                                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
+                                        {showPassword ? <EyeOff className="h-5 w-5 text-gray-400" /> : <Eye className="h-5 w-5 text-gray-400" />}
+                                    </div>
                                 </div>
                             </div>
 
@@ -108,7 +131,7 @@ export default function AdminVerificationPanel() {
                                 <NavLogo />
                                 <h1 className="text-xl font-bold ml-4">GYR Admin Panel</h1>
                             </div>
-                            <button onClick={() => setIsAuthenticated(false)} className="px-4 py-2 text-black hover:bg-gray-100 rounded transition-colors">
+                            <button onClick={handleLogout} className="px-4 py-2 text-black hover:bg-gray-100 rounded transition-colors">
                                 Logout
                             </button>
                         </div>
