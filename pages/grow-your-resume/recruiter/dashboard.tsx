@@ -34,6 +34,7 @@ const RecruiterDashboard = () => {
         verified: false,
     });
     const [error, setError] = useState<string | null>(null);
+    const [isLoadingRecruiter, setIsLoadingRecruiter] = useState(true);
 
     const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -80,6 +81,8 @@ const RecruiterDashboard = () => {
             console.error("Error loading recruiter data:", error);
             toast.error("Failed to load recruiter profile");
             return null;
+        } finally {
+            setIsLoadingRecruiter(false);
         }
     };
 
@@ -160,6 +163,17 @@ const RecruiterDashboard = () => {
             default:
                 return "th";
         }
+    }
+
+    if (isLoadingRecruiter) {
+        return (
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#f56a38] mx-auto"></div>
+                    <p className="mt-4 text-gray-600">Loading dashboard...</p>
+                </div>
+            </div>
+        );
     }
 
     if (isPostsLoading) {
