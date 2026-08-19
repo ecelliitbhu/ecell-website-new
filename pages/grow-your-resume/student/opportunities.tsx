@@ -6,12 +6,14 @@ import Link from "next/link";
 import { Search, LogOut, CheckCircle, Clock, X, XCircle } from "lucide-react";
 import { NavLogo } from "../../../components/navbar/NavLogo";
 import { useRouter } from "next/navigation";
-import { postsAPI, applicationsAPI } from "../../../lib/api";
-import { getStudentId } from "../../../lib/auth";
-import { signOut } from "next-auth/react";
+import { postsAPI, applicationsAPI, studentsAPI } from "../../../lib/api";
+import { signOut, useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import { Application, Post, Student, JobType } from "../../../lib/types";
-import ReactMarkdown from "react-markdown";
+import dynamic from "next/dynamic";
+import OpportunityCard from "../../../components/OpportunityCard";
+import SkeletonCard from "../../../components/SkeletonCard";
+
 type ApplicationStatus = "pending" | "accepted" | "rejected";
 type SimplifiedOpportunity = {
     id: string;
@@ -31,13 +33,19 @@ type SimplifiedOpportunity = {
     status?: ApplicationStatus;
     applicationMethod?: string;
     applicationLink?: string;
+    isVerified?: boolean;
 };
+
+const CARDS_PER_PAGE = 6;
 
 const OpportunitiesPage = () => {
     const [activeTab, setActiveTab] = useState("opportunities");
     const [appliedOpportunities, setAppliedOpportunities] = useState<SimplifiedOpportunity[]>([]);
     const [opportunities, setOpportunities] = useState<SimplifiedOpportunity[]>([]);
     const [filteredOpportunities, setFilteredOpportunities] = useState<SimplifiedOpportunity[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [visibleCount, setVisibleCount] = useState(CARDS_PER_PAGE);
+    const [hasError, setHasError] = useState(false);
 
     const [filters, setFilters] = useState({
         search: "",
@@ -58,52 +66,61 @@ const OpportunitiesPage = () => {
         resumeUrl: "",
     });
     const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-
+    const { data: session, status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
-        const loadStudentData = async () => {
-            try {
-                const studentId = await getStudentId();
-                if (studentId) {
-                    const response = await fetch(`${BACKEND_URL}/students/getinfo/${studentId}`);
-                    const student = await response.json();
-                    if (!response.ok) {
-                        if (student.error === "STUDENT_NOT_FOUND") {
-                            toast.error(student.message); // Optional: show message
-                            await signOut({ redirect: false }); // don't auto-redirect
-                            router.push(student.redirectTo); // send user to recruiter login
+        // Wait until session is loaded from cache — no network call needed
+        if (status !== "authenticated") return;
+        const studentId = (session?.user as any)?.id as string | null;
+
+        const init = async () => {
+            setIsLoading(true);
+
+            const loadStudentData = async () => {
+                try {
+                    if (studentId) {
+                        const student = await studentsAPI.getProfile(studentId);
+                        setCurrentStudent(student);
+                        const isComplete = student?.rollNo && student?.branch && student?.year && student?.courseType && student?.cpi && student?.resumeUrl;
+                        if (!isComplete) {
+                            toast.error("Complete profile");
+                            router.push("/grow-your-resume/student/profile?edit=true");
                             return;
                         }
                     }
-                    setCurrentStudent(student);
-                    const isComplete = student?.rollNo && student?.branch && student?.year && student?.courseType && student?.cpi && student?.resumeUrl;
-
-                    if (!isComplete) {
-                        toast.error("Complete profile");
-                        router.push("/grow-your-resume/student/profile?edit=true");
-                        return;
+                } catch (error: any) {
+                    console.error("Error loading student data:", error);
+                    if (error.response?.data?.error === "STUDENT_NOT_FOUND") {
+                        toast.error(error.response.data.message);
+                        await signOut({ redirect: false });
+                        router.push(error.response.data.redirectTo);
                     }
                 }
-            } catch (error) {
-                console.error("Error loading student data:", error);
-            }
-        };
-        loadStudentData();
-        loadOpportunities();
-        loadAppliedOpportunities();
-    }, []);
+            };
 
-    const loadOpportunities = async () => {
+            // Run all 3 in parallel — studentId already in memory, no network call
+            await Promise.all([
+                loadStudentData(),
+                loadOpportunities(studentId),
+                loadAppliedOpportunities(studentId),
+            ]);
+            setIsLoading(false);
+        };
+        init();
+    }, [status]);
+
+    const loadOpportunities = async (studentId?: string | null) => {
         try {
             const posts = await postsAPI.getAll();
-            const studentId = await getStudentId();
+            const sid = studentId ?? null;
 
             // Get student's applications to filter out already applied opportunities
-            let appliedPostIds = [];
-            if (studentId) {
+            let appliedPostIds: string[] = [];
+            if (sid) {
                 try {
-                    const applications = await applicationsAPI.getAll({ studentId });
+                    const appsRes = await applicationsAPI.getAll({ studentId: sid });
+                    const applications = appsRes.data ? appsRes.data : appsRes;
                     appliedPostIds = applications.map((app: Application) => app.postId);
                 } catch (error) {
                     console.error("Error loading applications:", error);
@@ -111,8 +128,10 @@ const OpportunitiesPage = () => {
                 }
             }
 
+            const postsData = posts.data ? posts.data : posts;
+
             // Filter out already applied opportunities
-            const availablePosts = posts.filter((post: Post) => !appliedPostIds.includes(post.id));
+            const availablePosts = postsData.filter((post: Post) => !appliedPostIds.includes(post.id));
 
             setOpportunities(
                 availablePosts.map((post: Post) => ({
@@ -127,26 +146,29 @@ const OpportunitiesPage = () => {
                     skills: post.requiredSkills,
                     description: post.jobDescription,
                     applied: false,
-                    postedDate: post.createdAt,
+                    postedDate: post.createdAt || new Date().toISOString(),
                     applicationMethod: post.applicationMethod || "NATIVE",
                     applicationLink: post.applicationLink,
+                    isVerified: true, // Placeholder for backend verification logic
                 }))
             );
         } catch (error) {
             console.error("Error loading opportunities:", error);
             toast.error("Failed to load opportunities");
+            setHasError(true);
         }
     };
 
-    const loadAppliedOpportunities = async () => {
+    const loadAppliedOpportunities = async (studentId?: string | null) => {
         try {
-            const studentId = await getStudentId();
-            if (!studentId) {
+            const sid = studentId ?? null;
+            if (!sid) {
                 console.error("No student ID found");
                 return;
             }
 
-            const applications = await applicationsAPI.getAll({ studentId });
+            const applicationsRes = await applicationsAPI.getAll({ studentId: sid });
+            const applications = applicationsRes.data ? applicationsRes.data : applicationsRes;
             // console.log("applications: ",applications)
             setAppliedOpportunities(
                 applications.map((app: Application) => ({
@@ -162,14 +184,16 @@ const OpportunitiesPage = () => {
                     skills: app.post.requiredSkills,
                     description: app.post.jobDescription,
                     applied: true,
-                    appliedDate: app.appliedAt,
+                    appliedAt: app.appliedAt, // Mapped properly
                     status: app.status.toLowerCase(),
                     applicationMethod: app.post?.applicationMethod || "NATIVE",
                     applicationLink: app.post?.applicationLink,
+                    isVerified: true, // Placeholder for backend verification logic
                 }))
             );
         } catch (error) {
             console.error("Error loading applied opportunities:", error);
+            setHasError(true);
         }
     };
 
@@ -216,7 +240,7 @@ const OpportunitiesPage = () => {
 
     const handleApply = async (opportunityId: any) => {
         try {
-            const studentId = await getStudentId();
+            const studentId = (session?.user as any)?.id as string | null;
             if (!studentId) {
                 toast.error("Please log in to apply");
                 router.push("/grow-your-resume/login");
@@ -266,6 +290,7 @@ const OpportunitiesPage = () => {
                     status: "pending",
                     applicationMethod: appliedOpportunity.applicationMethod,
                     applicationLink: appliedOpportunity.applicationLink,
+                    isVerified: appliedOpportunity.isVerified,
                 };
 
                 setAppliedOpportunities((prev) => [...prev, newApplication]);
@@ -441,67 +466,51 @@ const OpportunitiesPage = () => {
                                     {/* Opportunities List */}
                                     <div className="flex-1">
                                         <div className="space-y-6">
-                                            {filteredOpportunities.length === 0 ? (
+                                            {hasError ? (
+                                                <div className="bg-white border border-red-200 rounded-lg p-12 text-center flex flex-col items-center">
+                                                    <XCircle className="w-16 h-16 text-red-400 mb-4" />
+                                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Failed to load opportunities</h3>
+                                                    <p className="text-gray-600 mb-6">There was an error communicating with the server.</p>
+                                                    <button 
+                                                        onClick={() => window.location.reload()}
+                                                        className="px-6 py-2 bg-red-50 text-red-600 border border-red-200 text-[14px] font-medium rounded-lg hover:bg-red-100 transition-colors"
+                                                    >
+                                                        Retry
+                                                    </button>
+                                                </div>
+                                            ) : isLoading ? (
+                                                // Show skeleton cards while loading
+                                                [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
+                                            ) : filteredOpportunities.length === 0 ? (
                                                 <div className="bg-white border border-gray-200 rounded-lg p-12 text-center">
                                                     <div className="text-gray-400 mb-4">
                                                         <Search className="w-16 h-16 mx-auto" />
                                                     </div>
                                                     <h3 className="text-xl font-semibold text-gray-900 mb-2">No opportunities found</h3>
-                                                    <p className="text-gray-600">Try adjusting your filters to find more opportunities.</p>
+                                                    <p className="text-gray-600">No opportunities match your current filters. Clear filters or check back later.</p>
                                                 </div>
                                             ) : (
-                                                filteredOpportunities.map((opportunity) => (
-                                                    <div key={opportunity.id} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                                                        <div className="flex justify-between items-start">
-                                                            <div className="flex-1">
-                                                                <h3 className="text-xl font-bold text-gray-900 mb-2">{opportunity.title}</h3>
+                                                <>
+                                                    {filteredOpportunities.slice(0, visibleCount).map((opportunity) => (
+                                                        <OpportunityCard 
+                                                            key={opportunity.id} 
+                                                            opportunity={opportunity as any} 
+                                                            onApply={handleApply} 
+                                                        />
+                                                    ))}
 
-                                                                <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
-                                                                    <div>
-                                                                        <span className="font-medium">Qualification:</span> {opportunity.qualification}
-                                                                    </div>
-                                                                    <div>
-                                                                        <span className="font-medium">Experience:</span> {opportunity.experience}
-                                                                    </div>
-                                                                    <div>
-                                                                        <span className="font-medium">Stipend:</span> {opportunity.stipend}
-                                                                    </div>
-                                                                    <div>
-                                                                        <span className="font-medium">Type:</span> {opportunity.type}
-                                                                    </div>
-                                                                    <div>
-                                                                        <span className="font-medium">Location:</span> {opportunity.location}
-                                                                    </div>
-                                                                </div>
-
-                                                                <div className="mb-4">
-                                                                    <span className="font-medium text-sm text-gray-700">Skills:</span>
-                                                                    <div className="flex flex-wrap gap-2 mt-2">
-                                                                        {opportunity.skills?.map((skill, index) => (
-                                                                            <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
-                                                                                {skill}
-                                                                            </span>
-                                                                        ))}
-                                                                    </div>
-                                                                </div>
-
-                                                                {/* <p className="text-gray-700 text-sm">
-                                  {opportunity.description}
-                                </p> */}
-                                                                <ReactMarkdown>{opportunity.description}</ReactMarkdown>
-                                                            </div>
-
-                                                            <div className="ml-6">
-                                                                <button
-                                                                    onClick={() => handleApply(opportunity.id)}
-                                                                    className="px-6 py-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
-                                                                >
-                                                                    Apply
-                                                                </button>
-                                                            </div>
+                                                    {/* Load More button */}
+                                                    {visibleCount < filteredOpportunities.length && (
+                                                        <div className="text-center pt-4">
+                                                            <button
+                                                                onClick={() => setVisibleCount((c) => c + CARDS_PER_PAGE)}
+                                                                className="px-8 py-3 border border-[#f56a38] text-[#f56a38] rounded-lg font-medium hover:bg-[#f56a38] hover:text-white transition-colors"
+                                                            >
+                                                                Load More ({filteredOpportunities.length - visibleCount} remaining)
+                                                            </button>
                                                         </div>
-                                                    </div>
-                                                ))
+                                                    )}
+                                                </>
                                             )}
                                         </div>
                                     </div>
@@ -517,61 +526,36 @@ const OpportunitiesPage = () => {
                                 </div>
 
                                 <div className="space-y-6">
-                                    {appliedOpportunities.length === 0 ? (
-                                        <div className="bg-white border border-gray-200 rounded-lg p-12 text-center">
+                                    {hasError ? (
+                                        <div className="bg-white border border-red-200 rounded-lg p-12 text-center flex flex-col items-center">
+                                            <XCircle className="w-16 h-16 text-red-400 mb-4" />
+                                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Failed to load opportunities</h3>
+                                            <p className="text-gray-600 mb-6">There was an error communicating with the server.</p>
+                                            <button 
+                                                onClick={() => window.location.reload()}
+                                                className="px-6 py-2 bg-red-50 text-red-600 border border-red-200 text-[14px] font-medium rounded-lg hover:bg-red-100 transition-colors"
+                                            >
+                                                Retry
+                                            </button>
+                                        </div>
+                                    ) : appliedOpportunities.length === 0 ? (
+                                        <div className="bg-white border border-gray-200 rounded-lg p-12 text-center flex flex-col items-center">
                                             <h3 className="text-xl font-semibold text-gray-900 mb-2">No applications yet</h3>
-                                            <p className="text-gray-600">You haven't applied to any opportunities yet.</p>
+                                            <p className="text-gray-600 mb-6 max-w-md">You haven't applied to any opportunities yet. Head over to the Opportunities tab to get started!</p>
+                                            <button 
+                                                onClick={() => setActiveTab("opportunities")}
+                                                className="px-6 py-2 bg-[#f56a38] text-white text-[14px] font-medium rounded-lg hover:bg-[#e55a32] transition-colors"
+                                            >
+                                                Browse Opportunities
+                                            </button>
                                         </div>
                                     ) : (
                                         appliedOpportunities.map((opportunity) => (
-                                            <div key={opportunity.id} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                                                <div className="flex justify-between items-start">
-                                                    <div className="flex-1">
-                                                        <div className="flex items-center mb-2">
-                                                            <h3 className="text-xl font-bold text-gray-900 mr-3">{opportunity.title}</h3>
-                                                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Applied</span>
-                                                        </div>
-
-                                                        <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
-                                                            <div>
-                                                                <span className="font-medium">Company:</span> {opportunity.company}
-                                                            </div>
-                                                            <div>
-                                                                <span className="font-medium">Applied Date:</span> {new Date(opportunity.appliedAt ?? Date.now()).toLocaleDateString()}
-                                                            </div>
-                                                            <div>
-                                                                <span className="font-medium">Stipend:</span> {opportunity.stipend}
-                                                            </div>
-                                                            <div>
-                                                                <span className="font-medium">Location:</span> {opportunity.location}
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="mb-4">
-                                                            <span className="font-medium text-sm text-gray-700">Skills:</span>
-                                                            <div className="flex flex-wrap gap-2 mt-2">
-                                                                {opportunity.skills?.map((skill, index) => (
-                                                                    <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
-                                                                        {skill}
-                                                                    </span>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-
-                                                        <p className="text-gray-700 text-sm mb-4">{opportunity.description}</p>
-                                                    </div>
-
-                                                    <div className="ml-6 flex flex-col items-end space-y-3">
-                                                        <div className="text-center">{getStatusBadge(opportunity.status?.toLowerCase() as ApplicationStatus)}</div>
-                                                        {opportunity.status?.toLowerCase() !== "rejected" && (
-                                                            <button onClick={() => handleWithdraw(opportunity.id)} className="flex items-center px-4 py-2 text-red-600 border border-red-300 rounded-lg hover:bg-red-50 transition-colors">
-                                                                <X className="w-4 h-4 mr-2" />
-                                                                Withdraw
-                                                            </button>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <OpportunityCard 
+                                                key={opportunity.id} 
+                                                opportunity={opportunity as any} 
+                                                onWithdraw={handleWithdraw} 
+                                            />
                                         ))
                                     )}
                                 </div>

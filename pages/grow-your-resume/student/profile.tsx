@@ -6,7 +6,7 @@ import Link from "next/link";
 import { LogOut, Save, Edit, X } from "lucide-react";
 import { NavLogo } from "../../../components/navbar/NavLogo";
 import { useRouter } from "next/router";
-import { studentsAPI } from "../../../lib/api";
+import { studentsAPI, usersAPI } from "../../../lib/api";
 import { getStudentId, getStoredUser } from "../../../lib/auth";
 import { toast } from "react-hot-toast";
 import { UserWithRoles } from "../../../lib/types";
@@ -54,13 +54,12 @@ const ProfilePage = () => {
             const user = rawUser as UserWithRoles;
             const roles = user.roles || [];
             if (roles.includes("STUDENT")) {
-                const response = await fetch(`${BACKEND_URL}/students/getinfo/${user.id}`);
-                const student = await response.json();
+                const student = await studentsAPI.getProfile(user.id);
                 const profileData = {
                     name: student.name,
                     rollNumber: student.rollNo,
-                    emailId: student.user.email,
-                    cpi: student.cpi.toString(),
+                    emailId: student.user?.email || "",
+                    cpi: student.cpi?.toString() || "",
                     branch: student.branch,
                     linkedinLink: student.linkedinUrl || "",
                     githubLink: student.githubUrl || "",
@@ -77,8 +76,7 @@ const ProfilePage = () => {
                     return;
                 }
                 const user = rawUser as UserWithRoles;
-                const response = await fetch(`${BACKEND_URL}/users/getid/${user.id}`);
-                const defaultUser = await response.json();
+                const defaultUser = await usersAPI.getProfile(user.id);
                 const profileData = {
                     name: "",
                     rollNumber: "",

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { getSession, signOut } from "next-auth/react";
 import { getStoredUser } from "../../lib/auth";
+import { recruitersAPI } from "../../lib/api";
 import { toast } from "react-hot-toast";
 import { query } from "firebase/database";
 
@@ -45,25 +46,15 @@ export default function PostLogin() {
 
             if (tabParam === "student") {
                 if (roles.includes("STUDENT")) {
-                    try {
-                        const res = await fetch(`${BACKEND_URL}/students/getinfo/${user.id}`);
-                        const profile = await res.json();
-
-                        const isComplete = profile?.name && profile?.rollNo && profile?.branch && profile?.year && profile?.courseType && profile?.cpi && profile?.resumeUrl;
-
-                        router.push(isComplete ? "/grow-your-resume/student/opportunities" : "/grow-your-resume/student/profile?edit=true");
-                    } catch (err) {
-                        console.error("Profile check failed:", err);
-                        router.push("/grow-your-resume/student/profile");
-                    }
+                    // Skip profile-check fetch here — opportunities page handles it
+                    router.push("/grow-your-resume/student/opportunities");
                 } else {
                     router.push("/grow-your-resume/student/profile?edit=true");
                 }
             } else if (tabParam === "recruiter") {
                 if (roles.includes("RECRUITER")) {
                     try {
-                        const res = await fetch(`${BACKEND_URL}/recruiters/getinfo/${user.id}`);
-                        const profile = await res.json();
+                        const profile = await recruitersAPI.getProfile(user.id);
 
                         const isComplete = profile?.companyName && profile?.websiteUrl;
 

@@ -55,6 +55,14 @@ export default async function auth(req, res) {
                     token.id = user.id;
                     token.roles = user.roles;
                     token.roleData = user.roleData;
+
+                    // Create a standard JWT for the Express backend to consume
+                    const jwtLib = require("jsonwebtoken");
+                    token.backendToken = jwtLib.sign(
+                        { id: user.id, roles: user.roles, roleData: user.roleData },
+                        process.env.NEXTAUTH_SECRET,
+                        { expiresIn: "30d" }
+                    );
                 }
                 if (trigger === "update" && session?.user?.roles) {
                     token.roles = session.user.roles;
@@ -66,6 +74,7 @@ export default async function auth(req, res) {
                 session.user.id = token.id;
                 session.user.roles = token.roles;
                 session.user.roleData = token.roleData;
+                session.jwtToken = token.backendToken; // Expose the JWT to the client interceptor
                 return session;
             },
         },

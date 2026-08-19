@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { LogOut, Edit, Plus, Trash2, Eye, X, ExternalLink } from "lucide-react";
+import useSWR from "swr";
 import { NavLogo } from "../../../components/navbar/NavLogo";
 import { useRouter } from "next/navigation";
-import { postsAPI, applicationsAPI } from "../../../lib/api";
+import { postsAPI, applicationsAPI, recruitersAPI } from "../../../lib/api";
 import { getRecruiterId } from "../../../lib/auth";
 import { signOut } from "next-auth/react";
 import { toast } from "react-hot-toast";
@@ -14,14 +15,11 @@ import { Recruiter, Post, Application, Student, JobType } from "../../../lib/typ
 
 const RecruiterDashboard = () => {
     const [activeTab, setActiveTab] = useState("postings");
-    const [postings, setPostings] = useState<Post[]>([]);
-    const [applications, setApplications] = useState<Application[]>([]);
     const [selectedPosting, setSelectedPosting] = useState<Post | null>(null);
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
     const [showStudentModal, setShowStudentModal] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [editingPosting, setEditingPosting] = useState<Post | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
     const [currentRecruiter, setCurrentRecruiter] = useState({
         id: "",
         companyName: "",
@@ -40,14 +38,21 @@ const RecruiterDashboard = () => {
     const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     const router = useRouter();
+
+    const { data: postsResponse, isLoading: isPostsLoading, mutate: mutatePosts, error: postsError } = useSWR(
+        currentRecruiter.id ? "/posts/recruiter" : null,
+        postsAPI.getForRecruiter
+    );
+    const postings = postsResponse?.data || postsResponse || [];
+
+    const { data: appsResponse, isLoading: isAppsLoading, mutate: mutateApps, error: appsError } = useSWR(
+        selectedPosting ? `/applications/post/${selectedPosting.id}` : null,
+        () => applicationsAPI.getForPost(selectedPosting?.id)
+    );
+    const applications = appsResponse?.data || appsResponse || [];
+
     useEffect(() => {
-        const loadData = async () => {
-            const recruiter = await loadRecruiterData();
-            if (recruiter) {
-                await loadDashboardData(recruiter);
-            }
-        };
-        loadData();
+        loadRecruiterData();
     }, []);
 
     const loadRecruiterData = async () => {
@@ -60,17 +65,7 @@ const RecruiterDashboard = () => {
                 return null;
             }
 
-            const response = await fetch(`${BACKEND_URL}/recruiters/getinfo/${recruiterId}`);
-            const data = await response.json();
-
-            if (!response.ok) {
-                if (data.error === "RECRUITER_NOT_FOUND") {
-                    toast.error(data.message);
-                    await signOut({ redirect: false });
-                    router.push(data.redirectTo);
-                    return null;
-                }
-            }
+            const data = await recruitersAPI.getProfile(recruiterId);
 
             setCurrentRecruiter(data); // still set it in state for other components
             // console.log(data);
@@ -88,86 +83,16 @@ const RecruiterDashboard = () => {
         }
     };
 
-    const loadDashboardData = async (recruiter: Recruiter) => {
-        try {
-            setIsLoading(true);
-            setError(null);
-            console.log("Fetching all posts...");
-            const posts = await postsAPI.getAll();
-            console.log("All posts received:", posts.length);
-
-            const recruiterPosts = posts.filter((post: Post) => {
-                return post.recruiterId === recruiter.id;
-            });
-
-            const formattedPosts = recruiterPosts.map((post: Post) => ({
-                id: post.id,
-                jobTitle: post.jobTitle,
-                companyName: post.companyName,
-                location: post.location,
-                jobType: post.jobType,
-                stipend: post.stipend,
-                requiredSkills: Array.isArray(post.requiredSkills) ? post.requiredSkills : [],
-                applicationCount: post.applications?.length || 0,
-                applications: post.applications,
-                createdAt: post.createdAt,
-                jobDescription: post.jobDescription,
-                qualification: post.qualification,
-                experience: post.experience,
-            }));
-
-            setPostings(formattedPosts);
-
-            // Load applications for recruiter's posts
-            console.log("Fetching all applications...");
-            const allApplications = await applicationsAPI.getAll();
-            console.log("All applications received:", allApplications.length);
-
-            const recruiterApplications = allApplications.filter((app: Application) => {
-                const isRecruiterApp = recruiterPosts.some((post: Post) => post.id === app.postId);
-                return isRecruiterApp;
-            });
-
-            console.log(`Found ${recruiterApplications.length} applications for recruiter`);
-
-            const formattedApplications = recruiterApplications.map((app: Application) => {
-                return {
-                    id: app.id,
-                    postingId: app.postId,
-                    post: app.post,
-                    student: {
-                        name: app.student?.name || "Unknown Student",
-                        rollNo: app.student?.rollNo || "N/A",
-                        cpi: app.student?.cpi?.toString() || "N/A",
-                        branch: app.student?.branch || "N/A",
-                        year: app.student?.year ? `${app.student.year}${getOrdinalSuffix(app.student.year)} Year` : "N/A",
-                        courseType: app.student?.courseType || "N/A",
-                        linkedinUrl: app.student?.linkedinUrl || null,
-                        githubUrl: app.student?.githubUrl || null,
-                        resumeUrl: app.student?.resumeUrl || null,
-                        user: app.student.user,
-                    },
-                    status: app.status?.toLowerCase() || "pending",
-                    appliedAt: app.appliedAt,
-                };
-            });
-
-            console.log("Formatted applications:", formattedApplications.length);
-            setApplications(formattedApplications);
-        } catch (error: any) {
-            console.error("Error loading dashboard data:", error);
-            setError(`Failed to load dashboard data: ${error.message}`);
-        } finally {
-            setIsLoading(false);
-        }
-    };
 
     const handleApplicationAction = async (applicationId: any, action: any) => {
         try {
             await applicationsAPI.updateStatus(applicationId, action.toUpperCase());
 
             // Update local state
-            setApplications((prev: any) => prev.map((app: Application) => (app.id === applicationId ? { ...app, status: action } : app)));
+            mutateApps((prev: any) => {
+                const arr = prev?.data || prev || [];
+                return arr.map((app: Application) => (app.id === applicationId ? { ...app, status: action } : app));
+            }, false);
 
             toast.success(`Application ${action} successfully!`);
         } catch (error: any) {
@@ -182,8 +107,10 @@ const RecruiterDashboard = () => {
                 await postsAPI.delete(postingId);
 
                 // Update local state
-                setPostings((prev) => prev.filter((posting) => posting.id !== postingId));
-                setApplications((prev) => prev.filter((app) => app.post.id !== postingId));
+                mutatePosts((prev: any) => {
+                    const arr = prev?.data || prev || [];
+                    return arr.filter((posting: Post) => posting.id !== postingId);
+                }, false);
 
                 toast.success("Posting deleted successfully!");
             } catch (error: any) {
@@ -207,12 +134,7 @@ const RecruiterDashboard = () => {
         signOut({ callbackUrl: "/grow-your-resume" });
     };
 
-    const getFilteredApplications = () => {
-        if (selectedPosting) {
-            return applications.filter((app) => app.post.id === selectedPosting.id);
-        }
-        return applications;
-    };
+
 
     const handleEditPosting = (posting: any) => {
         setEditingPosting(posting);
@@ -240,7 +162,7 @@ const RecruiterDashboard = () => {
         }
     }
 
-    if (isLoading) {
+    if (isPostsLoading) {
         return (
             <div className="min-h-screen bg-white flex items-center justify-center">
                 <div className="text-center">
@@ -307,7 +229,7 @@ const RecruiterDashboard = () => {
         );
     }
 
-    if (error) {
+    if (postsError) {
         return (
             <div className="min-h-screen bg-white flex items-center justify-center">
                 <div className="text-center">
@@ -315,15 +237,9 @@ const RecruiterDashboard = () => {
                         <X className="w-16 h-16 mx-auto" />
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Error Loading Dashboard</h3>
-                    <p className="text-gray-600 mb-4">{error}</p>
+                    <p className="text-gray-600 mb-4">{postsError?.message || "Failed to load"}</p>
                     <button
-                        onClick={async () => {
-                            setError(null);
-                            const recruiter = await loadRecruiterData();
-                            if (recruiter) {
-                                await loadDashboardData(recruiter);
-                            }
-                        }}
+                        onClick={() => mutatePosts()}
                         className="px-4 py-2 bg-[#f56a38] text-white rounded-lg hover:bg-[#e55a32] transition-colors"
                     >
                         Try Again
@@ -409,7 +325,7 @@ const RecruiterDashboard = () => {
                                         </Link>
                                     </div>
                                 ) : (
-                                    postings.map((posting) => (
+                                    postings.map((posting: Post) => (
                                         <div key={posting.id} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                                             <div className="flex justify-between items-start">
                                                 <div className="flex-1">
@@ -441,7 +357,7 @@ const RecruiterDashboard = () => {
                                                     <div className="mb-4">
                                                         <span className="font-medium text-sm text-gray-700">Skills:</span>
                                                         <div className="flex flex-wrap gap-2 mt-2">
-                                                            {posting.requiredSkills?.map((skill, index) => (
+                                                            {posting.requiredSkills?.map((skill: string, index: number) => (
                                                                 <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
                                                                     {skill}
                                                                 </span>
@@ -499,7 +415,7 @@ const RecruiterDashboard = () => {
                                                 </tr>
                                             </thead>
                                             <tbody className="bg-white divide-y divide-gray-200">
-                                                {getFilteredApplications().map((application) => (
+                                                {applications.map((application: any) => (
                                                     <tr key={application.id} className="hover:bg-gray-50">
                                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{application.post.jobTitle}</td>
                                                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -547,7 +463,7 @@ const RecruiterDashboard = () => {
                                         </table>
                                     </div>
 
-                                    {getFilteredApplications().length === 0 && (
+                                    {applications.length === 0 && (
                                         <div className="p-12 text-center">
                                             <h3 className="text-xl font-semibold text-gray-900 mb-2">No applications yet</h3>
                                             <p className="text-gray-600">{selectedPosting ? "No applications received for this posting yet." : "No applications received yet."}</p>
@@ -681,7 +597,7 @@ const RecruiterDashboard = () => {
                                             });
 
                                             // Update local state
-                                            setPostings((prev) => prev.map((p) => (p.id === editingPosting.id ? editingPosting : p)));
+                                            await mutatePosts();
                                             setIsEditing(false);
 
                                             toast.success("Posting updated successfully!");
