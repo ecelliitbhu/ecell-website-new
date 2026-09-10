@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
 import { GrMail } from "react-icons/gr";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { listAll, getDownloadURL, ref } from "firebase/storage";
 import { StorageDB } from "@/lib/firebase";
 
@@ -73,7 +74,7 @@ export default function TeamLayout({ teamData, showheading = true }) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <FaTwitter className="social-icons" />
+                                                    <FaXTwitter className="social-icons" />
                             </a>
                         )}
                     </div>
@@ -159,7 +160,7 @@ export default function TeamLayout({ teamData, showheading = true }) {
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >
-                                                    <FaTwitter className="social-icons" />
+                                                                        <FaXTwitter className="social-icons" />
                                                 </a>
                                             )}
                                         </div>

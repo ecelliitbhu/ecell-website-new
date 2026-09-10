@@ -8,9 +8,9 @@ import {
   FaFacebook,
   FaInstagram,
   FaLinkedin,
-  FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import ContactForm from "../components/forms/ContactForm";
 export default function Contacts() {
   return <>
@@ -179,7 +179,7 @@ export default function Contacts() {
                 ></FaLinkedin>
               </Link>
               <Link href="https://twitter.com/ecelliitbhu" passHref legacyBehavior>
-                <FaTwitter
+                <FaXTwitter
                   className="social-icons"
                   style={
                     {
@@ -187,7 +187,7 @@ export default function Contacts() {
                       // fontSize: "1.5rem",
                     }
                   }
-                ></FaTwitter>
+                ></FaXTwitter>
               </Link>
               <Link
                 href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"

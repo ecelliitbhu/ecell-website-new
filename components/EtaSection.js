@@ -6,10 +6,10 @@ import {
   FaInstagram,
   FaFacebook,
   FaLinkedin,
-  FaTwitter,
   FaYoutube,
   FaDiscord,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { AiTwotoneMail } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import { BsFillTelephoneOutboundFill } from "react-icons/bs";
@@ -130,7 +130,7 @@ const EtaSection = () => {
               <FaFacebook size={22} />
             </a>
             <a href="https://twitter.com/ecelliitbhu" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <FaTwitter size={22} />
+              <FaXTwitter size={22} />
             </a>
             <a href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ" target="_blank" rel="noopener noreferrer" className="social-icon">
               <FaYoutube size={22} />
