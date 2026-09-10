@@ -22,6 +22,7 @@
     /* Modules */
     "module": "esnext",
     "baseUrl": ".",                                  /* Specify the base directory to resolve non-relative module names. */
+    "ignoreDeprecations": "5.0",
     "paths": {
       "@/*": [
         "./*"

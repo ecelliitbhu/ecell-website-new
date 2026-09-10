@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { getSession, signOut } from "next-auth/react";
 import { getStoredUser } from "../../lib/auth";
 import { recruitersAPI } from "../../lib/api";
+import { clearCachedSession } from "../../lib/session-cache";
 import { toast } from "react-hot-toast";
 import { query } from "firebase/database";
 
@@ -27,14 +28,14 @@ export default function PostLogin() {
             }
 
             if (tabParam === "student" && (!user?.email || !user.email.endsWith("@itbhu.ac.in"))) {
-                // setTimeout(()=>toast.error("Login from institute ID"),2000);
+                localStorage.removeItem("activeTab");
+                clearCachedSession();
+                await signOut({ redirect: false });
                 router.push({
-                    pathname: "/grow-your-resume",
-                    query: { error: "Login with Institute ID" },
+                    pathname: "/grow-your-resume/login",
+                    query: { role: "student", error: "Login with Institute ID" },
                 });
 
-                // Logout the session and redirect
-                // await signOut({callbackUrl:"/grow-your-resume"});
                 // setTimeout(() => toast.error("Login from institute ID"), 2000);
                 // toast.error("Login from institute ID");
                 // router.push("/grow-your-resume");
@@ -69,7 +70,13 @@ export default function PostLogin() {
                         // else{
                         //   router.push("/grow-your-resume/recruiter/profile");
                         // }
-                        router.push(isComplete ? "/grow-your-resume/recruiter/dashboard" : "/grow-your-resume/recruiter/profile?edit=true");
+                        if (!isComplete) {
+                            router.push("/grow-your-resume/recruiter/profile?edit=true");
+                        } else if (!profile?.verified) {
+                            router.push("/grow-your-resume/recruiter/verification-pending");
+                        } else {
+                            router.push("/grow-your-resume/recruiter/dashboard");
+                        }
                     } catch (err) {
                         console.error("Profile fetch error:", err);
                         router.push("/grow-your-resume/recruiter/profile");

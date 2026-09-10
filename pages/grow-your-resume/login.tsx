@@ -1,27 +1,40 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Nav from "../../components/navbar/NavLayout";
 import { signIn } from "next-auth/react";
+import { toast } from "react-hot-toast";
 
 const LoginPage = () => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState("student");
+    const shownLoginError = useRef(false);
 
     useEffect(() => {
         const role = router.query.role;
         if (typeof role === "string") {
             setActiveTab(role);
         }
-    }, [router.query.role]);
+        if (router.query.error === "Login with Institute ID" && !shownLoginError.current) {
+            shownLoginError.current = true;
+            toast.error("Please choose your @itbhu.ac.in Google account.", {
+                id: "student-domain-error",
+            });
+            router.replace(
+                { pathname: "/grow-your-resume/login", query: { role: role || "student" } },
+                undefined,
+                { shallow: true }
+            );
+        }
+    }, [router.query.role, router.query.error]);
 
     const handleGoogleLogin = async () => {
         localStorage.setItem("activeTab", activeTab);
-        console.log("submitting...");
         await signIn("google", {
-            callbackUrl: `/grow-your-resume/post-login`,
+            callbackUrl: "/grow-your-resume/post-login",
+            prompt: "select_account",
         });
     };
 
@@ -62,7 +75,7 @@ const LoginPage = () => {
                             {/* Login Form */}
                             <form className="space-y-6">
                                 <button type="button" className="mt-4 w-full bg-[#f56a38] text-white py-2 px-4 rounded hover:bg-red-600" onClick={() => handleGoogleLogin()}>
-                                    Continue with Google as {activeTab === "student" ? "Student" : "Recruiter"}
+                                Continue with Google as {activeTab === "student" ? "Student" : "Recruiter"}
                                 </button>
                             </form>
                         </div>

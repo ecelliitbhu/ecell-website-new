@@ -1,6 +1,9 @@
 // pages/api/auth/[...nextauth].js
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import dns from "node:dns";
+
+dns.setDefaultResultOrder("ipv4first");
 
 // IMPORTANT: Use advanced initialization to get access to req and res
 export default async function auth(req, res) {
@@ -12,6 +15,11 @@ export default async function auth(req, res) {
             GoogleProvider({
                 clientId: process.env.GOOGLE_CLIENT_ID,
                 clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+                authorization: {
+                    params: {
+                        prompt: "select_account",
+                    },
+                },
             }),
         ],
         callbacks: {
@@ -55,18 +63,19 @@ export default async function auth(req, res) {
                     token.id = user.id;
                     token.roles = user.roles;
                     token.roleData = user.roleData;
-
-                    // Create a standard JWT for the Express backend to consume
-                    const jwtLib = require("jsonwebtoken");
-                    token.backendToken = jwtLib.sign(
-                        { id: user.id, roles: user.roles, roleData: user.roleData },
-                        process.env.NEXTAUTH_SECRET,
-                        { expiresIn: "30d" }
-                    );
                 }
                 if (trigger === "update" && session?.user?.roles) {
                     token.roles = session.user.roles;
                 }
+
+                // Keep the backend token in sync when the session gains a role
+                // after profile creation.
+                const jwtLib = require("jsonwebtoken");
+                token.backendToken = jwtLib.sign(
+                    { id: token.id, roles: token.roles, roleData: token.roleData },
+                    process.env.NEXTAUTH_SECRET,
+                    { expiresIn: "30d" }
+                );
                 return token;
             },
             async session({ session, token }) {
