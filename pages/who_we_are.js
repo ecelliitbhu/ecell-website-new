@@ -395,14 +395,13 @@ const WhoWeAre = () => {
                       <li>
                         {" "}
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
-                        Publication of the Quarterly E-Cell IIT BHU’s magazine
-                        “E-Digest”.
+                       Caters the Legal need of ongoing startups by partnering with firms as well as conducting IP related sessions.
                       </li>
-                      <li>
+                      {/* <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
                         Publication and Promotion of E-Cell IIT BHU’s Weekly
                         Newsletter on Substack.
-                      </li>
+                      </li> */}
                       <li>
                         <CheckCircleOutlinedIcon style={{ color: "green" }} />
                         Acts as a connecting link between the various incubators
