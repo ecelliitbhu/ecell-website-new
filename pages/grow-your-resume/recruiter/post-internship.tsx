@@ -90,21 +90,8 @@ const PostInternshipPage = () => {
 
     const validateForm = () => {
         const newErrors: PostErrors = {};
-        if (!formData.companyName.trim()) newErrors.companyName = "Company name is required";
-        if (!formData.jobTitle.trim()) newErrors.jobTitle = "Job title is required";
-        if (!formData.jobDescription.trim()) newErrors.jobDescription = "Job description is required";
-        if (!formData.qualification.trim()) newErrors.qualification = "Qualification is required";
-        if (!formData.experience.trim()) newErrors.experience = "Experience is required";
-        if (!formData.stipend.trim()) newErrors.stipend = "Stipend is required";
-        if (!formData.requiredSkills.trim()) newErrors.requiredSkills = "Required skills are required";
-        if (!formData.location.trim()) newErrors.location = "Location is required";
-        if (!formData.jobType) newErrors.jobType = "Job type is required";
-        if (formData.applicationMethod !== "NATIVE" && !formData.applicationLink.trim()) {
-            newErrors.applicationLink = formData.applicationMethod === "MAILTO" ? "Email address is required" : "Website URL is required";
-        }
-
         setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+        return true;
     };
 
     const handleSubmit = async (e: any) => {
@@ -199,7 +186,7 @@ const PostInternshipPage = () => {
                                 {/* Company Name and Job Title */}
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Company Name *</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
                                         <input
                                             type="text"
                                             name="companyName"
@@ -212,7 +199,7 @@ const PostInternshipPage = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Job Title *</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Job Title</label>
                                         <input
                                             type="text"
                                             name="jobTitle"
@@ -227,7 +214,7 @@ const PostInternshipPage = () => {
 
                                 {/* Job Description */}
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Job Description *</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Job Description</label>
                                     <textarea
                                         name="jobDescription"
                                         value={formData.jobDescription}
@@ -242,7 +229,7 @@ const PostInternshipPage = () => {
                                 {/* Qualification and Experience */}
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Qualification *</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Qualification</label>
                                         <input
                                             type="text"
                                             name="qualification"
@@ -255,7 +242,7 @@ const PostInternshipPage = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Experience *</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Experience</label>
                                         <input
                                             type="text"
                                             name="experience"
@@ -271,7 +258,7 @@ const PostInternshipPage = () => {
                                 {/* Stipend and Required Skills */}
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Stipend *</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Stipend</label>
                                         <input
                                             type="text"
                                             name="stipend"
@@ -284,7 +271,7 @@ const PostInternshipPage = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Required Skills *</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Required Skills</label>
                                         <input
                                             type="text"
                                             name="requiredSkills"
@@ -299,7 +286,7 @@ const PostInternshipPage = () => {
 
                                 {/* Location */}
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Location *</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
                                     <input
                                         type="text"
                                         name="location"
@@ -314,7 +301,7 @@ const PostInternshipPage = () => {
                                 {/* Job Type and Application Method */}
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Job Type *</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Job Type</label>
                                         <select name="jobType" value={formData.jobType} onChange={handleInputChange} className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.jobType ? "border-red-500" : "border-gray-300"}`}>
                                             <option value="REMOTE">Remote</option>
                                             <option value="ONSITE">On-site</option>
@@ -324,7 +311,7 @@ const PostInternshipPage = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Application Method *</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Application Method</label>
                                         <select name="applicationMethod" value={formData.applicationMethod} onChange={handleInputChange} className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.applicationMethod ? "border-red-500" : "border-gray-300"}`}>
                                             <option value="NATIVE">E-Cell Portal</option>
                                             <option value="MAILTO">Email</option>
@@ -338,7 +325,7 @@ const PostInternshipPage = () => {
                                 {formData.applicationMethod !== "NATIVE" && (
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            {formData.applicationMethod === "MAILTO" ? "Email Address *" : "Website URL *"}
+                                            {formData.applicationMethod === "MAILTO" ? "Email Address" : "Website URL"}
                                         </label>
                                         <input
                                             type={formData.applicationMethod === "MAILTO" ? "email" : "url"}
