@@ -92,11 +92,11 @@ const RecruiterDashboard = () => {
             setError(null);
             console.log("Fetching all posts...");
 
-            const rawPosts = await postsAPI.getAll();
-            const posts: Post[] = Array.isArray(rawPosts) ? rawPosts : [];
+            const rawPosts = await postsAPI.getForRecruiter();
+            const posts: Post[] = rawPosts?.data ? rawPosts.data : (Array.isArray(rawPosts) ? rawPosts : []);
             console.log("All posts received:", posts.length);
 
-            const recruiterPosts = posts.filter((post: Post) => post.recruiterId === recruiter.id);
+            const recruiterPosts = posts;
 
             // Pass directly to setPostings to avoid TypeScript mapping mismatches
             setPostings(recruiterPosts);
