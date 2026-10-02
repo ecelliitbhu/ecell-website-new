@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -11,6 +9,9 @@ import { getRecruiterId } from "../../../lib/auth";
 import { signOut } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import { PostErrors } from "../../../lib/types";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../../api/auth/[...nextauth]";
+import { serverAPI } from "../../../lib/server-api";
 
 const PostInternshipPage = () => {
     const router = useRouter();
@@ -140,11 +141,9 @@ const PostInternshipPage = () => {
             <Head>
                 <title>Post New Internship - IIT BHU Grow Your Resume</title>
                 <meta name="description" content="Post a new internship opportunity" />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-                <style>{`font-family:'Poppins',sans-serif;`}</style>
             </Head>
 
-            <div className="min-h-screen bg-white" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <div className="min-h-screen bg-white font-poppins">
                 {/* Header */}
                 <div className="bg-[#f8f9fa] text-black">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -362,3 +361,43 @@ const PostInternshipPage = () => {
 };
 
 export default PostInternshipPage;
+
+export async function getServerSideProps(context: any) {
+    try {
+        const session: any = await getServerSession(context.req, context.res, authOptions);
+
+        if (!session || !session.user) {
+            return {
+                redirect: {
+                    destination: "/grow-your-resume/login?role=recruiter",
+                    permanent: false,
+                },
+            };
+        }
+
+        const recruiterProfile = await serverAPI.getRecruiterProfile(session.user.id, session.jwtToken);
+        if (recruiterProfile && recruiterProfile.verified === false) {
+            return {
+                redirect: {
+                    destination: "/grow-your-resume/recruiter/verification-pending",
+                    permanent: false,
+                },
+            };
+        }
+
+        return {
+            props: {
+                initialRecruiter: recruiterProfile || null,
+                user: session.user,
+            },
+        };
+    } catch (error) {
+        console.error("Error in post-internship getServerSideProps:", error);
+        return {
+            redirect: {
+                destination: "/grow-your-resume/login?role=recruiter",
+                permanent: false,
+            },
+        };
+    }
+}

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -10,11 +8,35 @@ import { studentsAPI, usersAPI } from "../../../lib/api";
 import { getStudentId, getStoredUser } from "../../../lib/auth";
 import { toast } from "react-hot-toast";
 import { UserWithRoles } from "../../../lib/types";
-import { getSession, useSession } from "next-auth/react";
-import { signOut } from "next-auth/react";
+import { useSession, signOut, getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../../api/auth/[...nextauth]";
+import { serverAPI } from "../../../lib/server-api";
 
-const ProfilePage = () => {
-    const [profileData, setProfileData] = useState({
+interface StudentProfilePageProps {
+    initialProfile?: any;
+    user?: UserWithRoles;
+}
+
+const mapStudentToState = (data: any, fallbackUser?: any) => {
+    if (!data && !fallbackUser) return null;
+    return {
+        name: data?.name || fallbackUser?.name || "",
+        rollNumber: data?.rollNo || "",
+        emailId: data?.user?.email || fallbackUser?.email || "",
+        cpi: data?.cpi ? data.cpi.toString() : "",
+        branch: data?.branch || "",
+        linkedinLink: data?.linkedinUrl || "",
+        githubLink: data?.githubUrl || "",
+        resumeLink: data?.resumeUrl || "",
+        year: data?.year ? data.year.toString() : "",
+        courseType: data?.courseType || "",
+    };
+};
+
+const ProfilePage: React.FC<StudentProfilePageProps> = ({ initialProfile, user: ssrUser }) => {
+    const initial = mapStudentToState(initialProfile, ssrUser);
+    const [profileData, setProfileData] = useState(initial || {
         name: "",
         rollNumber: "",
         emailId: "",
@@ -29,7 +51,7 @@ const ProfilePage = () => {
 
     const [isEditing, setIsEditing] = useState(false);
     const [editData, setEditData] = useState({ ...profileData });
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(!initial && !ssrUser);
     const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
     const { data: session, update } = useSession();
 
@@ -37,11 +59,20 @@ const ProfilePage = () => {
     const { edit } = router.query;
 
     useEffect(() => {
-        loadProfile();
-        if (edit === "true") {
-            setIsEditing(true);
+        if (initial) {
+            setProfileData(initial);
+            setEditData(initial);
+            setIsLoading(false);
+            if (edit === "true") {
+                setIsEditing(true);
+            }
+        } else {
+            loadProfile();
+            if (edit === "true") {
+                setIsEditing(true);
+            }
         }
-    }, [edit]);
+    }, [edit, initialProfile]);
 
     const loadProfile = async () => {
         try {
@@ -223,11 +254,9 @@ const ProfilePage = () => {
             <Head>
                 <title>My Profile - IIT BHU Grow Your Resume</title>
                 <meta name="description" content="Student profile and information" />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-                <style>{`font-family:'Poppins',sans-serif;`}</style>
             </Head>
 
-            <div className="min-h-screen bg-white" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <div className="min-h-screen bg-white font-poppins">
                 {/* Header */}
                 <div className="bg-[#f8f9fa] text-black">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -481,3 +510,35 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
+export async function getServerSideProps(context: any) {
+    try {
+        const session: any = await getServerSession(context.req, context.res, authOptions);
+
+        if (!session || !session.user) {
+            return {
+                redirect: {
+                    destination: "/grow-your-resume/login?role=student",
+                    permanent: false,
+                },
+            };
+        }
+
+        const studentProfile = await serverAPI.getStudentProfile(session.user.id, session.jwtToken);
+
+        return {
+            props: {
+                initialProfile: studentProfile || null,
+                user: session.user,
+            },
+        };
+    } catch (error) {
+        console.error("Error in student profile getServerSideProps:", error);
+        return {
+            redirect: {
+                destination: "/grow-your-resume/login?role=student",
+                permanent: false,
+            },
+        };
+    }
+}

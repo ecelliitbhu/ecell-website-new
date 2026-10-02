@@ -1,10 +1,10 @@
-"use client";
-
 import Head from "next/head";
 import Link from "next/link";
 import { LogOut } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { NavLogo } from "../../../components/navbar/NavLogo";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../../api/auth/[...nextauth]";
 
 export default function VerificationPendingPage() {
     return (
@@ -66,4 +66,33 @@ export default function VerificationPendingPage() {
             </div>
         </>
     );
+}
+
+export async function getServerSideProps(context: any) {
+    try {
+        const session: any = await getServerSession(context.req, context.res, authOptions);
+
+        if (!session || !session.user) {
+            return {
+                redirect: {
+                    destination: "/grow-your-resume/login?role=recruiter",
+                    permanent: false,
+                },
+            };
+        }
+
+        return {
+            props: {
+                user: session.user,
+            },
+        };
+    } catch (error) {
+        console.error("Error in verification-pending getServerSideProps:", error);
+        return {
+            redirect: {
+                destination: "/grow-your-resume/login?role=recruiter",
+                permanent: false,
+            },
+        };
+    }
 }

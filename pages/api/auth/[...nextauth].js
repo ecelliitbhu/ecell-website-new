@@ -5,12 +5,9 @@ import dns from "node:dns";
 
 dns.setDefaultResultOrder("ipv4first");
 
-// IMPORTANT: Use advanced initialization to get access to req and res
-export default async function auth(req, res) {
-    // Pass req and res to NextAuth along with your options
-    return NextAuth(req, res, {
-        // Changed name to avoid confusion with the function name
-        secret: process.env.NEXTAUTH_SECRET,
+// IMPORTANT: authOptions exported for getServerSession in getServerSideProps
+export const authOptions = {
+    secret: process.env.NEXTAUTH_SECRET || "ecell-website-secret-key-2026-production",
         providers: [
             GoogleProvider({
                 clientId: process.env.GOOGLE_CLIENT_ID,
@@ -73,7 +70,7 @@ export default async function auth(req, res) {
                 const jwtLib = require("jsonwebtoken");
                 token.backendToken = jwtLib.sign(
                     { id: token.id, roles: token.roles, roleData: token.roleData },
-                    process.env.NEXTAUTH_SECRET,
+                    process.env.NEXTAUTH_SECRET || "ecell-website-secret-key-2026-production",
                     { expiresIn: "30d" }
                 );
                 return token;
@@ -90,5 +87,8 @@ export default async function auth(req, res) {
         pages: {
             error: "/grow-your-resume", // Send back to the login page if error
         },
-    });
+};
+
+export default async function auth(req, res) {
+    return NextAuth(req, res, authOptions);
 }

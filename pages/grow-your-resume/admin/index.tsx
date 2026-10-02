@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import { recruitersAPI } from "../../../lib/api";
 import { toast } from "react-hot-toast";
@@ -70,11 +68,9 @@ export default function AdminVerificationPanel() {
 
     if (!isAuthenticated) {
         return (
-            <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-poppins">
                 <Head>
                     <title>Admin Login - IIT BHU GYR</title>
-                    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-                    <style>{`font-family:'Poppins',sans-serif;`}</style>
                 </Head>
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <div className="flex justify-center">
@@ -119,11 +115,9 @@ export default function AdminVerificationPanel() {
         <>
             <Head>
                 <title>Admin Panel - IIT BHU GYR</title>
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-                <style>{`font-family:'Poppins',sans-serif;`}</style>
             </Head>
 
-            <div className="min-h-screen bg-gray-50 text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <div className="min-h-screen bg-gray-50 text-gray-900 font-poppins">
                 <div className="bg-white shadow">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex justify-between items-center py-4">
