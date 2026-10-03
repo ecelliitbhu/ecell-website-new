@@ -775,12 +775,23 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        // Data is fetched client-side for instant page load
+        const [initialRecruiter, initialPostings, rawApplications] = await Promise.all([
+            serverAPI.getRecruiterProfile(session.user.id, session.jwtToken),
+            serverAPI.getRecruiterPostings(session.jwtToken),
+            serverAPI.getRecruiterApplications(session.jwtToken),
+        ]);
+
+        const recruiterPosts = initialPostings || [];
+        const allApplications = Array.isArray(rawApplications) ? rawApplications : [];
+        const initialApplications = allApplications.filter((app: Application) => {
+            return recruiterPosts.some((post: Post) => post.id === app.postId);
+        });
+
         return {
             props: {
-                initialRecruiter: null,
-                initialPostings: null,
-                initialApplications: null,
+                initialRecruiter: initialRecruiter || null,
+                initialPostings: recruiterPosts,
+                initialApplications: initialApplications,
             },
         };
     } catch (error) {

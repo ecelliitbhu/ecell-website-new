@@ -93,19 +93,14 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                         studentId ? applicationsAPI.getAll({ studentId }) : [],
                     ]);
 
-                    const studentData = student?.data || student;
-                    if (studentData && (studentData.rollNo || studentData.id)) {
-                        setCurrentStudent(studentData);
-                        const isComplete = studentData?.rollNo && studentData?.branch && studentData?.year && studentData?.courseType && studentData?.cpi && studentData?.resumeUrl;
+                    if (student) {
+                        setCurrentStudent(student);
+                        const isComplete = student?.rollNo && student?.branch && student?.year && student?.courseType && student?.cpi && student?.resumeUrl;
                         if (!isComplete) {
                             toast.error("Complete profile");
                             router.push("/grow-your-resume/student/profile?edit=true");
                             return;
                         }
-                    } else {
-                        toast.error("Please create your profile first");
-                        router.push("/grow-your-resume/student/profile?edit=true");
-                        return;
                     }
 
                     const rawApps = appsRes?.data ? appsRes.data : (Array.isArray(appsRes) ? appsRes : []);
@@ -550,12 +545,64 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        // Data is fetched client-side for instant page load
+        const studentId = session.user.id;
+        const [student, postsRes, appsRes] = await Promise.all([
+            studentId ? serverAPI.getStudentProfile(studentId, session.jwtToken) : null,
+            serverAPI.getAllPosts(session.jwtToken),
+            studentId ? serverAPI.getStudentApplications(studentId, session.jwtToken) : [],
+        ]);
+
+        const rawApps = Array.isArray(appsRes) ? appsRes : (appsRes?.data || []);
+        const appliedPostIds = rawApps.map((app: any) => app.postId);
+
+        const postsData = Array.isArray(postsRes) ? postsRes : (postsRes?.data || []);
+        const availablePosts = postsData.filter((post: any) => !appliedPostIds.includes(post.id));
+
+        const initialOpportunities: SimplifiedOpportunity[] = availablePosts.map((post: any) => ({
+            id: post.id,
+            postId: post.id,
+            title: `${post.jobTitle} (${post.companyName})`,
+            company: post.companyName,
+            location: post.location,
+            type: post.jobType,
+            qualification: post.qualification,
+            experience: post.experience,
+            stipend: post.stipend,
+            skills: post.requiredSkills,
+            description: post.jobDescription,
+            applied: false,
+            postedDate: post.createdAt || new Date().toISOString(),
+            appliedAt: new Date().toISOString(),
+            applicationMethod: post.applicationMethod || "NATIVE",
+            applicationLink: post.applicationLink,
+            isVerified: true,
+        }));
+
+        const initialAppliedOpportunities: SimplifiedOpportunity[] = rawApps.map((app: any) => ({
+            id: app.id,
+            postId: app.postId,
+            title: `${app.post?.jobTitle || "Internship"}`,
+            company: app.post?.companyName || "",
+            location: app.post?.location || "",
+            type: app.post?.jobType,
+            qualification: app.post?.qualification,
+            experience: app.post?.experience,
+            stipend: app.post?.stipend,
+            skills: app.post?.requiredSkills,
+            description: app.post?.jobDescription,
+            applied: true,
+            appliedAt: app.appliedAt || new Date().toISOString(),
+            status: (app.status?.toLowerCase() || "pending") as ApplicationStatus,
+            applicationMethod: app.post?.applicationMethod || "NATIVE",
+            applicationLink: app.post?.applicationLink,
+            isVerified: true,
+        }));
+
         return {
             props: {
-                initialStudent: null,
-                initialOpportunities: null,
-                initialAppliedOpportunities: null,
+                initialStudent: student || null,
+                initialOpportunities,
+                initialAppliedOpportunities,
             },
         };
     } catch (error) {
