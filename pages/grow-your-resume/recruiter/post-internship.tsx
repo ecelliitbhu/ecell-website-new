@@ -375,19 +375,11 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        const recruiterProfile = await serverAPI.getRecruiterProfile(session.user.id, session.jwtToken);
-        if (recruiterProfile && recruiterProfile.verified === false) {
-            return {
-                redirect: {
-                    destination: "/grow-your-resume/recruiter/verification-pending",
-                    permanent: false,
-                },
-            };
-        }
-
+        // Data is fetched client-side for instant page load
+        // Verification check is handled client-side in useEffect
         return {
             props: {
-                initialRecruiter: recruiterProfile || null,
+                initialRecruiter: null,
                 user: session.user,
             },
         };
