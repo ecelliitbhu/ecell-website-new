@@ -19,38 +19,32 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: React.FC<ProfilePageProps> = ({ initialProfile, user: ssrUser }) => {
-    const initial = initialProfile && (initialProfile.companyName || initialProfile.id) ? {
+    const hasInitialData = !!(initialProfile && (initialProfile.companyName || initialProfile.id));
+    const initial = hasInitialData ? {
         companyName: initialProfile.companyName || "",
         emailId: initialProfile.user?.email || ssrUser?.email || "",
         address: initialProfile.address || "",
         websiteUrl: initialProfile.websiteUrl || "",
         phoneNumber: initialProfile.phoneNumber || "",
-    } : (ssrUser?.email ? {
+    } : {
         companyName: "",
-        emailId: ssrUser.email,
+        emailId: ssrUser?.email || "",
         address: "",
         websiteUrl: "",
         phoneNumber: "",
-    } : null);
+    };
 
-    const [profileData, setProfileData] = useState(initial || {
-        companyName: "",
-        emailId: "",
-        address: "",
-        websiteUrl: "",
-        phoneNumber: "",
-    });
-
+    const [profileData, setProfileData] = useState(initial);
     const [isEditing, setIsEditing] = useState(false);
-    const [editData, setEditData] = useState({ ...profileData });
-    const [isLoading, setIsLoading] = useState(!initial && !ssrUser);
+    const [editData, setEditData] = useState({ ...initial });
+    const [isLoading, setIsLoading] = useState(!hasInitialData);
     const { data: session, update } = useSession();
 
     const router = useRouter();
     const { edit } = router.query;
 
     useEffect(() => {
-        if (initial) {
+        if (hasInitialData) {
             setProfileData(initial);
             setEditData(initial);
             setIsLoading(false);
@@ -77,7 +71,8 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ initialProfile, user: ssrUser
             const user = rawUser as UserWithRoles;
 
             // Try to fetch recruiter profile directly
-            const recruiter = await recruitersAPI.getProfile(user.id);
+            const recruiterRes = await recruitersAPI.getProfile(user.id);
+            const recruiter = recruiterRes?.data || recruiterRes;
 
             if (recruiter && (recruiter.companyName || recruiter.id)) {
                 const fetchedData = {
@@ -89,6 +84,11 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ initialProfile, user: ssrUser
                 };
                 setProfileData(fetchedData);
                 setEditData(fetchedData);
+                if (edit === "true" || (!recruiter.companyName && !recruiter.websiteUrl)) {
+                    setIsEditing(true);
+                } else {
+                    setIsEditing(false);
+                }
             } else {
                 // New recruiter with no record yet: set fallback email and open edit mode
                 const fallbackData = {
@@ -144,17 +144,18 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ initialProfile, user: ssrUser
             };
 
             // 1. Check if recruiter record exists
-            const existingProfile = await recruitersAPI.getProfile(user.id);
+            const existingProfileRes = await recruitersAPI.getProfile(user.id);
+            const existing = existingProfileRes?.data || existingProfileRes;
 
-            let savedProfile = existingProfile;
-            if (existingProfile && existingProfile.id) {
+            let savedProfile = existing;
+            if (existing && (existing.id || existing.companyName)) {
                 // Update existing recruiter
                 const updated = await recruitersAPI.updateProfile(user.id, payload);
                 if (!updated) {
                     toast.error("Failed to update profile");
                     return;
                 }
-                savedProfile = { ...existingProfile, ...updated };
+                savedProfile = { ...existing, ...(updated?.data || updated) };
             } else {
                 // Register new recruiter via api.js
                 savedProfile = await recruitersAPI.registerProfile(payload);
@@ -406,11 +407,10 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        const initialProfile = await serverAPI.getRecruiterProfile(session.user.id, session.jwtToken);
-
+        // Data is fetched client-side for instant page load
         return {
             props: {
-                initialProfile: initialProfile || null,
+                initialProfile: null,
                 user: session.user,
             },
         };

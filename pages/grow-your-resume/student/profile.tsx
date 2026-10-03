@@ -19,47 +19,46 @@ interface StudentProfilePageProps {
 }
 
 const mapStudentToState = (data: any, fallbackUser?: any) => {
-    if (!data && !fallbackUser) return null;
     return {
         name: data?.name || fallbackUser?.name || "",
         rollNumber: data?.rollNo || "",
         emailId: data?.user?.email || fallbackUser?.email || "",
         cpi: data?.cpi ? data.cpi.toString() : "",
-        branch: data?.branch || "",
+        branch: data?.branch || "Architecture, Planning and Design",
         linkedinLink: data?.linkedinUrl || "",
         githubLink: data?.githubUrl || "",
         resumeLink: data?.resumeUrl || "",
-        year: data?.year ? data.year.toString() : "",
-        courseType: data?.courseType || "",
+        year: data?.year ? (typeof data.year === "number" ? `${data.year} Year` : data.year.toString()) : "1st Year",
+        courseType: data?.courseType || "B.Tech",
     };
 };
 
 const ProfilePage: React.FC<StudentProfilePageProps> = ({ initialProfile, user: ssrUser }) => {
-    const initial = mapStudentToState(initialProfile, ssrUser);
-    const [profileData, setProfileData] = useState(initial || {
-        name: "",
+    const hasInitialData = !!(initialProfile && (initialProfile.rollNo || initialProfile.id));
+    const initial = hasInitialData ? mapStudentToState(initialProfile, ssrUser) : {
+        name: ssrUser?.name || "",
         rollNumber: "",
-        emailId: "",
+        emailId: ssrUser?.email || "",
         cpi: "",
-        branch: "",
+        branch: "Architecture, Planning and Design",
         linkedinLink: "",
         githubLink: "",
         resumeLink: "",
-        year: "",
-        courseType: "",
-    });
+        year: "1st Year",
+        courseType: "B.Tech",
+    };
 
+    const [profileData, setProfileData] = useState(initial);
     const [isEditing, setIsEditing] = useState(false);
-    const [editData, setEditData] = useState({ ...profileData });
-    const [isLoading, setIsLoading] = useState(!initial && !ssrUser);
-    const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+    const [editData, setEditData] = useState({ ...initial });
+    const [isLoading, setIsLoading] = useState(!hasInitialData);
     const { data: session, update } = useSession();
 
     const router = useRouter();
     const { edit } = router.query;
 
     useEffect(() => {
-        if (initial) {
+        if (hasInitialData) {
             setProfileData(initial);
             setEditData(initial);
             setIsLoading(false);
@@ -83,35 +82,37 @@ const ProfilePage: React.FC<StudentProfilePageProps> = ({ initialProfile, user: 
                 return;
             }
             const user = rawUser as UserWithRoles;
-            const roles = user.roles || [];
-            if (roles.includes("STUDENT")) {
-                const student = await studentsAPI.getProfile(user.id);
-                const profileData = {
-                    name: student.name,
-                    rollNumber: student.rollNo,
-                    emailId: student.user?.email || "",
-                    cpi: student.cpi?.toString() || "",
-                    branch: student.branch,
+
+            // Fetch student profile directly
+            const studentRes = await studentsAPI.getProfile(user.id);
+            const student = studentRes?.data || studentRes;
+
+            if (student && (student.rollNo || student.id)) {
+                const yearStr = student.year ? (typeof student.year === "number" ? `${student.year}${getOrdinalSuffix(student.year)} Year` : student.year) : "1st Year";
+                const fetchedProfile = {
+                    name: student.name || user.name || "",
+                    rollNumber: student.rollNo || "",
+                    emailId: student.user?.email || user.email || "",
+                    cpi: student.cpi !== undefined && student.cpi !== null ? student.cpi.toString() : "",
+                    branch: student.branch || "Architecture, Planning and Design",
                     linkedinLink: student.linkedinUrl || "",
                     githubLink: student.githubUrl || "",
                     resumeLink: student.resumeUrl || "",
-                    year: `${student.year}${getOrdinalSuffix(student.year)} Year`,
-                    courseType: student.courseType,
+                    year: yearStr,
+                    courseType: student.courseType || "B.Tech",
                 };
-                setProfileData(profileData);
-                setEditData(profileData);
-            } else {
-                const rawUser = await getStoredUser();
-                if (!rawUser) {
-                    router.push("/grow-your-resume/login");
-                    return;
+                setProfileData(fetchedProfile);
+                setEditData(fetchedProfile);
+                if (edit === "true" || !student.rollNo) {
+                    setIsEditing(true);
+                } else {
+                    setIsEditing(false);
                 }
-                const user = rawUser as UserWithRoles;
-                const defaultUser = await usersAPI.getProfile(user.id);
-                const profileData = {
-                    name: "",
+            } else {
+                const defaultProfile = {
+                    name: user.name || "",
                     rollNumber: "",
-                    emailId: defaultUser.email,
+                    emailId: user.email || "",
                     cpi: "",
                     branch: "Architecture, Planning and Design",
                     linkedinLink: "",
@@ -120,8 +121,9 @@ const ProfilePage: React.FC<StudentProfilePageProps> = ({ initialProfile, user: 
                     year: "1st Year",
                     courseType: "B.Tech",
                 };
-                setProfileData(profileData);
-                setEditData(profileData);
+                setProfileData(defaultProfile);
+                setEditData(defaultProfile);
+                setIsEditing(true);
             }
         } catch (error) {
             console.error("Error loading profile:", error);
@@ -146,83 +148,71 @@ const ProfilePage: React.FC<StudentProfilePageProps> = ({ initialProfile, user: 
 
     const handleSave = async () => {
         try {
-            console.log("saving..");
-            const studentId = await getStudentId();
-            if (!studentId) {
+            const rawUser = await getStoredUser();
+            if (!rawUser) {
                 toast.error("Please log in to update profile");
+                router.push("/grow-your-resume/login");
                 return;
             }
-            if (!editData.name) {
+            const user = rawUser as UserWithRoles;
+
+            if (!editData.name?.trim()) {
                 toast.error("Name is required.");
                 return;
-            } else if (!editData.rollNumber) {
+            } else if (!editData.rollNumber?.trim()) {
                 toast.error("Roll Number is required.");
                 return;
-            } else if (!editData.cpi) {
+            } else if (!editData.cpi?.toString().trim()) {
                 toast.error("CPI is required.");
                 return;
-            } else if (!editData.resumeLink) {
-                toast.error("Resume is required.");
+            } else if (!editData.resumeLink?.trim()) {
+                toast.error("Resume URL is required.");
                 return;
             }
+
+            const rawYear = editData.year || "1";
+            const yearNum = parseInt(rawYear.replace(/\D/g, ""), 10) || 1;
+
             const data = {
-                userId: studentId,
-                name: editData.name,
-                rollNo: editData.rollNumber,
-                branch: editData.branch,
+                userId: user.id,
+                name: editData.name.trim(),
+                rollNo: editData.rollNumber.trim(),
+                branch: editData.branch || "Architecture, Planning and Design",
                 cpi: Number.parseFloat(editData.cpi) || 0,
-                courseType: editData.courseType || "",
-                year: parseInt(editData.year.split("st")[0] || editData.year.split("nd")[0] || editData.year.split("rd")[0] || editData.year.split("th")[0]),
+                courseType: editData.courseType || "B.Tech",
+                year: yearNum,
                 linkedinUrl: editData.linkedinLink || "",
                 githubUrl: editData.githubLink || "",
                 resumeUrl: editData.resumeLink || "",
             };
 
-            const rawUser = await getStoredUser();
-            if (!rawUser) {
-                router.push("/grow-your-resume/login");
-                return;
-            }
-            const user = rawUser as UserWithRoles;
-            const roles = user.roles;
-            if (!roles?.includes("STUDENT")) {
-                try {
-                    const res = await fetch(`${BACKEND_URL}/students/register`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
-                    });
+            // Check if student already exists in database
+            const existingStudentRes = await studentsAPI.getProfile(user.id);
+            const existingStudent = existingStudentRes?.data || existingStudentRes;
 
-                    if (!res.ok) {
-                        const error = await res.json();
-                        console.error("Failed to create student:", error);
-                        // Handle error UI or rethrow if needed
-                        throw new Error(error.message || "Failed to create student");
-                    }
-                    const updatedRoles = Array.from(new Set([...(roles || []), "STUDENT"]));
-
-                    if (session?.user) {
-                        await update({
-                            user: {
-                                ...session.user,
-                                roles: updatedRoles,
-                            },
-                        });
-                    }
-                    const newSession = await getSession();
-                } catch (error) {
-                    console.error("Error creating student:", error);
-                }
+            if (existingStudent && (existingStudent.id || existingStudent.rollNo)) {
+                await studentsAPI.updateProfile(user.id, data);
             } else {
-                await studentsAPI.updateProfile(studentId, data);
+                const res = await studentsAPI.registerProfile(data);
+                if (res && res.success === false) {
+                    throw new Error(res.error || "Failed to create student profile");
+                }
             }
 
-            // setProfileData({ ...editData });
+            const updatedRoles = Array.from(new Set([...(user.roles || []), "STUDENT"]));
+            if (session?.user) {
+                await update({
+                    user: {
+                        ...session.user,
+                        roles: updatedRoles,
+                    },
+                });
+            }
+            await getSession();
+
             await loadProfile();
             setIsEditing(false);
-            toast.success("Profile updated successfully!");
+            toast.success("Profile saved successfully!");
         } catch (error: any) {
             console.error("Error updating profile:", error);
             toast.error(error.message || "Failed to update profile");
@@ -524,11 +514,10 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        const studentProfile = await serverAPI.getStudentProfile(session.user.id, session.jwtToken);
-
+        // Data is fetched client-side for instant page load
         return {
             props: {
-                initialProfile: studentProfile || null,
+                initialProfile: null,
                 user: session.user,
             },
         };
