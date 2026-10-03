@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { getSession, signOut } from "next-auth/react";
@@ -7,7 +5,6 @@ import { getStoredUser } from "../../lib/auth";
 import { recruitersAPI } from "../../lib/api";
 import { clearCachedSession } from "../../lib/session-cache";
 import { toast } from "react-hot-toast";
-import { query } from "firebase/database";
 
 export default function PostLogin() {
     const router = useRouter();

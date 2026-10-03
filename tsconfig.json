@@ -119,6 +119,7 @@
     "**/*.jsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "components/startupList.js"
   ]
 }

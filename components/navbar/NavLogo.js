@@ -6,15 +6,15 @@ const logo = "https://ik.imagekit.io/ecelliitbhu/website/Ecell-logo.png?tr=w-120
 export const NavLogo = () => {
   return (
     <div className="navbar-brand">
-      <Link href="/" passHref legacyBehavior>
+      <Link href="/" className="inline-block">
         <Image
           src={logo}
           height="50"
           width="120"
           className="lf-logo lf-logo-dark -mt-1"
-          unoptimized
+          priority
           alt="Ecell IIT BHU"
-        ></Image>
+        />
       </Link>
     </div>
   );

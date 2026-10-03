@@ -1,18 +1,18 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { Search, LogOut, CheckCircle, Clock, X, XCircle } from "lucide-react";
+import { Search, LogOut, CheckCircle, Clock, XCircle } from "lucide-react";
 import { NavLogo } from "../../../components/navbar/NavLogo";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { postsAPI, applicationsAPI, studentsAPI } from "../../../lib/api";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import { Application, Post, Student, JobType } from "../../../lib/types";
-import dynamic from "next/dynamic";
 import OpportunityCard from "../../../components/OpportunityCard";
 import SkeletonCard from "../../../components/SkeletonCard";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../../api/auth/[...nextauth]";
+import { serverAPI } from "../../../lib/server-api";
 
 type ApplicationStatus = "pending" | "accepted" | "rejected";
 type SimplifiedOpportunity = {
@@ -38,12 +38,22 @@ type SimplifiedOpportunity = {
 
 const CARDS_PER_PAGE = 6;
 
-const OpportunitiesPage = () => {
+interface OpportunitiesPageProps {
+    initialStudent?: Student | null;
+    initialOpportunities?: SimplifiedOpportunity[];
+    initialAppliedOpportunities?: SimplifiedOpportunity[];
+}
+
+const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
+    initialStudent,
+    initialOpportunities,
+    initialAppliedOpportunities,
+}) => {
     const [activeTab, setActiveTab] = useState("opportunities");
-    const [appliedOpportunities, setAppliedOpportunities] = useState<SimplifiedOpportunity[]>([]);
-    const [opportunities, setOpportunities] = useState<SimplifiedOpportunity[]>([]);
-    const [filteredOpportunities, setFilteredOpportunities] = useState<SimplifiedOpportunity[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [appliedOpportunities, setAppliedOpportunities] = useState<SimplifiedOpportunity[]>(initialAppliedOpportunities || []);
+    const [opportunities, setOpportunities] = useState<SimplifiedOpportunity[]>(initialOpportunities || []);
+    const [filteredOpportunities, setFilteredOpportunities] = useState<SimplifiedOpportunity[]>(initialOpportunities || []);
+    const [isLoading, setIsLoading] = useState(!initialStudent);
     const [visibleCount, setVisibleCount] = useState(CARDS_PER_PAGE);
     const [hasError, setHasError] = useState(false);
 
@@ -52,7 +62,7 @@ const OpportunitiesPage = () => {
         company: "",
         skills: "",
     });
-    const [currentStudent, setCurrentStudent] = useState<Student>({
+    const [currentStudent, setCurrentStudent] = useState<Student>(initialStudent || {
         id: "",
         userId: "",
         name: "",
@@ -70,17 +80,20 @@ const OpportunitiesPage = () => {
     const router = useRouter();
 
     useEffect(() => {
-        // Wait until session is loaded from cache — no network call needed
-        if (status !== "authenticated") return;
-        const studentId = (session?.user as any)?.id as string | null;
+        if (!initialStudent) {
+            if (status !== "authenticated") return;
+            const studentId = (session?.user as any)?.id as string | null;
 
-        const init = async () => {
-            setIsLoading(true);
-
-            const loadStudentData = async () => {
+            const init = async () => {
+                setIsLoading(true);
                 try {
-                    if (studentId) {
-                        const student = await studentsAPI.getProfile(studentId);
+                    const [student, postsRes, appsRes] = await Promise.all([
+                        studentId ? studentsAPI.getProfile(studentId) : null,
+                        postsAPI.getAll(),
+                        studentId ? applicationsAPI.getAll({ studentId }) : [],
+                    ]);
+
+                    if (student) {
                         setCurrentStudent(student);
                         const isComplete = student?.rollNo && student?.branch && student?.year && student?.courseType && student?.cpi && student?.resumeUrl;
                         if (!isComplete) {
@@ -89,119 +102,70 @@ const OpportunitiesPage = () => {
                             return;
                         }
                     }
+
+                    const rawApps = appsRes?.data ? appsRes.data : (Array.isArray(appsRes) ? appsRes : []);
+                    const appliedPostIds = rawApps.map((app: Application) => app.postId);
+
+                    const postsData = postsRes?.data ? postsRes.data : (Array.isArray(postsRes) ? postsRes : []);
+                    const availablePosts = postsData.filter((post: Post) => !appliedPostIds.includes(post.id));
+
+                    setOpportunities(
+                        availablePosts.map((post: Post) => ({
+                            id: post.id,
+                            postId: post.id,
+                            title: `${post.jobTitle} (${post.companyName})`,
+                            company: post.companyName,
+                            location: post.location,
+                            type: post.jobType,
+                            qualification: post.qualification,
+                            experience: post.experience,
+                            stipend: post.stipend,
+                            skills: post.requiredSkills,
+                            description: post.jobDescription,
+                            applied: false,
+                            postedDate: post.createdAt || new Date().toISOString(),
+                            appliedAt: new Date().toISOString(),
+                            applicationMethod: post.applicationMethod || "NATIVE",
+                            applicationLink: post.applicationLink,
+                            isVerified: true,
+                        }))
+                    );
+
+                    setAppliedOpportunities(
+                        rawApps.map((app: Application) => ({
+                            id: app.id,
+                            postId: app.postId,
+                            title: `${app.post?.jobTitle || "Internship"}`,
+                            company: app.post?.companyName || "",
+                            location: app.post?.location || "",
+                            type: app.post?.jobType,
+                            qualification: app.post?.qualification,
+                            experience: app.post?.experience,
+                            stipend: app.post?.stipend,
+                            skills: app.post?.requiredSkills,
+                            description: app.post?.jobDescription,
+                            applied: true,
+                            appliedAt: app.appliedAt || new Date().toISOString(),
+                            status: (app.status?.toLowerCase() || "pending") as ApplicationStatus,
+                            applicationMethod: app.post?.applicationMethod || "NATIVE",
+                            applicationLink: app.post?.applicationLink,
+                            isVerified: true,
+                        }))
+                    );
                 } catch (error: any) {
-                    console.error("Error loading student data:", error);
-                    if (error.response?.data?.error === "STUDENT_NOT_FOUND") {
-                        toast.error(error.response.data.message);
-                        await signOut({ redirect: false });
-                        router.push(error.response.data.redirectTo);
-                    }
+                    console.error("Error initializing opportunities:", error);
+                    setHasError(true);
+                } finally {
+                    setIsLoading(false);
                 }
             };
-
-            // Run all 3 in parallel — studentId already in memory, no network call
-            await Promise.all([
-                loadStudentData(),
-                loadOpportunities(studentId),
-                loadAppliedOpportunities(studentId),
-            ]);
-            setIsLoading(false);
-        };
-        init();
-    }, [status]);
-
-    const loadOpportunities = async (studentId?: string | null) => {
-        try {
-            const posts = await postsAPI.getAll();
-            const sid = studentId ?? null;
-
-            // Get student's applications to filter out already applied opportunities
-            let appliedPostIds: string[] = [];
-            if (sid) {
-                try {
-                    const appsRes = await applicationsAPI.getAll({ studentId: sid });
-                    const applications = appsRes.data ? appsRes.data : appsRes;
-                    appliedPostIds = applications.map((app: Application) => app.postId);
-                } catch (error) {
-                    console.error("Error loading applications:", error);
-                    toast.error("Could not load applications");
-                }
-            }
-
-            const postsData = posts.data ? posts.data : posts;
-
-            // Filter out already applied opportunities
-            const availablePosts = postsData.filter((post: Post) => !appliedPostIds.includes(post.id));
-
-            setOpportunities(
-                availablePosts.map((post: Post) => ({
-                    id: post.id,
-                    title: `${post.jobTitle} (${post.companyName})`,
-                    company: post.companyName,
-                    location: post.location,
-                    type: post.jobType,
-                    qualification: post.qualification,
-                    experience: post.experience,
-                    stipend: post.stipend,
-                    skills: post.requiredSkills,
-                    description: post.jobDescription,
-                    applied: false,
-                    postedDate: post.createdAt || new Date().toISOString(),
-                    applicationMethod: post.applicationMethod || "NATIVE",
-                    applicationLink: post.applicationLink,
-                    isVerified: true, // Placeholder for backend verification logic
-                }))
-            );
-        } catch (error) {
-            console.error("Error loading opportunities:", error);
-            toast.error("Failed to load opportunities");
-            setHasError(true);
+            init();
         }
-    };
-
-    const loadAppliedOpportunities = async (studentId?: string | null) => {
-        try {
-            const sid = studentId ?? null;
-            if (!sid) {
-                console.error("No student ID found");
-                return;
-            }
-
-            const applicationsRes = await applicationsAPI.getAll({ studentId: sid });
-            const applications = applicationsRes.data ? applicationsRes.data : applicationsRes;
-            // console.log("applications: ",applications)
-            setAppliedOpportunities(
-                applications.map((app: Application) => ({
-                    id: app.id,
-                    postId: app.postId, // Keep track of the original post ID
-                    title: `${app.post.jobTitle}`,
-                    company: app.post.companyName,
-                    location: app.post.location,
-                    type: app.post.jobType,
-                    qualification: app.post.qualification,
-                    experience: app.post.experience,
-                    stipend: app.post.stipend,
-                    skills: app.post.requiredSkills,
-                    description: app.post.jobDescription,
-                    applied: true,
-                    appliedAt: app.appliedAt, // Mapped properly
-                    status: app.status.toLowerCase(),
-                    applicationMethod: app.post?.applicationMethod || "NATIVE",
-                    applicationLink: app.post?.applicationLink,
-                    isVerified: true, // Placeholder for backend verification logic
-                }))
-            );
-        } catch (error) {
-            console.error("Error loading applied opportunities:", error);
-            setHasError(true);
-        }
-    };
+    }, [status, initialStudent]);
 
     useEffect(() => {
         if (activeTab === "opportunities") {
             filterOpportunities();
-        } else {
-            loadAppliedOpportunities();
         }
     }, [filters, opportunities, activeTab]);
 
@@ -379,11 +343,9 @@ const OpportunitiesPage = () => {
             <Head>
                 <title>Internship Opportunities - IIT BHU Grow Your Resume</title>
                 <meta name="description" content="Browse and apply to internship opportunities" />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-                <style>{`font-family:'Poppins',sans-serif;`}</style>
             </Head>
 
-            <div className="min-h-screen bg-white" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <div className="min-h-screen bg-white font-poppins">
                 {/* Header */}
                 <div className="bg-[#f8f9fa] text-black">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -569,3 +531,87 @@ const OpportunitiesPage = () => {
 };
 
 export default OpportunitiesPage;
+
+export async function getServerSideProps(context: any) {
+    try {
+        const session: any = await getServerSession(context.req, context.res, authOptions);
+
+        if (!session || !session.user) {
+            return {
+                redirect: {
+                    destination: "/grow-your-resume/login?role=student",
+                    permanent: false,
+                },
+            };
+        }
+
+        const studentId = session.user.id;
+        const [student, postsRes, appsRes] = await Promise.all([
+            studentId ? serverAPI.getStudentProfile(studentId, session.jwtToken) : null,
+            serverAPI.getAllPosts(session.jwtToken),
+            studentId ? serverAPI.getStudentApplications(studentId, session.jwtToken) : [],
+        ]);
+
+        const rawApps = Array.isArray(appsRes) ? appsRes : (appsRes?.data || []);
+        const appliedPostIds = rawApps.map((app: any) => app.postId);
+
+        const postsData = Array.isArray(postsRes) ? postsRes : (postsRes?.data || []);
+        const availablePosts = postsData.filter((post: any) => !appliedPostIds.includes(post.id));
+
+        const initialOpportunities: SimplifiedOpportunity[] = availablePosts.map((post: any) => ({
+            id: post.id,
+            postId: post.id,
+            title: `${post.jobTitle} (${post.companyName})`,
+            company: post.companyName,
+            location: post.location,
+            type: post.jobType,
+            qualification: post.qualification,
+            experience: post.experience,
+            stipend: post.stipend,
+            skills: post.requiredSkills,
+            description: post.jobDescription,
+            applied: false,
+            postedDate: post.createdAt || new Date().toISOString(),
+            appliedAt: new Date().toISOString(),
+            applicationMethod: post.applicationMethod || "NATIVE",
+            applicationLink: post.applicationLink,
+            isVerified: true,
+        }));
+
+        const initialAppliedOpportunities: SimplifiedOpportunity[] = rawApps.map((app: any) => ({
+            id: app.id,
+            postId: app.postId,
+            title: `${app.post?.jobTitle || "Internship"}`,
+            company: app.post?.companyName || "",
+            location: app.post?.location || "",
+            type: app.post?.jobType,
+            qualification: app.post?.qualification,
+            experience: app.post?.experience,
+            stipend: app.post?.stipend,
+            skills: app.post?.requiredSkills,
+            description: app.post?.jobDescription,
+            applied: true,
+            appliedAt: app.appliedAt || new Date().toISOString(),
+            status: (app.status?.toLowerCase() || "pending") as ApplicationStatus,
+            applicationMethod: app.post?.applicationMethod || "NATIVE",
+            applicationLink: app.post?.applicationLink,
+            isVerified: true,
+        }));
+
+        return {
+            props: {
+                initialStudent: student || null,
+                initialOpportunities,
+                initialAppliedOpportunities,
+            },
+        };
+    } catch (error) {
+        console.error("Error in opportunities getServerSideProps:", error);
+        return {
+            redirect: {
+                destination: "/grow-your-resume/login?role=student",
+                permanent: false,
+            },
+        };
+    }
+}

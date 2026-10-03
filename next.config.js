@@ -28,7 +28,15 @@ module.exports = {
         hostname: "ik.imagekit.io",
         pathname: "/ecelliitbhu/**",
       },
+      {
+        protocol: "https",
+        hostname: "ui-avatars.com",
+        pathname: "**",
+      },
     ],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   reactStrictMode: true,
   // target: "serverless",

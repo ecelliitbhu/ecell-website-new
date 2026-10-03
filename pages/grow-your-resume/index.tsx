@@ -1,4 +1,3 @@
-"use client";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../../components/navbar/NavLayout";
@@ -24,11 +23,9 @@ const SipLanding = () => {
                 <meta name="description" content="Connecting talented IIT BHU students with leading companies for internship opportunities." />
                 <meta name="robots" content="index, follow" />
                 <link rel="shortcut icon" href="https://ik.imagekit.io/ecelliitbhu/website/favicon.ico" />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-                <style>{`font-family:'Poppins',sans-serif;`}</style>
             </Head>
 
-            <div className="min-h-screen bg-white" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <div className="min-h-screen bg-white font-poppins">
                 {/* Header Section */}
                 <div className="bg-[#F15A22]">
                     <Nav />

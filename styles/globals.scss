@@ -7,6 +7,10 @@
   src: url("../assets/fonts/averta.ttf");
 }
 
+.font-poppins {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

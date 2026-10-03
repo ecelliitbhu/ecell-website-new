@@ -1,20 +1,39 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { LogOut, Save, Edit, X } from "lucide-react";
 import { NavLogo } from "../../../components/navbar/NavLogo";
 import { useRouter } from "next/router";
-import { recruitersAPI, usersAPI } from "../../../lib/api";
-import { getRecruiterId, getStoredUser } from "../../../lib/auth";
+import { recruitersAPI } from "../../../lib/api";
+import { getStoredUser } from "../../../lib/auth";
 import { toast } from "react-hot-toast";
 import { UserWithRoles } from "../../../lib/types";
-import { getSession, useSession } from "next-auth/react";
-import { signOut } from "next-auth/react";
+import { useSession, signOut, getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../../api/auth/[...nextauth]";
+import { serverAPI } from "../../../lib/server-api";
 
-const ProfilePage = () => {
-    const [profileData, setProfileData] = useState({
+interface ProfilePageProps {
+    initialProfile?: any;
+    user?: UserWithRoles;
+}
+
+const ProfilePage: React.FC<ProfilePageProps> = ({ initialProfile, user: ssrUser }) => {
+    const initial = initialProfile && (initialProfile.companyName || initialProfile.id) ? {
+        companyName: initialProfile.companyName || "",
+        emailId: initialProfile.user?.email || ssrUser?.email || "",
+        address: initialProfile.address || "",
+        websiteUrl: initialProfile.websiteUrl || "",
+        phoneNumber: initialProfile.phoneNumber || "",
+    } : (ssrUser?.email ? {
+        companyName: "",
+        emailId: ssrUser.email,
+        address: "",
+        websiteUrl: "",
+        phoneNumber: "",
+    } : null);
+
+    const [profileData, setProfileData] = useState(initial || {
         companyName: "",
         emailId: "",
         address: "",
@@ -24,18 +43,27 @@ const ProfilePage = () => {
 
     const [isEditing, setIsEditing] = useState(false);
     const [editData, setEditData] = useState({ ...profileData });
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(!initial && !ssrUser);
     const { data: session, update } = useSession();
 
     const router = useRouter();
     const { edit } = router.query;
 
     useEffect(() => {
-        loadProfile();
-        if (edit === "true") {
-            setIsEditing(true);
+        if (initial) {
+            setProfileData(initial);
+            setEditData(initial);
+            setIsLoading(false);
+            if (edit === "true" || (!initial.companyName && !initial.websiteUrl)) {
+                setIsEditing(true);
+            }
+        } else {
+            loadProfile();
+            if (edit === "true") {
+                setIsEditing(true);
+            }
         }
-    }, [edit]);
+    }, [edit, initialProfile]);
 
     const loadProfile = async () => {
         try {
@@ -196,10 +224,8 @@ const ProfilePage = () => {
             <Head>
                 <title>My Profile - IIT BHU Grow Your Resume</title>
                 <meta name="description" content="Recruiter profile and information" />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-                <style>{`font-family:'Poppins',sans-serif;`}</style>
             </Head>
-            <div className="min-h-screen bg-white" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <div className="min-h-screen bg-white font-poppins">
                 {/* Header */}
                 <div className="bg-[#f8f9fa] text-black">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -366,3 +392,35 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
+export async function getServerSideProps(context: any) {
+    try {
+        const session: any = await getServerSession(context.req, context.res, authOptions);
+
+        if (!session || !session.user) {
+            return {
+                redirect: {
+                    destination: "/grow-your-resume/login?role=recruiter",
+                    permanent: false,
+                },
+            };
+        }
+
+        const initialProfile = await serverAPI.getRecruiterProfile(session.user.id, session.jwtToken);
+
+        return {
+            props: {
+                initialProfile: initialProfile || null,
+                user: session.user,
+            },
+        };
+    } catch (error) {
+        console.error("Error in recruiter profile getServerSideProps:", error);
+        return {
+            redirect: {
+                destination: "/grow-your-resume/login?role=recruiter",
+                permanent: false,
+            },
+        };
+    }
+}

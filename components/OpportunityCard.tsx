@@ -1,5 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { MapPin, Clock, Banknote, Briefcase, ExternalLink, CheckCircle } from "lucide-react";
 import { JobType } from "../lib/types";
@@ -58,7 +59,7 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({ opportunity, onApply,
             {/* Header: Logo, Title, Company */}
             <div className="flex justify-between items-start gap-4">
                 <div className="flex items-center gap-4">
-                    <img src={logoUrl} alt={`${company} logo`} className="w-16 h-16 rounded-lg border border-gray-100 object-cover" />
+                    <Image src={logoUrl} alt={`${company} logo`} width={64} height={64} className="w-16 h-16 rounded-lg border border-gray-100 object-cover" />
                     <div>
                         <h3 className="text-[16px] font-semibold text-gray-900 leading-snug">{title}</h3>
                         <div className="flex items-center gap-2 mt-1">
