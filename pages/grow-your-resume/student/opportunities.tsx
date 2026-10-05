@@ -53,7 +53,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
     const [appliedOpportunities, setAppliedOpportunities] = useState<SimplifiedOpportunity[]>(initialAppliedOpportunities || []);
     const [opportunities, setOpportunities] = useState<SimplifiedOpportunity[]>(initialOpportunities || []);
     const [filteredOpportunities, setFilteredOpportunities] = useState<SimplifiedOpportunity[]>(initialOpportunities || []);
-    const [isLoading, setIsLoading] = useState(!initialStudent);
+    const [isLoading, setIsLoading] = useState(!initialStudent || !initialOpportunities || initialOpportunities.length === 0);
     const [visibleCount, setVisibleCount] = useState(CARDS_PER_PAGE);
     const [hasError, setHasError] = useState(false);
 
@@ -80,33 +80,41 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
     const router = useRouter();
 
     useEffect(() => {
-        if (!initialStudent) {
+        if (!initialStudent || !initialOpportunities || initialOpportunities.length === 0) {
             if (status !== "authenticated") return;
             const studentId = (session?.user as any)?.id as string | null;
+            const studentEmail = (session?.user as any)?.email as string | null;
 
             const init = async () => {
                 setIsLoading(true);
                 try {
-                    const [student, postsRes, appsRes] = await Promise.all([
-                        studentId ? studentsAPI.getProfile(studentId) : null,
+                    const [studentResult, postsResult, appsResult] = await Promise.allSettled([
+                        studentId ? studentsAPI.getProfile(studentId, studentEmail || undefined) : Promise.resolve(null),
                         postsAPI.getAll(),
-                        studentId ? applicationsAPI.getAll({ studentId }) : [],
+                        studentId ? applicationsAPI.getAll({ studentId }) : Promise.resolve([]),
                     ]);
 
-                    if (student) {
-                        setCurrentStudent(student);
-                        const isComplete = student?.rollNo && student?.branch && student?.year && student?.courseType && student?.cpi && student?.resumeUrl;
-                        if (!isComplete) {
-                            toast.error("Complete profile");
-                            router.push("/grow-your-resume/student/profile?edit=true");
-                            return;
+                    if (studentResult.status === "fulfilled" && studentResult.value) {
+                        const studentVal = studentResult.value as any;
+                        const studentData = studentVal?.data || studentVal;
+                        if (studentData && (studentData.rollNo || studentData.id)) {
+                            setCurrentStudent(studentData);
                         }
                     }
 
-                    const rawApps = appsRes?.data ? appsRes.data : (Array.isArray(appsRes) ? appsRes : []);
+                    const appsVal = appsResult.status === "fulfilled" ? (appsResult.value as any) : null;
+                    const rawApps: any[] = appsVal ? (appsVal.data || (Array.isArray(appsVal) ? appsVal : [])) : [];
                     const appliedPostIds = rawApps.map((app: Application) => app.postId);
 
-                    const postsData = postsRes?.data ? postsRes.data : (Array.isArray(postsRes) ? postsRes : []);
+                    const postsVal = postsResult.status === "fulfilled" ? (postsResult.value as any) : null;
+                    const postsData: any[] = Array.isArray(postsVal) ? postsVal : (postsVal?.data || []);
+
+                    if ((postsResult.status === "rejected" || postsVal === null) && postsData.length === 0) {
+                        setHasError(true);
+                    } else {
+                        setHasError(false);
+                    }
+
                     const availablePosts = postsData.filter((post: Post) => !appliedPostIds.includes(post.id));
 
                     setOpportunities(
@@ -145,6 +153,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                             skills: app.post?.requiredSkills,
                             description: app.post?.jobDescription,
                             applied: true,
+                            postedDate: app.post?.createdAt || new Date().toISOString(),
                             appliedAt: app.appliedAt || new Date().toISOString(),
                             status: (app.status?.toLowerCase() || "pending") as ApplicationStatus,
                             applicationMethod: app.post?.applicationMethod || "NATIVE",
@@ -211,6 +220,12 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                 return;
             }
 
+            if (!currentStudent?.rollNo || !currentStudent?.resumeUrl) {
+                toast.error("Please complete your profile to apply for opportunities.");
+                router.push("/grow-your-resume/student/profile?edit=true");
+                return;
+            }
+
             // Find the applied opportunity
             const appliedOpportunity = opportunities.find((opp) => opp.id === opportunityId);
             let method = "NATIVE";
@@ -224,8 +239,8 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                 }
             }
 
-            // Optionally log clicks via API
-            await applicationsAPI.create({
+            // Log application via API
+            const appRes = await applicationsAPI.create({
                 studentId,
                 postId: opportunityId,
             });
@@ -237,7 +252,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
 
                 // Add to applied opportunities list with current date and pending status
                 const newApplication: SimplifiedOpportunity = {
-                    id: appliedOpportunity.id,
+                    id: appRes?.id || appliedOpportunity.id,
                     postId: opportunityId,
                     title: appliedOpportunity.title ?? "",
                     company: appliedOpportunity.company ?? "",
@@ -251,7 +266,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                     applied: true,
                     postedDate: appliedOpportunity.postedDate ?? new Date().toISOString(),
                     appliedAt: new Date().toISOString(),
-                    status: "pending",
+                    status: (appRes?.status?.toLowerCase() || "pending") as ApplicationStatus,
                     applicationMethod: appliedOpportunity.applicationMethod,
                     applicationLink: appliedOpportunity.applicationLink,
                     isVerified: appliedOpportunity.isVerified,
@@ -260,10 +275,14 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                 setAppliedOpportunities((prev) => [...prev, newApplication]);
             }
 
-            toast.success(method === "NATIVE" ? "Application submitted successfully!" : "Redirected to application!");
+            if (appRes?.alreadyApplied) {
+                toast.success("Already applied to this position!");
+            } else {
+                toast.success(method === "NATIVE" ? "Application submitted successfully!" : "Redirected to application!");
+            }
         } catch (error: any) {
             console.error("Error applying to opportunity:", error);
-            toast.error(error.message || "Failed to submit application");
+            toast.error("Failed to submit application. Please try again later.");
         }
     };
 
@@ -271,13 +290,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
         try {
             const withdrawnApplication = appliedOpportunities.find((app) => app.id === applicationId);
 
-            const res = await applicationsAPI.withdraw(applicationId);
-
-            if (!res.ok) {
-                const errorData = await res.json();
-                toast.error(errorData.message || "Failed to withdraw application");
-                return;
-            }
+            await applicationsAPI.withdraw(applicationId);
 
             toast.success("Application withdrawn successfully!");
 
@@ -308,11 +321,9 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
 
                 setOpportunities((prev) => [...prev, opportunityToRestore]);
             }
-
-            // toast.success("Application withdrawn successfully!");
         } catch (error: any) {
             console.error("Error withdrawing application:", error);
-            toast.error(error.message || "Failed to withdraw application");
+            toast.error("Failed to withdraw application. Please try again later.");
         }
     };
 
@@ -413,44 +424,52 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                                                 <div className="space-y-2">
                                                     {["DS", "NLP", "RL", "C++", "Java", "Python"].map((skill) => (
                                                         <button
-                                                            key={skill}
-                                                            onClick={() => handleFilterChange("skills", skill)}
-                                                            className={`px-3 py-1 text-sm rounded-full border transition-colors ${filters.skills === skill ? "bg-[#f56a38] text-white border-[#f56a38]" : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"}`}
-                                                        >
-                                                            {skill}
-                                                        </button>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                             key={skill}
+                                                             onClick={() => handleFilterChange("skills", filters.skills === skill ? "" : skill)}
+                                                             className={`px-3 py-1 text-sm rounded-full border transition-colors ${filters.skills === skill ? "bg-[#f56a38] text-white border-[#f56a38]" : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"}`}
+                                                         >
+                                                             {skill}
+                                                         </button>
+                                                     ))}
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
 
-                                    {/* Opportunities List */}
-                                    <div className="flex-1">
-                                        <div className="space-y-6">
-                                            {hasError ? (
-                                                <div className="bg-white border border-red-200 rounded-lg p-12 text-center flex flex-col items-center">
-                                                    <XCircle className="w-16 h-16 text-red-400 mb-4" />
-                                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Failed to load opportunities</h3>
-                                                    <p className="text-gray-600 mb-6">There was an error communicating with the server.</p>
-                                                    <button 
-                                                        onClick={() => window.location.reload()}
-                                                        className="px-6 py-2 bg-red-50 text-red-600 border border-red-200 text-[14px] font-medium rounded-lg hover:bg-red-100 transition-colors"
-                                                    >
-                                                        Retry
-                                                    </button>
-                                                </div>
-                                            ) : isLoading ? (
-                                                // Show skeleton cards while loading
-                                                [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
-                                            ) : filteredOpportunities.length === 0 ? (
-                                                <div className="bg-white border border-gray-200 rounded-lg p-12 text-center">
-                                                    <div className="text-gray-400 mb-4">
-                                                        <Search className="w-16 h-16 mx-auto" />
-                                                    </div>
-                                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">No opportunities found</h3>
-                                                    <p className="text-gray-600">No opportunities match your current filters. Clear filters or check back later.</p>
-                                                </div>
+                                     {/* Opportunities List */}
+                                     <div className="flex-1">
+                                         <div className="space-y-6">
+                                             {hasError ? (
+                                                 <div className="bg-white border border-red-200 rounded-lg p-12 text-center flex flex-col items-center">
+                                                     <XCircle className="w-16 h-16 text-red-400 mb-4" />
+                                                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Unable to load opportunities</h3>
+                                                     <p className="text-gray-600 mb-6">Please check back again in a few moments.</p>
+                                                     <button 
+                                                         onClick={() => window.location.reload()}
+                                                         className="px-6 py-2 bg-red-50 text-red-600 border border-red-200 text-[14px] font-medium rounded-lg hover:bg-red-100 transition-colors"
+                                                     >
+                                                         Retry
+                                                     </button>
+                                                 </div>
+                                             ) : isLoading ? (
+                                                 // Show skeleton cards while loading
+                                                 [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
+                                             ) : filteredOpportunities.length === 0 ? (
+                                                 <div className="bg-white border border-gray-200 rounded-lg p-12 text-center">
+                                                     <div className="text-gray-400 mb-4">
+                                                         <Search className="w-16 h-16 mx-auto" />
+                                                     </div>
+                                                     <h3 className="text-xl font-semibold text-gray-900 mb-2">No opportunities found</h3>
+                                                     <p className="text-gray-600 mb-4">No opportunities match your current filters. Clear filters or check back later.</p>
+                                                     {(filters.search || filters.skills) && (
+                                                         <button
+                                                             onClick={clearFilters}
+                                                             className="px-6 py-2 bg-[#f56a38] text-white text-[14px] font-medium rounded-lg hover:bg-[#e55a32] transition-colors"
+                                                         >
+                                                             Clear Filters
+                                                         </button>
+                                                     )}
+                                                 </div>
                                             ) : (
                                                 <>
                                                     {filteredOpportunities.slice(0, visibleCount).map((opportunity) => (
@@ -491,8 +510,8 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                                     {hasError ? (
                                         <div className="bg-white border border-red-200 rounded-lg p-12 text-center flex flex-col items-center">
                                             <XCircle className="w-16 h-16 text-red-400 mb-4" />
-                                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Failed to load opportunities</h3>
-                                            <p className="text-gray-600 mb-6">There was an error communicating with the server.</p>
+                                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Unable to load applications</h3>
+                                            <p className="text-gray-600 mb-6">Please check back again in a few moments.</p>
                                             <button 
                                                 onClick={() => window.location.reload()}
                                                 className="px-6 py-2 bg-red-50 text-red-600 border border-red-200 text-[14px] font-medium rounded-lg hover:bg-red-100 transition-colors"
@@ -545,64 +564,76 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        const studentId = session.user.id;
-        const [student, postsRes, appsRes] = await Promise.all([
-            studentId ? serverAPI.getStudentProfile(studentId, session.jwtToken) : null,
-            serverAPI.getAllPosts(session.jwtToken),
-            studentId ? serverAPI.getStudentApplications(studentId, session.jwtToken) : [],
-        ]);
+        let student = session.user?.roleData?.student || null;
+        if (!student || !student.rollNo) {
+            try {
+                student = await serverAPI.getStudentProfile(session.user.id, session.jwtToken, session.user.email);
+            } catch (e) {}
+        }
 
-        const rawApps = Array.isArray(appsRes) ? appsRes : (appsRes?.data || []);
-        const appliedPostIds = rawApps.map((app: any) => app.postId);
+        let availablePosts: any[] = [];
+        let appliedApps: any[] = [];
 
-        const postsData = Array.isArray(postsRes) ? postsRes : (postsRes?.data || []);
-        const availablePosts = postsData.filter((post: any) => !appliedPostIds.includes(post.id));
+        try {
+            const rawPosts = await serverAPI.getAllPosts(session.jwtToken);
+            const posts = Array.isArray(rawPosts) ? rawPosts : [];
 
-        const initialOpportunities: SimplifiedOpportunity[] = availablePosts.map((post: any) => ({
-            id: post.id,
-            postId: post.id,
-            title: `${post.jobTitle} (${post.companyName})`,
-            company: post.companyName,
-            location: post.location,
-            type: post.jobType,
-            qualification: post.qualification,
-            experience: post.experience,
-            stipend: post.stipend,
-            skills: post.requiredSkills,
-            description: post.jobDescription,
+            let rawApps: any[] = [];
+            if (student?.id || session.user.id) {
+                rawApps = await serverAPI.getStudentApplications(student?.id || session.user.id, session.jwtToken);
+            }
+            appliedApps = Array.isArray(rawApps) ? rawApps : [];
+            const appliedPostIds = appliedApps.map((app: any) => app.postId);
+
+            availablePosts = posts.filter((post: any) => !appliedPostIds.includes(post.id));
+        } catch (ePosts) {}
+
+        const safeOpportunities = availablePosts.map((post: any) => ({
+            id: post.id || "",
+            postId: post.id || "",
+            title: `${post.jobTitle || ""} (${post.companyName || ""})`,
+            company: post.companyName || "",
+            location: post.location || "",
+            type: post.jobType || "REMOTE",
+            qualification: post.qualification || null,
+            experience: post.experience || null,
+            stipend: post.stipend || null,
+            skills: post.requiredSkills || [],
+            description: post.jobDescription || null,
             applied: false,
-            postedDate: post.createdAt || new Date().toISOString(),
+            postedDate: post.createdAt ? new Date(post.createdAt).toISOString() : new Date().toISOString(),
             appliedAt: new Date().toISOString(),
             applicationMethod: post.applicationMethod || "NATIVE",
-            applicationLink: post.applicationLink,
+            applicationLink: post.applicationLink || null,
             isVerified: true,
         }));
 
-        const initialAppliedOpportunities: SimplifiedOpportunity[] = rawApps.map((app: any) => ({
-            id: app.id,
-            postId: app.postId,
+        const safeApplied = appliedApps.map((app: any) => ({
+            id: app.id || "",
+            postId: app.postId || "",
             title: `${app.post?.jobTitle || "Internship"}`,
             company: app.post?.companyName || "",
             location: app.post?.location || "",
-            type: app.post?.jobType,
-            qualification: app.post?.qualification,
-            experience: app.post?.experience,
-            stipend: app.post?.stipend,
-            skills: app.post?.requiredSkills,
-            description: app.post?.jobDescription,
+            type: app.post?.jobType || "REMOTE",
+            qualification: app.post?.qualification || null,
+            experience: app.post?.experience || null,
+            stipend: app.post?.stipend || null,
+            skills: app.post?.requiredSkills || [],
+            description: app.post?.jobDescription || null,
             applied: true,
-            appliedAt: app.appliedAt || new Date().toISOString(),
-            status: (app.status?.toLowerCase() || "pending") as ApplicationStatus,
+            postedDate: app.post?.createdAt ? new Date(app.post.createdAt).toISOString() : new Date().toISOString(),
+            appliedAt: app.appliedAt ? new Date(app.appliedAt).toISOString() : new Date().toISOString(),
+            status: (app.status?.toLowerCase() || "pending"),
             applicationMethod: app.post?.applicationMethod || "NATIVE",
-            applicationLink: app.post?.applicationLink,
+            applicationLink: app.post?.applicationLink || null,
             isVerified: true,
         }));
 
         return {
             props: {
-                initialStudent: student || null,
-                initialOpportunities,
-                initialAppliedOpportunities,
+                initialStudent: student ? JSON.parse(JSON.stringify(student)) : null,
+                initialOpportunities: JSON.parse(JSON.stringify(safeOpportunities)),
+                initialAppliedOpportunities: JSON.parse(JSON.stringify(safeApplied)),
             },
         };
     } catch (error) {

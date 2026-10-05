@@ -109,7 +109,7 @@ const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({
             toast.success(`Application ${action} successfully!`);
         } catch (error: any) {
             console.error(`Error ${action}ing application:`, error);
-            toast.error(error.message || `Failed to ${action} application`);
+            toast.error(`Failed to ${action} application. Please try again.`);
         }
     };
 
@@ -614,7 +614,7 @@ const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({
                                             toast.success("Posting updated successfully!");
                                         } catch (error: any) {
                                             console.error("Error updating posting:", error);
-                                            toast.error(error.message || "Failed to update posting");
+                                            toast.error("Failed to update posting. Please try again.");
                                         }
                                     }}
                                     className="space-y-4"
@@ -775,23 +775,12 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        const [initialRecruiter, initialPostings, rawApplications] = await Promise.all([
-            serverAPI.getRecruiterProfile(session.user.id, session.jwtToken),
-            serverAPI.getRecruiterPostings(session.jwtToken),
-            serverAPI.getRecruiterApplications(session.jwtToken),
-        ]);
-
-        const recruiterPosts = initialPostings || [];
-        const allApplications = Array.isArray(rawApplications) ? rawApplications : [];
-        const initialApplications = allApplications.filter((app: Application) => {
-            return recruiterPosts.some((post: Post) => post.id === app.postId);
-        });
-
+        // Data is fetched client-side for instant page load
         return {
             props: {
-                initialRecruiter: initialRecruiter || null,
-                initialPostings: recruiterPosts,
-                initialApplications: initialApplications,
+                initialRecruiter: null,
+                initialPostings: null,
+                initialApplications: null,
             },
         };
     } catch (error) {

@@ -121,8 +121,7 @@ const PostInternshipPage = () => {
             router.push("/grow-your-resume/recruiter/dashboard");
         } catch (error: any) {
             console.error("Error posting internship:", error);
-            const message = error?.response?.data?.message || "Error posting internship. Please try again.";
-            toast.error(message);
+            toast.error("Failed to post internship. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
@@ -375,19 +374,11 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        const recruiterProfile = await serverAPI.getRecruiterProfile(session.user.id, session.jwtToken);
-        if (recruiterProfile && recruiterProfile.verified === false) {
-            return {
-                redirect: {
-                    destination: "/grow-your-resume/recruiter/verification-pending",
-                    permanent: false,
-                },
-            };
-        }
-
+        // Data is fetched client-side for instant page load
+        // Verification check is handled client-side in useEffect
         return {
             props: {
-                initialRecruiter: recruiterProfile || null,
+                initialRecruiter: null,
                 user: session.user,
             },
         };

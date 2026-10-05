@@ -5,10 +5,10 @@ import {
   FaInstagram,
   FaFacebook,
   FaLinkedin,
+  FaTwitter,
   FaYoutube,
   FaDiscord,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 import { AiTwotoneMail } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import { BsFillTelephoneOutboundFill } from "react-icons/bs";
@@ -216,11 +216,11 @@ const Footer = () => {
             <FaLinkedin className="social-icons" />
           </a>
           <a
-            href="https://x.com/ecelliitbhu"
+            href="https://twitter.com/ecelliitbhu"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaXTwitter className="social-icons" />
+            <FaTwitter className="social-icons" />
           </a>
           <a
             href="https://www.youtube.com/channel/UCUme5nNmSKY1GiUBUhlAnOQ"
