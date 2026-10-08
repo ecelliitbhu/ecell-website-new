@@ -121,21 +121,7 @@ export default function Events() {
                 />
               </div>
             ) : (
-              <Row className="card-container">
-                {eventsList.map((event, id) => {
-                  return (
-                    <Event
-                      key={id}
-                      poster={event.poster}
-                      knowMore={event.knowMoreLink}
-                      register={event.registrationLink}
-                      title={event.title}
-                      beginDate={event.beginDate}
-                      endDate={event.endDate}
-                    />
-                  );
-                })}
-              </Row>
+             <div></div>
             )}
           </Row>
 
