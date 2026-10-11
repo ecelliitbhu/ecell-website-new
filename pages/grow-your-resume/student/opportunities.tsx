@@ -62,6 +62,25 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
         company: "",
         skills: "",
     });
+    const [pinnedPosts, setPinnedPosts] = useState<string[]>([]);
+
+    useEffect(() => {
+        const saved = localStorage.getItem("gyr_pinned_posts");
+        if (saved) {
+            try {
+                setPinnedPosts(JSON.parse(saved));
+            } catch (e) {}
+        }
+    }, []);
+
+    const handleTogglePin = (id: string) => {
+        setPinnedPosts(prev => {
+            const updated = prev.includes(id) ? prev.filter(p => p !== id) : [...prev, id];
+            localStorage.setItem("gyr_pinned_posts", JSON.stringify(updated));
+            return updated;
+        });
+    };
+
     const [currentStudent, setCurrentStudent] = useState<Student>(initialStudent || {
         id: "",
         userId: "",
@@ -135,6 +154,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                             appliedAt: new Date().toISOString(),
                             applicationMethod: post.applicationMethod || "NATIVE",
                             applicationLink: post.applicationLink,
+                            expiresAt: post.expiresAt,
                             isVerified: true,
                         }))
                     );
@@ -158,6 +178,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                             status: (app.status?.toLowerCase() || "pending") as ApplicationStatus,
                             applicationMethod: app.post?.applicationMethod || "NATIVE",
                             applicationLink: app.post?.applicationLink,
+                            expiresAt: app.post?.expiresAt,
                             isVerified: true,
                         }))
                     );
@@ -176,7 +197,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
         if (activeTab === "opportunities") {
             filterOpportunities();
         }
-    }, [filters, opportunities, activeTab]);
+    }, [filters, opportunities, activeTab, pinnedPosts]);
 
     const filterOpportunities = () => {
         let filtered = [...opportunities];
@@ -192,6 +213,23 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
         if (filters.skills) {
             filtered = filtered.filter((opp) => opp.skills?.some((skill) => skill.toLowerCase().includes(filters.skills.toLowerCase())));
         }
+
+        // Sort: Pinned first, then non-expired, then expired (bottom)
+        filtered.sort((a, b) => {
+            const aPinned = pinnedPosts.includes(a.id);
+            const bPinned = pinnedPosts.includes(b.id);
+            
+            if (aPinned && !bPinned) return -1;
+            if (!aPinned && bPinned) return 1;
+
+            const aExpired = (a as any).expiresAt && new Date((a as any).expiresAt) < new Date();
+            const bExpired = (b as any).expiresAt && new Date((b as any).expiresAt) < new Date();
+            
+            if (!aExpired && bExpired) return -1;
+            if (aExpired && !bExpired) return 1;
+
+            return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime();
+        });
 
         setFilteredOpportunities(filtered);
     };
@@ -477,6 +515,8 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                                                             key={opportunity.id} 
                                                             opportunity={opportunity as any} 
                                                             onApply={handleApply} 
+                                                            isPinned={pinnedPosts.includes(opportunity.id)}
+                                                            onTogglePin={handleTogglePin}
                                                         />
                                                     ))}
 
@@ -605,6 +645,7 @@ export async function getServerSideProps(context: any) {
             appliedAt: new Date().toISOString(),
             applicationMethod: post.applicationMethod || "NATIVE",
             applicationLink: post.applicationLink || null,
+            expiresAt: post.expiresAt ? new Date(post.expiresAt).toISOString() : null,
             isVerified: true,
         }));
 
@@ -626,6 +667,7 @@ export async function getServerSideProps(context: any) {
             status: (app.status?.toLowerCase() || "pending"),
             applicationMethod: app.post?.applicationMethod || "NATIVE",
             applicationLink: app.post?.applicationLink || null,
+            expiresAt: app.post?.expiresAt ? new Date(app.post.expiresAt).toISOString() : null,
             isVerified: true,
         }));
 

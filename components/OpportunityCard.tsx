@@ -2,7 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
-import { MapPin, Clock, Banknote, Briefcase, ExternalLink, CheckCircle } from "lucide-react";
+import { MapPin, Clock, Banknote, Briefcase, ExternalLink, CheckCircle, Pin, PinOff } from "lucide-react";
 import { JobType } from "../lib/types";
 
 const ReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false, loading: () => <span /> });
@@ -25,20 +25,26 @@ export interface OpportunityCardProps {
         status?: string;
         isVerified?: boolean;
         websiteUrl?: string;
+        expiresAt?: string | Date;
     };
     onApply?: (id: string) => void;
     onWithdraw?: (id: string) => void;
+    isPinned?: boolean;
+    onTogglePin?: (id: string) => void;
 }
 
-const OpportunityCard: React.FC<OpportunityCardProps> = ({ opportunity, onApply, onWithdraw }) => {
+const OpportunityCard: React.FC<OpportunityCardProps> = ({ opportunity, onApply, onWithdraw, isPinned, onTogglePin }) => {
     const {
         id, title, company, location, type, qualification,
         experience, stipend, skills, description, applied,
-        postedDate, appliedAt, status, isVerified, websiteUrl
+        postedDate, appliedAt, status, isVerified, websiteUrl, expiresAt
     } = opportunity;
 
     const logoUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(company || "Company")}&background=f8f9fa&color=f56a38&size=64`;
     const relativeTime = postedDate ? formatDistanceToNow(new Date(postedDate), { addSuffix: true }) : "";
+
+    const isExpired = expiresAt ? new Date(expiresAt) < new Date() : false;
+    const daysLeft = expiresAt ? Math.ceil((new Date(expiresAt).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) : null;
 
     const getStatusBadge = (statusStr?: string) => {
         if (!statusStr) return null;
@@ -84,7 +90,33 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({ opportunity, onApply,
                     </div>
                 </div>
                 <div className="text-right flex flex-col items-end gap-2">
-                    {applied ? getStatusBadge(status) : null}
+                    <div className="flex items-center gap-2">
+                        {onTogglePin && (
+                            <button
+                                onClick={() => onTogglePin(id)}
+                                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all ${
+                                    isPinned
+                                        ? "bg-orange-50 text-[#f56a38] border border-orange-200 shadow-sm"
+                                        : "bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-gray-700 border border-gray-200"
+                                }`}
+                                title={isPinned ? "Unpin from top" : "Pin to top"}
+                            >
+                                <Pin className={`w-3.5 h-3.5 ${isPinned ? "fill-[#f56a38] text-[#f56a38]" : "text-gray-500"}`} />
+                                <span>{isPinned ? "Pinned" : "Pin"}</span>
+                            </button>
+                        )}
+                        {applied ? getStatusBadge(status) : null}
+                    </div>
+                    {isExpired && !applied && (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-gray-100 text-gray-600">
+                            Closed
+                        </span>
+                    )}
+                    {!isExpired && daysLeft !== null && daysLeft <= 7 && !applied && (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-orange-100 text-[#f56a38]">
+                            ⏳ Closes in {daysLeft} {daysLeft === 1 ? 'day' : 'days'}
+                        </span>
+                    )}
                     <span className="text-[12px] font-medium text-gray-500">
                         {applied ? `Applied ${appliedAt ? formatDistanceToNow(new Date(appliedAt), { addSuffix: true }) : ""}` : `Posted ${relativeTime}`}
                     </span>
@@ -143,10 +175,11 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({ opportunity, onApply,
                 ) : (
                     onApply ? (
                         <button
-                            onClick={() => onApply(id)}
-                            className="px-6 py-2 bg-[#f56a38] text-white text-[14px] font-medium rounded-lg hover:bg-[#e55a32] focus:outline-none focus:ring-2 focus:ring-[#f56a38] focus:ring-offset-2 transition-colors flex items-center gap-2"
+                            onClick={() => !isExpired && onApply(id)}
+                            disabled={isExpired}
+                            className={`px-6 py-2 text-white text-[14px] font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f56a38] focus:ring-offset-2 transition-colors flex items-center gap-2 ${isExpired ? "bg-gray-400 cursor-not-allowed" : "bg-[#f56a38] hover:bg-[#e55a32]"}`}
                         >
-                            Apply Now
+                            {isExpired ? "Closed" : "Apply Now"}
                         </button>
                     ) : null
                 )}
