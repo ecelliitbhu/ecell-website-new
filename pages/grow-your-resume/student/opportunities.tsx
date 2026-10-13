@@ -34,6 +34,7 @@ type SimplifiedOpportunity = {
     applicationMethod?: string;
     applicationLink?: string;
     isVerified?: boolean;
+    expiresAt?: string | Date | null;
 };
 
 const CARDS_PER_PAGE = 6;
