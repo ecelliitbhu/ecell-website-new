@@ -66,7 +66,7 @@ export const Discover = () => {
                                 </p>
                             </div>
                         </Link>
-                        <a className="dropdown-item" href="https://esummit.ecelliitbhu.com/partners" target="_blank" rel="noopener noreferrer">
+                        <a className="dropdown-item" href="https://esummit.ecelliitbhu.in/partners" target="_blank" rel="noopener noreferrer">
                             <FcFinePrint fontSize="2rem"></FcFinePrint>
                             <div>
                                 <h4>Sponsors and Associates</h4>
@@ -372,7 +372,7 @@ export const Startups = () => {
 
 export const ApplyNow = () => {
     // To remove the form or Apply now from the website, uncomment the line below:
-    return null; 
+    return null;
 
     return (
         <li className="nav-item dropdown contact-nav">
