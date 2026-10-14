@@ -27,6 +27,7 @@ const PostInternshipPage = () => {
         jobType: "REMOTE",
         applicationMethod: "NATIVE",
         applicationLink: "",
+        expiresAt: "",
     });
     const [errors, setErrors] = useState<PostErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -115,6 +116,7 @@ const PostInternshipPage = () => {
                 jobType: formData.jobType,
                 applicationMethod: formData.applicationMethod,
                 applicationLink: formData.applicationLink,
+                expiresAt: formData.expiresAt || null,
             });
 
             toast.success("Internship posted successfully!");
@@ -336,6 +338,19 @@ const PostInternshipPage = () => {
                                         {errors.applicationLink && <p className="text-red-500 text-sm mt-1">{errors.applicationLink}</p>}
                                     </div>
                                 )}
+
+                                {/* Expiry Date */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Application Deadline</label>
+                                    <input
+                                        type="date"
+                                        name="expiresAt"
+                                        value={formData.expiresAt}
+                                        onChange={handleInputChange}
+                                        className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent border-gray-300"
+                                    />
+                                    <p className="text-gray-500 text-xs mt-1">Leave blank for no deadline. Post will close automatically after this date.</p>
+                                </div>
 
                                 {/* Submit Buttons */}
                                 <div className="flex justify-end space-x-4 pt-6">
