@@ -27,6 +27,7 @@ const PostInternshipPage = () => {
         jobType: "REMOTE",
         applicationMethod: "NATIVE",
         applicationLink: "",
+        expiresAt: "",
     });
     const [errors, setErrors] = useState<PostErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -115,14 +116,14 @@ const PostInternshipPage = () => {
                 jobType: formData.jobType,
                 applicationMethod: formData.applicationMethod,
                 applicationLink: formData.applicationLink,
+                expiresAt: formData.expiresAt || null,
             });
 
             toast.success("Internship posted successfully!");
             router.push("/grow-your-resume/recruiter/dashboard");
         } catch (error: any) {
             console.error("Error posting internship:", error);
-            const message = error?.response?.data?.message || "Error posting internship. Please try again.";
-            toast.error(message);
+            toast.error("Failed to post internship. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
@@ -338,6 +339,19 @@ const PostInternshipPage = () => {
                                     </div>
                                 )}
 
+                                {/* Expiry Date */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Application Deadline</label>
+                                    <input
+                                        type="date"
+                                        name="expiresAt"
+                                        value={formData.expiresAt}
+                                        onChange={handleInputChange}
+                                        className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent border-gray-300"
+                                    />
+                                    <p className="text-gray-500 text-xs mt-1">Leave blank for no deadline. Post will close automatically after this date.</p>
+                                </div>
+
                                 {/* Submit Buttons */}
                                 <div className="flex justify-end space-x-4 pt-6">
                                     <button type="button" onClick={handleCancel} className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
@@ -375,19 +389,11 @@ export async function getServerSideProps(context: any) {
             };
         }
 
-        const recruiterProfile = await serverAPI.getRecruiterProfile(session.user.id, session.jwtToken);
-        if (recruiterProfile && recruiterProfile.verified === false) {
-            return {
-                redirect: {
-                    destination: "/grow-your-resume/recruiter/verification-pending",
-                    permanent: false,
-                },
-            };
-        }
-
+        // Data is fetched client-side for instant page load
+        // Verification check is handled client-side in useEffect
         return {
             props: {
-                initialRecruiter: recruiterProfile || null,
+                initialRecruiter: null,
                 user: session.user,
             },
         };

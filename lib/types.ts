@@ -58,6 +58,7 @@ export interface Post {
   createdAt?: string;
   applicationMethod?: string;
   applicationLink?: string;
+  expiresAt?: string | Date | null;
   applications?: Application[];
   _count?: { applications: number };
   applicationCount?:BigInteger;
@@ -86,6 +87,7 @@ export type PostErrors = {
   jobType?: string;
   applicationMethod?: string;
   applicationLink?: string;
+  expiresAt?: string;
 };
 
 
