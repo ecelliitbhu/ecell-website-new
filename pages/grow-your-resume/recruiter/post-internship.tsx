@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { LogOut, X } from "lucide-react";
+import { LogOut, X, ChevronDown, Check } from "lucide-react";
 import { NavLogo } from "../../../components/navbar/NavLogo";
 import { postsAPI, recruitersAPI } from "../../../lib/api";
 import { getRecruiterId } from "../../../lib/auth";
@@ -74,6 +74,8 @@ const PostInternshipPage = () => {
     // Qualification — degree dropdown + multi-select branch
     const [degree, setDegree] = useState("");
     const [selectedBranches, setSelectedBranches] = useState<string[]>([]);
+    const [branchDropdownOpen, setBranchDropdownOpen] = useState(false);
+    const branchDropdownRef = useRef<HTMLDivElement>(null);
 
     // Skills tag-input state
     const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -101,6 +103,17 @@ const PostInternshipPage = () => {
     const [loading, setLoading] = useState(true);
 
     const skillInputRef = useRef<HTMLInputElement>(null);
+
+    // Close branch dropdown on outside click
+    useEffect(() => {
+        const handleOutside = (e: MouseEvent) => {
+            if (branchDropdownRef.current && !branchDropdownRef.current.contains(e.target as Node)) {
+                setBranchDropdownOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleOutside);
+        return () => document.removeEventListener("mousedown", handleOutside);
+    }, []);
 
     useEffect(() => {
         const loadRecruiterData = async () => {
@@ -327,106 +340,127 @@ const PostInternshipPage = () => {
                                     {errors.jobDescription && <p className="text-red-500 text-sm mt-1">{errors.jobDescription}</p>}
                                 </div>
 
-                                    {/* ── Qualification: Degree + Branch ── */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Qualification</label>
-                                    <div className="grid md:grid-cols-2 gap-3 mb-3">
-                                        {/* Degree dropdown */}
-                                        <select
-                                            value={degree}
-                                            onChange={e => setDegree(e.target.value)}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent"
-                                        >
-                                            <option value="">Any Degree</option>
-                                            <option value="B.Tech">B.Tech</option>
-                                            <option value="M.Tech">M.Tech</option>
-                                            <option value="PhD">PhD</option>
-                                            <option value="MBA">MBA</option>
-                                            <option value="B.Arch">B.Arch</option>
-                                        </select>
+                                {/* ── Qualification + Experience ── */}
+                                <div className="grid md:grid-cols-2 gap-6">
 
-                                        {/* Branch — scrollable checkbox list */}
-                                        <div>
-                                            <div className="max-h-44 overflow-y-auto space-y-0.5 border border-gray-200 rounded-lg p-2">
-                                                {[
-                                                    "Architecture, Planning & Design",
-                                                    "Biochemical Engineering",
-                                                    "Biomedical Engineering",
-                                                    "Ceramic Engineering",
-                                                    "Chemical Engineering & Technology",
-                                                    "Civil Engineering",
-                                                    "Computer Science & Engineering",
-                                                    "Electrical Engineering",
-                                                    "Electronics Engineering",
-                                                    "Engineering Physics",
-                                                    "Industrial Chemistry",
-                                                    "Materials Science & Technology",
-                                                    "Mathematics & Computing",
-                                                    "Mechanical Engineering",
-                                                    "Metallurgical Engineering",
-                                                    "Mining Engineering",
-                                                    "Pharmaceutical Engineering",
-                                                ].map(b => {
-                                                    const isSelected = selectedBranches.includes(b);
-                                                    return (
-                                                        <label
-                                                            key={b}
-                                                            className={`flex items-center gap-2 px-1.5 py-1 rounded cursor-pointer transition-colors group ${
-                                                                isSelected ? "bg-orange-50" : "hover:bg-gray-50"
-                                                            }`}
-                                                        >
-                                                            <input
-                                                                type="checkbox"
-                                                                checked={isSelected}
-                                                                onChange={() => setSelectedBranches(prev =>
-                                                                    prev.includes(b) ? prev.filter(x => x !== b) : [...prev, b]
-                                                                )}
-                                                                className="w-3.5 h-3.5 flex-shrink-0 cursor-pointer accent-[#f56a38]"
-                                                            />
-                                                            <span
-                                                                className={`text-xs truncate ${
-                                                                    isSelected ? "text-[#f56a38] font-medium" : "text-gray-600 group-hover:text-gray-900"
-                                                                }`}
-                                                                title={b}
-                                                            >
-                                                                {b}
-                                                            </span>
-                                                        </label>
-                                                    );
-                                                })}
+                                    {/* Degree + Branch (stacked inside one cell) */}
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Qualification</label>
+                                        <div className="flex gap-2">
+                                            {/* Degree select */}
+                                            <select
+                                                value={degree}
+                                                onChange={e => setDegree(e.target.value)}
+                                                className="w-32 flex-shrink-0 px-3 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-[#f56a38] focus:border-transparent bg-white"
+                                            >
+                                                <option value="">Any</option>
+                                                <option value="B.Tech">B.Tech</option>
+                                                <option value="M.Tech">M.Tech</option>
+                                                <option value="PhD">PhD</option>
+                                                <option value="MBA">MBA</option>
+                                                <option value="B.Arch">B.Arch</option>
+                                            </select>
+
+                                            {/* Branch multi-select dropdown */}
+                                            <div className="relative flex-1" ref={branchDropdownRef}>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setBranchDropdownOpen(v => !v)}
+                                                    className={`w-full flex items-center justify-between px-3 py-3 border rounded-lg text-sm transition-colors ${
+                                                        branchDropdownOpen
+                                                            ? "border-[#f56a38] ring-2 ring-[#f56a38]/20"
+                                                            : "border-gray-300 hover:border-gray-400"
+                                                    } bg-white`}
+                                                >
+                                                    <span className={selectedBranches.length === 0 ? "text-gray-400" : "text-gray-800 font-medium"}>
+                                                        {selectedBranches.length === 0
+                                                            ? "All branches"
+                                                            : `${selectedBranches.length} branch${selectedBranches.length > 1 ? "es" : ""}`}
+                                                    </span>
+                                                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform flex-shrink-0 ${
+                                                        branchDropdownOpen ? "rotate-180" : ""
+                                                    }`} />
+                                                </button>
+
+                                                {/* Dropdown panel */}
+                                                {branchDropdownOpen && (
+                                                    <div className="absolute z-20 mt-1 w-72 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+                                                        <div className="max-h-56 overflow-y-auto">
+                                                            {[
+                                                                "Architecture, Planning & Design",
+                                                                "Biochemical Engineering",
+                                                                "Biomedical Engineering",
+                                                                "Ceramic Engineering",
+                                                                "Chemical Engineering & Technology",
+                                                                "Civil Engineering",
+                                                                "Computer Science & Engineering",
+                                                                "Electrical Engineering",
+                                                                "Electronics Engineering",
+                                                                "Engineering Physics",
+                                                                "Industrial Chemistry",
+                                                                "Materials Science & Technology",
+                                                                "Mathematics & Computing",
+                                                                "Mechanical Engineering",
+                                                                "Metallurgical Engineering",
+                                                                "Mining Engineering",
+                                                                "Pharmaceutical Engineering",
+                                                            ].map(b => {
+                                                                const isSelected = selectedBranches.includes(b);
+                                                                return (
+                                                                    <button
+                                                                        key={b}
+                                                                        type="button"
+                                                                        onClick={() => setSelectedBranches(prev =>
+                                                                            prev.includes(b) ? prev.filter(x => x !== b) : [...prev, b]
+                                                                        )}
+                                                                        className={`w-full flex items-center gap-2.5 px-3 py-2 text-left text-sm transition-colors ${
+                                                                            isSelected ? "bg-orange-50 text-[#f56a38]" : "text-gray-700 hover:bg-gray-50"
+                                                                        }`}
+                                                                    >
+                                                                        <span className={`w-4 h-4 flex-shrink-0 rounded border flex items-center justify-center ${
+                                                                            isSelected ? "bg-[#f56a38] border-[#f56a38]" : "border-gray-300"
+                                                                        }`}>
+                                                                            {isSelected && <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />}
+                                                                        </span>
+                                                                        <span className="truncate">{b}</span>
+                                                                    </button>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                        {selectedBranches.length > 0 && (
+                                                            <div className="border-t border-gray-100 px-3 py-2">
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={() => setSelectedBranches([])}
+                                                                    className="text-xs text-gray-400 hover:text-red-500 transition-colors"
+                                                                >
+                                                                    Clear all
+                                                                </button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </div>
-                                            <p className="text-xs text-gray-400 mt-1.5">
-                                                {selectedBranches.length === 0
-                                                    ? "None selected → Open to all branches"
-                                                    : `${selectedBranches.length} branch${selectedBranches.length > 1 ? "es" : ""} selected`}
-                                            </p>
                                         </div>
                                     </div>
-                                    {/* Preview */}
-                                    <p className="text-xs text-gray-500">
-                                        Preview: <span className="font-medium">
-                                            {selectedBranches.length > 0
-                                                ? `${degree || "Any"} (${selectedBranches.join(", ")})`
-                                                : (degree || "Open to All")}
-                                        </span>
-                                    </p>
-                                </div>
 
-                                {/* ── Experience ── */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Experience Required</label>
-                                    <select
-                                        name="experience"
-                                        value={formData.experience}
-                                        onChange={handleInputChange}
-                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.experience ? "border-red-500" : "border-gray-300"}`}
-                                    >
-                                        <option value="">Select experience level</option>
-                                        {EXPERIENCE_OPTIONS.map(opt => (
-                                            <option key={opt.value} value={opt.value}>{opt.label}</option>
-                                        ))}
-                                    </select>
-                                    {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
+                                    {/* Experience */}
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Experience Required</label>
+                                        <select
+                                            name="experience"
+                                            value={formData.experience}
+                                            onChange={handleInputChange}
+                                            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.experience ? "border-red-500" : "border-gray-300"}`}
+                                        >
+                                            <option value="">Select experience level</option>
+                                            {EXPERIENCE_OPTIONS.map(opt => (
+                                                <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                            ))}
+                                        </select>
+                                        {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
+                                    </div>
+
                                 </div>
 
                                 {/* ── Stipend — structured input ── */}
