@@ -63,7 +63,6 @@ const PostInternshipPage = () => {
         companyName: "",
         jobTitle: "",
         jobDescription: "",
-        qualification: "",
         experience: "",
         location: "",
         jobType: "REMOTE",
@@ -71,6 +70,10 @@ const PostInternshipPage = () => {
         applicationLink: "",
         expiresAt: "",
     });
+
+    // Qualification — degree dropdown + multi-select branch
+    const [degree, setDegree] = useState("");
+    const [selectedBranches, setSelectedBranches] = useState<string[]>([]);
 
     // Skills tag-input state
     const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -195,12 +198,17 @@ const PostInternshipPage = () => {
                 ? `${Number(stipendAmount).toLocaleString("en-IN")} INR/${stipendPeriod}`
                 : "";
 
+            // Compose qualification: e.g. "B.Tech (CSE, ECE)" or "B.Tech" (open to all)
+            const branchStr = selectedBranches.length > 0
+                ? `${degree || "Any"} (${selectedBranches.join(", ")})`
+                : (degree || "Open to All");
+
             await postsAPI.create({
                 recruiterId: currentRecruiter.id,
                 companyName: formData.companyName,
                 jobTitle: formData.jobTitle,
                 jobDescription: formData.jobDescription,
-                qualification: formData.qualification,
+                qualification: branchStr,
                 experience: formData.experience,
                 stipend,
                 requiredSkills: selectedSkills,   // already an array — no split needed
@@ -319,36 +327,106 @@ const PostInternshipPage = () => {
                                     {errors.jobDescription && <p className="text-red-500 text-sm mt-1">{errors.jobDescription}</p>}
                                 </div>
 
-                                {/* ── Qualification & Experience ── */}
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Qualification</label>
-                                        <input
-                                            type="text"
-                                            name="qualification"
-                                            value={formData.qualification}
-                                            onChange={handleInputChange}
-                                            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.qualification ? "border-red-500" : "border-gray-300"}`}
-                                            placeholder="B.Tech/M.Tech in CSE"
-                                        />
-                                        {errors.qualification && <p className="text-red-500 text-sm mt-1">{errors.qualification}</p>}
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Experience Required</label>
+                                    {/* ── Qualification: Degree + Branch ── */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Qualification</label>
+                                    <div className="grid md:grid-cols-2 gap-3 mb-3">
+                                        {/* Degree dropdown */}
                                         <select
-                                            name="experience"
-                                            value={formData.experience}
-                                            onChange={handleInputChange}
-                                            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.experience ? "border-red-500" : "border-gray-300"}`}
+                                            value={degree}
+                                            onChange={e => setDegree(e.target.value)}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent"
                                         >
-                                            <option value="">Select experience level</option>
-                                            {EXPERIENCE_OPTIONS.map(opt => (
-                                                <option key={opt.value} value={opt.value}>{opt.label}</option>
-                                            ))}
+                                            <option value="">Any Degree</option>
+                                            <option value="B.Tech">B.Tech</option>
+                                            <option value="M.Tech">M.Tech</option>
+                                            <option value="PhD">PhD</option>
+                                            <option value="MBA">MBA</option>
+                                            <option value="B.Arch">B.Arch</option>
                                         </select>
-                                        {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
+
+                                        {/* Branch — scrollable checkbox list */}
+                                        <div>
+                                            <div className="max-h-44 overflow-y-auto space-y-0.5 border border-gray-200 rounded-lg p-2">
+                                                {[
+                                                    "Architecture, Planning & Design",
+                                                    "Biochemical Engineering",
+                                                    "Biomedical Engineering",
+                                                    "Ceramic Engineering",
+                                                    "Chemical Engineering & Technology",
+                                                    "Civil Engineering",
+                                                    "Computer Science & Engineering",
+                                                    "Electrical Engineering",
+                                                    "Electronics Engineering",
+                                                    "Engineering Physics",
+                                                    "Industrial Chemistry",
+                                                    "Materials Science & Technology",
+                                                    "Mathematics & Computing",
+                                                    "Mechanical Engineering",
+                                                    "Metallurgical Engineering",
+                                                    "Mining Engineering",
+                                                    "Pharmaceutical Engineering",
+                                                ].map(b => {
+                                                    const isSelected = selectedBranches.includes(b);
+                                                    return (
+                                                        <label
+                                                            key={b}
+                                                            className={`flex items-center gap-2 px-1.5 py-1 rounded cursor-pointer transition-colors group ${
+                                                                isSelected ? "bg-orange-50" : "hover:bg-gray-50"
+                                                            }`}
+                                                        >
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={isSelected}
+                                                                onChange={() => setSelectedBranches(prev =>
+                                                                    prev.includes(b) ? prev.filter(x => x !== b) : [...prev, b]
+                                                                )}
+                                                                className="w-3.5 h-3.5 flex-shrink-0 cursor-pointer accent-[#f56a38]"
+                                                            />
+                                                            <span
+                                                                className={`text-xs truncate ${
+                                                                    isSelected ? "text-[#f56a38] font-medium" : "text-gray-600 group-hover:text-gray-900"
+                                                                }`}
+                                                                title={b}
+                                                            >
+                                                                {b}
+                                                            </span>
+                                                        </label>
+                                                    );
+                                                })}
+                                            </div>
+                                            <p className="text-xs text-gray-400 mt-1.5">
+                                                {selectedBranches.length === 0
+                                                    ? "None selected → Open to all branches"
+                                                    : `${selectedBranches.length} branch${selectedBranches.length > 1 ? "es" : ""} selected`}
+                                            </p>
+                                        </div>
                                     </div>
+                                    {/* Preview */}
+                                    <p className="text-xs text-gray-500">
+                                        Preview: <span className="font-medium">
+                                            {selectedBranches.length > 0
+                                                ? `${degree || "Any"} (${selectedBranches.join(", ")})`
+                                                : (degree || "Open to All")}
+                                        </span>
+                                    </p>
+                                </div>
+
+                                {/* ── Experience ── */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Experience Required</label>
+                                    <select
+                                        name="experience"
+                                        value={formData.experience}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#f56a38] focus:border-transparent ${errors.experience ? "border-red-500" : "border-gray-300"}`}
+                                    >
+                                        <option value="">Select experience level</option>
+                                        {EXPERIENCE_OPTIONS.map(opt => (
+                                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                        ))}
+                                    </select>
+                                    {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
                                 </div>
 
                                 {/* ── Stipend — structured input ── */}

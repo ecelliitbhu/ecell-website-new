@@ -132,17 +132,49 @@ const parseExperienceMonths = (experience?: string): number | null => {
 };
 
 /** Check if a qualification string matches a branch category */
+/**
+ * Match a qualification string against a branch filter.
+ * New structured format: "B.Tech (Computer Science & Engineering, Electrical Engineering)"
+ * Old free-text: legacy fallback keyword matching.
+ */
 const matchesBranch = (qualification?: string, branch?: string): boolean => {
     if (!qualification || !branch) return false;
     const q = qualification.toLowerCase();
-    switch (branch) {
-        case "CSE":        return q.includes("cse") || q.includes("computer") || q.includes(" cs") || q.includes("information tech") || q.includes("software") || q.includes("it ");
-        case "ECE":        return q.includes("ece") || q.includes("electronics") || q.includes("electrical") || q.includes(" ee");
-        case "Mechanical": return q.includes("mechanical") || q.includes("mech");
-        case "Civil":      return q.includes("civil");
-        case "MBA":        return q.includes("mba") || q.includes("management") || q.includes("business");
-        default:           return false;
+    const b = branch.toLowerCase();
+
+    // "Open to All" or any-degree short strings → always matches
+    if (q === "open to all" || q === "any") return true;
+
+    // New structured format: "B.Tech (CSE, ECE)" or "M.Tech (Computer Science & Engineering)"
+    const parenMatch = q.match(/\(([^)]+)\)/);
+    if (parenMatch) {
+        const branchList = parenMatch[1];
+        if (branchList.includes("open to all") || branchList.includes("any")) return true;
+        return branchList.includes(b);
     }
+
+    // Bare degree e.g. "b.tech" with no branch restriction → open to all branches
+    if (/^(b\.tech|m\.tech|phd|mba|b\.arch|be|me|bsc|msc|any)$/.test(q.trim())) return true;
+
+    // Legacy free-text fallback for old posts
+    if (branch === "Computer Science & Engineering")  return q.includes("cse") || q.includes("computer science") || q.includes("software") || q.includes("information tech");
+    if (branch === "Electrical Engineering")           return q.includes("electrical") || q.includes(" ee") || q.includes("eee");
+    if (branch === "Electronics Engineering")          return q.includes("ece") || q.includes("electronics");
+    if (branch === "Mechanical Engineering")           return q.includes("mechanical") || q.includes("mech");
+    if (branch === "Chemical Engineering & Technology") return q.includes("chemical") || q.includes("chem eng");
+    if (branch === "Civil Engineering")                return q.includes("civil");
+    if (branch === "Biomedical Engineering")           return q.includes("biomedical") || q.includes("biomed");
+    if (branch === "Biochemical Engineering")          return q.includes("biochem");
+    if (branch === "Mathematics & Computing")          return q.includes("mathematics") || q.includes("maths") || q.includes("computing") || q.includes("m&c");
+    if (branch === "Engineering Physics")              return q.includes("physics") || q.includes("ep");
+    if (branch === "Metallurgical Engineering")        return q.includes("metallurg") || q.includes("meta");
+    if (branch === "Mining Engineering")               return q.includes("mining");
+    if (branch === "Pharmaceutical Engineering")       return q.includes("pharma");
+    if (branch === "Industrial Chemistry")             return q.includes("industrial chem");
+    if (branch === "Ceramic Engineering")              return q.includes("ceramic");
+    if (branch === "Materials Science & Technology")   return q.includes("material");
+    if (branch === "Architecture, Planning & Design")  return q.includes("arch") || q.includes("planning");
+    return false;
 };
 
 // ─── Static filter option definitions ─────────────────────────────────────────
@@ -168,7 +200,25 @@ const STIPEND_OPTIONS = [
     { value: ">30k",    label: "> ₹30k/mo" },
 ];
 
-const BRANCH_OPTIONS = ["CSE", "ECE", "Mechanical", "Civil", "MBA"];
+const BRANCH_OPTIONS = [
+    "Architecture, Planning & Design",
+    "Biochemical Engineering",
+    "Biomedical Engineering",
+    "Ceramic Engineering",
+    "Chemical Engineering & Technology",
+    "Civil Engineering",
+    "Computer Science & Engineering",
+    "Electrical Engineering",
+    "Electronics Engineering",
+    "Engineering Physics",
+    "Industrial Chemistry",
+    "Materials Science & Technology",
+    "Mathematics & Computing",
+    "Mechanical Engineering",
+    "Metallurgical Engineering",
+    "Mining Engineering",
+    "Pharmaceutical Engineering",
+];
 
 const MAX_SKILLS_SHOWN = 10;
 
@@ -368,10 +418,10 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
             );
         }
 
-        // Skills: OR logic — show if opp has ANY of the selected skills
+        // Skills: AND logic — show only if opp has ALL selected skills
         if (filters.skills.length > 0) {
             filtered = filtered.filter(opp =>
-                filters.skills.some(sel =>
+                filters.skills.every(sel =>
                     opp.skills?.some(s => s.toLowerCase() === sel.toLowerCase())
                 )
             );
@@ -696,29 +746,49 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                                                 />
                                             </div>
 
-                                            {/* Skills — dynamic, multi-select */}
+                                            {/* Skills — dynamic checkbox list (handles long names gracefully) */}
                                             <div className="mb-5">
-                                                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                                                    Skills
-                                                </label>
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                                                        Skills
+                                                    </label>
+                                                    {filters.skills.length > 0 && (
+                                                        <span className="text-xs text-[#f56a38] font-medium">
+                                                            {filters.skills.length} selected · AND
+                                                        </span>
+                                                    )}
+                                                </div>
                                                 {dynamicSkills.length === 0 ? (
                                                     <p className="text-xs text-gray-400 italic">Loading skills…</p>
                                                 ) : (
                                                     <>
-                                                        <div className="flex flex-wrap gap-1.5">
-                                                            {visibleSkills.map(skill => (
-                                                                <button
-                                                                    key={skill}
-                                                                    onClick={() => toggleArrayFilter("skills", skill)}
-                                                                    className={`px-2.5 py-1 text-xs rounded-full border transition-colors ${
-                                                                        filters.skills.includes(skill)
-                                                                            ? "bg-[#f56a38] text-white border-[#f56a38]"
-                                                                            : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100"
-                                                                    }`}
-                                                                >
-                                                                    {skill}
-                                                                </button>
-                                                            ))}
+                                                        <div className="max-h-44 overflow-y-auto space-y-0.5 pr-0.5">
+                                                            {visibleSkills.map(skill => {
+                                                                const isChecked = filters.skills.includes(skill);
+                                                                return (
+                                                                    <label
+                                                                        key={skill}
+                                                                        className={`flex items-center gap-2 px-1.5 py-1 rounded cursor-pointer transition-colors group ${
+                                                                            isChecked ? "bg-orange-50" : "hover:bg-gray-50"
+                                                                        }`}
+                                                                    >
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            checked={isChecked}
+                                                                            onChange={() => toggleArrayFilter("skills", skill)}
+                                                                            className="w-3.5 h-3.5 flex-shrink-0 cursor-pointer accent-[#f56a38]"
+                                                                        />
+                                                                        <span
+                                                                            className={`text-xs truncate ${
+                                                                                isChecked ? "text-[#f56a38] font-medium" : "text-gray-600 group-hover:text-gray-900"
+                                                                            }`}
+                                                                            title={skill}
+                                                                        >
+                                                                            {skill}
+                                                                        </span>
+                                                                    </label>
+                                                                );
+                                                            })}
                                                         </div>
                                                         {dynamicSkills.length > MAX_SKILLS_SHOWN && (
                                                             <button
@@ -726,8 +796,8 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                                                                 className="mt-2 text-xs text-[#f56a38] hover:text-[#e55a32] font-medium"
                                                             >
                                                                 {showAllSkills
-                                                                    ? "Show less"
-                                                                    : `+${dynamicSkills.length - MAX_SKILLS_SHOWN} more`}
+                                                                    ? "Show less ↑"
+                                                                    : `+${dynamicSkills.length - MAX_SKILLS_SHOWN} more ↓`}
                                                             </button>
                                                         )}
                                                     </>
@@ -800,25 +870,45 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                                                 </div>
                                             </div>
 
-                                            {/* Branch — multi-select */}
+                                            {/* Branch — scrollable checkbox list */}
                                             <div>
-                                                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                                                    Branch
-                                                </label>
-                                                <div className="flex flex-wrap gap-1.5">
-                                                    {BRANCH_OPTIONS.map(b => (
-                                                        <button
-                                                            key={b}
-                                                            onClick={() => toggleArrayFilter("branch", b)}
-                                                            className={`px-2.5 py-1 text-xs rounded-full border transition-colors ${
-                                                                filters.branch.includes(b)
-                                                                    ? "bg-[#f56a38] text-white border-[#f56a38]"
-                                                                    : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100"
-                                                            }`}
-                                                        >
-                                                            {b}
-                                                        </button>
-                                                    ))}
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                                                        Branch
+                                                    </label>
+                                                    {filters.branch.length > 0 && (
+                                                        <span className="text-xs text-[#f56a38] font-medium">
+                                                            {filters.branch.length} selected
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <div className="max-h-44 overflow-y-auto space-y-0.5 pr-0.5">
+                                                    {BRANCH_OPTIONS.map(b => {
+                                                        const isChecked = filters.branch.includes(b);
+                                                        return (
+                                                            <label
+                                                                key={b}
+                                                                className={`flex items-center gap-2 px-1.5 py-1 rounded cursor-pointer transition-colors group ${
+                                                                    isChecked ? "bg-orange-50" : "hover:bg-gray-50"
+                                                                }`}
+                                                            >
+                                                                <input
+                                                                    type="checkbox"
+                                                                    checked={isChecked}
+                                                                    onChange={() => toggleArrayFilter("branch", b)}
+                                                                    className="w-3.5 h-3.5 flex-shrink-0 cursor-pointer accent-[#f56a38]"
+                                                                />
+                                                                <span
+                                                                    className={`text-xs truncate ${
+                                                                        isChecked ? "text-[#f56a38] font-medium" : "text-gray-600 group-hover:text-gray-900"
+                                                                    }`}
+                                                                    title={b}
+                                                                >
+                                                                    {b}
+                                                                </span>
+                                                            </label>
+                                                        );
+                                                    })}
                                                 </div>
                                             </div>
                                         </div>
