@@ -153,8 +153,11 @@ const matchesBranch = (qualification?: string, branch?: string): boolean => {
         return branchList.includes(b);
     }
 
-    // Bare degree e.g. "b.tech" with no branch restriction → open to all branches
-    if (/^(b\.tech|m\.tech|phd|mba|b\.arch|be|me|bsc|msc|any)$/.test(q.trim())) return true;
+    // Degree-only string (single or comma-separated, no branch restriction) → open to all branches
+    // e.g. "B.Tech", "B.Tech, M.Tech", "B.Tech, M.Tech, PhD"
+    const DEGREE_TOKEN = "b\\.tech|m\\.tech|phd|b\\.arch|be|me|mba|bsc|msc|any";
+    const degreeOnlyRe = new RegExp(`^(${DEGREE_TOKEN})(,\\s*(${DEGREE_TOKEN}))*$`);
+    if (degreeOnlyRe.test(q.trim())) return true;
 
     // Legacy free-text fallback for old posts
     if (branch === "Computer Science & Engineering")  return q.includes("cse") || q.includes("computer science") || q.includes("software") || q.includes("information tech");
@@ -175,6 +178,19 @@ const matchesBranch = (qualification?: string, branch?: string): boolean => {
     if (branch === "Materials Science & Technology")   return q.includes("material");
     if (branch === "Architecture, Planning & Design")  return q.includes("arch") || q.includes("planning");
     return false;
+};
+
+/**
+ * Check if a qualification string accepts a given degree level.
+ * "Open to All" / "Any" (no degree restriction) → always matches.
+ * New structured format: degree token appears before the optional parens.
+ * Legacy free-text: simple substring match.
+ */
+const matchesDegree = (qualification?: string, degree?: string): boolean => {
+    if (!qualification || !degree) return false;
+    const q = qualification.toLowerCase();
+    if (q === "open to all" || q === "any") return true;
+    return q.includes(degree.toLowerCase());
 };
 
 // ─── Static filter option definitions ─────────────────────────────────────────
@@ -249,6 +265,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
         jobType: [] as string[],
         experience: "",
         stipendRange: "",
+        degreeLevel: [] as string[],
         branch: [] as string[],
     });
     const [showAllSkills, setShowAllSkills] = useState(false);
@@ -465,11 +482,21 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
             });
         }
 
-        // Branch / Qualification: OR logic
+        // Branch / Qualification: OR logic — show if opp matches ANY selected branch
         if (filters.branch.length > 0) {
             filtered = filtered.filter(opp =>
                 filters.branch.some(b => matchesBranch(opp.qualification, b))
             );
+        }
+
+        // Degree Level: OR logic — show if opp accepts ANY selected degree
+        if (filters.degreeLevel.length > 0) {
+            filtered = filtered.filter(opp => {
+                const q = opp.qualification || "";
+                // If stored as "Open to All" or has no restriction → show for any degree filter
+                if (!q || q.toLowerCase() === "open to all" || q.toLowerCase() === "any") return true;
+                return filters.degreeLevel.some(d => matchesDegree(q, d));
+            });
         }
 
         // Sort: Pinned first → non-expired → most recent
@@ -491,7 +518,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
     };
 
     /** Toggle a value in/out of a multi-select array filter */
-    const toggleArrayFilter = (key: "skills" | "jobType" | "branch", value: string) => {
+    const toggleArrayFilter = (key: "skills" | "jobType" | "branch" | "degreeLevel", value: string) => {
         setFilters(prev => {
             const arr = prev[key] as string[];
             const updated = arr.includes(value) ? arr.filter(v => v !== value) : [...arr, value];
@@ -504,12 +531,12 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
     };
 
     const clearFilters = () => {
-        setFilters({ search: "", skills: [], jobType: [], experience: "", stipendRange: "", branch: [] });
+        setFilters({ search: "", skills: [], jobType: [], experience: "", stipendRange: "", degreeLevel: [], branch: [] });
     };
 
     const hasActiveFilters = !!(
         filters.search || filters.skills.length > 0 || filters.jobType.length > 0 ||
-        filters.experience || filters.stipendRange || filters.branch.length > 0
+        filters.experience || filters.stipendRange || filters.degreeLevel.length > 0 || filters.branch.length > 0
     );
 
     // Build list of removable active-filter badges shown above results
@@ -528,6 +555,7 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
             onRemove: () => handleFilterChange("stipendRange", ""),
         }] : []),
         ...filters.branch.map(b => ({ label: b, onRemove: () => toggleArrayFilter("branch", b) })),
+        ...filters.degreeLevel.map(d => ({ label: d, onRemove: () => toggleArrayFilter("degreeLevel", d) })),
     ];
 
     // ─── Action handlers ────────────────────────────────────────────────────────
@@ -868,6 +896,38 @@ const OpportunitiesPage: React.FC<OpportunitiesPageProps> = ({
                                                         </button>
                                                     ))}
                                                 </div>
+                                            </div>
+
+                                            {/* Degree Level — multi-select chips */}
+                                            <div className="mb-5">
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                                                        Degree Level
+                                                    </label>
+                                                    {filters.degreeLevel.length > 0 && (
+                                                        <span className="text-xs text-[#f56a38] font-medium">
+                                                            {filters.degreeLevel.length} selected
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <div className="flex flex-wrap gap-1.5">
+                                                    {["B.Tech", "M.Tech", "PhD", "B.Arch"].map(d => (
+                                                        <button
+                                                            key={d}
+                                                            onClick={() => toggleArrayFilter("degreeLevel", d)}
+                                                            className={`px-2.5 py-1 text-xs rounded-full border transition-colors ${
+                                                                filters.degreeLevel.includes(d)
+                                                                    ? "bg-[#f56a38] text-white border-[#f56a38]"
+                                                                    : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100"
+                                                            }`}
+                                                        >
+                                                            {d}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                                <p className="text-xs text-gray-400 mt-1.5">
+                                                    Internships open to any degree always appear.
+                                                </p>
                                             </div>
 
                                             {/* Branch — scrollable checkbox list */}

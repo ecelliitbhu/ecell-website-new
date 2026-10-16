@@ -71,10 +71,12 @@ const PostInternshipPage = () => {
         expiresAt: "",
     });
 
-    // Qualification — degree dropdown + multi-select branch
-    const [degree, setDegree] = useState("");
+    // Qualification — multi-select degree + multi-select branch
+    const [selectedDegrees, setSelectedDegrees] = useState<string[]>([]);
     const [selectedBranches, setSelectedBranches] = useState<string[]>([]);
+    const [degreeDropdownOpen, setDegreeDropdownOpen] = useState(false);
     const [branchDropdownOpen, setBranchDropdownOpen] = useState(false);
+    const degreeDropdownRef = useRef<HTMLDivElement>(null);
     const branchDropdownRef = useRef<HTMLDivElement>(null);
 
     // Skills tag-input state
@@ -104,9 +106,12 @@ const PostInternshipPage = () => {
 
     const skillInputRef = useRef<HTMLInputElement>(null);
 
-    // Close branch dropdown on outside click
+    // Close degree/branch dropdowns on outside click
     useEffect(() => {
         const handleOutside = (e: MouseEvent) => {
+            if (degreeDropdownRef.current && !degreeDropdownRef.current.contains(e.target as Node)) {
+                setDegreeDropdownOpen(false);
+            }
             if (branchDropdownRef.current && !branchDropdownRef.current.contains(e.target as Node)) {
                 setBranchDropdownOpen(false);
             }
@@ -211,10 +216,11 @@ const PostInternshipPage = () => {
                 ? `${Number(stipendAmount).toLocaleString("en-IN")} INR/${stipendPeriod}`
                 : "";
 
-            // Compose qualification: e.g. "B.Tech (CSE, ECE)" or "B.Tech" (open to all)
+            // Compose qualification: e.g. "B.Tech, M.Tech (CSE, ECE)" or "Open to All"
+            const degStr = selectedDegrees.length > 0 ? selectedDegrees.join(", ") : "Any";
             const branchStr = selectedBranches.length > 0
-                ? `${degree || "Any"} (${selectedBranches.join(", ")})`
-                : (degree || "Open to All");
+                ? `${degStr} (${selectedBranches.join(", ")})`
+                : (selectedDegrees.length > 0 ? degStr : "Open to All");
 
             await postsAPI.create({
                 recruiterId: currentRecruiter.id,
@@ -347,19 +353,67 @@ const PostInternshipPage = () => {
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">Qualification</label>
                                         <div className="flex gap-2">
-                                            {/* Degree select */}
-                                            <select
-                                                value={degree}
-                                                onChange={e => setDegree(e.target.value)}
-                                                className="w-32 flex-shrink-0 px-3 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-[#f56a38] focus:border-transparent bg-white"
-                                            >
-                                                <option value="">Any</option>
-                                                <option value="B.Tech">B.Tech</option>
-                                                <option value="M.Tech">M.Tech</option>
-                                                <option value="PhD">PhD</option>
-                                                <option value="MBA">MBA</option>
-                                                <option value="B.Arch">B.Arch</option>
-                                            </select>
+                                            {/* Degree multi-select dropdown */}
+                                            <div className="relative w-36 flex-shrink-0" ref={degreeDropdownRef}>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setDegreeDropdownOpen(v => !v)}
+                                                    className={`w-full flex items-center justify-between px-3 py-3 border rounded-lg text-sm transition-colors ${
+                                                        degreeDropdownOpen
+                                                            ? "border-[#f56a38] ring-2 ring-[#f56a38]/20"
+                                                            : "border-gray-300 hover:border-gray-400"
+                                                    } bg-white`}
+                                                >
+                                                    <span className={selectedDegrees.length === 0 ? "text-gray-400" : "text-gray-800 font-medium"}>
+                                                        {selectedDegrees.length === 0
+                                                            ? "Any degree"
+                                                            : selectedDegrees.length === 1
+                                                                ? selectedDegrees[0]
+                                                                : `${selectedDegrees.length} degrees`}
+                                                    </span>
+                                                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform flex-shrink-0 ml-1 ${
+                                                        degreeDropdownOpen ? "rotate-180" : ""
+                                                    }`} />
+                                                </button>
+
+                                                {degreeDropdownOpen && (
+                                                    <div className="absolute z-20 mt-1 w-44 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+                                                        {["B.Tech", "M.Tech", "PhD", "B.Arch"].map(d => {
+                                                            const isSel = selectedDegrees.includes(d);
+                                                            return (
+                                                                <button
+                                                                    key={d}
+                                                                    type="button"
+                                                                    onClick={() => setSelectedDegrees(prev =>
+                                                                        prev.includes(d) ? prev.filter(x => x !== d) : [...prev, d]
+                                                                    )}
+                                                                    className={`w-full flex items-center gap-2.5 px-3 py-2 text-left text-sm transition-colors ${
+                                                                        isSel ? "bg-orange-50 text-[#f56a38]" : "text-gray-700 hover:bg-gray-50"
+                                                                    }`}
+                                                                >
+                                                                    <span className={`w-4 h-4 flex-shrink-0 rounded border flex items-center justify-center ${
+                                                                        isSel ? "bg-[#f56a38] border-[#f56a38]" : "border-gray-300"
+                                                                    }`}>
+                                                                        {isSel && <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />}
+                                                                    </span>
+                                                                    {d}
+                                                                </button>
+                                                            );
+                                                        })}
+                                                        {selectedDegrees.length > 0 && (
+                                                            <div className="border-t border-gray-100 px-3 py-2">
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={() => setSelectedDegrees([])}
+                                                                    className="text-xs text-gray-400 hover:text-red-500 transition-colors"
+                                                                >
+                                                                    Clear
+                                                                </button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
 
                                             {/* Branch multi-select dropdown */}
                                             <div className="relative flex-1" ref={branchDropdownRef}>
