@@ -802,37 +802,48 @@ export const PitchingEvents = () => {
     const imageRenderer = ({ index, key, photo }) => (
         <RenderImage key={key} margin={"2px"} index={index} photo={photo} />
     );
-    const numRows = Math.ceil(pitchingEvents.length / 2);
+    const numRows = Math.ceil(pitchingEvents.length / 3);
 
     return (
-        <div>
-            <Carousel
-                showArrows={true}
-                showThumbs={false}
-                showStatus={false}
-                infiniteLoop={true}
-                showIndicators={false}
-                autoPlay={true} // Enable automatic scrolling
-                interval={3000}
-            >
-                {Array.from({ length: numRows }).map((_, rowIndex) => (
-                    <div key={rowIndex} className="row">
-                        {pitchingEvents.slice(rowIndex * 2, (rowIndex + 1) * 2).map((photo) => (
-                            <div
-                                key={photo.id}
-                                className="photo"
+        <Carousel
+            showArrows={true}
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop={true}
+            showIndicators={false}
+            autoPlay={true} // Enable automatic scrolling
+            interval={3000}
+        >
+            {Array.from({ length: numRows }).map((_, rowIndex) => (
+                <div
+                    key={rowIndex}
+                    className="row"
+                    style={{
+                        display: "flex",
+                    }}
+                >
+                    {pitchingEvents.slice(rowIndex * 3, (rowIndex + 1) * 3).map((photo) => (
+                        <div
+                            key={photo.id}
+                            className="photo"
+                            style={{
+                                "margin-bottom": "20px",
+                                width: "calc(33.33% - 1px)",
+                            }}
+                        >
+                            <img
+                                src={photo.src}
+                                alt={photo.title}
                                 style={{
-                                    "margin-bottom": "20px",
-                                    width: "calc(50% - 1px)",
+                                    height: "230px",
+                                    objectFit: "cover",
                                 }}
-                            >
-                                <img src={photo.src} alt={photo.title} />
-                            </div>
-                        ))}
-                    </div>
-                ))}
-            </Carousel>
-        </div>
+                            />
+                        </div>
+                    ))}
+                </div>
+            ))}
+        </Carousel>
     );
 };
 
