@@ -61,26 +61,12 @@ export default function CampusDirector() {
                             </h2>
                             <p>Become the Student Lead of enhancing and expanding the entrepreneurial opportunities in your college!</p>
 
-                            <Button
-                                className="get-started join-cd"
-                                href="/campus-ambassador-form"
-                                // onClick={() => toast.error("Applications closed for now")}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Register Now!
-                            </Button>
-                            <Button
-                                // className="get-started join-cd"
-                                className="get-started join-cd !bg-[#f56a38] hover:!bg-red-600 text-white !border !border-[#f56a38] mt-2 md:mt-0 md:ms-3"
-                                // href="/campus-ambassador-form"
-                                // onClick={() => toast.error("Applications closed for now")}
-                                onClick={() => handleGoogleLogin()}
-                                // target="_blank"
-                                // rel="noopener noreferrer"
-                            >
-                                Already an Ambassador? Login..
-                            </Button>
+                            <div className="cd-coming-soon-container">
+                                <h6 className="cd-coming-soon-heading">COMING SOON !!</h6>
+                                <p className="cd-coming-soon-description">
+                                    Applications for the Campus Ambassador&apos;s Program will open soon. Get ready to lead the entrepreneurial revolution in your college!
+                                </p>
+                            </div>
                         </Col>
                         <Col className="image-section">
                             <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_djmhnml5.json" speed="1" loop autoplay></lottie-player>
@@ -137,7 +123,7 @@ export default function CampusDirector() {
                                     <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/1.png" alt="" height="512" width="512" unoptimized />
                                 </div>
 
-                                <p>Free E-Summit 2025 Passes</p>
+                                <p>Free E-Summit 2026 Passes</p>
                             </div>
                             <div className="perk">
                                 <div className="perk-image">
@@ -240,11 +226,14 @@ export default function CampusDirector() {
                         <CdTestimonials />
                     </Row>
                     <Row className="collage-container" style={{ margin: "70px 0px" }}>
-                        <h1>Convinced Enough? Register Now!</h1>
+                        <h1>Stay Tuned for the Next Edition!</h1>
 
-                        <Button className="get-started join-cd" style={{ margin: "30px auto" }} href="/campus-ambassador" target="_blank" rel="noopener noreferrer">
-                            Join Us
-                        </Button>
+                        <div style={{ display: "flex", justifyContent: "center", width: "100%", margin: "25px auto" }}>
+                            <div className="cd-coming-soon-pill-bottom">
+                                <span className="cd-pulse-dot" />
+                                <span>Coming Soon • Applications Opening Soon</span>
+                            </div>
+                        </div>
                     </Row>
                     <Footer />
                 </Container>
@@ -252,6 +241,148 @@ export default function CampusDirector() {
             <script async src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
             <script async src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
             <script async src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+            <style jsx>{`
+                .cd-coming-soon-container {
+                    margin-top: 32px;
+                    padding: 28px 36px;
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 247, 242, 0.95) 100%);
+                    border: 2px solid rgba(245, 106, 56, 0.35);
+                    border-radius: 20px;
+                    box-shadow: 0 12px 36px -4px rgba(245, 106, 56, 0.18), 0 4px 16px rgba(0, 0, 0, 0.04);
+                    max-width: 560px;
+                    position: relative;
+                    overflow: hidden;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+
+                .cd-coming-soon-container::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, #f56a38 0%, #fb923c 50%, #f56a38 100%);
+                    background-size: 200% 100%;
+                    animation: gradientSlide 3s linear infinite;
+                }
+
+                .cd-coming-soon-container:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 18px 42px -4px rgba(245, 106, 56, 0.25), 0 6px 20px rgba(0, 0, 0, 0.06);
+                }
+
+                .cd-coming-soon-badge-top {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: rgba(245, 106, 56, 0.1);
+                    border: 1px solid rgba(245, 106, 56, 0.3);
+                    padding: 4px 14px;
+                    border-radius: 9999px;
+                    margin-bottom: 12px;
+                }
+
+                .cd-pulse-dot {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: #f56a38;
+                    box-shadow: 0 0 0 0 rgba(245, 106, 56, 0.7);
+                    animation: pulseGlow 1.8s infinite cubic-bezier(0.4, 0, 0.6, 1);
+                }
+
+                .cd-badge-text {
+                    font-size: 0.82rem;
+                    font-weight: 700;
+                    letter-spacing: 0.8px;
+                    text-transform: uppercase;
+                    color: #d94e1e;
+                }
+
+                .cd-coming-soon-heading {
+                    font-size: 2.2rem;
+                    font-weight: 900;
+                    letter-spacing: 2px;
+                    margin: 4px 0 10px 0;
+                    background: linear-gradient(135deg, #e0531c 0%, #f56a38 50%, #f97316 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    line-height: 1.15;
+                }
+
+                .cd-coming-soon-description {
+                    font-size: 1.05rem;
+                    color: #4b5563;
+                    line-height: 1.55;
+                    margin: 0;
+                    font-weight: 500;
+                }
+
+                .cd-coming-soon-pill-bottom {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 14px 32px;
+                    border-radius: 9999px;
+                    background: linear-gradient(135deg, rgba(245, 106, 56, 0.1) 0%, rgba(251, 146, 60, 0.15) 100%);
+                    border: 2px solid rgba(245, 106, 56, 0.4);
+                    color: #e0531c;
+                    font-size: 1.15rem;
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+                    box-shadow: 0 4px 20px rgba(245, 106, 56, 0.15);
+                    transition: transform 0.25s ease, box-shadow 0.25s ease;
+                }
+
+                .cd-coming-soon-pill-bottom:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 25px rgba(245, 106, 56, 0.25);
+                }
+
+                @keyframes pulseGlow {
+                    0% {
+                        box-shadow: 0 0 0 0 rgba(245, 106, 56, 0.7);
+                        transform: scale(0.95);
+                    }
+                    70% {
+                        box-shadow: 0 0 0 10px rgba(245, 106, 56, 0);
+                        transform: scale(1.15);
+                    }
+                    100% {
+                        box-shadow: 0 0 0 0 rgba(245, 106, 56, 0);
+                        transform: scale(0.95);
+                    }
+                }
+
+                @keyframes gradientSlide {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+                    100% {
+                        background-position: 200% 50%;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .cd-coming-soon-container {
+                        padding: 20px 22px;
+                        margin-top: 24px;
+                    }
+                    .cd-coming-soon-heading {
+                        font-size: 1.75rem;
+                    }
+                    .cd-coming-soon-description {
+                        font-size: 0.95rem;
+                    }
+                    .cd-coming-soon-pill-bottom {
+                        font-size: 0.95rem;
+                        padding: 12px 20px;
+                        text-align: center;
+                    }
+                }
+            `}</style>
         </>
     );
 }
