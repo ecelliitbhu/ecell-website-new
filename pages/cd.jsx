@@ -123,7 +123,7 @@ export default function CampusDirector() {
                                     <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/1.png" alt="" height="512" width="512" unoptimized />
                                 </div>
 
-                                <p>Free E-Summit 2026 Passes</p>
+                                <p>Free E-Summit 2027 Passes</p>
                             </div>
                             <div className="perk">
                                 <div className="perk-image">
