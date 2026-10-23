@@ -84,8 +84,7 @@ export default function CampusDirector() {
                                 className="learn-more mt-2 join-cd"
                                 // href="/cd/#what-we-offer"
                                 onClick={scrollToWhatWeOffer}
-                                // target="_blank"
-                                // rel="noopener noreferrer"
+                               
                             >
                                 Learn more &rarr;
                             </Button>
