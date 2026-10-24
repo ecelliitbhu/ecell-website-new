@@ -84,8 +84,7 @@ export default function CampusDirector() {
                                 className="learn-more mt-2 join-cd"
                                 // href="/cd/#what-we-offer"
                                 onClick={scrollToWhatWeOffer}
-                                // target="_blank"
-                                // rel="noopener noreferrer"
+                               
                             >
                                 Learn more &rarr;
                             </Button>
@@ -123,7 +122,7 @@ export default function CampusDirector() {
                                     <Image src="https://ik.imagekit.io/ecelliitbhu/website/perks/1.png" alt="" height="512" width="512" unoptimized />
                                 </div>
 
-                                <p>Free E-Summit 2026 Passes</p>
+                                <p>Free E-Summit 2027 Passes</p>
                             </div>
                             <div className="perk">
                                 <div className="perk-image">
