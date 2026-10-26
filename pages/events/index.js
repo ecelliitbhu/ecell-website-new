@@ -148,8 +148,8 @@ const Event = ({
             <Button
               className="event-btn register-btn"
               style={{
-                backgroundColor: "#c2410c",
-                borderColor: "#c2410c",
+                backgroundColor: "#e67e22",
+                borderColor: "#e67e22",
                 color: "#ffffff",
                 fontWeight: "700",
                 fontSize: "0.9rem",
@@ -420,13 +420,13 @@ export default function Events() {
         }
 
         .register-btn {
-          background-color: #c2410c !important;
+          background-color: #e67e22 !important;
           color: white !important;
           border: none !important;
         }
 
         .register-btn:hover {
-          background-color: #9a3412 !important;
+          background-color: #cf711f !important;
           color: white !important;
         }
 
