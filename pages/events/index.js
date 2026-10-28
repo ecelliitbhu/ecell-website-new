@@ -148,8 +148,8 @@ const Event = ({
             <Button
               className="event-btn register-btn"
               style={{
-                backgroundColor: "#f5a422",
-                borderColor: "#f5a422",
+                backgroundColor: "#e67e22",
+                borderColor: "#e67e22",
                 color: "#ffffff",
                 fontWeight: "700",
                 fontSize: "0.9rem",
@@ -420,14 +420,14 @@ export default function Events() {
         }
 
         .register-btn {
-          background-color: #ffaf6b !important;
+          background-color: #e67e22 !important;
           color: white !important;
           border: none !important;
         }
 
         .register-btn:hover {
-          background-color: orange !important;
-          color: black !important;
+          background-color: #cf711f !important;
+          color: white !important;
         }
 
         .instagram-icon-link {
